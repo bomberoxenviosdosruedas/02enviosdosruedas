@@ -81,14 +81,19 @@ export default function ServicesOverview() {
                 key={service.title}
                 initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -6, scale: 1.01 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.12, ease: "easeOut" }}
-                className="bg-white rounded-3xl p-8 border border-slate-100 shadow-md hover:shadow-xl hover:border-brand-blue/20 transition-all duration-300 flex flex-col justify-between group"
+                transition={{ 
+                  y: { type: "spring", stiffness: 300, damping: 20 },
+                  scale: { type: "spring", stiffness: 300, damping: 20 },
+                  opacity: { duration: 0.5, delay: index * 0.08 }
+                }}
+                className="bg-white rounded-3xl p-8 border border-slate-100 shadow-lg hover:shadow-[0_0_35px_rgba(255,236,1,0.18)] hover:border-brand-yellow/30 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <div className="flex justify-between items-start mb-6">
                     <div className="p-4 rounded-2xl bg-slate-50 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-350">
-                      <Icon className="h-6 w-6" />
+                      <Icon className="h-6 w-6 group-hover:rotate-6 transition-transform" />
                     </div>
                     <span className="px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-slate-100 text-slate-500 border border-slate-200/30 font-mono">
                       {service.badge}
@@ -99,20 +104,20 @@ export default function ServicesOverview() {
                     {service.title}
                   </h3>
                   
-                  <p className="text-slate-600 text-sm leading-relaxed font-sans mb-8">
+                  <p className="text-slate-650 text-sm leading-relaxed font-sans mb-8">
                     {service.description}
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs font-mono text-slate-400 group-hover:text-brand-blue transition-colors">
+                  <span className="text-xs font-mono text-slate-450 group-hover:text-brand-blue transition-colors">
                     Ver especificaciones de servicio
                   </span>
                   <Link 
                     href={service.href}
-                    className="h-12 w-12 rounded-xl bg-slate-50 text-slate-700 hover:text-white hover:bg-brand-blue flex items-center justify-center transition-all group-hover:translate-x-1 shadow-sm"
+                    className="h-12 w-12 rounded-xl bg-slate-50 text-slate-700 group-hover:text-brand-blue group-hover:bg-brand-yellow flex items-center justify-center transition-all duration-300 shadow-sm relative overflow-hidden"
                   >
-                    <ArrowUpRight className="h-5 w-5" />
+                    <ArrowUpRight className="h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 shrink-0" />
                   </Link>
                 </div>
               </motion.div>

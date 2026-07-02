@@ -44,12 +44,12 @@ export default function VisionSection() {
 
             <div className="space-y-5 pt-4">
               {/* Feature 1 */}
-              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
-                <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-xl shrink-0">
-                  <Clock className="h-6 w-6" />
+              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100 group cursor-default">
+                <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-xl shrink-0 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+                  <Clock className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-subheading uppercase tracking-wider text-slate-900 leading-none mb-1.5">
+                  <h4 className="text-sm font-subheading uppercase tracking-wider text-slate-900 leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
                     Entregas a Tiempo
                   </h4>
                   <p className="text-sm text-slate-500 font-sans leading-relaxed">
@@ -59,12 +59,12 @@ export default function VisionSection() {
               </div>
 
               {/* Feature 2 */}
-              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
-                <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-xl shrink-0">
-                  <ShieldCheck className="h-6 w-6" />
+              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100 group cursor-default">
+                <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-xl shrink-0 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+                  <ShieldCheck className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-subheading uppercase tracking-wider text-slate-900 leading-none mb-1.5">
+                  <h4 className="text-sm font-subheading uppercase tracking-wider text-slate-900 leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
                     Envíos Seguros
                   </h4>
                   <p className="text-sm text-slate-500 font-sans leading-relaxed">
@@ -84,19 +84,26 @@ export default function VisionSection() {
                   key={i}
                   initial={{ opacity: 0, y: 35 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -6, scale: 1.015 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.15, duration: 0.6, ease: "easeOut" }}
-                  className={`p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
-                    i === 2 ? 'sm:col-span-2 bg-slate-50 hover:bg-slate-100/50' : 'bg-white hover:border-brand-blue/10'
+                  transition={{ 
+                    y: { type: "spring", stiffness: 300, damping: 20 },
+                    scale: { type: "spring", stiffness: 300, damping: 20 },
+                    opacity: { duration: 0.5, delay: i * 0.1 }
+                  }}
+                  className={`p-8 rounded-3xl border shadow-sm transition-colors duration-300 flex flex-col justify-between cursor-pointer group ${
+                    i === 2 
+                      ? 'sm:col-span-2 bg-slate-50 border-slate-200 hover:border-brand-yellow hover:bg-slate-100/50 hover:shadow-accent-md' 
+                      : 'bg-white border-slate-100 hover:border-brand-blue/30 hover:shadow-md'
                   }`}
                 >
                   <div className="flex justify-between items-start mb-6">
-                    <div className="p-3.5 rounded-2xl bg-brand-blue/5 text-brand-blue">
-                      <Icon className="h-6 w-6" />
+                    <div className="p-3.5 rounded-2xl bg-brand-blue/5 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
+                      <Icon className="h-6 w-6 group-hover:rotate-6 transition-transform duration-300" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-3xl lg:text-4xl font-display text-brand-blue uppercase leading-none mb-2">
+                    <h3 className="text-3xl lg:text-4xl font-display text-brand-blue uppercase leading-none mb-2 group-hover:text-glow-blue transition-all duration-300">
                       {stat.value}
                     </h3>
                     <p className="text-xs text-slate-500 font-sans uppercase tracking-wider leading-relaxed">

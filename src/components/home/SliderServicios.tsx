@@ -86,20 +86,24 @@ export default function SliderServicios() {
           </div>
           
           <div className="lg:col-span-4 flex justify-start lg:justify-end gap-3">
-            <button
+            <motion.button
               onClick={handlePrev}
-              className="h-12 w-12 rounded-full border border-slate-200 hover:border-brand-blue hover:text-brand-blue text-slate-700 flex items-center justify-center transition-colors focus:outline-none bg-white shadow-sm"
+              whileHover={{ scale: 1.05, x: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="h-12 w-12 rounded-full border border-slate-200 hover:border-brand-blue hover:text-brand-blue text-slate-700 flex items-center justify-center transition-colors focus:outline-none bg-white shadow-sm cursor-pointer"
               title="Anterior"
             >
               <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               onClick={handleNext}
-              className="h-12 w-12 rounded-full border border-slate-200 hover:border-brand-blue hover:text-brand-blue text-slate-700 flex items-center justify-center transition-colors focus:outline-none bg-white shadow-sm"
+              whileHover={{ scale: 1.05, x: 2 }}
+              whileTap={{ scale: 0.95 }}
+              className="h-12 w-12 rounded-full border border-slate-200 hover:border-brand-blue hover:text-brand-blue text-slate-700 flex items-center justify-center transition-colors focus:outline-none bg-white shadow-sm cursor-pointer"
               title="Siguiente"
             >
               <ChevronRight className="h-5 w-5" />
-            </button>
+            </motion.button>
           </div>
         </div>
 
@@ -115,10 +119,22 @@ export default function SliderServicios() {
               className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center w-full"
             >
               <div className="md:col-span-4 flex justify-center">
-                <div className="h-28 w-28 rounded-2xl bg-brand-blue text-brand-yellow flex items-center justify-center shadow-lg relative group">
-                  <div className="absolute inset-0 bg-brand-yellow rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity" />
-                  <ActiveIcon className="h-14 w-14 animate-pulse" />
-                </div>
+                <motion.div 
+                  className="h-28 w-28 rounded-3xl bg-brand-blue text-brand-yellow flex items-center justify-center shadow-xl relative group overflow-hidden border border-white/10 cursor-pointer"
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{
+                    y: {
+                      repeat: Infinity,
+                      duration: 3,
+                      ease: "easeInOut"
+                    },
+                    scale: { type: "spring", stiffness: 300, damping: 15 }
+                  }}
+                >
+                  <div className="absolute inset-0 bg-brand-yellow opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  <ActiveIcon className="h-14 w-14 shrink-0" />
+                </motion.div>
               </div>
               
               <div className="md:col-span-8 space-y-4 text-center md:text-left">
