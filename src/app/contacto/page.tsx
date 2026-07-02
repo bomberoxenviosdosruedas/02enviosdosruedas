@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import ContactHero from '@/src/components/contacto/ContactHero';
 import ContactForm from '@/src/components/contacto/ContactForm';
 import ContactInfo from '@/src/components/contacto/ContactInfo';
-import CarruselRedes from '@/src/components/layout/CarruselRedes';
 
 export const metadata: Metadata = {
   title: 'Contacto Comercial | Envíos DosRuedas Mar del Plata',
@@ -32,9 +31,6 @@ export default function ContactoPage() {
 
         </div>
       </section>
-
-      {/* Shared Social Banner segment */}
-      <CarruselRedes />
     </main>
   );
 }

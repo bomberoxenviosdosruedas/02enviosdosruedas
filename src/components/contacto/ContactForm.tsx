@@ -38,15 +38,19 @@ export default function ContactForm() {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-md relative overflow-hidden h-full"
+      whileHover={{ y: -4 }}
+      transition={{ 
+        y: { type: "spring", stiffness: 300, damping: 20 },
+        opacity: { duration: 0.6 }
+      }}
+      className="bg-white rounded-3xl p-8 md:p-10 border border-slate-150 shadow-lg relative overflow-hidden h-full group hover:shadow-xl duration-350 transition-all cursor-default"
     >
       {/* Decorative gradient border top */}
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-blue to-brand-yellow" />
 
       <div className="space-y-6">
         <div>
-          <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-slate-900 mb-2">
+          <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-slate-900 mb-2 group-hover:text-brand-blue transition-colors">
             ¿Tenés alguna consulta?
           </h3>
           <p className="text-slate-500 font-sans text-sm sm:text-base">
@@ -79,7 +83,7 @@ export default function ContactForm() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setStatus('idle')}
-                className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold uppercase tracking-wider font-subheading transition-colors"
+                className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold uppercase tracking-wider font-subheading transition-colors cursor-pointer"
               >
                 Enviar otro mensaje
               </motion.button>
@@ -114,7 +118,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Ej: Juan Pérez"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all disabled:opacity-60 bg-slate-50/50"
+                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow/30 focus:border-brand-blue transition-all disabled:opacity-60 bg-slate-50/50"
                 />
               </div>
 
@@ -132,7 +136,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Ej: juan.perez@email.com"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all disabled:opacity-60 bg-slate-50/50"
+                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow/30 focus:border-brand-blue transition-all disabled:opacity-60 bg-slate-50/50"
                 />
               </div>
 
@@ -150,7 +154,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Escribí acá tu consulta. Decinos en qué podemos ayudarte..."
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all disabled:opacity-60 bg-slate-50/50 resize-none"
+                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow/30 focus:border-brand-blue transition-all disabled:opacity-60 bg-slate-50/50 resize-none"
                 />
               </div>
 
@@ -158,9 +162,9 @@ export default function ContactForm() {
               <motion.button
                 type="submit"
                 disabled={status === 'submitting'}
-                whileHover={{ scale: 1.01 }}
+                whileHover={{ scale: 1.015, y: -1 }}
                 whileTap={{ scale: 0.99 }}
-                className="w-full py-4 rounded-xl font-subheading tracking-wider uppercase text-sm font-semibold text-white bg-brand-blue hover:bg-brand-blue/95 transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                className="w-full py-4 rounded-xl font-subheading tracking-wider uppercase text-sm font-semibold text-white bg-brand-blue hover:bg-brand-blue/95 transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 hover:shadow-lg"
               >
                 {status === 'submitting' ? (
                   <>
@@ -172,7 +176,7 @@ export default function ContactForm() {
                   </>
                 ) : (
                   <>
-                    <Send className="h-4.5 w-4.5" />
+                    <Send className="h-4.5 w-4.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
                     <span>Enviar Mensaje</span>
                   </>
                 )}
