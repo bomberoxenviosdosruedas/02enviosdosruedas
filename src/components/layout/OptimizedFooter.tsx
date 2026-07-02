@@ -3,180 +3,251 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'motion/react';
 import { 
-  Bike, Phone, MapPin, Mail, Clock, Instagram, Facebook, Award, ArrowUpRight,
-  Zap, TrendingDown, ShoppingBag
+  Bike, Phone, MapPin, Mail, Clock, Award, ArrowUpRight,
+  Zap, TrendingDown, ShoppingBag, ArrowUp, MessageSquare, Instagram
 } from 'lucide-react';
 
 export default function OptimizedFooter() {
-  const currentYear = new Date().getFullYear();
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <footer id="optimized-footer" className="bg-brand-blue text-white border-t border-white/10 relative overflow-hidden">
+    <footer id="optimized-footer" className="bg-brand-blue text-white border-t border-white/10 relative overflow-hidden font-sans">
       
-      {/* Decorative top yellow accent bar */}
-      <div className="h-1 bg-brand-yellow w-full" />
+      {/* Decorative top yellow accent bar with neon glow */}
+      <div className="h-1.5 bg-gradient-to-r from-brand-yellow via-amber-400 to-brand-yellow w-full shadow-md shadow-brand-yellow/30" />
 
-      {/* Subtle top-centered radial gradient highlight */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.06),transparent_50%)] pointer-events-none" />
+      {/* Center radial gradient highlight for background depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(6,54,165,0.4),transparent_40%)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 items-start">
+      {/* Main Footer Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        
+        {/* UPPER BANNER: CTA / Conversions (Tarifas 2026) */}
+        <motion.div 
+          className="mb-16 bg-blue-950/40 border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl backdrop-blur-sm glow-blue"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="text-center md:text-left space-y-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-yellow/10 text-brand-yellow rounded-full text-xs font-bold uppercase tracking-wider font-subheading">
+              <Zap className="h-3.5 w-3.5" />
+              Tarifas Vigentes 2026
+            </span>
+            <h3 className="text-xl sm:text-2xl font-display uppercase tracking-wide text-white">
+              ¿Tenés un E-Commerce o local en Mar del Plata?
+            </h3>
+            <p className="text-blue-200 text-sm max-w-xl">
+              Optimizá tus costos de distribución urbana. Envianos un mensaje o cotizá en el acto de forma online.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 shrink-0">
+            <Link
+              href="/cotizar/express"
+              className="px-6 py-3.5 rounded-xl bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider uppercase text-base shadow-accent-sm hover:shadow-accent-md transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] font-bold"
+            >
+              Cotizar Envío
+            </Link>
+            <a
+              href="https://wa.me/542236602699"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white font-subheading tracking-wider uppercase text-base border border-white/15 transition-all duration-200 flex items-center gap-2 hover:scale-[1.02]"
+            >
+              <MessageSquare className="h-4.5 w-4.5 text-brand-yellow animate-pulse" />
+              Contactanos
+            </a>
+          </div>
+        </motion.div>
+
+        {/* MID SECTION: Links & Info Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 items-start">
           
-          {/* COLUMN 1: Brand details & Socials (4 Cols) */}
-          <div className="lg:col-span-4 space-y-6">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="relative w-10 h-10 group-hover:scale-105 transition-transform duration-200 shrink-0">
+          {/* COLUMN 1: Brand details & Socials (5 Cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            <Link href="/" className="flex items-center gap-3 group w-fit">
+              <div className="relative w-11 h-11 group-hover:scale-105 transition-transform duration-300 shrink-0">
                 <Image
                   src="https://i.postimg.cc/RF6MBw2d/logo-envios.webp"
-                  alt="Logo Envíos Dos Ruedas simplificado"
+                  alt="Logo Envíos Dos Ruedas"
                   fill
-                  sizes="40px"
+                  sizes="44px"
                   className="object-contain"
                 />
               </div>
               <div>
-                <span className="font-display text-2xl tracking-wider text-white flex items-center gap-1">
+                <span className="font-display text-2xl tracking-wider text-white flex items-center gap-1.5">
                   Envíos <span className="text-brand-yellow">Dosruedas</span>
                 </span>
-                <span className="block text-[9px] font-sans tracking-widest text-blue-200 uppercase leading-none">
+                <span className="block text-[9px] font-sans tracking-widest text-blue-200 uppercase leading-none font-bold">
                   tu solución confiable
                 </span>
               </div>
             </Link>
             
             <p className="text-blue-100 text-sm leading-relaxed max-w-sm">
-              La solución de logística, envíos express y distribución de última milla líder en Mar del Plata. Conectamos locales, e-commerce y particulares con un servicio inteligente y confiable.
+              Logística urbana inteligente de última milla en Mar del Plata. Conectamos tu negocio con entregas express en el día, soluciones Flex para MercadoLibre y distribución 3PL eficiente.
             </p>
-
-            {/* Social handles */}
-            <div className="space-y-3">
-              <span className="block text-xs font-bold text-brand-yellow uppercase tracking-wider font-sans">
-                Seguinos en nuestras redes
+            
+            <div className="space-y-3.5 pt-2">
+              <span className="block text-xs font-bold text-brand-yellow uppercase tracking-widest font-sans">
+                Seguinos en redes
               </span>
-              <div className="flex items-center gap-3">
-                <Link
-                  href="/nosotros/nuestras-redes"
-                  className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white flex items-center justify-center transition-all duration-200 border border-white/10 p-2"
-                  title="Instagram"
-                >
-                  <div className="relative w-5 h-5 filter invert group-hover:invert-0">
-                    <Image
-                      src="/iconos/instagram.svg"
-                      alt="Instagram"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                </Link>
-                <Link
-                  href="/nosotros/nuestras-redes"
-                  className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white flex items-center justify-center transition-all duration-200 border border-white/10 p-2"
-                  title="Facebook"
-                >
-                  <div className="relative w-5 h-5 filter invert group-hover:invert-0">
-                    <Image
-                      src="/iconos/facebook.svg"
-                      alt="Facebook"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                </Link>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs text-blue-200 font-mono">
-                  <Award className="h-4 w-4 text-brand-yellow" />
+              <div className="flex flex-wrap items-center gap-3">
+                <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
+                  <Link
+                    href="/nosotros/nuestras-redes"
+                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border border-white/10 p-2.5 group"
+                    title="Instagram"
+                  >
+                    <Instagram className="h-5 w-5 text-white group-hover:text-brand-blue transition-colors" />
+                  </Link>
+                </motion.div>
+                <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
+                  <Link
+                    href="/nosotros/nuestras-redes"
+                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border border-white/10 p-2.5 group"
+                    title="Facebook"
+                  >
+                    <div className="relative w-5 h-5 filter invert group-hover:invert-0 transition-all duration-200">
+                      <Image
+                        src="/iconos/facebook.svg"
+                        alt="Facebook"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </Link>
+                </motion.div>
+                <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
+                  <a
+                    href="https://wa.me/542236602699"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border border-white/10 p-2.5 group"
+                    title="WhatsApp"
+                  >
+                    <div className="relative w-5 h-5 filter invert group-hover:invert-0 transition-all duration-200">
+                      <Image
+                        src="/iconos/whatapps.svg"
+                        alt="WhatsApp"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </a>
+                </motion.div>
+
+                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-blue-200 font-mono shadow-inner ml-2">
+                  <Award className="h-4 w-4 text-brand-yellow animate-pulse shrink-0" />
                   <span>3PL Certificado</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* COLUMN 2: Services (4 Cols) */}
-          <div className="lg:col-span-4 space-y-4">
-            <h4 className="font-subheading text-lg tracking-wider text-brand-yellow uppercase">
-              Soluciones Logísticas
+          {/* COLUMN 2: Services (3 Cols) */}
+          <div className="lg:col-span-3 space-y-5">
+            <h4 className="font-subheading text-lg tracking-wider text-brand-yellow uppercase border-b border-white/10 pb-2">
+              Soluciones
             </h4>
-            <ul className="grid grid-cols-1 gap-2.5 text-sm">
+            <ul className="space-y-3.5 text-sm">
               <li>
                 <Link 
                   href="/servicios/envios-express" 
-                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2 group transition-colors"
+                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <Zap className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>Envíos Express</span>
-                  <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
                 <Link 
                   href="/servicios/envios-lowcost" 
-                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2 group transition-colors"
+                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <TrendingDown className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>Envíos LowCost</span>
-                  <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
                 <Link 
                   href="/servicios/enviosflex" 
-                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2 group transition-colors"
+                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <Clock className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>Envíos Flex (MeLi)</span>
-                  <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
                 <Link 
                   href="/servicios/plan-emprendedores" 
-                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2 group transition-colors"
+                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <ShoppingBag className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>E-Commerce & 3PL</span>
-                  <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* COLUMN 3: Contact & Location Info (4 Cols) */}
-          <div className="lg:col-span-4 space-y-4">
-            <h4 className="font-subheading text-lg tracking-wider text-brand-yellow uppercase">
-              Contacto Principal
+          <div className="lg:col-span-4 space-y-5">
+            <h4 className="font-subheading text-lg tracking-wider text-brand-yellow uppercase border-b border-white/10 pb-2">
+              Contacto
             </h4>
             
-            <div className="space-y-3.5 text-xs text-blue-100">
+            <div className="space-y-4 text-xs text-blue-100">
               
-              <div className="flex gap-3 items-start">
-                <MapPin className="h-4.5 w-4.5 text-brand-yellow shrink-0 mt-0.5" />
+              <div className="flex gap-3.5 items-start">
+                <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
+                  <MapPin className="h-4.5 w-4.5" />
+                </div>
                 <div>
-                  <p className="font-bold text-white uppercase font-sans">Ubicación</p>
-                  <p className="font-sans">Friuli 1972, Mar del Plata</p>
+                  <p className="font-bold text-white uppercase font-sans tracking-wide">Ubicación</p>
+                  <p className="font-sans text-[13px] mt-0.5">Friuli 1972, Mar del Plata</p>
+                </div>
+              </div>
+ 
+              <div className="flex gap-3.5 items-start">
+                <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
+                  <Phone className="h-4.5 w-4.5" />
+                </div>
+                <div>
+                  <p className="font-bold text-white uppercase font-sans tracking-wide">Teléfono</p>
+                  <p className="font-mono text-[13px] mt-0.5">+54 223 660-2699</p>
                 </div>
               </div>
 
-              <div className="flex gap-3 items-start">
-                <Phone className="h-4.5 w-4.5 text-brand-yellow shrink-0 mt-0.5" />
+              <div className="flex gap-3.5 items-start">
+                <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
+                  <Mail className="h-4.5 w-4.5" />
+                </div>
                 <div>
-                  <p className="font-bold text-white uppercase font-sans">Teléfono</p>
-                  <p className="font-mono">+54 223 660-2699</p>
+                  <p className="font-bold text-white uppercase font-sans tracking-wide">Email</p>
+                  <p className="font-sans text-[13px] mt-0.5 break-all underline decoration-white/20 hover:text-brand-yellow transition-colors">
+                    matiascejas@enviosdosruedas.com
+                  </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 items-start">
-                <Mail className="h-4.5 w-4.5 text-brand-yellow shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-bold text-white uppercase font-sans">Email</p>
-                  <p className="font-sans underline decoration-white/20">matiascejas@enviosdosruedas.com</p>
+              <div className="flex gap-3.5 items-start">
+                <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
+                  <Clock className="h-4.5 w-4.5" />
                 </div>
-              </div>
-
-              <div className="flex gap-3 items-start">
-                <Clock className="h-4.5 w-4.5 text-brand-yellow shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-bold text-white uppercase font-sans">Horarios de Recepción</p>
-                  <p className="font-sans">Lunes a Sábado: 08:00 a 20:00 hs</p>
+                  <p className="font-bold text-white uppercase font-sans tracking-wide">Horarios</p>
+                  <p className="font-sans text-[13px] mt-0.5">Lunes a Sábado: 08:00 a 20:00 hs</p>
                 </div>
               </div>
 
@@ -186,27 +257,37 @@ export default function OptimizedFooter() {
         </div>
 
         {/* Separator */}
-        <div className="border-t border-white/10 my-10" />
+        <div className="border-t border-white/10 my-12 relative">
+          {/* Scroll to Top Floating Button */}
+          <motion.button
+            onClick={scrollToTop}
+            className="absolute -top-6 right-4 sm:right-8 bg-brand-yellow hover:bg-brand-yellow/90 text-brand-blue p-3.5 rounded-2xl shadow-xl shadow-brand-yellow/10 hover:scale-105 active:scale-95 transition-transform flex items-center justify-center border border-white"
+            title="Volver arriba"
+            whileHover={{ y: -2 }}
+          >
+            <ArrowUp className="h-5 w-5 font-bold" />
+          </motion.button>
+        </div>
 
-        {/* Legal & Copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-blue-200 font-sans">
-          <div className="flex flex-wrap items-center gap-4 md:gap-6">
-            <p>© {currentYear} Envíos DosRuedas. Todos los derechos reservados.</p>
-            <Link href="/nosotros/sobre-nosotros" className="hover:text-brand-yellow transition-colors underline decoration-white/10">
+        {/* BOTTOM SECTION: Legal & Copyright */}
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-6 text-xs text-blue-200 font-sans border-b border-white/5 pb-2">
+          <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-6">
+            <p className="font-medium text-white">© 2026 Envíos DosRuedas. Todos los derechos reservados.</p>
+            <Link href="/nosotros/sobre-nosotros" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-blue-200">
               Sobre Nosotros
             </Link>
-            <Link href="/nosotros/preguntas-frecuentes" className="hover:text-brand-yellow transition-colors underline decoration-white/10">
+            <Link href="/nosotros/preguntas-frecuentes" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-blue-200">
               Preguntas Frecuentes
             </Link>
-            <Link href="/nosotros/nuestras-redes" className="hover:text-brand-yellow transition-colors underline decoration-white/10">
+            <Link href="/nosotros/nuestras-redes" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-blue-200">
               Nuestras Redes
             </Link>
           </div>
-          <div className="flex items-center gap-6">
-            <Link href="/terminos-y-condiciones" className="hover:text-brand-yellow transition-colors underline decoration-white/10">
+          <div className="flex flex-wrap justify-center gap-6 shrink-0">
+            <Link href="/terminos-y-condiciones" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-blue-200">
               Términos y Condiciones
             </Link>
-            <Link href="/politica-de-privacidad" className="hover:text-brand-yellow transition-colors underline decoration-white/10">
+            <Link href="/politica-de-privacidad" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-blue-200">
               Política de Privacidad
             </Link>
           </div>

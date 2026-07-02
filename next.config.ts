@@ -29,11 +29,11 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   transpilePackages: ['motion'],
   webpack: (config, {dev}) => {
-    // HMR is disabled in AI Studio via DISABLE_HMR env var.
-    // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
-    if (dev && process.env.DISABLE_HMR === 'true') {
+    if (dev) {
       config.watchOptions = {
-        ignored: /.*/,
+        poll: 1000, // Verifica cambios cada 1 segundo (altamente robusto en Windows/WSL)
+        aggregateTimeout: 300,
+        ignored: /node_modules/,
       };
     }
     return config;
