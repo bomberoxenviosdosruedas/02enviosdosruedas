@@ -80,14 +80,19 @@ export default function NetworksChannels() {
                 key={channel.name}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ y: -6, scale: 1.015 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.1, ease: "easeOut" }}
-                className={`bg-slate-50/60 hover:bg-white p-8 rounded-3xl border border-slate-100/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group ${channel.color}`}
+                transition={{ 
+                  y: { type: "spring", stiffness: 300, damping: 20 },
+                  scale: { type: "spring", stiffness: 300, damping: 20 },
+                  opacity: { duration: 0.5, delay: idx * 0.08 }
+                }}
+                className={`bg-slate-50/60 hover:bg-white p-8 rounded-3xl border border-slate-200/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group/card ${channel.color} cursor-pointer`}
               >
                 <div className="space-y-6">
                   {/* Icon & Badge Header */}
                   <div className="flex items-center justify-between">
-                    <div className="p-3 bg-brand-blue/10 rounded-2xl relative w-12 h-12 flex items-center justify-center">
+                    <div className="p-3 bg-brand-blue/10 rounded-2xl relative w-12 h-12 flex items-center justify-center group-hover/card:scale-105 transition-transform duration-300">
                       <Image
                         src={channel.iconPath}
                         alt={channel.name}
@@ -124,10 +129,10 @@ export default function NetworksChannels() {
                     href={channel.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 bg-brand-blue hover:bg-brand-blue/95 text-white rounded-xl text-xs font-bold uppercase tracking-wider font-subheading flex items-center justify-center gap-1.5 transition-all shadow-sm hover:scale-[1.02]"
+                    className="w-full py-3.5 bg-brand-blue hover:bg-brand-blue/95 text-white rounded-xl text-xs font-bold uppercase tracking-wider font-subheading flex items-center justify-center gap-1.5 transition-all shadow-sm group-hover/card:bg-brand-yellow group-hover/card:text-brand-blue cursor-pointer duration-300"
                   >
                     <span>{channel.btnLabel}</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <ArrowRight className="h-3.5 w-3.5 group-hover/card:translate-x-1 transition-transform duration-300 shrink-0" />
                   </a>
                 </div>
 

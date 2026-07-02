@@ -6,7 +6,6 @@ import AboutValues from '@/src/components/nosotros/sobre-nosotros/AboutValues';
 import AboutTimeline from '@/src/components/nosotros/sobre-nosotros/AboutTimeline';
 import AboutTeam from '@/src/components/nosotros/sobre-nosotros/AboutTeam';
 import AboutMissionVision from '@/src/components/nosotros/sobre-nosotros/AboutMissionVision';
-import CarruselRedes from '@/src/components/layout/CarruselRedes';
 
 export const metadata: Metadata = {
   title: 'Sobre Nosotros | Envíos DosRuedas Mar del Plata',
@@ -33,9 +32,6 @@ export default function SobreNosotrosPage() {
 
       {/* Comprehensive Mission, Vision, and Innovation pillars */}
       <AboutMissionVision />
-
-      {/* Unified social network slider */}
-      <CarruselRedes />
     </main>
   );
 }

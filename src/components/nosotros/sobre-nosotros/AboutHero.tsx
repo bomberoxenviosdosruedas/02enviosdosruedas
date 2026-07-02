@@ -33,14 +33,14 @@ export default function AboutHero() {
   return (
     <section 
       id="about-hero" 
-      className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-b from-sky-900 to-sky-950 text-white border-b border-sky-800/40"
+      className="relative min-h-[75vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-slate-950 text-white border-b border-brand-blue/20"
     >
-      {/* Ambient background glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(56,189,248,0.15),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(255,255,255,0.04),transparent_50%)]" />
+      {/* Ambient background glows using brand colors */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(6,54,165,0.4),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
 
       {/* Background illustration overlay */}
-      <div className="absolute inset-0 opacity-10 mix-blend-overlay">
+      <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none">
         <Image
           src="https://i.postimg.cc/nLMx4vVc/delivery-background.jpg"
           alt="Fondo de reparto urbano"
@@ -63,8 +63,8 @@ export default function AboutHero() {
             
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue flex items-center gap-1.5 shadow-accent-sm">
-                <Award className="h-4 w-4 text-brand-blue animate-pulse" />
+              <span className="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-blue/30 text-brand-yellow border border-brand-yellow/30 flex items-center gap-1.5 shadow-sm">
+                <Award className="h-4 w-4 text-brand-yellow animate-pulse shrink-0" />
                 Nuestra Identidad
               </span>
             </motion.div>
@@ -75,13 +75,13 @@ export default function AboutHero() {
               className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none text-white"
             >
               Sobre <br />
-              <span className="text-brand-yellow">Nosotros</span>
+              <span className="text-brand-yellow text-glow-yellow">Nosotros</span>
             </motion.h1>
 
             {/* Description */}
             <motion.p 
               variants={itemVariants}
-              className="text-base sm:text-lg lg:text-xl font-sans text-sky-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-base sm:text-lg lg:text-xl font-sans text-slate-350 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
               Somos <span className="text-brand-yellow font-semibold">Envíos DosRuedas</span>, tu aliado de confianza en mensajería y delivery en Mar del Plata. Más de 7 años revolucionando la logística de última milla.
             </motion.p>
@@ -91,14 +91,14 @@ export default function AboutHero() {
               variants={itemVariants}
               className="p-6 rounded-3xl bg-white/5 border border-white/10 max-w-xl mx-auto lg:mx-0 shadow-inner space-y-3"
             >
-              <div className="flex items-center gap-2">
-                <Sparkles className="h-4 w-4 text-brand-yellow" />
+              <div className="flex items-center gap-2 justify-center lg:justify-start">
+                <Sparkles className="h-4 w-4 text-brand-yellow animate-spin-slow" />
                 <h3 className="text-xs uppercase tracking-widest text-brand-yellow font-bold leading-none">
                   Nuestra Misión
                 </h3>
               </div>
-              <p className="text-xs sm:text-sm text-sky-100/90 leading-relaxed font-sans text-center lg:text-left">
-                Conectar personas y negocios en Mar del Plata a través de un servicio de mensajería rápido y accesible, contribuyendo al crecimiento de nuestra comunidad local.
+              <p className="text-xs sm:text-sm text-slate-350 leading-relaxed font-sans text-center lg:text-left">
+                Conectar personas y negocios en Mar del Plata a través de un servicio de mensajería rápido y accesible, contribuyendo al crecimiento de nuestra comunidad local en este 2026.
               </p>
             </motion.div>
 
@@ -110,9 +110,13 @@ export default function AboutHero() {
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] z-20"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1, transition: { duration: 0.8, delay: 0.3 } }}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.025, y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="rounded-3xl border border-white/10 bg-white p-8 text-slate-800 shadow-2xl relative overflow-hidden">
+              <div className="rounded-3xl border border-white/10 bg-white p-8 text-slate-800 shadow-2xl relative overflow-hidden group hover:shadow-[0_0_35px_rgba(255,236,1,0.15)] transition-all duration-300">
+                {/* Visual Accent Top Bar */}
+                <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-brand-blue to-brand-yellow" />
+                
                 <div className="space-y-6 relative z-10">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1 text-amber-400">
@@ -126,23 +130,23 @@ export default function AboutHero() {
                   </div>
 
                   <div>
-                    <h4 className="text-base font-subheading uppercase font-bold text-slate-900 leading-none">
+                    <h4 className="text-base font-subheading uppercase font-bold text-slate-900 leading-none group-hover:text-brand-blue transition-colors">
                       Google Reviews
                     </h4>
                     <p className="text-[10px] text-slate-400 font-sans tracking-wider uppercase mt-1">Confianza Local Comprobada</p>
                   </div>
 
-                  <p className="text-xs text-slate-500 font-sans leading-relaxed">
+                  <p className="text-xs text-slate-600 font-sans leading-relaxed">
                     Basado en la confianza de cientos de clientes locales que eligen nuestra flota dedicada para máxima agilidad urbana y cero tercerización.
                   </p>
 
                   <div className="pt-4 border-t border-slate-100 flex justify-between items-center text-xs">
                     <span className="font-mono text-brand-blue font-bold flex items-center gap-1">
-                      <ShieldCheck className="h-4 w-4 text-emerald-500" />
+                      <ShieldCheck className="h-4 w-4 text-emerald-500 shrink-0" />
                       Cero Tercerización
                     </span>
-                    <span className="font-mono text-slate-500 flex items-center gap-1">
-                      <Heart className="h-4 w-4 text-red-500 fill-current" />
+                    <span className="font-mono text-slate-550 flex items-center gap-1">
+                      <Heart className="h-4 w-4 text-red-500 fill-current shrink-0" />
                       Soporte Local
                     </span>
                   </div>

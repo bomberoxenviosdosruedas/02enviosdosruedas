@@ -75,13 +75,13 @@ export default function AboutTimeline() {
               return (
                 <div 
                   key={milestone.year} 
-                  className={`relative flex flex-col md:flex-row items-center md:justify-between ${
+                  className={`relative flex flex-col md:flex-row items-center md:justify-between group/card cursor-pointer ${
                     isEven ? 'md:flex-row-reverse' : ''
                   }`}
                 >
                   
                   {/* Circle Pin on Line */}
-                  <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1.5 w-10 h-10 rounded-full bg-brand-blue border-4 border-white shadow flex items-center justify-center z-10 text-brand-yellow">
+                  <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1.5 w-10 h-10 rounded-full bg-brand-blue border-4 border-white shadow flex items-center justify-center z-10 text-brand-yellow group-hover/card:scale-115 group-hover/card:bg-brand-yellow group-hover/card:text-brand-blue group-hover/card:border-brand-blue/30 transition-all duration-300">
                     <Icon className="h-4 w-4" />
                   </div>
 
@@ -92,14 +92,19 @@ export default function AboutTimeline() {
                   <motion.div 
                     initial={{ opacity: 0, x: isEven ? 40 : -40 }}
                     whileInView={{ opacity: 1, x: 0 }}
+                    whileHover={{ y: -4, scale: 1.01 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.55, delay: idx * 0.1 }}
-                    className="w-full md:w-[45%] bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm pl-16 md:pl-8 group hover:shadow-md transition-all duration-300"
+                    transition={{ 
+                      y: { type: "spring", stiffness: 300, damping: 20 },
+                      scale: { type: "spring", stiffness: 300, damping: 20 },
+                      opacity: { duration: 0.55 }
+                    }}
+                    className="w-full md:w-[45%] bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-md pl-16 md:pl-8 group hover:shadow-lg transition-all duration-300"
                   >
                     <span className="inline-block text-2xl font-mono font-bold text-brand-blue mb-2">
                       {milestone.year}
                     </span>
-                    <h3 className="text-base sm:text-lg font-subheading uppercase tracking-wide text-slate-900 font-semibold leading-tight mb-2">
+                    <h3 className="text-base sm:text-lg font-subheading uppercase tracking-wide text-slate-900 font-semibold leading-tight mb-2 group-hover:text-brand-blue transition-colors">
                       {milestone.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-500 font-sans leading-relaxed">

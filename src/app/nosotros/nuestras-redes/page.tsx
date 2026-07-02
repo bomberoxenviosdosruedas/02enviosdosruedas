@@ -5,7 +5,6 @@ import NetworksChannels from '@/src/components/nosotros/nuestras-redes/NetworksC
 import RecentPosts from '@/src/components/nosotros/nuestras-redes/RecentPosts';
 import NetworksBenefits from '@/src/components/nosotros/nuestras-redes/NetworksBenefits';
 import NewsletterSubscribe from '@/src/components/nosotros/nuestras-redes/NewsletterSubscribe';
-import CarruselRedes from '@/src/components/layout/CarruselRedes';
 
 export const metadata: Metadata = {
   title: 'Nuestras Redes y Comunidad | Envíos DosRuedas Mar del Plata',
@@ -29,9 +28,6 @@ export default function NuestrasRedesPage() {
 
       {/* Secure Newsletter subscription box */}
       <NewsletterSubscribe />
-
-      {/* Loop of visual network banners */}
-      <CarruselRedes />
     </main>
   );
 }

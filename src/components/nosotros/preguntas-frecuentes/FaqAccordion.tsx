@@ -99,18 +99,20 @@ export default function FaqAccordion() {
             const isActive = activeCategory === catKey;
 
             return (
-              <button
+              <motion.button
                 key={catKey}
                 onClick={() => handleCategoryChange(catKey)}
+                whileHover={{ scale: 1.03, y: -1 }}
+                whileTap={{ scale: 0.97 }}
                 className={`px-5 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider font-subheading flex items-center gap-2.5 transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-brand-blue text-white shadow-md scale-[1.02]'
-                    : 'bg-slate-50 text-slate-600 hover:bg-slate-100'
+                    ? 'bg-brand-blue text-white shadow-md'
+                    : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-800'
                 }`}
               >
                 <Icon className={`h-4.5 w-4.5 ${isActive ? 'text-brand-yellow' : 'text-slate-500'}`} />
                 <span>{cat.label}</span>
-              </button>
+              </motion.button>
             );
           })}
         </div>
@@ -132,7 +134,11 @@ export default function FaqAccordion() {
                 return (
                   <div
                     key={item.question}
-                    className="bg-slate-50/70 border border-slate-100 rounded-3xl overflow-hidden hover:border-brand-blue/10 hover:shadow-sm transition-all duration-300"
+                    className={`rounded-3xl overflow-hidden transition-all duration-300 border ${
+                      isExpanded 
+                        ? 'bg-white border-brand-blue/30 shadow-md ring-2 ring-brand-blue/5' 
+                        : 'bg-slate-50/70 border-slate-200 hover:border-brand-blue/15 hover:bg-white hover:shadow-sm'
+                    }`}
                   >
                     {/* Collapsible Header Click Area */}
                     <button
@@ -141,9 +147,9 @@ export default function FaqAccordion() {
                     >
                       <div className="flex items-center gap-4">
                         <div className={`p-2 rounded-xl shrink-0 ${isExpanded ? 'bg-brand-yellow text-brand-blue' : 'bg-brand-blue/10 text-brand-blue'}`}>
-                          <HelpCircle className="h-4.5 w-4.5" />
+                          <HelpCircle className="h-4.5 w-4.5 animate-pulse" />
                         </div>
-                        <h4 className="text-sm sm:text-base font-subheading font-semibold text-slate-900 leading-tight">
+                        <h4 className={`text-sm sm:text-base font-subheading font-semibold leading-tight transition-colors ${isExpanded ? 'text-brand-blue' : 'text-slate-900'}`}>
                           {item.question}
                         </h4>
                       </div>
@@ -161,7 +167,7 @@ export default function FaqAccordion() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3, ease: 'easeInOut' }}
                         >
-                          <div className="px-6 pb-7 pl-16 pr-8 border-t border-slate-100/50 pt-4 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
+                          <div className="px-6 pb-7 pl-16 pr-8 border-t border-slate-100 pt-4 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
                             {item.answer}
                           </div>
                         </motion.div>
