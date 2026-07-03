@@ -18,7 +18,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: { 
     opacity: 1, 
     y: 0, 
@@ -30,7 +30,7 @@ const itemVariants = {
   },
 };
 
-// Canvas interactivo que simula la red logística de Mar del Plata
+// Canvas interactivo que simula la red logística de Mar del Plata (estilo topográfico vectorial claro)
 function LogisticaNetworkCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
@@ -99,14 +99,14 @@ function LogisticaNetworkCanvas() {
         progress: 0,
         speed: 0.003 + Math.random() * 0.005,
         size: 2 + Math.random() * 2,
-        color: Math.random() > 0.4 ? '#FFEC01' : '#60A5FA', // Colores oficiales
+        color: Math.random() > 0.4 ? '#0636A5' : '#FFEC01', // Colores de marca en el mapa
       });
     };
 
     // Inicializar partículas
     for (let i = 0; i < maxParticles; i++) {
       spawnParticle();
-      particles[i].progress = Math.random(); // comenzar en puntos aleatorios de la ruta
+      particles[i].progress = Math.random();
     }
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -131,7 +131,6 @@ function LogisticaNetworkCanvas() {
       mouseRef.current = { x: -1000, y: -1000 };
     };
 
-    // Escuchar el movimiento del mouse/toques sobre el componente padre
     const heroSection = canvas.closest('section');
     if (heroSection) {
       heroSection.addEventListener('mousemove', handleMouseMove);
@@ -143,24 +142,22 @@ function LogisticaNetworkCanvas() {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Re-crear nodos con nuevas dimensiones si cambia de escala
       nodes = createNodes();
 
       // 1. Dibujar conexiones (caminos de ruteo)
-      ctx.lineWidth = 1.5;
+      ctx.lineWidth = 1.0;
       connections.forEach(conn => {
         const fromNode = nodes.find(n => n.id === conn.from);
         const toNode = nodes.find(n => n.id === conn.to);
         if (!fromNode || !toNode) return;
 
-        // Gradiente interactivo por la cercanía del mouse
         const dx = (fromNode.x + toNode.x) / 2 - mouseRef.current.x;
         const dy = (fromNode.y + toNode.y) / 2 - mouseRef.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         
         ctx.strokeStyle = dist < 180 
-          ? `rgba(255, 236, 1, ${0.15 + (1 - dist / 180) * 0.35})` // brillo amarillo si está cerca
-          : 'rgba(255, 255, 255, 0.06)'; // azul/blanco sutil base
+          ? `rgba(6, 54, 165, ${0.2 + (1 - dist / 180) * 0.4})` // Brillo azul de marca al acercarse
+          : 'rgba(6, 54, 165, 0.08)'; // Líneas sutiles de fondo
         
         ctx.beginPath();
         ctx.moveTo(fromNode.x, fromNode.y);
@@ -168,11 +165,10 @@ function LogisticaNetworkCanvas() {
         ctx.stroke();
       });
 
-      // 2. Actualizar y dibujar partículas (paquetes/envíos)
+      // 2. Dibujar partículas (paquetes)
       particles.forEach((p) => {
         p.progress += p.speed;
 
-        // Si llega a destino, reaparecer
         if (p.progress >= 1) {
           p.progress = 0;
           const conn = connections[Math.floor(Math.random() * connections.length)];
@@ -184,11 +180,9 @@ function LogisticaNetworkCanvas() {
           }
         }
 
-        // Posición actual interpolada
         const x = p.fromNode.x + (p.toNode.x - p.fromNode.x) * p.progress;
         const y = p.fromNode.y + (p.toNode.y - p.fromNode.y) * p.progress;
 
-        // Efecto del mouse sobre partículas
         const dx = x - mouseRef.current.x;
         const dy = y - mouseRef.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -197,8 +191,8 @@ function LogisticaNetworkCanvas() {
 
         if (dist < 120) {
           const force = (1 - dist / 120);
-          currentSize += force * 2.0;
-          glow = force * 10;
+          currentSize += force * 1.5;
+          glow = force * 4;
         }
 
         ctx.fillStyle = p.color;
@@ -212,35 +206,32 @@ function LogisticaNetworkCanvas() {
         ctx.beginPath();
         ctx.arc(x, y, currentSize, 0, Math.PI * 2);
         ctx.fill();
-        ctx.shadowBlur = 0; // reset
+        ctx.shadowBlur = 0;
       });
 
-      // 3. Dibujar nodos (centros logísticos)
+      // 3. Dibujar nodos (centros de la red)
       nodes.forEach(node => {
         const dx = node.x - mouseRef.current.x;
         const dy = node.y - mouseRef.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         const isNear = dist < 150;
         
-        // Círculo exterior (resplandor)
         if (isNear) {
-          ctx.fillStyle = 'rgba(255, 236, 1, 0.08)';
+          ctx.fillStyle = 'rgba(255, 236, 1, 0.4)';
           ctx.beginPath();
-          ctx.arc(node.x, node.y, node.size * 3.5, 0, Math.PI * 2);
+          ctx.arc(node.x, node.y, node.size * 2.5, 0, Math.PI * 2);
           ctx.fill();
         }
 
-        // Círculo central
-        ctx.fillStyle = isNear ? '#FFEC01' : 'rgba(255, 255, 255, 0.7)';
+        ctx.fillStyle = isNear ? '#FFEC01' : '#0636A5';
         ctx.beginPath();
-        ctx.arc(node.x, node.y, node.size + (isNear ? 1.5 : 0), 0, Math.PI * 2);
+        ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Texto descriptivo suave en hover o por defecto para el CD
         if (isNear || node.id === 'cd') {
-          ctx.fillStyle = node.id === 'cd' ? '#FFEC01' : 'rgba(255, 255, 255, 0.9)';
-          ctx.font = 'bold 9px var(--font-sans)';
-          ctx.fillText(node.label, node.x + 10, node.y + 3);
+          ctx.fillStyle = '#0636A5';
+          ctx.font = '500 10px var(--font-mono)';
+          ctx.fillText(node.label.toUpperCase(), node.x + 10, node.y + 3);
         }
       });
 
@@ -251,41 +242,34 @@ function LogisticaNetworkCanvas() {
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(animationFrameId);
       if (heroSection) {
         heroSection.removeEventListener('mousemove', handleMouseMove);
         heroSection.removeEventListener('mouseleave', handleMouseLeave);
         heroSection.removeEventListener('touchmove', handleTouchMove);
         heroSection.removeEventListener('touchend', handleMouseLeave);
       }
-      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none z-10 opacity-70"
-    />
-  );
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />;
 }
 
 export default function HeroAnimado() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Springs para suavizar la inclinación tridimensional de las tarjetas
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [12, -12]), { stiffness: 120, damping: 18 });
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-12, 12]), { stiffness: 120, damping: 18 });
+  const springConfig = { damping: 25, stiffness: 150 };
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), springConfig);
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), springConfig);
 
-  // Movimiento sutil para elementos float (Parallax)
-  const floatX = useSpring(useTransform(mouseX, [-0.5, 0.5], [-15, 15]), { stiffness: 120, damping: 18 });
-  const floatY = useSpring(useTransform(mouseY, [-0.5, 0.5], [-15, 15]), { stiffness: 120, damping: 18 });
+  const floatX = useSpring(useTransform(mouseX, [-0.5, 0.5], [-15, 15]), springConfig);
+  const floatY = useSpring(useTransform(mouseY, [-0.5, 0.5], [-15, 15]), springConfig);
 
-  // Movimiento sutil invertido
-  const floatXInv = useSpring(useTransform(mouseX, [-0.5, 0.5], [15, -15]), { stiffness: 120, damping: 18 });
-  const floatYInv = useSpring(useTransform(mouseY, [-0.5, 0.5], [15, -15]), { stiffness: 120, damping: 18 });
+  const floatXInv = useSpring(useTransform(mouseX, [-0.5, 0.5], [20, -20]), springConfig);
+  const floatYInv = useSpring(useTransform(mouseY, [-0.5, 0.5], [20, -20]), springConfig);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -295,7 +279,7 @@ export default function HeroAnimado() {
     mouseY.set(y);
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
     if (e.touches.length === 0) return;
     const touch = e.touches[0];
     const rect = e.currentTarget.getBoundingClientRect();
@@ -315,28 +299,27 @@ export default function HeroAnimado() {
   return (
     <section 
       id="hero-animado" 
-      className="relative min-h-[95vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue border-y border-blue-200/60 text-white"
+      className="relative min-h-[95vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-slate-50 border-b border-slate-200 text-slate-900"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleMouseLeave}
     >
       {/* Background patterns */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,236,1,0.08),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.06),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(6,54,165,0.02),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,236,1,0.03),transparent_50%)]" />
       
       {/* Interactive Logistics Network Background */}
       <LogisticaNetworkCanvas />
 
-      {/* Decorative overlay for logistics motion */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-blue to-transparent opacity-60 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent opacity-10 pointer-events-none" />
+      {/* Decorative overlay for layout integration */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent opacity-90 pointer-events-none" />
 
-      {/* Background illustration overlay (Cargado localmente) */}
-      <div className="absolute inset-0 opacity-15 mix-blend-overlay pointer-events-none">
+      {/* Background illustration overlay with topographic feel */}
+      <div className="absolute inset-0 opacity-5 mix-blend-multiply pointer-events-none">
         <Image
           src="/hero-background.jpeg"
-          alt="Fondo de la sección principal"
+          alt="Textura de Mapa de calles"
           fill
           priority
           className="object-cover"
@@ -354,8 +337,7 @@ export default function HeroAnimado() {
           <div className="lg:col-span-7 text-center lg:text-left space-y-8">
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue flex items-center gap-1.5 shadow-accent-md glow-yellow">
-                <Bike className="h-4.5 w-4.5 animate-bounce" />
+              <span className="px-2.5 py-1.5 rounded-[3.6px] text-xs font-mono font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue border border-brand-yellow">
                 Tu Solución Confiable
               </span>
             </motion.div>
@@ -363,17 +345,17 @@ export default function HeroAnimado() {
             {/* Title */}
             <motion.h1 
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none"
+              className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[-0.03em] leading-[0.9] text-brand-blue"
             >
               Mensajería y Logística <br />
-              <span className="text-brand-yellow text-glow-yellow">E-Commerce</span> <br />
+              <span className="bg-brand-yellow px-1 py-0.5">E-Commerce</span> <br />
               en Mar del Plata
             </motion.h1>
 
             {/* Body Text */}
             <motion.p 
               variants={itemVariants}
-              className="text-lg max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-blue-50"
+              className="text-lg max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-slate-650"
             >
               Somos tu partner estratégico en mensajería, envíos en el día y delivery de última milla. Soluciones ágiles, seguras y competitivas para potenciar tu marca.
             </motion.p>
@@ -383,7 +365,7 @@ export default function HeroAnimado() {
               <Link
                 href="/cotizar/express"
                 id="hero-cta-solicitar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-xl shadow-accent-md hover:shadow-accent-lg transition-all duration-200 hover:scale-[1.03] flex items-center justify-center gap-2 font-medium"
+                className="w-full sm:w-auto bg-brand-yellow text-brand-blue font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-[3.6px] border border-brand-yellow transition-all duration-200 hover:scale-[1.02] flex items-center justify-center gap-2 font-bold"
               >
                 Solicitar Servicio
                 <ArrowRight className="h-5 w-5" />
@@ -391,7 +373,7 @@ export default function HeroAnimado() {
               <Link
                 href="/servicios/envios-express"
                 id="hero-cta-servicios"
-                className="w-full sm:w-auto bg-white/10 hover:bg-white/15 text-white font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-xl border border-white/20 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-transparent hover:bg-slate-100 text-brand-blue font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-[3.6px] border border-slate-300 transition-all duration-200 flex items-center justify-center gap-2"
               >
                 Ver Servicios
               </Link>
@@ -400,32 +382,32 @@ export default function HeroAnimado() {
             {/* Features list */}
             <motion.div 
               variants={itemVariants}
-              className="grid grid-cols-3 gap-3 pt-8 border-t border-white/15 max-w-lg mx-auto lg:mx-0"
+              className="grid grid-cols-3 gap-3 pt-8 border-t border-slate-200 max-w-lg mx-auto lg:mx-0"
             >
               <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-white/5 rounded-xl mb-2 text-brand-yellow">
+                <div className="p-2.5 bg-slate-100 rounded-[3.6px] mb-2 text-brand-blue">
                   <Shield className="h-5 w-5" />
                 </div>
-                <span className="text-[10px] font-bold tracking-widest uppercase text-blue-200">100% SEGURO</span>
+                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-500">100% SEGURO</span>
               </div>
               
               <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-white/5 rounded-xl mb-2 text-brand-yellow">
+                <div className="p-2.5 bg-slate-100 rounded-[3.6px] mb-2 text-brand-blue">
                   <Zap className="h-5 w-5" />
                 </div>
-                <span className="text-[10px] font-bold tracking-widest uppercase text-blue-200">ULTRA RÁPIDO</span>
+                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-500">ULTRA RÁPIDO</span>
               </div>
 
               <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-white/5 rounded-xl mb-2 text-brand-yellow">
+                <div className="p-2.5 bg-slate-100 rounded-[3.6px] mb-2 text-brand-blue">
                   <MapPin className="h-5 w-5" />
                 </div>
-                <span className="text-[10px] font-bold tracking-widest uppercase text-blue-200">COBERTURA TOTAL</span>
+                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-500">COBERTURA TOTAL</span>
               </div>
             </motion.div>
           </div>
 
-          {/* Graphical Representation / Floating Cards (Responsivo y habilitado en móvil) */}
+          {/* Graphical Representation / Floating Cards (Inversa Flat Style) */}
           <div 
             className="col-span-1 lg:col-span-5 relative h-[380px] sm:h-[450px] w-full mt-10 lg:mt-0 flex justify-center items-center overflow-visible"
             style={{ perspective: 1000 }}
@@ -439,7 +421,7 @@ export default function HeroAnimado() {
                 transformStyle: 'preserve-3d',
               }}
             >
-              {/* Card 1: Map Representation (Cargado localmente) */}
+              {/* Card 1: Map Representation */}
               <motion.div 
                 className="absolute top-8 sm:top-12 right-0 w-[78%] z-25"
                 initial={{ opacity: 0, z: -100 }}
@@ -450,19 +432,19 @@ export default function HeroAnimado() {
                 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/15 bg-white p-2.5 sm:p-3 glow-blue-lg">
+                <div className="relative rounded-none overflow-hidden border border-slate-200 bg-white p-2.5 sm:p-3">
                   <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
                     <Image
                       src="/card_mapa.webp"
                       alt="Mapa de Cobertura de Mar del Plata"
                       width={400}
                       height={300}
-                      className="rounded-2xl object-cover h-40 sm:h-48 w-full shadow-inner"
+                      className="rounded-none object-cover h-40 sm:h-48 w-full"
                     />
                   </div>
-                  <div className="mt-3 flex items-center justify-between text-slate-800" style={{ transform: 'translateZ(30px)' }}>
-                    <span className="text-xs font-bold uppercase tracking-wide font-sans">Ruteo de Envíos</span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold uppercase font-subheading">Optimizado</span>
+                  <div className="mt-3 flex items-center justify-between text-slate-800 font-mono" style={{ transform: 'translateZ(30px)' }}>
+                    <span className="text-[11px] font-bold uppercase tracking-wide">Ruteo de Envíos</span>
+                    <span className="text-[9px] px-1.5 py-0.5 border border-emerald-500 bg-emerald-50 text-emerald-800 font-bold uppercase rounded-[3.6px]">Optimizado</span>
                   </div>
                 </div>
               </motion.div>
@@ -480,9 +462,9 @@ export default function HeroAnimado() {
                 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-slate-950/85 backdrop-blur-md p-3.5 sm:p-4 text-white glow-yellow-lg">
+                <div className="relative rounded-none overflow-hidden border border-slate-200 bg-slate-900 p-3.5 sm:p-4 text-white">
                   <div className="flex items-center gap-3 mb-2.5" style={{ transform: 'translateZ(10px)' }}>
-                    <div className="p-2 sm:p-2.5 rounded-xl bg-brand-yellow text-brand-blue shadow-accent-sm">
+                    <div className="p-2 sm:p-2 rounded-[3.6px] bg-brand-yellow text-brand-blue">
                       <Bike className="h-4.5 w-4.5 sm:h-5 sm:w-5 animate-pulse" />
                     </div>
                     <div>
@@ -490,14 +472,14 @@ export default function HeroAnimado() {
                       <p className="text-[9px] sm:text-[10px] text-brand-yellow font-mono">ID: MDQ-FLEX-2026</p>
                     </div>
                   </div>
-                  <div className="space-y-1.5 sm:space-y-2 text-xs" style={{ transform: 'translateZ(20px)' }}>
+                  <div className="space-y-1.5 sm:space-y-2 text-xs font-mono" style={{ transform: 'translateZ(20px)' }}>
                     <div className="flex justify-between border-b border-white/10 pb-1">
-                      <span className="text-blue-200 font-sans text-[10px] sm:text-xs">Origen</span>
-                      <span className="font-semibold text-white font-sans text-[10px] sm:text-xs">Centro de Distribución</span>
+                      <span className="text-slate-400 text-[10px] sm:text-[11px]">Origen</span>
+                      <span className="font-semibold text-white text-[10px] sm:text-[11px]">CD Centro</span>
                     </div>
-                    <div className="flex justify-between font-sans">
-                      <span className="text-blue-200 text-[10px] sm:text-xs">Destinatario</span>
-                      <span className="font-semibold text-brand-yellow text-[10px] sm:text-xs">Zona Güemes</span>
+                    <div className="flex justify-between">
+                      <span className="text-slate-400 text-[10px] sm:text-[11px]">Destinatario</span>
+                      <span className="font-semibold text-brand-yellow text-[10px] sm:text-[11px]">Zona Güemes</span>
                     </div>
                   </div>
                 </div>
@@ -514,9 +496,9 @@ export default function HeroAnimado() {
                   transform: 'translateZ(70px)',
                 }}
               >
-                <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-yellow text-brand-blue font-subheading tracking-widest text-xs sm:text-sm rounded-full shadow-2xl border border-white flex items-center gap-1.5 sm:gap-2 animate-bounce shadow-accent-sm font-medium">
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping" />
-                  Entrega Flex Activa
+                <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-yellow text-brand-blue font-mono tracking-widest text-[10px] sm:text-[11px] rounded-[3.6px] border border-brand-yellow flex items-center gap-1.5 sm:gap-2 font-bold">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
+                  ENTREGA FLEX ACTIVA
                 </div>
               </motion.div>
             </motion.div>
