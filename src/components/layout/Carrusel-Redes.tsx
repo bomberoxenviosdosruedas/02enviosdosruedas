@@ -3,7 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Heart, ExternalLink, Instagram, MessageSquare } from "lucide-react";
+import { Heart, ExternalLink, MessageSquare } from "lucide-react";
+import { FaInstagram } from 'react-icons/fa';
 
 const socialNetworks = [
     {
@@ -81,7 +82,7 @@ export const CarruselRedes = () => {
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-16">
                     <div className="space-y-4">
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue text-[10px] font-bold tracking-widest uppercase font-subheading">
-                            <Heart size={11} className="fill-brand-blue shrink-0 animate-pulse text-brand-blue" /> 
+                            <Heart size={11} className="fill-brand-blue shrink-0 animate-pulse text-brand-blue" />
                             Conectate con nosotros
                         </div>
                         <h2 className="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight leading-none text-brand-blue">
@@ -108,7 +109,7 @@ export const CarruselRedes = () => {
                                     style={{ backgroundColor: `${net.color}12` }}
                                     aria-hidden="true"
                                 >
-                                    {net.name === "Instagram" && <Instagram className="h-5 w-5 text-[#E1306C]" />}
+                                    {net.name === "Instagram" && <FaInstagram className="h-5 w-5 text-[#E1306C]" />}
                                     {net.name === "WhatsApp" && <MessageSquare className="h-5 w-5 text-[#25D366]" />}
                                     {net.name === "Facebook" && (
                                         <div className="relative w-5 h-5">
@@ -148,15 +149,15 @@ export const CarruselRedes = () => {
                                     className="w-64 h-64 sm:w-72 sm:h-72 shrink-0 rounded-3xl overflow-hidden relative group border border-slate-200 shadow-md transition-all hover:shadow-xl hover:border-brand-blue/30 hover:scale-[1.015] block bg-white"
                                     aria-label={`Ver publicación ${item.id} en ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`}
                                 >
-                                    <img 
-                                        src={item.image} 
-                                        alt={`Publicación de ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`} 
-                                        className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
+                                    <img
+                                        src={item.image}
+                                        alt={`Publicación de ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`}
+                                        className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                                     />
                                     {/* Glassmorphic hover overlay (Using clean branding blue overlay) */}
                                     <div className="absolute inset-0 bg-brand-blue/85 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center gap-5 p-6 text-center">
                                         <div className="w-12 h-12 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center relative shrink-0">
-                                            {item.type === 'ig' && <Instagram className="h-6 w-6 text-brand-yellow" />}
+                                            {item.type === 'ig' && <FaInstagram className="h-6 w-6 text-brand-yellow" />}
                                             {item.type === 'fb' && (
                                                 <div className="relative w-6 h-6 filter invert">
                                                     <Image
