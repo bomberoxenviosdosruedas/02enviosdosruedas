@@ -63,10 +63,10 @@ export default function ServicesOverview() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-3.5 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-bold uppercase tracking-widest inline-block shadow-accent-sm">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block shadow-[2px_2px_0px_#0636A5]">
             Nuestros Servicios
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white">
+          <h2 className="text-white text-display uppercase text-center">
             Soluciones Logísticas
           </h2>
           <div className="h-1.5 w-16 bg-brand-yellow mx-auto rounded-full" />
@@ -88,14 +88,14 @@ export default function ServicesOverview() {
                   scale: { type: "spring", stiffness: 300, damping: 20 },
                   opacity: { duration: 0.5, delay: index * 0.08 }
                 }}
-                className="bg-white rounded-3xl p-8 border border-slate-100 shadow-lg hover:shadow-[0_0_35px_rgba(255,236,1,0.18)] hover:border-brand-yellow/30 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="bg-white rounded-3xl p-8 border-2 border-brand-blue shadow-lg hover:shadow-[6px_6px_0px_#FFEC01] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <div className="flex justify-between items-start mb-6">
-                    <div className="p-4 rounded-2xl bg-slate-50 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-350">
+                    <div className="p-4 rounded-2xl bg-brand-blue/5 text-brand-blue group-hover:bg-brand-blue group-hover:text-white border border-brand-blue/10 transition-all duration-350">
                       <Icon className="h-6 w-6 group-hover:rotate-6 transition-transform" />
                     </div>
-                    <span className="px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-slate-100 text-slate-500 border border-slate-200/30 font-mono">
+                    <span className="px-3 py-1 rounded-xl text-[10px] font-subheading tracking-wider uppercase bg-brand-blue/5 text-brand-blue border border-brand-blue/10">
                       {service.badge}
                     </span>
                   </div>
@@ -104,18 +104,18 @@ export default function ServicesOverview() {
                     {service.title}
                   </h3>
                   
-                  <p className="text-slate-650 text-sm leading-relaxed font-sans mb-8">
+                  <p className="text-slate-600 text-sm leading-relaxed font-sans mb-8">
                     {service.description}
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs font-mono text-slate-450 group-hover:text-brand-blue transition-colors">
+                  <span className="text-xs font-sans text-slate-400 group-hover:text-brand-blue transition-colors">
                     Ver especificaciones de servicio
                   </span>
                   <Link 
                     href={service.href}
-                    className="h-12 w-12 rounded-xl bg-slate-50 text-slate-700 group-hover:text-brand-blue group-hover:bg-brand-yellow flex items-center justify-center transition-all duration-300 shadow-sm relative overflow-hidden"
+                    className="h-12 w-12 rounded-xl bg-slate-50 text-slate-700 border border-slate-200 group-hover:border-brand-blue group-hover:text-brand-blue group-hover:bg-brand-yellow flex items-center justify-center transition-all duration-300 shadow-sm relative overflow-hidden"
                   >
                     <ArrowUpRight className="h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 shrink-0" />
                   </Link>

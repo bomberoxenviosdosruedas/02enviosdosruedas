@@ -36,18 +36,18 @@ export default function CtaSection() {
         
         {/* Animated Badge */}
         <div className="inline-flex">
-          <span className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-blue text-white shadow-md animate-pulse">
+          <span className="px-4 py-2 rounded-full text-xs font-subheading tracking-widest bg-brand-yellow text-brand-blue border-2 border-brand-blue shadow-[2px_2px_0px_#0636A5] uppercase">
             SOLUCIONES ESCALABLES 2026
           </span>
         </div>
 
         {/* Heading */}
-        <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-none max-w-3xl mx-auto">
+        <h2 className="text-slate-900 text-display uppercase max-w-3xl mx-auto">
           ¿Listo para escalar la logística de tu E-Commerce?
         </h2>
 
         {/* Body */}
-        <p className="text-slate-650 text-lg max-w-2xl mx-auto font-sans leading-relaxed">
+        <p className="text-slate-600 text-lg max-w-2xl mx-auto font-sans leading-relaxed">
           Olvidate de la gestión de paquetes y enfocate en vender más. Dejá la distribución urbana en manos de expertos.
         </p>
 
@@ -60,17 +60,7 @@ export default function CtaSection() {
             id="cta-whatsapp-link"
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            animate={{ 
-              boxShadow: [
-                "0 4px 6px -1px rgba(6, 54, 165, 0.1), 0 2px 4px -1px rgba(6, 54, 165, 0.06)",
-                "0 10px 25px -5px rgba(6, 54, 165, 0.25), 0 8px 10px -6px rgba(6, 54, 165, 0.2)",
-                "0 4px 6px -1px rgba(6, 54, 165, 0.1), 0 2px 4px -1px rgba(6, 54, 165, 0.06)"
-              ]
-            }}
-            transition={{
-              boxShadow: { repeat: Infinity, duration: 2.5, ease: "easeInOut" }
-            }}
-            className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2.5 font-medium cursor-pointer"
+            className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#FFEC01] transition-all flex items-center justify-center gap-2.5 cursor-pointer"
           >
             <MessageSquare className="h-5 w-5 fill-current animate-bounce shrink-0" />
             Contactanos por WhatsApp
@@ -79,7 +69,7 @@ export default function CtaSection() {
           <Link
             href="/cotizar/lowcost"
             id="cta-rates-link"
-            className="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 hover:-translate-y-0.5 text-slate-700 font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-xl border border-slate-200 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+            className="w-full sm:w-auto bg-white hover:bg-slate-50 text-brand-blue font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
           >
             <FileText className="h-5 w-5" />
             Ver Tarifas 2026
@@ -87,7 +77,7 @@ export default function CtaSection() {
         </div>
 
         {/* Highlight footer stat line */}
-        <p className="text-[11px] font-mono tracking-widest text-brand-blue font-bold uppercase pt-4">
+        <p className="text-xs font-mono tracking-widest text-brand-blue font-bold uppercase pt-4">
           Atención comercial inmediata para PyMEs y Emprendedores en Mar del Plata.
         </p>
 

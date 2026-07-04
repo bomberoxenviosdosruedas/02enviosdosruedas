@@ -211,7 +211,7 @@ export default function LogisticaNetworkCanvas() {
 
         if (isNear || node.id === 'cd') {
           ctx.fillStyle = isNear ? '#FFEC01' : '#ffffff';
-          ctx.font = '500 10px var(--font-mono)';
+          ctx.font = '500 10px var(--font-sans)';
           ctx.fillText(node.label.toUpperCase(), node.x + 10, node.y + 3);
         }
       });

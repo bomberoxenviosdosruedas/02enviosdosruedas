@@ -70,18 +70,17 @@ export default function SliderServicios() {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
         }}
       >
-        
-        {/* Header Block */}
+            {/* Header Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-8 space-y-4">
-            <span className="px-3 py-1.5 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-bold uppercase tracking-widest inline-block border border-brand-blue/10">
+            <span className="px-4 py-1.5 bg-brand-blue/5 text-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block border-2 border-brand-blue/20 uppercase">
               Innovación en Distribución
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-slate-900">
+            <h2 className="text-slate-900 text-display uppercase">
               SOLUCIONES A MEDIDA
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed font-sans max-w-2xl">
-              Hemos redefinido los estándares de la logística urbana para ofrecerte una ventaja competitiva real en un mercado en constante evolución.
+              Hemos redefinido los estándares de la logística urbana para ofrecerte una ventaja competitiva real en un mercado en constante evolución en Mar del Plata.
             </p>
           </div>
           
@@ -90,7 +89,7 @@ export default function SliderServicios() {
               onClick={handlePrev}
               whileHover={{ scale: 1.05, x: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="h-12 w-12 rounded-full border border-slate-200 hover:border-brand-blue hover:text-brand-blue text-slate-700 flex items-center justify-center transition-colors focus:outline-none bg-white shadow-sm cursor-pointer"
+              className="h-12 w-12 rounded-xl border-2 border-brand-blue hover:bg-brand-yellow hover:text-brand-blue text-brand-blue flex items-center justify-center transition-all bg-white shadow-[3px_3px_0px_#0636A5] cursor-pointer"
               title="Anterior"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -99,7 +98,7 @@ export default function SliderServicios() {
               onClick={handleNext}
               whileHover={{ scale: 1.05, x: 2 }}
               whileTap={{ scale: 0.95 }}
-              className="h-12 w-12 rounded-full border border-slate-200 hover:border-brand-blue hover:text-brand-blue text-slate-700 flex items-center justify-center transition-colors focus:outline-none bg-white shadow-sm cursor-pointer"
+              className="h-12 w-12 rounded-xl border-2 border-brand-blue hover:bg-brand-yellow hover:text-brand-blue text-brand-blue flex items-center justify-center transition-all bg-white shadow-[3px_3px_0px_#0636A5] cursor-pointer"
               title="Siguiente"
             >
               <ChevronRight className="h-5 w-5" />
@@ -108,7 +107,7 @@ export default function SliderServicios() {
         </div>
 
         {/* Dynamic Interactive Slide Showcase */}
-        <div className="bg-slate-50 border border-slate-100/80 rounded-3xl p-8 sm:p-12 min-h-[320px] flex items-center relative overflow-hidden shadow-sm">
+        <div className="bg-slate-50 border-2 border-brand-blue rounded-3xl p-8 sm:p-12 min-h-[320px] flex items-center relative overflow-hidden shadow-[6px_6px_0px_#0636A5]">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -120,7 +119,7 @@ export default function SliderServicios() {
             >
               <div className="md:col-span-4 flex justify-center">
                 <motion.div 
-                  className="h-28 w-28 rounded-3xl bg-brand-blue text-brand-yellow flex items-center justify-center shadow-xl relative group overflow-hidden border border-white/10 cursor-pointer"
+                  className="h-28 w-28 rounded-3xl bg-brand-blue text-brand-yellow flex items-center justify-center shadow-[4px_4px_0px_#FFEC01] relative group overflow-hidden border-2 border-brand-yellow cursor-pointer"
                   whileHover={{ scale: 1.05, rotate: 2 }}
                   animate={{ y: [0, -8, 0] }}
                   transition={{
@@ -138,7 +137,7 @@ export default function SliderServicios() {
               </div>
               
               <div className="md:col-span-8 space-y-4 text-center md:text-left">
-                <span className="text-xs font-bold uppercase tracking-widest text-brand-blue font-mono">
+                <span className="text-xs font-subheading tracking-widest text-brand-blue uppercase">
                   {slides[current].subtitle}
                 </span>
                 <h3 className="text-3xl font-display uppercase tracking-wider text-slate-900 leading-none">
@@ -159,7 +158,7 @@ export default function SliderServicios() {
               key={idx}
               onClick={() => setCurrent(idx)}
               className={`h-2.5 rounded-full transition-all duration-350 focus:outline-none ${
-                idx === current ? 'w-10 bg-brand-blue' : 'w-2.5 bg-slate-200 hover:bg-slate-300'
+                idx === current ? 'w-10 bg-brand-blue border border-brand-blue' : 'w-2.5 bg-slate-200 hover:bg-slate-350 border border-slate-300'
               }`}
               title={`Ir a slide ${idx + 1}`}
             />
