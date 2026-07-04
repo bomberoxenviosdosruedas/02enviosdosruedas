@@ -3,7 +3,11 @@
 import React, { useState, useTransition } from 'react';
 import { reviewCatalog, CatalogItem } from '@/src/lib/reviewCatalog';
 import { saveFeedback } from './actions';
-import { FileText, Save, CheckCircle2, RefreshCw, Layers, ArrowRight, MessageSquare, Clock, MapPin } from 'lucide-react';
+import { 
+  FileText, Save, CheckCircle2, RefreshCw, Layers, 
+  ArrowRight, MessageSquare, Clock, MapPin, Search,
+  ChevronDown, ChevronUp, CheckCircle, AlertCircle
+} from 'lucide-react';
 
 interface FeedbackItem {
   id: number;
@@ -21,17 +25,52 @@ interface RevisarClientProps {
 export default function RevisarClient({ initialFeedbackList }: RevisarClientProps) {
   const [feedbackList, setFeedbackList] = useState<FeedbackItem[]>(initialFeedbackList);
   const [selectedPage, setSelectedPage] = useState<string>('All');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [inputs, setInputs] = useState<Record<string, string>>({});
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
-  // Extract unique page categories
-  const pages = ['All', ...Array.from(new Set(reviewCatalog.map((item) => item.page)))];
+  // Collapsible page accordion states (Default expand first page or all)
+  const [expandedPages, setExpandedPages] = useState<Record<string, boolean>>({
+    'Home (Inicio)': true
+  });
 
-  // Filter catalog items
-  const filteredCatalog = selectedPage === 'All'
-    ? reviewCatalog
-    : reviewCatalog.filter((item) => item.page === selectedPage);
+  // Toggle page visibility
+  const togglePageExpand = (pageName: string) => {
+    setExpandedPages((prev) => ({
+      ...prev,
+      [pageName]: !prev[pageName],
+    }));
+  };
+
+  // Check if a component has existing suggestions
+  const getComponentSuggestions = (componentPath: string) => {
+    return feedbackList.filter((f) => f.componentPath === componentPath);
+  };
+
+  // Get unique pages
+  const uniquePages = Array.from(new Set(reviewCatalog.map((item) => item.page)));
+  const pagesFilterList = ['All', ...uniquePages];
+
+  // Filter and search catalog items
+  const filteredCatalog = reviewCatalog.filter((item) => {
+    const matchesPage = selectedPage === 'All' || item.page === selectedPage;
+    const matchesSearch = 
+      item.sectionTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.componentName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.componentPath.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.currentText.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesPage && matchesSearch;
+  });
+
+  // Group filtered catalog by Page
+  const groupedCatalog: Record<string, CatalogItem[]> = {};
+  filteredCatalog.forEach((item) => {
+    if (!groupedCatalog[item.page]) {
+      groupedCatalog[item.page] = [];
+    }
+    groupedCatalog[item.page].push(item);
+  });
 
   const handleInputChange = (id: string, value: string) => {
     setInputs((prev) => ({ ...prev, [id]: value }));
@@ -70,7 +109,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
         setInputs((prev) => ({ ...prev, [item.id]: '' }));
 
         // Show success alert
-        setStatusMessage(`Ajuste para "${item.sectionTitle}" guardado correctamente en la base de datos.`);
+        setStatusMessage(`Sugerencia para "${item.sectionTitle}" guardada con éxito.`);
         setTimeout(() => setStatusMessage(null), 5000);
       } catch (error) {
         console.error('Error saving feedback:', error);
@@ -96,25 +135,43 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
         </p>
       </div>
 
-      {/* Tabs Filter Bar (Bento style items) */}
-      <div className="mb-8">
-        <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-500 mb-3">
-          Filtrar por Página
-        </label>
-        <div className="flex flex-wrap gap-3">
-          {pages.map((pageName) => (
-            <button
-              key={pageName}
-              onClick={() => setSelectedPage(pageName)}
-              className={`px-5 py-3 rounded-xl font-mono text-xs uppercase tracking-wider border-2 border-brand-blue transition-all duration-200 ${
-                selectedPage === pageName
-                  ? 'bg-brand-yellow text-brand-blue shadow-[3px_3px_0px_#0636A5] translate-x-[-2px] translate-y-[-2px]'
-                  : 'bg-white hover:bg-slate-100 text-brand-blue shadow-sm'
-              }`}
-            >
-              {pageName === 'All' ? 'Ver Todas' : pageName}
-            </button>
-          ))}
+      {/* Filter and Search Bar Card (Bento Style) */}
+      <div className="bg-white border-2 border-brand-blue rounded-3xl p-6 shadow-[5px_5px_0px_#0636A5] mb-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+        <div className="md:col-span-6 space-y-2">
+          <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
+            Filtrar por Página
+          </label>
+          <div className="flex flex-wrap gap-2">
+            {pagesFilterList.map((pageName) => (
+              <button
+                key={pageName}
+                onClick={() => setSelectedPage(pageName)}
+                className={`px-4 py-2 rounded-xl font-mono text-[11px] uppercase tracking-wider border-2 border-brand-blue transition-all duration-150 ${
+                  selectedPage === pageName
+                    ? 'bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_#0636A5] translate-x-[-1px] translate-y-[-1px]'
+                    : 'bg-slate-50 hover:bg-slate-100 text-brand-blue shadow-sm'
+                }`}
+              >
+                {pageName === 'All' ? 'Ver Todas' : pageName}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="md:col-span-6 space-y-2">
+          <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
+            Buscar Componente o Contenido
+          </label>
+          <div className="relative">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Buscar por título, archivo, textos..."
+              className="w-full bg-slate-50 border-2 border-slate-200 focus:border-brand-blue focus:bg-white rounded-xl pl-10 pr-4 py-3 text-xs font-sans outline-none transition-colors"
+            />
+          </div>
         </div>
       </div>
 
@@ -129,93 +186,159 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
         </div>
       )}
 
-      {/* Bento Grid layout of Catalog sections */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
-        <div className="lg:col-span-12">
-          <h2 className="text-2xl font-display text-brand-blue uppercase tracking-wide mb-6 flex items-center gap-2">
-            <Layers className="h-6 w-6 text-brand-yellow fill-brand-yellow/30" />
-            Componentes y Textos Disponibles ({filteredCatalog.length})
-          </h2>
-        </div>
-
-        {filteredCatalog.map((item) => (
-          <div
-            key={item.id}
-            className="lg:col-span-6 bg-white border-2 border-brand-blue rounded-3xl p-6 shadow-[5px_5px_0px_#0636A5] hover:shadow-[3px_3px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 flex flex-col justify-between"
-          >
-            <div>
-              {/* Card Header info */}
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                <span className="px-2 py-1 rounded-[4px] bg-slate-100 border border-slate-200 font-mono text-[10px] text-slate-600 font-bold">
-                  {item.page}
-                </span>
-                <span className="font-mono text-[10px] text-brand-blue font-bold flex items-center gap-1">
-                  <MapPin className="h-3 w-3" />
-                  {item.componentPath}
-                </span>
-              </div>
-
-              <h3 className="text-lg sm:text-xl font-display text-brand-blue uppercase leading-tight mb-3">
-                {item.sectionTitle}
-              </h3>
-
-              {/* Current Content Frame */}
-              <div className="mb-4">
-                <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-1.5">
-                  Texto Actual en Componente
-                </label>
-                <div className="bg-slate-50 p-4 border border-slate-200 rounded-xl max-h-48 overflow-y-auto">
-                  <pre className="text-xs text-slate-700 whitespace-pre-wrap font-sans font-medium leading-relaxed">
-                    {item.currentText}
-                  </pre>
-                </div>
-              </div>
-
-              {/* Guidance for owner */}
-              <div className="mb-4">
-                <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-1.5">
-                  Sugerencias para revisar
-                </label>
-                <div className="flex flex-wrap gap-1.5">
-                  {item.elementsToReview.map((el, i) => (
-                    <span key={i} className="text-[10px] bg-blue-50 text-brand-blue px-2 py-1 rounded-md font-sans font-semibold">
-                      • {el}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Input Form */}
-            <div className="mt-4 pt-4 border-t border-slate-100">
-              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-brand-blue mb-2">
-                ¿Qué querés ajustar, agregar o modificar? (voseo)
-              </label>
-              <textarea
-                value={inputs[item.id] || ''}
-                onChange={(e) => handleInputChange(item.id, e.target.value)}
-                placeholder="Escribí acá tu propuesta de cambio para este componente (ej: nuevos títulos, textos, links a imágenes o ideas generales)..."
-                rows={3}
-                className="w-full bg-slate-50 hover:bg-slate-100/50 focus:bg-white border-2 border-slate-200 focus:border-brand-blue rounded-xl p-3 text-sm font-sans text-slate-800 transition-colors duration-200 resize-none outline-none"
-              />
-              
-              <div className="flex justify-end mt-3">
-                <button
-                  onClick={() => handleSubmit(item)}
-                  disabled={isPending}
-                  className="px-4 py-2.5 bg-brand-yellow text-brand-blue font-mono font-bold text-xs uppercase tracking-wider border-2 border-brand-blue rounded-xl shadow-[3px_3px_0px_#0636A5] hover:shadow-[1px_1px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all duration-150 flex items-center gap-2 cursor-pointer disabled:opacity-50"
-                >
-                  {isPending ? (
-                    <RefreshCw className="h-3.5 w-3.5 animate-spin" />
-                  ) : (
-                    <Save className="h-3.5 w-3.5" />
-                  )}
-                  Guardar Ajuste
-                </button>
-              </div>
-            </div>
+      {/* Main Collapsible Dashboard Content */}
+      <div className="space-y-8 mb-16">
+        {Object.keys(groupedCatalog).length === 0 ? (
+          <div className="bg-white border-2 border-brand-blue rounded-3xl p-12 text-center text-slate-500 shadow-[5px_5px_0px_#0636A5]">
+            <p className="font-sans font-bold text-lg">No se encontraron componentes con los filtros seleccionados.</p>
+            <button
+              onClick={() => { setSelectedPage('All'); setSearchQuery(''); }}
+              className="mt-4 px-4 py-2 bg-brand-yellow border-2 border-brand-blue rounded-xl font-mono text-xs uppercase font-bold text-brand-blue"
+            >
+              Resetear Filtros
+            </button>
           </div>
-        ))}
+        ) : (
+          Object.entries(groupedCatalog).map(([pageName, items]) => {
+            const isExpanded = expandedPages[pageName] !== false;
+            
+            // Count components that have suggestions already in this group
+            const reviewedCount = items.filter(item => getComponentSuggestions(item.componentPath).length > 0).length;
+
+            return (
+              <div 
+                key={pageName} 
+                className="bg-white border-2 border-brand-blue rounded-3xl shadow-[5px_5px_0px_#0636A5] overflow-hidden transition-all duration-200"
+              >
+                {/* Accordion Trigger Header */}
+                <button
+                  onClick={() => togglePageExpand(pageName)}
+                  className="w-full flex items-center justify-between p-6 bg-slate-50 hover:bg-slate-100/50 border-b border-slate-100 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="h-2.5 w-2.5 rounded-full bg-brand-yellow animate-pulse" />
+                    <h2 className="text-xl sm:text-2xl font-display text-brand-blue uppercase tracking-wide text-left">
+                      {pageName}
+                    </h2>
+                    <span className="px-2 py-0.5 bg-brand-blue text-white rounded-md text-[10px] font-mono font-bold">
+                      {items.length} componentes
+                    </span>
+                    {reviewedCount > 0 && (
+                      <span className="px-2 py-0.5 bg-emerald-500 text-white rounded-md text-[10px] font-mono font-bold flex items-center gap-1">
+                        <CheckCircle className="h-3 w-3" />
+                        {reviewedCount} revisados
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-brand-blue">
+                    {isExpanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                  </div>
+                </button>
+
+                {/* Collapsible content (list of components) */}
+                {isExpanded && (
+                  <div className="p-6 bg-white grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {items.map((item) => {
+                      const suggestions = getComponentSuggestions(item.componentPath);
+                      const isReviewed = suggestions.length > 0;
+
+                      return (
+                        <div
+                          key={item.id}
+                          className={`rounded-2xl p-5 border-2 transition-all duration-200 flex flex-col justify-between ${
+                            isReviewed 
+                              ? 'border-emerald-500 bg-emerald-50/10 shadow-[3px_3px_0px_#10B981]' 
+                              : 'border-slate-200 bg-white hover:border-brand-blue shadow-sm'
+                          }`}
+                        >
+                          <div>
+                            {/* Component Header info */}
+                            <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                              <span className="font-mono text-[9px] text-brand-blue font-bold flex items-center gap-1 select-all">
+                                <MapPin className="h-3 w-3 shrink-0" />
+                                {item.componentPath}
+                              </span>
+                              {isReviewed ? (
+                                <span className="px-2 py-0.5 rounded-[4px] bg-emerald-100 border border-emerald-300 text-emerald-800 font-mono text-[8px] font-bold flex items-center gap-1">
+                                  <CheckCircle className="h-2.5 w-2.5" />
+                                  REVISADO ({suggestions.length})
+                                </span>
+                              ) : (
+                                <span className="px-2 py-0.5 rounded-[4px] bg-amber-50 border border-amber-300 text-amber-800 font-mono text-[8px] font-bold flex items-center gap-1">
+                                  <AlertCircle className="h-2.5 w-2.5" />
+                                  PENDIENTE
+                                </span>
+                              )}
+                            </div>
+
+                            <h3 className="text-base font-display text-brand-blue uppercase leading-tight mb-2">
+                              {item.sectionTitle}
+                            </h3>
+
+                            {/* Current text snippet box */}
+                            <div className="mb-4">
+                              <span className="block text-[8px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-1">
+                                TEXTO ORIGINAL
+                              </span>
+                              <div className="bg-slate-50/80 p-3 border border-slate-200/60 rounded-xl max-h-36 overflow-y-auto">
+                                <pre className="text-xs text-slate-600 whitespace-pre-wrap font-sans font-medium leading-relaxed">
+                                  {item.currentText}
+                                </pre>
+                              </div>
+                            </div>
+
+                            {/* Review prompts */}
+                            <div className="mb-4">
+                              <span className="block text-[8px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-1">
+                                PAUTAS DE REVISIÓN
+                              </span>
+                              <div className="flex flex-wrap gap-1">
+                                {item.elementsToReview.map((el, idx) => (
+                                  <span key={idx} className="text-[9px] bg-blue-50/50 text-brand-blue px-1.5 py-0.5 rounded border border-blue-100 font-sans font-semibold">
+                                    {el}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Submit form */}
+                          <div className="pt-3 border-t border-slate-100">
+                            <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-brand-blue mb-1.5">
+                              ¿Qué querés ajustar, agregar o modificar? (voseo)
+                            </label>
+                            <textarea
+                              value={inputs[item.id] || ''}
+                              onChange={(e) => handleInputChange(item.id, e.target.value)}
+                              placeholder="Ej: Modificar el título por 'Mensajería local 2026', cambiar imagen de fondo, etc..."
+                              rows={2}
+                              className="w-full bg-slate-50 focus:bg-white border border-slate-200 focus:border-brand-blue rounded-xl p-2.5 text-xs font-sans text-slate-800 outline-none transition-colors resize-none"
+                            />
+                            
+                            <div className="flex justify-end mt-2">
+                              <button
+                                onClick={() => handleSubmit(item)}
+                                disabled={isPending}
+                                className="px-3 py-1.5 bg-brand-yellow text-brand-blue font-mono font-bold text-[10px] uppercase tracking-wider border-2 border-brand-blue rounded-lg shadow-[2px_2px_0px_#0636A5] hover:shadow-[1px_1px_0px_#0636A5] hover:translate-x-[1px] hover:translate-y-[1px] transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                              >
+                                {isPending ? (
+                                  <RefreshCw className="h-3 w-3 animate-spin" />
+                                ) : (
+                                  <Save className="h-3 w-3" />
+                                )}
+                                Guardar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })
+        )}
       </div>
 
       {/* History and Track Suggestions list */}
@@ -244,7 +367,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                     <span className="px-2 py-0.5 bg-brand-blue text-white font-mono text-[9px] font-bold rounded uppercase">
                       {feedback.page}
                     </span>
-                    <span className="font-mono text-[10px] text-slate-500 font-semibold truncate max-w-xs sm:max-w-md">
+                    <span className="font-mono text-[10px] text-slate-500 font-semibold truncate max-w-xs sm:max-w-md select-all">
                       {feedback.componentPath}
                     </span>
                   </div>
@@ -257,7 +380,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Before */}
                   <div>
-                    <span className="block text-[9px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-1">
+                    <span className="block text-[8px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-1">
                       Contenido Original de Referencia
                     </span>
                     <div className="bg-white p-3 border border-slate-100 rounded-xl text-xs text-slate-500 max-h-32 overflow-y-auto whitespace-pre-wrap font-sans">
@@ -267,7 +390,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
 
                   {/* Proposed */}
                   <div>
-                    <span className="block text-[9px] font-mono font-bold uppercase tracking-wider text-brand-blue mb-1">
+                    <span className="block text-[8px] font-mono font-bold uppercase tracking-wider text-brand-blue mb-1">
                       Ajuste Propuesto
                     </span>
                     <div className="bg-yellow-50/50 p-3 border border-yellow-200 rounded-xl text-xs text-brand-blue font-semibold max-h-32 overflow-y-auto whitespace-pre-wrap font-sans">
