@@ -1,76 +1,104 @@
-# 🚀 Envíos Dos Ruedas - Mar del Plata (2026)
+# 🚀 Envíos Dos Ruedas — Logística Same-Day en Mar del Plata (2026)
 
-Bienvenido al repositorio de **Envíos Dos Ruedas**, la solución líder en mensajería de última milla, envíos Same-Day y distribución para E-Commerce en Mar del Plata.
+Bienvenido al repositorio oficial de **Envíos Dos Ruedas**, la plataforma digital líder en mensajería de última milla, ruteo inteligente LowCost y soluciones logísticas para E-Commerce y MercadoLibre Flex. Desarrollada específicamente para la operatividad vial y comercial de **Mar del Plata**, con vigencia operativa proyectada para el año **2026**.
 
-Este proyecto está construido con un stack moderno y rápido, diseñado para ofrecer una experiencia fluida tanto a los clientes como al equipo operativo.
+Este proyecto está diseñado para ofrecer una experiencia digital premium, fluida e interactiva, tanto para clientes finales que cotizan envíos como para PyMEs y emprendedores que gestionan entregas masivas.
+
+---
+
+## 🎨 Identidad Visual y Diseño Premium
+
+Nuestra interfaz web se rige por un sistema de diseño propio documentado en [DESIGN.md](file:///E:/proyectos/02enviosdosruedashector/DESIGN.md):
+*   **Azul Principal (`#0636A5`):** Transmite confianza, seriedad y el respaldo institucional de nuestra red.
+*   **Amarillo Acento (`#FFEC01`):** Aporta la energía, velocidad vial y visibilidad urbana que caracteriza a nuestra flota.
+*   **Tipografía de Impacto:** 
+    *   Títulos Display: **Anton** (estilo señalización vial).
+    *   Subtítulos y Badges: **Bebas Neue**.
+    *   Cuerpo e Inputs: **Inter**.
+*   **Efectos Premium:** Uso intensivo de glassmorphism, resplandores dinámicos (`glow-blue`, `glow-yellow`) y micro-animaciones fluidas con **Motion** y **GSAP**.
 
 ---
 
 ## 🛠️ Stack Tecnológico
 
-*   **Frontend & Routing:** [Next.js](https://nextjs.org/) (App Router, React 19).
-*   **Base de Datos y Modelado:** [Prisma ORM](https://www.prisma.io/).
-*   **Estilos:** [Tailwind CSS v4](https://tailwindcss.com/) mediante variables de tema centralizadas en `src/app/globals.css`.
-*   **Animaciones e Interactividad:** [Motion](https://motion.dev/) (`motion/react`) y [Lucide React](https://lucide.dev/) para iconos.
-*   **Gestor de Paquetes:** `pnpm`.
+El proyecto está construido sobre una arquitectura moderna, eficiente y robusta:
+
+*   **Framework principal:** [Next.js 15](https://nextjs.org/) (App Router, con soporte experimental para React 19).
+*   **Modelado y ORM:** [Prisma ORM](https://www.prisma.io/) conectado a PostgreSQL.
+*   **Estilos:** [Tailwind CSS v4](https://tailwindcss.com/) (configuración a través de variables de tema centralizadas en `@theme`).
+*   **Mapas y Geo-ruteo:** [Leaflet](https://leafletjs.com/) para visualización interactiva de direcciones y cálculo de rutas en tiempo real sobre el trazado urbano marplatense.
+*   **Animaciones:** [Motion](https://motion.dev/) (`motion/react`) y [GSAP](https://gsap.com/).
+*   **Gestor de Paquetes:** [pnpm](https://pnpm.io/).
 
 ---
 
 ## 📂 Arquitectura del Proyecto
 
-El código está estructurado de la siguiente forma:
+El código fuente está estructurado de manera modular y mantenible:
 
-*   `src/app/`: Rutas, páginas y layouts principales de la aplicación (App Router).
-    *   `/cotizar/`: Flujos interactivos para cotizar envíos Express y LowCost.
-    *   `/servicios/`: Explicaciones detalladas de los pilares de servicio (Flex, Express, LowCost, Emprendedores).
-*   `src/components/`: Componentes interactivos reutilizables (formularios, chats, animaciones).
-*   `docs/`: Guías de referencia, mapas de cobertura, contenido estático y base de datos de imágenes.
-*   `.agents/`: Configuraciones de IA, reglas de desarrollo (`AGENTS.md`) y skills personalizadas (`nano-banana-prompter`).
+```
+src/
+├── app/                      # Enrutamiento y páginas (Next.js App Router)
+│   ├── cotizar/              # Módulos de cotización interactiva
+│   │   ├── express/          # Express: Envío rápido con mapa interactivo
+│   │   └── lowcost/          # LowCost: Planilla para envíos masivos y ruteo programado
+│   └── servicios/            # Páginas informativas de servicios (Express, Flex, LowCost, Emprendedores)
+├── components/               # Componentes interactivos reutilizables
+│   ├── ui/                   # Componentes base y widgets genéricos (ej. LeafletRouteMap)
+│   ├── layout/               # Elementos globales (OptimizedHeader, OptimizedFooter, CarruselRedes)
+│   └── home/                 # Componentes específicos de la Landing (HeroAnimado, VisionSection)
+├── prisma/                   # Esquema de base de datos y migraciones
+└── generated/                # Cliente auto-generado de Prisma
+```
 
 ---
 
 ## 🚀 Inicio Rápido (Desarrollo Local)
 
-### Requisitos Previos
+Seguí estos pasos para levantar el entorno local en tu máquina:
+
+### 1. Requisitos previos
+Asegurate de tener instalados:
 *   [Node.js](https://nodejs.org/) (v18 o superior recomendado)
-*   [pnpm](https://pnpm.io/) instalado globalmente
+*   [pnpm](https://pnpm.io/) (`npm i -g pnpm`)
+*   Una base de datos PostgreSQL activa
 
-### Pasos para Configurar y Ejecutar
+### 2. Instalación
+Instalá las dependencias del proyecto:
+```bash
+pnpm install
+```
 
-1.  **Instalar dependencias:**
-    ```bash
-    pnpm install
-    ```
+### 3. Configuración de Variables de Entorno
+Copiá el archivo `.env.example` para crear tu `.env.local`:
+```bash
+cp .env.example .env.local
+```
+Abrí el archivo `.env.local` y configurá tus credenciales:
+```env
+GEMINI_API_KEY="tu_clave_api_gemini"
+DATABASE_URL="postgresql://usuario:contraseña@localhost:5432/envios_dos_ruedas"
+```
 
-2.  **Configurar Variables de Entorno:**
-    Duplica el archivo `.env.example` como `.env.local` y define tu clave de API de Gemini y la cadena de conexión de tu base de datos:
-    ```bash
-    cp .env.example .env.local
-    ```
-    Edita `.env.local` y añade:
-    ```env
-    GEMINI_API_KEY="tu_api_key_aqui"
-    DATABASE_URL="tu_conexion_de_base_de_datos"
-    ```
+### 4. Preparación de la Base de Datos
+Generá el cliente de Prisma y aplicá el esquema a tu base de datos local:
+```bash
+pnpm prisma generate
+pnpm prisma db push
+```
 
-3.  **Preparar la Base de Datos (Prisma):**
-    Genera el cliente de Prisma y aplica las migraciones de base de datos correspondientes:
-    ```bash
-    pnpm prisma generate
-    pnpm prisma db push
-    ```
-
-4.  **Iniciar Servidor de Desarrollo:**
-    ```bash
-    pnpm dev
-    ```
-    La aplicación estará disponible en [http://localhost:3000](http://localhost:3000).
+### 5. Ejecutar en Entorno de Desarrollo
+Levantá el servidor local:
+```bash
+pnpm dev
+```
+La aplicación estará disponible en [http://localhost:3000](http://localhost:3000).
 
 ---
 
-## 🤖 Guías de Desarrollo e IA
+## 🤖 Desarrollo Colaborativo con Inteligencia Artificial (IA)
 
-Este repositorio está preparado con configuraciones para interactuar eficientemente con asistentes de inteligencia artificial:
-*   [GEMINI.md](file:///E:/proyectos/02enviosdosruedashector/GEMINI.md): Información clave sobre el stack y diseño del proyecto para optimizar el consumo de tokens.
-*   [.agents/AGENTS.md](file:///E:/proyectos/02enviosdosruedashector/.agents/AGENTS.md): Reglas estilísticas, paleta de colores y convenciones tipográficas para asegurar que el código generado sea consistente.
-*   [.aiexclude](file:///E:/proyectos/02enviosdosruedashector/.aiexclude): Reglas de exclusión para evitar la lectura innecesaria de archivos temporales o pesados por los asistentes.
+Este proyecto está altamente optimizado para trabajar con agentes de inteligencia artificial y copilotos. Antes de escribir código, por favor revisá los siguientes archivos de configuración:
+*   [AGENTS.md](file:///E:/proyectos/02enviosdosruedashector/AGENTS.md): Reglas de código estrictas, convenciones CSS para Tailwind CSS v4, tipografías y el uso obligatorio del **Tono de Voz con voseo Rioplatense** para copys finales.
+*   [GEMINI.md](file:///E:/proyectos/02enviosdosruedashector/GEMINI.md): Resumen técnico del repositorio para optimización y ahorro en el consumo de tokens de contexto.
+*   [.aiexclude](file:///E:/proyectos/02enviosdosruedashector/.aiexclude): Definición de rutas y archivos excluidos para las lecturas de los asistentes.

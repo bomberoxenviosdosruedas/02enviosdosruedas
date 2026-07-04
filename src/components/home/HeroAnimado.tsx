@@ -99,7 +99,7 @@ function LogisticaNetworkCanvas() {
         progress: 0,
         speed: 0.003 + Math.random() * 0.005,
         size: 2 + Math.random() * 2,
-        color: Math.random() > 0.4 ? '#0636A5' : '#FFEC01', // Colores de marca en el mapa
+        color: Math.random() > 0.4 ? '#ffffff' : '#FFEC01', // Colores de marca en el mapa
       });
     };
 
@@ -156,8 +156,8 @@ function LogisticaNetworkCanvas() {
         const dist = Math.sqrt(dx * dx + dy * dy);
         
         ctx.strokeStyle = dist < 180 
-          ? `rgba(6, 54, 165, ${0.2 + (1 - dist / 180) * 0.4})` // Brillo azul de marca al acercarse
-          : 'rgba(6, 54, 165, 0.08)'; // Líneas sutiles de fondo
+          ? `rgba(255, 236, 1, ${0.15 + (1 - dist / 180) * 0.3})` // Brillo amarillo de acento al acercarse
+          : 'rgba(255, 255, 255, 0.12)'; // Líneas sutiles blancas de fondo
         
         ctx.beginPath();
         ctx.moveTo(fromNode.x, fromNode.y);
@@ -223,13 +223,13 @@ function LogisticaNetworkCanvas() {
           ctx.fill();
         }
 
-        ctx.fillStyle = isNear ? '#FFEC01' : '#0636A5';
+        ctx.fillStyle = isNear ? '#FFEC01' : '#ffffff';
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
         ctx.fill();
 
         if (isNear || node.id === 'cd') {
-          ctx.fillStyle = '#0636A5';
+          ctx.fillStyle = isNear ? '#FFEC01' : '#ffffff';
           ctx.font = '500 10px var(--font-mono)';
           ctx.fillText(node.label.toUpperCase(), node.x + 10, node.y + 3);
         }
@@ -299,24 +299,24 @@ export default function HeroAnimado() {
   return (
     <section 
       id="hero-animado" 
-      className="relative min-h-[95vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-slate-50 border-b border-slate-200 text-slate-900"
+      className="relative min-h-[95vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue text-white"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleMouseLeave}
     >
       {/* Background patterns */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(6,54,165,0.02),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,236,1,0.03),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.02),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,236,1,0.02),transparent_50%)]" />
       
       {/* Interactive Logistics Network Background */}
       <LogisticaNetworkCanvas />
 
       {/* Decorative overlay for layout integration */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent opacity-90 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-blue to-transparent opacity-90 pointer-events-none" />
 
       {/* Background illustration overlay with topographic feel */}
-      <div className="absolute inset-0 opacity-5 mix-blend-multiply pointer-events-none">
+      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none">
         <Image
           src="/hero-background.jpeg"
           alt="Textura de Mapa de calles"
@@ -345,17 +345,17 @@ export default function HeroAnimado() {
             {/* Title */}
             <motion.h1 
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[-0.03em] leading-[0.9] text-brand-blue"
+              className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[-0.03em] leading-[0.9] text-white"
             >
               Mensajería y Logística <br />
-              <span className="bg-brand-yellow px-1 py-0.5">E-Commerce</span> <br />
+              <span className="bg-brand-yellow px-1 py-0.5 text-brand-blue">E-Commerce</span> <br />
               en Mar del Plata
             </motion.h1>
 
             {/* Body Text */}
             <motion.p 
               variants={itemVariants}
-              className="text-lg max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-slate-650"
+              className="text-lg max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-slate-200"
             >
               Somos tu partner estratégico en mensajería, envíos en el día y delivery de última milla. Soluciones ágiles, seguras y competitivas para potenciar tu marca.
             </motion.p>
@@ -373,7 +373,7 @@ export default function HeroAnimado() {
               <Link
                 href="/servicios/envios-express"
                 id="hero-cta-servicios"
-                className="w-full sm:w-auto bg-transparent hover:bg-slate-100 text-brand-blue font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-[3.6px] border border-slate-300 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-[3.6px] border border-white/30 transition-all duration-200 flex items-center justify-center gap-2"
               >
                 Ver Servicios
               </Link>
@@ -382,27 +382,27 @@ export default function HeroAnimado() {
             {/* Features list */}
             <motion.div 
               variants={itemVariants}
-              className="grid grid-cols-3 gap-3 pt-8 border-t border-slate-200 max-w-lg mx-auto lg:mx-0"
+              className="grid grid-cols-3 gap-3 pt-8 border-t border-white/10 max-w-lg mx-auto lg:mx-0"
             >
               <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-slate-100 rounded-[3.6px] mb-2 text-brand-blue">
+                <div className="p-2.5 bg-white/10 rounded-[3.6px] mb-2 text-brand-yellow">
                   <Shield className="h-5 w-5" />
                 </div>
-                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-500">100% SEGURO</span>
+                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-300">100% SEGURO</span>
               </div>
               
               <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-slate-100 rounded-[3.6px] mb-2 text-brand-blue">
+                <div className="p-2.5 bg-white/10 rounded-[3.6px] mb-2 text-brand-yellow">
                   <Zap className="h-5 w-5" />
                 </div>
-                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-500">ULTRA RÁPIDO</span>
+                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-300">ULTRA RÁPIDO</span>
               </div>
 
               <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-slate-100 rounded-[3.6px] mb-2 text-brand-blue">
+                <div className="p-2.5 bg-white/10 rounded-[3.6px] mb-2 text-brand-yellow">
                   <MapPin className="h-5 w-5" />
                 </div>
-                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-500">COBERTURA TOTAL</span>
+                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-300">COBERTURA TOTAL</span>
               </div>
             </motion.div>
           </div>
