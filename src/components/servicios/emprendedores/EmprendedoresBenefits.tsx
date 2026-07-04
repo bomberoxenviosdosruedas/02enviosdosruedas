@@ -29,11 +29,6 @@ export default function EmprendedoresBenefits() {
       icon: Warehouse,
     },
     {
-      title: 'Reportes Detallados',
-      desc: 'Accedé a métricas sumamente claras y reportes exhaustivos sobre tus entregas completadas, retornos, devoluciones y tiempos promedio de tránsito.',
-      icon: BarChart3,
-    },
-    {
       title: 'Asesor Dedicado',
       desc: 'Asignamos un ejecutivo de cuentas exclusivo para tu firma. Resolvé cualquier consulta operativa o eventualidad directamente con una persona idónea.',
       icon: UserCheck,

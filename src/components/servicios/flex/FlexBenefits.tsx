@@ -29,11 +29,6 @@ export default function FlexBenefits() {
       icon: Compass,
     },
     {
-      title: 'App de Control',
-      desc: 'Gestioná, cargá, controlá y monitoreá tus despachos diarios en tiempo real desde nuestra plataforma exclusiva de control.',
-      icon: Smartphone,
-    },
-    {
       title: 'Choferes Calificados',
       desc: 'Contamos con personal altamente capacitado para brindar la mejor experiencia de entrega y atención a tus clientes finales.',
       icon: Users,

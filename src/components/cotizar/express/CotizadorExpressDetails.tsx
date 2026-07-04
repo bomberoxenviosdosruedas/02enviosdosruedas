@@ -62,7 +62,7 @@ export default function CotizadorExpressDetails() {
             <strong className="text-slate-800">Basado en la Distancia:</strong> Utilizamos la distancia calculada entre origen y destino para determinar la tarifa base. Contamos con rangos de precios predefinidos para asegurar que el costo sea justo y cubra el esfuerzo del repartidor.
           </p>
           <p>
-            <strong className="text-slate-800">Tiempo Estimado (Informativo):</strong> El tiempo de entrega estimado se calcula utilizando datos de tráfico y la distancia. Al ser un envío Express, la prioridad es máxima y la entrega se realiza generalmente en menos de 120 minutos.
+            <strong className="text-slate-800">Tiempo Estimado (Informativo):</strong> El tiempo de entrega estimado se calcula utilizando datos de tráfico y la distancia. Al ser un envío Express, la prioridad es máxima y la entrega se realiza generalmente en menos de 180 minutos (desde el retiro).
           </p>
 
           <div className="bg-amber-50 border border-amber-100 rounded-2xl p-4 mt-6">

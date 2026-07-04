@@ -15,7 +15,7 @@ export default function FlexPricing() {
     {
       name: 'Nivel 1 (Crecimiento)',
       volume: '1 a 4 envíos diarios',
-      price: 'Tarifario Clásico',
+      price: 'Tarifa LowCost',
       description: 'Ideal para vendedores que recién comienzan con MercadoLibre Flex.',
       bullets: ['Tarifa zonificada estándar', 'Segunda visita al 50%', 'Retiro sin cargo por tu domicilio'],
       highlight: false,

@@ -21,11 +21,6 @@ export default function FlexRequirements() {
       desc: 'Establecer un horario de corte coordinado (sugerido 15:00 hs) para procesar tus ventas diarias de forma organizada.',
       icon: Clock,
     },
-    {
-      title: 'Alta en Plataforma',
-      desc: 'Completar el proceso de registro y suscripción en nuestra plataforma exclusiva para el control ágil de tus despachos.',
-      icon: FileCheck,
-    },
   ];
 
   return (

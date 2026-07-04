@@ -91,7 +91,7 @@ export default function LowCostHero() {
               variants={itemVariants}
               className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-blue-50"
             >
-              Variabilizá tus costos logísticos con nuestro servicio de ruteo masivo inteligente. La mejor tarifa de Mar del Plata para tus envíos diarios sin sacrificar un gramo de seguridad ni control.
+              Nuestro servicio Lowcost, las entregas son realizadas en el transcurso del día sin elección de rango horario. La mejor tarifa de Mar del Plata para tus envíos diarios sin sacrificar un gramo de seguridad ni control (Cobertura en todo Mar del Plata).
             </motion.p>
 
             {/* CTA Buttons */}
