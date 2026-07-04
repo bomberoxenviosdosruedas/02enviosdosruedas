@@ -30,26 +30,26 @@ export default function VisionSection() {
           
           {/* Information Block */}
           <div className="lg:col-span-6 space-y-8">
-            <span className="px-3 py-1.5 bg-blue-100 text-brand-blue rounded-full text-xs font-bold uppercase tracking-widest inline-block border border-blue-200/50">
+            <span className="px-4 py-1.5 bg-brand-blue/5 text-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block border border-brand-blue/20 uppercase">
               Partner Logístico Especializado
             </span>
             
-            <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-none">
+            <h2 className="text-slate-900 text-display uppercase text-left">
               Nuestra Visión Logística
             </h2>
             
             <p className="text-slate-600 text-lg leading-relaxed font-sans max-w-xl">
-              Transformamos tus costos fijos en soluciones flexibles que acompañan el crecimiento de tu negocio, con ruteos eficientes y una red totalmente integrada.
+              Transformamos tus costos fijos en soluciones flexibles que acompañan el crecimiento de tu negocio, con ruteos eficientes y una red totalmente integrada en toda Mar del Plata.
             </p>
 
             <div className="space-y-5 pt-4">
               {/* Feature 1 */}
-              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100 group cursor-default">
+              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-all border-2 border-transparent hover:border-brand-blue/10 group cursor-default">
                 <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-xl shrink-0 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
                   <Clock className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-subheading uppercase tracking-wider text-slate-900 leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
+                  <h4 className="text-lg font-subheading uppercase tracking-wider text-slate-900 leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
                     Entregas a Tiempo
                   </h4>
                   <p className="text-sm text-slate-500 font-sans leading-relaxed">
@@ -59,12 +59,12 @@ export default function VisionSection() {
               </div>
 
               {/* Feature 2 */}
-              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100 group cursor-default">
+              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-all border-2 border-transparent hover:border-brand-blue/10 group cursor-default">
                 <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-xl shrink-0 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
                   <ShieldCheck className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-subheading uppercase tracking-wider text-slate-900 leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
+                  <h4 className="text-lg font-subheading uppercase tracking-wider text-slate-900 leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
                     Envíos Seguros
                   </h4>
                   <p className="text-sm text-slate-500 font-sans leading-relaxed">
@@ -91,10 +91,10 @@ export default function VisionSection() {
                     scale: { type: "spring", stiffness: 300, damping: 20 },
                     opacity: { duration: 0.5, delay: i * 0.1 }
                   }}
-                  className={`p-8 rounded-3xl border shadow-sm transition-colors duration-300 flex flex-col justify-between cursor-pointer group ${
+                  className={`p-8 rounded-3xl border-2 transition-all duration-300 flex flex-col justify-between cursor-pointer group ${
                     i === 2 
-                      ? 'sm:col-span-2 bg-slate-50 border-slate-200 hover:border-brand-yellow hover:bg-slate-100/50 hover:shadow-accent-md' 
-                      : 'bg-white border-slate-100 hover:border-brand-blue/30 hover:shadow-md'
+                      ? 'sm:col-span-2 bg-brand-yellow/5 border-brand-blue hover:border-brand-blue hover:shadow-[6px_6px_0px_#0636A5] hover:bg-brand-yellow/10' 
+                      : 'bg-white border-brand-blue/15 hover:border-brand-blue hover:shadow-[6px_6px_0px_#0636A5]'
                   }`}
                 >
                   <div className="flex justify-between items-start mb-6">
@@ -103,7 +103,7 @@ export default function VisionSection() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-3xl lg:text-4xl font-display text-brand-blue uppercase leading-none mb-2 group-hover:text-glow-blue transition-all duration-300">
+                    <h3 className="text-4xl lg:text-5xl font-display text-brand-blue uppercase leading-none mb-2">
                       {stat.value}
                     </h3>
                     <p className="text-xs text-slate-500 font-sans uppercase tracking-wider leading-relaxed">
