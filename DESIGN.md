@@ -1,6 +1,6 @@
 # Sistema de Diseño — Envíos DosRuedas (DESIGN.md)
 
-Este documento define de manera estricta y detallada las especificaciones del sistema de diseño, los tokens visuales, la estética y la arquitectura del proyecto **Envíos DosRuedas** (Logística de última milla y soluciones E-Commerce en Mar del Plata, año de referencia **2026**).
+Este documento define de manera estricta y detallada las especificaciones del sistema de diseño, los tokens visuales, las pautas estéticas y la arquitectura del proyecto **Envíos DosRuedas** (Logística de última milla y soluciones E-Commerce en Mar del Plata, año de referencia **2026**), evolucionado hacia un sistema de **Bento Grid UI** con acento **Neo-Brutalista Corporativo**.
 
 ---
 
@@ -20,89 +20,103 @@ Nuestra paleta de colores equilibra la confianza institucional y la velocidad vi
 > Los colores hexadecimales `#0636A5` y `#FFEC01` solo deben ser utilizados de forma directa (hardcoded) en elementos especiales donde las clases de Tailwind no son aplicables, como:
 > - Elementos gráficos nativos en Canvas (`CanvasRenderingContext2D`).
 > - Atributos de dibujo en SVGs nativos (`fill`, `stroke`).
-> - Configuraciones de trazado e íconos en mapas interactivos (`LeafletMap` / `LeafletRouteMap`).
+> - Mapas interactivos de ruteo y geolocalización (LeafletRouteMap).
 
 ---
 
-## 🔤 2. Sistema Tipográfico
+## 🍱 2. Arquitectura Estructural Bento Grid UI
 
-Para transmitir solidez y el impacto visual de la señalización urbana, la jerarquía tipográfica es estricta:
+El diseño visual del sitio se organiza mediante una estructura modular de Bento Cards que distribuye la información de manera limpia, jerárquica y altamente eficiente.
 
-*   **Títulos de Gran Tamaño (`font-display`):** **Anton** (Mayúsculas condensadas). Utilizada en títulos principales `h1` y `h2` del sitio para dar impacto de señalética de tránsito.
-*   **Subtítulos y Números Destacados (`font-subheading`):** **Bebas Neue**. Utilizada en badges, números clave, estadísticas y etiquetas de tarifas.
-*   **Cuerpo de Texto y Formularios (`font-sans`):** **Inter**. Tipografía altamente legible y neutra para descripciones, inputs y flujos de cotización.
+### Estructura de la Grilla (Grid Scheme)
+Se utiliza una base responsiva de 12 columnas para ofrecer la máxima flexibilidad posible de composición tridimensional:
+```html
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+  <!-- Bento Cards -->
+</div>
+```
 
-### Clases CSS de Utilidad en [globals.css](file:///e:/proyectos/02enviosdosruedashector/src/app/globals.css)
-*   `text-display`: Fuente **Anton**, tamaño responsivo fluido (`clamp(3rem, 5vw, 4.5rem)`), interlineado `1.1` y espaciado `0.02em`.
+### Reglas de Card Spanning (Celda Maestra y Celdas de Apoyo)
+Las tarjetas deben dimensionarse según su relevancia y contenido dentro de la grilla de 12 columnas:
+
+*   **Celdas Maestras (Hero, Mapas Interactivos o Cotizadores):** Ocupan un ancho de `col-span-12` o `md:col-span-8` con altura extendida (opcionalmente `row-span-2`).
+*   **Celdas Medias (Estadísticas Clave, Accesos Rápidos):** Ocupan `md:col-span-6` o `md:col-span-4`.
+*   **Celdas Secundarias (Tags, Clima, Avisos Rápidos):** Ocupan `md:col-span-3` o `md:col-span-4`.
+
+### Aislamiento y Aire Visual
+Para garantizar una experiencia premium, todas las Bento Cards deben respetar las siguientes directrices:
+1.  **Esquinas Suaves:** Uso obligatorio de `rounded-2xl` (16px) o `rounded-3xl` (24px) para suavizar la estructura rígida de las tarjetas.
+2.  **Aislamiento de Desborde:** Aplicar `overflow-hidden` obligatoriamente en tarjetas que contengan mapas, canvas interactivos o imágenes de fondo.
+3.  **Padding Interno Estricto:** Margen de aire interno no inferior a `p-6` (24px) para pantallas medianas, escalando a `p-8` (32px) en pantallas grandes.
+
+---
+
+## ⚡ 3. Efectos Neo-Brutalistas y Premium de Refuerzo
+
+Fucionamos la rigidez estructural con la fluidez del diseño web interactivo moderno:
+
+### Efecto "Tarjeta Neo-Bento" (Bordes y Sombras)
+Todas las celdas Bento interactivas deben combinar bordes sólidos de marca con sombras duras sin desenfoque:
+*   **Estado Base:** `border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5]`
+*   **Estado Activo/Hover:** Para simular un hundimiento táctico real al pasar el mouse, se traslada la tarjeta y se reduce la sombra:
+    `hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] transition-all duration-200`
+
+### Resplandores (Glows Premium)
+Para iluminar áreas clave en fondos oscuros sin romper la estética de Bento:
+*   `glow-blue-bento`: Resplandor de acento azul (`box-shadow: 0 0 25px rgba(6, 54, 165, 0.25)`)
+*   `glow-yellow-bento`: Resplandor de acento amarillo (`box-shadow: 0 0 25px rgba(255, 236, 1, 0.35)`)
+
+### Degradados de Superficie
+Para dar profundidad visual a las Bento Cards individuales:
+*   `gradient-blue-bento`: De azul de marca `#0636A5` a un tono profundo `#172554`.
+*   `gradient-yellow-bento`: De amarillo de marca `#FFEC01` a un ámbar suave `#F59E0B`.
+*   `gradient-surface-bento`: Transición sutil clara de `#FFFFFF` a `#F8FAFC`.
+
+---
+
+## 🔤 4. Sistema Tipográfico Urbano
+
+Imitando el impacto visual y la legibilidad inmediata de la señalización vial de Mar del Plata, la jerarquía de fuentes es estricta:
+
+*   **Títulos Display (`font-display`):** **Anton** (Mayúsculas condensadas). Utilizada en títulos principales `h1` y `h2` de las cabeceras Bento.
+*   **Subtítulos y Números Destacados (`font-subheading`):** **Bebas Neue**. Utilizada en badges, números clave, métricas viales e indicadores de tarifas.
+*   **Cuerpo de Texto y Formularios (`font-sans`):** **Inter**. Tipografía limpia y neutral para descripciones y flujos interactivos.
+
+### Utilidades CSS Definidas en [globals.css](file:///e:/proyectos/02enviosdosruedashector/src/app/globals.css)
+*   `text-display`: Fuente **Anton**, tamaño fluido (`clamp(3rem, 5vw, 4.5rem)`), interlineado `1.1` y espaciado `0.02em`.
 *   `text-h1`: Fuente **Anton**, clamp de `2.25rem` a `3rem`.
 *   `text-h2`: Fuente **Anton**, clamp de `1.75rem` a `2.25rem`.
 *   `text-h3`: Fuente **Bebas Neue**, clamp de `1.25rem` a `1.5rem`.
 
 ---
 
-## ⚡ 3. Estética Neo-Brutalista y Efectos Premium
-
-Combinamos las formas suaves del diseño moderno con la fuerza estructural del Neo-Brutalismo Corporativo:
-
-### Bordes y Formas
-*   **Tarjetas y Contenedores:** `rounded-2xl` (`16px`) o `rounded-3xl` (`24px`).
-*   **Botones y Controles de Formulario:** `rounded-xl` (`12px`) o `rounded-md` (`8px`).
-
-### Sombras y Resplandores (Glows & Shadows)
-*   **Neo-Brutalismo Corporativo:** Uso selectivo de bordes de marca definidos (`border-2 border-brand-blue`) y sombras duras sin desenfoque (`shadow-[4px_4px_0px_#0636A5]`).
-*   **Glows Premium:**
-    *   `glow-blue` y `glow-blue-lg`: Resplandor de acento azul (`rgba(6, 54, 165, 0.3)`) para tarjetas del Home y secciones interactivas.
-    *   `glow-yellow` y `glow-yellow-lg`: Resplandor de acento amarillo (`rgba(255, 236, 1, 0.4)`) para CTAs principales.
-*   **Sombras de Acento:** `shadow-accent-sm`, `shadow-accent-md`, `shadow-accent-lg` optimizadas para resaltar elementos interactivos activos.
-
-### Glassmorphism
-*   Estilo de desenfoque translúcido (`glassmorphism`): `backdrop-filter: blur(12px)`, fondo azul semi-transparente `rgba(6, 54, 165, 0.5)` y borde sutil blanco.
-
----
-
-## 🌊 4. Degradados (Gradients)
-
-Disponemos de clases `@utility` en CSS para degradados fluidos:
-*   `gradient-blue`: Degradado corporativo profundo de azul a azul oscuro.
-*   `gradient-blue-light`: Fondo suave celeste-azul para secciones claras.
-*   `gradient-yellow`: Transición de amarillo vibrante a ámbar.
-*   `gradient-mixed`: Fusión de marca azul a amarillo.
-*   `gradient-surface`: Fondo degradado claro.
-*   `gradient-dark`: Fondo degradado oscuro para pies de página.
-
----
-
 ## 🗣️ 5. Pautas de Contenido y Tono de Voz
 
-Para asegurar consistencia en la comunicación:
-1.  **Voseo Rioplatense:** Hablamos en español rioplatense (argentino) utilizando modismos locales ("Vos elegís", "Ingresá tus datos", "Cotizá", "Envianos tu consulta"). Evitamos terminologías neutras e impersonales.
-2.  **Geolocalización Local:** Envíos DosRuedas opera exclusivamente en **Mar del Plata**. Los textos informativos, ejemplos y mapas simulados deben mencionar zonas locales ("Zona Güemes", "Constitución", "Centro de Distribución", "Puerto", "Chauvín").
-3.  **Vigencia Operativa:** El año de vigencia para tarifas, metas de crecimiento y campañas de marketing es **2026**.
+1.  **Voseo Rioplatense:** Hablamos siempre en español de Argentina utilizando el voseo nativo ("Vos elegís", "Cotizá tus pedidos", "Ingresá los datos"). Evitamos el tono impersonal o neutro.
+2.  **Geolocalización Explícita:** Envíos DosRuedas opera exclusivamente en **Mar del Plata**. Los textos informativos, alertas y ejemplos de ruteo deben mencionar zonas reales de la ciudad ("Zona Güemes", "Constitución", "Chauvín", "Puerto") y nuestra central operativa en **Friuli 1972**.
+3.  **Vigencia Operativa:** El año de vigencia para todas las tarifas, estimaciones y objetivos de crecimiento es **2026**.
 
 ---
 
-## 📂 6. Arquitectura de Componentes
+## 📂 6. Arquitectura de Componentes Orientada a Bento
 
-La estructura modular bajo `src/components/` organiza los widgets e interfaces del sistema:
+Para dar soporte a la grilla modular, los componentes bajo `src/components/` se dividen en mini-aplicaciones y widgets listos para encajar dentro del sistema Bento Grid:
 
 ```
 src/
-├── app/                  # Rutas y páginas principales del sitio (Next.js App Router)
+├── app/                  # Rutas y vistas de la aplicación (Next.js App Router)
 └── components/
-    ├── ui/               # Widgets genéricos y mapas interactivos (Leaflet, Canvas, etc.)
-    ├── layout/           # Componentes estructurales de navegación y contacto legal
-    ├── home/             # Componentes exclusivos de la página de inicio (Landing Page)
-    ├── servicios/        # Lógica, tarifas y vistas de Express, LowCost y Flex
-    ├── cotizar/          # Formularios y lógica de cotizadores automáticos
-    ├── contacto/         # Vistas de consultas y formulario de contacto
-    └── nosotros/         # Información de la empresa, FAQ y soporte técnico
+    ├── ui/               # Widgets y controles interactivos elementales
+    │   ├── LeafletRouteMap.tsx      # Widget de mapa de ruteo modular
+    │   ├── DistanceMap.tsx          # Bento Card para cálculo visual de distancias
+    │   └── ...
+    ├── layout/           # Componentes comunes de navegación y comunidad
+    │   ├── OptimizedHeader.tsx      # Cabecera Bento-friendly con CTAs
+    │   └── OptimizedFooter.tsx      # Pie de página estructurado
+    ├── home/             # Bloques Bento modulares para la Landing Page
+    │   ├── HeroAnimado.tsx          # Bento Card principal (Celda Maestra)
+    │   ├── VisionSection.tsx        # Bento Grid de estadísticas y visión de flota
+    │   ├── ServicesOverview.tsx     # Cuadrícula modular de accesos a servicios
+    │   └── EmprendedoresHome.tsx    # Celda de beneficios corporativos
+    └── cotizar/          # Widgets interactivos de cotización y despacho
 ```
-
----
-
-## 🔎 7. Resultados de la Auditoría del Proyecto
-
-Tras realizar una auditoría automática y manual del código del proyecto en Julio de 2026:
-- **Consistencia de Color:** Se confirmó que el uso de los colores hexadecimales `#0636A5` y `#FFEC01` está reservado exclusivamente para Canvas, SVGs y configuraciones de Leaflet. En las interfaces de usuario (HTML/React), se emplean los tokens `bg-brand-blue`, `text-brand-blue`, `bg-brand-yellow` y `text-brand-yellow` de Tailwind CSS v4.
-- **Consistencia Temporal:** Todos los componentes, textos de ayuda y pies de página muestran correctamente el año de vigencia **2026**.
-- **Consistencia de Tono:** Las alertas, diálogos informativos y llamadas a la acción utilizan el voseo argentino y hacen referencias correctas a la central de operaciones de **Friuli 1972** y a zonas clave de **Mar del Plata**.

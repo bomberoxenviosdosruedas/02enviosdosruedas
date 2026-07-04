@@ -42,15 +42,15 @@ export default function ServicesOverview() {
   ];
 
   return (
-    <section 
-      id="services-overview" 
+    <section
+      id="services-overview"
       className="py-24 bg-brand-blue border-y border-blue-200/60 relative overflow-hidden text-white"
     >
       {/* Subtle background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-blue-900/20 blur-3xl -z-10" />
       <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-blue-950/30 blur-3xl -z-10" />
 
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
@@ -60,7 +60,7 @@ export default function ServicesOverview() {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
         }}
       >
-        
+
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
           <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block shadow-[2px_2px_0px_#0636A5]">
@@ -83,7 +83,7 @@ export default function ServicesOverview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -6, scale: 1.01 }}
                 viewport={{ once: true }}
-                transition={{ 
+                transition={{
                   y: { type: "spring", stiffness: 300, damping: 20 },
                   scale: { type: "spring", stiffness: 300, damping: 20 },
                   opacity: { duration: 0.5, delay: index * 0.08 }
@@ -103,7 +103,7 @@ export default function ServicesOverview() {
                   <h3 className="text-2xl font-display uppercase tracking-tight text-slate-900 mb-3 group-hover:text-brand-blue transition-colors">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-slate-600 text-sm leading-relaxed font-sans mb-8">
                     {service.description}
                   </p>
@@ -113,7 +113,7 @@ export default function ServicesOverview() {
                   <span className="text-xs font-sans text-slate-400 group-hover:text-brand-blue transition-colors">
                     Ver especificaciones de servicio
                   </span>
-                  <Link 
+                  <Link
                     href={service.href}
                     className="h-12 w-12 rounded-xl bg-slate-50 text-slate-700 border border-slate-200 group-hover:border-brand-blue group-hover:text-brand-blue group-hover:bg-brand-yellow flex items-center justify-center transition-all duration-300 shadow-sm relative overflow-hidden"
                   >

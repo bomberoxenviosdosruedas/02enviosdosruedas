@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { 
+import {
   Bike, Phone, MapPin, Mail, Clock, Award, ArrowUpRight,
   Zap, TrendingDown, ShoppingBag, ArrowUp, MessageSquare
 } from 'lucide-react';
@@ -17,7 +17,7 @@ export default function OptimizedFooter() {
 
   return (
     <footer id="optimized-footer" className="bg-brand-blue text-white border-t border-white/10 relative overflow-hidden font-sans">
-      
+
       {/* Decorative top yellow accent bar with neon glow */}
       <div className="h-1.5 bg-gradient-to-r from-brand-yellow via-amber-400 to-brand-yellow w-full shadow-md shadow-brand-yellow/30" />
 
@@ -27,9 +27,9 @@ export default function OptimizedFooter() {
 
       {/* Main Footer Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        
+
         {/* UPPER BANNER: CTA / Conversions (Tarifas 2026) */}
-        <motion.div 
+        <motion.div
           className="mb-16 bg-blue-950/60 border-2 border-white/20 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row justify-between items-center gap-6 shadow-[4px_4px_0px_#FFEC01] backdrop-blur-sm"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export default function OptimizedFooter() {
 
         {/* MID SECTION: Links & Info Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* COLUMN 1: Brand details & Socials (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
             <Link href="/" className="flex items-center gap-3 group w-fit">
@@ -91,7 +91,7 @@ export default function OptimizedFooter() {
                 </span>
               </div>
             </Link>
-            
+
             <p className="text-blue-100 text-sm leading-relaxed max-w-sm">
               Logística urbana inteligente de última milla en Mar del Plata. Conectamos tu negocio con entregas express en el día, soluciones Flex para MercadoLibre y distribución 3PL eficiente.
             </p>
@@ -145,8 +145,8 @@ export default function OptimizedFooter() {
             </h4>
             <ul className="space-y-3.5 text-sm">
               <li>
-                <Link 
-                  href="/servicios/envios-express" 
+                <Link
+                  href="/servicios/envios-express"
                   className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <Zap className="h-4 w-4 text-brand-yellow shrink-0" />
@@ -155,8 +155,8 @@ export default function OptimizedFooter() {
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/servicios/envios-lowcost" 
+                <Link
+                  href="/servicios/envios-lowcost"
                   className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <TrendingDown className="h-4 w-4 text-brand-yellow shrink-0" />
@@ -165,8 +165,8 @@ export default function OptimizedFooter() {
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/servicios/enviosflex" 
+                <Link
+                  href="/servicios/enviosflex"
                   className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <Clock className="h-4 w-4 text-brand-yellow shrink-0" />
@@ -175,8 +175,8 @@ export default function OptimizedFooter() {
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/servicios/plan-emprendedores" 
+                <Link
+                  href="/servicios/plan-emprendedores"
                   className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <ShoppingBag className="h-4 w-4 text-brand-yellow shrink-0" />
@@ -192,9 +192,9 @@ export default function OptimizedFooter() {
             <h4 className="font-subheading text-lg tracking-wider text-brand-yellow uppercase border-b border-white/10 pb-2">
               Contacto
             </h4>
-            
+
             <div className="space-y-4 text-xs text-blue-100">
-              
+
               <div className="flex gap-3.5 items-start">
                 <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
                   <MapPin className="h-4.5 w-4.5" />
@@ -204,7 +204,7 @@ export default function OptimizedFooter() {
                   <p className="font-sans text-[13px] mt-0.5">Friuli 1972, Mar del Plata</p>
                 </div>
               </div>
- 
+
               <div className="flex gap-3.5 items-start">
                 <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
                   <Phone className="h-4.5 w-4.5" />

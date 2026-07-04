@@ -9,22 +9,13 @@ export default function CtaSection() {
   return (
     <section 
       id="cta-section" 
-      className="py-24 bg-white text-slate-900 relative z-10 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] overflow-hidden"
+      className="py-24 bg-slate-50 relative z-10 overflow-hidden px-4 sm:px-6 lg:px-8"
     >
-      {/* Background Graphic Accents with smooth animated glowing lights */}
-      <motion.div 
-        className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,236,1,0.12),transparent_50%)]"
-        animate={{ opacity: [0.7, 1, 0.7] }}
-        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(6,54,165,0.05),transparent_40%)]"
-        animate={{ opacity: [0.6, 0.9, 0.6] }}
-        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1 }}
-      />
+      {/* Decorative background grid subtle overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,54,165,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(6,54,165,0.02)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
       
       <motion.div 
-        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8"
+        className="max-w-5xl mx-auto px-8 py-16 bg-gradient-to-br from-brand-yellow to-amber-400 border-4 border-brand-blue rounded-3xl text-brand-blue flex flex-col justify-between relative overflow-hidden shadow-[8px_8px_0px_#0636A5] text-center space-y-8"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -33,22 +24,21 @@ export default function CtaSection() {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
         }}
       >
-        
         {/* Animated Badge */}
-        <div className="inline-flex">
-          <span className="px-4 py-2 rounded-full text-xs font-subheading tracking-widest bg-brand-yellow text-brand-blue border-2 border-brand-blue shadow-[2px_2px_0px_#0636A5] uppercase">
+        <div className="inline-flex justify-center">
+          <span className="px-4 py-2 rounded-full text-xs font-subheading tracking-widest bg-brand-blue text-white border-2 border-brand-blue shadow-[2px_2px_0px_#FFEC01] uppercase font-bold">
             SOLUCIONES ESCALABLES 2026
           </span>
         </div>
 
         {/* Heading */}
-        <h2 className="text-slate-900 text-display uppercase max-w-3xl mx-auto">
+        <h2 className="text-brand-blue text-display uppercase max-w-3xl mx-auto leading-tight">
           ¿Listo para escalar la logística de tu E-Commerce?
         </h2>
 
         {/* Body */}
-        <p className="text-slate-600 text-lg max-w-2xl mx-auto font-sans leading-relaxed">
-          Olvidate de la gestión de paquetes y enfocate en vender más. Dejá la distribución urbana en manos de expertos.
+        <p className="text-brand-blue/90 text-lg max-w-2xl mx-auto font-sans leading-relaxed font-medium">
+          Olvidate de la gestión de paquetes en Mar del Plata y enfocate en vender más. Dejá la distribución urbana en manos de expertos.
         </p>
 
         {/* CTA Buttons */}
@@ -60,25 +50,25 @@ export default function CtaSection() {
             id="cta-whatsapp-link"
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#FFEC01] transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+            className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#FFFFFF] transition-all flex items-center justify-center gap-2.5 cursor-pointer font-bold"
           >
-            <MessageSquare className="h-5 w-5 fill-current animate-bounce shrink-0" />
+            <MessageSquare className="h-5 w-5 fill-current animate-bounce shrink-0 text-brand-yellow" />
             Contactanos por WhatsApp
           </motion.a>
 
           <Link
             href="/cotizar/lowcost"
             id="cta-rates-link"
-            className="w-full sm:w-auto bg-white hover:bg-slate-50 text-brand-blue font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+            className="w-full sm:w-auto bg-white hover:bg-slate-50 text-brand-blue font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] transition-all flex items-center justify-center gap-2 cursor-pointer font-bold active:scale-[0.98]"
           >
-            <FileText className="h-5 w-5" />
+            <FileText className="h-5 w-5 shrink-0" />
             Ver Tarifas 2026
           </Link>
         </div>
 
         {/* Highlight footer stat line */}
-        <p className="text-xs font-mono tracking-widest text-brand-blue font-bold uppercase pt-4">
-          Atención comercial inmediata para PyMEs y Emprendedores en Mar del Plata.
+        <p className="text-xs font-mono tracking-widest text-brand-blue font-bold uppercase pt-4 leading-none">
+          Atención comercial inmediata para PyMEs y Emprendedores. Operación centralizada en Friuli 1972.
         </p>
 
       </motion.div>

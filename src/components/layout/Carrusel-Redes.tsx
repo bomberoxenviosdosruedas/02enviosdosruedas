@@ -123,8 +123,8 @@ export const CarruselRedes = () => {
                 </div>
 
                 {/* Scrolling Feed Panel */}
-                <div className="relative group/carousel">
-                    <div className="flex gap-6 w-full overflow-hidden py-4">
+                <div className="relative group/carousel rounded-3xl border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] bg-white p-4 overflow-hidden">
+                    <div className="flex gap-6 w-full overflow-hidden py-2">
                         <motion.div
                             className="flex gap-6 shrink-0"
                             animate={{ x: [0, -1480] }}

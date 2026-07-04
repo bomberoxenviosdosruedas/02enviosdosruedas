@@ -91,10 +91,10 @@ export default function VisionSection() {
                     scale: { type: "spring", stiffness: 300, damping: 20 },
                     opacity: { duration: 0.5, delay: i * 0.1 }
                   }}
-                  className={`p-8 rounded-3xl border-2 transition-all duration-300 flex flex-col justify-between cursor-pointer group ${
+                  className={`p-8 rounded-3xl border-2 border-brand-blue transition-all duration-300 flex flex-col justify-between cursor-pointer group ${
                     i === 2 
-                      ? 'sm:col-span-2 bg-brand-yellow/5 border-brand-blue hover:border-brand-blue hover:shadow-[6px_6px_0px_#0636A5] hover:bg-brand-yellow/10' 
-                      : 'bg-white border-brand-blue/15 hover:border-brand-blue hover:shadow-[6px_6px_0px_#0636A5]'
+                      ? 'sm:col-span-2 bg-brand-yellow/5 shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] hover:bg-brand-yellow/10' 
+                      : 'bg-white shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5]'
                   }`}
                 >
                   <div className="flex justify-between items-start mb-6">
