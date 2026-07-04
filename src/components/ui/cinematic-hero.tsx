@@ -235,10 +235,7 @@ export function CinematicHero({
                     { y: 150, z: -300, rotationX: 30, rotationY: -15, autoAlpha: 0, scale: 0.8 },
                     { y: 0, z: 0, rotationX: 0, rotationY: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 1.2 }
                 )
-                .fromTo(".phone-widget", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.1, ease: "back.out(1.2)", duration: 0.8 }, "-=0.8")
-                .to(".progress-ring", { strokeDashoffset: 60, duration: 1.0, ease: "power3.inOut" }, "-=0.6")
-                .to(".counter-val", { innerHTML: metricValue, snap: { innerHTML: 1 }, duration: 1.0, ease: "expo.out" }, "-=1.0")
-                .fromTo(".floating-badge", { y: 50, autoAlpha: 0, scale: 0.8 }, { y: 0, autoAlpha: 1, scale: 1, ease: "back.out(1.5)", duration: 0.8, stagger: 0.1 }, "-=0.8")
+                .fromTo(".floating-badge", { y: 50, autoAlpha: 0, scale: 0.8 }, { y: 0, autoAlpha: 1, scale: 1, ease: "back.out(1.5)", duration: 0.8, stagger: 0.1 }, "-=0.4")
                 .fromTo(".card-left-text", { x: -30, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "power4.out", duration: 0.8 }, "-=0.8")
                 .fromTo(".card-right-text", { x: 30, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "expo.out", duration: 0.8 }, "<")
                 // Pause to showcase the premium materials
@@ -312,6 +309,7 @@ export function CinematicHero({
                                             src="https://i.postimg.cc/RF6MBw2d/logo-envios.webp"
                                             alt="Envíos Dos Ruedas Logo"
                                             fill
+                                            sizes="320px"
                                             className="object-contain filter drop-shadow-[0_10px_20px_rgba(255,236,1,0.25)]"
                                             priority
                                         />

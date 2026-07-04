@@ -132,3 +132,16 @@
   --sparkles-color: #ffffff;
 }
 
+/* Kinetic Font Stretch Utility */
+.kinetic-font-stretch {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), letter-spacing 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease, background-color 0.3s ease;
+  transform-origin: left;
+  will-change: transform, letter-spacing;
+}
+.kinetic-font-stretch:hover {
+  transform: scaleX(1.1);
+  letter-spacing: 0.02em;
+}
+
+

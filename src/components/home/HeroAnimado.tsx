@@ -121,11 +121,17 @@ export default function HeroAnimado() {
             {/* Title */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[-0.03em] leading-[1.15] sm:leading-[1.1] lg:leading-[1.05] text-white"
+              className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[-0.03em] leading-[1.15] sm:leading-[1.1] lg:leading-[1.05] text-white flex flex-col items-center lg:items-start select-none"
             >
-              Mensajería y Logística <br />
-              <span className="bg-brand-yellow px-2.5 py-0.5 text-brand-blue inline-block my-1 sm:my-1.5 lg:my-0">E-Commerce</span> <br />
-              en Mar del Plata
+              <span className="kinetic-font-stretch cursor-pointer hover:text-brand-yellow">
+                Mensajería y Logística
+              </span>
+              <span className="kinetic-font-stretch bg-brand-yellow px-2.5 py-0.5 text-brand-blue inline-block my-1 sm:my-1.5 lg:my-0 hover:bg-white">
+                E-Commerce
+              </span>
+              <span className="kinetic-font-stretch cursor-pointer hover:text-brand-yellow">
+                en Mar del Plata
+              </span>
             </motion.h1>
 
             {/* Body Text */}

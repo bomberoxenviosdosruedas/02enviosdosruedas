@@ -46,3 +46,7 @@ public/**/*.webp
 public/**/*.gif
 public/**/*.ico
 public/**/*.svg
+document.md
+document.html
+document.pdf
+

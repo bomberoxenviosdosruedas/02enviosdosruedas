@@ -13,3 +13,6 @@ docs/datos/*
 .prisma/
 generated/*
 .vercel
+document.md
+document.html
+document.pdf
