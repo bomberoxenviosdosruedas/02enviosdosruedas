@@ -4,6 +4,19 @@ Este archivo define las reglas de comportamiento, convenciones de código y prin
 
 ---
 
+## 📌 Contexto General del Proyecto
+*   **Proyecto:** Envíos Dos Ruedas (Logística de última milla, mensajería y soluciones E-Commerce).
+*   **Ubicación Principal:** Mar del Plata, Argentina.
+*   **Dominio Técnico:** Logística local Same-Day, integraciones de MercadoLibre Flex, y ruteo LowCost.
+*   **Estructura del Código:**
+    *   `src/app/`: Rutas de la aplicación (Next.js App Router).
+    *   `src/app/cotizar/`: Vistas y flujos de cotización (Express y LowCost).
+    *   `src/app/servicios/`: Detalles de servicios (Express, LowCost, Flex, 3PL).
+    *   `src/components/`: Componentes modulares y reutilizables.
+    *   `docs/`: Documentación del proyecto (diagramas de mapas, guías de prompts, contenido de páginas).
+
+---
+
 ## 🛠️ Reglas de Código y Arquitectura
 
 1.  **TypeScript Estricto:** Todo el código nuevo debe estar escrito en TypeScript, evitando el uso de `any` siempre que sea posible.
