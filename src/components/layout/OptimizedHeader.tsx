@@ -151,7 +151,7 @@ export default function OptimizedHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute left-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-gray-100 py-3 text-slate-800 overflow-hidden z-50"
+                      className="absolute left-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border-2 border-brand-blue py-3 text-slate-800 overflow-hidden z-50"
                     >
                       <div className="grid gap-1 px-2">
                         {item.dropdownItems.map((subItem) => {
@@ -160,7 +160,7 @@ export default function OptimizedHeader() {
                             <Link
                               key={subItem.href}
                               href={subItem.href}
-                              className="flex items-start gap-3 p-2.5 rounded-xl transition-all hover:bg-slate-50 text-slate-700 hover:text-brand-blue group"
+                              className="flex items-start gap-3 p-2.5 rounded-xl transition-all hover:bg-brand-blue/5 text-slate-700 hover:text-brand-blue group"
                             >
                               <div className="p-1.5 rounded-lg bg-slate-100 text-slate-500 group-hover:bg-brand-blue/10 group-hover:text-brand-blue transition-colors">
                                 <SubIcon className="h-4 w-4 shrink-0" />
@@ -195,7 +195,7 @@ export default function OptimizedHeader() {
             <Link
               href="/cotizar/express"
               id="header-cta"
-              className="bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-5 py-2.5 rounded-xl transition-all duration-200 hover:scale-[1.03] shadow-md flex items-center gap-2 font-medium"
+              className="bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-5 py-2.5 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_#0636A5] transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2 font-bold cursor-pointer"
             >
               <Calculator className="h-4 w-4" />
               Cotizar Envío
@@ -291,7 +291,7 @@ export default function OptimizedHeader() {
               <div className="pt-2">
                 <Link
                   href="/cotizar/express"
-                  className="w-full bg-brand-yellow text-brand-blue text-center font-subheading tracking-wider uppercase text-lg py-3 rounded-xl block shadow-lg font-medium"
+                  className="w-full bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue text-center font-subheading tracking-wider uppercase text-xl py-3 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_#0636A5] block font-bold transition-all"
                 >
                   Cotizar Envío
                 </Link>

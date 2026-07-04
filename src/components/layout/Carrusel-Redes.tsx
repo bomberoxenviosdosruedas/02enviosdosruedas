@@ -3,8 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Heart, ExternalLink, MessageSquare } from "lucide-react";
-import { FaInstagram } from 'react-icons/fa';
+import { Heart, ExternalLink } from "lucide-react";
+import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
 const socialNetworks = [
     {
@@ -81,12 +81,12 @@ export const CarruselRedes = () => {
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-16">
                     <div className="space-y-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue text-[10px] font-bold tracking-widest uppercase font-subheading">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-blue/5 border-2 border-brand-blue/20 text-brand-blue text-xs font-subheading tracking-widest uppercase">
                             <Heart size={11} className="fill-brand-blue shrink-0 animate-pulse text-brand-blue" />
                             Conectate con nosotros
                         </div>
-                        <h2 className="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight leading-none text-brand-blue">
-                            SEGUÍ NUESTRO <span className="text-brand-yellow bg-brand-blue px-3.5 py-1 rounded-2xl shadow-accent-sm inline-block rotate-[-1deg] transform hover:rotate-0 transition-transform">MOVIMIENTO</span>
+                        <h2 className="font-display text-display uppercase text-left text-brand-blue">
+                            SEGUÍ NUESTRO <span className="text-brand-yellow bg-brand-blue border-2 border-brand-blue px-3.5 py-1 rounded-2xl shadow-[3px_3px_0px_#0636A5] inline-block rotate-[-1deg] transform hover:rotate-0 transition-transform">MOVIMIENTO</span>
                         </h2>
                         <p className="text-slate-650 text-base sm:text-lg font-sans max-w-xl leading-relaxed">
                             Sumate a nuestra comunidad digital y mantente al día con las últimas noticias de logística en Mar del Plata.
@@ -99,31 +99,22 @@ export const CarruselRedes = () => {
                             <motion.button
                                 key={idx}
                                 onClick={net.isWhatsApp ? handleWhatsAppClick : () => window.open(net.href, "_blank")}
-                                className="group flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-brand-blue/30 hover:bg-slate-100 transition-all cursor-pointer text-slate-800 min-h-[48px] shadow-sm"
+                                className="group flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border-2 border-brand-blue shadow-[3px_3px_0px_#0636A5] hover:shadow-[3px_3px_0px_#FFEC01] hover:bg-slate-50 transition-all cursor-pointer text-slate-800 min-h-[48px]"
                                 aria-label={`Seguinos en ${net.name}`}
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.98 }}
-                            >
+                             >
                                 <div
-                                    className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 p-2 relative shrink-0"
+                                    className="w-10 h-10 rounded-xl flex items-center justify-center border border-brand-blue/20 transition-transform group-hover:scale-105 p-2 relative shrink-0"
                                     style={{ backgroundColor: `${net.color}12` }}
                                     aria-hidden="true"
                                 >
                                     {net.name === "Instagram" && <FaInstagram className="h-5 w-5 text-[#E1306C]" />}
-                                    {net.name === "WhatsApp" && <MessageSquare className="h-5 w-5 text-[#25D366]" />}
-                                    {net.name === "Facebook" && (
-                                        <div className="relative w-5 h-5">
-                                            <Image
-                                                src="/iconos/facebook.svg"
-                                                alt="Facebook"
-                                                fill
-                                                className="object-contain"
-                                            />
-                                        </div>
-                                    )}
+                                    {net.name === "WhatsApp" && <FaWhatsapp className="h-5 w-5 text-[#25D366]" />}
+                                    {net.name === "Facebook" && <FaFacebook className="h-5 w-5 text-[#1877F2]" />}
                                 </div>
                                 <div className="text-left">
-                                    <div className="text-xs font-bold font-subheading tracking-wider uppercase text-brand-blue leading-none">{net.name}</div>
+                                    <div className="text-sm font-subheading tracking-wider uppercase text-brand-blue leading-none">{net.name}</div>
                                     <div className="text-[9px] text-slate-500 uppercase tracking-widest mt-0.5">{net.description}</div>
                                 </div>
                             </motion.button>
@@ -140,42 +131,48 @@ export const CarruselRedes = () => {
                             transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
                             whileHover={{ animationPlayState: 'paused' }}
                         >
-                            {[...feedItems, ...feedItems, ...feedItems].map((item, idx) => (
-                                <a
-                                    key={idx}
-                                    href={item.postUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-64 h-64 sm:w-72 sm:h-72 shrink-0 rounded-3xl overflow-hidden relative group border border-slate-200 shadow-md transition-all hover:shadow-xl hover:border-brand-blue/30 hover:scale-[1.015] block bg-white"
-                                    aria-label={`Ver publicación ${item.id} en ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`}
-                                >
-                                    <img
-                                        src={item.image}
-                                        alt={`Publicación de ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`}
-                                        className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                                    />
-                                    {/* Glassmorphic hover overlay (Using clean branding blue overlay) */}
-                                    <div className="absolute inset-0 bg-brand-blue/85 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center gap-5 p-6 text-center">
-                                        <div className="w-12 h-12 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center relative shrink-0">
-                                            {item.type === 'ig' && <FaInstagram className="h-6 w-6 text-brand-yellow" />}
-                                            {item.type === 'fb' && (
-                                                <div className="relative w-6 h-6 filter invert">
-                                                    <Image
-                                                        src="/iconos/facebook.svg"
-                                                        alt="Facebook"
-                                                        fill
-                                                        className="object-contain"
-                                                    />
-                                                </div>
-                                            )}
+                            {[...socialNetworks, ...socialNetworks, ...socialNetworks].map((item, idx) => {
+                                // Fallback mapping in case of index differences
+                                const feedImg = feedItems[idx % feedItems.length]?.image || "/redes/fac1.webp";
+                                const feedUrl = feedItems[idx % feedItems.length]?.postUrl || "https://instagram.com/enviosdosruedas";
+                                const feedType = feedItems[idx % feedItems.length]?.type || "ig";
+                                return (
+                                    <a
+                                        key={idx}
+                                        href={feedUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-64 h-64 sm:w-72 sm:h-72 shrink-0 rounded-3xl overflow-hidden relative group border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] hover:shadow-[4px_4px_0px_#FFEC01] transition-all hover:scale-[1.015] block bg-white"
+                                        aria-label={`Ver publicación en redes`}
+                                    >
+                                        <img
+                                            src={feedImg}
+                                            alt={`Publicación de redes`}
+                                            className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                                        />
+                                        {/* Glassmorphic hover overlay (Using clean branding blue overlay) */}
+                                        <div className="absolute inset-0 bg-brand-blue/85 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center gap-5 p-6 text-center">
+                                            <div className="w-12 h-12 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center relative shrink-0">
+                                                {feedType === 'ig' && <FaInstagram className="h-6 w-6 text-brand-yellow" />}
+                                                {feedType === 'fb' && (
+                                                    <div className="relative w-6 h-6 filter invert">
+                                                        <Image
+                                                            src="/iconos/facebook.svg"
+                                                            alt="Facebook"
+                                                            fill
+                                                            className="object-contain"
+                                                        />
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div>
+                                                <div className="text-white font-subheading font-bold uppercase tracking-widest text-sm mb-1">Ver publicación</div>
+                                                <ExternalLink size={16} className="text-brand-yellow mx-auto" />
+                                            </div>
                                         </div>
-                                        <div>
-                                            <div className="text-white font-subheading font-bold uppercase tracking-widest text-sm mb-1">Ver publicación</div>
-                                            <ExternalLink size={16} className="text-brand-yellow mx-auto" />
-                                        </div>
-                                    </div>
-                                </a>
-                            ))}
+                                    </a>
+                                );
+                            })}
                         </motion.div>
                     </div>
 
