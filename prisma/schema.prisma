@@ -35,3 +35,13 @@ model PriceRange {
   precioRango    Float
   descripcion    String
 }
+
+model Feedback {
+  id            Int      @id @default(autoincrement())
+  page          String
+  componentPath String
+  currentText   String
+  suggestedEdit String
+  createdAt     DateTime @default(now())
+}
+
