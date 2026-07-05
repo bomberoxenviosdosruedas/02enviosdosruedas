@@ -43,17 +43,17 @@ export default function ContactForm() {
         y: { type: "spring", stiffness: 300, damping: 20 },
         opacity: { duration: 0.6 }
       }}
-      className="bg-white rounded-3xl p-8 md:p-10 border border-slate-150 shadow-lg relative overflow-hidden h-full group hover:shadow-xl duration-350 transition-all cursor-default"
+      className="bg-white rounded-3xl p-8 md:p-10 border-2 border-brand-blue shadow-[6px_6px_0px_#0636A5] relative overflow-hidden h-full group hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#0636A5] duration-300 transition-all cursor-default"
     >
-      {/* Decorative gradient border top */}
-      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-blue to-brand-yellow" />
+      {/* Decorative top bar */}
+      <div className="absolute top-0 left-0 right-0 h-2 bg-brand-blue" />
 
       <div className="space-y-6">
         <div>
-          <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-slate-900 mb-2 group-hover:text-brand-blue transition-colors">
-            ¿Tenés alguna consulta?
+          <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue mb-2">
+            ¿TENÉS ALGUNA CONSULTA?
           </h3>
-          <p className="text-slate-500 font-sans text-sm sm:text-base">
+          <p className="text-slate-650 font-sans text-sm sm:text-base leading-relaxed">
             Completá el formulario y te responderemos a la brevedad.
           </p>
         </div>
@@ -66,24 +66,24 @@ export default function ContactForm() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4 }}
-              className="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 flex flex-col items-center text-center space-y-4 py-12"
+              className="bg-emerald-50 rounded-2xl p-6 border-2 border-brand-blue flex flex-col items-center text-center space-y-4 py-12 shadow-[4px_4px_0px_#0636A5]"
             >
-              <div className="p-4 bg-emerald-100 text-emerald-600 rounded-full">
-                <CheckCircle2 className="h-10 w-10 animate-bounce" />
+              <div className="p-4 bg-brand-yellow text-brand-blue rounded-full border-2 border-brand-blue shadow-[2px_2px_0px_#0636A5]">
+                <CheckCircle2 className="h-10 w-10 text-brand-blue fill-brand-yellow shrink-0" />
               </div>
               <div className="space-y-2">
-                <h4 className="text-lg font-subheading uppercase tracking-wide text-emerald-900 font-bold">
-                  ¡Mensaje enviado con éxito!
+                <h4 className="text-xl font-display uppercase tracking-wide text-brand-blue font-bold">
+                  ¡MENSAJE ENVIADO!
                 </h4>
-                <p className="text-sm text-emerald-700 font-sans max-w-sm">
-                  Gracias por comunicarte con Envíos DosRuedas. Nos pondremos en contacto con vos lo antes posible para ayudarte.
+                <p className="text-sm text-slate-700 font-sans max-w-sm leading-relaxed">
+                  Gracias por comunicarte con Envíos DosRuedas. Te responderemos lo antes posible para ayudarte con tu cotización o consulta.
                 </p>
               </div>
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setStatus('idle')}
-                className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold uppercase tracking-wider font-subheading transition-colors cursor-pointer"
+                className="px-6 py-3 bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading uppercase text-sm tracking-wider rounded-xl shadow-[3px_3px_0px_#FFEC01] cursor-pointer font-bold"
               >
                 Enviar otro mensaje
               </motion.button>
@@ -98,8 +98,8 @@ export default function ContactForm() {
               exit={{ opacity: 0 }}
             >
               {status === 'error' && (
-                <div className="p-4 bg-rose-50 border border-rose-100 rounded-xl flex items-center gap-3 text-rose-800 text-xs font-sans">
-                  <AlertCircle className="h-5 w-5 text-rose-600 shrink-0" />
+                <div className="p-4 bg-rose-50 border-2 border-rose-600 rounded-xl flex items-center gap-3 text-rose-800 text-xs font-sans">
+                  <AlertCircle className="h-5.5 w-5.5 text-rose-600 shrink-0" />
                   <span>Por favor, completá todos los campos obligatorios (*) antes de enviar.</span>
                 </div>
               )}
@@ -107,7 +107,7 @@ export default function ContactForm() {
               {/* Nombre */}
               <div className="space-y-2">
                 <label htmlFor="nombre" className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-                  Nombre completo <span className="text-brand-blue">*</span>
+                  Nombre completo <span className="text-brand-blue font-bold">*</span>
                 </label>
                 <input
                   type="text"
@@ -118,14 +118,14 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Ej: Juan Pérez"
-                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow/30 focus:border-brand-blue transition-all disabled:opacity-60 bg-slate-50/50"
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#0636A5] transition-all disabled:opacity-60 bg-slate-50"
                 />
               </div>
 
               {/* Email */}
               <div className="space-y-2">
                 <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-                  Correo electrónico <span className="text-brand-blue">*</span>
+                  Correo electrónico <span className="text-brand-blue font-bold">*</span>
                 </label>
                 <input
                   type="email"
@@ -136,14 +136,14 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Ej: juan.perez@email.com"
-                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow/30 focus:border-brand-blue transition-all disabled:opacity-60 bg-slate-50/50"
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#0636A5] transition-all disabled:opacity-60 bg-slate-50"
                 />
               </div>
 
               {/* Mensaje */}
               <div className="space-y-2">
                 <label htmlFor="mensaje" className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-                  Tu mensaje o consulta <span className="text-brand-blue">*</span>
+                  Tu mensaje o consulta <span className="text-brand-blue font-bold">*</span>
                 </label>
                 <textarea
                   id="mensaje"
@@ -154,29 +154,29 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Escribí acá tu consulta. Decinos en qué podemos ayudarte..."
-                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow/30 focus:border-brand-blue transition-all disabled:opacity-60 bg-slate-50/50 resize-none"
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#0636A5] transition-all disabled:opacity-60 bg-slate-50 resize-none"
                 />
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button (Neo-Brutalist) */}
               <motion.button
                 type="submit"
                 disabled={status === 'submitting'}
                 whileHover={{ scale: 1.015, y: -1 }}
                 whileTap={{ scale: 0.99 }}
-                className="w-full py-4 rounded-xl font-subheading tracking-wider uppercase text-sm font-semibold text-white bg-brand-blue hover:bg-brand-blue/95 transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 hover:shadow-lg"
+                className="w-full py-4 rounded-xl font-subheading tracking-wider uppercase text-lg font-bold text-brand-blue bg-brand-yellow hover:bg-brand-yellow/95 border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {status === 'submitting' ? (
                   <>
-                    <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                    <svg className="animate-spin h-5 w-5 text-brand-blue" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
-                    <span>Enviando mensaje...</span>
+                    <span>Enviando...</span>
                   </>
                 ) : (
                   <>
-                    <Send className="h-4.5 w-4.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
+                    <Send className="h-5 w-5 shrink-0" />
                     <span>Enviar Mensaje</span>
                   </>
                 )}
