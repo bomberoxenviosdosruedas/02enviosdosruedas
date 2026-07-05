@@ -20,20 +20,20 @@ export default function ExpressHero() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        type: 'spring' as const, 
-        stiffness: 100, 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring' as const,
+        stiffness: 100,
         damping: 15,
-      } 
+      }
     },
   };
 
   return (
-    <section 
-      id="express-hero" 
+    <section
+      id="express-hero"
       className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue border-b border-blue-200/60 text-white"
     >
       {/* Ambient backgrounds */}
@@ -53,7 +53,7 @@ export default function ExpressHero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
           variants={containerVariants}
           initial="hidden"
@@ -61,7 +61,7 @@ export default function ExpressHero() {
         >
           {/* Main Copy Column */}
           <div className="lg:col-span-7 text-center lg:text-left space-y-8">
-            
+
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
               <span className="px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue flex items-center gap-1.5 shadow-accent-md">
@@ -71,7 +71,7 @@ export default function ExpressHero() {
             </motion.div>
 
             {/* Title */}
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none"
             >
@@ -80,7 +80,7 @@ export default function ExpressHero() {
             </motion.h1>
 
             {/* Description */}
-            <motion.p 
+            <motion.p
               variants={itemVariants}
               className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-blue-50"
             >
@@ -97,7 +97,7 @@ export default function ExpressHero() {
                 Cotizá tu Envío Express
                 <ArrowRight className="h-5 w-5" />
               </Link>
-              
+
               <a
                 href="https://wa.me/542236602699"
                 target="_blank"
@@ -111,7 +111,7 @@ export default function ExpressHero() {
             </motion.div>
 
             {/* Feature stats summary line */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="grid grid-cols-2 gap-4 pt-8 border-t border-white/15 max-w-md mx-auto lg:mx-0"
             >
@@ -141,7 +141,7 @@ export default function ExpressHero() {
           {/* Graphics Column */}
           <div className="lg:col-span-5 relative hidden lg:block h-[450px]">
             {/* Card 1: Map/Tracking Card */}
-            <motion.div 
+            <motion.div
               className="absolute top-8 right-4 w-[80%] z-20"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.4 } }}
@@ -150,7 +150,7 @@ export default function ExpressHero() {
               <div className="relative rounded-3xl overflow-hidden shadow-xl border border-white/10 bg-white p-3.5">
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-3.5 bg-slate-100">
                   <Image
-                    src="https://i.postimg.cc/nL5J0CMm/card-mapa.webp"
+                    src="/images/card-mapa.webp"
                     alt="Mapa de Cobertura de Mar del Plata"
                     fill
                     referrerPolicy="no-referrer"
@@ -173,7 +173,7 @@ export default function ExpressHero() {
             </motion.div>
 
             {/* Card 2: Messenger On Road Card */}
-            <motion.div 
+            <motion.div
               className="absolute bottom-8 left-0 w-[75%] z-30"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.6 } }}
@@ -189,7 +189,7 @@ export default function ExpressHero() {
                     <p className="text-sm font-subheading uppercase font-semibold text-white leading-tight">Matias Cejas</p>
                   </div>
                 </div>
-                
+
                 <div className="space-y-2.5 text-xs">
                   <div className="flex justify-between border-b border-white/10 pb-1.5">
                     <span className="text-blue-200 font-sans">Velocidad Promedio</span>
@@ -204,7 +204,7 @@ export default function ExpressHero() {
             </motion.div>
 
             {/* Floating Info Badge */}
-            <motion.div 
+            <motion.div
               className="absolute top-1/2 left-1/4 -translate-y-1/2 z-35"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.8 } }}

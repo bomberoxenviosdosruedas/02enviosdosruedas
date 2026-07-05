@@ -14,6 +14,7 @@ export default function ServicesOverview() {
       icon: Zap,
       badge: 'URGENTE',
       color: 'from-blue-500 to-blue-600',
+      bgColor: 'bg-blue-50/95',
     },
     {
       title: 'Envíos LowCost',
@@ -22,6 +23,7 @@ export default function ServicesOverview() {
       icon: Bike,
       badge: 'ECONÓMICO',
       color: 'from-brand-blue to-blue-800',
+      bgColor: 'bg-indigo-50/95',
     },
     {
       title: 'Envíos Flex (MercadoLibre)',
@@ -30,6 +32,7 @@ export default function ServicesOverview() {
       icon: ShieldCheck,
       badge: 'INTEGRACIÓN FLEX',
       color: 'from-yellow-500 to-amber-600',
+      bgColor: 'bg-yellow-50/90',
     },
     {
       title: 'E-Commerce & 3PL',
@@ -38,6 +41,7 @@ export default function ServicesOverview() {
       icon: BarChart3,
       badge: 'PYMES & CORPORATIVO',
       color: 'from-slate-700 to-slate-800',
+      bgColor: 'bg-slate-100/90',
     },
   ];
 
@@ -88,7 +92,7 @@ export default function ServicesOverview() {
                   scale: { type: "spring", stiffness: 300, damping: 20 },
                   opacity: { duration: 0.5, delay: index * 0.08 }
                 }}
-                className="bg-white rounded-3xl p-8 border-2 border-brand-blue shadow-lg hover:shadow-[6px_6px_0px_#FFEC01] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className={`${service.bgColor} rounded-3xl p-8 border-2 border-brand-blue shadow-lg hover:shadow-[6px_6px_0px_#FFEC01] transition-all duration-300 flex flex-col justify-between group cursor-pointer`}
               >
                 <div>
                   <div className="flex justify-between items-start mb-6">
