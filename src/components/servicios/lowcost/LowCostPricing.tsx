@@ -67,7 +67,7 @@ export default function LowCostPricing() {
   return (
     <section 
       id="lowcost-pricing" 
-      className="py-24 bg-brand-blue relative overflow-hidden text-white border-y border-blue-900/60"
+      className="py-24 bg-brand-blue relative overflow-hidden text-white border-t-4 border-b-4 border-brand-yellow"
       ref={pricingRef}
     >
       {/* Background Sparkles overlay */}
@@ -90,7 +90,7 @@ export default function LowCostPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="span"
-            className="px-3.5 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-bold uppercase tracking-widest inline-block shadow-accent-sm"
+            className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_rgba(255,236,1,0.3)] font-bold"
           >
             Tarifario Inteligente
           </TimelineContent>
@@ -102,7 +102,7 @@ export default function LowCostPricing() {
               staggerFrom="first"
               containerClassName="justify-center"
             >
-              Tarifas 2026 Envíos LowCost
+              TARIFAS 2026 ENVÍOS LOWCOST
             </VerticalCutReveal>
           </h2>
 
@@ -115,11 +115,11 @@ export default function LowCostPricing() {
           >
             Eficiencia en ruteo masivo. Garantizamos entregas antes de las 19:00 hs para pedidos cargados antes de las 13:00 hs.
           </TimelineContent>
-          <div className="h-1.5 w-16 bg-brand-yellow mx-auto rounded-full" />
+          <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {zones.map((zone, idx) => {
             const isNumericPrice = zone.price.startsWith('$');
             const numericValue = isNumericPrice ? parseInt(zone.price.replace('$', '').replace('.', '')) : null;
@@ -133,24 +133,24 @@ export default function LowCostPricing() {
                 as="div"
               >
                 <Card
-                  className={`rounded-3xl border flex flex-col justify-between h-full transition-all duration-300 group ${
+                  className={`rounded-3xl border-2 flex flex-col justify-between h-full transition-all duration-300 group text-left ${
                     zone.highlight
-                      ? 'bg-gradient-to-b from-white via-white to-amber-50 text-slate-900 border-brand-yellow shadow-xl lg:scale-[1.03] relative z-20'
-                      : 'bg-gradient-to-b from-white/5 to-white/[0.02] text-white border-white/10 hover:border-white/20 hover:bg-white/[0.08]'
+                      ? 'bg-white text-slate-900 border-brand-blue shadow-[6px_6px_0px_#FFEC01] lg:scale-[1.03] relative z-20 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#FFEC01]'
+                      : 'bg-brand-blue/30 text-white border-brand-yellow/30 shadow-[6px_6px_0px_rgba(6,54,165,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(6,54,165,0.4)] hover:border-brand-yellow'
                   }`}
                 >
                   <CardHeader className="p-6 pb-2 text-left relative">
                     {zone.highlight && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-yellow text-brand-blue font-bold text-[9px] tracking-widest uppercase px-3 py-1 rounded-full shadow-md">
+                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-yellow text-brand-blue border-2 border-brand-blue font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-md">
                         RECOMENDADO PYME
                       </span>
                     )}
 
                     <div>
-                      <span className={`text-[10px] font-bold uppercase tracking-widest ${zone.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`}>
+                      <span className={`text-xs font-subheading tracking-wider uppercase ${zone.highlight ? 'text-brand-blue font-bold' : 'text-brand-yellow'}`}>
                         {zone.name}
                       </span>
-                      <h3 className="text-lg font-display uppercase tracking-wider font-semibold mt-1">
+                      <h3 className={`text-2xl font-display uppercase tracking-wider mt-1 min-h-[48px] leading-tight ${zone.highlight ? 'text-slate-900 font-bold' : 'text-white'}`}>
                         {zone.scope}
                       </h3>
                     </div>
@@ -158,7 +158,7 @@ export default function LowCostPricing() {
                     <div className="py-2">
                       {isNumericPrice && numericValue ? (
                         <div className="flex items-baseline">
-                          <span className={`text-4xl font-display uppercase font-bold tracking-tight ${zone.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`}>
+                          <span className={`text-5xl font-display uppercase font-bold tracking-tight ${zone.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`}>
                             $
                             <NumberFlow
                               value={numericValue}
@@ -168,25 +168,25 @@ export default function LowCostPricing() {
                           </span>
                         </div>
                       ) : (
-                        <span className={`text-4xl font-display uppercase font-bold tracking-tight ${zone.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`}>
+                        <span className={`text-5xl font-display uppercase font-bold tracking-tight ${zone.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`}>
                           {zone.price}
                         </span>
                       )}
-                      <span className={`text-xs opacity-65 font-sans block mt-1 ${zone.highlight ? 'text-slate-500' : 'text-blue-100'}`}>/ despacho final</span>
+                      <span className={`text-xs font-subheading tracking-wider uppercase block mt-1 ${zone.highlight ? 'text-slate-500' : 'text-blue-200'}`}>/ despacho final</span>
                     </div>
 
-                    <p className={`text-xs opacity-80 leading-relaxed font-sans min-h-[32px] ${zone.highlight ? 'text-slate-600' : 'text-slate-200'}`}>
+                    <p className={`text-sm opacity-90 leading-relaxed font-sans min-h-[48px] ${zone.highlight ? 'text-slate-600' : 'text-slate-200'}`}>
                       {zone.description}
                     </p>
                   </CardHeader>
 
                   <CardContent className="p-6 pt-0 flex flex-col justify-between flex-grow">
                     {/* Bullets */}
-                    <ul className={`space-y-2.5 pt-4 border-t ${zone.highlight ? 'border-slate-200' : 'border-white/10'} mb-6`}>
+                    <ul className={`space-y-2.5 pt-4 border-t-2 ${zone.highlight ? 'border-slate-100' : 'border-white/10'} mb-6`}>
                       {zone.bullets.map((bullet) => (
                         <li key={bullet} className="flex items-center gap-2 text-xs">
-                          <Check className={`h-4 w-4 shrink-0 ${zone.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`} />
-                          <span className="font-sans opacity-90">{bullet}</span>
+                          <Check className={`h-4.5 w-4.5 shrink-0 ${zone.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`} />
+                          <span className="font-sans text-sm opacity-90">{bullet}</span>
                         </li>
                       ))}
                     </ul>
@@ -194,14 +194,14 @@ export default function LowCostPricing() {
                     <div>
                       <Link
                         href="/cotizar/lowcost"
-                        className={`w-full py-3 rounded-xl text-xs font-bold uppercase tracking-wider font-subheading flex items-center justify-center gap-1.5 transition-all ${
+                        className={`w-full py-3 rounded-xl text-sm font-subheading uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-all ${
                           zone.highlight
-                            ? 'bg-brand-blue text-white hover:bg-brand-blue/90 shadow-sm'
-                            : 'bg-white/10 text-white hover:bg-white/15'
+                            ? 'bg-brand-blue text-brand-yellow hover:bg-brand-blue/90 border-2 border-brand-blue shadow-[3px_3px_0px_#FFEC01]'
+                            : 'bg-brand-yellow text-brand-blue hover:bg-brand-yellow/90 border-2 border-brand-blue shadow-[3px_3px_0px_#0636A5]'
                         }`}
                       >
                         <span>Ver {zone.name}</span>
-                        <ArrowRight className="h-3.5 w-3.5 animate-pulse" />
+                        <ArrowRight className="h-4 w-4 animate-pulse shrink-0" />
                       </Link>
                     </div>
                   </CardContent>
@@ -217,22 +217,22 @@ export default function LowCostPricing() {
           timelineRef={pricingRef}
           customVariants={revealVariants}
           as="div"
-          className="bg-white text-slate-900 rounded-3xl p-8 border border-brand-yellow shadow-lg relative overflow-hidden"
+          className="bg-white text-slate-900 rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#FFEC01] relative overflow-hidden"
         >
           <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-slate-100/50 pointer-events-none -z-10">
-            <Landmark className="h-64 w-64" />
+            <Landmark className="h-64 w-64 text-slate-100" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             
             <div className="lg:col-span-8 space-y-4 text-left">
-              <span className="px-3 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-[10px] font-bold uppercase tracking-widest inline-block">
+              <span className="px-4 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border border-brand-blue/20">
                 Zona 5 (Larga Distancia LowCost)
               </span>
-              <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue">
+              <h3 className="text-3xl font-display uppercase tracking-tight text-brand-blue">
                 $700 / km adicional
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed font-sans max-w-2xl">
+              <p className="text-sm text-slate-655 leading-relaxed font-sans max-w-2xl">
                 Para envíos de larga distancia fuera del ejido urbano masivo tradicional, te ofrecemos la tarifa por kilómetro más competitiva del mercado local para que sigas ruteando con rentabilidad total.
               </p>
             </div>
@@ -243,9 +243,9 @@ export default function LowCostPricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="lowcost-pricing-cta-whatsapp"
-                className="bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-md transition-all duration-200 hover:scale-[1.03] flex items-center justify-center gap-2.5 font-semibold w-full sm:w-auto"
+                className="bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-[4px_4px_0px_#FFEC01] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFEC01] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold w-full sm:w-auto"
               >
-                <MessageSquare className="h-5 w-5 fill-current" />
+                <MessageSquare className="h-5 w-5 fill-current animate-pulse" />
                 Consultar por WhatsApp
               </a>
             </div>

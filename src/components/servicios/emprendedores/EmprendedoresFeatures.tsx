@@ -24,15 +24,15 @@ export default function EmprendedoresFeatures() {
   ];
 
   const stats = [
-    { value: '99.8%', label: 'Entregas Efectivas', icon: BarChart3 },
-    { value: '+150', label: 'Clientes Corporativos', icon: Users },
-    { value: '100%', label: 'SLA Cumplido', icon: Clock },
+    { value: 'ALTA', label: 'Efectividad', icon: BarChart3 },
+    { value: 'CONFIABLE', label: 'Logística Local', icon: Users },
+    { value: 'CONTROL', label: 'Trazabilidad', icon: Clock },
   ];
 
   return (
     <section 
       id="emprendedores-features" 
-      className="py-24 bg-white relative z-10 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.03)] overflow-hidden"
+      className="py-24 bg-white relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -47,28 +47,28 @@ export default function EmprendedoresFeatures() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Header column (Left) */}
-          <div className="lg:col-span-5 space-y-6">
-            <span className="px-3 py-1.5 bg-blue-100 text-brand-blue rounded-full text-xs font-bold uppercase tracking-widest inline-block border border-blue-200/50">
-              Soluciones Corporativas
+          <div className="lg:col-span-5 space-y-6 text-left">
+            <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(6,54,165,0.2)]">
+              SOLUCIONES CORPORATIVAS
             </span>
             
             <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-none">
-              Logística 3PL <br />
-              <span className="text-brand-blue">para Emprendedores</span>
+              LOGÍSTICA 3PL <br />
+              <span className="text-brand-blue">PARA EMPRENDEDORES</span>
             </h2>
             
-            <p className="text-slate-600 text-base leading-relaxed font-sans">
+            <p className="text-slate-650 text-base leading-relaxed font-sans">
               Somos mucho más que una empresa de envíos tradicional; nos convertimos en el departamento de logística estratégico de tu negocio. Delegá el almacenamiento, empaquetado y distribución en manos de expertos y enfocate de lleno en hacer crecer tu marca.
             </p>
 
-            <div className="pt-4 flex items-center gap-3.5 text-xs text-brand-blue font-bold uppercase tracking-wider">
-              <Landmark className="h-5 w-5 text-brand-yellow" />
+            <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-blue font-bold uppercase tracking-wider font-subheading">
+              <Landmark className="h-5 w-5 text-brand-yellow shrink-0 fill-brand-blue" />
               <span>ALIANZA ESTRATÉGICA DE LARGO PLAZO</span>
             </div>
           </div>
 
           {/* Features columns (Right) */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-6">
+          <div className="lg:col-span-7 grid grid-cols-1 gap-6 text-left">
             {features.map((feat, idx) => {
               const Icon = feat.icon;
               return (
@@ -78,16 +78,16 @@ export default function EmprendedoresFeatures() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.12, duration: 0.5 }}
-                  className="bg-slate-50/70 hover:bg-white p-6 rounded-3xl border border-slate-100/80 hover:border-brand-blue/10 hover:shadow-md transition-all duration-300 flex flex-col lg:flex-row gap-5 items-start"
+                  className="bg-slate-50 border-2 border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_#0636A5] p-6 rounded-3xl transition-all duration-300 flex flex-col lg:flex-row gap-5 items-start"
                 >
-                  <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-2xl shrink-0">
-                    <Icon className="h-5.5 w-5.5" />
+                  <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl shrink-0 border border-brand-blue">
+                    <Icon className="h-5.5 w-5.5 shrink-0" />
                   </div>
                   <div className="space-y-1.5">
-                    <h4 className="text-sm font-subheading uppercase tracking-wider text-slate-900 leading-tight">
+                    <h4 className="text-xl font-display uppercase tracking-wider text-slate-900 leading-tight">
                       {feat.title}
                     </h4>
-                    <p className="text-xs sm:text-sm text-slate-500 font-sans leading-relaxed">
+                    <p className="text-sm text-slate-655 font-sans leading-relaxed">
                       {feat.desc}
                     </p>
                   </div>
@@ -99,7 +99,7 @@ export default function EmprendedoresFeatures() {
         </div>
 
         {/* Stats Section Panel */}
-        <div className="mt-20 border-t border-slate-100 pt-16">
+        <div className="mt-20 border-t-2 border-slate-100 pt-16">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {stats.map((stat, idx) => {
               const Icon = stat.icon;
@@ -110,16 +110,16 @@ export default function EmprendedoresFeatures() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.5 }}
-                  className="bg-slate-50/40 border border-slate-100/70 rounded-3xl p-6 flex items-center gap-5 justify-center sm:justify-start"
+                  className="bg-slate-50 border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] transition-all duration-300 flex items-center gap-5 justify-center sm:justify-start"
                 >
-                  <div className="p-3.5 bg-brand-yellow/10 text-brand-blue rounded-2xl shrink-0">
-                    <Icon className="h-6 w-6 text-brand-blue" />
+                  <div className="p-3.5 bg-brand-yellow text-brand-blue rounded-2xl shrink-0 border-2 border-brand-blue shadow-[2px_2px_0px_#0636A5]">
+                    <Icon className="h-6 w-6 shrink-0" />
                   </div>
-                  <div>
-                    <span className="block text-3xl sm:text-4xl font-display font-bold uppercase tracking-tight text-brand-blue">
+                  <div className="text-left">
+                    <span className="block text-3xl font-display uppercase tracking-tight text-brand-blue leading-none mb-1">
                       {stat.value}
                     </span>
-                    <span className="block text-xs uppercase tracking-wider font-subheading text-slate-500 font-semibold">
+                    <span className="block text-xs uppercase tracking-wider font-subheading text-slate-500 font-bold">
                       {stat.label}
                     </span>
                   </div>

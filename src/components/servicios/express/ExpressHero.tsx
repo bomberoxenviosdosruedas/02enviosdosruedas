@@ -26,7 +26,7 @@ export default function ExpressHero() {
       transition: {
         type: 'spring' as const,
         stiffness: 100,
-        damping: 15,
+        damping: 20,
       }
     },
   };
@@ -34,7 +34,7 @@ export default function ExpressHero() {
   return (
     <section
       id="express-hero"
-      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue border-b border-blue-200/60 text-white"
+      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue border-b-4 border-brand-yellow text-white"
     >
       {/* Ambient backgrounds */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,236,1,0.08),transparent_40%)]" />
@@ -64,19 +64,27 @@ export default function ExpressHero() {
 
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue flex items-center gap-1.5 shadow-accent-md">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-yellow text-brand-blue border-2 border-brand-blue flex items-center gap-1.5 shadow-[2px_2px_0px_#0636A5] font-bold">
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                 Disponible en Mar del Plata
               </span>
             </motion.div>
 
-            {/* Title */}
-            <motion.h1
+            {/* Title with Inline Image Typography */}
+            <motion.h1 
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none"
+              className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3"
             >
-              Envíos Express <br />
-              <span className="text-brand-yellow">Inmediatos</span>
+              <span>ENVÍOS</span>
+              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#0636A5]">
+                <Image
+                  src="https://picsum.photos/id/1072/200/100" 
+                  alt="Envíos Express"
+                  fill
+                  className="object-cover"
+                />
+              </span>
+              <span className="text-brand-yellow font-bold">EXPRESS INMEDIATOS</span>
             </motion.h1>
 
             {/* Description */}
@@ -92,10 +100,10 @@ export default function ExpressHero() {
               <Link
                 href="/cotizar/express"
                 id="express-hero-cta-cotizar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-accent-md hover:shadow-accent-lg transition-all duration-200 hover:scale-[1.03] flex items-center justify-center gap-2 font-semibold"
+                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold cursor-pointer"
               >
                 Cotizá tu Envío Express
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-5 w-5 shrink-0" />
               </Link>
 
               <a
@@ -103,9 +111,9 @@ export default function ExpressHero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="express-hero-cta-whatsapp"
-                className="w-full sm:w-auto bg-white/10 hover:bg-white/15 text-white font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border border-white/20 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/90 text-white font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-white shadow-[4px_4px_0px_#FFEC01] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFEC01] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Phone className="h-5 w-5 text-brand-yellow" />
+                <Phone className="h-5 w-5 text-brand-yellow shrink-0" />
                 Hablar por WhatsApp
               </a>
             </motion.div>
@@ -113,25 +121,25 @@ export default function ExpressHero() {
             {/* Feature stats summary line */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-2 gap-4 pt-8 border-t border-white/15 max-w-md mx-auto lg:mx-0"
+              className="grid grid-cols-2 gap-4 pt-8 border-t-2 border-white/15 max-w-md mx-auto lg:mx-0"
             >
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-white/5 rounded-xl text-brand-yellow">
-                  <Clock className="h-5 w-5" />
+                <div className="p-2 bg-white/5 rounded-xl text-brand-yellow border border-white/10">
+                  <Clock className="h-5 w-5 shrink-0" />
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wide text-blue-200 leading-none mb-1">Entregas en</p>
-                  <p className="text-sm font-subheading uppercase font-semibold">Menos de 2 Horas</p>
+                  <p className="text-sm font-subheading uppercase font-semibold text-slate-100">Menos de 2 Horas</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-white/5 rounded-xl text-brand-yellow">
-                  <ShieldCheck className="h-5 w-5" />
+                <div className="p-2 bg-white/5 rounded-xl text-brand-yellow border border-white/10">
+                  <ShieldCheck className="h-5 w-5 shrink-0" />
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wide text-blue-200 leading-none mb-1">Despacho con</p>
-                  <p className="text-sm font-subheading uppercase font-semibold">Custodia Digital</p>
+                  <p className="text-sm font-subheading uppercase font-semibold text-slate-100">Custodia Digital</p>
                 </div>
               </div>
             </motion.div>
@@ -147,8 +155,8 @@ export default function ExpressHero() {
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.4 } }}
               whileHover={{ scale: 1.02, zIndex: 40 }}
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-xl border border-white/10 bg-white p-3.5">
-                <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-3.5 bg-slate-100">
+              <div className="relative rounded-3xl border-2 border-brand-blue bg-white p-3.5 shadow-[6px_6px_0px_#FFEC01]">
+                <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-3.5 bg-slate-100 border border-slate-200">
                   <Image
                     src="/images/card-mapa.webp"
                     alt="Mapa de Cobertura de Mar del Plata"
@@ -156,16 +164,16 @@ export default function ExpressHero() {
                     referrerPolicy="no-referrer"
                     className="object-cover"
                   />
-                  <div className="absolute top-3 right-3 bg-brand-blue text-white px-2.5 py-1 rounded text-[9px] font-bold uppercase tracking-widest">
+                  <div className="absolute top-3 right-3 bg-brand-blue text-brand-yellow border border-brand-yellow px-2.5 py-1 rounded text-[9px] font-bold uppercase tracking-widest font-mono">
                     MAPA EN VIVO
                   </div>
                 </div>
-                <div className="flex items-center justify-between text-slate-800">
+                <div className="flex items-center justify-between text-slate-900">
                   <div>
                     <span className="text-xs font-bold uppercase tracking-wider block">Rango de Entrega</span>
                     <span className="text-[10px] text-slate-400 font-sans block mt-0.5">Asignación prioritaria directa</span>
                   </div>
-                  <span className="text-[10px] px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 font-bold uppercase font-mono tracking-wider">
+                  <span className="text-[10px] px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold uppercase font-mono tracking-wider">
                     Activo
                   </span>
                 </div>
@@ -179,14 +187,14 @@ export default function ExpressHero() {
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.6 } }}
               whileHover={{ scale: 1.02, zIndex: 40 }}
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-xl border border-white/10 bg-slate-900/95 backdrop-blur-md p-5 text-white">
+              <div className="relative rounded-3xl border-2 border-brand-yellow bg-slate-900 p-5 text-white shadow-[6px_6px_0px_#0636A5]">
                 <div className="flex items-center gap-3.5 mb-4">
-                  <div className="p-2.5 rounded-xl bg-brand-yellow text-brand-blue">
-                    <Bike className="h-5.5 w-5.5 animate-pulse" />
+                  <div className="p-2.5 rounded-xl bg-brand-yellow text-brand-blue border border-brand-blue">
+                    <Bike className="h-5.5 w-5.5 animate-pulse shrink-0" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold uppercase tracking-widest text-brand-yellow">MOTO MENSAJERO</h4>
-                    <p className="text-sm font-subheading uppercase font-semibold text-white leading-tight">Matias Cejas</p>
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-brand-yellow leading-none mb-1">MOTO MENSAJERO</h4>
+                    <p className="text-sm font-subheading uppercase font-semibold text-white leading-tight">MATIAS CEJAS</p>
                   </div>
                 </div>
 
@@ -209,8 +217,8 @@ export default function ExpressHero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.8 } }}
             >
-              <div className="px-4 py-2 bg-brand-yellow text-brand-blue font-bold rounded-full text-xs uppercase tracking-wider shadow-lg border border-white flex items-center gap-1.5">
-                <Zap className="h-4.5 w-4.5 animate-bounce fill-current" />
+              <div className="px-4 py-2 bg-brand-yellow text-brand-blue border-2 border-brand-blue font-bold rounded-full text-xs font-subheading tracking-wider uppercase shadow-[3px_3px_0px_#0636A5] flex items-center gap-1.5">
+                <Zap className="h-4.5 w-4.5 animate-bounce fill-current shrink-0" />
                 Entrega Inmediata
               </div>
             </motion.div>

@@ -26,7 +26,7 @@ export default function ExpressFeatures() {
   return (
     <section 
       id="express-features" 
-      className="py-24 bg-white relative z-10 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.03)] overflow-hidden"
+      className="py-24 bg-white relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -41,28 +41,28 @@ export default function ExpressFeatures() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Header Segment (Left Side in Desk) */}
-          <div className="lg:col-span-5 space-y-6">
-            <span className="px-3 py-1.5 bg-blue-100 text-brand-blue rounded-full text-xs font-bold uppercase tracking-widest inline-block border border-blue-200/50">
-              Soluciones Premium
+          <div className="lg:col-span-5 space-y-6 text-left">
+            <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(6,54,165,0.2)]">
+              SOLUCIONES PREMIUM
             </span>
             
             <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-none">
-              Entregas rápidas <br />
-              <span className="text-brand-blue">y eficientes</span>
+              ENTREGAS RÁPIDAS <br />
+              <span className="text-brand-blue">Y EFICIENTES</span>
             </h2>
             
-            <p className="text-slate-600 text-base leading-relaxed font-sans">
+            <p className="text-slate-655 text-base leading-relaxed font-sans">
               Nuestro servicio Express ofrece cobertura total en Mar del Plata, llegando a todos los barrios de la ciudad, con posibilidad de elegir el rango horario de entrega (Chauvín, Los Troncos, Güemes, Puerto, Faro, Acantilados, Constitución, Camet y muchos más).
             </p>
 
-            <div className="pt-4 flex items-center gap-3.5 text-xs text-brand-blue font-bold uppercase tracking-wider">
-              <Compass className="h-5 w-5 text-brand-yellow animate-spin" style={{ animationDuration: '6s' }} />
+            <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-blue font-bold uppercase tracking-wider font-subheading">
+              <Compass className="h-5 w-5 text-brand-yellow shrink-0 animate-spin-slow fill-brand-blue" />
               <span>LOGÍSTICA URBANA INTEGRAL</span>
             </div>
           </div>
 
           {/* Grid Segment (Right Side in Desk) */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-6">
+          <div className="lg:col-span-7 grid grid-cols-1 gap-6 text-left">
             {features.map((feat, idx) => {
               const Icon = feat.icon;
               return (
@@ -72,16 +72,16 @@ export default function ExpressFeatures() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.12, duration: 0.5 }}
-                  className="bg-slate-50/70 hover:bg-white p-6 rounded-3xl border border-slate-100/80 hover:border-brand-blue/10 hover:shadow-md transition-all duration-300 flex flex-col lg:flex-row gap-5 items-start"
+                  className="bg-slate-50 border-2 border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_#0636A5] p-6 rounded-3xl transition-all duration-300 flex flex-col lg:flex-row gap-5 items-start"
                 >
-                  <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-2xl shrink-0">
-                    <Icon className="h-5.5 w-5.5" />
+                  <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl shrink-0 border border-brand-blue">
+                    <Icon className="h-5.5 w-5.5 shrink-0" />
                   </div>
                   <div className="space-y-1.5">
-                    <h4 className="text-sm font-subheading uppercase tracking-wider text-slate-900 leading-tight">
+                    <h4 className="text-xl font-display uppercase tracking-wider text-slate-900 leading-tight">
                       {feat.title}
                     </h4>
-                    <p className="text-xs sm:text-sm text-slate-500 font-sans leading-relaxed">
+                    <p className="text-sm text-slate-655 font-sans leading-relaxed">
                       {feat.desc}
                     </p>
                   </div>
