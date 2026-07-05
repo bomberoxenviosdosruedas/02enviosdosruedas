@@ -71,11 +71,20 @@ export const reviewCatalog: CatalogItem[] = [
   // COTIZADOR EXPRESS
   // ==========================================
   {
+    id: "cotizar-express-hero",
+    page: "Cotizador Express",
+    componentName: "ExpressHeroHeader",
+    componentPath: "src/app/cotizar/express/page.tsx",
+    sectionTitle: "1. Presentación (Hero Header)",
+    currentText: "Título: Cotizador de Envíos Express\nCopete: Calculá el costo de tu envío prioritario al instante. Obtené alta precisión en la tarifa de entrega según la distancia y coordiná en el acto.\nBadge: Servicio Prioritario",
+    elementsToReview: ["Título principal", "Texto de descripción", "Badge superior"]
+  },
+  {
     id: "cotizar-express-form",
     page: "Cotizador Express",
     componentName: "CotizadorExpressForm",
     componentPath: "src/components/cotizar/express/CotizadorExpressForm.tsx",
-    sectionTitle: "1. Formulario Interactivo Express",
+    sectionTitle: "2. Formulario Interactivo Express",
     currentText: "Campos de dirección: Calle y número de Origen / Calle y número de Destino.\nInputs de datos: Nombre, Teléfono, Tipo de producto a trasladar.\nRespuestas: Tarifador de distancia dinámico con cálculo en pesos.",
     elementsToReview: ["Nombres de campos", "Instrucciones de ayuda", "Botonera del cotizador"]
   },
@@ -84,7 +93,7 @@ export const reviewCatalog: CatalogItem[] = [
     page: "Cotizador Express",
     componentName: "CotizadorExpressDetails",
     componentPath: "src/components/cotizar/express/CotizadorExpressDetails.tsx",
-    sectionTitle: "2. Condiciones del Servicio Express",
+    sectionTitle: "3. Condiciones del Servicio Express",
     currentText: "Título: Pautas del Envío Express\nDetalles: Peso máximo por moto (hasta 15kg). Medidas máximas del bulto (caja estándar de 40x40x40cm). Garantía de entrega en el acto.",
     elementsToReview: ["Límites de peso y volumen", "Tipos de garantías"]
   },
@@ -93,7 +102,7 @@ export const reviewCatalog: CatalogItem[] = [
     page: "Cotizador Express",
     componentName: "CotizadorExpressHelp",
     componentPath: "src/components/cotizar/express/CotizadorExpressHelp.tsx",
-    sectionTitle: "3. Bloque de Soporte Express",
+    sectionTitle: "4. Bloque de Soporte Express",
     currentText: "Título: ¿Necesitás un cadete recurrente?\nDescripción: Si realizás más de 5 envíos diarios express, consultá por nuestro plan prepago mensual con cadetería fija de marca en Mar del Plata.",
     elementsToReview: ["Propuesta de plan prepago", "Botón de contacto de soporte"]
   },
@@ -102,11 +111,20 @@ export const reviewCatalog: CatalogItem[] = [
   // COTIZADOR LOWCOST
   // ==========================================
   {
+    id: "cotizar-lowcost-hero",
+    page: "Cotizador LowCost",
+    componentName: "LowCostHeroHeader",
+    componentPath: "src/app/cotizar/lowcost/page.tsx",
+    sectionTitle: "1. Presentación (Hero Header)",
+    currentText: "Título: Cotizador de Envíos LowCost\nCopete: Eficiencia y rentabilidad. Calculá tu envío de ruteo diario masivo con entrega garantizada en el día en Mar del Plata.\nBadge: Servicio Económico y Programado",
+    elementsToReview: ["Título principal", "Texto de descripción", "Badge superior"]
+  },
+  {
     id: "cotizar-lowcost-form",
     page: "Cotizador LowCost",
     componentName: "CotizadorLowCostForm",
     componentPath: "src/components/cotizar/lowcost/CotizadorLowCostForm.tsx",
-    sectionTitle: "1. Formulario Interactivo LowCost",
+    sectionTitle: "2. Formulario Interactivo LowCost",
     currentText: "Campos: Dirección del local de retiro, Cantidad de paquetes diarios, Zonas de entrega en Mar del Plata.\nTarifa sugerida: Descuentos progresivos basados en cantidad de entregas diarias.",
     elementsToReview: ["Mensajes informativos", "Precios simulados", "Checkboxes de zonas"]
   },
@@ -115,7 +133,7 @@ export const reviewCatalog: CatalogItem[] = [
     page: "Cotizador LowCost",
     componentName: "CotizadorLowCostDetails",
     componentPath: "src/components/cotizar/lowcost/CotizadorLowCostDetails.tsx",
-    sectionTitle: "2. Condiciones del Servicio LowCost",
+    sectionTitle: "3. Condiciones del Servicio LowCost",
     currentText: "Título: Regulación de Envíos Masivos\nDetalles: Retiro por la mañana (09:00 a 12:00) y entregas programadas durante la tarde del día siguiente (Next-Day) en toda la ciudad.",
     elementsToReview: ["Franjas horarias indicadas", "Condiciones de logística inversa"]
   },
@@ -124,7 +142,7 @@ export const reviewCatalog: CatalogItem[] = [
     page: "Cotizador LowCost",
     componentName: "CotizadorLowCostHelp",
     componentPath: "src/components/cotizar/lowcost/CotizadorLowCostHelp.tsx",
-    sectionTitle: "3. Bloque de Soporte LowCost",
+    sectionTitle: "4. Bloque de Soporte LowCost",
     currentText: "Título: ¿Tenés una cuenta corporativa?\nDescripción: Accedé a facturación tipo A mensual, importación de planillas de Excel masivas y panel de rastreo web multi-paquetes.",
     elementsToReview: ["Texto corporativo", "Beneficios del panel web"]
   },
