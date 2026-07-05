@@ -3,49 +3,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function NetworksChannels() {
-  const channels = [
-    {
-      name: 'Facebook',
-      handle: '@enviosdosruedas',
-      stat: '2.5K+ Seguidores',
-      desc: 'Seguinos en Facebook para enterarte de ofertas exclusivas quincenales y actualizaciones diarias de nuestros servicios de mensajería urbana en Mar del Plata.',
-      iconPath: '/iconos/facebook.svg',
-      btnLabel: 'Seguinos en Facebook',
-      url: 'https://facebook.com/enviosdosruedas',
-      color: 'hover:border-blue-500/30 text-blue-600',
-      badgeBg: 'bg-blue-50 text-blue-600',
-    },
-    {
-      name: 'Instagram',
-      handle: '@enviosdosruedas',
-      stat: '3.2K+ Seguidores',
-      desc: 'Mirá nuestro dinámico día a día en Instagram, fotos reales de las entregas diarias de nuestra flota y promociones relámpago súper especiales diseñadas para vos.',
-      iconPath: '/iconos/instagram.svg',
-      btnLabel: 'Seguinos en Instagram',
-      url: 'https://instagram.com/enviosdosruedas',
-      color: 'hover:border-pink-500/30 text-pink-600',
-      badgeBg: 'bg-pink-50 text-pink-600',
-    },
-    {
-      name: 'WhatsApp',
-      handle: '+54 223 660-2699',
-      stat: 'Atención Directa',
-      desc: 'Atención de consultas personalizada y sin fricciones por WhatsApp. El canal más ágil y directo para coordinar cotizaciones, retiros y pedidos inmediatos.',
-      iconPath: '/iconos/whatapps.svg',
-      btnLabel: 'Hablá con nosotros',
-      url: 'https://wa.me/5492236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web.',
-      color: 'hover:border-emerald-500/30 text-emerald-600',
-      badgeBg: 'bg-emerald-50 text-emerald-600',
-    },
-  ];
-
   return (
     <section 
       id="networks-channels" 
-      className="py-24 bg-white relative z-10 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.02)] overflow-hidden"
+      className="py-24 bg-white relative z-10 border-t-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -60,85 +24,161 @@ export default function NetworksChannels() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-3 py-1.5 bg-blue-100 text-brand-blue rounded-full text-xs font-bold uppercase tracking-widest inline-block border border-blue-200/50">
-            Conexión Social
+          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(6,54,165,0.2)]">
+            CONEXIÓN SOCIAL
           </span>
           <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
-            Canales Oficiales
+            CANALES OFICIALES
           </h2>
-          <p className="text-slate-500 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Hacé clic para conectarte al instante con nuestras plataformas oficiales y formar parte de la mayor comunidad logística de Mar del Plata.
           </p>
-          <div className="h-1.5 w-12 bg-brand-yellow mx-auto rounded-full" />
+          <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
-        {/* Channels Grid (3 Columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {channels.map((channel, idx) => {
-            return (
-              <motion.div
-                key={channel.name}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ y: -6, scale: 1.015 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  y: { type: "spring", stiffness: 300, damping: 20 },
-                  scale: { type: "spring", stiffness: 300, damping: 20 },
-                  opacity: { duration: 0.5, delay: idx * 0.08 }
-                }}
-                className={`bg-slate-50/60 hover:bg-white p-8 rounded-3xl border border-slate-200/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group/card ${channel.color} cursor-pointer`}
+        {/* Asymmetric Bento Grid (Replaces banned 3 equal card layout) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          {/* WhatsApp: Full width 12 columns (Main Call Channel) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="lg:col-span-12 bg-brand-blue text-white p-8 rounded-3xl border-2 border-brand-yellow shadow-[8px_8px_0px_#FFEC01] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[6px_6px_0px_#FFEC01] transition-all duration-300 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 group/card cursor-pointer"
+          >
+            <div className="space-y-4 max-w-3xl">
+              <div className="flex items-center gap-3">
+                <div className="p-3 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-2xl relative w-12 h-12 flex items-center justify-center shrink-0">
+                  <Image
+                    src="/iconos/whatapps.svg"
+                    alt="WhatsApp"
+                    width={26}
+                    height={26}
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-display uppercase tracking-wide text-brand-yellow font-bold leading-none">
+                    WHATSAPP DIRECTO
+                  </h3>
+                  <span className="text-xs text-blue-200 font-mono mt-1 block">
+                    +54 223 660-2699 | ATENCIÓN INMEDIATA
+                  </span>
+                </div>
+              </div>
+              <p className="text-sm text-blue-50 font-sans leading-relaxed">
+                Atención personalizada y sin demoras por WhatsApp. El canal más ágil para coordinar cotizaciones, retiros inmediatos, envíos FLEX y resolver dudas sobre nuestra operativa diaria.
+              </p>
+            </div>
+            <div className="shrink-0 w-full md:w-auto">
+              <a
+                href="https://wa.me/5492236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full md:w-auto px-8 py-4 bg-brand-yellow text-brand-blue font-subheading tracking-wider text-base uppercase rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] hover:bg-white hover:text-brand-blue flex items-center justify-center gap-2 transition-all duration-300"
               >
-                <div className="space-y-6">
-                  {/* Icon & Badge Header */}
-                  <div className="flex items-center justify-between">
-                    <div className="p-3 bg-brand-blue/10 rounded-2xl relative w-12 h-12 flex items-center justify-center group-hover/card:scale-105 transition-transform duration-300">
-                      <Image
-                        src={channel.iconPath}
-                        alt={channel.name}
-                        width={24}
-                        height={24}
-                        className="object-contain"
-                      />
-                    </div>
-                    
-                    <span className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider ${channel.badgeBg}`}>
-                      {channel.stat}
-                    </span>
-                  </div>
+                <span>CHATEÁ AHORA</span>
+                <ArrowRight className="h-5 w-5 shrink-0" />
+              </a>
+            </div>
+          </motion.div>
 
-                  {/* Name and Handle */}
-                  <div>
-                    <h3 className="text-xl font-display uppercase tracking-wide text-slate-900 font-bold leading-none">
-                      {channel.name}
-                    </h3>
-                    <span className="text-xs text-slate-400 font-mono mt-1 block">
-                      {channel.handle}
-                    </span>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-slate-500 font-sans leading-relaxed min-h-[72px]">
-                    {channel.desc}
-                  </p>
+          {/* Instagram: 6 columns */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-6 bg-white p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_#FFEC01] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#FFEC01] transition-all duration-300 flex flex-col justify-between group/card cursor-pointer"
+          >
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div className="p-3 bg-pink-50 text-pink-600 border-2 border-brand-blue rounded-2xl relative w-12 h-12 flex items-center justify-center">
+                  <Image
+                    src="/iconos/instagram.svg"
+                    alt="Instagram"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
                 </div>
+                <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-xs font-subheading font-bold uppercase tracking-wider">
+                  3.2K+ SEGUIDORES
+                </span>
+              </div>
+              <div>
+                <h3 className="text-2xl font-display uppercase tracking-wide text-slate-900 font-bold leading-none">
+                  INSTAGRAM
+                </h3>
+                <span className="text-xs text-slate-400 font-mono mt-1 block">
+                  @enviosdosruedas
+                </span>
+              </div>
+              <p className="text-sm text-slate-600 font-sans leading-relaxed min-h-[60px]">
+                Mirá nuestro día a día, fotos reales de las entregas diarias de la flota y promociones especiales diseñadas para tu e-commerce.
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-slate-100">
+              <a
+                href="https://instagram.com/enviosdosruedas"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 bg-brand-blue hover:bg-brand-blue/95 text-white rounded-2xl text-xs font-subheading text-sm tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-[4px_4px_0px_#FFEC01] group-hover/card:bg-brand-yellow group-hover/card:text-brand-blue cursor-pointer duration-300"
+              >
+                <span>SEGUINOS EN INSTAGRAM</span>
+                <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover/card:translate-x-0.5" />
+              </a>
+            </div>
+          </motion.div>
 
-                {/* Follow Button */}
-                <div className="pt-6 mt-6 border-t border-slate-100">
-                  <a
-                    href={channel.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3.5 bg-brand-blue hover:bg-brand-blue/95 text-white rounded-xl text-xs font-bold uppercase tracking-wider font-subheading flex items-center justify-center gap-1.5 transition-all shadow-sm group-hover/card:bg-brand-yellow group-hover/card:text-brand-blue cursor-pointer duration-300"
-                  >
-                    <span>{channel.btnLabel}</span>
-                    <ArrowRight className="h-3.5 w-3.5 group-hover/card:translate-x-1 transition-transform duration-300 shrink-0" />
-                  </a>
+          {/* Facebook: 6 columns */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-6 bg-slate-50 p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#0636A5] transition-all duration-300 flex flex-col justify-between group/card cursor-pointer"
+          >
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div className="p-3 bg-blue-50 text-blue-600 border-2 border-brand-blue rounded-2xl relative w-12 h-12 flex items-center justify-center">
+                  <Image
+                    src="/iconos/facebook.svg"
+                    alt="Facebook"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
                 </div>
+                <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-subheading font-bold uppercase tracking-wider">
+                  2.5K+ SEGUIDORES
+                </span>
+              </div>
+              <div>
+                <h3 className="text-2xl font-display uppercase tracking-wide text-slate-900 font-bold leading-none">
+                  FACEBOOK
+                </h3>
+                <span className="text-xs text-slate-400 font-mono mt-1 block">
+                  @enviosdosruedas
+                </span>
+              </div>
+              <p className="text-sm text-slate-600 font-sans leading-relaxed min-h-[60px]">
+                Seguinos para enterarte de ofertas exclusivas y novedades logísticas sobre el tránsito y cadetería comercial local.
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-slate-150">
+              <a
+                href="https://facebook.com/enviosdosruedas"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 bg-brand-blue hover:bg-brand-blue/95 text-white rounded-2xl text-xs font-subheading text-sm tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-[4px_4px_0px_#0636A5] group-hover/card:bg-brand-yellow group-hover/card:text-brand-blue cursor-pointer duration-300"
+              >
+                <span>SEGUINOS EN FACEBOOK</span>
+                <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover/card:translate-x-0.5" />
+              </a>
+            </div>
+          </motion.div>
 
-              </motion.div>
-            );
-          })}
         </div>
 
       </motion.div>

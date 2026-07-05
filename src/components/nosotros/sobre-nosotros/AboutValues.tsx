@@ -31,7 +31,7 @@ export default function AboutValues() {
   return (
     <section 
       id="about-values" 
-      className="py-24 bg-white relative z-10 shadow-[0_-10px_30px_-10px_rgba(0,0,0,0.01)] overflow-hidden border-t border-slate-100/50"
+      className="py-24 bg-white relative z-10 shadow-[0_-10px_30px_-10px_rgba(0,0,0,0.01)] overflow-hidden border-t-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -46,16 +46,16 @@ export default function AboutValues() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-3 py-1.5 bg-blue-100 text-brand-blue rounded-full text-xs font-bold uppercase tracking-widest inline-block border border-blue-200/50">
-            Filosofía Operativa
+          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(6,54,165,0.2)]">
+            FILOSOFÍA OPERATIVA
           </span>
           <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
-            Nuestros Valores
+            NUESTROS VALORES
           </h2>
-          <p className="text-slate-500 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-            Los pilares estratégicos e innegociables que sostienen nuestra operativa diaria y nos permiten ser tu partner logístico de absoluta confianza.
+          <p className="text-slate-600 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+            Los pilares estratégicos e innegociables que sostienen nuestra operativa diaria y nos permiten ser tu partner de absoluta confianza.
           </p>
-          <div className="h-1.5 w-12 bg-brand-yellow mx-auto rounded-full" />
+          <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
         {/* Values Grid (4 Columns) */}
@@ -69,17 +69,17 @@ export default function AboutValues() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="bg-slate-50/70 hover:bg-white p-6 rounded-3xl border border-slate-100/80 hover:border-brand-blue/10 hover:shadow-md transition-all duration-300 flex flex-col gap-5 text-left group"
+                className="bg-slate-50 border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] transition-all duration-300 flex flex-col gap-5 text-left group"
               >
-                <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-2xl w-fit shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl w-fit shrink-0 group-hover:scale-105 transition-transform duration-300 border-2 border-brand-blue">
                   <Icon className="h-6 w-6" />
                 </div>
                 
                 <div className="space-y-1.5">
-                  <h3 className="text-sm font-subheading uppercase tracking-wider text-slate-900 font-semibold leading-tight">
+                  <h3 className="text-xl font-display uppercase tracking-wider text-brand-blue font-bold leading-tight">
                     {val.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-500 font-sans leading-relaxed">
+                  <p className="text-sm text-slate-650 font-sans leading-relaxed">
                     {val.desc}
                   </p>
                 </div>

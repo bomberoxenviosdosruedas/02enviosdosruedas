@@ -10,32 +10,32 @@ export default function NetworksBenefits() {
       title: 'Ofertas Exclusivas',
       desc: 'Accedé a descuentos quincenales y promociones relámpago de delivery diseñadas en exclusiva para toda nuestra comunidad de seguidores.',
       icon: Gift,
-      color: 'bg-blue-50/50 border-blue-100 text-brand-blue',
+      color: 'bg-brand-blue text-brand-yellow border-brand-blue',
     },
     {
       title: 'Actualizaciones',
       desc: 'Sé el primero en enterarte de la incorporación de nuevos servicios urbanos, ampliación de zonas y cambios de horarios importantes.',
       icon: Bell,
-      color: 'bg-yellow-50/40 border-yellow-100 text-brand-blue',
+      color: 'bg-brand-yellow text-brand-blue border-brand-blue',
     },
     {
       title: 'Comunidad Activa',
       desc: 'Formá parte de nuestro grupo diario de clientes locales, compartiendo opiniones y enriqueciendo el servicio con tu feedback directo.',
       icon: Heart,
-      color: 'bg-pink-50/50 border-pink-100 text-pink-600',
+      color: 'bg-pink-50 text-pink-600 border-pink-200',
     },
     {
       title: 'Soporte Ágil',
       desc: 'Obtené contención y respuestas rápidas a consultas logísticas generales de bultos directamente por medio de mensajes privados directos.',
       icon: MessageSquare,
-      color: 'bg-emerald-50/50 border-emerald-100 text-emerald-600',
+      color: 'bg-emerald-50 text-emerald-600 border-emerald-200',
     },
   ];
 
   return (
     <section 
       id="networks-benefits" 
-      className="py-24 bg-white relative z-10 overflow-hidden"
+      className="py-24 bg-white relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -50,16 +50,16 @@ export default function NetworksBenefits() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-3.5 py-1.5 bg-blue-100 text-brand-blue rounded-full text-xs font-bold uppercase tracking-widest inline-block border border-blue-200/50">
-            Valores de Comunidad
+          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(6,54,165,0.2)]">
+            VALORES DE COMUNIDAD
           </span>
           <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
-            Beneficios de Formar Parte
+            BENEFICIOS DE FORMAR PARTE
           </h2>
-          <p className="text-slate-500 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Descubrí por qué cientos de marplatenses y PyMEs locales ya nos siguen activamente en nuestros canales de difusión oficiales.
           </p>
-          <div className="h-1.5 w-12 bg-brand-yellow mx-auto rounded-full" />
+          <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
         {/* Benefits Grid (4 Columns) */}
@@ -73,24 +73,24 @@ export default function NetworksBenefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-slate-50/40 hover:bg-white p-6 rounded-3xl border border-slate-100/80 hover:border-brand-blue/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                className="bg-slate-50 border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] transition-all duration-300 flex flex-col justify-between group text-left"
               >
                 <div className="space-y-5">
-                  <div className={`p-3 rounded-2xl w-fit ${benefit.color}`}>
-                    <Icon className="h-5 w-5" />
+                  <div className={`p-3 rounded-2xl w-fit border-2 ${benefit.color}`}>
+                    <Icon className="h-5 w-5 shrink-0" />
                   </div>
 
-                  <h3 className="text-sm font-subheading uppercase tracking-wider font-semibold text-slate-900 leading-tight">
+                  <h3 className="text-xl font-display uppercase tracking-wider text-slate-900 font-bold leading-tight">
                     {benefit.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-500 font-sans leading-relaxed">
+                  <p className="text-sm text-slate-650 font-sans leading-relaxed">
                     {benefit.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center gap-1.5 text-[10px] font-bold uppercase text-slate-400">
-                  <CheckCircle className="h-3.5 w-3.5 text-brand-yellow shrink-0" />
+                <div className="pt-6 mt-6 border-t-2 border-brand-blue flex items-center gap-1.5 text-xs font-subheading uppercase text-slate-400">
+                  <CheckCircle className="h-4 w-4 text-brand-yellow shrink-0 fill-brand-blue" />
                   <span>Beneficio Oficial</span>
                 </div>
               </motion.div>

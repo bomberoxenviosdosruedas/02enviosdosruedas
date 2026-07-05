@@ -35,7 +35,7 @@ export default function AboutTimeline() {
   return (
     <section 
       id="about-timeline" 
-      className="py-24 bg-slate-50 relative overflow-hidden border-t border-b border-slate-100"
+      className="py-24 bg-slate-50 relative overflow-hidden border-t-4 border-b-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -50,22 +50,22 @@ export default function AboutTimeline() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
-          <span className="px-3.5 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-bold uppercase tracking-widest inline-block shadow-accent-sm">
-            Trayectoria y Evolución
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_#0636A5]">
+            TRAYECTORIA Y EVOLUCIÓN
           </span>
           <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
-            Nuestra Historia
+            NUESTRA HISTORIA
           </h2>
-          <p className="text-slate-500 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Más de 7 años revolucionando la logística de última milla y el delivery estratégico en Mar del Plata.
           </p>
-          <div className="h-1.5 w-12 bg-brand-yellow mx-auto rounded-full" />
+          <div className="h-2 w-16 bg-brand-blue mx-auto rounded-full" />
         </div>
 
         {/* Timeline body */}
         <div className="relative max-w-4xl mx-auto">
           {/* Central Vertical Line (Desktop only) */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-0.5 bg-slate-200 hidden md:block" />
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-4 bottom-4 w-1 bg-brand-blue hidden md:block" />
 
           <div className="space-y-12 md:space-y-16">
             {milestones.map((milestone, idx) => {
@@ -75,14 +75,14 @@ export default function AboutTimeline() {
               return (
                 <div 
                   key={milestone.year} 
-                  className={`relative flex flex-col md:flex-row items-center md:justify-between group/card cursor-pointer ${
+                  className={`relative flex flex-col md:flex-row items-start md:items-center md:justify-between group/card cursor-pointer ${
                     isEven ? 'md:flex-row-reverse' : ''
                   }`}
                 >
                   
                   {/* Circle Pin on Line */}
-                  <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1.5 w-10 h-10 rounded-full bg-brand-blue border-4 border-white shadow flex items-center justify-center z-10 text-brand-yellow group-hover/card:scale-115 group-hover/card:bg-brand-yellow group-hover/card:text-brand-blue group-hover/card:border-brand-blue/30 transition-all duration-300">
-                    <Icon className="h-4 w-4" />
+                  <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1.5 md:top-auto w-10 h-10 rounded-full bg-brand-yellow border-2 border-brand-blue shadow-[2px_2px_0px_rgba(6,54,165,0.2)] flex items-center justify-center z-10 text-brand-blue group-hover/card:scale-110 group-hover/card:bg-brand-blue group-hover/card:text-brand-yellow transition-all duration-300">
+                    <Icon className="h-5 w-5" />
                   </div>
 
                   {/* Empty Spacer Column for Desktop */}
@@ -99,15 +99,15 @@ export default function AboutTimeline() {
                       scale: { type: "spring", stiffness: 300, damping: 20 },
                       opacity: { duration: 0.55 }
                     }}
-                    className="w-full md:w-[45%] bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-md pl-16 md:pl-8 group hover:shadow-lg transition-all duration-300"
+                    className="w-full md:w-[45%] bg-white p-6 sm:p-8 rounded-3xl border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] pl-16 md:pl-8 group hover:shadow-[6px_6px_0px_#0636A5] transition-all duration-300"
                   >
-                    <span className="inline-block text-2xl font-mono font-bold text-brand-blue mb-2">
+                    <span className="inline-block text-3xl font-display text-brand-blue mb-2">
                       {milestone.year}
                     </span>
-                    <h3 className="text-base sm:text-lg font-subheading uppercase tracking-wide text-slate-900 font-semibold leading-tight mb-2 group-hover:text-brand-blue transition-colors">
+                    <h3 className="text-xl font-display uppercase tracking-wide text-slate-900 font-bold leading-tight mb-2 group-hover:text-brand-blue transition-colors">
                       {milestone.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-500 font-sans leading-relaxed">
+                    <p className="text-sm text-slate-650 font-sans leading-relaxed">
                       {milestone.desc}
                     </p>
                   </motion.div>

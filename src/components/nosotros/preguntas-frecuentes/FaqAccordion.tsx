@@ -84,15 +84,15 @@ export default function FaqAccordion() {
   };
 
   return (
-    <section id="faq-accordion" className="py-16 bg-white relative overflow-hidden">
+    <section id="faq-accordion" className="py-24 bg-white relative overflow-hidden">
       {/* Dynamic Background */}
       <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-blue-50/40 blur-3xl -z-10" />
       <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-yellow-50/40 blur-3xl -z-10" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* Tab Selection Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {/* Tab Selection Filter (Neo-Brutalist Buttons) */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {Object.keys(categories).map((catKey) => {
             const cat = categories[catKey];
             const Icon = cat.icon;
@@ -104,13 +104,13 @@ export default function FaqAccordion() {
                 onClick={() => handleCategoryChange(catKey)}
                 whileHover={{ scale: 1.03, y: -1 }}
                 whileTap={{ scale: 0.97 }}
-                className={`px-5 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider font-subheading flex items-center gap-2.5 transition-all cursor-pointer ${
+                className={`px-6 py-3.5 rounded-2xl text-sm font-subheading uppercase tracking-wider flex items-center gap-2.5 transition-all cursor-pointer border-2 ${
                   isActive
-                    ? 'bg-brand-blue text-white shadow-md'
-                    : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-800'
+                    ? 'bg-brand-yellow text-brand-blue border-brand-blue shadow-[4px_4px_0px_#0636A5]'
+                    : 'bg-white text-slate-700 border-slate-200 shadow-[2px_2px_0px_rgba(0,0,0,0.05)] hover:border-brand-blue hover:shadow-[3px_3px_0px_#0636A5]'
                 }`}
               >
-                <Icon className={`h-4.5 w-4.5 ${isActive ? 'text-brand-yellow' : 'text-slate-500'}`} />
+                <Icon className={`h-5 w-5 ${isActive ? 'text-brand-blue' : 'text-slate-500'}`} />
                 <span>{cat.label}</span>
               </motion.button>
             );
@@ -118,7 +118,7 @@ export default function FaqAccordion() {
         </div>
 
         {/* Accordion List Wrapper */}
-        <div className="space-y-4 min-h-[300px]">
+        <div className="space-y-6 min-h-[300px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeCategory}
@@ -126,7 +126,7 @@ export default function FaqAccordion() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.25 }}
-              className="space-y-4"
+              className="space-y-6"
             >
               {categories[activeCategory].items.map((item, idx) => {
                 const isExpanded = expandedIndex === idx;
@@ -134,10 +134,10 @@ export default function FaqAccordion() {
                 return (
                   <div
                     key={item.question}
-                    className={`rounded-3xl overflow-hidden transition-all duration-300 border ${
+                    className={`rounded-3xl overflow-hidden transition-all duration-300 border-2 ${
                       isExpanded 
-                        ? 'bg-white border-brand-blue/30 shadow-md ring-2 ring-brand-blue/5' 
-                        : 'bg-slate-50/70 border-slate-200 hover:border-brand-blue/15 hover:bg-white hover:shadow-sm'
+                        ? 'bg-white border-brand-blue shadow-[6px_6px_0px_#FFEC01]' 
+                        : 'bg-slate-50 border-brand-blue/20 shadow-[4px_4px_0px_rgba(6,54,165,0.08)] hover:border-brand-blue hover:shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px]'
                     }`}
                   >
                     {/* Collapsible Header Click Area */}
@@ -146,15 +146,15 @@ export default function FaqAccordion() {
                       className="w-full p-6 sm:p-7 text-left flex items-center justify-between gap-4 cursor-pointer"
                     >
                       <div className="flex items-center gap-4">
-                        <div className={`p-2 rounded-xl shrink-0 ${isExpanded ? 'bg-brand-yellow text-brand-blue' : 'bg-brand-blue/10 text-brand-blue'}`}>
-                          <HelpCircle className="h-4.5 w-4.5 animate-pulse" />
+                        <div className={`p-2.5 rounded-xl border-2 shrink-0 ${isExpanded ? 'bg-brand-yellow text-brand-blue border-brand-blue' : 'bg-brand-blue/10 text-brand-blue border-brand-blue/20'}`}>
+                          <HelpCircle className="h-5 w-5 shrink-0" />
                         </div>
-                        <h4 className={`text-sm sm:text-base font-subheading font-semibold leading-tight transition-colors ${isExpanded ? 'text-brand-blue' : 'text-slate-900'}`}>
+                        <h4 className={`text-base sm:text-lg font-sans font-bold leading-tight transition-colors ${isExpanded ? 'text-brand-blue' : 'text-slate-900'}`}>
                           {item.question}
                         </h4>
                       </div>
-                      <div className={`p-1.5 rounded-full shrink-0 transition-transform duration-300 ${isExpanded ? 'rotate-180 bg-brand-blue text-white' : 'bg-slate-200/50 text-slate-500'}`}>
-                        <ChevronDown className="h-4 w-4" />
+                      <div className={`p-2 rounded-full border-2 shrink-0 transition-transform duration-300 ${isExpanded ? 'rotate-180 bg-brand-blue text-brand-yellow border-brand-blue' : 'bg-slate-200/50 text-slate-500 border-slate-300'}`}>
+                        <ChevronDown className="h-4.5 w-4.5" />
                       </div>
                     </button>
 
@@ -167,7 +167,7 @@ export default function FaqAccordion() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3, ease: 'easeInOut' }}
                         >
-                          <div className="px-6 pb-7 pl-16 pr-8 border-t border-slate-100 pt-4 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
+                          <div className="px-6 pb-7 pl-16 pr-8 border-t-2 border-slate-100 pt-4 text-sm sm:text-base text-slate-650 font-sans leading-relaxed">
                             {item.answer}
                           </div>
                         </motion.div>
@@ -184,3 +184,4 @@ export default function FaqAccordion() {
     </section>
   );
 }
+
