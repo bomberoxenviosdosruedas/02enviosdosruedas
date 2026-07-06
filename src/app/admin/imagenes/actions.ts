@@ -141,3 +141,94 @@ export async function getFilesInFolder(folder: string) {
   }
 }
 
+export async function suggestPromptBase(data: {
+  description: string;
+  modelUsed: string;
+  aspectRatio: string;
+}) {
+  const { description, modelUsed, aspectRatio } = data;
+  if (!description || description.trim() === '') {
+    throw new Error('La descripción no puede estar vacía');
+  }
+
+  const { ai } = await import('@/src/lib/genkit');
+  const { googleAI } = await import('@genkit-ai/google-genai');
+
+  const systemInstruction = `
+You are the Principal AI Prompt Engineer for "Envíos DosRuedas", a premium logistics and delivery company based in Mar del Plata, Argentina (operational year 2026).
+Your job is to generate a highly detailed and structured image generation prompt (in English, as image generation models perform best in English) based on a basic Spanish description of an image asset.
+
+You must follow the brand rules:
+- Aesthetic: Cyber-Urban Neo-Brutalist or Corporate Bento Grid.
+- Brand Colors: Egyptian Blue (#0636A5) and Sunbeam Yellow (#FFEC01) as primary accents, with deep slate/navy (#0F172A) and clean whites.
+- Context: Localized in Mar del Plata (such as Chauvín, Güemes, Puerto, Constitución, or coastal roads).
+- Delivery fleet: Agility, same-day delivery, motorcycles/bikes.
+
+Use the official non-reference image structure:
+[Subject and detailed description] + [Artistic/visual style] + [Composition/Camera angle] + [Lighting and atmosphere] + [Specific color palette containing #0636A5 and #FFEC01]
+
+Output ONLY the final prompt text. Do not include any intro, outro, markdown block formatting, or explanation.
+`;
+
+  try {
+    const response = await ai.generate({
+      model: googleAI.model('gemini-2.5-flash'),
+      prompt: `Generate an image prompt for the following description: "${description}". Target Model: ${modelUsed}, Aspect Ratio: ${aspectRatio}`,
+      config: {
+        systemInstruction,
+        temperature: 0.7,
+      },
+    });
+
+    return response.text || '';
+  } catch (error) {
+    console.error('Error in suggestPromptBase flow:', error);
+    throw new Error('No se pudo generar la sugerencia de prompt.');
+  }
+}
+
+export async function improvePrompt(data: {
+  currentPromptText: string;
+  modelUsed: string;
+  aspectRatio: string;
+}) {
+  const { currentPromptText, modelUsed, aspectRatio } = data;
+  if (!currentPromptText || currentPromptText.trim() === '') {
+    throw new Error('El prompt actual no puede estar vacío');
+  }
+
+  const { ai } = await import('@/src/lib/genkit');
+  const { googleAI } = await import('@genkit-ai/google-genai');
+
+  const systemInstruction = `
+You are the Principal AI Prompt Engineer for "Envíos DosRuedas", a premium logistics and delivery company based in Mar del Plata, Argentina (2026).
+Your job is to polish, expand, and optimize an existing image generation prompt (written in Spanish or English) into a highly structured, professional English prompt optimized for AI image models.
+
+You must structure the output strictly using the official format:
+[Subject and detailed description] + [Artistic/visual style] + [Composition/Camera angle] + [Lighting and atmosphere] + [Specific color palette containing #0636A5 and #FFEC01]
+
+Ensure:
+- Brand Colors: Explicitly mention Egyptian Blue (#0636A5) and Sunbeam Yellow (#FFEC01) as key visual highlights.
+- Aesthetic: Infuse the Y2K corporate neo-brutalist style (heavy outlines, solid offset shadows, technical grid elements, or clean glassmorphic glows).
+- Context: Integrate local Mar del Plata atmosphere or landscape if applicable.
+
+Output ONLY the optimized prompt text. Do not include any intro, outro, markdown block formatting, or explanation.
+`;
+
+  try {
+    const response = await ai.generate({
+      model: googleAI.model('gemini-2.5-flash'),
+      prompt: `Improve the following image prompt: "${currentPromptText}". Target Model: ${modelUsed}, Aspect Ratio: ${aspectRatio}`,
+      config: {
+        systemInstruction,
+        temperature: 0.7,
+      },
+    });
+
+    return response.text || '';
+  } catch (error) {
+    console.error('Error in improvePrompt flow:', error);
+    throw new Error('No se pudo mejorar el prompt.');
+  }
+}
+

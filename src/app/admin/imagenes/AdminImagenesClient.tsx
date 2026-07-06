@@ -21,7 +21,9 @@ import {
   deleteImageMetadata,
   checkFileExists,
   createPageFolder,
-  getFilesInFolder
+  getFilesInFolder,
+  suggestPromptBase,
+  improvePrompt
 } from './actions';
 
 interface PromptSuggestion {
@@ -71,6 +73,9 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
   const [promptTexts, setPromptTexts] = useState<Record<number, string>>({});
   const [modelsUsed, setModelsUsed] = useState<Record<number, string>>({});
   const [aspectRatios, setAspectRatios] = useState<Record<number, string>>({});
+  
+  const [generatingId, setGeneratingId] = useState<number | null>(null);
+  const [improvingId, setImprovingId] = useState<number | null>(null);
   
   const [copiedId, setCopiedId] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -228,6 +233,56 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
       setSuccess('¡Prompt agregado correctamente!');
     } catch (err: any) {
       setError(err.message || 'Error al guardar la sugerencia.');
+    }
+  };
+
+  const handleSuggestPrompt = async (imageId: number, description: string) => {
+    setError(null);
+    setSuccess(null);
+    const model = modelsUsed[imageId] || 'auto';
+    const aspect = aspectRatios[imageId] || '16:9';
+    setGeneratingId(imageId);
+
+    try {
+      const suggested = await suggestPromptBase({
+        description,
+        modelUsed: model,
+        aspectRatio: aspect
+      });
+      setPromptTexts(prev => ({ ...prev, [imageId]: suggested }));
+      setSuccess('¡Prompt base sugerido con éxito! Podés revisarlo antes de guardarlo.');
+    } catch (err: any) {
+      setError(err.message || 'Error al generar la sugerencia base.');
+    } finally {
+      setGeneratingId(null);
+    }
+  };
+
+  const handleImprovePrompt = async (imageId: number) => {
+    setError(null);
+    setSuccess(null);
+    const text = promptTexts[imageId];
+    const model = modelsUsed[imageId] || 'auto';
+    const aspect = aspectRatios[imageId] || '16:9';
+
+    if (!text || text.trim() === '') {
+      setError('Escribí algo en el prompt para poder mejorarlo.');
+      return;
+    }
+
+    setImprovingId(imageId);
+    try {
+      const improved = await improvePrompt({
+        currentPromptText: text,
+        modelUsed: model,
+        aspectRatio: aspect
+      });
+      setPromptTexts(prev => ({ ...prev, [imageId]: improved }));
+      setSuccess('¡Prompt mejorado con IA con éxito! Revisalo y hacé clic en "Agregar Prompt" para guardarlo.');
+    } catch (err: any) {
+      setError(err.message || 'Error al mejorar el prompt.');
+    } finally {
+      setImprovingId(null);
     }
   };
 
@@ -511,17 +566,41 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                         <textarea
                           value={promptTexts[image.id] || ''}
                           onChange={e => setPromptTexts(prev => ({ ...prev, [image.id]: e.target.value }))}
-                          placeholder="Ingresá la descripción estructurada del prompt que arrojó la IA..."
+                          placeholder="Ingresá la descripción estructurada del prompt o usá las sugerencias de IA..."
                           rows={3}
                           className="w-full bg-white px-3 py-2 rounded-lg border border-slate-200 text-xs focus:outline-none focus:ring-1 focus:ring-brand-blue text-slate-700 font-sans"
                         />
-                        <button
-                          onClick={() => handleAddPrompt(image.id)}
-                          className="bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase tracking-wide px-4 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 shadow-[2px_2px_0px_#FFEC01]"
-                        >
-                          <Plus className="h-3.5 w-3.5 shrink-0" />
-                          Agregar Prompt
-                        </button>
+                        <div className="flex flex-wrap gap-2">
+                          <button
+                            onClick={() => handleAddPrompt(image.id)}
+                            className="bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase tracking-wide px-4 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 shadow-[2px_2px_0px_#FFEC01] shrink-0"
+                          >
+                            <Plus className="h-3.5 w-3.5 shrink-0" />
+                            Agregar Prompt
+                          </button>
+                          
+                          <button
+                            type="button"
+                            onClick={() => handleSuggestPrompt(image.id, image.currentDescription)}
+                            disabled={generatingId === image.id || improvingId === image.id}
+                            className="bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 font-subheading uppercase tracking-wide px-3 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                            title="Sugerir un prompt estructurado desde la descripción de la imagen"
+                          >
+                            <Sparkles className="h-3.5 w-3.5 text-brand-blue shrink-0 animate-pulse" />
+                            {generatingId === image.id ? 'Generando...' : 'Sugerir Base'}
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => handleImprovePrompt(image.id)}
+                            disabled={generatingId === image.id || improvingId === image.id}
+                            className="bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 font-subheading uppercase tracking-wide px-3 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                            title="Optimizar el prompt actual con inteligencia artificial"
+                          >
+                            <Sparkles className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                            {improvingId === image.id ? 'Mejorando...' : 'Mejorar con IA'}
+                          </button>
+                        </div>
                       </div>
                     </div>
 
