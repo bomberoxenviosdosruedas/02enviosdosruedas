@@ -236,7 +236,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
     }
   };
 
-  const handleSuggestPrompt = async (imageId: number, description: string) => {
+  const handleSuggestPrompt = async (imageId: number, description: string, relativePath: string) => {
     setError(null);
     setSuccess(null);
     const model = modelsUsed[imageId] || 'auto';
@@ -246,6 +246,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
     try {
       const suggested = await suggestPromptBase({
         description,
+        relativePath,
         modelUsed: model,
         aspectRatio: aspect
       });
@@ -581,13 +582,13 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                           
                           <button
                             type="button"
-                            onClick={() => handleSuggestPrompt(image.id, image.currentDescription)}
+                            onClick={() => handleSuggestPrompt(image.id, image.currentDescription, image.relativePath)}
                             disabled={generatingId === image.id || improvingId === image.id}
                             className="bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 font-subheading uppercase tracking-wide px-3 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
-                            title="Sugerir un prompt estructurado desde la descripción de la imagen"
+                            title="Sugerir un prompt estructurado (desde descripción o imagen)"
                           >
                             <Sparkles className="h-3.5 w-3.5 text-brand-blue shrink-0 animate-pulse" />
-                            {generatingId === image.id ? 'Generando...' : 'Sugerir Base'}
+                            {generatingId === image.id ? 'Generando...' : (!image.currentDescription || image.currentDescription.trim() === '') ? 'Sugerir con IA Visual' : 'Sugerir Base'}
                           </button>
 
                           <button
