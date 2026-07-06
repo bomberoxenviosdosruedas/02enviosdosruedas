@@ -45,3 +45,22 @@ model Feedback {
   createdAt     DateTime @default(now())
 }
 
+model ImageMetadata {
+  id                 Int                  @id @default(autoincrement())
+  relativePath       String               @unique // Ej. "/express-hero-inline.png" o "/images/card-mapa.webp"
+  currentDescription String
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  promptSuggestions  AiPromptSuggestion[]
+}
+
+model AiPromptSuggestion {
+  id          Int           @id @default(autoincrement())
+  promptText  String
+  modelUsed   String?       // Ej. "nano-banana", "imagen-3", "auto"
+  aspectRatio String?       // Ej. "16:9"
+  imageId     Int
+  image       ImageMetadata @relation(fields: [imageId], references: [id], onDelete: Cascade)
+  createdAt   DateTime      @default(now())
+}
+
