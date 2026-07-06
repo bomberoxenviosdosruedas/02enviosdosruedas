@@ -75,7 +75,7 @@ export default function OptimizedFooter() {
             <Link href="/" className="flex items-center gap-3 group w-fit">
               <div className="relative w-11 h-11 group-hover:scale-105 transition-transform duration-300 shrink-0">
                 <Image
-                  src="/images/logo.png"
+                  src="/logo.png"
                   alt="Logo Envíos Dos Ruedas"
                   fill
                   sizes="44px"
