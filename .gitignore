@@ -16,3 +16,7 @@ generated/*
 document.md
 document.html
 document.pdf
+.stitch/*
+site/*
+scratch/*
+.vscode/*
