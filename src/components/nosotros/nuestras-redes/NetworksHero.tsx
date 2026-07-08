@@ -74,7 +74,7 @@ export default function NetworksHero() {
               variants={itemVariants}
               className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-none text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
             >
-              <span>COMUNIDAD</span>
+              <span>COMUNIDAD EN</span>
               <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#0636A5]">
                 <Image
                   src="https://picsum.photos/id/450/200/100" 
@@ -83,7 +83,7 @@ export default function NetworksHero() {
                   className="object-cover"
                 />
               </span>
-              <span className="text-brand-yellow text-glow-yellow">DOSRUEDAS</span>
+              <span className="text-brand-yellow text-glow-yellow">LÍNEA</span>
             </motion.h1>
 
             {/* Description */}
@@ -91,7 +91,7 @@ export default function NetworksHero() {
               variants={itemVariants}
               className="text-base sm:text-lg lg:text-xl font-sans text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Conectate con nuestra red logística de Mar del Plata. Seguí el día a día operativo, alertas viales al instante y novedades de servicio en este 2026.
+              Seguinos en nuestras redes y enterate de todas las innovaciones!
             </motion.p>
 
             {/* Special Callout Panel (Neo-Brutalist) */}

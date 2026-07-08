@@ -74,7 +74,7 @@ export default function FaqHero() {
               variants={itemVariants}
               className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-none text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
             >
-              <span>PREGUNTAS</span>
+              <span>CENTRO DE</span>
               <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#0636A5]">
                 <Image
                   src="https://picsum.photos/id/1070/200/100" 
@@ -83,7 +83,7 @@ export default function FaqHero() {
                   className="object-cover"
                 />
               </span>
-              <span className="text-brand-yellow text-glow-yellow">FRECUENTES</span>
+              <span className="text-brand-yellow text-glow-yellow">RESPUESTAS</span>
             </motion.h1>
 
             {/* Description */}
@@ -91,7 +91,7 @@ export default function FaqHero() {
               variants={itemVariants}
               className="text-base sm:text-lg lg:text-xl font-sans text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Todo lo que necesitás saber sobre nuestra operativa en Mar del Plata, tarifas zonificadas y SLAs de entrega garantizada para este 2026.
+              Despejá tus dudas sobre los envíos, coberturas, métodos de pago y dudas frecuentes.
             </motion.p>
 
             {/* Special Callout Panel (Neo-Brutalist) */}

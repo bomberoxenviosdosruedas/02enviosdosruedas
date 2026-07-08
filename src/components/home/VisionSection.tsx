@@ -6,9 +6,10 @@ import { Clock, ShieldCheck, Users, Trophy, Truck } from 'lucide-react';
 
 export default function VisionSection() {
   const stats = [
-    { value: '+5.000', label: 'Confianza local comprobada', icon: Users },
-    { value: '7 Años', label: 'Innovación constante en última milla', icon: Trophy },
-    { value: 'Flota Exclusiva', label: 'Motocicletas dedicadas para máxima agilidad urbana', icon: Truck },
+    { value: '+50k', label: 'Envíos Realizados', icon: Truck },
+    { value: '99.8%', label: 'Eficiencia de Entrega', icon: Trophy },
+    { value: '0', label: 'Paquetes extraviados', icon: ShieldCheck },
+    { value: '+50', label: 'Emprendedores Confían', icon: Users },
   ];
 
   return (
@@ -92,8 +93,8 @@ export default function VisionSection() {
                     opacity: { duration: 0.5, delay: i * 0.1 }
                   }}
                   className={`p-8 rounded-3xl border-2 border-brand-blue transition-all duration-300 flex flex-col justify-between cursor-pointer group ${
-                    i === 2 
-                      ? 'sm:col-span-2 bg-brand-yellow/5 shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] hover:bg-brand-yellow/10' 
+                    i % 3 === 0 
+                      ? 'bg-brand-yellow/5 shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] hover:bg-brand-yellow/10' 
                       : 'bg-white shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5]'
                   }`}
                 >

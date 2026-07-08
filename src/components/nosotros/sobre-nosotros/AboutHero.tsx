@@ -74,7 +74,7 @@ export default function AboutHero() {
               variants={itemVariants}
               className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-none text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
             >
-              <span>SOBRE</span>
+              <span>LÍDERES EN</span>
               <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#0636A5]">
                 <Image
                   src="https://picsum.photos/id/350/200/100" 
@@ -83,7 +83,7 @@ export default function AboutHero() {
                   className="object-cover"
                 />
               </span>
-              <span className="text-brand-yellow text-glow-yellow">NOSOTROS</span>
+              <span className="text-brand-yellow text-glow-yellow">ÚLTIMA MILLA</span>
             </motion.h1>
 
             {/* Description */}
@@ -91,7 +91,7 @@ export default function AboutHero() {
               variants={itemVariants}
               className="text-base sm:text-lg lg:text-xl font-sans text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Somos <span className="text-brand-yellow font-bold">Envíos DosRuedas</span>, tu aliado estratégico en mensajería y delivery en Mar del Plata. Conocé cómo revolucionamos la logística de última milla.
+              Nuestra historia comenzó con una simple meta: hacer los envíos locales más eficientes, rápidos y confiables en Mar del Plata.
             </motion.p>
 
             {/* Special Callout Panel (Neo-Brutalist Card) */}

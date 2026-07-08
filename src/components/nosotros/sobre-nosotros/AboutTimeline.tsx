@@ -2,33 +2,51 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Calendar, Compass, TrendingUp, CheckCircle, Award } from 'lucide-react';
+import { Compass, TrendingUp, Award, CheckCircle, Users, Truck } from 'lucide-react';
 
 export default function AboutTimeline() {
   const milestones = [
     {
-      year: '2017',
-      title: 'Inicios y Fundamentos',
-      desc: 'Comenzamos como un modesto servicio de mensajería local con una flota de motos entusiasta, adaptándonos con rapidez a las crecientes exigencias de los comercios marplatenses.',
+      year: '2019',
+      title: 'Lanzamiento Inicial',
+      desc: 'Comenzamos nuestra andadura con 3 motos de reparto, enfocados en brindar soluciones rápidas y de confianza.',
       icon: Compass,
     },
     {
       year: '2021',
-      title: 'La Gran Transformación',
-      desc: 'Evolucionamos hacia la gestión del e-commerce moderno en Mar del Plata. Rediseñamos todos nuestros flujos y ruteos para liderar la entrega de última milla.',
+      title: 'Nuevos Servicios',
+      desc: 'Lanzamos los servicios de Envíos LowCost, Plan Emprendedores y logística especializada para E-Commerce.',
       icon: TrendingUp,
     },
     {
       year: '2023',
-      title: 'Consolidación de Calidad',
-      desc: 'Alcanzamos la calificación de 5.0 estrellas en Google Reviews. Cientos de clientes locales validaron oficialmente nuestra búsqueda de la excelencia.',
+      title: 'Consolidación Local',
+      desc: 'Nos consolidamos en la ciudad de Mar del Plata como una de las principales mensajerías de última milla.',
       icon: Award,
     },
     {
-      year: '2024',
-      title: 'Liderazgo 3PL (Fulfillment)',
-      desc: 'Operamos depósitos propios bajo un modelo logístico 3PL integral de almacenamiento y empaquetado personalizado para potenciar PyMEs de toda la región costera.',
+      year: '2025',
+      title: 'Envíos Flex Pioneros',
+      desc: 'Primera mensajería en ofrecer el servicio oficial de Envíos Flex de MercadoLibre en toda Mar del Plata.',
       icon: CheckCircle,
+    },
+    {
+      year: '2025',
+      title: 'Depósito Central',
+      desc: 'Mudanza a nuestro depósito central de Friuli 1972 e incorporación de nuevas innovaciones tecnológicas.',
+      icon: Truck,
+    },
+    {
+      year: '2026',
+      title: 'Cobertura y Soluciones 3PL',
+      desc: 'Cobertura total de última milla en toda la ciudad, envíos Flex y servicios avanzados de almacenamiento 3PL.',
+      icon: Award,
+    },
+    {
+      year: '2026',
+      title: 'Flota Ampliada',
+      desc: 'Contamos con un equipo de +20 repartidores capacitados para realizar todos tus envíos en tiempo y forma.',
+      icon: Users,
     },
   ];
 

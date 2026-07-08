@@ -60,7 +60,7 @@ export default function AboutMissionVision() {
               </h3>
               
               <p className="text-sm text-slate-300 font-sans leading-relaxed">
-                Conectar personas y negocios en Mar del Plata a través de un servicio de mensajería y delivery confiable, rápido y accesible, contribuyendo de forma activa al crecimiento de nuestra comunidad local.
+                Simplificar la logística de última milla local en Mar del Plata.
               </p>
             </div>
 
@@ -88,7 +88,7 @@ export default function AboutMissionVision() {
               </h3>
               
               <p className="text-sm text-slate-650 font-sans leading-relaxed">
-                Ser la empresa líder en mensajería y delivery en la región costera, reconocida por nuestra excelencia operativa y compromiso supremo con cada cliente.
+                Consolidar la red de última milla y mensajería más confiable de Mar del Plata.
               </p>
             </div>
 
@@ -116,7 +116,7 @@ export default function AboutMissionVision() {
                 </h3>
               </div>
               <p className="text-sm text-slate-300 font-sans leading-relaxed">
-                Incorporamos de forma permanente ruteadores inteligentes y metodologías operativas avanzadas para agilizar despachos en Mar del Plata. Simplificamos tus envíos mediante automatizaciones de vanguardia.
+                Trabajamos constantemente en nuevas innovaciones para hacer más confiable el servicio.
               </p>
             </div>
             <div className="shrink-0 flex items-center justify-end">

@@ -7,24 +7,19 @@ import { ShieldCheck, Zap, Handshake, MapPin } from 'lucide-react';
 export default function AboutValues() {
   const values = [
     {
-      title: 'Compromiso',
-      desc: 'Nos comprometemos con cada envío como si fuera propio, garantizando excelencia en cada entrega.',
+      title: 'Transparencia Total',
+      desc: 'Comunicación clara, tarifas sin sorpresas y reportes honestos sobre cada una de tus entregas.',
       icon: Handshake,
     },
     {
-      title: 'Rapidez',
-      desc: 'Agilidad motorizada para cumplir con los SLAs de tiempo más exigentes del mercado actual.',
-      icon: Zap,
-    },
-    {
-      title: 'Confiabilidad',
-      desc: 'Procesos auditados y notificaciones en tiempo real para tu total y absoluta tranquilidad.',
+      title: 'Cuidado del Paquete',
+      desc: 'Manipulación profesional y segura para garantizar que cada bulto llegue en impecables condiciones.',
       icon: ShieldCheck,
     },
     {
-      title: 'Cercanía',
-      desc: 'Atención personalizada y conocimiento profundo de la logística urbana en Mar del Plata.',
-      icon: MapPin,
+      title: 'Innovación Tecnológica',
+      desc: 'Optimización inteligente de recorridos y tracking digital avanzado adaptado al año 2026.',
+      icon: Zap,
     },
   ];
 
@@ -58,8 +53,8 @@ export default function AboutValues() {
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
-        {/* Values Grid (4 Columns) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Values Grid (3 Columns) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {values.map((val, idx) => {
             const Icon = val.icon;
             return (

@@ -18,10 +18,10 @@ export default function CotizadorLowCostHelp() {
             ¿Dudas o Envíos Especiales?
           </span>
           <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
-            ¿Necesitás una solución personalizada?
+            ¿Tenés una cuenta corporativa?
           </h3>
           <p className="text-blue-100 text-sm sm:text-base leading-relaxed font-sans">
-            Si tu envío excede nuestros rangos estándar, necesitás múltiples paradas, o tenés alguna consulta específica, no dudes en contactarnos directamente. Estamos listos para asistirte.
+            Accedé a facturación semanal, quincenal o mensual. Factura tipo C disponible y resúmenes de los envíos realizados.
           </p>
         </div>
 

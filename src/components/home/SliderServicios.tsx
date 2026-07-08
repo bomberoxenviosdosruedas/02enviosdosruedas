@@ -1,34 +1,55 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Bike, Shield, Eye, Smartphone, ChevronLeft, ChevronRight } from 'lucide-react';
+import { 
+  ShoppingBag, 
+  Wrench, 
+  Shirt, 
+  FileText, 
+  ClipboardCheck, 
+  Package, 
+  ChevronLeft, 
+  ChevronRight 
+} from 'lucide-react';
 
 export default function SliderServicios() {
   const slides = [
     {
-      title: 'Agilidad Urbana',
-      subtitle: 'Tránsito burlado con agilidad',
-      desc: 'Nuestras motocicletas evitan retrasos por tráfico urbano y acceden a cualquier sector de Mar del Plata rápidamente.',
-      icon: Bike,
+      title: 'E-Commerce',
+      subtitle: 'Entregas Same Day y Next Day',
+      desc: 'Envíos a domicilio de tus ventas online, con entregas same day y next day en toda la ciudad.',
+      icon: ShoppingBag,
     },
     {
-      title: 'Trazabilidad Inteligente',
-      subtitle: 'Seguimiento constante',
-      desc: 'Accedé a herramientas digitales para monitorear el estado de cada despacho y estar siempre al tanto.',
-      icon: Smartphone,
+      title: 'Repuesto de Automotores',
+      subtitle: 'Partes críticas al instante',
+      desc: 'Envío rápido de autopartes y componentes críticos directo a talleres mecánicos y concesionarias.',
+      icon: Wrench,
     },
     {
-      title: 'Custodia Total',
-      subtitle: 'Máxima seguridad',
-      desc: 'Garantizamos que cada paquete se manipule con cuidado absoluto y llegue en perfectas condiciones a destino.',
-      icon: Shield,
+      title: 'Indumentaria y Calzado',
+      subtitle: 'Moda y Logística Inversa',
+      desc: 'Logística inversa simplificada y entregas rápidas de moda local para indumentaria y calzado.',
+      icon: Shirt,
     },
     {
-      title: 'Transparencia Absoluta',
-      subtitle: 'Soporte constante',
-      desc: 'Comunicación clara, reportes y cotizaciones claras desde el primer momento sin costos ocultos.',
-      icon: Eye,
+      title: 'Trámites',
+      subtitle: 'Cadetería Administrativa',
+      desc: 'Gestión y realización de todo tipo de trámites, gestiones, cobranzas y despacho de encomiendas.',
+      icon: FileText,
+    },
+    {
+      title: 'Insumos Varios',
+      subtitle: 'Entregas en tiempo y forma',
+      desc: 'Entrega ágil de todo tipo de insumos en tiempo y forma (médicos, tecnológicos, corporativos y más).',
+      icon: ClipboardCheck,
+    },
+    {
+      title: 'Encomiendas',
+      subtitle: 'Retiro y Despacho',
+      desc: 'Retiro a domicilio y despacho de encomiendas de forma segura y coordinada.',
+      icon: Package,
     },
   ];
 
@@ -77,7 +98,7 @@ export default function SliderServicios() {
               Innovación en Distribución
             </span>
             <h2 className="text-slate-900 text-display uppercase">
-              SOLUCIONES A MEDIDA
+              Soluciones Especiales para Industrias
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed font-sans max-w-2xl">
               Hemos redefinido los estándares de la logística urbana para ofrecerte una ventaja competitiva real en un mercado en constante evolución en Mar del Plata.

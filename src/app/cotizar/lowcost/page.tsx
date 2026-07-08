@@ -37,7 +37,7 @@ export default async function Page() {
             Cotizador de Envíos LowCost
           </h1>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
-            Eficiencia y rentabilidad. Calculá tu envío de ruteo diario masivo con entrega garantizada en el día en Mar del Plata.
+            Eficiencia y rentabilidad. Calculá tu envío con entrega garantizada en el día si es solicitado antes de las 13hs.
           </p>
           <div className="flex justify-center pt-2">
             <Link

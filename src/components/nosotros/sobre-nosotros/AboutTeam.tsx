@@ -13,7 +13,7 @@ export default function AboutTeam() {
       icon: ShieldCheck,
     },
     {
-      number: '15+',
+      number: '+20',
       role: 'Repartidores Calificados',
       desc: 'Profesionales capacitados con amplia experiencia que conocen cada rincón y atajo de Mar del Plata para realizar entregas veloces y eficientes.',
       icon: Users2,
@@ -54,10 +54,10 @@ export default function AboutTeam() {
             FUERZA HUMANA
           </span>
           <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
-            NUESTRO EQUIPO
+            Nuestro Equipo de Calle
           </h2>
           <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-            Un grupo humano coordinado de profesionales apasionados por brindar el mejor servicio de mensajería y delivery de la ciudad.
+            Contamos con cadetes capacitados en Mar del Plata para entregar todos tus envíos en tiempo y forma. Contamos con un equipo de +20 Repartidores y estamos en constante crecimiento para cumplir con todas las entregas en tiempo y forma.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>

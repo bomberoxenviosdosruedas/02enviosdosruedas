@@ -30,10 +30,10 @@ export default function AboutAdvantages() {
             DIFERENCIAL COMPETITIVO
           </span>
           <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
-            NUESTRA VENTAJA INJUSTA
+            Por Qué Elegirnos
           </h2>
           <p className="text-slate-600 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            En un mercado sobresaturado de aplicaciones genéricas y envíos automatizados sin rostro, decidimos ir por el camino de la excelencia territorial. Nuestra ventaja se basa en tres pilares innegociables:
+            En un mercado sobresaturado de aplicaciones genéricas y envíos automatizados sin rostro, decidimos ir por el camino de la excelencia territorial en Mar del Plata.
           </p>
           <div className="h-2 w-16 bg-brand-blue mx-auto rounded-full" />
         </div>
@@ -41,7 +41,7 @@ export default function AboutAdvantages() {
         {/* Asymmetric Bento Grid (Replaces banned 3 equal card layout) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
-          {/* Card 1: Atención Personalizada (Main White Card, 7 columns) */}
+          {/* Card 1: Soporte Humano 24/7 (Main White Card, 7 columns) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,10 +54,10 @@ export default function AboutAdvantages() {
                 <MessageSquare className="h-6 w-6" />
               </div>
               <h3 className="text-2xl font-display uppercase tracking-wide text-brand-blue font-bold leading-tight">
-                ATENCIÓN PERSONALIZADA Y HUMANA
+                Soporte Humano 24/7
               </h3>
               <p className="text-sm text-slate-600 font-sans leading-relaxed">
-                Damos la cara frente a cualquier inconveniente. En Envíos DosRuedas no sos un ticket de soporte automatizado por un bot, sos un partner estratégico. Atendemos de forma directa y resolvemos con personal local.
+                Damos la cara frente a cualquier inconveniente. Contamos con atención al cliente humana e inmediata disponible las 24 horas, los 7 días de la semana para resolver de manera ágil tus dudas.
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-slate-100 flex items-center gap-1.5 text-xs font-subheading uppercase tracking-wider text-brand-blue">
@@ -66,7 +66,7 @@ export default function AboutAdvantages() {
             </div>
           </motion.div>
 
-          {/* Card 2: Flota Exclusiva (Egyptian Blue Card, 5 columns) */}
+          {/* Card 2: Flota Propia (Egyptian Blue Card, 5 columns) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,10 +79,10 @@ export default function AboutAdvantages() {
                 <Truck className="h-6 w-6" />
               </div>
               <h3 className="text-2xl font-display uppercase tracking-wide text-brand-yellow font-bold leading-tight">
-                FLOTA PROPIA EXCLUSIVA
+                Flota Propia de Repartidores Capacitados
               </h3>
               <p className="text-sm text-blue-50 font-sans leading-relaxed">
-                Controlamos meticulosamente cada eslabón de la cadena logística para asegurar los máximos estándares de puntualidad y seguridad en Mar del Plata. Repartidores identificados y capacitados.
+                Controlamos meticulosamente cada eslabón de la logística con repartidores propios, identificados y altamente capacitados en Mar del Plata.
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-brand-yellow/20 flex items-center gap-1.5 text-xs font-subheading uppercase tracking-wider text-brand-yellow">
@@ -91,7 +91,7 @@ export default function AboutAdvantages() {
             </div>
           </motion.div>
 
-          {/* Card 3: Cero Tercerización (Full-width horizontal Bento Card, 12 columns) */}
+          {/* Card 3: Entregas Confiables (Full-width horizontal Bento Card, 12 columns) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -105,16 +105,16 @@ export default function AboutAdvantages() {
                   <ShieldAlert className="h-5.5 w-5.5" />
                 </div>
                 <h3 className="text-2xl font-display uppercase tracking-wide text-slate-900 font-bold leading-none">
-                  CERO TERCERIZACIÓN DE ENVÍOS
+                  Entregas Confiables en Tiempo y Forma
                 </h3>
               </div>
               <p className="text-sm text-slate-500 font-sans leading-relaxed">
-                No delegamos tu confianza en fleteros temporales o aplicaciones de terceros. Si elegís Envíos DosRuedas, lo realizamos nosotros con personal contratado y auditado bajo normas estrictas de entrega en el mismo día.
+                Tu negocio depende de la puntualidad y el buen trato del paquete. Nos aseguramos de realizar cada entrega en el tiempo pactado y en perfectas condiciones.
               </p>
             </div>
             <div className="shrink-0 flex items-center justify-end">
               <span className="px-5 py-2.5 bg-brand-yellow border-2 border-brand-blue text-brand-blue font-subheading text-lg rounded-2xl uppercase tracking-wider shadow-[3px_3px_0px_#0636A5]">
-                100% PERSONAL PROPIO
+                100% CONFIABLE
               </span>
             </div>
           </motion.div>

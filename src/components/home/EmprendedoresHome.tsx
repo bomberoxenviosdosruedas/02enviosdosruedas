@@ -24,7 +24,7 @@ export default function EmprendedoresHome() {
     {
       title: 'Logística E-Commerce',
       description: 'Gestión integral de última milla para PyMEs en crecimiento.',
-      features: ['Seguimiento en tiempo real', 'Atención personalizada', 'Planes a tu medida'],
+      features: ['Soporte dedicado', 'Entregas contrareembolso sin cargo extra', 'Entregas en tiempo y forma'],
       icon: Landmark,
       tag: 'EMPRENDEDORES',
     },
@@ -54,8 +54,11 @@ export default function EmprendedoresHome() {
             Socio Estratégico Local
           </span>
           <h2 className="text-white text-display uppercase text-left">
-            Potencia tu Logística con DosRuedas
+            Potenciamos tu Negocio Local
           </h2>
+          <p className="text-slate-200 font-sans text-sm sm:text-base leading-relaxed max-w-2xl">
+            Si vendés online, necesitás un socio logístico que responda. Creamos planes a tu medida con tarifas dinámicas y recolección a domicilio programada en Mar del Plata.
+          </p>
           <div className="h-1.5 w-20 bg-brand-yellow rounded-full" />
         </div>
 

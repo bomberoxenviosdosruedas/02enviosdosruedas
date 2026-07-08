@@ -177,7 +177,7 @@ export default function HeroAnimado() {
                 <div className="p-2.5 bg-white/10 rounded-[3.6px] mb-2 text-brand-yellow">
                   <Zap className="h-5 w-5" />
                 </div>
-                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-300">ULTRA RÁPIDO</span>
+                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-300">RÁPIDO</span>
               </div>
 
               <div className="flex flex-col items-center lg:items-start">

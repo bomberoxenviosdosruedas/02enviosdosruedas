@@ -31,13 +31,13 @@ export default async function Page() {
         <header className="text-center max-w-3xl mx-auto space-y-4 pt-4">
           <span className="px-3 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-bold uppercase tracking-widest inline-flex items-center gap-1.5 shadow-accent-sm">
             <Zap className="h-4 w-4 shrink-0 animate-bounce" />
-            Servicio Prioritario
+            Servicio Express Prioritario
           </span>
           <h1 className="text-4xl sm:text-5xl font-display uppercase tracking-tight text-brand-blue leading-none">
             Cotizador de Envíos Express
           </h1>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
-            Calculá el costo de tu envío prioritario al instante. Obtené alta precisión en la tarifa de entrega según la distancia y coordiná en el acto.
+            Calculá el costo de tu envío prioritario al instante. Obtené la tarifa de entrega según la distancia y coordiná en el acto con nosotros por WhatsApp.
           </p>
           <div className="flex justify-center pt-2">
             <Link

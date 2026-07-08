@@ -18,10 +18,10 @@ export default function CotizadorExpressHelp() {
             ¿Dudas o Envíos Especiales?
           </span>
           <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
-            ¿Necesitás una solución personalizada?
+            ¿Necesitás un cadete recurrente?
           </h3>
           <p className="text-blue-100 text-sm sm:text-base leading-relaxed font-sans">
-            Si tu envío excede nuestros rangos estándar, necesitás múltiples paradas, o tenés alguna consulta específica, no dudes en contactarnos directamente. Estamos listos para asistirte.
+            Si realizás más de 5 envíos diarios express, consultá por nuestros planes para empresas y emprendedores.
           </p>
         </div>
 

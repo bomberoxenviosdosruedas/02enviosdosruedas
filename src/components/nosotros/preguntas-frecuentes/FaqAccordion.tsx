@@ -18,57 +18,43 @@ interface FaqCategories {
 }
 
 export default function FaqAccordion() {
-  const [activeCategory, setActiveCategory] = useState<string>('generales');
+  const [activeCategory, setActiveCategory] = useState<string>('envios');
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   const categories: FaqCategories = {
-    generales: {
-      label: 'Servicios Generales',
+    envios: {
+      label: 'Preguntas sobre Envíos',
       icon: Truck,
       items: [
         {
           question: '¿Qué tipo de envíos realizan?',
-          answer: 'Transportamos de todo en moto: mandados rápidos, trámites urgentes, paquetes de e-commerce, delivery gastronómico y servicios completos de cadetería comercial en el día.',
+          answer: 'Realizamos todo tipo de mensajería y distribución local: Envíos Express (prioritarios en el acto), Envíos LowCost (económicos programados) y entregas de MercadoLibre Flex.',
         },
         {
-          question: '¿Cuáles son las zonas de cobertura? ¿Cubren toda la ciudad/región?',
-          answer: 'Ofrecemos cobertura total dentro del ejido urbano de Mar del Plata, zonificado desde la Zona 1 (radio céntrico tradicional) hasta los límites de la ciudad en Zona 4. Para destinos en Zona 5 (afuera del ejido urbano o de larga distancia), realizamos cotizaciones especiales de alta precisión basadas en kilometraje recorrido.',
+          question: '¿Cuáles son las zonas de cobertura?',
+          answer: 'Ofrecemos cobertura total dentro del ejido urbano de Mar del Plata, organizados de forma eficiente para llegar a cada rincón de la ciudad.',
         },
         {
-          question: '¿Realizan entregas a Contrarreembolso?',
-          answer: 'Sí, por supuesto. Gestionamos cobranzas de tipo contra-reembolso en efectivo en el domicilio del comprador, realizando rendiciones de dinero sumamente rápidas y seguras para clientes comerciales y PyMEs adheridas.',
+          question: '¿Cuáles son los límites de tamaño y peso sin cobros adicionales?',
+          answer: 'Para traslados estándar en moto, el límite por bulto es de hasta 40x40 cm y 5 kg de peso sin cargo extra. Envíos de mayor tamaño o peso pueden estar sujetos a cargos adicionales.',
+        },
+        {
+          question: '¿Cómo funciona el servicio de MercadoLibre Flex?',
+          answer: 'Realizamos tus entregas en el mismo día (Same-Day) en Mar del Plata para que mantengas tu reputación en verde. Retiramos tus paquetes y los entregamos de forma segura.',
         },
       ],
     },
-    precios: {
-      label: 'Precios y Pagos',
+    pagos: {
+      label: 'Preguntas sobre Pagos',
       icon: Coins,
       items: [
         {
-          question: '¿Cuáles son los límites de carga?',
-          answer: 'Llevamos bultos y paquetes ligeros en moto de hasta 5 kg de peso físico, con medidas máximas recomendadas de 40x40x30 cm. Esto nos permite garantizar de manera óptima la seguridad vial del conductor, la agilidad del tránsito y la integridad absoluta de tu paquete.',
+          question: '¿Cómo se manejan los cobros de los servicios?',
+          answer: 'Ofrecemos opciones de facturación y cobros semanales, quincenales o mensuales para empresas y emprendedores. Factura tipo C disponible.',
         },
         {
-          question: '¿Trabajan con empresas o solo con particulares?',
-          answer: 'Trabajamos con ambos por igual. Contamos con esquemas especiales de Cuentas Corrientes Flexibles con facturación mensual simplificada y consolidada para PyMEs, e-commerce y empresas locales con despachos diarios o semanales.',
-        },
-      ],
-    },
-    proceso: {
-      label: 'Proceso de Envío',
-      icon: MessageSquare,
-      items: [
-        {
-          question: '¿Cómo realizo el seguimiento de mi envío?',
-          answer: 'Contamos con notificaciones automatizadas de estado y seguimiento centralizado en tiempo real a través de WhatsApp. Ante cualquier duda, nuestro equipo te asiste en directo.',
-        },
-        {
-          question: '¿Cómo puedo solicitar un servicio de mensajería?',
-          answer: 'Podés solicitar tu despacho de forma inmediata escribiéndonos a nuestro canal oficial de WhatsApp o de manera automatizada utilizando nuestros cotizadores web inteligentes en tiempo real (tanto para servicios Express como LowCost).',
-        },
-        {
-          question: '¿Cuáles son sus horarios de atención/servicio?',
-          answer: 'Nuestros horarios de atención activa son de Lunes a Viernes de 9:00 a 18:00 hs, y los Sábados de 10:00 a 15:00 hs. Los Domingos permanecemos cerrados para recarga de energías.',
+          question: '¿Realizan entregas a Contrarreembolso?',
+          answer: 'Sí, realizamos entregas con cobranza contrareembolso en el domicilio del comprador en Mar del Plata, rindiendo el dinero recolectado de forma segura y veloz.',
         },
       ],
     },

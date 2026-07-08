@@ -54,26 +54,24 @@ export default function CotizadorLowCostDetails() {
       {/* Column 2: Tarification details & Advice */}
       <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
         <h3 className="text-xl font-display uppercase tracking-tight text-brand-blue border-b border-slate-100 pb-3">
-          ¿Cómo Calculamos el Precio?
+          Envíos LowCost
         </h3>
         <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
           <p>
-            <strong className="text-slate-800">Basado en la Distancia:</strong> Utilizamos la distancia calculada entre origen y destino para determinar la tarifa base. Contamos con rangos de precios predefinidos. Al ser ruteado en lotes diarios, la tarifa es notablemente más económica que la Express.
+            <strong className="text-slate-800">Entregas en el día:</strong> Si tu envío es solicitado antes de las 13:00 hs, la entrega queda garantizada en la tarde del mismo día.
           </p>
           <p>
-            <strong className="text-slate-800">Tiempo de Entrega (Ruteo Programado):</strong> Los envíos LowCost se organizan por la mañana y se entregan durante la tarde del mismo día. Esto optimiza el trayecto del repartidor bajando costos operativos.
+            <strong className="text-slate-800">Siguiente día hábil:</strong> Los envíos solicitados luego de las 13:00 hs se entregarán al día siguiente.
           </p>
-
+ 
           <div className="bg-amber-50 border border-amber-100 rounded-2xl p-4 mt-6">
             <h4 className="font-bold text-amber-800 text-xs uppercase tracking-wide flex items-center gap-1.5 mb-1.5">
               <Shield className="h-4 w-4 shrink-0" />
-              Consejos para una cotización exitosa
+              Garantía de Entrega
             </h4>
-            <ul className="list-disc pl-4 space-y-1 text-xs text-amber-900/80">
-              <li>Ingresá la numeración exacta de las calles (Ej: Mitre 1820).</li>
-              <li>Verificá en el mapa dinámico que la ruta trazada sea coherente.</li>
-              <li>Recordá que la carga debe estar lista antes de las 13:00 hs para asegurar la entrega en la tarde del mismo día.</li>
-            </ul>
+            <p className="text-xs text-amber-900/80">
+              Tus paquetes viajan seguros. Optimizamos y agrupamos los recorridos diarios para ofrecerte la tarifa más económica del mercado local.
+            </p>
           </div>
         </div>
       </div>

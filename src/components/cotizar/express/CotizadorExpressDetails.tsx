@@ -55,26 +55,27 @@ export default function CotizadorExpressDetails() {
       {/* Column 2: Tarification details & Advice */}
       <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
         <h3 className="text-xl font-display uppercase tracking-tight text-brand-blue border-b border-slate-100 pb-3">
-          ¿Cómo Calculamos el Precio?
+          Pautas del Envío Express
         </h3>
         <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
           <p>
-            <strong className="text-slate-800">Basado en la Distancia:</strong> Utilizamos la distancia calculada entre origen y destino para determinar la tarifa base. Contamos con rangos de precios predefinidos para asegurar que el costo sea justo y cubra el esfuerzo del repartidor.
+            <strong className="text-slate-800">Peso máximo por moto:</strong> Hasta 15 kg por unidad.
           </p>
           <p>
-            <strong className="text-slate-800">Tiempo Estimado (Informativo):</strong> El tiempo de entrega estimado se calcula utilizando datos de tráfico y la distancia. Al ser un envío Express, la prioridad es máxima y la entrega se realiza generalmente en menos de 180 minutos (desde el retiro).
+            <strong className="text-slate-800">Bulto:</strong> Hasta 40x40 cm y 5 kg sin cargo extra.
+          </p>
+          <p>
+            <strong className="text-slate-800">Garantía de entrega:</strong> Tu envío prioritario viaja 100% asegurado y con entrega coordinada en el acto.
           </p>
 
           <div className="bg-amber-50 border border-amber-100 rounded-2xl p-4 mt-6">
             <h4 className="font-bold text-amber-800 text-xs uppercase tracking-wide flex items-center gap-1.5 mb-1.5">
               <Shield className="h-4 w-4 shrink-0" />
-              Consejos para una cotización exitosa
+              Garantía DosRuedas
             </h4>
-            <ul className="list-disc pl-4 space-y-1 text-xs text-amber-900/80">
-              <li>Ingresá la numeración exacta de las calles (Ej: Mitre 1820).</li>
-              <li>Verificá en el mapa dinámico que la ruta trazada sea coherente.</li>
-              <li>Asegurá de tener listos los datos de contacto y detalles del paquete para la confirmación rápida en WhatsApp.</li>
-            </ul>
+            <p className="text-xs text-amber-900/80">
+              Coordinación rápida y directa de manera segura. Ante cualquier inconveniente, nos contactamos con vos de inmediato.
+            </p>
           </div>
         </div>
       </div>

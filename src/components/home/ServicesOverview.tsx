@@ -9,7 +9,7 @@ export default function ServicesOverview() {
   const services = [
     {
       title: 'Envíos Express',
-      description: 'Prioridad absoluta y certeza total. Vos elegís el rango exacto de entrega con solo 2 horas de anticipación.',
+      description: 'Mensajería en moto, entregas inmediatas en Mar del Plata.',
       href: '/servicios/envios-express',
       icon: Zap,
       badge: 'URGENTE',
@@ -18,7 +18,7 @@ export default function ServicesOverview() {
     },
     {
       title: 'Envíos LowCost',
-      description: 'Rentabilidad y ruteo masivo. Ingresá tus pedidos antes de las 13:00 hs y garantizamos entrega en el día.',
+      description: 'Envíos económicos con posibilidad de entregas en el día.',
       href: '/servicios/envios-lowcost',
       icon: Bike,
       badge: 'ECONÓMICO',
@@ -27,7 +27,7 @@ export default function ServicesOverview() {
     },
     {
       title: 'Envíos Flex (MercadoLibre)',
-      description: 'Potenciá tu reputación al máximo. Somos expertos en MercadoLibre. Cumplimos tus acuerdos de nivel de servicio (SLAs) Same-Day.',
+      description: 'Entregas en el día de tus ventas en MercadoLibre.',
       href: '/servicios/enviosflex',
       icon: ShieldCheck,
       badge: 'INTEGRACIÓN FLEX',
@@ -36,7 +36,7 @@ export default function ServicesOverview() {
     },
     {
       title: 'E-Commerce & 3PL',
-      description: 'Tercerización y cuentas corrientes. Soluciones escalables para PyMEs con facturación mensual centralizada.',
+      description: 'Recomendado para E-Commerce, escalá tu tienda online.',
       href: '/servicios/plan-emprendedores',
       icon: BarChart3,
       badge: 'PYMES & CORPORATIVO',
