@@ -70,14 +70,14 @@ export default function ContactHero() {
             </motion.div>
 
             {/* Title with Inline Image Typography */}
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
               className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-none text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
             >
               <span>CONTACTO</span>
               <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#0636A5]">
                 <Image
-                  src="https://picsum.photos/id/1071/200/100" 
+                  src="https://picsum.photos/id/1071/200/100"
                   alt="Asesoría Comercial"
                   fill
                   className="object-cover"

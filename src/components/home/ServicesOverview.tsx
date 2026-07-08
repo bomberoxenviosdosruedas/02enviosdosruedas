@@ -13,8 +13,6 @@ export default function ServicesOverview() {
       href: '/servicios/envios-express',
       icon: Zap,
       badge: 'URGENTE',
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50/95',
     },
     {
       title: 'Envíos LowCost',
@@ -22,8 +20,6 @@ export default function ServicesOverview() {
       href: '/servicios/envios-lowcost',
       icon: Bike,
       badge: 'ECONÓMICO',
-      color: 'from-brand-blue to-blue-800',
-      bgColor: 'bg-indigo-50/95',
     },
     {
       title: 'Envíos Flex (MercadoLibre)',
@@ -31,8 +27,6 @@ export default function ServicesOverview() {
       href: '/servicios/enviosflex',
       icon: ShieldCheck,
       badge: 'INTEGRACIÓN FLEX',
-      color: 'from-yellow-500 to-amber-600',
-      bgColor: 'bg-yellow-50/90',
     },
     {
       title: 'E-Commerce & 3PL',
@@ -40,15 +34,13 @@ export default function ServicesOverview() {
       href: '/servicios/plan-emprendedores',
       icon: BarChart3,
       badge: 'PYMES & CORPORATIVO',
-      color: 'from-slate-700 to-slate-800',
-      bgColor: 'bg-slate-100/90',
     },
   ];
 
   return (
     <section
       id="services-overview"
-      className="py-24 bg-brand-blue border-y border-blue-200/60 relative overflow-hidden text-white"
+      className="py-24 bg-brand-blue relative overflow-hidden text-white"
     >
       {/* Subtle background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-blue-900/20 blur-3xl -z-10" />
@@ -67,7 +59,7 @@ export default function ServicesOverview() {
 
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block shadow-[2px_2px_0px_#0636A5]">
+          <span className="px-4 py-1.5 bg-white/10 text-brand-yellow border border-white/20 rounded-full text-xs font-subheading tracking-widest inline-block">
             Nuestros Servicios
           </span>
           <h2 className="text-white text-display uppercase text-center">
@@ -92,34 +84,34 @@ export default function ServicesOverview() {
                   scale: { type: "spring", stiffness: 300, damping: 20 },
                   opacity: { duration: 0.5, delay: index * 0.08 }
                 }}
-                className={`${service.bgColor} rounded-3xl p-8 border-2 border-brand-blue shadow-lg hover:shadow-[6px_6px_0px_#FFEC01] transition-all duration-300 flex flex-col justify-between group cursor-pointer`}
+                className="bg-[#04287D] rounded-3xl p-8 border border-white/15 hover:border-brand-yellow/30 shadow-lg hover:shadow-[6px_6px_0px_#FFEC00] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <div className="flex justify-between items-start mb-6">
-                    <div className="p-4 rounded-2xl bg-brand-blue/5 text-brand-blue group-hover:bg-brand-blue group-hover:text-white border border-brand-blue/10 transition-all duration-350">
+                    <div className="p-4 rounded-2xl bg-white/10 text-brand-yellow group-hover:bg-brand-yellow group-hover:text-brand-blue border border-white/10 transition-all duration-350">
                       <Icon className="h-6 w-6 group-hover:rotate-6 transition-transform" />
                     </div>
-                    <span className="px-3 py-1 rounded-xl text-[10px] font-subheading tracking-wider uppercase bg-brand-blue/5 text-brand-blue border border-brand-blue/10">
+                    <span className="px-3 py-1 rounded-xl text-[10px] font-subheading tracking-wider uppercase bg-white/10 text-slate-300 border border-white/10">
                       {service.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-display uppercase tracking-tight text-slate-900 mb-3 group-hover:text-brand-blue transition-colors">
+                  <h3 className="text-2xl font-display uppercase tracking-tight text-white mb-3 group-hover:text-brand-yellow transition-colors">
                     {service.title}
                   </h3>
 
-                  <p className="text-slate-600 text-sm leading-relaxed font-sans mb-8">
+                  <p className="text-slate-300 text-sm leading-relaxed font-sans mb-8">
                     {service.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs font-sans text-slate-400 group-hover:text-brand-blue transition-colors">
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-xs font-sans text-slate-400 group-hover:text-brand-yellow transition-colors">
                     Ver especificaciones de servicio
                   </span>
                   <Link
                     href={service.href}
-                    className="h-12 w-12 rounded-xl bg-slate-50 text-slate-700 border border-slate-200 group-hover:border-brand-blue group-hover:text-brand-blue group-hover:bg-brand-yellow flex items-center justify-center transition-all duration-300 shadow-sm relative overflow-hidden"
+                    className="h-12 w-12 rounded-xl bg-white/5 text-white border border-white/10 group-hover:border-brand-yellow group-hover:text-brand-blue group-hover:bg-brand-yellow flex items-center justify-center transition-all duration-300 shadow-sm relative overflow-hidden"
                   >
                     <ArrowUpRight className="h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 shrink-0" />
                   </Link>

@@ -12,19 +12,19 @@ export const metadata: Metadata = {
   description: 'Especialistas en logística e-commerce y última milla en Mar del Plata. Envíos en el día, Flex y soluciones 3PL para potenciar tu negocio local.',
 };
 
-// Separador de sección decorativo con el isotipo de la marca
+// Separador de sección decorativo con el isotipo de la marca (Inverted Theme)
 function SectionSeparator() {
   return (
     <div className="w-full flex items-center justify-center relative h-2 bg-transparent pointer-events-none z-20">
       {/* Línea horizontal de fondo con degradado */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-slate-200 to-transparent h-px" />
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent h-px" />
       {/* Brillo central amarillo */}
       <div className="absolute top-1/2 -translate-y-1/2 h-[3px] bg-gradient-to-r from-transparent via-brand-yellow to-transparent w-40 sm:w-64 blur-[1.5px]" />
       {/* Línea central azul */}
-      <div className="absolute top-1/2 -translate-y-1/2 h-0.5 bg-gradient-to-r from-transparent via-brand-blue/40 to-transparent w-72 sm:w-[450px]" />
+      <div className="absolute top-1/2 -translate-y-1/2 h-0.5 bg-gradient-to-r from-transparent via-white/25 to-transparent w-72 sm:w-[450px]" />
       {/* Isotipo flotante en el centro */}
-      <div className="absolute top-1/2 -translate-y-1/2 bg-white border border-slate-200 rounded-full p-2.5 shadow-sm text-brand-blue flex items-center justify-center">
-        <Bike className="h-4 w-4 text-brand-blue animate-pulse shrink-0" />
+      <div className="absolute top-1/2 -translate-y-1/2 bg-brand-blue border border-white/15 rounded-full p-2.5 shadow-lg text-brand-yellow flex items-center justify-center">
+        <Bike className="h-4 w-4 text-brand-yellow animate-pulse shrink-0" />
       </div>
     </div>
   );
@@ -32,7 +32,7 @@ function SectionSeparator() {
 
 export default function Home() {
   return (
-    <div id="home-page-container" className="w-full bg-white">
+    <div id="home-page-container" className="w-full bg-brand-blue min-h-screen">
       {/* 1. Animated Hero Presentation */}
       <HeroAnimado />
 

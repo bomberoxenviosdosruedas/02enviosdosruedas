@@ -113,7 +113,7 @@ export default function HeroAnimado() {
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-2.5 py-1.5 rounded-[3.6px] text-xs font-mono font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue border border-brand-yellow">
+              <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue border border-brand-yellow">
                 Tu Solución Confiable
               </span>
             </motion.div>
@@ -147,7 +147,7 @@ export default function HeroAnimado() {
               <Link
                 href="/cotizar/express"
                 id="hero-cta-solicitar"
-                className="w-full sm:w-auto bg-brand-yellow text-brand-blue font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-[3.6px] border border-brand-yellow transition-all duration-200 hover:scale-[1.02] flex items-center justify-center gap-2 font-bold"
+                className="w-full sm:w-auto bg-brand-yellow hover:bg-[#ffe000] text-brand-blue font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-full border border-brand-yellow transition-all duration-200 hover:scale-[1.02] flex items-center justify-center gap-2 font-bold"
               >
                 Solicitar Servicio
                 <ArrowRight className="h-5 w-5" />
@@ -155,7 +155,7 @@ export default function HeroAnimado() {
               <Link
                 href="/servicios/envios-express"
                 id="hero-cta-servicios"
-                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-[3.6px] border border-white/30 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-full border border-white/30 transition-all duration-200 flex items-center justify-center gap-2"
               >
                 Ver Servicios
               </Link>
@@ -167,21 +167,21 @@ export default function HeroAnimado() {
               className="grid grid-cols-3 gap-3 pt-8 border-t border-white/10 w-full max-w-lg mx-auto lg:mx-0"
             >
               <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-white/10 rounded-[3.6px] mb-2 text-brand-yellow">
+                <div className="p-2.5 bg-white/10 rounded-xl mb-2 text-brand-yellow">
                   <Shield className="h-5 w-5" />
                 </div>
                 <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-300">100% SEGURO</span>
               </div>
 
               <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-white/10 rounded-[3.6px] mb-2 text-brand-yellow">
+                <div className="p-2.5 bg-white/10 rounded-xl mb-2 text-brand-yellow">
                   <Zap className="h-5 w-5" />
                 </div>
                 <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-300">RÁPIDO</span>
               </div>
 
               <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-white/10 rounded-[3.6px] mb-2 text-brand-yellow">
+                <div className="p-2.5 bg-white/10 rounded-xl mb-2 text-brand-yellow">
                   <MapPin className="h-5 w-5" />
                 </div>
                 <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-300">COBERTURA TOTAL</span>
@@ -214,19 +214,19 @@ export default function HeroAnimado() {
                 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="relative rounded-none overflow-hidden border border-slate-200 bg-white p-2.5 sm:p-3">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-white p-2.5 sm:p-3 shadow-md">
                   <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
                     <Image
                       src="/card_mapa.webp"
                       alt="Mapa de Cobertura de Mar del Plata"
                       width={400}
                       height={300}
-                      className="rounded-none object-cover h-40 sm:h-48 w-full"
+                      className="rounded-xl object-cover h-40 sm:h-48 w-full"
                     />
                   </div>
                   <div className="mt-3 flex items-center justify-between text-slate-800 font-mono" style={{ transform: 'translateZ(30px)' }}>
                     <span className="text-[11px] font-bold uppercase tracking-wide">Ruteo de Envíos</span>
-                    <span className="text-[9px] px-1.5 py-0.5 border border-emerald-500 bg-emerald-50 text-emerald-800 font-bold uppercase rounded-[3.6px]">Optimizado</span>
+                    <span className="text-[9px] px-1.5 py-0.5 border border-emerald-500 bg-emerald-50 text-emerald-800 font-bold uppercase rounded-full">Optimizado</span>
                   </div>
                 </div>
               </motion.div>
@@ -244,9 +244,9 @@ export default function HeroAnimado() {
                 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="relative rounded-none overflow-hidden border border-slate-200 bg-slate-900 p-3.5 sm:p-4 text-white">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-700 bg-slate-900 p-3.5 sm:p-4 text-white shadow-xl">
                   <div className="flex items-center gap-3 mb-2.5" style={{ transform: 'translateZ(10px)' }}>
-                    <div className="p-2 sm:p-2 rounded-[3.6px] bg-brand-yellow text-brand-blue">
+                    <div className="p-2 sm:p-2 rounded-xl bg-brand-yellow text-brand-blue">
                       <Bike className="h-4.5 w-4.5 sm:h-5 sm:w-5 animate-pulse" />
                     </div>
                     <div>
@@ -278,7 +278,7 @@ export default function HeroAnimado() {
                   transform: 'translateZ(70px)',
                 }}
               >
-                <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-yellow text-brand-blue font-mono tracking-widest text-[10px] sm:text-[11px] rounded-[3.6px] border border-brand-yellow flex items-center gap-1.5 sm:gap-2 font-bold">
+                <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-yellow text-brand-blue font-mono tracking-widest text-[10px] sm:text-[11px] rounded-full border border-brand-yellow flex items-center gap-1.5 sm:gap-2 font-bold shadow-md">
                   <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
                   ENTREGA FLEX ACTIVA
                 </div>

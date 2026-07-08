@@ -1,42 +1,39 @@
 ---
-name: Envíos DosRuedas
+name: Kinetic Fluid Light (Inverted)
 colors:
-  primary: '#0636A5'
-  on-primary: '#ffffff'
-  secondary: '#FFEC01'
+  background: '#0635A6'
+  on-background: '#FFFFFF'
+  primary: '#FFFFFF'
+  on-primary: '#0635A6'
+  secondary: '#FFEC00'
   on-secondary: '#0F172A'
-  background: '#F8FAFC'
-  on-background: '#0F172A'
-  surface: '#ffffff'
-  on-surface: '#0F172A'
-  surface-variant: '#F1F5F9'
-  on-surface-variant: '#475569'
-  outline: '#CBD5E1'
-  brand-blue: '#0636A5'
-  brand-yellow: '#FFEC01'
-  dark-blue: '#172554'
-  light-blue: '#EFF6FF'
+  surface: '#0739BD'
+  on-surface: '#FFFFFF'
+  surface-variant: '#04287D'
+  on-surface-variant: '#E2E8F0'
+  outline: 'rgba(255, 255, 255, 0.15)'
+  brand-blue: '#0635A6'
+  brand-yellow: '#FFEC00'
+  brand-white: '#FFFFFF'
 typography:
   display:
     fontFamily: Anton
-    fontSize: clamp(3rem, 5vw, 4.5rem)
-    lineHeight: '1.1'
+    fontSize: clamp(2.5rem, 6vw, 5.5rem)
+    lineHeight: '1.05'
     letterSpacing: '0.02em'
   h1:
     fontFamily: Anton
-    fontSize: clamp(2.25rem, 4vw, 3rem)
-    lineHeight: '1.2'
-    letterSpacing: '0.02em'
+    fontSize: clamp(2rem, 5vw, 4rem)
+    lineHeight: '1.1'
   h2:
     fontFamily: Anton
-    fontSize: clamp(1.75rem, 3vw, 2.25rem)
-    lineHeight: '1.3'
-    letterSpacing: '0.03em'
-  h3:
+    fontSize: clamp(1.75rem, 4vw, 3rem)
+    lineHeight: '1.15'
+  subtitle:
     fontFamily: Bebas Neue
-    fontSize: clamp(1.25rem, 2vw, 1.5rem)
-    lineHeight: '1.4'
-    letterSpacing: '0.04em'
+    fontSize: clamp(1.25rem, 2.5vw, 2rem)
+    lineHeight: '1.2'
+    letterSpacing: '0.05em'
   body:
     fontFamily: Inter
     fontSize: 16px
@@ -44,138 +41,80 @@ typography:
     lineHeight: '24px'
 rounded:
   sm: 8px
-  md: 12px
-  lg: 16px
-  xl: 20px
-  full: 9999px
-spacing:
-  unit: 4px
-  xs: 4px
-  sm: 8px
   md: 16px
   lg: 24px
   xl: 32px
+  full: 9999px
 ---
 
-# Design System: Envíos DosRuedas
-
-Este documento define de manera estricta y detallada las especificaciones del sistema de diseño, los tokens visuales, las pautas estéticas y la arquitectura del proyecto **Envíos DosRuedas** (Logística de última milla y soluciones E-Commerce en Mar del Plata, año de referencia **2026**). Este sistema se fundamenta en un esquema de **Bento Grid UI** potenciado por una estética **Neo-Brutalista Corporativa**.
-
----
+# Design System: Envíos DosRuedas (Inverted Theme)
 
 ## 1. Visual Theme & Atmosphere
-
-El sistema de diseño de Envíos DosRuedas está concebido para transmitir velocidad, profesionalidad y confianza vial en el entorno urbano de Mar del Plata. Fusiona la solidez y rigidez estructural del **Bento Grid** con la fuerza gráfica del **Neo-Brutalismo Corporativo**. La interfaz presenta un fuerte contraste mediante bordes gruesos y oscuros, sombras duras sin desenfoque (offset), esquinas suavizadas y tipografías condensadas de gran impacto que emulan la señalización vial.
-
-La atmósfera general es enérgica, limpia y corporativa. La densidad del contenido es moderada a alta, organizando la información en tarjetas modulares y widgets interactivos autoportantes. El aire visual se garantiza mediante espacios holgados y márgenes internos generosos, complementando la rigidez modular con micro-interacciones suaves y dinámicas (como el estiramiento tipográfico cinético y la reducción de desplazamiento en botones al pasar el cursor).
+Un entorno inmersivo de alto impacto, donde la energía y velocidad de la logística de última milla se transmiten mediante una estética "Invertida".
+- **Densidad:** Balanced Daily App (6/10) - Diseñado para una lectura rápida en situaciones de movilidad urbana alta.
+- **Variancia:** Offset Asymmetric (8/10) - Composiciones asimétricas con tipografía expandida que rompen la rigidez del grid.
+- **Movimiento:** Fluid CSS & Spring Physics (6/10) - Animaciones y transiciones de alto rendimiento que simulan la cinética de la flota en movimiento.
+- **Atmósfera:** La luz emana directamente de la tipografía Optic White (`#FFFFFF`) y del acento Sunbeam Yellow (`#FFEC00`) sobre el lienzo azul inmersivo de Egyptian Blue (`#0635A6`).
 
 ---
 
 ## 2. Color Palette & Roles
+El sistema está estructurado estrictamente sobre tres colores principales, sin el uso de tonos grises o negros apagados.
 
-Nuestra paleta de colores equilibra la confianza institucional y la velocidad vial urbana. Está configurada estrictamente para evitar colores hexadecimales genéricos ad-hoc.
-
-### Primary Foundation
-*   **Egyptian Blue** (`#0636A5` / `bg-brand-blue`): **Dominancia (60%).** Utilizado para estructurar el sitio, contenedores, barras de navegación principales, bordes del neo-brutalismo y textos de marca destacados.
-*   **Fondo Claro** (`#F8FAFC` / `bg-slate-50`): Fondo principal limpio en modo claro que maximiza la legibilidad.
-*   **Fondo Oscuro** (`#0F172A` / `bg-slate-950` / `bg-slate-900`): Utilizado en el pie de página, paneles tácticos y modales en modo oscuro.
-
-### Accent & Interactive
-*   **Sunbeam Yellow** (`#FFEC01` / `bg-brand-yellow`): **Acción e Impacto (30%).** Reservado para llamadas a la acción (CTAs), checkmarks, botones interactivos principales, estados activos y acentos viales de advertencia.
-*   **Deep Blue / Navy** (`#172554` / `bg-blue-950`): Tono secundario utilizado para degradados de superficie y estados activos oscuros.
-*   **Light Blue** (`#EFF6FF` / `bg-blue-50`): Utilizado para contrastar con textos oscuros en celdas Bento de menor jerarquía.
-
-### Typography & Text Hierarchy
-*   **Primary Text** (`#0F172A` / `text-slate-900`): Contraste y legibilidad óptima para títulos internos y descripciones.
-*   **Secondary Text** (`#475569` / `text-slate-600`): Para cuerpos de texto secundarios y leyendas explicativas.
-*   **Light Text** (`#FFFFFF` / `text-white`): Para textos sobre fondos de marca (Egyptian Blue) u oscuros.
-
-### Functional States
-*   **Success**: Verde esmeralda (`#10B981`) para confirmaciones de entrega o tarifas correctas.
-*   **Warning / Error**: Rojo brillante (`#EF4444`) para advertencias de servicio o errores de cotización.
+- **Base (60%): Egyptian Blue** (`#0635A6`) — Fondo principal de toda la aplicación. Proporciona el espacio inmersivo y la confianza institucional del servicio de envíos.
+- **Dominante (30%): Optic White** (`#FFFFFF`) — Aporta estructura, legibilidad tipográfica principal, bordes limpios y contenedores de alta jerarquía.
+- **Acento (10%): Sunbeam Yellow** (`#FFEC00`) — Acentuación lumínica extrema reservada para botones principales de conversión (CTAs), badges de estado activo y notificaciones críticas.
+- **Soporte de Profundidad: Dark Navy** (`#04287D`) — Usado para tarjetas elevadas, inputs en foco y fondos secundarios para crear contraste sin perder el tema inmersivo azul.
 
 ---
 
 ## 3. Typography Rules
-
-Imitando el impacto visual y la legibilidad inmediata de la señalización urbana, el sistema tipográfico utiliza fuentes claras y estructuradas con pesos y anchos contrastantes:
-
-### Hierarchy & Weights
-*   **Títulos Display & H1-H2 (`font-display`):** **Anton** (Mayúsculas condensadas). Utilizada en títulos principales `h1` y `h2` de las cabeceras Bento.
-*   **Subtítulos y Números Destacados (`font-subheading`):** **Bebas Neue**. Utilizada en badges, números clave, métricas viales e indicadores de tarifas.
-*   **Cuerpo de Texto y Formularios (`font-sans`):** **Inter**. Tipografía limpia y neutral para descripciones y flujos interactivos.
-
-### Spacing Principles
-*   **Display / Cabeceras:** Interlineado muy ajustado (`line-height: 1.1` o `1.2`) con tracking ligeramente expandido (`0.02em` a `0.03em`) para dar fuerza.
-*   **Textos de Cuerpo:** Interlineado relajado (`line-height: 1.5` o `1.6`) con tracking neutro para asegurar una lectura cómoda en pantallas móviles.
+- **Display & Títulos:** `Anton` — Letra condensed masiva, tracking ligeramente expandido y siempre en mayúsculas para denotar momentum y velocidad de transporte.
+- **Métricas & Datos:** `Bebas Neue` — Para números de tracking, ID de conductores, tarifas en pesos y tiempos estimados de llegada.
+- **Cuerpo & UI:** `Inter` — Texto limpio y legible para campos de formulario, descripciones y guías operativas.
+- **Tono Local:** Redacción en voseo rioplatense orientado directamente a usuarios y comercios de Mar del Plata ("Cotizá tu envío", "Seguí tu paquete").
 
 ---
 
 ## 4. Component Stylings
-
-### Buttons
-*   **Primary Button (CTA):** Fondo Sunbeam Yellow (`bg-brand-yellow`), borde sólido negro o azul (`border-2 border-brand-blue`), texto en Anton o Bebas Neue, esquinas redondeadas (`rounded-xl`).
-*   **Neo-Brutalist Effect:** Al hacer hover, el botón reduce su sombra (`hover:shadow-[2px_2px_0px_#0636A5]`) y se desplaza ligeramente (`hover:translate-x-[2px] hover:translate-y-[2px]`) para simular presión física.
-*   **Interactive Target:** Altura mínima de 48px para facilitar el uso en dispositivos móviles de repartidores y clientes.
-
-### Cards & Bento Containers
-*   **Bento Cards:** Bordes definidos de 2px en Egyptian Blue (`border-2 border-brand-blue`) y sombra dura sólida sin difuminado (`shadow-[4px_4px_0px_#0636A5]`).
-*   **Esquinas:** Redondeado suave (`rounded-2xl` o `rounded-3xl`) para contrastar con la rigidez modular.
-*   **Degradados de fondo:** Uso de gradientes sutiles (`gradient-surface` o `gradient-blue`) para enriquecer las tarjetas visualmente sin sobrecargarlas.
-
-### Navigation
-*   **OptimizedHeader:** Layout de grilla modular en la barra superior que encaja de forma fluida con las tarjetas Bento de la landing page. Presenta accesos directos de marca con tipografía Bebas Neue y llamadas a la acción viales en Sunbeam Yellow.
-
-### Inputs & Forms
-*   **Inputs:** Cajas limpias con bordes de 2px en gris claro (`border-2 border-gray-200`) que cambian a Egyptian Blue (`border-brand-blue`) con sombra azul en estado enfocado.
-*   **Etiquetas:** Siempre visibles y escritas en mayúscula ligera usando la fuente Inter con un peso `semibold`.
-
-### Domain-Specific Components
-*   **LeafletRouteMap / DistanceMap:** Mapas interactivos de ruteo de envíos en Mar del Plata, contenidos dentro de Bento Cards con aislamiento estricto de desborde (`overflow-hidden`) y esquinas redondeadas.
-*   **Cotizador Express:** Formulario interactivo modular integrado en una celda Bento Maestra para estimación inmediata de tarifas.
+- **Buttons (Botones Cinéticos):**
+  - *Primary CTA (Sección Azul):* Fondo Sunbeam Yellow (`#FFEC00`) y texto `#0F172A`. Esquinas redondeadas tipo píldora (`rounded-full`) o `rounded-2xl` (16px).
+  - *Primary CTA (Sección Blanca):* Fondo Egyptian Blue (`#0635A6`) y texto `#FFFFFF`. Esquinas redondeadas tipo píldora o `rounded-2xl` (16px).
+  - *Secondary Button (Sección Azul):* Borde Optic White (`border-white/30`), texto blanco y fondo transparente.
+  - *Secondary Button (Sección Blanca):* Borde Egyptian Blue (`border-[#0635A6]/30`), texto en Egyptian Blue y fondo transparente.
+- **Cards (Tarjetas Elevadas):**
+  - *En Sección Azul:* Fondo azul oscuro de soporte (`#04287D` o `#0739BD`) con un borde fino traslúcido de 1px en blanco (`border-white/10`). Esquinas suavizadas generosas (`rounded-3xl` / 24px).
+  - *En Sección Blanca:* Fondo blanco o gris claro (`bg-white` o `bg-slate-50`) con un borde fino de 1px en azul suave (`border-[#0635A6]/10`) o gris, y textos oscuros.
+- **Inputs (Formularios):**
+  - Fondo translúcido oscuro con borde blanco tenue (`border-white/20`). En estado enfocado, el borde se ilumina en Sunbeam Yellow (`#FFEC00`).
 
 ---
 
 ## 5. Layout Principles
-
-### Grid & Structure
-*   **Bento Grid:** Layout base de 12 columnas (`grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8`) que redistribuye de forma dinámica el contenido según la pantalla.
-*   **Celdas Maestras:** Ocupan de 8 a 12 columnas.
-*   **Celdas de Soporte:** Ocupan de 3 a 6 columnas en pantallas grandes.
-
-### Whitespace Strategy
-*   **Base Spacing:** Sistema basado en múltiplos de 4px (unidad base).
-*   **Card Paddings:** Mínimo de `p-6` (24px) en móviles y `p-8` (32px) en escritorios para asegurar aire visual interno.
-
-### Alignment & Visual Balance
-*   **Equilibrio Asimétrico:** Distribución Bento que equilibra bloques grandes con métricas dinámicas pequeñas, ofreciendo un mapa visual de lectura intuitiva.
-*   **Alineación Textual:** Títulos principales display alineados a la izquierda o al centro dentro de su correspondiente Bento Card.
-
-### Responsive Behavior & Touch
-*   **Mobile-First Grid:** Las columnas colapsan a 1 sola columna en dispositivos móviles.
-*   **Touch Sizing:** Elementos interactivos táctiles optimizados con un tamaño de interacción mínimo de 48px para usuarios en movimiento.
+- **Alternancia de Secciones (Dynamic Flow):** Para mantener un ritmo visual activo y fluido, la página debe alternar estrictamente los fondos de sus secciones de arriba a abajo:
+  1. Sección 1 (Hero): Fondo Egyptian Blue (`#0635A6`) - Azul
+  2. Sección 2: Fondo Optic White (`#FFFFFF`) - Blanco
+  3. Sección 3: Fondo Egyptian Blue (`#0635A6`) - Azul
+  4. Sección 4: Fondo Optic White (`#FFFFFF`) - Blanco
+  5. Sección 5: Fondo Egyptian Blue (`#0635A6`) - Azul
+  6. Sección 6: Fondo Optic White (`#FFFFFF`) - Blanco
+- **Asimetría Activa:** Los héroes de las vistas principales deben estar alineados asimétricamente a la izquierda, dejando espacio a la derecha para componentes de interactividad cinéticos (como el mapa o gráficos dinámicos).
+- **Fluidez del Canvas:** Los elementos se dividen mediante cambios de tono de azul o márgenes transparentes amplios, minimizando el uso de divisores físicos rígidos.
+- **Contención Responsiva:** Contención máxima de 1400px en escritorio. En dispositivos móviles de menos de 768px, el layout colapsa estrictamente en una única columna.
 
 ---
 
-## 6. Design System Notes for Stitch Generation
+## 6. Motion & Interaction
+- **Curva Spring Physics:** Toda micro-interacción y despliegue debe utilizar físicas elásticas realistas (`stiffness: 110, damping: 18`) para una sensación de peso premium.
+- **Micro-loop Kinetic:** Estados de carga y seguimiento usarán sutiles destellos luminosos (`animate-pulse`) o transiciones progresivas tipo shimmer sobre los contenedores azules.
+- **Performance:** Renderizado exclusivo mediante aceleración por hardware (`transform`, `opacity`).
 
-### Language to Use
-*   *Atmosphere:* "Neo-brutalist bento grid layout with bold corporate aesthetics, sharp borders, solid shadows, heavy typography, and vibrant street-level accent lighting."
-*   *Keywords:* "Bento card, hard offset shadow, Anton typography, Bebas Neue highlights, rioplatense local voice, Mar del Plata delivery 2026."
+---
 
-### Color References
-*   `brand-blue` / `primary` (Egyptian Blue): `#0636A5`
-*   `brand-yellow` / `secondary` (Sunbeam Yellow): `#FFEC01`
-*   `dark-blue`: `#172554`
-*   `light-blue`: `#EFF6FF`
-*   `slate-50` (Background): `#F8FAFC`
-*   `slate-900` (Text / Dark Background): `#0F172A`
-
-### Component Prompts
-*   **Bento Card Callout:** "A rounded-2xl bento card with a 2px solid '#0636A5' border, a solid hard shadow of `[4px_4px_0px_#0636A5]`, featuring a clean white-to-slate-50 gradient background, Inter sans-serif text, and an interactive primary action button in bright yellow `#FFEC01`."
-*   **Neo-Brutalist Action Button:** "An interactive button with a bright `#FFEC01` background, Anton display text in uppercase, rounded-xl corners, a 2px `#0636A5` border, and custom hover states that translate 2px on both axes with shadow size reduction to simulate a tactile button click."
-
-### Incremental Iteration
-*   Al expandir las vistas, mantén siempre la grilla modular bento-friendly.
-*   Usa el voseo argentino en los copys generados ("Cotizá", "Ingresá", "Contactanos").
-*   Simula localizaciones en Mar del Plata ("Friuli 1972", "Constitución", "Chauvín", "Punta Mogotes").
+## 7. Anti-Patterns (Banned AI Clichés)
+- **Prohibido Light Mode Global:** Ninguna página debe ser blanca completa de forma global. Se debe respetar estrictamente la alternancia de secciones (Secciones en Egyptian Blue intercaladas con Secciones en Optic White), asegurando que el azul domine al menos el 60% del lienzo total de la página.
+- **Prohibidos fondos grises o negros:** No apagar el impacto del tema con sombras u opacidades neutras frías.
+- **Prohibido el formato de año doble barra:** ("SISTEMA // 2024"). El año oficial operativo es **2026**.
+- **Prohibido inventar métricas ficticias:** No generar porcentajes de efectividad ni números al azar. Usar marcadores del estilo `[métrica]` si el dato no es provisto por el usuario.
+- **Prohibido el uso de emojis** en pantallas formales de seguimiento o cotización.
+- **Prohibidos los nombres genéricos en inglés** para demostraciones (usar calles y barrios reales de Mar del Plata: "Punta Mogotes", "Güemes", "Avenida Luro").

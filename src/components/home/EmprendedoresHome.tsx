@@ -62,66 +62,147 @@ export default function EmprendedoresHome() {
           <div className="h-1.5 w-20 bg-brand-yellow rounded-full" />
         </div>
 
-        {/* Solutions Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {solutions.map((solution, idx) => {
-            const Icon = solution.icon;
-            return (
-              <motion.div
-                key={solution.title}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -6, scale: 1.01 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  y: { type: "spring", stiffness: 300, damping: 20 },
-                  scale: { type: "spring", stiffness: 300, damping: 20 },
-                  opacity: { duration: 0.5, delay: idx * 0.1 }
-                }}
-                className="bg-white rounded-3xl p-8 border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFEC01] transition-all duration-300 group cursor-pointer"
-              >
-                <div className="space-y-6">
-                  <div className="flex justify-between items-start">
-                    <div className="p-3.5 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-2xl shadow-[2px_2px_0px_#0636A5] group-hover:scale-105 transition-transform duration-300">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <span className="text-[10px] font-bold tracking-widest bg-brand-blue text-white px-3 py-1 rounded-full uppercase font-mono border border-brand-blue/20">
-                      {solution.tag}
-                    </span>
-                  </div>
-
-                  <div className="space-y-3">
-                    <h3 className="text-2xl font-display uppercase tracking-tight text-slate-900 group-hover:text-brand-blue transition-colors">
-                      {solution.title}
-                    </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed font-sans">
-                      {solution.description}
-                    </p>
-                  </div>
-
-                  {/* Bullet features list */}
-                  <ul className="space-y-2.5 pt-2">
-                    {solution.features.map((feat) => (
-                      <li key={feat} className="flex items-center gap-2 text-xs text-slate-500 font-sans group-hover:text-slate-700 transition-colors">
-                        <CheckCircle2 className="h-4 w-4 text-brand-blue shrink-0" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
+        {/* Solutions Cards Grid: Asymmetric Layout to avoid banned 3 equal cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Card 1: PyMEs (E-Commerce) - lg:col-span-7 */}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -6, scale: 1.01 }}
+            viewport={{ once: true }}
+            transition={{ y: { type: "spring", stiffness: 300, damping: 20 }, scale: { type: "spring", stiffness: 300, damping: 20 }, opacity: { duration: 0.5 } }}
+            className="lg:col-span-7 bg-[#04287D] rounded-3xl p-8 border border-white/15 flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFEC00] hover:border-brand-yellow/30 transition-all duration-300 group cursor-pointer"
+          >
+            <div className="space-y-6">
+              <div className="flex justify-between items-start">
+                <div className="p-3.5 bg-brand-yellow text-brand-blue border border-brand-yellow rounded-2xl group-hover:scale-105 transition-transform duration-300">
+                  <Landmark className="h-6 w-6" />
                 </div>
+                <span className="text-[10px] font-bold tracking-widest bg-white/10 text-white px-3 py-1 rounded-full uppercase font-mono border border-white/10">
+                  EMPRENDEDORES
+                </span>
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-2xl font-display uppercase tracking-tight text-white group-hover:text-brand-yellow transition-colors">
+                  Logística E-Commerce
+                </h3>
+                <p className="text-slate-300 text-sm leading-relaxed font-sans">
+                  Gestión integral de última milla para PyMEs en crecimiento. Recolección gratis a domicilio y seguimiento satelital.
+                </p>
+              </div>
+              <ul className="space-y-2.5 pt-2">
+                {['Soporte dedicado por WhatsApp', 'Entregas contrareembolso sin cargo extra', 'Entregas en tiempo y forma en MDQ'].map((feat) => (
+                  <li key={feat} className="flex items-center gap-2 text-xs text-slate-300 font-sans group-hover:text-white transition-colors">
+                    <CheckCircle2 className="h-4 w-4 text-brand-yellow shrink-0" />
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="pt-8 mt-8 border-t border-white/10">
+              <Link
+                href="/servicios/plan-emprendedores"
+                className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-brand-yellow transition-colors"
+              >
+                <span>Conocer más</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
+              </Link>
+            </div>
+          </motion.div>
 
-                <div className="pt-8 mt-8 border-t border-slate-100">
+          {/* Card 2: MercadoLibre Flex - lg:col-span-5 */}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -6, scale: 1.01 }}
+            viewport={{ once: true }}
+            transition={{ y: { type: "spring", stiffness: 300, damping: 20 }, scale: { type: "spring", stiffness: 300, damping: 20 }, opacity: { duration: 0.5, delay: 0.1 } }}
+            className="lg:col-span-5 bg-[#04287D] rounded-3xl p-8 border border-white/15 flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFEC00] hover:border-brand-yellow/30 transition-all duration-300 group cursor-pointer"
+          >
+            <div className="space-y-6">
+              <div className="flex justify-between items-start">
+                <div className="p-3.5 bg-brand-yellow text-brand-blue border border-brand-yellow rounded-2xl group-hover:scale-105 transition-transform duration-300">
+                  <ShoppingBag className="h-6 w-6" />
+                </div>
+                <span className="text-[10px] font-bold tracking-widest bg-white/10 text-white px-3 py-1 rounded-full uppercase font-mono border border-white/10">
+                  MERCADOLIBRE
+                </span>
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-2xl font-display uppercase tracking-tight text-white group-hover:text-brand-yellow transition-colors">
+                  Envíos Flex MercadoLibre
+                </h3>
+                <p className="text-slate-300 text-sm leading-relaxed font-sans">
+                  Socio estratégico para potenciar tus ventas con entregas rápidas y seguras en el mismo día.
+                </p>
+              </div>
+              <ul className="space-y-2.5 pt-2">
+                {['Cumplimiento de SLAs de entrega', 'Etiquetado compatible', 'Ruteo dinámico inteligente'].map((feat) => (
+                  <li key={feat} className="flex items-center gap-2 text-xs text-slate-300 font-sans group-hover:text-white transition-colors">
+                    <CheckCircle2 className="h-4 w-4 text-brand-yellow shrink-0" />
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="pt-8 mt-8 border-t border-white/10">
+              <Link
+                href="/servicios/envios-flex"
+                className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-brand-yellow transition-colors"
+              >
+                <span>Conocer más</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Card 3: Corporativos (Wide banner at bottom) - lg:col-span-12 */}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -4, scale: 1.005 }}
+            viewport={{ once: true }}
+            transition={{ y: { type: "spring", stiffness: 300, damping: 20 }, scale: { type: "spring", stiffness: 300, damping: 20 }, opacity: { duration: 0.5, delay: 0.2 } }}
+            className="lg:col-span-12 bg-[#04287D] rounded-3xl p-8 sm:p-10 border border-white/15 hover:shadow-[6px_6px_0px_#FFEC00] hover:border-brand-yellow/30 transition-all duration-300 group cursor-pointer"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-7 space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-3.5 bg-brand-yellow text-brand-blue border border-brand-yellow rounded-2xl shadow-[2px_2px_0px_#0636A5]">
+                    <Building2 className="h-6 w-6" />
+                  </div>
+                  <span className="text-[10px] font-bold tracking-widest bg-white/10 text-white px-3 py-1 rounded-full uppercase font-mono border border-white/10">
+                    EMPRESAS / CORPORATIVO
+                  </span>
+                </div>
+                <h3 className="text-3xl font-display uppercase tracking-tight text-white group-hover:text-brand-yellow transition-colors">
+                  Soluciones Corporativas
+                </h3>
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-sans max-w-xl">
+                  Optimización logística integral para grandes marcas y empresas con Cuenta Corriente Flexible, ruteos personalizados en el día y beneficios de escala exclusivos.
+                </p>
+              </div>
+              <div className="md:col-span-5 space-y-6 md:border-l md:border-white/10 md:pl-8">
+                <ul className="space-y-3">
+                  {['Facturación unificada mensual', 'Múltiples despachos simultáneos', 'Gestión inversa y devoluciones'].map((feat) => (
+                    <li key={feat} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300 font-sans group-hover:text-white transition-colors">
+                      <CheckCircle2 className="h-4.5 w-4.5 text-brand-yellow shrink-0" />
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-2">
                   <Link
-                    href="/servicios/plan-emprendedores"
-                    className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-blue hover:text-brand-blue/80 transition-colors"
+                    href="/servicios/logistica-corporativa"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-brand-yellow transition-colors"
                   >
-                    <span>Conocer más</span>
+                    <span>Conocer más planes</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
                   </Link>
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </div>
+          </motion.div>
         </div>
 
       </motion.div>
