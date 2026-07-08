@@ -65,7 +65,7 @@ export default function CotizadorExpressDetails() {
             <strong className="text-slate-800">Bulto:</strong> Hasta 40x40 cm y 5 kg sin cargo extra.
           </p>
           <p>
-            <strong className="text-slate-800">Garantía de entrega:</strong> Tu envío prioritario viaja 100% asegurado y con entrega coordinada en el acto.
+            <strong className="text-slate-800">Garantía de entrega</strong>
           </p>
 
           <div className="bg-amber-50 border border-amber-100 rounded-2xl p-4 mt-6">
