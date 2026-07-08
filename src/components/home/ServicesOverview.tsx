@@ -63,7 +63,7 @@ export default function ServicesOverview() {
             Nuestros Servicios
           </span>
           <h2 className="text-white text-display uppercase text-center">
-            Soluciones Logísticas
+            Soluciones Logísticas a tu Medida
           </h2>
           <div className="h-1.5 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>

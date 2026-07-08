@@ -36,11 +36,11 @@ export default function VisionSection() {
             </span>
             
             <h2 className="text-slate-900 text-display uppercase text-left">
-              Nuestra Visión Logística
+              Conectamos Mar del Plata de Punta a Punta
             </h2>
             
             <p className="text-slate-600 text-lg leading-relaxed font-sans max-w-xl">
-              Transformamos tus costos fijos en soluciones flexibles que acompañan el crecimiento de tu negocio, con ruteos eficientes y una red totalmente integrada en toda Mar del Plata.
+              Nos especializamos en la distribución de última milla para e-commerce locales y retailers nacionales, asegurando que tus productos lleguen al destino en tiempo récord con tecnología de punta y tarifas transparentes.
             </p>
 
             <div className="space-y-5 pt-4">
