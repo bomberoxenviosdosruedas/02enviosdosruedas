@@ -142,13 +142,15 @@ export async function getFilesInFolder(folder: string) {
 }
 
 export async function suggestPromptBase(data: {
-  description: string;
+  description?: string;
+  relativePath?: string;
   modelUsed: string;
   aspectRatio: string;
 }) {
-  const { description, modelUsed, aspectRatio } = data;
-  if (!description || description.trim() === '') {
-    throw new Error('La descripción no puede estar vacía');
+  const { description, relativePath, modelUsed, aspectRatio } = data;
+
+  if ((!description || description.trim() === '') && (!relativePath || relativePath.trim() === '')) {
+    throw new Error('Debe proporcionar una descripción o una imagen válida para generar un prompt.');
   }
 
   const { ai } = await import('@/src/lib/genkit');
@@ -156,7 +158,7 @@ export async function suggestPromptBase(data: {
 
   const systemInstruction = `
 You are the Principal AI Prompt Engineer for "Envíos DosRuedas", a premium logistics and delivery company based in Mar del Plata, Argentina (operational year 2026).
-Your job is to generate a highly detailed and structured image generation prompt (in English, as image generation models perform best in English) based on a basic Spanish description of an image asset.
+Your job is to generate a highly detailed and structured image generation prompt (in English, as image generation models perform best in English) based on either a basic Spanish description or by analyzing an existing image asset.
 
 You must follow the brand rules:
 - Aesthetic: Cyber-Urban Neo-Brutalist or Corporate Bento Grid.
@@ -171,9 +173,41 @@ Output ONLY the final prompt text. Do not include any intro, outro, markdown blo
 `;
 
   try {
+    let promptParts: any[] = [];
+
+    if (!description || description.trim() === '') {
+      // Analyze from image
+      const safeRelativePath = path.normalize(relativePath!).replace(/^(\.\.(\/|\\|$))+/, '');
+      const filePath = path.join(process.cwd(), 'public', safeRelativePath);
+
+      const publicDir = path.join(process.cwd(), 'public');
+      if (!filePath.startsWith(publicDir)) {
+        throw new Error('Ruta de imagen inválida o acceso denegado.');
+      }
+
+      if (!existsSync(filePath)) {
+        throw new Error('La imagen especificada no existe en el sistema.');
+      }
+
+      const fileData = await fs.readFile(filePath);
+      const mimeType = filePath.endsWith('.png') ? 'image/png' :
+                       filePath.endsWith('.jpg') || filePath.endsWith('.jpeg') ? 'image/jpeg' :
+                       'image/webp';
+
+      promptParts = [
+        { media: { url: `data:${mimeType};base64,${fileData.toString('base64')}` } },
+        { text: `Analyze the provided image and generate a structured image prompt to recreate its style and content. Target Model: ${modelUsed}, Aspect Ratio: ${aspectRatio}` }
+      ];
+    } else {
+      // Analyze from text
+      promptParts = [
+        { text: `Generate an image prompt for the following description: "${description}". Target Model: ${modelUsed}, Aspect Ratio: ${aspectRatio}` }
+      ];
+    }
+
     const response = await ai.generate({
       model: googleAI.model('gemini-2.5-flash'),
-      prompt: `Generate an image prompt for the following description: "${description}". Target Model: ${modelUsed}, Aspect Ratio: ${aspectRatio}`,
+      prompt: promptParts,
       config: {
         systemInstruction,
         temperature: 0.7,
@@ -181,7 +215,7 @@ Output ONLY the final prompt text. Do not include any intro, outro, markdown blo
     });
 
     return response.text || '';
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error in suggestPromptBase flow:', error);
     throw new Error('No se pudo generar la sugerencia de prompt.');
   }
