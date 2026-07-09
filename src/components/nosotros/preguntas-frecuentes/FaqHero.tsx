@@ -36,8 +36,8 @@ export default function FaqHero() {
       className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-slate-950 text-white border-b-4 border-brand-blue"
     >
       {/* Ambient background glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(6,54,165,0.45),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(0,51,153,0.45),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(255,204,0,0.08),transparent_50%)] pointer-events-none" />
 
       {/* Background illustration overlay */}
       <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none">
@@ -63,7 +63,7 @@ export default function FaqHero() {
             
             {/* Badge in Bebas Neue */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-blue border-2 border-brand-yellow text-brand-yellow flex items-center gap-1.5 shadow-[2px_2px_0px_rgba(255,236,1,0.3)]">
+              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-blue border-2 border-brand-yellow text-brand-yellow flex items-center gap-1.5 shadow-[2px_2px_0px_rgba(255,204,0,0.3)]">
                 <HelpCircle className="h-4.5 w-4.5 text-brand-yellow animate-pulse shrink-0" />
                 CENTRO DE SOPORTE
               </span>
@@ -75,7 +75,7 @@ export default function FaqHero() {
               className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-none text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
             >
               <span>CENTRO DE</span>
-              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#0636A5]">
+              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#003399]">
                 <Image
                   src="https://picsum.photos/id/1070/200/100" 
                   alt="Preguntas Soporte"
@@ -97,7 +97,7 @@ export default function FaqHero() {
             {/* Special Callout Panel (Neo-Brutalist) */}
             <motion.div 
               variants={itemVariants}
-              className="p-6 rounded-3xl bg-slate-900 border-2 border-brand-blue max-w-xl mx-auto lg:mx-0 shadow-[4px_4px_0px_#FFEC01] space-y-3 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFEC01] transition-all duration-200"
+              className="p-6 rounded-3xl bg-slate-900 border-2 border-brand-blue max-w-xl mx-auto lg:mx-0 shadow-[4px_4px_0px_#FFCC00] space-y-3 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFCC00] transition-all duration-200"
             >
               <div className="flex items-center gap-2 justify-center lg:justify-start">
                 <Sparkles className="h-4.5 w-4.5 text-brand-yellow animate-spin-slow" />
@@ -121,7 +121,7 @@ export default function FaqHero() {
               whileHover={{ scale: 1.025, y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-slate-900 shadow-[8px_8px_0px_#FFEC01] relative overflow-hidden group transition-all duration-300">
+              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-slate-900 shadow-[8px_8px_0px_#FFCC00] relative overflow-hidden group transition-all duration-300">
                 {/* Visual Accent Top Bar */}
                 <div className="absolute top-0 inset-x-0 h-2 bg-brand-blue" />
                 

@@ -44,7 +44,7 @@ export default function CarruselRedes() {
       id="carrusel-redes" 
       className="py-24 bg-brand-blue border-y border-blue-200/60 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(255,236,1,0.03),transparent_35%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(255,204,0,0.03),transparent_35%)]" />
 
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -59,7 +59,7 @@ export default function CarruselRedes() {
         
         {/* Header Segment */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block shadow-[2px_2px_0px_#0636A5]">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block shadow-[2px_2px_0px_#003399]">
             Nuestra Comunidad
           </span>
           <h2 className="text-white text-display uppercase text-center">
@@ -86,7 +86,7 @@ export default function CarruselRedes() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.12, ease: "easeOut" }}
-                className="p-8 rounded-3xl border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFEC01] hover:bg-slate-50 transition-all duration-300 group bg-white text-slate-800"
+                className="p-8 rounded-3xl border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFCC00] hover:bg-slate-50 transition-all duration-300 group bg-white text-slate-800"
               >
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">

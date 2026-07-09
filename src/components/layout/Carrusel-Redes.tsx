@@ -86,7 +86,7 @@ export const CarruselRedes = () => {
                             Conectate con nosotros
                         </div>
                         <h2 className="font-display text-display uppercase text-left text-brand-blue">
-                            SEGUÍ NUESTRO <span className="text-brand-yellow bg-brand-blue border-2 border-brand-blue px-3.5 py-1 rounded-2xl shadow-[3px_3px_0px_#0636A5] inline-block rotate-[-1deg] transform hover:rotate-0 transition-transform">MOVIMIENTO</span>
+                            SEGUÍ NUESTRO <span className="text-brand-yellow bg-brand-blue border-2 border-brand-blue px-3.5 py-1 rounded-2xl shadow-[3px_3px_0px_#003399] inline-block rotate-[-1deg] transform hover:rotate-0 transition-transform">MOVIMIENTO</span>
                         </h2>
                         <p className="text-slate-650 text-base sm:text-lg font-sans max-w-xl leading-relaxed">
                             Sumate a nuestra comunidad digital y mantente al día con las últimas noticias de logística en Mar del Plata.
@@ -99,7 +99,7 @@ export const CarruselRedes = () => {
                             <motion.button
                                 key={idx}
                                 onClick={net.isWhatsApp ? handleWhatsAppClick : () => window.open(net.href, "_blank")}
-                                className="group flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border-2 border-brand-blue shadow-[3px_3px_0px_#0636A5] hover:shadow-[3px_3px_0px_#FFEC01] hover:bg-slate-50 transition-all cursor-pointer text-slate-800 min-h-[48px]"
+                                className="group flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border-2 border-brand-blue shadow-[3px_3px_0px_#003399] hover:shadow-[3px_3px_0px_#FFCC00] hover:bg-slate-50 transition-all cursor-pointer text-slate-800 min-h-[48px]"
                                 aria-label={`Seguinos en ${net.name}`}
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.98 }}
@@ -123,7 +123,7 @@ export const CarruselRedes = () => {
                 </div>
 
                 {/* Scrolling Feed Panel */}
-                <div className="relative group/carousel rounded-3xl border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] bg-white p-4 overflow-hidden">
+                <div className="relative group/carousel rounded-3xl border-2 border-brand-blue shadow-[4px_4px_0px_#003399] bg-white p-4 overflow-hidden">
                     <div className="flex gap-6 w-full overflow-hidden py-2">
                         <motion.div
                             className="flex gap-6 shrink-0"
@@ -142,7 +142,7 @@ export const CarruselRedes = () => {
                                         href={feedUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-64 h-64 sm:w-72 sm:h-72 shrink-0 rounded-3xl overflow-hidden relative group border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] hover:shadow-[4px_4px_0px_#FFEC01] transition-all hover:scale-[1.015] block bg-white"
+                                        className="w-64 h-64 sm:w-72 sm:h-72 shrink-0 rounded-3xl overflow-hidden relative group border-2 border-brand-blue shadow-[4px_4px_0px_#003399] hover:shadow-[4px_4px_0px_#FFCC00] transition-all hover:scale-[1.015] block bg-white"
                                         aria-label={`Ver publicación en redes`}
                                     >
                                         <img

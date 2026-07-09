@@ -12,12 +12,12 @@ export default function FaqCta() {
       className="py-24 bg-brand-blue text-white relative overflow-hidden border-t-4 border-brand-yellow"
     >
       {/* Dynamic Background Overlays */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,236,1,0.04),transparent_35%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,204,0,0.04),transparent_35%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_75%,rgba(255,255,255,0.03),transparent_40%)]" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
-          className="bg-white text-slate-900 rounded-3xl p-8 sm:p-12 border-2 border-brand-blue shadow-[8px_8px_0px_#FFEC01] relative overflow-hidden text-center"
+          className="bg-white text-slate-900 rounded-3xl p-8 sm:p-12 border-2 border-brand-blue shadow-[8px_8px_0px_#FFCC00] relative overflow-hidden text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -33,7 +33,7 @@ export default function FaqCta() {
 
           <div className="max-w-2xl mx-auto space-y-6 relative z-10">
             
-            <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(6,54,165,0.2)]">
+            <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,51,153,0.2)]">
               SOPORTE HUMANO EN MDP
             </span>
             
@@ -52,7 +52,7 @@ export default function FaqCta() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="faq-cta-whatsapp"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold"
+                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#003399] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold"
               >
                 <MessageSquare className="h-5 w-5 fill-current" />
                 Hablá por WhatsApp
@@ -61,7 +61,7 @@ export default function FaqCta() {
               <Link
                 href="/contacto"
                 id="faq-cta-contacto"
-                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] transition-all duration-200 flex items-center justify-center gap-2 font-bold"
+                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#003399] transition-all duration-200 flex items-center justify-center gap-2 font-bold"
               >
                 <Mail className="h-5 w-5 text-brand-blue" />
                 Contacto Directo

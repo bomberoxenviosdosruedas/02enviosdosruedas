@@ -42,7 +42,7 @@ export default function FlexFeatures() {
           
           {/* Header column (Left) */}
           <div className="lg:col-span-5 space-y-6 text-left">
-            <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(6,54,165,0.2)]">
+            <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,51,153,0.2)]">
               MERCADOLIBRE EXPERTS
             </span>
             
@@ -72,7 +72,7 @@ export default function FlexFeatures() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.12, duration: 0.5 }}
-                  className="bg-slate-50 border-2 border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_#0636A5] p-6 rounded-3xl transition-all duration-300 flex flex-col lg:flex-row gap-5 items-start"
+                  className="bg-slate-50 border-2 border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_#003399] p-6 rounded-3xl transition-all duration-300 flex flex-col lg:flex-row gap-5 items-start"
                 >
                   <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl shrink-0 border border-brand-blue">
                     <Icon className="h-5.5 w-5.5 shrink-0" />

@@ -81,7 +81,7 @@ export default function FlexPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="span"
-            className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_rgba(255,236,1,0.3)] font-bold"
+            className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_rgba(255,204,0,0.3)] font-bold"
           >
             Niveles Flex
           </TimelineContent>
@@ -126,8 +126,8 @@ export default function FlexPricing() {
                 <Card
                   className={`rounded-3xl border-2 flex flex-col justify-between h-full transition-all duration-300 group text-left ${
                     level.highlight
-                      ? 'bg-white text-slate-900 border-brand-blue shadow-[6px_6px_0px_#FFEC01] lg:scale-[1.03] relative z-20 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#FFEC01]'
-                      : 'bg-brand-blue/30 text-white border-brand-yellow/30 shadow-[6px_6px_0px_rgba(6,54,165,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(6,54,165,0.4)] hover:border-brand-yellow'
+                      ? 'bg-white text-slate-900 border-brand-blue shadow-[6px_6px_0px_#FFCC00] lg:scale-[1.03] relative z-20 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#FFCC00]'
+                      : 'bg-brand-blue/30 text-white border-brand-yellow/30 shadow-[6px_6px_0px_rgba(0,51,153,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(0,51,153,0.4)] hover:border-brand-yellow'
                   }`}
                 >
                   <CardHeader className="p-8 pb-2 text-left relative">
@@ -189,8 +189,8 @@ export default function FlexPricing() {
                         rel="noopener noreferrer"
                         className={`w-full py-3 rounded-xl text-sm font-subheading uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-all ${
                           level.highlight
-                            ? 'bg-brand-blue text-brand-yellow hover:bg-brand-blue/90 border-2 border-brand-blue shadow-[3px_3px_0px_#FFEC01]'
-                            : 'bg-brand-yellow text-brand-blue hover:bg-brand-yellow/90 border-2 border-brand-blue shadow-[3px_3px_0px_#0636A5]'
+                            ? 'bg-brand-blue text-brand-yellow hover:bg-brand-blue/90 border-2 border-brand-blue shadow-[3px_3px_0px_#FFCC00]'
+                            : 'bg-brand-yellow text-brand-blue hover:bg-brand-yellow/90 border-2 border-brand-blue shadow-[3px_3px_0px_#003399]'
                         }`}
                       >
                         <span>Activar {level.name.split(' ')[0]}</span>
@@ -210,7 +210,7 @@ export default function FlexPricing() {
           timelineRef={pricingRef}
           customVariants={revealVariants}
           as="div"
-          className="bg-white text-slate-900 rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#FFEC01] relative overflow-hidden"
+          className="bg-white text-slate-900 rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#FFCC00] relative overflow-hidden"
         >
           <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-slate-100/50 pointer-events-none -z-10">
             <CloudRain className="h-64 w-64 text-slate-100" />
@@ -236,7 +236,7 @@ export default function FlexPricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="flex-pricing-cta-whatsapp"
-                className="bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-[4px_4px_0px_#FFEC01] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFEC01] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold w-full sm:w-auto"
+                className="bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-[4px_4px_0px_#FFCC00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFCC00] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold w-full sm:w-auto"
               >
                 <MessageSquare className="h-5 w-5 fill-current" />
                 Más Información Flex
