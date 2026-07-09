@@ -1,0 +1,816 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prototipo Interactivo y Guía de Estilos de Envíos DosRuedas - Mar del Plata">
+  <title>Envíos DosRuedas - Suite de Componentes Pulidos</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* --------------------------------------------------
+       Tokens de Diseño (Envíos DosRuedas)
+       -------------------------------------------------- */
+    :root {
+      --bg: #ffffff;
+      --surface: #f5f5f5;
+      --fg: #000000;
+      --muted: #8c8c8c;
+      --border: #dbdbdb;
+      --accent: #0636a5; /* Azul corporativo */
+      --accent-secondary: #ffec01; /* Amarillo de acento */
+      
+      /* Semánticos */
+      --success: #17a34a;
+      --danger: #dc2626;
+      --warning: #ca8a04;
+      
+      /* Tipografía */
+      --font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+      
+      /* Radios y bordes */
+      --radius: 8px;
+      --border-width: 1px;
+      
+      /* Transiciones estándar */
+      --transition-fast: 150ms cubic-bezier(0.25, 0.8, 0.25, 1);
+      --transition-normal: 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Reset & Estilos Globales */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Accesibilidad - Foco de teclado */
+    *:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Contenedor Principal */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Cabecera / Navegación */
+    header {
+      background-color: var(--bg);
+      border-bottom: var(--border-width) solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--fg);
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-logo {
+      background-color: var(--accent);
+      color: var(--accent-secondary);
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 22px;
+      box-shadow: 0 2px 4px rgba(6, 54, 165, 0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--fg);
+      font-size: 15px;
+      font-weight: 500;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* --------------------------------------------------
+       Hero Animado con Simulación GPS de Mar del Plata
+       -------------------------------------------------- */
+    .hero-section {
+      padding: 80px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      min-height: calc(100vh - 72px);
+    }
+
+    @media (max-width: 992px) {
+      .hero-section {
+        grid-template-columns: 1fr;
+        padding: 40px 0;
+        gap: 32px;
+        min-height: auto;
+      }
+    }
+
+    .hero-content {
+      max-width: 580px;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: var(--fg);
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, var(--accent) 0%, #1e5ad4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+
+    /* Cotizador / Formulario Interactivo */
+    .cotizador-card {
+      background-color: var(--surface);
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--fg);
+    }
+
+    .form-control {
+      width: 100%;
+      height: 44px;
+      padding: 0 16px;
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--radius);
+      font-family: var(--font-family);
+      font-size: 14px;
+      background-color: var(--bg);
+      color: var(--fg);
+      transition: border-color var(--transition-fast);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 24px;
+      font-family: var(--font-family);
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-secondary);
+      color: var(--fg);
+      box-shadow: 0 2px 4px rgba(255, 236, 1, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: #ebd900;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background-color: var(--accent);
+      color: var(--bg);
+    }
+
+    .btn-secondary:hover {
+      background-color: #052a80;
+      transform: translateY(-1px);
+    }
+
+    /* Estados de Carga y Éxito de la Cotización */
+    .status-panel {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      display: none;
+    }
+
+    .status-loading {
+      background-color: var(--surface);
+      color: var(--fg);
+      border: var(--border-width) solid var(--border);
+      display: none;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status-loading::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--accent);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    .status-success {
+      background-color: rgba(23, 163, 74, 0.1);
+      color: var(--success);
+      border: var(--border-width) solid var(--success);
+    }
+
+    .status-error {
+      background-color: rgba(220, 38, 38, 0.1);
+      color: var(--danger);
+      border: var(--border-width) solid var(--danger);
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* GPS / Simulación Visual */
+    .gps-container {
+      background-color: var(--surface);
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--radius);
+      height: 480px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    /* Mapa Vectorial Simplificado */
+    .map-svg {
+      width: 100%;
+      height: 100%;
+      background-color: #eaf1ff;
+    }
+
+    /* Scooter Animado */
+    .scooter-marker {
+      offset-path: path('M 50 400 Q 150 150 250 250 T 450 100');
+      animation: follow-route 8s ease-in-out infinite;
+      width: 32px;
+      height: 32px;
+      background-color: var(--accent-secondary);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    @keyframes follow-route {
+      0% { offset-distance: 0%; }
+      50% { offset-distance: 100%; }
+      100% { offset-distance: 0%; }
+    }
+
+    /* --------------------------------------------------
+       Slider de Servicios Interactivo
+       -------------------------------------------------- */
+    .services-section {
+      padding: 80px 0;
+      background-color: var(--surface);
+      border-top: var(--border-width) solid var(--border);
+      border-bottom: var(--border-width) solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .slider-controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    .control-btn {
+      width: 44px;
+      height: 44px;
+      border: var(--border-width) solid var(--border);
+      background-color: var(--bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .control-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .control-btn:hover svg {
+      stroke: var(--bg);
+    }
+
+    .control-btn svg {
+      stroke: var(--fg);
+      transition: stroke var(--transition-fast);
+    }
+
+    .slider-container {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 24px;
+      transition: transform var(--transition-normal);
+      will-change: transform;
+    }
+
+    .service-card {
+      min-width: calc(33.333% - 16px);
+      background-color: var(--bg);
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 380px;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    @media (max-width: 992px) {
+      .service-card {
+        min-width: calc(50% - 12px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .service-card {
+        min-width: 100%;
+      }
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background-color: rgba(6, 54, 165, 0.08);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+
+    .service-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .service-description {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .service-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: var(--border-width) solid var(--border);
+      padding-top: 20px;
+      margin-top: auto;
+    }
+
+    .service-price {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .service-price span {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    /* Panel de control de Ajustes (Tweaks Panel) */
+    .tweaks-panel {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--bg);
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 280px;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .tweaks-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tweak-control {
+      margin-bottom: 12px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: var(--border-width) solid var(--border);
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabecera -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="brand" aria-label="Volver al inicio">
+        <div class="brand-logo" aria-hidden="true">2R</div>
+        <span>Envíos DosRuedas</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Seccion Hero -->
+    <section class="container hero-section" id="inicio" data-od-id="hero-section">
+      <div class="hero-content">
+        <span class="hero-eyebrow">Logística Inteligente Local</span>
+        <h1 class="hero-title">Envíos Rápidos y Seguros en <span>Mar del Plata</span></h1>
+        <p class="hero-description">Conectamos tu e-commerce con tus clientes de forma eficiente y económica. La red de mensajería más veloz en dos ruedas.</p>
+        
+        <!-- Cotizador Interactivo -->
+        <div class="cotizador-card" data-od-id="cotizador-box">
+          <h2 style="font-size: 18px; margin-bottom: 16px;">Cotizador en Vivo</h2>
+          
+          <div class="form-group">
+            <label class="form-label" for="origen">Punto de Origen (Mar del Plata)</label>
+            <select class="form-control" id="origen">
+              <option value="centro">Centro (CD Principal)</option>
+              <option value="constitucion">Constitución</option>
+              <option value="puerto">Puerto / Mogotes</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="destino">Punto de Destino</label>
+            <select class="form-control" id="destino">
+              <option value="mogotes">Playa Grande / Mogotes</option>
+              <option value="centro">Centro</option>
+              <option value="guemes">Güemes / Terminal</option>
+            </select>
+          </div>
+          
+          <button class="btn btn-primary" style="width: 100%;" id="btn-calcular">Calcular Costo de Envío</button>
+          
+          <!-- Paneles de estado simulado -->
+          <div class="status-panel status-loading" id="panel-loading">Cotizando tu ruta logística...</div>
+          <div class="status-panel status-success" id="panel-success"></div>
+          <div class="status-panel status-error" id="panel-error">Por favor, selecciona puntos de origen y destino diferentes.</div>
+        </div>
+      </div>
+
+      <!-- Simulador GPS -->
+      <div class="gps-container" data-od-id="gps-simulator">
+        <svg class="map-svg" viewBox="0 0 500 500" aria-label="Mapa interactivo de entregas de Envíos DosRuedas">
+          <!-- Calles simplificadas -->
+          <path d="M 50 400 Q 150 150 250 250 T 450 100" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 50 400 Q 150 150 250 250 T 450 100" fill="none" stroke="rgba(6, 54, 165, 0.2)" stroke-width="4" stroke-linecap="round"/>
+          
+          <!-- Hitos del mapa -->
+          <circle cx="50" cy="400" r="10" fill="var(--accent)"/>
+          <text x="70" y="405" font-family="Inter" font-size="12" font-weight="700" fill="var(--accent)">CD Centro</text>
+          
+          <circle cx="450" cy="100" r="10" fill="var(--accent)"/>
+          <text x="350" y="95" font-family="Inter" font-size="12" font-weight="700" fill="var(--accent)">Entrega Playa Grande</text>
+        </svg>
+        
+        <!-- Scooter Animado en ruta -->
+        <div class="scooter-marker" id="scooter" title="Scooter en reparto">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="55" cy="95" r="5" transform="translate(-40, -80)"/>
+            <circle cx="185" cy="95" r="5" transform="translate(-150, -80)"/>
+            <path d="M5 12h14M12 5v14"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slider de Servicios -->
+    <section class="services-section" id="servicios" data-od-id="services-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="hero-eyebrow">Nuestras Soluciones</span>
+            <h2 class="section-title">Servicios que se adaptan a vos</h2>
+          </div>
+          <div class="slider-controls">
+            <button class="control-btn" id="prev-btn" aria-label="Diapositiva anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+            <button class="control-btn" id="next-btn" aria-label="Siguiente diapositiva">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="slider-container">
+          <div class="slider-track" id="slider-track">
+            
+            <!-- Servicio 1 -->
+            <div class="service-card" data-od-id="service-lowcost">
+              <div>
+                <div class="service-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+                <h3 class="service-title">Envío Low Cost</h3>
+                <p class="service-description">La opción más económica para entregas planificadas en el día en toda la ciudad de Mar del Plata.</p>
+              </div>
+              <div class="service-footer">
+                <span class="service-price">$450<span>/envío</span></span>
+                <a href="#contacto" class="btn btn-secondary btn-sm" style="height: 38px; font-size: 13px;">Reservar</a>
+              </div>
+            </div>
+
+            <!-- Servicio 2 -->
+            <div class="service-card" data-od-id="service-express">
+              <div>
+                <div class="service-icon" aria-hidden="true" style="background-color: rgba(255, 236, 1, 0.15); color: #c4b500;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                </div>
+                <h3 class="service-title">Envío Express</h3>
+                <p class="service-description">Tu entrega prioritaria en menos de 90 minutos. Motomensajería directa y dedicada con rastreo GPS real.</p>
+              </div>
+              <div class="service-footer">
+                <span class="service-price">$850<span>/envío</span></span>
+                <a href="#contacto" class="btn btn-secondary btn-sm" style="height: 38px; font-size: 13px;">Reservar</a>
+              </div>
+            </div>
+
+            <!-- Servicio 3 -->
+            <div class="service-card" data-od-id="service-programado">
+              <div>
+                <div class="service-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <h3 class="service-title">Reparto Programado</h3>
+                <p class="service-description">Agendá tus envíos por lotes semanales. Diseñado a la medida de tu e-commerce y necesidades logísticas.</p>
+              </div>
+              <div class="service-footer">
+                <span class="service-price">Personalizado</span>
+                <a href="#contacto" class="btn btn-secondary btn-sm" style="height: 38px; font-size: 13px;">Consultar</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Panel de Tweak del Sistema de Diseño (Accesible e interactivo) -->
+  <div class="tweaks-panel" id="tweak-panel" role="region" aria-label="Configuración de Tema">
+    <div class="tweaks-title">
+      <span>Personalizar Prototipo</span>
+      <button id="close-tweaks" style="background:none; border:none; cursor:pointer;" aria-label="Cerrar panel">×</button>
+    </div>
+    <div class="tweak-control">
+      <label class="form-label" style="font-size: 12px;" for="tweak-color">Color de Énfasis</label>
+      <select class="form-control" id="tweak-color" style="height: 34px; font-size: 12px;">
+        <option value="azul">Azul DosRuedas (#0636a5)</option>
+        <option value="amarillo">Amarillo DosRuedas (#ffec01)</option>
+      </select>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Envíos DosRuedas. Todos los derechos reservados. Mar del Plata, Argentina.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Lógica interactiva del cotizador
+    const btnCalcular = document.getElementById('btn-calcular');
+    const panelLoading = document.getElementById('panel-loading');
+    const panelSuccess = document.getElementById('panel-success');
+    const panelError = document.getElementById('panel-error');
+    
+    btnCalcular.addEventListener('click', () => {
+      const origen = document.getElementById('origen').value;
+      const destino = document.getElementById('destino').value;
+      
+      // Ocultar todos los paneles
+      panelLoading.style.display = 'none';
+      panelSuccess.style.display = 'none';
+      panelError.style.display = 'none';
+      
+      if (origen === destino) {
+        panelError.style.display = 'block';
+        return;
+      }
+      
+      // Simular carga de cotización
+      panelLoading.style.display = 'flex';
+      
+      setTimeout(() => {
+        panelLoading.style.display = 'none';
+        
+        let costo = 450;
+        if (origen === 'puerto' || destino === 'mogotes') {
+          costo = 650; // Tarifa extendida
+        }
+        
+        panelSuccess.innerHTML = `<strong>¡Cotización Exitosa!</strong> El costo estimado es de <strong>$${costo}</strong>. Tiempo de entrega aproximado: 45 min.`;
+        panelSuccess.style.display = 'block';
+      }, 1500);
+    });
+
+    // Lógica del Slider de Servicios
+    const track = document.getElementById('slider-track');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    let index = 0;
+    
+    function updateSlider() {
+      const cardWidth = document.querySelector('.service-card').getBoundingClientRect().width;
+      const gap = 24;
+      track.style.transform = `translateX(-${index * (cardWidth + gap)}px)`;
+    }
+    
+    nextBtn.addEventListener('click', () => {
+      const maxIndex = window.innerWidth <= 640 ? 2 : window.innerWidth <= 992 ? 1 : 0;
+      if (index < maxIndex) {
+        index++;
+      } else {
+        index = 0; // bucle
+      }
+      updateSlider();
+    });
+    
+    prevBtn.addEventListener('click', () => {
+      if (index > 0) {
+        index--;
+      } else {
+        const maxIndex = window.innerWidth <= 640 ? 2 : window.innerWidth <= 992 ? 1 : 0;
+        index = maxIndex;
+      }
+      updateSlider();
+    });
+
+    window.addEventListener('resize', updateSlider);
+
+    // Tweaks de tema interactivos
+    const tweakColor = document.getElementById('tweak-color');
+    tweakColor.addEventListener('change', (e) => {
+      if (e.target.value === 'amarillo') {
+        document.documentElement.style.setProperty('--accent', '#c4b500');
+      } else {
+        document.documentElement.style.setProperty('--accent', '#0636a5');
+      }
+    });
+
+    document.getElementById('close-tweaks').addEventListener('click', () => {
+      document.getElementById('tweak-panel').style.display = 'none';
+    });
+  </script>
+</body>
+</html>

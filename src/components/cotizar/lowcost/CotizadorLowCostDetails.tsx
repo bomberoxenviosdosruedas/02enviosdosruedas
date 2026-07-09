@@ -54,16 +54,11 @@ export default function CotizadorLowCostDetails() {
       {/* Column 2: Tarification details & Advice */}
       <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
         <h3 className="text-xl font-display uppercase tracking-tight text-brand-blue border-b border-slate-100 pb-3">
-          Envíos LowCost
+          Envios LowCost
         </h3>
         <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
-          <p>
-            <strong className="text-slate-800">Entregas en el día:</strong> Si tu envío es solicitado antes de las 13:00 hs, la entrega queda garantizada en la tarde del mismo día.
-          </p>
-          <p>
-            <strong className="text-slate-800">Siguiente día hábil:</strong> Los envíos solicitados luego de las 13:00 hs se entregarán al día siguiente.
-          </p>
- 
+          <p>Entregas en el dia si es solicitado antes de 13hs, o al dia siguiente para los solicitados luego de 13hs.</p>
+
           <div className="bg-amber-50 border border-amber-100 rounded-2xl p-4 mt-6">
             <h4 className="font-bold text-amber-800 text-xs uppercase tracking-wide flex items-center gap-1.5 mb-1.5">
               <Shield className="h-4 w-4 shrink-0" />

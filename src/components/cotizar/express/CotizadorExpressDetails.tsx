@@ -62,7 +62,7 @@ export default function CotizadorExpressDetails() {
             <strong className="text-slate-800">Peso máximo por moto:</strong> Hasta 15 kg por unidad.
           </p>
           <p>
-            <strong className="text-slate-800">Bulto:</strong> Hasta 40x40 cm y 5 kg sin cargo extra.
+            <strong className="text-slate-800">Bulto:</strong> Hasta 40x40 y 5kg sin cargo extra.
           </p>
           <p>
             <strong className="text-slate-800">Garantía de entrega</strong>

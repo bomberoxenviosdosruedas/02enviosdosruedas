@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "Envíos DosRuedas - Design System Playground",
+  "entry": "extracted-design-system.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "primary": true,
+  "createdAt": "2026-07-09T06:35:30.860Z",
+  "updatedAt": "2026-07-09T06:35:30.886Z",
+  "sourceSkillId": "agent-browser",
+  "metadata": {
+    "identifier": "extracted-design-system",
+    "artifactType": "text/html",
+    "inferred": false
+  }
+}

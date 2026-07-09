@@ -36,7 +36,7 @@ export default function FaqAccordion() {
         },
         {
           question: '¿Cuáles son los límites de tamaño y peso sin cobros adicionales?',
-          answer: 'Para traslados estándar en moto, el límite por bulto es de hasta 40x40 cm y 5 kg de peso sin cargo extra. Envíos de mayor tamaño o peso pueden estar sujetos a cargos adicionales.',
+          answer: 'Límites de tamaño sin cobros adicionales, cobros semanales y uso de MercadoLibre Flex.',
         },
         {
           question: '¿Cómo funciona el servicio de MercadoLibre Flex?',
@@ -90,11 +90,10 @@ export default function FaqAccordion() {
                 onClick={() => handleCategoryChange(catKey)}
                 whileHover={{ scale: 1.03, y: -1 }}
                 whileTap={{ scale: 0.97 }}
-                className={`px-6 py-3.5 rounded-2xl text-sm font-subheading uppercase tracking-wider flex items-center gap-2.5 transition-all cursor-pointer border-2 ${
-                  isActive
+                className={`px-6 py-3.5 rounded-2xl text-sm font-subheading uppercase tracking-wider flex items-center gap-2.5 transition-all cursor-pointer border-2 ${isActive
                     ? 'bg-brand-yellow text-brand-blue border-brand-blue shadow-[4px_4px_0px_#0636A5]'
                     : 'bg-white text-slate-700 border-slate-200 shadow-[2px_2px_0px_rgba(0,0,0,0.05)] hover:border-brand-blue hover:shadow-[3px_3px_0px_#0636A5]'
-                }`}
+                  }`}
               >
                 <Icon className={`h-5 w-5 ${isActive ? 'text-brand-blue' : 'text-slate-500'}`} />
                 <span>{cat.label}</span>
@@ -120,11 +119,10 @@ export default function FaqAccordion() {
                 return (
                   <div
                     key={item.question}
-                    className={`rounded-3xl overflow-hidden transition-all duration-300 border-2 ${
-                      isExpanded 
-                        ? 'bg-white border-brand-blue shadow-[6px_6px_0px_#FFEC01]' 
+                    className={`rounded-3xl overflow-hidden transition-all duration-300 border-2 ${isExpanded
+                        ? 'bg-white border-brand-blue shadow-[6px_6px_0px_#FFEC01]'
                         : 'bg-slate-50 border-brand-blue/20 shadow-[4px_4px_0px_rgba(6,54,165,0.08)] hover:border-brand-blue hover:shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px]'
-                    }`}
+                      }`}
                   >
                     {/* Collapsible Header Click Area */}
                     <button

@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "Envíos DosRuedas - Componentes de Diseño y Suite de Verificación Pulida",
+  "entry": "extracted-design-system-preview-2-2-2.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "primary": true,
+  "createdAt": "2026-07-09T06:49:49.093Z",
+  "updatedAt": "2026-07-09T06:49:49.099Z",
+  "sourceSkillId": "agent-browser",
+  "metadata": {
+    "identifier": "extracted-design-system-preview-2-2",
+    "artifactType": "text/html",
+    "inferred": false
+  }
+}

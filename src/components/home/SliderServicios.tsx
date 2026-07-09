@@ -2,15 +2,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  ShoppingBag, 
-  Wrench, 
-  Shirt, 
-  FileText, 
-  ClipboardCheck, 
-  Package, 
-  ChevronLeft, 
-  ChevronRight 
+import {
+  ShoppingBag,
+  Wrench,
+  Shirt,
+  FileText,
+  ClipboardCheck,
+  Package,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 export default function SliderServicios() {
@@ -18,37 +18,37 @@ export default function SliderServicios() {
     {
       title: 'E-Commerce',
       subtitle: 'Entregas Same Day y Next Day',
-      desc: 'Envíos a domicilio de tus ventas online, con entregas same day y next day en toda la ciudad.',
+      desc: 'Envios a domicilio de las ventas online, entregas same day y next day.',
       icon: ShoppingBag,
     },
     {
       title: 'Repuesto de Automotores',
       subtitle: 'Partes críticas al instante',
-      desc: 'Envío rápido de autopartes y componentes críticos directo a talleres mecánicos y concesionarias.',
+      desc: 'Envío rápido de partes críticas a talleres.',
       icon: Wrench,
     },
     {
       title: 'Indumentaria y Calzado',
       subtitle: 'Moda y Logística Inversa',
-      desc: 'Logística inversa simplificada y entregas rápidas de moda local para indumentaria y calzado.',
+      desc: 'Logística inversa y entregas rápidas de moda local.',
       icon: Shirt,
     },
     {
-      title: 'Trámites',
+      title: 'Tramites',
       subtitle: 'Cadetería Administrativa',
-      desc: 'Gestión y realización de todo tipo de trámites, gestiones, cobranzas y despacho de encomiendas.',
+      desc: 'Todo tipo de tramites, cobranzas, despacho de encomiendas.',
       icon: FileText,
     },
     {
-      title: 'Insumos Varios',
+      title: 'Insumos varios',
       subtitle: 'Entregas en tiempo y forma',
-      desc: 'Entrega ágil de todo tipo de insumos en tiempo y forma (médicos, tecnológicos, corporativos y más).',
+      desc: 'Entrega de todo tipo de insumos en tiempo y forma (Medicos, Tecnologicos, y mas)',
       icon: ClipboardCheck,
     },
     {
       title: 'Encomiendas',
       subtitle: 'Retiro y Despacho',
-      desc: 'Retiro a domicilio y despacho de encomiendas de forma segura y coordinada.',
+      desc: 'Retiro y despacho de encomiendas',
       icon: Package,
     },
   ];
@@ -73,15 +73,15 @@ export default function SliderServicios() {
   const ActiveIcon = slides[current].icon;
 
   return (
-    <section 
-      id="slider-servicios" 
+    <section
+      id="slider-servicios"
       className="py-24 bg-white text-slate-900 relative z-10 overflow-hidden"
     >
       {/* Background patterns */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(6,54,165,0.02),transparent_40%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(255,236,1,0.03),transparent_50%)]" />
 
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
         initial="hidden"
         whileInView="visible"
@@ -91,7 +91,7 @@ export default function SliderServicios() {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
         }}
       >
-            {/* Header Block */}
+        {/* Header Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-8 space-y-4">
             <span className="px-4 py-1.5 bg-brand-blue/5 text-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block border border-brand-blue/20 uppercase">
@@ -104,7 +104,7 @@ export default function SliderServicios() {
               Hemos redefinido los estándares de la logística urbana para ofrecerte una ventaja competitiva real en un mercado en constante evolución en Mar del Plata.
             </p>
           </div>
-          
+
           <div className="lg:col-span-4 flex justify-start lg:justify-end gap-3">
             <motion.button
               onClick={handlePrev}
@@ -139,8 +139,8 @@ export default function SliderServicios() {
               className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center w-full"
             >
               <div className="md:col-span-4 flex justify-center">
-                <motion.div 
-                   className="h-28 w-28 rounded-3xl bg-brand-blue text-brand-yellow flex items-center justify-center shadow-[4px_4px_0px_#FFEC00] relative group overflow-hidden border border-brand-yellow cursor-pointer"
+                <motion.div
+                  className="h-28 w-28 rounded-3xl bg-brand-blue text-brand-yellow flex items-center justify-center shadow-[4px_4px_0px_#FFEC00] relative group overflow-hidden border border-brand-yellow cursor-pointer"
                   whileHover={{ scale: 1.05, rotate: 2 }}
                   animate={{ y: [0, -8, 0] }}
                   transition={{
@@ -156,7 +156,7 @@ export default function SliderServicios() {
                   <ActiveIcon className="h-14 w-14 shrink-0" />
                 </motion.div>
               </div>
-              
+
               <div className="md:col-span-8 space-y-4 text-center md:text-left">
                 <span className="text-xs font-subheading tracking-widest text-brand-blue uppercase">
                   {slides[current].subtitle}
@@ -178,9 +178,8 @@ export default function SliderServicios() {
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
-              className={`h-2.5 rounded-full transition-all duration-350 focus:outline-none ${
-                idx === current ? 'w-10 bg-brand-blue border border-brand-blue' : 'w-2.5 bg-slate-200 hover:bg-slate-350 border border-slate-300'
-              }`}
+              className={`h-2.5 rounded-full transition-all duration-350 focus:outline-none ${idx === current ? 'w-10 bg-brand-blue border border-brand-blue' : 'w-2.5 bg-slate-200 hover:bg-slate-350 border border-slate-300'
+                }`}
               title={`Ir a slide ${idx + 1}`}
             />
           ))}

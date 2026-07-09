@@ -80,7 +80,7 @@ export default function LogisticaNetworkCanvas() {
         progress: 0,
         speed: 0.002 + Math.random() * 0.004,
         size: 1.8 + Math.random() * 1.8,
-        color: Math.random() > 0.4 ? '#ffffff' : '#FFEC01',
+        color: Math.random() > 0.4 ? '#ffffff' : '#FFCC00',
       });
     };
 
@@ -137,7 +137,7 @@ export default function LogisticaNetworkCanvas() {
         const dist = Math.sqrt(dx * dx + dy * dy);
         
         ctx.strokeStyle = dist < 180 
-          ? `rgba(255, 236, 1, ${0.15 + (1 - dist / 180) * 0.3})` // Brillo amarillo al acercar
+          ? `rgba(255, 204, 0, ${0.15 + (1 - dist / 180) * 0.3})` // Brillo amarillo al acercar
           : 'rgba(255, 255, 255, 0.12)'; // Línea sutil blanca
         
         ctx.beginPath();
@@ -198,19 +198,19 @@ export default function LogisticaNetworkCanvas() {
         const isNear = dist < 150;
         
         if (isNear) {
-          ctx.fillStyle = 'rgba(255, 236, 1, 0.4)';
+          ctx.fillStyle = 'rgba(255, 204, 0, 0.4)';
           ctx.beginPath();
           ctx.arc(node.x, node.y, node.size * 2.5, 0, Math.PI * 2);
           ctx.fill();
         }
 
-        ctx.fillStyle = isNear ? '#FFEC01' : '#ffffff';
+        ctx.fillStyle = isNear ? '#FFCC00' : '#ffffff';
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
         ctx.fill();
 
         if (isNear || node.id === 'cd') {
-          ctx.fillStyle = isNear ? '#FFEC01' : '#ffffff';
+          ctx.fillStyle = isNear ? '#FFCC00' : '#ffffff';
           ctx.font = '500 10px var(--font-sans)';
           ctx.fillText(node.label.toUpperCase(), node.x + 10, node.y + 3);
         }

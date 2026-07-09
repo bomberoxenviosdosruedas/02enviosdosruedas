@@ -7,17 +7,17 @@ import { Clock, ShieldCheck, Users, Trophy, Truck } from 'lucide-react';
 export default function VisionSection() {
   const stats = [
     { value: '+50k', label: 'Envíos Realizados', icon: Truck },
-    { value: '99.8%', label: 'Eficiencia de Entrega', icon: Trophy },
+
     { value: '0', label: 'Paquetes extraviados', icon: ShieldCheck },
     { value: '+50', label: 'Emprendedores Confían', icon: Users },
   ];
 
   return (
-    <section 
-      id="vision-section" 
+    <section
+      id="vision-section"
       className="py-24 bg-white relative z-10 overflow-hidden"
     >
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
@@ -28,17 +28,17 @@ export default function VisionSection() {
         }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Information Block */}
           <div className="lg:col-span-6 space-y-8">
             <span className="px-4 py-1.5 bg-brand-blue/5 text-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block border border-brand-blue/20 uppercase">
               Partner Logístico Especializado
             </span>
-            
+
             <h2 className="text-slate-900 text-display uppercase text-left">
               Conectamos Mar del Plata de Punta a Punta
             </h2>
-            
+
             <p className="text-slate-600 text-lg leading-relaxed font-sans max-w-xl">
               Nos especializamos en la distribución de última milla para e-commerce locales y retailers nacionales, asegurando que tus productos lleguen al destino en tiempo récord con tecnología de punta y tarifas transparentes.
             </p>
@@ -87,16 +87,15 @@ export default function VisionSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   whileHover={{ y: -6, scale: 1.015 }}
                   viewport={{ once: true }}
-                  transition={{ 
+                  transition={{
                     y: { type: "spring", stiffness: 300, damping: 20 },
                     scale: { type: "spring", stiffness: 300, damping: 20 },
                     opacity: { duration: 0.5, delay: i * 0.1 }
                   }}
-                  className={`p-8 rounded-3xl border border-brand-blue/10 transition-all duration-300 flex flex-col justify-between cursor-pointer group ${
-                    i % 3 === 0 
-                      ? 'bg-brand-blue/5 hover:bg-brand-blue/10' 
+                  className={`p-8 rounded-3xl border border-brand-blue/10 transition-all duration-300 flex flex-col justify-between cursor-pointer group ${i % 3 === 0
+                      ? 'bg-brand-blue/5 hover:bg-brand-blue/10'
                       : 'bg-white hover:bg-slate-50'
-                  }`}
+                    }`}
                 >
                   <div className="flex justify-between items-start mb-6">
                     <div className="p-3.5 rounded-2xl bg-brand-blue/10 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">

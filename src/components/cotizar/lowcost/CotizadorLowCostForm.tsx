@@ -23,10 +23,13 @@ interface Coordinate {
 export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges?: PriceRangeProp[] }) {
   const [origen, setOrigen] = useState('');
   const [destino, setDestino] = useState('');
+  const [nombre, setNombre] = useState('');
+  const [telefono, setTelefono] = useState('');
+  const [producto, setProducto] = useState('');
   const [origenCoords, setOrigenCoords] = useState<Coordinate | null>(null);
   const [destinoCoords, setDestinoCoords] = useState<Coordinate | null>(null);
   const [routeCoords, setRouteCoords] = useState<[number, number][]>([]);
-  
+
   const [isCalculating, setIsCalculating] = useState(false);
   const [calculated, setCalculated] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -63,7 +66,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
       const route = data.routes[0];
       const distance = Math.round((route.distance / 1000) * 10) / 10; // in km, 1 decimal
       const time = Math.round(route.duration / 60); // in minutes
-      
+
       // Save coordinates for the polyline route path
       setRouteCoords(route.geometry.coordinates || []);
 
@@ -75,7 +78,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
           const matchingRange = lowCostRanges.find(
             r => distance >= r.distanciaMinKm && distance < r.distanciaMaxKm
           );
-          
+
           if (matchingRange) {
             if (matchingRange.distanciaMaxKm === 9999) {
               const baseRange = lowCostRanges.find(r => r.distanciaMinKm === 7 && r.distanciaMaxKm === 10);
@@ -113,7 +116,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
     if (!result) return '#';
     const priceText = result.precio === 'consultar' ? 'A convenir (Excede rango estándar)' : `$${result.precio.toLocaleString('es-AR')}`;
     const text = `¡Hola Envíos DosRuedas! Quiero coordinar un Envío Low Cost calculado en la web:
-📍 *Origen:* ${origen}
+👤 *Nombre:* ${nombre}\n📞 *Teléfono:* ${telefono}\n📦 *Producto:* ${producto}\n📍 *Origen:* ${origen}
 🏁 *Destino:* ${destino}
 📏 *Distancia:* ${result.distancia} km
 ⏱️ *Tiempo Estimado:* ${result.tiempo} min
@@ -134,7 +137,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
               Calculá tu Envío Low Cost
             </h2>
             <p className="text-slate-500 text-sm font-sans mt-1">
-              Ingresá las direcciones de origen y destino en Mar del Plata para obtener una estimación de costo y tiempo inmediato para ruteo programado.
+              Ingresá las direcciones de origen y destino en Mar del Plata para obtener una estimación de costo y tiempo inmediato.
             </p>
           </div>
 
@@ -171,6 +174,49 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
               />
             </div>
 
+            <div className="space-y-1.5">
+              <label htmlFor="nombre-input" className="text-xs font-bold text-slate-700 uppercase tracking-wider block font-sans">
+                Nombre
+              </label>
+              <input
+                id="nombre-input"
+                type="text"
+                placeholder="Tu nombre completo"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                required
+                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-slate-800 placeholder:text-slate-400 font-sans"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label htmlFor="telefono-input" className="text-xs font-bold text-slate-700 uppercase tracking-wider block font-sans">
+                Teléfono
+              </label>
+              <input
+                id="telefono-input"
+                type="tel"
+                placeholder="Tu teléfono de contacto"
+                value={telefono}
+                onChange={(e) => setTelefono(e.target.value)}
+                required
+                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-slate-800 placeholder:text-slate-400 font-sans"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label htmlFor="producto-input" className="text-xs font-bold text-slate-700 uppercase tracking-wider block font-sans">
+                Tipo de producto a trasladar
+              </label>
+              <input
+                id="producto-input"
+                type="text"
+                placeholder="Ej: Documentos, Paquete pequeño..."
+                value={producto}
+                onChange={(e) => setProducto(e.target.value)}
+                required
+                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-slate-800 placeholder:text-slate-400 font-sans"
+              />
+            </div>
+
             {error && (
               <div className="bg-red-50 text-red-600 text-xs px-4 py-3 rounded-xl flex items-center gap-2 font-sans">
                 <AlertTriangle className="h-4 w-4 shrink-0" />
@@ -180,7 +226,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
 
             <button
               type="submit"
-              disabled={isCalculating || !origen.trim() || !destino.trim()}
+              disabled={isCalculating || !origen.trim() || !destino.trim() || !nombre.trim() || !telefono.trim() || !producto.trim()}
               className="w-full bg-brand-blue text-white hover:bg-brand-blue/95 font-subheading tracking-wider uppercase text-base py-4 rounded-2xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.01]"
             >
               {isCalculating ? (
@@ -189,12 +235,12 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
-                  <span>Calculando Ruta LowCost...</span>
+                  <span>Calculando Ruta...</span>
                 </>
               ) : (
                 <>
                   <Calculator className="h-5 w-5" />
-                  <span>Calcular Ruta y Precio Low Cost</span>
+                  <span>Calcular Ruta y Precio</span>
                 </>
               )}
             </button>
@@ -281,7 +327,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
       <div className="lg:col-span-6 min-h-[350px] lg:min-h-full bg-slate-900 border border-slate-800 rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between text-white">
         {/* Map backgrounds grid overlay */}
         <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:32px_32px]" />
-        
+
         {/* Header Map */}
         <div className="relative z-10 flex justify-between items-center border-b border-white/10 pb-4 mb-4">
           <div className="flex items-center gap-2">

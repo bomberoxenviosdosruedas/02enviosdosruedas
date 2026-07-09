@@ -192,7 +192,7 @@ export default function OptimizedHeader() {
             <Link
               href="/cotizar/express"
               id="header-cta"
-              className="bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-5 py-2.5 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_#0636A5] transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2 font-bold cursor-pointer"
+              className="bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-5 py-2.5 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_#003399] transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2 font-bold cursor-pointer"
             >
               <Calculator className="h-4 w-4" />
               Cotizar Envío
@@ -287,7 +287,7 @@ export default function OptimizedHeader() {
               <div className="pt-2">
                 <Link
                   href="/cotizar/express"
-                  className="w-full bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue text-center font-subheading tracking-wider uppercase text-xl py-3 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_#0636A5] block font-bold transition-all"
+                  className="w-full bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue text-center font-subheading tracking-wider uppercase text-xl py-3 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_#003399] block font-bold transition-all"
                 >
                   Cotizar Envío
                 </Link>

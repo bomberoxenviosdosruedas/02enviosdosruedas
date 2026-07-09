@@ -33,11 +33,11 @@ export default function AboutTeam() {
   ];
 
   return (
-    <section 
-      id="about-team" 
+    <section
+      id="about-team"
       className="py-24 bg-white relative z-10 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.01)] overflow-hidden border-t-4 border-brand-blue"
     >
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
@@ -47,7 +47,7 @@ export default function AboutTeam() {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
         }}
       >
-        
+
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
           <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(6,54,165,0.2)]">
@@ -57,7 +57,7 @@ export default function AboutTeam() {
             Nuestro Equipo de Calle
           </h2>
           <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-            Contamos con cadetes capacitados en Mar del Plata para entregar todos tus envíos en tiempo y forma. Contamos con un equipo de +20 Repartidores y estamos en constante crecimiento para cumplir con todas las entregas en tiempo y forma.
+            Contamos con cadetes capacitados en Mar del Plata para entregar todos su envios en tiempo y forma<br /><br />Contamos con un equipo de +20 Repartidores y estamos en constante crecimiento para cumplir con todas las entregas en tiempo y forma.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
@@ -80,11 +80,11 @@ export default function AboutTeam() {
                   <span className="block font-display tracking-tight text-6xl text-brand-blue mb-4 group-hover:text-brand-yellow transition-colors duration-300 leading-none">
                     {member.number}
                   </span>
-                  
+
                   <h3 className="text-xl font-display uppercase tracking-wider text-slate-900 font-bold leading-tight mb-2 min-h-[40px] flex items-center">
                     {member.role}
                   </h3>
-                  
+
                   <p className="text-sm text-slate-650 font-sans leading-relaxed">
                     {member.desc}
                   </p>

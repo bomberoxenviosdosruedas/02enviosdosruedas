@@ -31,13 +31,13 @@ export default function EmprendedoresHome() {
   ];
 
   return (
-    <section 
-      id="emprendedores-home" 
+    <section
+      id="emprendedores-home"
       className="py-24 bg-brand-blue border-y border-blue-200/60 relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(255,236,1,0.04),transparent_35%)]" />
-      
-      <motion.div 
+
+      <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
@@ -47,10 +47,10 @@ export default function EmprendedoresHome() {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
         }}
       >
-        
+
         {/* Section Title */}
         <div className="max-w-3xl mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block shadow-[2px_2px_0px_#0636A5]">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block shadow-[2px_2px_0px_#003399]">
             Socio Estratégico Local
           </span>
           <h2 className="text-white text-display uppercase text-left">
@@ -91,7 +91,7 @@ export default function EmprendedoresHome() {
                 </p>
               </div>
               <ul className="space-y-2.5 pt-2">
-                {['Soporte dedicado por WhatsApp', 'Entregas contrareembolso sin cargo extra', 'Entregas en tiempo y forma en MDQ'].map((feat) => (
+                {['Soporte dedicado', 'Entregas contrareembolso sin cargo extra', 'Entregas en tiempo y forma'].map((feat) => (
                   <li key={feat} className="flex items-center gap-2 text-xs text-slate-300 font-sans group-hover:text-white transition-colors">
                     <CheckCircle2 className="h-4 w-4 text-brand-yellow shrink-0" />
                     <span>{feat}</span>
@@ -168,7 +168,7 @@ export default function EmprendedoresHome() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-7 space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-3.5 bg-brand-yellow text-brand-blue border border-brand-yellow rounded-2xl shadow-[2px_2px_0px_#0636A5]">
+                  <div className="p-3.5 bg-brand-yellow text-brand-blue border border-brand-yellow rounded-2xl shadow-[2px_2px_0px_#003399]">
                     <Building2 className="h-6 w-6" />
                   </div>
                   <span className="text-[10px] font-bold tracking-widest bg-white/10 text-white px-3 py-1 rounded-full uppercase font-mono border border-white/10">
@@ -184,7 +184,7 @@ export default function EmprendedoresHome() {
               </div>
               <div className="md:col-span-5 space-y-6 md:border-l md:border-white/10 md:pl-8">
                 <ul className="space-y-3">
-                  {['Facturación unificada mensual', 'Múltiples despachos simultáneos', 'Gestión inversa y devoluciones'].map((feat) => (
+                  {['Soporte dedicado', 'Entregas contrareembolso sin cargo extra', 'Entregas en tiempo y forma'].map((feat) => (
                     <li key={feat} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300 font-sans group-hover:text-white transition-colors">
                       <CheckCircle2 className="h-4.5 w-4.5 text-brand-yellow shrink-0" />
                       <span>{feat}</span>

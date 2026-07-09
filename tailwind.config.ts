@@ -9,8 +9,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-blue': '#0636A5',
-        'brand-yellow': '#FFEC01',
+        'brand-blue': '#003399',
+        'brand-yellow': '#FFCC00',
+        'brand-navy': '#002068',
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'Inter', 'sans-serif'],

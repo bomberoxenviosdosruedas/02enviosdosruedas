@@ -9,53 +9,53 @@ export default function AboutTimeline() {
     {
       year: '2019',
       title: 'Lanzamiento Inicial',
-      desc: 'Comenzamos nuestra andadura con 3 motos de reparto, enfocados en brindar soluciones rápidas y de confianza.',
+      desc: 'Lanzamiento inicial con 3 motos de reparto.',
       icon: Compass,
     },
     {
       year: '2021',
       title: 'Nuevos Servicios',
-      desc: 'Lanzamos los servicios de Envíos LowCost, Plan Emprendedores y logística especializada para E-Commerce.',
+      desc: 'Lanzamos nuevos servicios (LowCost, Plan Emprendedores, E-Commerce)',
       icon: TrendingUp,
     },
     {
       year: '2023',
       title: 'Consolidación Local',
-      desc: 'Nos consolidamos en la ciudad de Mar del Plata como una de las principales mensajerías de última milla.',
+      desc: 'Nos consolidamos en la ciudad de Mar del Plata como una de las principales mensajerias',
       icon: Award,
     },
     {
       year: '2025',
       title: 'Envíos Flex Pioneros',
-      desc: 'Primera mensajería en ofrecer el servicio oficial de Envíos Flex de MercadoLibre en toda Mar del Plata.',
+      desc: 'Primera mensajeria en ofrecer Envios Flex en Mar del Plata',
       icon: CheckCircle,
     },
     {
       year: '2025',
       title: 'Depósito Central',
-      desc: 'Mudanza a nuestro depósito central de Friuli 1972 e incorporación de nuevas innovaciones tecnológicas.',
+      desc: 'Mudanza a depósito central Friuli 1972 e innovaciones tecnologicas.',
       icon: Truck,
     },
     {
       year: '2026',
       title: 'Cobertura y Soluciones 3PL',
-      desc: 'Cobertura total de última milla en toda la ciudad, envíos Flex y servicios avanzados de almacenamiento 3PL.',
+      desc: 'Cobertura total en toda la ciudad de última milla, Flex y servicios 3PL.',
       icon: Award,
     },
     {
       year: '2026',
       title: 'Flota Ampliada',
-      desc: 'Contamos con un equipo de +20 repartidores capacitados para realizar todos tus envíos en tiempo y forma.',
+      desc: 'Contamos con un equipo de +20 Repartidores capacitados para realizar todos sus envios',
       icon: Users,
     },
   ];
 
   return (
-    <section 
-      id="about-timeline" 
+    <section
+      id="about-timeline"
       className="py-24 bg-slate-50 relative overflow-hidden border-t-4 border-b-4 border-brand-blue"
     >
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
@@ -65,7 +65,7 @@ export default function AboutTimeline() {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
         }}
       >
-        
+
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
           <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_#0636A5]">
@@ -91,13 +91,12 @@ export default function AboutTimeline() {
               const isEven = idx % 2 === 0;
 
               return (
-                <div 
-                  key={milestone.year} 
-                  className={`relative flex flex-col md:flex-row items-start md:items-center md:justify-between group/card cursor-pointer ${
-                    isEven ? 'md:flex-row-reverse' : ''
-                  }`}
+                <div
+                  key={milestone.year}
+                  className={`relative flex flex-col md:flex-row items-start md:items-center md:justify-between group/card cursor-pointer ${isEven ? 'md:flex-row-reverse' : ''
+                    }`}
                 >
-                  
+
                   {/* Circle Pin on Line */}
                   <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1.5 md:top-auto w-10 h-10 rounded-full bg-brand-yellow border-2 border-brand-blue shadow-[2px_2px_0px_rgba(6,54,165,0.2)] flex items-center justify-center z-10 text-brand-blue group-hover/card:scale-110 group-hover/card:bg-brand-blue group-hover/card:text-brand-yellow transition-all duration-300">
                     <Icon className="h-5 w-5" />
@@ -107,12 +106,12 @@ export default function AboutTimeline() {
                   <div className="w-full md:w-[45%] hidden md:block" />
 
                   {/* Card Content Column */}
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, x: isEven ? 40 : -40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     whileHover={{ y: -4, scale: 1.01 }}
                     viewport={{ once: true }}
-                    transition={{ 
+                    transition={{
                       y: { type: "spring", stiffness: 300, damping: 20 },
                       scale: { type: "spring", stiffness: 300, damping: 20 },
                       opacity: { duration: 0.55 }
