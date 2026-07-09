@@ -178,7 +178,7 @@ export default function HeroSection() {
                   <Users className="h-4 w-4 text-brand-yellow" />
                   <span className="uppercase font-subheading tracking-wider">Cobertura</span>
                 </div>
-                <div className="text-2xl font-display text-white">TODO MDQ</div>
+                <div className="text-2xl font-display text-white">Todo MDQ</div>
                 <p className="text-[10px] text-blue-200 font-sans">Batan, Sierra y Costa</p>
               </div>
 

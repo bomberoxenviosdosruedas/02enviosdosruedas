@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from "react"
-import { motion, type Transition } from "motion/react"
+import { motion, type Transition, type Variants } from "motion/react"
 import { cn } from "@/src/lib/utils"
 
 interface TextProps {
@@ -136,13 +136,13 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
       }
     }, [autoStart, startAnimation])
 
-    const variants = {
+    const variants: Variants = {
       hidden: { y: reverse ? "-100%" : "100%" },
       visible: (i: number) => ({
         y: 0,
         transition: {
           ...transition,
-          delay: ((transition as any)?.delay || 0) + getStaggerDelay(i),
+          delay: ((transition as Transition & { delay?: number })?.delay ?? 0) + getStaggerDelay(i),
         },
       }),
     }

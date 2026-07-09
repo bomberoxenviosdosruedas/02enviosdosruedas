@@ -69,7 +69,7 @@ INSTRUCCIONES DE RESPUESTA:
     // Note that the SDK chats.create is cleanest, but here we can pass a single prompt containing context + history + current query.
     let conversationHistoryText = "";
     if (history && Array.isArray(history)) {
-      history.forEach((msg: any) => {
+      history.forEach((msg: { sender: string; text: string }) => {
         const roleName = msg.sender === "user" ? "Usuario" : "DosRuedas Bot";
         conversationHistoryText += `${roleName}: ${msg.text}\n`;
       });
@@ -87,10 +87,15 @@ INSTRUCCIONES DE RESPUESTA:
     const replyText = response.text || "Disculpas, estoy experimentando un breve retraso en la ruta de datos. ¿Podrías volver a consultarme?";
 
     return NextResponse.json({ text: replyText });
-  } catch (error: any) {
-    console.error("Error in Assistant API route:", error);
+  } catch (error: unknown) {
+    // Log the real error server-side only — never expose internal messages to the client
+    if (error instanceof Error) {
+      console.error("Error in Assistant API route:", error.message);
+    } else {
+      console.error("Error in Assistant API route (unknown):", error);
+    }
     return NextResponse.json(
-      { error: "Error de conexión con el asistente: " + error.message },
+      { error: "El asistente no está disponible en este momento. Intentá de nuevo en unos minutos." },
       { status: 500 }
     );
   }

@@ -5,20 +5,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Bike, Calculator, CheckCircle2, AlertTriangle } from 'lucide-react';
 import AddressAutocomplete from '../../ui/AddressAutocomplete';
 import DynamicRouteMap from '../../ui/DynamicRouteMap';
+import { useOSRMRoute, type Coordinate } from '@/src/hooks/useOSRMRoute';
+import { calculateLowCostPrice, type PriceRangeProp } from '@/src/lib/pricing';
 
-interface PriceRangeProp {
-  id: number;
-  serviceType: string;
-  distanciaMinKm: number;
-  distanciaMaxKm: number;
-  precioRango: number;
-  descripcion: string;
-}
-
-interface Coordinate {
-  lat: number;
-  lng: number;
-}
 
 export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges?: PriceRangeProp[] }) {
   const [origen, setOrigen] = useState('');
@@ -39,6 +28,8 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
     precio: number | 'consultar';
   } | null>(null);
 
+  const { fetchRoute } = useOSRMRoute();
+
   const handleCalculate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!origenCoords || !destinoCoords) {
@@ -50,66 +41,25 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
     setCalculated(false);
     setError(null);
 
-    try {
-      // Call OSRM API for driving routing
-      const url = `https://router.project-osrm.org/route/v1/driving/${origenCoords.lng},${origenCoords.lat};${destinoCoords.lng},${destinoCoords.lat}?overview=full&geometries=geojson`;
-      const res = await fetch(url);
-      if (!res.ok) {
-        throw new Error('Error al obtener la ruta de OSRM');
-      }
-      const data = await res.json();
+    const route = await fetchRoute(origenCoords, destinoCoords);
 
-      if (!data.routes || data.routes.length === 0) {
-        throw new Error('No se encontró una ruta vial entre los puntos indicados.');
-      }
-
-      const route = data.routes[0];
-      const distance = Math.round((route.distance / 1000) * 10) / 10; // in km, 1 decimal
-      const time = Math.round(route.duration / 60); // in minutes
-
-      // Save coordinates for the polyline route path
-      setRouteCoords(route.geometry.coordinates || []);
-
-      let price: number | 'consultar' = 'consultar';
-
-      if (distance <= 20) {
-        const lowCostRanges = priceRanges.filter(r => r.serviceType === 'LOW_COST');
-        if (lowCostRanges.length > 0) {
-          const matchingRange = lowCostRanges.find(
-            r => distance >= r.distanciaMinKm && distance < r.distanciaMaxKm
-          );
-
-          if (matchingRange) {
-            if (matchingRange.distanciaMaxKm === 9999) {
-              const baseRange = lowCostRanges.find(r => r.distanciaMinKm === 7 && r.distanciaMaxKm === 10);
-              const basePrice = baseRange ? baseRange.precioRango : 7000;
-              const extraKm = distance - 10;
-              price = basePrice + Math.round(extraKm * matchingRange.precioRango);
-            } else {
-              price = matchingRange.precioRango;
-            }
-          }
-        } else {
-          // Fallback if DB is empty
-          price = 3000;
-          if (distance > 3) {
-            price += Math.round((distance - 3) * 400);
-          }
-        }
-      }
-
-      setResult({
-        distancia: distance,
-        tiempo: time,
-        precio: price,
-      });
-      setCalculated(true);
-    } catch (err: any) {
-      console.error(err);
-      setError(err.message || 'No se pudo calcular la ruta. Inténtalo más tarde.');
-    } finally {
+    if (!route) {
+      setError('No se pudo calcular la ruta. Por favor, intentá de nuevo más tarde.');
       setIsCalculating(false);
+      return;
     }
+
+    setRouteCoords(route.routeCoords);
+
+    const price = calculateLowCostPrice(route.distanceKm, priceRanges);
+
+    setResult({
+      distancia: route.distanceKm,
+      tiempo: route.durationMin,
+      precio: price,
+    });
+    setCalculated(true);
+    setIsCalculating(false);
   };
 
   const getWhatsAppLink = () => {

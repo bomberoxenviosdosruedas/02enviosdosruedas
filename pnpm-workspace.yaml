@@ -10,3 +10,5 @@ allowBuilds:
   re2: true
   sharp: true
   unrs-resolver: true
+  vitest: true
+  '@vitejs/plugin-react': true

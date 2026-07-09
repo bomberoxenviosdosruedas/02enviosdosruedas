@@ -145,8 +145,8 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
       setSelectedFolder(cleanFolder);
       setNewFolderInput('');
       setSuccess(`¡Carpeta "${cleanFolder}" creada y seleccionada con éxito!`);
-    } catch (err: any) {
-      setError(err.message || 'Error al crear la carpeta.');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Error al crear la carpeta.');
     } finally {
       setIsCreatingFolder(false);
     }
@@ -190,8 +190,8 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
       setFilename('');
       setCurrentDescription('');
       setSuccess('¡Guardaste la imagen con éxito!');
-    } catch (err: any) {
-      setError(err.message || 'Ocurrió un error al guardar los metadatos.');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Ocurrió un error al guardar los metadatos.');
     } finally {
       setLoading(false);
     }
@@ -231,8 +231,8 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
       // Clear form for this image
       setPromptTexts(prev => ({ ...prev, [imageId]: '' }));
       setSuccess('¡Prompt agregado correctamente!');
-    } catch (err: any) {
-      setError(err.message || 'Error al guardar la sugerencia.');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Error al guardar la sugerencia.');
     }
   };
 
@@ -252,8 +252,8 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
       });
       setPromptTexts(prev => ({ ...prev, [imageId]: suggested }));
       setSuccess('¡Prompt base sugerido con éxito! Podés revisarlo antes de guardarlo.');
-    } catch (err: any) {
-      setError(err.message || 'Error al generar la sugerencia base.');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Error al generar la sugerencia base.');
     } finally {
       setGeneratingId(null);
     }
@@ -280,8 +280,8 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
       });
       setPromptTexts(prev => ({ ...prev, [imageId]: improved }));
       setSuccess('¡Prompt mejorado con IA con éxito! Revisalo y hacé clic en "Agregar Prompt" para guardarlo.');
-    } catch (err: any) {
-      setError(err.message || 'Error al mejorar el prompt.');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Error al mejorar el prompt.');
     } finally {
       setImprovingId(null);
     }
@@ -296,8 +296,8 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
       await deleteImageMetadata(id);
       setImageList(prev => prev.filter(img => img.id !== id));
       setSuccess('Imagen eliminada de la base de datos.');
-    } catch (err: any) {
-      setError(err.message || 'Error al eliminar la imagen.');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Error al eliminar la imagen.');
     }
   };
 

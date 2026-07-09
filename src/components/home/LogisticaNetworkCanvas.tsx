@@ -14,51 +14,69 @@ export default function LogisticaNetworkCanvas() {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let width = canvas.width = canvas.offsetWidth;
-    let height = canvas.height = canvas.offsetHeight;
+    let width = (canvas.width = canvas.offsetWidth);
+    let height = (canvas.height = canvas.offsetHeight);
 
+    // ─── Definición de nodos (posiciones relativas al viewport) ─────────────────
+    type NodeDef = { id: string; label: string; size: number; xRatio: number; yRatio: number };
+    const nodeDefs: NodeDef[] = [
+      { id: 'cd',           label: 'Sede Central (Friuli)', size: 6, xRatio: 0.45, yRatio: 0.60 },
+      { id: 'centro',       label: 'Centro',                size: 4, xRatio: 0.68, yRatio: 0.42 },
+      { id: 'la_perla',     label: 'La Perla',              size: 4, xRatio: 0.65, yRatio: 0.30 },
+      { id: 'constitucion', label: 'Constitución',          size: 4, xRatio: 0.52, yRatio: 0.18 },
+      { id: 'guemes',       label: 'Zona Güemes',           size: 4, xRatio: 0.73, yRatio: 0.52 },
+      { id: 'playa_grande', label: 'Playa Grande',          size: 4, xRatio: 0.77, yRatio: 0.63 },
+      { id: 'puerto',       label: 'Puerto',                size: 4, xRatio: 0.72, yRatio: 0.76 },
+      { id: 'bosque',       label: 'Bosque Peralta Ramos',  size: 4, xRatio: 0.64, yRatio: 0.88 },
+      { id: 'batan',        label: 'Batán / P. Industrial', size: 5, xRatio: 0.22, yRatio: 0.72 },
+    ];
+
+    // Map indexado por id — acceso O(1) en el loop de render
+    type Node = { id: string; x: number; y: number; label: string; size: number };
+    let nodeMap = new Map<string, Node>();
+
+    /** Reconstruye el nodeMap con posiciones absolutas según el tamaño actual del canvas. */
+    const buildNodeMap = () => {
+      nodeMap = new Map(
+        nodeDefs.map((def) => [
+          def.id,
+          { id: def.id, x: width * def.xRatio, y: height * def.yRatio, label: def.label, size: def.size },
+        ])
+      );
+    };
+
+    buildNodeMap();
+
+    // ─── Conexiones de ruteo (avenidas / costanera de MDQ) ──────────────────────
+    const connections: { from: string; to: string }[] = [
+      { from: 'cd',          to: 'batan' },
+      { from: 'cd',          to: 'centro' },
+      { from: 'cd',          to: 'guemes' },
+      { from: 'cd',          to: 'puerto' },
+      { from: 'cd',          to: 'constitucion' },
+      { from: 'constitucion', to: 'la_perla' },
+      { from: 'constitucion', to: 'centro' },
+      { from: 'la_perla',    to: 'centro' },
+      { from: 'centro',      to: 'guemes' },
+      { from: 'guemes',      to: 'playa_grande' },
+      { from: 'playa_grande', to: 'puerto' },
+      { from: 'puerto',      to: 'bosque' },
+    ];
+
+    // ─── Resize — recalcula posiciones solo cuando cambia el viewport ────────────
     const handleResize = () => {
       if (!canvas) return;
       width = canvas.width = canvas.offsetWidth;
       height = canvas.height = canvas.offsetHeight;
+      buildNodeMap(); // O(n) solo en resize, nunca dentro del requestAnimationFrame
     };
 
     window.addEventListener('resize', handleResize);
 
-    // 9 Nodos clave geográficamente aproximados de Mar del Plata
-    const createNodes = () => [
-      { id: 'cd', x: width * 0.45, y: height * 0.6, label: 'Sede Central (Friuli)', size: 6 },
-      { id: 'centro', x: width * 0.68, y: height * 0.42, label: 'Centro', size: 4 },
-      { id: 'la_perla', x: width * 0.65, y: height * 0.3, label: 'La Perla', size: 4 },
-      { id: 'constitucion', x: width * 0.52, y: height * 0.18, label: 'Constitución', size: 4 },
-      { id: 'guemes', x: width * 0.73, y: height * 0.52, label: 'Zona Güemes', size: 4 },
-      { id: 'playa_grande', x: width * 0.77, y: height * 0.63, label: 'Playa Grande', size: 4 },
-      { id: 'puerto', x: width * 0.72, y: height * 0.76, label: 'Puerto', size: 4 },
-      { id: 'bosque', x: width * 0.64, y: height * 0.88, label: 'Bosque Peralta Ramos', size: 4 },
-      { id: 'batan', x: width * 0.22, y: height * 0.72, label: 'Batán / P. Industrial', size: 5 },
-    ];
-
-    let nodes = createNodes();
-
-    // Conexiones de ruteo que simulan avenidas y costanera de MDQ
-    const connections = [
-      { from: 'cd', to: 'batan' },
-      { from: 'cd', to: 'centro' },
-      { from: 'cd', to: 'guemes' },
-      { from: 'cd', to: 'puerto' },
-      { from: 'cd', to: 'constitucion' },
-      { from: 'constitucion', to: 'la_perla' },
-      { from: 'constitucion', to: 'centro' },
-      { from: 'la_perla', to: 'centro' },
-      { from: 'centro', to: 'guemes' },
-      { from: 'guemes', to: 'playa_grande' },
-      { from: 'playa_grande', to: 'puerto' },
-      { from: 'puerto', to: 'bosque' },
-    ];
-
+    // ─── Partículas ──────────────────────────────────────────────────────────────
     interface Particle {
-      fromNode: typeof nodes[0];
-      toNode: typeof nodes[0];
+      fromNode: Node;
+      toNode: Node;
       progress: number;
       speed: number;
       size: number;
@@ -66,12 +84,12 @@ export default function LogisticaNetworkCanvas() {
     }
 
     const particles: Particle[] = [];
-    const maxParticles = 16; // Más partículas para una red más grande
+    const maxParticles = 16;
 
     const spawnParticle = () => {
       const conn = connections[Math.floor(Math.random() * connections.length)];
-      const fromNode = nodes.find(n => n.id === conn.from);
-      const toNode = nodes.find(n => n.id === conn.to);
+      const fromNode = nodeMap.get(conn.from); // O(1)
+      const toNode = nodeMap.get(conn.to);     // O(1)
       if (!fromNode || !toNode) return;
 
       particles.push({
@@ -84,28 +102,22 @@ export default function LogisticaNetworkCanvas() {
       });
     };
 
-    // Inicializar partículas
     for (let i = 0; i < maxParticles; i++) {
       spawnParticle();
       particles[i].progress = Math.random();
     }
 
+    // ─── Eventos de mouse / touch ────────────────────────────────────────────────
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
-      mouseRef.current = {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      };
+      mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       if (e.touches.length === 0) return;
       const touch = e.touches[0];
       const rect = canvas.getBoundingClientRect();
-      mouseRef.current = {
-        x: touch.clientX - rect.left,
-        y: touch.clientY - rect.top,
-      };
+      mouseRef.current = { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
     };
 
     const handleMouseLeave = () => {
@@ -120,41 +132,41 @@ export default function LogisticaNetworkCanvas() {
       heroSection.addEventListener('touchend', handleMouseLeave);
     }
 
+    // ─── Loop de render ──────────────────────────────────────────────────────────
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      nodes = createNodes();
-
-      // 1. Dibujar conexiones (caminos de ruteo)
+      // 1. Conexiones — acceso O(1) al nodeMap, sin .find() en cada frame
       ctx.lineWidth = 1.0;
-      connections.forEach(conn => {
-        const fromNode = nodes.find(n => n.id === conn.from);
-        const toNode = nodes.find(n => n.id === conn.to);
+      connections.forEach((conn) => {
+        const fromNode = nodeMap.get(conn.from);
+        const toNode = nodeMap.get(conn.to);
         if (!fromNode || !toNode) return;
 
         const dx = (fromNode.x + toNode.x) / 2 - mouseRef.current.x;
         const dy = (fromNode.y + toNode.y) / 2 - mouseRef.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        
-        ctx.strokeStyle = dist < 180 
-          ? `rgba(255, 204, 0, ${0.15 + (1 - dist / 180) * 0.3})` // Brillo amarillo al acercar
-          : 'rgba(255, 255, 255, 0.12)'; // Línea sutil blanca
-        
+
+        ctx.strokeStyle =
+          dist < 180
+            ? `rgba(255, 204, 0, ${0.15 + (1 - dist / 180) * 0.3})`
+            : 'rgba(255, 255, 255, 0.12)';
+
         ctx.beginPath();
         ctx.moveTo(fromNode.x, fromNode.y);
         ctx.lineTo(toNode.x, toNode.y);
         ctx.stroke();
       });
 
-      // 2. Dibujar partículas (paquetes)
+      // 2. Partículas (paquetes en movimiento)
       particles.forEach((p) => {
         p.progress += p.speed;
 
         if (p.progress >= 1) {
           p.progress = 0;
           const conn = connections[Math.floor(Math.random() * connections.length)];
-          const fromNode = nodes.find(n => n.id === conn.from);
-          const toNode = nodes.find(n => n.id === conn.to);
+          const fromNode = nodeMap.get(conn.from); // O(1)
+          const toNode = nodeMap.get(conn.to);     // O(1)
           if (fromNode && toNode) {
             p.fromNode = fromNode;
             p.toNode = toNode;
@@ -171,7 +183,7 @@ export default function LogisticaNetworkCanvas() {
         let glow = 0;
 
         if (dist < 120) {
-          const force = (1 - dist / 120);
+          const force = 1 - dist / 120;
           currentSize += force * 1.5;
           glow = force * 4;
         }
@@ -190,13 +202,13 @@ export default function LogisticaNetworkCanvas() {
         ctx.shadowBlur = 0;
       });
 
-      // 3. Dibujar nodos (centros de la red)
-      nodes.forEach(node => {
+      // 3. Nodos (centros de la red logística)
+      nodeMap.forEach((node) => {
         const dx = node.x - mouseRef.current.x;
         const dy = node.y - mouseRef.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         const isNear = dist < 150;
-        
+
         if (isNear) {
           ctx.fillStyle = 'rgba(255, 204, 0, 0.4)';
           ctx.beginPath();
