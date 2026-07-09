@@ -56,7 +56,7 @@ export default function ContactInfo() {
       className="space-y-8 h-full flex flex-col justify-between"
     >
       {/* Contact Channels Grid */}
-      <div className="bg-white rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#0636A5] space-y-6 group hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#0636A5] transition-all duration-300">
+      <div className="bg-white rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#003399] space-y-6 group hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#003399] transition-all duration-300">
         <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
           CANALES RÁPIDOS
         </h3>
@@ -71,7 +71,7 @@ export default function ContactInfo() {
                 rel="noopener noreferrer"
                 whileHover={{ y: -3, scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
-                className={`p-4 border-2 border-brand-blue/20 rounded-2xl flex items-center gap-3 transition-all duration-300 group/item bg-slate-50 hover:bg-white hover:border-brand-blue hover:shadow-[3px_3px_0px_#0636A5] cursor-pointer ${chan.color}`}
+                className={`p-4 border-2 border-brand-blue/20 rounded-2xl flex items-center gap-3 transition-all duration-300 group/item bg-slate-50 hover:bg-white hover:border-brand-blue hover:shadow-[3px_3px_0px_#003399] cursor-pointer ${chan.color}`}
               >
                 <div className={`p-3 rounded-xl border-2 transition-colors relative w-11 h-11 flex items-center justify-center shrink-0 ${chan.iconBg} group-hover/item:scale-105 duration-300`}>
                   {chan.isLucide && chan.icon ? (
@@ -101,7 +101,7 @@ export default function ContactInfo() {
       </div>
 
       {/* Operating Hours */}
-      <div className="bg-white rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#0636A5] space-y-6 group hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#0636A5] transition-all duration-300">
+      <div className="bg-white rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#003399] space-y-6 group hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#003399] transition-all duration-300">
         <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
           <Clock className="h-6 w-6 text-brand-blue group-hover:rotate-6 transition-transform" />
           HORARIOS DE ATENCIÓN
@@ -127,7 +127,7 @@ export default function ContactInfo() {
       </div>
 
       {/* Coverage & Interactive Map */}
-      <div className="bg-white rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#0636A5] space-y-6 flex-grow flex flex-col group hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#0636A5] transition-all duration-300">
+      <div className="bg-white rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#003399] space-y-6 flex-grow flex flex-col group hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#003399] transition-all duration-300">
         <div className="space-y-2">
           <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
             <MapPin className="h-6 w-6 text-brand-blue shrink-0 group-hover:translate-y-[-2px] transition-transform" />

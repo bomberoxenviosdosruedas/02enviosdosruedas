@@ -43,7 +43,7 @@ export default function ContactForm() {
         y: { type: "spring", stiffness: 300, damping: 20 },
         opacity: { duration: 0.6 }
       }}
-      className="bg-white rounded-3xl p-8 md:p-10 border-2 border-brand-blue shadow-[6px_6px_0px_#0636A5] relative overflow-hidden h-full group hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#0636A5] duration-300 transition-all cursor-default"
+      className="bg-white rounded-3xl p-8 md:p-10 border-2 border-brand-blue shadow-[6px_6px_0px_#003399] relative overflow-hidden h-full group hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#003399] duration-300 transition-all cursor-default"
     >
       {/* Decorative top bar */}
       <div className="absolute top-0 left-0 right-0 h-2 bg-brand-blue" />
@@ -66,9 +66,9 @@ export default function ContactForm() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4 }}
-              className="bg-emerald-50 rounded-2xl p-6 border-2 border-brand-blue flex flex-col items-center text-center space-y-4 py-12 shadow-[4px_4px_0px_#0636A5]"
+              className="bg-emerald-50 rounded-2xl p-6 border-2 border-brand-blue flex flex-col items-center text-center space-y-4 py-12 shadow-[4px_4px_0px_#003399]"
             >
-              <div className="p-4 bg-brand-yellow text-brand-blue rounded-full border-2 border-brand-blue shadow-[2px_2px_0px_#0636A5]">
+              <div className="p-4 bg-brand-yellow text-brand-blue rounded-full border-2 border-brand-blue shadow-[2px_2px_0px_#003399]">
                 <CheckCircle2 className="h-10 w-10 text-brand-blue fill-brand-yellow shrink-0" />
               </div>
               <div className="space-y-2">
@@ -83,7 +83,7 @@ export default function ContactForm() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setStatus('idle')}
-                className="px-6 py-3 bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading uppercase text-sm tracking-wider rounded-xl shadow-[3px_3px_0px_#FFEC01] cursor-pointer font-bold"
+                className="px-6 py-3 bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading uppercase text-sm tracking-wider rounded-xl shadow-[3px_3px_0px_#FFCC00] cursor-pointer font-bold"
               >
                 Enviar otro mensaje
               </motion.button>
@@ -118,7 +118,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Ej: Juan Pérez"
-                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#0636A5] transition-all disabled:opacity-60 bg-slate-50"
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#003399] transition-all disabled:opacity-60 bg-slate-50"
                 />
               </div>
 
@@ -136,7 +136,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Ej: juan.perez@email.com"
-                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#0636A5] transition-all disabled:opacity-60 bg-slate-50"
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#003399] transition-all disabled:opacity-60 bg-slate-50"
                 />
               </div>
 
@@ -154,7 +154,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Escribí acá tu consulta. Decinos en qué podemos ayudarte..."
-                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#0636A5] transition-all disabled:opacity-60 bg-slate-50 resize-none"
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#003399] transition-all disabled:opacity-60 bg-slate-50 resize-none"
                 />
               </div>
 
@@ -164,7 +164,7 @@ export default function ContactForm() {
                 disabled={status === 'submitting'}
                 whileHover={{ scale: 1.015, y: -1 }}
                 whileTap={{ scale: 0.99 }}
-                className="w-full py-4 rounded-xl font-subheading tracking-wider uppercase text-lg font-bold text-brand-blue bg-brand-yellow hover:bg-brand-yellow/95 border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                className="w-full py-4 rounded-xl font-subheading tracking-wider uppercase text-lg font-bold text-brand-blue bg-brand-yellow hover:bg-brand-yellow/95 border-2 border-brand-blue shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#003399] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {status === 'submitting' ? (
                   <>
