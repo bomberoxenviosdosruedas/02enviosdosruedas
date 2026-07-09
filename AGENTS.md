@@ -8,12 +8,23 @@ Este archivo define las reglas de comportamiento, convenciones de código y prin
 *   **Proyecto:** Envíos Dos Ruedas (Logística de última milla, mensajería y soluciones E-Commerce).
 *   **Ubicación Principal:** Mar del Plata, Argentina.
 *   **Dominio Técnico:** Logística local Same-Day, integraciones de MercadoLibre Flex, y ruteo LowCost.
-*   **Estructura del Código:**
-    *   `src/app/`: Rutas de la aplicación (Next.js App Router).
-    *   `src/app/cotizar/`: Vistas y flujos de cotización (Express y LowCost).
-    *   `src/app/servicios/`: Detalles de servicios (Express, LowCost, Flex, 3PL).
-    *   `src/components/`: Componentes modulares y reutilizables.
-    *   `docs/`: Documentación del proyecto (diagramas de mapas, guías de prompts, contenido de páginas).
+*   **Año Operativo:** 2026 (todas las tarifas y fechas de vigencia son de 2026).
+
+---
+
+## 🗂️ Mapa de Archivos Críticos (Leer Antes de Editar)
+
+El agente debe consultar estos archivos **antes** de modificar lógica de negocio:
+
+| Archivo | Propósito |
+|---|---|
+| `docs/contexto/precios.md` | **Fuente de verdad de tarifas** — rangos de precios por km por servicio |
+| `src/lib/pricing.ts` | Funciones puras de cálculo de precios (Express y LowCost) |
+| `prisma/schema.prisma` | Modelo de datos — entidad `PricingRange` |
+| `src/app/globals.css` | Variables CSS, tokens de color, utilidades de glow/sombra |
+| `tailwind.config.ts` | Tokens de design system: `brand-blue`, `brand-yellow`, fuentes |
+| `DESIGN.md` | Sistema de diseño documentado (colores, tipografías, componentes) |
+| `docs/contexto/` | Contexto de negocio: precios, servicios, zonas operativas |
 
 ---
 
@@ -24,6 +35,55 @@ Este archivo define las reglas de comportamiento, convenciones de código y prin
     *   Usa componentes de servidor por defecto (`Server Components`).
     *   Usa la directiva `'use client'` al principio de los archivos solo cuando sea estrictamente necesario para interactivos (hooks como `useState`, `useEffect` o bibliotecas como `motion`).
 3.  **Gestión de Dependencias:** Utiliza `pnpm` para todas las operaciones de instalación y ejecución.
+4.  **Build Validation:** En Windows, ejecutar el build con: `powershell -ExecutionPolicy Bypass -Command "pnpm build"`
+
+---
+
+## 💰 Reglas de Tarifas (CRÍTICO — No Inventar Valores)
+
+Las tarifas provienen **exclusivamente** de la BD Prisma (`PricingRange`). Ver `docs/contexto/precios.md`.
+
+### Lógica de Cálculo — Express
+| Rango | Precio |
+|---|---|
+| 0–3 km | $3.700 ARS |
+| 3–5 km | $4.600 ARS |
+| 5–7 km | $6.100 ARS |
+| 7–10 km | $8.200 ARS |
+| +10 km | $8.200 + `Math.ceil(km − 10) × $1.000` |
+
+### Lógica de Cálculo — LowCost
+| Rango | Precio |
+|---|---|
+| 0–3 km | $3.000 ARS |
+| 3–5 km | $4.000 ARS |
+| 5–7 km | $5.300 ARS |
+| 7–10 km | $7.000 ARS |
+| +10 km | $7.000 + `Math.ceil(km − 10) × $700` |
+
+> ⚠️ El excedente de +10 km usa **`Math.ceil()`** — se cobra el km entero completo, sin prorrateo. Si el viaje mide 10.3 km, se cobra 1 km adicional entero.
+
+---
+
+## 🗺️ Estructura del Código
+
+```
+src/
+├── app/                        # Rutas Next.js App Router
+│   ├── cotizar/
+│   │   ├── express/page.tsx    # Página cotizador Express
+│   │   └── lowcost/page.tsx    # Página cotizador LowCost
+│   └── servicios/              # Detalles de servicios
+├── components/
+│   ├── cotizar/
+│   │   ├── express/            # CotizadorExpressHero, CotizadorExpressForm
+│   │   └── lowcost/            # CotizadorLowCostHero, CotizadorLowCostForm
+│   └── ui/                     # Componentes compartidos (AddressAutocomplete, etc.)
+├── hooks/
+│   └── useOSRMRoute.ts         # Hook para calcular rutas reales vía OSRM
+└── lib/
+    └── pricing.ts              # Funciones puras de cálculo de tarifas
+```
 
 ---
 
@@ -35,7 +95,7 @@ Este archivo define las reglas de comportamiento, convenciones de código y prin
     *   **Amarillo Acento:** Usa `bg-brand-yellow` o `text-brand-yellow` (refiere a `#FFEC01`).
     *   **Neutros:** `slate-50` para fondos claros, `slate-900`/`slate-950` para fondos oscuros.
 2.  **Sombras y Brillos:**
-    *   Aplica efectos de brillo definidos en [globals.css](file:///E:/proyectos/02enviosdosruedashector/src/app/globals.css) como `glow-blue`, `glow-yellow`, `glow-blue-lg`, `glow-yellow-lg`.
+    *   Aplica efectos de brillo definidos en `src/app/globals.css` como `glow-blue`, `glow-yellow`, `glow-blue-lg`, `glow-yellow-lg`.
     *   Utiliza las sombras de acento como `shadow-accent-sm`, `shadow-accent-md`, `shadow-accent-lg`.
 3.  **Bordes y Formas:**
     *   Usa esquinas suaves y redondeadas preferentemente con `rounded-2xl` o `rounded-3xl` en tarjetas principales.

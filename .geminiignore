@@ -1,0 +1,202 @@
+# ==============================================================================
+# .geminiignore — FinOps & Context Optimization
+# Proyecto: Envíos Dos Ruedas | Stack: Next.js 15 · TS · Prisma · pnpm · Vitest
+# ==============================================================================
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 1. SISTEMA OPERATIVO E IDEs
+# ──────────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.suo
+*.swp
+*.sln
+*.njsproj
+*.ntvs*
+
+# VSCode: ignorar carpetas de usuario pero conservar configuración de proyecto
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+.idea/
+*.iml
+.history/
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 2. DEPENDENCIAS Y LOCK FILES (mayor ahorro de tokens del proyecto)
+# pnpm-lock.yaml pesa 493 KB — ignorarlo es el mayor win de FinOps
+# ──────────────────────────────────────────────────────────────────────────────
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+.npmrc
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 3. BUILDS Y OUTPUTS DE COMPILACIÓN
+# ──────────────────────────────────────────────────────────────────────────────
+.next/
+dist/
+build/
+out/
+.output/
+generated/
+
+# TypeScript incremental build cache (569 KB en este proyecto)
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 4. CACHES DE HERRAMIENTAS Y FRAMEWORKS
+# ──────────────────────────────────────────────────────────────────────────────
+.turbo/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.vite/
+.babel-cache/
+.swc/
+.pytest_cache/
+.ruff_cache/
+.vercel/
+.hermes/
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 5. VARIABLES DE ENTORNO Y SECRETOS (nunca deben llegar al contexto IA)
+# ──────────────────────────────────────────────────────────────────────────────
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+# Whitelistear el ejemplo: el agente necesita entender la estructura
+!.env.example
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 6. ASSETS BINARIOS Y MULTIMEDIA (evitan tokens de visión costosos)
+# Se excluyen a nivel global; mantener public/manifest.json visible
+# ──────────────────────────────────────────────────────────────────────────────
+# Imágenes
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.avif
+*.ico
+*.bmp
+*.tiff
+
+# Vectores y diseño (los SVG de código fuente pueden dejarse si son críticos)
+*.psd
+*.fig
+*.sketch
+*.ai
+*.xd
+
+# Fuentes
+*.woff
+*.woff2
+*.ttf
+*.otf
+*.eot
+
+# Documentos y archivos comprimidos
+*.pdf
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Video y audio
+*.mp4
+*.webm
+*.mov
+*.mp3
+*.wav
+
+# Mapas de source (no aportan al análisis de lógica)
+*.js.map
+*.css.map
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 7. BASES DE DATOS Y LOGS
+# ──────────────────────────────────────────────────────────────────────────────
+*.log
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+*.sql.gz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Migraciones de Prisma: conservar schema.prisma y seed.ts, ignorar SQL generado
+prisma/migrations/**/*.sql
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 8. BINARIOS COMPILADOS Y ARCHIVOS DE PLATAFORMA
+# ──────────────────────────────────────────────────────────────────────────────
+*.apk
+*.aab
+*.ipa
+*.jar
+*.class
+*.pyc
+*.pyo
+__pycache__/
+*.so
+*.dylib
+*.dll
+*.exe
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 9. CARPETAS ESPECÍFICAS DE ESTE PROYECTO QUE NO APORTAN AL CONTEXTO IA
+# ──────────────────────────────────────────────────────────────────────────────
+# Datos históricos de operaciones (CSV/JSON de operaciones pasadas)
+enviosdosruedas_datos_2_anos/
+
+# Carpetas de herramientas internas de IA/agentes (no son código fuente)
+.agents/
+.claude/
+# .gemini/ — NO ignorar: settings.json y commands/ son críticos para el agente
+.od-skills/
+.specify/
+.stitch/
+.prisma/
+
+# Carpeta de scratch y site de pruebas
+scratch/
+site/
+
+# Skills lock (metadata de herramientas, no código de la app)
+skills-lock.json
+
+# Assets de diseño (no son código ejecutable)
+assets/
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 10. DOCS: exclusiones quirúrgicas (los .md de contexto deben VERSE)
+# ──────────────────────────────────────────────────────────────────────────────
+# Archivos extremadamente pesados que no aportan texto útil al agente
+docs/mapa.svg
+docs/imagen_mapa_mdq.png
+# HTML de ejemplo y archivos de prompt borrador (no son reglas de arquitectura)
+docs/ejemplo_tema.html
+docs/prompts_jules.md
+docs/refactor-pages-prompt.md
+docs/stitch-design-md-prompt.md
+docs/stitch-home-prompt.md
+# JSON de assets (listas de URLs de imágenes, no lógica de negocio)
+docs/imagenes.json
+docs/public-Feedback-selection.md
