@@ -159,7 +159,7 @@ export default function LowCostHero() {
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.4 } }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative rounded-3xl border-2 border-brand-blue bg-white p-5 text-slate-900 shadow-[6px_6px_0px_#FFCC00]">
+              <div className="relative rounded-3xl border-2 border-brand-blue bg-white p-5 text-brand-ink shadow-[6px_6px_0px_#FFCC00]">
                 <div className="flex justify-between items-start mb-4">
                   <span className="text-[10px] bg-brand-blue/10 text-brand-blue border border-brand-blue/20 font-bold uppercase px-2.5 py-1 rounded-full">
                     RUTEO DIARIO MASIVO
@@ -168,7 +168,7 @@ export default function LowCostHero() {
                     TARIFA FIJA
                   </span>
                 </div>
-                <h3 className="text-base font-display uppercase tracking-tight text-slate-900 leading-snug">
+                <h3 className="text-base font-display uppercase tracking-tight text-brand-ink leading-snug">
                   Maximizá tu margen de ganancia
                 </h3>
                 <p className="text-xs text-slate-655 font-sans mt-2 leading-relaxed">

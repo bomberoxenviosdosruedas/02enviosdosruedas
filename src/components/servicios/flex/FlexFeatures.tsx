@@ -46,7 +46,7 @@ export default function FlexFeatures() {
               MERCADOLIBRE EXPERTS
             </span>
             
-            <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-none">
+            <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-none">
               DOMINÁ TUS VENTAS <br />
               <span className="text-brand-blue">CON ENVÍOS FLEX</span>
             </h2>
@@ -78,7 +78,7 @@ export default function FlexFeatures() {
                     <Icon className="h-5.5 w-5.5 shrink-0" />
                   </div>
                   <div className="space-y-1.5">
-                    <h4 className="text-xl font-display uppercase tracking-wider text-slate-900 leading-tight">
+                    <h4 className="text-xl font-display uppercase tracking-wider text-brand-ink leading-tight">
                       {feat.title}
                     </h4>
                     <p className="text-sm text-slate-655 font-sans leading-relaxed">

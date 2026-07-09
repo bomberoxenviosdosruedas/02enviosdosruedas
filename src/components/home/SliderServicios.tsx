@@ -75,7 +75,7 @@ export default function SliderServicios() {
   return (
     <section
       id="slider-servicios"
-      className="py-24 bg-white text-slate-900 relative z-10 overflow-hidden"
+      className="py-24 bg-white text-brand-ink relative z-10 overflow-hidden"
     >
       {/* Background patterns */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(6,54,165,0.02),transparent_40%)]" />
@@ -97,7 +97,7 @@ export default function SliderServicios() {
             <span className="px-4 py-1.5 bg-brand-blue/5 text-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block border border-brand-blue/20 uppercase">
               Innovación en Distribución
             </span>
-            <h2 className="text-slate-900 text-display uppercase">
+            <h2 className="text-brand-ink text-display uppercase">
               Soluciones Especiales para Industrias
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed font-sans max-w-2xl">
@@ -161,7 +161,7 @@ export default function SliderServicios() {
                 <span className="text-xs font-subheading tracking-widest text-brand-blue uppercase">
                   {slides[current].subtitle}
                 </span>
-                <h3 className="text-3xl font-display text-slate-900 uppercase leading-none">
+                <h3 className="text-3xl font-display text-brand-ink uppercase leading-none">
                   {slides[current].title}
                 </h3>
                 <p className="text-slate-600 font-sans text-sm sm:text-base leading-relaxed max-w-xl">

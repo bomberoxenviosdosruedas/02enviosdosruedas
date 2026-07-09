@@ -349,12 +349,12 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                 onChange={e => setNewFolderInput(e.target.value)}
                 placeholder="Ej: blog, flex"
                 required
-                className="flex-1 px-3 py-2 text-xs rounded-lg border border-slate-200 focus:outline-none focus:ring-1 focus:ring-brand-blue text-slate-800"
+                className="flex-1 px-3 py-2 text-xs rounded-lg border border-slate-200 focus:outline-none focus:ring-1 focus:ring-brand-blue text-brand-ink"
               />
               <button
                 type="submit"
                 disabled={isCreatingFolder}
-                className="bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase text-xs px-3 py-2 rounded-lg border border-brand-blue cursor-pointer shadow-[2px_2px_0px_#FFEC01] shrink-0"
+                className="bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase text-xs px-3 py-2 rounded-lg border border-brand-blue cursor-pointer shadow-[2px_2px_0px_#FFCC00] shrink-0"
               >
                 {isCreatingFolder ? 'Creando...' : 'Crear'}
               </button>
@@ -429,7 +429,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                     onChange={e => setFilename(e.target.value)}
                     placeholder="Ej: hero-reparto.webp"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 text-sm font-mono"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink text-sm font-mono"
                   />
                 )}
               </div>
@@ -470,14 +470,14 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                   placeholder="Ej: Mapa de calor ilustrado para la sección de entregas express."
                   required
                   rows={3}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-800 text-sm font-sans"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink text-sm font-sans"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase py-3.5 rounded-xl border-2 border-brand-blue tracking-wider text-sm flex items-center justify-center gap-2 cursor-pointer shadow-[3px_3px_0px_#FFEC01] transition-transform active:translate-y-[2px]"
+                className="w-full bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase py-3.5 rounded-xl border-2 border-brand-blue tracking-wider text-sm flex items-center justify-center gap-2 cursor-pointer shadow-[3px_3px_0px_#FFCC00] transition-transform active:translate-y-[2px]"
               >
                 <Save className="h-4.5 w-4.5 shrink-0" />
                 {loading ? 'Guardando...' : 'Guardar Imagen'}
@@ -574,7 +574,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                         <div className="flex flex-wrap gap-2">
                           <button
                             onClick={() => handleAddPrompt(image.id)}
-                            className="bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase tracking-wide px-4 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 shadow-[2px_2px_0px_#FFEC01] shrink-0"
+                            className="bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase tracking-wide px-4 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 shadow-[2px_2px_0px_#FFCC00] shrink-0"
                           >
                             <Plus className="h-3.5 w-3.5 shrink-0" />
                             Agregar Prompt
@@ -584,7 +584,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                             type="button"
                             onClick={() => handleSuggestPrompt(image.id, image.currentDescription, image.relativePath)}
                             disabled={generatingId === image.id || improvingId === image.id}
-                            className="bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 font-subheading uppercase tracking-wide px-3 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                            className="bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-brand-ink border border-slate-200 font-subheading uppercase tracking-wide px-3 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
                             title="Sugerir un prompt estructurado (desde descripción o imagen)"
                           >
                             <Sparkles className="h-3.5 w-3.5 text-brand-blue shrink-0 animate-pulse" />
@@ -595,7 +595,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                             type="button"
                             onClick={() => handleImprovePrompt(image.id)}
                             disabled={generatingId === image.id || improvingId === image.id}
-                            className="bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 font-subheading uppercase tracking-wide px-3 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                            className="bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-brand-ink border border-slate-200 font-subheading uppercase tracking-wide px-3 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
                             title="Optimizar el prompt actual con inteligencia artificial"
                           >
                             <Sparkles className="h-3.5 w-3.5 text-amber-500 shrink-0" />

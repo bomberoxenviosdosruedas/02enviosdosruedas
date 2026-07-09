@@ -62,7 +62,7 @@ export default function NewsletterSubscribe() {
                     placeholder="Tu correo electrónico..."
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 bg-white text-slate-900 placeholder:text-slate-400 font-sans text-sm rounded-xl px-4 py-4 border-2 border-brand-blue focus:outline-none focus:shadow-[2px_2px_0px_#003399] transition-all"
+                    className="flex-1 bg-white text-brand-ink placeholder:text-slate-400 font-sans text-sm rounded-xl px-4 py-4 border-2 border-brand-blue focus:outline-none focus:shadow-[2px_2px_0px_#003399] transition-all"
                   />
                   <button
                     type="submit"

@@ -135,7 +135,7 @@ export default function LeafletMap() {
 
         <div className="flex items-center justify-between sm:justify-end gap-4 w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0">
           {distance !== null && (
-            <div className="text-slate-800">
+            <div className="text-brand-ink">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block font-sans">
                 Distancia Línea Recta
               </span>

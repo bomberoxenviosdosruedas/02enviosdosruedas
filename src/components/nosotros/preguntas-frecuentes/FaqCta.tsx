@@ -17,7 +17,7 @@ export default function FaqCta() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
-          className="bg-white text-slate-900 rounded-3xl p-8 sm:p-12 border-2 border-brand-blue shadow-[8px_8px_0px_#FFCC00] relative overflow-hidden text-center"
+          className="bg-white text-brand-ink rounded-3xl p-8 sm:p-12 border-2 border-brand-blue shadow-[8px_8px_0px_#FFCC00] relative overflow-hidden text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

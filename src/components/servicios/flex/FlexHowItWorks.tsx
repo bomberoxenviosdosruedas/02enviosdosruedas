@@ -53,7 +53,7 @@ export default function FlexHowItWorks() {
           <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_#003399] font-bold">
             LOGÍSTICA SINCRONIZADA
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-slate-900">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-ink">
             LOGÍSTICA SIN FRICCIONES
           </h2>
           <p className="text-slate-655 font-sans text-sm sm:text-base max-w-lg mx-auto">
@@ -90,7 +90,7 @@ export default function FlexHowItWorks() {
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-xl font-display uppercase tracking-wider text-slate-900 font-bold leading-tight">
+                  <h3 className="text-xl font-display uppercase tracking-wider text-brand-ink font-bold leading-tight">
                     {step.title}
                   </h3>
                   <p className="text-sm text-slate-655 font-sans leading-relaxed">

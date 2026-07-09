@@ -19,7 +19,7 @@ export default function OptimizedFooter() {
     <footer id="optimized-footer" className="bg-brand-blue text-white border-t border-white/10 relative overflow-hidden font-sans">
 
       {/* Decorative top yellow accent bar with neon glow */}
-      <div className="h-1.5 bg-gradient-to-r from-brand-yellow via-amber-400 to-brand-yellow w-full shadow-md shadow-brand-yellow/30" />
+      <div className="h-1.5 bg-brand-yellow w-full shadow-md shadow-brand-yellow/30" />
 
       {/* Center radial gradient highlight for background depth */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,204,0,0.08),transparent_50%)] pointer-events-none" />

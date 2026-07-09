@@ -76,7 +76,7 @@ export default function AboutMissionVision() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.12 }}
-            className="lg:col-span-4 bg-white text-slate-900 border-2 border-brand-blue p-8 rounded-3xl shadow-[6px_6px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#003399] transition-all duration-300 flex flex-col justify-between"
+            className="lg:col-span-4 bg-white text-brand-ink border-2 border-brand-blue p-8 rounded-3xl shadow-[6px_6px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#003399] transition-all duration-300 flex flex-col justify-between"
           >
             <div className="space-y-6">
               <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl w-fit border-2 border-brand-blue">

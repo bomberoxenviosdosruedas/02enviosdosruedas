@@ -121,7 +121,7 @@ export default function LeafletRouteMap({
       const latLngs = routeCoords.map((coord) => L.latLng(coord[1], coord[0]));
       
       polylineInstance.current = L.polyline(latLngs, {
-        color: '#FFEC01',
+        color: '#FFCC00',
         weight: 5,
         opacity: 0.9,
       }).addTo(map);

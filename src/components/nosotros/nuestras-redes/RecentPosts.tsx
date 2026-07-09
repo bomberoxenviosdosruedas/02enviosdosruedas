@@ -81,7 +81,7 @@ export default function RecentPosts() {
           <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_#003399]">
             EN VIVO
           </span>
-          <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
+          <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
             PUBLICACIONES RECIENTES
           </h2>
           <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto">
@@ -117,7 +117,7 @@ export default function RecentPosts() {
                         />
                       </div>
                       <div>
-                        <h4 className="text-xs font-display text-slate-900 uppercase tracking-wider">
+                        <h4 className="text-xs font-display text-brand-ink uppercase tracking-wider">
                           Envíos DosRuedas
                         </h4>
                         <span className="text-[10px] text-slate-400 font-mono">

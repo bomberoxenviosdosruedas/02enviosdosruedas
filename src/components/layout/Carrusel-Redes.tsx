@@ -74,7 +74,7 @@ export const CarruselRedes = () => {
     }
 
     return (
-        <section className="py-24 px-6 bg-slate-50 text-slate-800 overflow-hidden relative border-t border-slate-200">
+        <section className="py-24 px-6 bg-slate-50 text-brand-ink overflow-hidden relative border-t border-slate-200">
             {/* Soft background gradient highlight (Light themed blue/yellow) */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-blue-100/30 blur-[130px] pointer-events-none" />
 
@@ -99,7 +99,7 @@ export const CarruselRedes = () => {
                             <motion.button
                                 key={idx}
                                 onClick={net.isWhatsApp ? handleWhatsAppClick : () => window.open(net.href, "_blank")}
-                                className="group flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border-2 border-brand-blue shadow-[3px_3px_0px_#003399] hover:shadow-[3px_3px_0px_#FFCC00] hover:bg-slate-50 transition-all cursor-pointer text-slate-800 min-h-[48px]"
+                                className="group flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border-2 border-brand-blue shadow-[3px_3px_0px_#003399] hover:shadow-[3px_3px_0px_#FFCC00] hover:bg-slate-50 transition-all cursor-pointer text-brand-ink min-h-[48px]"
                                 aria-label={`Seguinos en ${net.name}`}
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.98 }}
@@ -177,8 +177,8 @@ export const CarruselRedes = () => {
                     </div>
 
                     {/* Edge shadow gradients to simulate infinite scroll visually (Adapted to slate-50 light background) */}
-                    <div className="absolute top-0 left-0 w-24 sm:w-40 h-full bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
-                    <div className="absolute top-0 right-0 w-24 sm:w-40 h-full bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+                    <div className="absolute top-0 left-0 w-24 sm:w-40 h-full bg-slate-50/50 z-10 pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-24 sm:w-40 h-full bg-slate-50/50 z-10 pointer-events-none" />
                 </div>
             </div>
         </section>

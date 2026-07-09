@@ -47,7 +47,7 @@ export default function FaqSection() {
           <div className="inline-flex h-9 w-9 rounded-xl bg-cyan-100 text-cyan-600 items-center justify-center font-bold">
             ?
           </div>
-          <h2 className="text-3xl font-black font-display tracking-tight text-slate-900">
+          <h2 className="text-3xl font-black font-display tracking-tight text-brand-ink">
             Preguntas <span className="text-cyan-500">Frecuentes</span>
           </h2>
           <p className="text-slate-500 text-xs sm:text-sm max-w-lg mx-auto">
@@ -65,7 +65,7 @@ export default function FaqSection() {
                   onClick={() => toggle(item.k)}
                   className="w-full px-6 py-4.5 flex justify-between items-center text-left focus:outline-none"
                 >
-                  <span className="font-bold text-slate-800 text-xs sm:text-sm flex items-center gap-2">
+                  <span className="font-bold text-brand-ink text-xs sm:text-sm flex items-center gap-2">
                     <HelpCircle className="h-4 w-4 text-cyan-500 flex-shrink-0" />
                     {item.q}
                   </span>

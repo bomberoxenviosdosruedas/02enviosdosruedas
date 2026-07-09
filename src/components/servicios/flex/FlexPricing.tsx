@@ -126,7 +126,7 @@ export default function FlexPricing() {
                 <Card
                   className={`rounded-3xl border-2 flex flex-col justify-between h-full transition-all duration-300 group text-left ${
                     level.highlight
-                      ? 'bg-white text-slate-900 border-brand-blue shadow-[6px_6px_0px_#FFCC00] lg:scale-[1.03] relative z-20 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#FFCC00]'
+                      ? 'bg-white text-brand-ink border-brand-blue shadow-[6px_6px_0px_#FFCC00] lg:scale-[1.03] relative z-20 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#FFCC00]'
                       : 'bg-brand-blue/30 text-white border-brand-yellow/30 shadow-[6px_6px_0px_rgba(0,51,153,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(0,51,153,0.4)] hover:border-brand-yellow'
                   }`}
                 >
@@ -141,7 +141,7 @@ export default function FlexPricing() {
                       <span className={`text-xs font-subheading tracking-wider uppercase ${level.highlight ? 'text-brand-blue font-bold' : 'text-brand-yellow'}`}>
                         {level.volume}
                       </span>
-                      <h3 className={`text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight ${level.highlight ? 'text-slate-900 font-bold' : 'text-white'}`}>
+                      <h3 className={`text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight ${level.highlight ? 'text-brand-ink font-bold' : 'text-white'}`}>
                         {level.name}
                       </h3>
                     </div>
@@ -210,7 +210,7 @@ export default function FlexPricing() {
           timelineRef={pricingRef}
           customVariants={revealVariants}
           as="div"
-          className="bg-white text-slate-900 rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#FFCC00] relative overflow-hidden"
+          className="bg-white text-brand-ink rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#FFCC00] relative overflow-hidden"
         >
           <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-slate-100/50 pointer-events-none -z-10">
             <CloudRain className="h-64 w-64 text-slate-100" />
