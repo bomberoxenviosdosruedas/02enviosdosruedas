@@ -99,6 +99,9 @@ La aplicación estará disponible en [http://localhost:3000](http://localhost:30
 ## 🤖 Desarrollo Colaborativo con Inteligencia Artificial (IA)
 
 Este proyecto está altamente optimizado para trabajar con agentes de inteligencia artificial y copilotos. Antes de escribir código, por favor revisá los siguientes archivos de configuración:
-*   [AGENTS.md](file:///E:/proyectos/02enviosdosruedashector/AGENTS.md): Reglas de código estrictas, convenciones CSS para Tailwind CSS v4, tipografías y el uso obligatorio del **Tono de Voz con voseo Rioplatense** para copys finales.
-*   [GEMINI.md](file:///E:/proyectos/02enviosdosruedashector/GEMINI.md): Resumen técnico del repositorio para optimización y ahorro en el consumo de tokens de contexto.
-*   [.aiexclude](file:///E:/proyectos/02enviosdosruedashector/.aiexclude): Definición de rutas y archivos excluidos para las lecturas de los asistentes.
+*   [AGENTS.md](./AGENTS.md): Reglas de código estrictas, convenciones CSS para Tailwind CSS v4, tipografías, tabla de tarifas 2026 y el uso obligatorio del **Tono de Voz con voseo Rioplatense** para copys finales.
+*   [DESIGN.md](./DESIGN.md): Sistema de diseño documentado (colores, tipografías, componentes, tokens).
+*   [docs/contexto/precios.md](./docs/contexto/precios.md): Fuente de verdad de tarifas Express y LowCost (rangos por km, lógica `Math.ceil`).
+*   [.geminiignore](./.geminiignore): Exclusiones FinOps para agentes Antigravity (optimización de tokens).
+*   [.aiexclude](./.aiexclude): Exclusiones para otros asistentes de IA.
+
