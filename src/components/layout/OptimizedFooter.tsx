@@ -22,8 +22,8 @@ export default function OptimizedFooter() {
       <div className="h-1.5 bg-gradient-to-r from-brand-yellow via-amber-400 to-brand-yellow w-full shadow-md shadow-brand-yellow/30" />
 
       {/* Center radial gradient highlight for background depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(6,54,165,0.4),transparent_40%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,204,0,0.08),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(0,51,153,0.4),transparent_40%)] pointer-events-none" />
 
       {/* Main Footer Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">

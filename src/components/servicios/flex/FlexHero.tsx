@@ -37,7 +37,7 @@ export default function FlexHero() {
       className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue border-b-4 border-brand-yellow text-white"
     >
       {/* Ambient backgrounds */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,236,1,0.06),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,204,0,0.06),transparent_40%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.04),transparent_50%)]" />
 
       {/* Background illustration overlay */}
@@ -63,7 +63,7 @@ export default function FlexHero() {
           <div className="lg:col-span-7 text-center lg:text-left space-y-8">
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-yellow text-brand-blue border-2 border-brand-blue flex items-center gap-1.5 shadow-[2px_2px_0px_#0636A5]">
+              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-yellow text-brand-blue border-2 border-brand-blue flex items-center gap-1.5 shadow-[2px_2px_0px_#003399]">
                 <Sparkles className="h-4.5 w-4.5 animate-pulse shrink-0" />
                 Beneficio Emprendedores 2026
               </span>
@@ -75,7 +75,7 @@ export default function FlexHero() {
               className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3"
             >
               <span>ENVÍOS FLEX</span>
-              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#0636A5]">
+              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#003399]">
                 <Image
                   src="https://picsum.photos/id/1070/200/100" 
                   alt="MercadoLibre Flex"
@@ -99,7 +99,7 @@ export default function FlexHero() {
               <Link
                 href="/cotizar/lowcost"
                 id="flex-hero-cta-activar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#0636A5] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold cursor-pointer"
+                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#003399] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold cursor-pointer"
               >
                 Activar Envíos Flex
                 <ArrowRight className="h-5 w-5 shrink-0" />
@@ -110,7 +110,7 @@ export default function FlexHero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="flex-hero-cta-whatsapp"
-                className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/90 text-white font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-white shadow-[4px_4px_0px_#FFEC01] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFEC01] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/90 text-white font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-white shadow-[4px_4px_0px_#FFCC00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFCC00] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Phone className="h-5 w-5 text-brand-yellow shrink-0" />
                 Contactar Asesor Flex
@@ -154,7 +154,7 @@ export default function FlexHero() {
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.4 } }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative rounded-3xl border-2 border-brand-blue bg-white p-5 text-slate-900 shadow-[6px_6px_0px_#FFEC01]">
+              <div className="relative rounded-3xl border-2 border-brand-blue bg-white p-5 text-slate-900 shadow-[6px_6px_0px_#FFCC00]">
                 <div className="flex justify-between items-start mb-3">
                   <span className="text-[10px] bg-emerald-100 text-emerald-800 border border-emerald-250 font-bold uppercase px-2.5 py-1 rounded-full">
                     SOCIOS LOGÍSTICOS CERTIFICADOS
@@ -179,7 +179,7 @@ export default function FlexHero() {
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.6 } }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative rounded-3xl border-2 border-brand-yellow bg-slate-900 p-5 text-white shadow-[6px_6px_0px_#0636A5]">
+              <div className="relative rounded-3xl border-2 border-brand-yellow bg-slate-900 p-5 text-white shadow-[6px_6px_0px_#003399]">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-brand-yellow animate-ping" />

@@ -83,15 +83,15 @@ export default function Header() {
             <div className="relative h-12 w-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
               <svg viewBox="0 0 100 100" className="w-full h-full dropped-shadow-sm">
                 {/* Outer striped border (Celeste/Light Blue & White representing Mar del Plata colors) */}
-                <circle cx="50" cy="50" r="48" fill="none" stroke="#0636A5" strokeWidth="4" />
-                <circle cx="50" cy="50" r="46" fill="none" stroke="#FFEC01" strokeWidth="2" strokeDasharray="3 3" />
+                <circle cx="50" cy="50" r="48" fill="none" stroke="#003399" strokeWidth="4" />
+                <circle cx="50" cy="50" r="46" fill="none" stroke="#FFCC00" strokeWidth="2" strokeDasharray="3 3" />
                 
                 {/* Metallic Dark Charcoal Inner Disk */}
-                <circle cx="50" cy="50" r="43" fill="#0636A5" />
+                <circle cx="50" cy="50" r="43" fill="#003399" />
                 
                 {/* Inside design elements - Brackets for title */}
-                <path d="M 12,38 L 88,38" stroke="#FFEC01" strokeWidth="1" opacity="0.6"/>
-                <path d="M 12,62 L 88,62" stroke="#FFEC01" strokeWidth="1" opacity="0.6"/>
+                <path d="M 12,38 L 88,38" stroke="#FFCC00" strokeWidth="1" opacity="0.6"/>
+                <path d="M 12,62 L 88,62" stroke="#FFCC00" strokeWidth="1" opacity="0.6"/>
                 
                 {/* "Envíos" in light blue */}
                 <text x="50" y="31" fill="#FFFFFF" fontFamily="sans-serif" fontSize="11" fontWeight="bold" textAnchor="middle" letterSpacing="0.5">
@@ -99,8 +99,8 @@ export default function Header() {
                 </text>
                 
                 {/* "DosRuedas" in blocky white background bracket */}
-                <rect x="18" y="38" width="64" height="12" rx="2" fill="#0636A5" stroke="#FFEC01" strokeWidth="1" />
-                <text x="50" y="47" fill="#FFEC01" fontFamily="sans-serif" fontSize="9" fontWeight="900" textAnchor="middle" letterSpacing="0.2">
+                <rect x="18" y="38" width="64" height="12" rx="2" fill="#003399" stroke="#FFCC00" strokeWidth="1" />
+                <text x="50" y="47" fill="#FFCC00" fontFamily="sans-serif" fontSize="9" fontWeight="900" textAnchor="middle" letterSpacing="0.2">
                   DosRuedas
                 </text>
 
@@ -110,12 +110,12 @@ export default function Header() {
                 </text>
 
                 {/* Subtitle MDQ */}
-                <text x="50" y="84" fill="#FFEC01" fontFamily="sans-serif" fontSize="7" fontWeight="900" textAnchor="middle" letterSpacing="0.8">
+                <text x="50" y="84" fill="#FFCC00" fontFamily="sans-serif" fontSize="7" fontWeight="900" textAnchor="middle" letterSpacing="0.8">
                   MDQ
                 </text>
 
                 {/* Two bicycle interlocking wheels at the bottom */}
-                <g fill="none" stroke="#FFEC01" strokeWidth="1.5">
+                <g fill="none" stroke="#FFCC00" strokeWidth="1.5">
                   <circle cx="41" cy="72" r="7" />
                   <path d="M 37,72 L 45,72 M 41,68 L 41,76 M 38,69 L 44,75 M 38,75 L 44,69" strokeWidth="0.5" opacity="0.6"/>
                   <circle cx="59" cy="72" r="7" />

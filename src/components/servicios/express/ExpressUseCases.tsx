@@ -64,7 +64,7 @@ export default function ExpressUseCases() {
         
         {/* Header segment */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(6,54,165,0.2)]">
+          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,51,153,0.2)]">
             CASOS DE USO
           </span>
           <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
@@ -90,14 +90,14 @@ export default function ExpressUseCases() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className={`rounded-3xl border-2 transition-all duration-300 flex flex-col justify-between text-left ${
                   isOpen 
-                    ? 'bg-slate-900 text-white border-brand-yellow shadow-[6px_6px_0px_#FFEC01]' 
-                    : 'bg-slate-50 text-slate-900 border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_#0636A5] hover:translate-x-[2px] hover:translate-y-[2px]'
+                    ? 'bg-slate-900 text-white border-brand-yellow shadow-[6px_6px_0px_#FFCC00]'
+                    : 'bg-slate-50 text-slate-900 border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px]'
                 }`}
               >
                 <div className="p-6 sm:p-7 space-y-6">
                   {/* Icon & Badge Header */}
                   <div className="flex justify-between items-center">
-                    <div className="p-3 rounded-2xl w-fit border-2 border-brand-blue bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_#0636A5]">
+                    <div className="p-3 rounded-2xl w-fit border-2 border-brand-blue bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_#003399]">
                       <Icon className="h-5.5 w-5.5 shrink-0" />
                     </div>
                     <span className={`text-[10px] font-subheading uppercase tracking-wider px-2.5 py-1 rounded-full border ${
