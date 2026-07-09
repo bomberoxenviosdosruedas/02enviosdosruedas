@@ -14,24 +14,42 @@ export const metadata: Metadata = {
 
 export default function SobreNosotrosPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-[#001035] text-white relative overflow-hidden">
+      {/* 3D Ambient floating glow-orbs */}
+      <div className="absolute top-[15%] left-[-10%] w-[40vw] h-[40vw] bg-[#0636A5]/20 rounded-full blur-[120px] pointer-events-none animate-float-slow" />
+      <div className="absolute top-[50%] right-[-10%] w-[35vw] h-[35vw] bg-[#FFEC01]/5 rounded-full blur-[100px] pointer-events-none" style={{ animationDelay: '-2s' }} />
+      <div className="absolute bottom-[10%] left-[5%] w-[45vw] h-[45vw] bg-[#0636A5]/15 rounded-full blur-[130px] pointer-events-none" style={{ animationDelay: '-4s' }} />
+
       {/* Hero Header & Quiénes Somos */}
-      <AboutHero />
+      <div className="relative z-10">
+        <AboutHero />
+      </div>
 
       {/* Corporate Advantages (Nuestra ventaja injusta) */}
-      <AboutAdvantages />
+      <div className="relative z-10">
+        <AboutAdvantages />
+      </div>
 
       {/* Core values block */}
-      <AboutValues />
+      <div className="relative z-10">
+        <AboutValues />
+      </div>
 
       {/* Interactive historical milestones timeline */}
-      <AboutTimeline />
+      <div className="relative z-10">
+        <AboutTimeline />
+      </div>
 
       {/* Stats and organizational workforce teams */}
-      <AboutTeam />
+      <div className="relative z-10">
+        <AboutTeam />
+      </div>
 
       {/* Comprehensive Mission, Vision, and Innovation pillars */}
-      <AboutMissionVision />
+      <div className="relative z-10 font-sans">
+        <AboutMissionVision />
+      </div>
     </main>
   );
 }
+

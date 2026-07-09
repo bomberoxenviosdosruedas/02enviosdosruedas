@@ -15,27 +15,46 @@ export const metadata: Metadata = {
 
 export default function EnviosFlexPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-[#001035] text-white relative overflow-hidden">
+      {/* 3D Ambient floating glow-orbs */}
+      <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-[#0636A5]/20 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
+      <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-[#FFEC01]/5 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />
+
       {/* Hero Header Block */}
-      <FlexHero />
+      <div className="relative z-10">
+        <FlexHero />
+      </div>
 
       {/* MercadoLibre expert key features */}
-      <FlexFeatures />
+      <div className="relative z-10 font-sans">
+        <FlexFeatures />
+      </div>
 
       {/* Seller value-added benefits grid */}
-      <FlexBenefits />
+      <div className="relative z-10 font-sans">
+        <FlexBenefits />
+      </div>
 
       {/* Pricing levels and weather discounts */}
-      <FlexPricing />
+      <div className="relative z-10">
+        <FlexPricing />
+      </div>
 
       {/* Step by step streamlined workflow */}
-      <FlexHowItWorks />
+      <div className="relative z-10 font-sans">
+        <FlexHowItWorks />
+      </div>
 
       {/* Active prerequisites for starting */}
-      <FlexRequirements />
+      <div className="relative z-10 font-sans">
+        <FlexRequirements />
+      </div>
 
       {/* Unified social community channel loop */}
-      <CarruselRedes />
+      <div className="relative z-10">
+        <CarruselRedes />
+      </div>
     </main>
   );
 }
+

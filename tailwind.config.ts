@@ -9,8 +9,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-blue': '#003399',
-        'brand-yellow': '#FFCC00',
+        'brand-blue': '#0636A5',
+        'brand-yellow': '#FFEC01',
         'brand-navy': '#002068',
         'brand-ink': '#151B2D',
       },
@@ -20,15 +20,27 @@ export default {
         subheading: ['var(--font-subheading)', 'Bebas Neue', 'sans-serif'],
       },
       boxShadow: {
-        'glow-blue': '0 0 20px rgba(0, 51, 153, 0.3)',
-        'glow-yellow': '0 0 20px rgba(255, 204, 0, 0.4)',
-        'glow-blue-lg': '0 0 40px rgba(0, 51, 153, 0.4)',
-        'glow-yellow-lg': '0 0 40px rgba(255, 204, 0, 0.5)',
-        'accent-sm': '0 2px 4px rgba(255, 204, 0, 0.2)',
-        'accent-md': '0 4px 8px rgba(255, 204, 0, 0.25), 0 2px 4px rgba(255, 204, 0, 0.15)',
-        'accent-lg': '0 8px 16px rgba(255, 204, 0, 0.3), 0 4px 8px rgba(255, 204, 0, 0.2)',
+        'glow-blue': '0 0 25px rgba(6, 54, 165, 0.4)',
+        'glow-yellow': '0 0 25px rgba(255, 236, 1, 0.5)',
+        'glow-blue-lg': '0 0 50px rgba(6, 54, 165, 0.5)',
+        'glow-yellow-lg': '0 0 50px rgba(255, 236, 1, 0.65)',
+        'accent-sm': '0 2px 4px rgba(255, 236, 1, 0.2)',
+        'accent-md': '0 4px 8px rgba(255, 236, 1, 0.25), 0 2px 4px rgba(255, 236, 1, 0.15)',
+        'accent-lg': '0 8px 16px rgba(255, 236, 1, 0.35), 0 4px 8px rgba(255, 236, 1, 0.25)',
+        'float-shadow': '0 25px 50px -12px rgba(6, 54, 165, 0.25)',
       },
+      animation: {
+        'float-slow': 'float-slow 6s ease-in-out infinite',
+        'pulse-subtle': 'pulse-subtle 3s ease-in-out infinite',
+      },
+      keyframes: {
+        'pulse-subtle': {
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { opacity: '0.8', transform: 'scale(1.03)' },
+        }
+      }
     },
   },
   plugins: [],
 } satisfies Config
+

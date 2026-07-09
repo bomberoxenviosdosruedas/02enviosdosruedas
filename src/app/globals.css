@@ -2,8 +2,8 @@
 @config "../../tailwind.config.ts";
 
 @theme {
-  --color-brand-blue: #003399;
-  --color-brand-yellow: #FFCC00;
+  --color-brand-blue: #0636A5;
+  --color-brand-yellow: #FFEC01;
   --color-brand-navy: #002068;
 
   --color-blue-50: #EFF6FF;
@@ -34,16 +34,16 @@
   --font-display: var(--font-display), "Anton", sans-serif;
   --font-subheading: var(--font-subheading), "Bebas Neue", sans-serif;
 
-  /* Custom shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 51, 153, 0.06);
-  --shadow-sm: 0 2px 4px rgba(0, 51, 153, 0.08), 0 1px 2px rgba(0, 51, 153, 0.04);
-  --shadow-md: 0 4px 8px rgba(0, 51, 153, 0.1), 0 2px 4px rgba(0, 51, 153, 0.06);
-  --shadow-lg: 0 8px 16px rgba(0, 51, 153, 0.12), 0 4px 8px rgba(0, 51, 153, 0.08);
-  --shadow-xl: 0 16px 32px rgba(0, 51, 153, 0.15), 0 8px 16px rgba(0, 51, 153, 0.1);
+  /* Custom shadows with correct brand colors: blue (6, 54, 165), yellow (255, 236, 1) */
+  --shadow-xs: 0 1px 2px rgba(6, 54, 165, 0.06);
+  --shadow-sm: 0 2px 4px rgba(6, 54, 165, 0.08), 0 1px 2px rgba(6, 54, 165, 0.04);
+  --shadow-md: 0 4px 8px rgba(6, 54, 165, 0.1), 0 2px 4px rgba(6, 54, 165, 0.06);
+  --shadow-lg: 0 8px 16px rgba(6, 54, 165, 0.12), 0 4px 8px rgba(6, 54, 165, 0.08);
+  --shadow-xl: 0 16px 32px rgba(6, 54, 165, 0.15), 0 8px 16px rgba(6, 54, 165, 0.1);
 
-  --shadow-accent-sm: 0 2px 4px rgba(255, 204, 0, 0.2);
-  --shadow-accent-md: 0 4px 8px rgba(255, 204, 0, 0.25), 0 2px 4px rgba(255, 204, 0, 0.15);
-  --shadow-accent-lg: 0 8px 16px rgba(255, 204, 0, 0.3), 0 4px 8px rgba(255, 204, 0, 0.2);
+  --shadow-accent-sm: 0 2px 4px rgba(255, 236, 1, 0.2);
+  --shadow-accent-md: 0 4px 8px rgba(255, 236, 1, 0.25), 0 2px 4px rgba(255, 236, 1, 0.15);
+  --shadow-accent-lg: 0 8px 16px rgba(255, 236, 1, 0.35), 0 4px 8px rgba(255, 236, 1, 0.25);
 
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -51,8 +51,9 @@
   --radius-xl: 20px;
 
   /* Premium Minimalist Shadows */
-  --shadow-minimal: 0 4px 20px -2px rgba(0, 51, 153, 0.04), 0 2px 6px -1px rgba(0, 51, 153, 0.02);
-  --shadow-soft-elevation: 0 12px 24px -10px rgba(0, 51, 153, 0.12);
+  --shadow-minimal: 0 4px 20px -2px rgba(6, 54, 165, 0.04), 0 2px 6px -1px rgba(6, 54, 165, 0.02);
+  --shadow-soft-elevation: 0 12px 24px -10px rgba(6, 54, 165, 0.12);
+  --shadow-antigravity-deep: 0 30px 60px -15px rgba(6, 54, 165, 0.3), 0 0 50px -10px rgba(255, 236, 1, 0.15);
 
   /* Micro-animations */
   --animate-float-slow: float-slow 4s ease-in-out infinite;
@@ -65,16 +66,16 @@
 
 /* Custom Gradients as Tailwind V4 @utility classes */
 @utility gradient-blue {
-  background: linear-gradient(135deg, #003399 0%, #002068 100%);
+  background: linear-gradient(135deg, #0636A5 0%, #002068 100%);
 }
 @utility gradient-blue-light {
   background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #BFDBFE 100%);
 }
 @utility gradient-yellow {
-  background: linear-gradient(135deg, #FFCC00 0%, #E6B800 100%);
+  background: linear-gradient(135deg, #FFEC01 0%, #E6B800 100%);
 }
 @utility gradient-mixed {
-  background: linear-gradient(135deg, #003399 0%, #002068 50%, #FFCC00 100%);
+  background: linear-gradient(135deg, #0636A5 0%, #002068 50%, #FFEC01 100%);
 }
 @utility gradient-surface {
   background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
@@ -85,35 +86,51 @@
 
 /* Glow effects */
 @utility glow-blue {
-  box-shadow: 0 0 20px rgba(0, 51, 153, 0.3);
+  box-shadow: 0 0 20px rgba(6, 54, 165, 0.3);
 }
 @utility glow-yellow {
-  box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+  box-shadow: 0 0 20px rgba(255, 236, 1, 0.4);
 }
 @utility glow-blue-lg {
-  box-shadow: 0 0 40px rgba(0, 51, 153, 0.4);
+  box-shadow: 0 0 40px rgba(6, 54, 165, 0.4);
 }
 @utility glow-yellow-lg {
-  box-shadow: 0 0 40px rgba(255, 204, 0, 0.5);
+  box-shadow: 0 0 40px rgba(255, 236, 1, 0.5);
 }
 
 /* Glassmorphic elements */
 @utility glassmorphism {
   backdrop-filter: blur(12px);
-  background: rgba(0, 51, 153, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(6, 54, 165, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Premium glassmorphism with dynamic border sheen */
+@utility glassmorphism-premium {
+  backdrop-filter: blur(20px);
+  background: linear-gradient(135deg, rgba(6, 54, 165, 0.4) 0%, rgba(0, 32, 104, 0.25) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: var(--shadow-antigravity-deep);
+}
+
+/* 3D and perspective properties */
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+@utility preserve-3d {
+  transform-style: preserve-3d;
 }
 
 /* Premium Minimalist & Animated Utilities */
 @utility card-minimal {
   background: #ffffff;
-  border: 1px solid rgba(0, 51, 153, 0.08);
+  border: 1px solid rgba(6, 54, 165, 0.08);
   box-shadow: var(--shadow-minimal);
   transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   
   &:hover {
-    border-color: rgba(0, 51, 153, 0.25);
-    box-shadow: 0 10px 30px -10px rgba(0, 51, 153, 0.08);
+    border-color: rgba(6, 54, 165, 0.25);
+    box-shadow: 0 10px 30px -10px rgba(6, 54, 165, 0.08);
   }
 }
 
@@ -128,6 +145,17 @@
   
   &:active {
     transform: translateY(-1px);
+  }
+}
+
+/* Weightless Hover Tilt effect */
+@utility float-tilt-card {
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+  
+  &:hover {
+    transform: translateY(-6px) rotateX(4deg) rotateY(-2deg);
+    box-shadow: var(--shadow-antigravity-deep);
   }
 }
 
@@ -159,6 +187,7 @@
     border-radius: 9999px;
   }
 }
+
 
 
 /* Typography styles */

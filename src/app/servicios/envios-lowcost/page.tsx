@@ -14,24 +14,41 @@ export const metadata: Metadata = {
 
 export default function EnviosLowCostPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-[#001035] text-white relative overflow-hidden">
+      {/* 3D Ambient floating glow-orbs */}
+      <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-[#0636A5]/20 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
+      <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-[#FFEC01]/5 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />
+
       {/* Hero Header Block */}
-      <LowCostHero />
+      <div className="relative z-10">
+        <LowCostHero />
+      </div>
 
       {/* Ruteo masivo features */}
-      <LowCostFeatures />
+      <div className="relative z-10 font-sans">
+        <LowCostFeatures />
+      </div>
 
       {/* 2026 Zone Pricing rates table */}
-      <LowCostPricing />
+      <div className="relative z-10">
+        <LowCostPricing />
+      </div>
 
       {/* Structured logistics benefits grid */}
-      <LowCostBenefits />
+      <div className="relative z-10 font-sans">
+        <LowCostBenefits />
+      </div>
 
       {/* Step by step operation diagram */}
-      <LowCostHowItWorks />
+      <div className="relative z-10 font-sans">
+        <LowCostHowItWorks />
+      </div>
 
       {/* Unified social network community channel loop */}
-      <CarruselRedes />
+      <div className="relative z-10">
+        <CarruselRedes />
+      </div>
     </main>
   );
 }
+

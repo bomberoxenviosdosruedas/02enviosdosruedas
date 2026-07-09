@@ -11,12 +11,18 @@ export const metadata: Metadata = {
 
 export default function ContactoPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-[#001035] text-white relative overflow-hidden">
+      {/* 3D Ambient floating glow-orbs */}
+      <div className="absolute top-[25%] left-[-15%] w-[45vw] h-[45vw] bg-[#0636A5]/20 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
+      <div className="absolute top-[50%] right-[-10%] w-[35vw] h-[35vw] bg-[#FFEC01]/5 rounded-full blur-[100px] pointer-events-none" style={{ animationDelay: '-3s' }} />
+
       {/* Upper Hero Section */}
-      <ContactHero />
+      <div className="relative z-10">
+        <ContactHero />
+      </div>
 
       {/* Main Form and Info Layout */}
-      <section id="contacto-main" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section id="contacto-main" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           
           {/* Column 1: Contact Form (5 Cols in Desk) */}
@@ -34,3 +40,4 @@ export default function ContactoPage() {
     </main>
   );
 }
+

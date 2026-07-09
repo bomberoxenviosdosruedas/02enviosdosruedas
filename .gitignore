@@ -20,3 +20,5 @@ document.pdf
 site/*
 scratch/*
 .vscode/*
+.gemini/*
+.specify/*
