@@ -121,7 +121,7 @@ export default function FaqHero() {
               whileHover={{ scale: 1.025, y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-slate-900 shadow-[8px_8px_0px_#FFCC00] relative overflow-hidden group transition-all duration-300">
+              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-brand-ink shadow-[8px_8px_0px_#FFCC00] relative overflow-hidden group transition-all duration-300">
                 {/* Visual Accent Top Bar */}
                 <div className="absolute top-0 inset-x-0 h-2 bg-brand-blue" />
                 

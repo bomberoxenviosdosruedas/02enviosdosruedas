@@ -260,7 +260,7 @@ const renderMenuItem = (item: MenuItem) => {
           {item.title}
         </NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="w-85 p-3 bg-white text-slate-900 rounded-xl shadow-xl border border-slate-100/85">
+          <ul className="w-85 p-3 bg-white text-brand-ink rounded-xl shadow-xl border border-slate-100/85">
             <NavigationMenuLink asChild>
               <div className="flex flex-col gap-1">
                 {item.items.map((subItem) => (
@@ -271,7 +271,7 @@ const renderMenuItem = (item: MenuItem) => {
                   >
                     {renderIcon(subItem.icon, false)}
                     <div>
-                      <div className="text-sm font-semibold text-slate-900 group-hover/sub:text-brand-blue transition-colors">
+                      <div className="text-sm font-semibold text-brand-ink group-hover/sub:text-brand-blue transition-colors">
                         {subItem.title}
                       </div>
                       {subItem.description && (

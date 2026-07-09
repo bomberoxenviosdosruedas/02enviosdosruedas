@@ -118,7 +118,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Ej: Juan Pérez"
-                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#003399] transition-all disabled:opacity-60 bg-slate-50"
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#003399] transition-all disabled:opacity-60 bg-slate-50"
                 />
               </div>
 
@@ -136,7 +136,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Ej: juan.perez@email.com"
-                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#003399] transition-all disabled:opacity-60 bg-slate-50"
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#003399] transition-all disabled:opacity-60 bg-slate-50"
                 />
               </div>
 
@@ -154,7 +154,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   disabled={status === 'submitting'}
                   placeholder="Escribí acá tu consulta. Decinos en qué podemos ayudarte..."
-                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#003399] transition-all disabled:opacity-60 bg-slate-50 resize-none"
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_#003399] transition-all disabled:opacity-60 bg-slate-50 resize-none"
                 />
               </div>
 

@@ -157,7 +157,7 @@ export default function OptimizedHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute left-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border-2 border-brand-blue py-3 text-slate-800 overflow-hidden z-50"
+                      className="absolute left-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border-2 border-brand-blue py-3 text-brand-ink overflow-hidden z-50"
                       onBlur={(e) => {
                         // Cerrar cuando perdemos foco en el último elemento del dropdown
                         if (!e.currentTarget.contains(e.relatedTarget)) {

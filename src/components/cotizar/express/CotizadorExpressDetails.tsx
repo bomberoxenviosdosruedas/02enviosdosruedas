@@ -39,7 +39,7 @@ export default function CotizadorExpressDetails() {
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-800 font-sans text-sm uppercase tracking-wide">
+                  <h4 className="font-bold text-brand-ink font-sans text-sm uppercase tracking-wide">
                     {feat.title}
                   </h4>
                   <p className="text-slate-500 text-xs sm:text-sm font-sans mt-1 leading-relaxed">
@@ -59,13 +59,13 @@ export default function CotizadorExpressDetails() {
         </h3>
         <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
           <p>
-            <strong className="text-slate-800">Peso máximo por moto:</strong> Hasta 15 kg por unidad.
+            <strong className="text-brand-ink">Peso máximo por moto:</strong> Hasta 15 kg por unidad.
           </p>
           <p>
-            <strong className="text-slate-800">Bulto:</strong> Hasta 40x40 y 5kg sin cargo extra.
+            <strong className="text-brand-ink">Bulto:</strong> Hasta 40x40 y 5kg sin cargo extra.
           </p>
           <p>
-            <strong className="text-slate-800">Garantía de entrega</strong>
+            <strong className="text-brand-ink">Garantía de entrega</strong>
           </p>
 
           <div className="bg-amber-50 border border-amber-100 rounded-2xl p-4 mt-6">

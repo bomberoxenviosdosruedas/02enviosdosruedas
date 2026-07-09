@@ -107,13 +107,13 @@
 /* Premium Minimalist & Animated Utilities */
 @utility card-minimal {
   background: #ffffff;
-  border: 1px solid rgba(6, 54, 165, 0.08);
+  border: 1px solid rgba(0, 51, 153, 0.08);
   box-shadow: var(--shadow-minimal);
   transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   
   &:hover {
-    border-color: rgba(6, 54, 165, 0.25);
-    box-shadow: 0 10px 30px -10px rgba(6, 54, 165, 0.08);
+    border-color: rgba(0, 51, 153, 0.25);
+    box-shadow: 0 10px 30px -10px rgba(0, 51, 153, 0.08);
   }
 }
 

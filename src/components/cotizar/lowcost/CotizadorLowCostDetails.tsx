@@ -38,7 +38,7 @@ export default function CotizadorLowCostDetails() {
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-800 font-sans text-sm uppercase tracking-wide">
+                  <h4 className="font-bold text-brand-ink font-sans text-sm uppercase tracking-wide">
                     {feat.title}
                   </h4>
                   <p className="text-slate-500 text-xs sm:text-sm font-sans mt-1 leading-relaxed">

@@ -61,7 +61,7 @@ export default function LowCostBenefits() {
           <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,51,153,0.2)]">
             VENTAJAS CLAVE
           </span>
-          <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
+          <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
             BENEFICIOS LOWCOST
           </h2>
           <p className="text-slate-655 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
@@ -88,7 +88,7 @@ export default function LowCostBenefits() {
                     <Icon className="h-6 w-6 shrink-0" />
                   </div>
                   
-                  <h3 className="text-xl font-display uppercase tracking-wide text-slate-900 font-bold leading-tight">
+                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-ink font-bold leading-tight">
                     {benefit.title}
                   </h3>
                   

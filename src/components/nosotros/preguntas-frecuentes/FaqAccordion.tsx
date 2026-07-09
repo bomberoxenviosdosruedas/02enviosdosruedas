@@ -133,7 +133,7 @@ export default function FaqAccordion() {
                         <div className={`p-2.5 rounded-xl border-2 shrink-0 ${isExpanded ? 'bg-brand-yellow text-brand-blue border-brand-blue' : 'bg-brand-blue/10 text-brand-blue border-brand-blue/20'}`}>
                           <HelpCircle className="h-5 w-5 shrink-0" />
                         </div>
-                        <h4 className={`text-base sm:text-lg font-sans font-bold leading-tight transition-colors ${isExpanded ? 'text-brand-blue' : 'text-slate-900'}`}>
+                        <h4 className={`text-base sm:text-lg font-sans font-bold leading-tight transition-colors ${isExpanded ? 'text-brand-blue' : 'text-brand-ink'}`}>
                           {item.question}
                         </h4>
                       </div>

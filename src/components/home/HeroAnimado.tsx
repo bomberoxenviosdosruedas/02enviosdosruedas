@@ -224,7 +224,7 @@ export default function HeroAnimado() {
                       className="rounded-xl object-cover h-40 sm:h-48 w-full"
                     />
                   </div>
-                  <div className="mt-3 flex items-center justify-between text-slate-800 font-mono" style={{ transform: 'translateZ(30px)' }}>
+                  <div className="mt-3 flex items-center justify-between text-brand-ink font-mono" style={{ transform: 'translateZ(30px)' }}>
                     <span className="text-[11px] font-bold uppercase tracking-wide">Ruteo de Envíos</span>
                     <span className="text-[9px] px-1.5 py-0.5 border border-emerald-500 bg-emerald-50 text-emerald-800 font-bold uppercase rounded-full">Optimizado</span>
                   </div>

@@ -15,7 +15,7 @@ export default function CtaSection() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,54,165,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(6,54,165,0.02)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
       
       <motion.div 
-        className="max-w-5xl mx-auto px-8 py-16 bg-slate-50 border border-brand-blue/10 rounded-3xl text-slate-900 flex flex-col justify-between relative overflow-hidden shadow-md text-center space-y-8"
+        className="max-w-5xl mx-auto px-8 py-16 bg-slate-50 border border-brand-blue/10 rounded-3xl text-brand-ink flex flex-col justify-between relative overflow-hidden shadow-md text-center space-y-8"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -32,7 +32,7 @@ export default function CtaSection() {
         </div>
 
         {/* Heading */}
-        <h2 className="text-slate-900 text-display uppercase max-w-3xl mx-auto leading-tight">
+        <h2 className="text-brand-ink text-display uppercase max-w-3xl mx-auto leading-tight">
           ¿Listo para escalar la logística de tu E-Commerce?
         </h2>
 

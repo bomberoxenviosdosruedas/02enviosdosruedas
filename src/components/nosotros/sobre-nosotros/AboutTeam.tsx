@@ -53,7 +53,7 @@ export default function AboutTeam() {
           <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,51,153,0.2)]">
             FUERZA HUMANA
           </span>
-          <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
+          <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
             Nuestro Equipo de Calle
           </h2>
           <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
@@ -81,7 +81,7 @@ export default function AboutTeam() {
                     {member.number}
                   </span>
 
-                  <h3 className="text-xl font-display uppercase tracking-wider text-slate-900 font-bold leading-tight mb-2 min-h-[40px] flex items-center">
+                  <h3 className="text-xl font-display uppercase tracking-wider text-brand-ink font-bold leading-tight mb-2 min-h-[40px] flex items-center">
                     {member.role}
                   </h3>
 

@@ -35,7 +35,7 @@ export default function VisionSection() {
               Partner Logístico Especializado
             </span>
 
-            <h2 className="text-slate-900 text-display uppercase text-left">
+            <h2 className="text-brand-ink text-display uppercase text-left">
               Conectamos Mar del Plata de Punta a Punta
             </h2>
 
@@ -50,7 +50,7 @@ export default function VisionSection() {
                   <Clock className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-subheading uppercase tracking-wider text-slate-900 leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
+                  <h4 className="text-lg font-subheading uppercase tracking-wider text-brand-ink leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
                     Entregas a Tiempo
                   </h4>
                   <p className="text-sm text-slate-500 font-sans leading-relaxed">
@@ -65,7 +65,7 @@ export default function VisionSection() {
                   <ShieldCheck className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-subheading uppercase tracking-wider text-slate-900 leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
+                  <h4 className="text-lg font-subheading uppercase tracking-wider text-brand-ink leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
                     Envíos Seguros
                   </h4>
                   <p className="text-sm text-slate-500 font-sans leading-relaxed">

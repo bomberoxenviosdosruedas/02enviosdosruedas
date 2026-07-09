@@ -281,7 +281,7 @@ export default function PrivacyContent() {
               {/* Quick Trust Banner inside Sidebar */}
               <div className="mt-8 pt-6 border-t border-slate-100 px-2 text-center">
                 <Shield className="h-8 w-8 text-brand-blue mx-auto mb-2" />
-                <p className="text-xs font-bold text-slate-800 uppercase tracking-wide">
+                <p className="text-xs font-bold text-brand-ink uppercase tracking-wide">
                   Seguridad Garantizada
                 </p>
                 <p className="text-[11px] text-slate-400 mt-1 leading-normal font-sans">
@@ -335,7 +335,7 @@ export default function PrivacyContent() {
                         <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
                           Sección {index + 1} de {SECTIONS.length}
                         </span>
-                        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 font-sans">
+                        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-brand-ink font-sans">
                           {section.title}
                         </h2>
                       </div>
@@ -351,7 +351,7 @@ export default function PrivacyContent() {
                     {/* Details Bullet Points (if available) */}
                     {section.extraDetails && (
                       <div className="mt-6 pt-5 border-t border-slate-100">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-3">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-brand-ink mb-3">
                           Puntos Clave:
                         </h4>
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">

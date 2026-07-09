@@ -105,7 +105,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 onChange={setOrigen}
                 onSelectCoordinate={setOrigenCoords}
                 required
-                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-slate-800 placeholder:text-slate-400 font-sans"
+                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-slate-400 font-sans"
               />
             </div>
 
@@ -121,7 +121,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 onChange={setDestino}
                 onSelectCoordinate={setDestinoCoords}
                 required
-                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-slate-800 placeholder:text-slate-400 font-sans"
+                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-slate-400 font-sans"
               />
             </div>
 
@@ -136,7 +136,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
                 required
-                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-slate-800 placeholder:text-slate-400 font-sans"
+                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-slate-400 font-sans"
               />
             </div>
             <div className="space-y-1.5">
@@ -150,7 +150,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 value={telefono}
                 onChange={(e) => setTelefono(e.target.value)}
                 required
-                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-slate-800 placeholder:text-slate-400 font-sans"
+                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-slate-400 font-sans"
               />
             </div>
             <div className="space-y-1.5">
@@ -164,7 +164,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 value={producto}
                 onChange={(e) => setProducto(e.target.value)}
                 required
-                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-slate-800 placeholder:text-slate-400 font-sans"
+                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-slate-400 font-sans"
               />
             </div>
 
@@ -213,7 +213,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                     <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-sans">
                       Distancia
                     </span>
-                    <span className="text-xl font-display text-slate-800">
+                    <span className="text-xl font-display text-brand-ink">
                       {result.distancia} km
                     </span>
                   </div>
@@ -221,7 +221,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                     <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-sans">
                       Demora Estimada
                     </span>
-                    <span className="text-xl font-display text-slate-800">
+                    <span className="text-xl font-display text-brand-ink">
                       {result.tiempo} min
                     </span>
                   </div>

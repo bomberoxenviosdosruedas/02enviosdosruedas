@@ -175,7 +175,7 @@ export function CinematicHero({
     return (
         <div
             ref={containerRef}
-            className={cn("fixed inset-0 w-screen h-screen overflow-hidden flex items-center justify-center bg-[#0636A5] text-white z-[999] font-sans antialiased", className)}
+            className={cn("fixed inset-0 w-screen h-screen overflow-hidden flex items-center justify-center bg-[#003399] text-white z-[999] font-sans antialiased", className)}
             style={{ perspective: "1500px" }}
             {...props}
         >
@@ -186,7 +186,7 @@ export function CinematicHero({
             {/* SKIP INTRO FLOATING BUTTON */}
             <button
                 onClick={handleSkip}
-                className="fixed top-6 right-6 z-[1000] bg-[#FFEC01] hover:bg-white text-[#0636A5] border-2 border-[#0636A5] rounded-2xl font-subheading tracking-wider px-5 py-2 text-base transition-all duration-200 shadow-[3px_3px_0px_#0636A5] active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[1px_1px_0px_#0636A5] cursor-pointer flex items-center gap-1.5 font-bold uppercase"
+                className="fixed top-6 right-6 z-[1000] bg-[#FFCC00] hover:bg-white text-[#003399] border-2 border-[#003399] rounded-2xl font-subheading tracking-wider px-5 py-2 text-base transition-all duration-200 shadow-[3px_3px_0px_#003399] active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[1px_1px_0px_#003399] cursor-pointer flex items-center gap-1.5 font-bold uppercase"
             >
                 <SkipForward className="h-4 w-4 fill-current shrink-0" />
                 Saltar intro
@@ -194,8 +194,8 @@ export function CinematicHero({
 
             {/* STAGE 1 LAYER: Brand logo & name centered */}
             <div className="brand-intro-wrapper absolute z-10 flex flex-col items-center justify-center text-center max-w-lg px-4 pointer-events-none">
-                <div className="brand-logo-large gsap-reveal w-44 h-44 rounded-full flex items-center justify-center bg-gradient-to-b from-white/10 to-white/5 border border-white/20 shadow-2xl p-4 mb-6 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-yellow/20 to-transparent rounded-full blur-xl animate-pulse" />
+                <div className="brand-logo-large gsap-reveal w-44 h-44 rounded-full flex items-center justify-center bg-white/10 border border-white/20 shadow-2xl p-4 mb-6 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-brand-yellow/20 rounded-full blur-xl animate-pulse" />
                     <div className="relative w-full h-full">
                         <Image
                             src="https://i.postimg.cc/RF6MBw2d/logo-envios.webp"
@@ -208,7 +208,7 @@ export function CinematicHero({
                     </div>
                 </div>
                 <h1 className="brand-name-large gsap-reveal text-5xl md:text-7xl font-display uppercase tracking-tight text-white drop-shadow-md leading-none">
-                    Envíos <span className="text-[#FFEC01]">DosRuedas</span>
+                    Envíos <span className="text-[#FFCC00]">DosRuedas</span>
                 </h1>
                 <p className="brand-subtitle-large gsap-reveal text-blue-200/80 font-subheading tracking-widest text-lg md:text-xl uppercase mt-2">
                     Mar del Plata · 2026
@@ -229,7 +229,7 @@ export function CinematicHero({
                         <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left z-20 w-full space-y-5">
                             <div
                                 ref={mockupRef}
-                                className="brand-card-logo gsap-reveal w-28 h-28 lg:w-36 lg:h-36 rounded-full flex items-center justify-center bg-gradient-to-b from-brand-blue/20 to-brand-blue/30 border border-white/10 shadow-[0_15px_30px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] p-5"
+                                className="brand-card-logo gsap-reveal w-28 h-28 lg:w-36 lg:h-36 rounded-full flex items-center justify-center bg-brand-blue/20 border border-white/10 shadow-[0_15px_30px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] p-5"
                             >
                                 <div className="relative w-full h-full">
                                     <Image
@@ -243,7 +243,7 @@ export function CinematicHero({
                             </div>
                             <div className="brand-card-info gsap-reveal">
                                 <h2 className="text-4xl lg:text-6xl font-display uppercase tracking-tight text-white leading-none">
-                                    Envíos <span className="text-[#FFEC01]">DosRuedas</span>
+                                    Envíos <span className="text-[#FFCC00]">DosRuedas</span>
                                 </h2>
                                 <p className="text-blue-100/60 font-sans text-sm lg:text-base mt-3 max-w-sm leading-relaxed">
                                     Conectamos comercios y clientes locales con ruteos automáticos optimizados y entregas veloces.
@@ -258,7 +258,7 @@ export function CinematicHero({
                                     title: "Envíos Express",
                                     desc: "Rango exacto de entrega con 2 horas de anticipación.",
                                     icon: Zap,
-                                    iconColor: "text-[#FFEC01]",
+                                    iconColor: "text-[#FFCC00]",
                                     bg: "bg-blue-950/40 border-blue-500/20",
                                 },
                                 {

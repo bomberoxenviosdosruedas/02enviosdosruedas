@@ -90,7 +90,7 @@ export default function ContactInfo() {
                   <p className="text-[10px] font-subheading uppercase tracking-widest text-slate-400 leading-none mb-1">
                     {chan.label}
                   </p>
-                  <p className="text-xs sm:text-sm font-bold font-mono truncate text-slate-900 leading-tight">
+                  <p className="text-xs sm:text-sm font-bold font-mono truncate text-brand-ink leading-tight">
                     {chan.value}
                   </p>
                 </div>
@@ -116,7 +116,7 @@ export default function ContactInfo() {
               <span className="text-sm font-bold text-slate-650 font-sans">{item.days}</span>
               <span 
                 className={`text-sm font-bold uppercase tracking-wider font-mono ${
-                  item.isClosed ? 'text-rose-600 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-md text-xs' : 'text-slate-800'
+                  item.isClosed ? 'text-rose-600 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-md text-xs' : 'text-brand-ink'
                 }`}
               >
                 {item.time}

@@ -69,7 +69,7 @@ export default function ContactPyME() {
                 <ShieldCheck className="h-6 w-6" />
               </div>
               <div className="space-y-2">
-                <h4 className="font-bold text-slate-900 text-lg">¡Solicitud Registrada Exitosamente!</h4>
+                <h4 className="font-bold text-brand-ink text-lg">¡Solicitud Registrada Exitosamente!</h4>
                 <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed font-normal">
                   Hemos generado tu pre-registro de Cuenta Corriente PyME. Matías Cejas o un asesor de Envíos DosRuedas te enviará el tarifario corporativo a <strong>{email}</strong> en menos de 24 horas hábiles.
                 </p>
@@ -77,7 +77,7 @@ export default function ContactPyME() {
 
               <div className="bg-slate-50 w-full border border-slate-200 rounded-xl p-4 text-xs text-left space-y-1">
                 <span className="block text-[10px] font-bold text-cyan-600 uppercase">Resumen Solicitud</span>
-                <p className="font-bold text-slate-800">• Razón Social: {company}</p>
+                <p className="font-bold text-brand-ink">• Razón Social: {company}</p>
                 <p className="text-slate-650">• Volumen mensual estimado: {estVolume} paquetes</p>
                 <p className="text-slate-650">• CUIT: {cuit || 'S/D'}</p>
               </div>
@@ -92,7 +92,7 @@ export default function ContactPyME() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <h4 className="font-bold text-slate-800 text-base">Alta Previa Cuenta PyME</h4>
+                <h4 className="font-bold text-brand-ink text-base">Alta Previa Cuenta PyME</h4>
                 <p className="text-xs text-slate-400">Completá los campos para recibir el Kit Corporativo de Distribución.</p>
               </div>
 
@@ -105,7 +105,7 @@ export default function ContactPyME() {
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     required
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-cyan-500"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-brand-ink focus:ring-2 focus:ring-cyan-500"
                   />
                 </div>
                 <div className="space-y-1">
@@ -115,7 +115,7 @@ export default function ContactPyME() {
                     placeholder="Sin guiones (Ej. 30123456789)"
                     value={cuit}
                     onChange={(e) => setCuit(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-cyan-500"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-brand-ink focus:ring-2 focus:ring-cyan-500"
                   />
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function ContactPyME() {
                   value={responsible}
                   onChange={(e) => setResponsible(e.target.value)}
                   required
-                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-cyan-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-brand-ink focus:ring-2 focus:ring-cyan-500"
                 />
               </div>
 
@@ -141,7 +141,7 @@ export default function ContactPyME() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-cyan-500"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-brand-ink focus:ring-2 focus:ring-cyan-500"
                   />
                 </div>
                 <div className="space-y-1">
@@ -152,7 +152,7 @@ export default function ContactPyME() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-cyan-500"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-brand-ink focus:ring-2 focus:ring-cyan-500"
                   />
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function ContactPyME() {
                 <select 
                   value={estVolume}
                   onChange={(e) => setEstVolume(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-250 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-cyan-500"
+                  className="w-full bg-slate-50 border border-slate-250 rounded-lg px-2.5 py-1.5 text-xs text-brand-ink focus:ring-2 focus:ring-cyan-500"
                 >
                   <option value="menos-de-10">Menos de 10 bultos mensuales</option>
                   <option value="10-50">De 10 a 50 bultos mensuales</option>

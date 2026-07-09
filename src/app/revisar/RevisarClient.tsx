@@ -121,7 +121,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Title Header (Bento Style) */}
-      <div className="bg-brand-blue text-white rounded-3xl p-8 lg:p-12 border-2 border-brand-blue shadow-[6px_6px_0px_#0636A5] mb-12 relative overflow-hidden">
+      <div className="bg-brand-blue text-white rounded-3xl p-8 lg:p-12 border-2 border-brand-blue shadow-[6px_6px_0px_#003399] mb-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(255,236,1,0.05),transparent_40%)]" />
         <span className="bg-brand-yellow text-brand-blue font-mono font-bold text-xs px-3 py-1.5 rounded-[4px] uppercase tracking-wider inline-block mb-4">
           Operación 2026 — Mar del Plata
@@ -136,7 +136,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
       </div>
 
       {/* Filter and Search Bar Card (Bento Style) */}
-      <div className="bg-white border-2 border-brand-blue rounded-3xl p-6 shadow-[5px_5px_0px_#0636A5] mb-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+      <div className="bg-white border-2 border-brand-blue rounded-3xl p-6 shadow-[5px_5px_0px_#003399] mb-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
         <div className="md:col-span-6 space-y-2">
           <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
             Filtrar por Página
@@ -148,7 +148,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                 onClick={() => setSelectedPage(pageName)}
                 className={`px-4 py-2 rounded-xl font-mono text-[11px] uppercase tracking-wider border-2 border-brand-blue transition-all duration-150 ${
                   selectedPage === pageName
-                    ? 'bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_#0636A5] translate-x-[-1px] translate-y-[-1px]'
+                    ? 'bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_#003399] translate-x-[-1px] translate-y-[-1px]'
                     : 'bg-slate-50 hover:bg-slate-100 text-brand-blue shadow-sm'
                 }`}
               >
@@ -189,7 +189,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
       {/* Main Collapsible Dashboard Content */}
       <div className="space-y-8 mb-16">
         {Object.keys(groupedCatalog).length === 0 ? (
-          <div className="bg-white border-2 border-brand-blue rounded-3xl p-12 text-center text-slate-500 shadow-[5px_5px_0px_#0636A5]">
+          <div className="bg-white border-2 border-brand-blue rounded-3xl p-12 text-center text-slate-500 shadow-[5px_5px_0px_#003399]">
             <p className="font-sans font-bold text-lg">No se encontraron componentes con los filtros seleccionados.</p>
             <button
               onClick={() => { setSelectedPage('All'); setSearchQuery(''); }}
@@ -208,7 +208,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
             return (
               <div 
                 key={pageName} 
-                className="bg-white border-2 border-brand-blue rounded-3xl shadow-[5px_5px_0px_#0636A5] overflow-hidden transition-all duration-200"
+                className="bg-white border-2 border-brand-blue rounded-3xl shadow-[5px_5px_0px_#003399] overflow-hidden transition-all duration-200"
               >
                 {/* Accordion Trigger Header */}
                 <button
@@ -312,14 +312,14 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                               onChange={(e) => handleInputChange(item.id, e.target.value)}
                               placeholder="Ej: Modificar el título por 'Mensajería local 2026', cambiar imagen de fondo, etc..."
                               rows={2}
-                              className="w-full bg-slate-50 focus:bg-white border border-slate-200 focus:border-brand-blue rounded-xl p-2.5 text-xs font-sans text-slate-800 outline-none transition-colors resize-none"
+                              className="w-full bg-slate-50 focus:bg-white border border-slate-200 focus:border-brand-blue rounded-xl p-2.5 text-xs font-sans text-brand-ink outline-none transition-colors resize-none"
                             />
                             
                             <div className="flex justify-end mt-2">
                               <button
                                 onClick={() => handleSubmit(item)}
                                 disabled={isPending}
-                                className="px-3 py-1.5 bg-brand-yellow text-brand-blue font-mono font-bold text-[10px] uppercase tracking-wider border-2 border-brand-blue rounded-lg shadow-[2px_2px_0px_#0636A5] hover:shadow-[1px_1px_0px_#0636A5] hover:translate-x-[1px] hover:translate-y-[1px] transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                                className="px-3 py-1.5 bg-brand-yellow text-brand-blue font-mono font-bold text-[10px] uppercase tracking-wider border-2 border-brand-blue rounded-lg shadow-[2px_2px_0px_#003399] hover:shadow-[1px_1px_0px_#003399] hover:translate-x-[1px] hover:translate-y-[1px] transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
                               >
                                 {isPending ? (
                                   <RefreshCw className="h-3 w-3 animate-spin" />
@@ -342,7 +342,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
       </div>
 
       {/* History and Track Suggestions list */}
-      <div className="bg-white border-2 border-brand-blue rounded-3xl p-8 shadow-[6px_6px_0px_#0636A5] overflow-hidden">
+      <div className="bg-white border-2 border-brand-blue rounded-3xl p-8 shadow-[6px_6px_0px_#003399] overflow-hidden">
         <h2 className="text-2xl sm:text-3xl font-display text-brand-blue uppercase tracking-wide mb-6 flex items-center gap-2">
           <MessageSquare className="h-6 w-6 text-brand-yellow fill-brand-yellow/30" />
           Historial de Sugerencias Guardadas ({feedbackList.length})

@@ -29,7 +29,7 @@ export default function AboutAdvantages() {
           <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_#003399]">
             DIFERENCIAL COMPETITIVO
           </span>
-          <h2 className="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
+          <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
             Por Qué Elegirnos
           </h2>
           <p className="text-slate-600 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
@@ -104,7 +104,7 @@ export default function AboutAdvantages() {
                 <div className="p-2.5 bg-red-100 text-red-650 rounded-xl">
                   <ShieldAlert className="h-5.5 w-5.5" />
                 </div>
-                <h3 className="text-2xl font-display uppercase tracking-wide text-slate-900 font-bold leading-none">
+                <h3 className="text-2xl font-display uppercase tracking-wide text-brand-ink font-bold leading-none">
                   Entregas Confiables en Tiempo y Forma
                 </h3>
               </div>

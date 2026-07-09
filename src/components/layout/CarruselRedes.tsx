@@ -13,7 +13,7 @@ export default function CarruselRedes() {
       desc: 'Novedades diarias',
       url: '/nosotros/nuestras-redes',
       icon: FaInstagram,
-      color: 'bg-white text-slate-800 hover:border-[#E1306C]/50 border-slate-100 shadow-sm',
+      color: 'bg-white text-brand-ink hover:border-[#E1306C]/50 border-slate-100 shadow-sm',
       iconColor: 'text-[#E1306C]',
       iconBg: 'bg-[#E1306C]/10',
     },
@@ -23,7 +23,7 @@ export default function CarruselRedes() {
       desc: 'Comunidad activa',
       url: '/nosotros/nuestras-redes',
       icon: FaFacebook,
-      color: 'bg-white text-slate-800 hover:border-[#1877F2]/50 border-slate-100 shadow-sm',
+      color: 'bg-white text-brand-ink hover:border-[#1877F2]/50 border-slate-100 shadow-sm',
       iconColor: 'text-[#1877F2]',
       iconBg: 'bg-[#1877F2]/10',
     },
@@ -33,7 +33,7 @@ export default function CarruselRedes() {
       desc: 'Atención inmediata',
       url: 'https://wa.me/542236602699',
       icon: FaWhatsapp,
-      color: 'bg-white text-slate-800 hover:border-[#25D366]/50 border-slate-100 shadow-sm',
+      color: 'bg-white text-brand-ink hover:border-[#25D366]/50 border-slate-100 shadow-sm',
       iconColor: 'text-[#25D366]',
       iconBg: 'bg-[#25D366]/10',
     },
@@ -86,7 +86,7 @@ export default function CarruselRedes() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.12, ease: "easeOut" }}
-                className="p-8 rounded-3xl border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFCC00] hover:bg-slate-50 transition-all duration-300 group bg-white text-slate-800"
+                className="p-8 rounded-3xl border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFCC00] hover:bg-slate-50 transition-all duration-300 group bg-white text-brand-ink"
               >
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
@@ -99,7 +99,7 @@ export default function CarruselRedes() {
                   </div>
                   
                   <div>
-                    <h3 className="text-2xl font-display uppercase tracking-tight text-slate-900 group-hover:text-brand-blue transition-colors">
+                    <h3 className="text-2xl font-display uppercase tracking-tight text-brand-ink group-hover:text-brand-blue transition-colors">
                       {net.name}
                     </h3>
                     <p className="text-slate-500 font-mono text-xs mt-1">
@@ -108,7 +108,7 @@ export default function CarruselRedes() {
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-slate-800">
+                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-brand-ink">
                   <span className="text-xs font-sans font-semibold group-hover:text-brand-blue transition-colors">
                     {isExternal ? 'Contactar ahora' : 'Ver perfil'}
                   </span>

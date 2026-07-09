@@ -168,7 +168,7 @@ export default function ExpressHero() {
                     MAPA EN VIVO
                   </div>
                 </div>
-                <div className="flex items-center justify-between text-slate-900">
+                <div className="flex items-center justify-between text-brand-ink">
                   <div>
                     <span className="text-xs font-bold uppercase tracking-wider block">Rango de Entrega</span>
                     <span className="text-[10px] text-slate-400 font-sans block mt-0.5">Asignación prioritaria directa</span>

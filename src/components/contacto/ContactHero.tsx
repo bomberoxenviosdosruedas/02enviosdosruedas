@@ -121,7 +121,7 @@ export default function ContactHero() {
               whileHover={{ scale: 1.025, y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-slate-900 shadow-[8px_8px_0px_#FFCC00] relative overflow-hidden group transition-all duration-300">
+              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-brand-ink shadow-[8px_8px_0px_#FFCC00] relative overflow-hidden group transition-all duration-300">
                 {/* Visual Accent Top Bar */}
                 <div className="absolute top-0 inset-x-0 h-2 bg-brand-blue" />
 
@@ -136,15 +136,15 @@ export default function ContactHero() {
                   <div className="space-y-4 text-sm text-slate-650 font-sans">
                     <div className="flex items-center gap-3">
                       <Phone className="h-5 w-5 text-brand-blue shrink-0 group-hover:scale-105 transition-transform" />
-                      <span className="font-mono font-bold text-slate-900">+54 223 660-2699</span>
+                      <span className="font-mono font-bold text-brand-ink">+54 223 660-2699</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="h-5 w-5 text-brand-blue shrink-0" />
-                      <span className="break-all font-mono font-bold text-slate-900">contacto@enviosdosruedas.com</span>
+                      <span className="break-all font-mono font-bold text-brand-ink">contacto@enviosdosruedas.com</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <MapPin className="h-5 w-5 text-brand-blue shrink-0" />
-                      <span className="font-semibold text-slate-900">Friuli 1972, Mar del Plata</span>
+                      <span className="font-semibold text-brand-ink">Friuli 1972, Mar del Plata</span>
                     </div>
                   </div>
 

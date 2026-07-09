@@ -22,7 +22,7 @@ export default function WarehouseMap() {
           <span className="block text-xs font-bold text-cyan-600 uppercase tracking-widest">
             INFRAESTRUCTURA Y GEOGRAFÍA MDQ
           </span>
-          <h2 className="text-3xl font-black font-display tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-3xl font-black font-display tracking-tight text-brand-ink sm:text-4xl">
             Sede Central y <span className="text-cyan-500">Zonas de Cobertura</span>
           </h2>
           <p className="text-slate-500 text-sm sm:text-base">
@@ -83,7 +83,7 @@ export default function WarehouseMap() {
           {/* Zones Delay Directory Table */}
           <div className="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-8 space-y-4 shadow-sm flex flex-col justify-between">
             <div className="space-y-2">
-              <h3 className="font-bold text-slate-900 text-lg flex items-center gap-2">
+              <h3 className="font-bold text-brand-ink text-lg flex items-center gap-2">
                 <Compass className="h-5 w-5 text-cyan-500" />
                 Planilla de Despacho y Tiempos de Corte
               </h3>
@@ -106,7 +106,7 @@ export default function WarehouseMap() {
                 <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
                   {COVERAGE_DATA.map((item, idx) => (
                     <tr key={idx} className="hover:bg-slate-50/40">
-                      <td className="p-3 font-semibold text-slate-900">{item.zone}</td>
+                      <td className="p-3 font-semibold text-brand-ink">{item.zone}</td>
                       <td className="p-3 font-mono text-cyan-600">{item.delay}</td>
                       <td className="p-3">
                         <span className="px-2 py-0.5 bg-slate-150 rounded text-[10px] font-medium text-slate-600">
