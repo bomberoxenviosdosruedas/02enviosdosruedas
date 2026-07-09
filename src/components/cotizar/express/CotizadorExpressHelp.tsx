@@ -8,7 +8,7 @@ export default function CotizadorExpressHelp() {
   return (
     <div id="cotizador-express-help" className="bg-brand-blue text-white rounded-3xl p-6 sm:p-10 mt-12 relative overflow-hidden">
       {/* Background gradients */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(255,236,1,0.06),transparent_40%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(255,204,0,0.06),transparent_40%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(255,255,255,0.03),transparent_40%)] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">

@@ -35,8 +35,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       {showPreloader && (
         <CinematicHero onComplete={handleComplete} />
       )}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only fixed top-4 left-4 z-[9999] bg-[#FFEC01] text-[#0636A5] px-6 py-3 rounded-xl font-subheading border-2 border-[#0636A5] shadow-[3px_3px_0px_#0636A5] uppercase font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue"
+      >
+        Saltar al contenido
+      </a>
       <OptimizedHeader />
-      <main className="flex-grow pt-[72px]">
+      <main id="main-content" className="flex-grow pt-[72px]" tabIndex={-1}>
         {children}
       </main>
       <CarruselRedes />

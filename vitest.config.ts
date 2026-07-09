@@ -11,8 +11,8 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.ts'],
     // Patrón de archivos de test
     include: ['src/**/*.{test,spec}.{ts,tsx}'],
-    // Excluir archivos de build de Next.js
-    exclude: ['node_modules', '.next', 'src/app/api/**/*.test.ts'],
+    // Excluir directorios pesados y permitir archivos específicos si es necesario
+    exclude: ['node_modules', '.next'],
     // Globals para no tener que importar describe/it/expect en cada archivo
     globals: true,
     // Cobertura de código

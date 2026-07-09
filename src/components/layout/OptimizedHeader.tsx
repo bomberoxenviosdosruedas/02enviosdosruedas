@@ -120,7 +120,7 @@ export default function OptimizedHeader() {
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`px-4 py-2 text-sm font-subheading tracking-wider uppercase rounded-xl transition-all flex items-center gap-2 ${pathname === item.href
+                    className={`px-4 py-2 text-sm font-subheading tracking-wider uppercase rounded-xl transition-all flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50 ${pathname === item.href
                         ? 'text-brand-yellow bg-white/10'
                         : 'text-white hover:text-brand-yellow hover:bg-white/5'
                       }`}
@@ -131,7 +131,16 @@ export default function OptimizedHeader() {
                 ) : (
                   <button
                     onClick={() => handleDropdownToggle(item.label)}
-                    className="px-4 py-2 text-sm font-subheading tracking-wider uppercase rounded-xl transition-all flex items-center gap-1.5 text-white hover:text-brand-yellow hover:bg-white/5 font-medium cursor-pointer"
+                    onFocus={() => item.dropdownItems && setActiveDropdown(item.label)}
+                    onBlur={(e) => {
+                      // Solo cerrar si el foco se mueve fuera del contenedor del dropdown
+                      if (!e.currentTarget.parentElement?.contains(e.relatedTarget)) {
+                        setActiveDropdown(null);
+                      }
+                    }}
+                    aria-haspopup="true"
+                    aria-expanded={activeDropdown === item.label}
+                    className="px-4 py-2 text-sm font-subheading tracking-wider uppercase rounded-xl transition-all flex items-center gap-1.5 text-white hover:text-brand-yellow hover:bg-white/5 font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-yellow/50"
                   >
                     {item.icon && <item.icon className="h-4 w-4 shrink-0" />}
                     <span>{item.label}</span>
@@ -149,6 +158,12 @@ export default function OptimizedHeader() {
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.15 }}
                       className="absolute left-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border-2 border-brand-blue py-3 text-slate-800 overflow-hidden z-50"
+                      onBlur={(e) => {
+                        // Cerrar cuando perdemos foco en el último elemento del dropdown
+                        if (!e.currentTarget.contains(e.relatedTarget)) {
+                          setActiveDropdown(null);
+                        }
+                      }}
                     >
                       <div className="grid gap-1 px-2">
                         {item.dropdownItems.map((subItem) => {
@@ -157,7 +172,7 @@ export default function OptimizedHeader() {
                             <Link
                               key={subItem.href}
                               href={subItem.href}
-                              className="flex items-start gap-3 p-2.5 rounded-xl transition-all hover:bg-brand-blue/5 text-slate-700 hover:text-brand-blue group"
+                              className="flex items-start gap-3 p-2.5 rounded-xl transition-all hover:bg-brand-blue/5 text-slate-700 hover:text-brand-blue group focus:outline-none focus:bg-brand-blue/5 focus:text-brand-blue"
                             >
                               <div className="p-1.5 rounded-lg bg-slate-100 text-slate-500 group-hover:bg-brand-blue/10 group-hover:text-brand-blue transition-colors">
                                 <SubIcon className="h-4 w-4 shrink-0" />

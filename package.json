@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint .",
     "clean": "next clean",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@genkit-ai/google-genai": "^1.39.0",
