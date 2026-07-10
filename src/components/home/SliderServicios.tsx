@@ -17,38 +17,38 @@ export default function SliderServicios() {
   const slides = [
     {
       title: 'E-Commerce',
-      subtitle: 'Entregas Same Day y Next Day',
-      desc: 'Envios a domicilio de las ventas online, entregas same day y next day.',
+      subtitle: 'Entregas same day y next day',
+      desc: 'Envíos a domicilio de tus ventas online. Entregas misma jornada o a partir del día siguiente.',
       icon: ShoppingBag,
     },
     {
-      title: 'Repuesto de Automotores',
+      title: 'Repuestos automotores',
       subtitle: 'Partes críticas al instante',
-      desc: 'Envío rápido de partes críticas a talleres.',
+      desc: 'Envío rápido de repuestos y partes críticas a talleres y concesionarios de toda la ciudad.',
       icon: Wrench,
     },
     {
-      title: 'Indumentaria y Calzado',
-      subtitle: 'Moda y Logística Inversa',
-      desc: 'Logística inversa y entregas rápidas de moda local.',
+      title: 'Indumentaria y calzado',
+      subtitle: 'Moda y logística inversa',
+      desc: 'Logística inversa y entregas rápidas de moda local. Gestionamos cambios y devoluciones sin fricción.',
       icon: Shirt,
     },
     {
-      title: 'Tramites',
-      subtitle: 'Cadetería Administrativa',
-      desc: 'Todo tipo de tramites, cobranzas, despacho de encomiendas.',
+      title: 'Trámites',
+      subtitle: 'Cadería administrativa',
+      desc: 'Todo tipo de trámites, cobranzas y despacho de documentación. Atención el mismo día.',
       icon: FileText,
     },
     {
       title: 'Insumos varios',
       subtitle: 'Entregas en tiempo y forma',
-      desc: 'Entrega de todo tipo de insumos en tiempo y forma (Medicos, Tecnologicos, y mas)',
+      desc: 'Entrega de todo tipo de insumos: médicos, tecnológicos, gastronómicos y más.',
       icon: ClipboardCheck,
     },
     {
       title: 'Encomiendas',
-      subtitle: 'Retiro y Despacho',
-      desc: 'Retiro y despacho de encomiendas',
+      subtitle: 'Retiro y despacho',
+      desc: 'Retiro a domicilio y despacho de encomiendas con seguimiento en tiempo real.',
       icon: Package,
     },
   ];
@@ -110,7 +110,7 @@ export default function SliderServicios() {
               onClick={handlePrev}
               whileHover={{ scale: 1.05, x: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="h-12 w-12 rounded-xl border border-brand-blue/20 hover:bg-brand-yellow hover:text-brand-blue hover:border-brand-yellow text-white flex items-center justify-center transition-all bg-brand-blue cursor-pointer"
+              className="h-12 w-12 rounded-xl border-2 border-brand-blue bg-brand-blue hover:bg-brand-yellow hover:text-brand-blue hover:border-brand-yellow text-white flex items-center justify-center transition-all cursor-pointer active:scale-[0.97]"
               title="Anterior"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -119,7 +119,7 @@ export default function SliderServicios() {
               onClick={handleNext}
               whileHover={{ scale: 1.05, x: 2 }}
               whileTap={{ scale: 0.95 }}
-              className="h-12 w-12 rounded-xl border border-brand-blue/20 hover:bg-brand-yellow hover:text-brand-blue hover:border-brand-yellow text-white flex items-center justify-center transition-all bg-brand-blue cursor-pointer"
+              className="h-12 w-12 rounded-xl border-2 border-brand-blue bg-brand-blue hover:bg-brand-yellow hover:text-brand-blue hover:border-brand-yellow text-white flex items-center justify-center transition-all cursor-pointer active:scale-[0.97]"
               title="Siguiente"
             >
               <ChevronRight className="h-5 w-5" />

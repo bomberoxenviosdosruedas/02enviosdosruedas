@@ -75,7 +75,7 @@ export default function HeroAnimado() {
   return (
     <section
       id="hero-animado"
-      className="relative min-h-[95vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue text-white"
+      className="relative min-h-[95dvh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue text-white"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onTouchMove={handleTouchMove}

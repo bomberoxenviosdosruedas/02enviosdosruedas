@@ -2,14 +2,13 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Clock, ShieldCheck, Users, Trophy, Truck } from 'lucide-react';
+import { Clock, ShieldCheck, Users, Truck } from 'lucide-react';
 
 export default function VisionSection() {
   const stats = [
-    { value: '+50k', label: 'Envíos Realizados', icon: Truck },
-
+    { value: '+52k', label: 'Envíos realizados', icon: Truck },
     { value: '0', label: 'Paquetes extraviados', icon: ShieldCheck },
-    { value: '+50', label: 'Emprendedores Confían', icon: Users },
+    { value: '+140', label: 'Emprendedores confían', icon: Users },
   ];
 
   return (
@@ -76,8 +75,8 @@ export default function VisionSection() {
             </div>
           </div>
 
-          {/* Stats Deck Block */}
-          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Stats Deck Block: 3-col so all cards align evenly */}
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-5">
             {stats.map((stat, i) => {
               const Icon = stat.icon;
               return (

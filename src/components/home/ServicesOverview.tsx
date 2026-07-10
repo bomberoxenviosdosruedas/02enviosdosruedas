@@ -57,15 +57,17 @@ export default function ServicesOverview() {
         }}
       >
 
-        {/* Header Block */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        {/* Header Block: Left-aligned to break generic centered AI pattern */}
+        <div className="max-w-3xl mb-16 space-y-4">
           <span className="px-4 py-1.5 bg-white/10 text-brand-yellow border border-white/20 rounded-full text-xs font-subheading tracking-widest inline-block">
-            Nuestros Servicios
+            Nuestros servicios
           </span>
-          <h2 className="text-white text-display uppercase text-center">
-            Soluciones Logísticas a tu Medida
+          <h2 className="text-white text-display uppercase text-left">
+            Soluciones logísticas a tu medida
           </h2>
-          <div className="h-1.5 w-16 bg-brand-yellow mx-auto rounded-full" />
+          <p className="text-blue-200 text-base leading-relaxed font-sans max-w-xl">
+            Cuatro modalidades pensadas para cada tipo de negocio y cada velocidad de entrega en Mar del Plata.
+          </p>
         </div>
 
         {/* Services Grid */}

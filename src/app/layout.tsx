@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import { Inter, Anton, Bebas_Neue } from 'next/font/google';
+import { Outfit, Anton, Bebas_Neue } from 'next/font/google';
 import './globals.css'; 
 import ClientLayout from '../components/ClientLayout';
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-sans',
 });
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${inter.variable} ${anton.variable} ${bebasNeue.variable} scroll-smooth`}>
+    <html lang="es" className={`${outfit.variable} ${anton.variable} ${bebasNeue.variable} scroll-smooth`}>
       <body className="bg-white text-brand-ink font-sans antialiased selection:bg-brand-yellow selection:text-brand-blue min-h-screen flex flex-col" suppressHydrationWarning>
         <ClientLayout>
           {children}

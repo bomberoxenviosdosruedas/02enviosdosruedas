@@ -27,7 +27,7 @@ function SectionSeparator() {
       <div className="absolute top-1/2 -translate-y-1/2 cursor-pointer transition-all duration-500 ease-out hover-float hover:scale-110 active:scale-95 group">
         {/* Glow halo exterior */}
         <div className="absolute inset-0 bg-brand-yellow/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <div className="absolute inset-0 bg-brand-blue/30 rounded-full blur-xl animate-pulse" />
+        <div className="absolute inset-0 bg-brand-blue/20 rounded-full blur-xl" />
         
         {/* Cuerpo del botón/badge principal */}
         <div className="relative bg-gradient-to-b from-[#0636A5]/80 to-[#002068]/95 backdrop-blur-md border border-white/20 rounded-full p-3.5 shadow-lg group-hover:border-brand-yellow/60 group-hover:shadow-[0_0_20px_rgba(255,236,1,0.4)] flex items-center justify-center transition-all duration-300">
@@ -40,11 +40,11 @@ function SectionSeparator() {
 
 export default function Home() {
   return (
-    <div id="home-page-container" className="w-full bg-[#001035] text-white min-h-screen relative overflow-hidden">
-      {/* 3D ambient glows/orbs representing logistic nodes floating in space */}
-      <div className="absolute top-[10%] left-[-10%] w-[40vw] h-[40vw] bg-[#0636A5]/25 rounded-full blur-[120px] pointer-events-none animate-float-slow" />
-      <div className="absolute top-[40%] right-[-10%] w-[35vw] h-[35vw] bg-[#FFEC01]/5 rounded-full blur-[100px] pointer-events-none" style={{ animationDelay: '-2s' }} />
-      <div className="absolute bottom-[20%] left-[5%] w-[45vw] h-[45vw] bg-[#0636A5]/20 rounded-full blur-[140px] pointer-events-none" style={{ animationDelay: '-4s' }} />
+    <div id="home-page-container" className="w-full bg-brand-blue text-white min-h-screen relative overflow-hidden">
+      {/* Ambient depth orbs — static, no pulse glow (follows DESIGN.md anti-pattern rules) */}
+      <div className="absolute top-[10%] left-[-10%] w-[40vw] h-[40vw] bg-brand-blue/25 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-[40%] right-[-10%] w-[35vw] h-[35vw] bg-brand-navy/40 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-[20%] left-[5%] w-[45vw] h-[45vw] bg-brand-blue/20 rounded-full blur-[140px] pointer-events-none" />
 
       {/* 1. Animated Hero Presentation */}
       <div className="relative z-10">

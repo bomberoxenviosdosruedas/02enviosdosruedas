@@ -33,12 +33,12 @@ export default function CtaSection() {
 
         {/* Heading */}
         <h2 className="text-brand-ink text-display uppercase max-w-3xl mx-auto leading-tight">
-          ¿Listo para escalar la logística de tu E-Commerce?
+          ¿Listo para escalar la logística de tu e-commerce?
         </h2>
 
         {/* Body */}
         <p className="text-slate-600 text-lg max-w-2xl mx-auto font-sans leading-relaxed font-medium">
-          Olvidate de la gestión de paquetes en Mar del Plata y enfocate en vender más. Dejá la distribución urbana en manos de expertos.
+          Olvidate de la gestión de paquetes en Mar del Plata y enfocaté en vender más. Dejá la distribución urbana en manos de expertos.
         </p>
 
         {/* CTA Buttons */}
@@ -50,9 +50,9 @@ export default function CtaSection() {
             id="cta-whatsapp-link"
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-full border border-brand-blue flex items-center justify-center gap-2.5 cursor-pointer font-bold transition-colors shadow-md"
+            className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-full border border-brand-blue flex items-center justify-center gap-2.5 cursor-pointer font-bold transition-colors shadow-md active:scale-[0.98]"
           >
-            <MessageSquare className="h-5 w-5 fill-current animate-bounce shrink-0 text-brand-yellow" />
+            <MessageSquare className="h-5 w-5 fill-current animate-pulse shrink-0 text-brand-yellow" />
             Contactanos por WhatsApp
           </motion.a>
 
@@ -62,7 +62,7 @@ export default function CtaSection() {
             className="w-full sm:w-auto bg-white hover:bg-slate-100/50 border border-brand-blue/30 text-brand-blue font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-full flex items-center justify-center gap-2 cursor-pointer font-bold active:scale-[0.98] transition-all"
           >
             <FileText className="h-5 w-5 shrink-0" />
-            Ver Tarifas 2026
+            Ver tarifas 2026
           </Link>
         </div>
 

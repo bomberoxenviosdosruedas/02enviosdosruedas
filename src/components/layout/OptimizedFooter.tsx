@@ -42,9 +42,9 @@ export default function OptimizedFooter() {
               Tarifas Vigentes 2026
             </span>
             <h3 className="text-2xl font-display uppercase tracking-wide text-white">
-              ¿Tenés un E-Commerce o local en Mar del Plata?
+              ¿Tenés un e-commerce o local en Mar del Plata?
             </h3>
-            <p className="text-blue-150 text-sm max-w-xl">
+            <p className="text-blue-200 text-sm max-w-xl">
               Optimizá tus costos de distribución urbana. Envianos un mensaje o cotizá en el acto de forma online.
             </p>
           </div>
@@ -197,7 +197,7 @@ export default function OptimizedFooter() {
 
               <div className="flex gap-3.5 items-start">
                 <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
-                  <MapPin className="h-4.5 w-4.5" />
+                  <MapPin className="h-[18px] w-[18px]" />
                 </div>
                 <div>
                   <p className="font-bold text-white uppercase font-sans tracking-wide">Ubicación</p>
@@ -207,7 +207,7 @@ export default function OptimizedFooter() {
 
               <div className="flex gap-3.5 items-start">
                 <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
-                  <Phone className="h-4.5 w-4.5" />
+                  <Phone className="h-[18px] w-[18px]" />
                 </div>
                 <div>
                   <p className="font-bold text-white uppercase font-sans tracking-wide">Teléfono</p>
@@ -217,7 +217,7 @@ export default function OptimizedFooter() {
 
               <div className="flex gap-3.5 items-start">
                 <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
-                  <Mail className="h-4.5 w-4.5" />
+                  <Mail className="h-[18px] w-[18px]" />
                 </div>
                 <div>
                   <p className="font-bold text-white uppercase font-sans tracking-wide">Email</p>
@@ -229,7 +229,7 @@ export default function OptimizedFooter() {
 
               <div className="flex gap-3.5 items-start">
                 <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
-                  <Clock className="h-4.5 w-4.5" />
+                  <Clock className="h-[18px] w-[18px]" />
                 </div>
                 <div>
                   <p className="font-bold text-white uppercase font-sans tracking-wide">Horarios</p>

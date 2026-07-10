@@ -78,6 +78,8 @@ interface TimelineContentProps extends Omit<HTMLMotionProps<'div'>, 'variants'> 
   children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  animationNum?: number;
+  timelineRef?: React.RefObject<any>;
 }
 
 // ─── Component ───────────────────────────────────────────────────────────────
@@ -92,6 +94,8 @@ export function TimelineContent({
   as = 'div',
   className,
   style,
+  animationNum,
+  timelineRef,
   ...rest
 }: TimelineContentProps) {
   const Component = motion(as as React.ElementType);
@@ -119,6 +123,7 @@ export function TimelineContent({
       initial="hidden"
       whileInView="visible"
       viewport={{ once, margin: viewportMargin }}
+      custom={animationNum}
       {...rest}
     >
       {children}
