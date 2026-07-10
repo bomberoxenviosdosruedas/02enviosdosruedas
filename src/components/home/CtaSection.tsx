@@ -15,7 +15,7 @@ export default function CtaSection() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,54,165,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(6,54,165,0.02)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
       
       <motion.div 
-        className="max-w-5xl mx-auto px-8 py-16 bg-slate-50 border border-brand-blue/10 rounded-3xl text-brand-ink flex flex-col justify-between relative overflow-hidden shadow-md text-center space-y-8"
+        className="max-w-5xl mx-auto px-8 py-16 card-minimal rounded-3xl text-brand-ink flex flex-col justify-between relative overflow-hidden text-center space-y-8"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -48,18 +48,18 @@ export default function CtaSection() {
             target="_blank"
             rel="noopener noreferrer"
             id="cta-whatsapp-link"
-            whileHover={{ scale: 1.03, y: -2 }}
+            whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-full border border-brand-blue flex items-center justify-center gap-2.5 cursor-pointer font-bold transition-colors shadow-md active:scale-[0.98]"
+            className="w-full sm:w-auto bg-brand-yellow hover:bg-[#ffe000] text-brand-blue font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl border border-brand-yellow shadow-[3px_3px_0px_#0636A5] flex items-center justify-center gap-2.5 cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
           >
-            <MessageSquare className="h-5 w-5 fill-current animate-pulse shrink-0 text-brand-yellow" />
+            <MessageSquare className="h-5 w-5 fill-current animate-pulse shrink-0 text-brand-blue" />
             Contactanos por WhatsApp
           </motion.a>
 
           <Link
             href="/cotizar/lowcost"
             id="cta-rates-link"
-            className="w-full sm:w-auto bg-white hover:bg-slate-100/50 border border-brand-blue/30 text-brand-blue font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-full flex items-center justify-center gap-2 cursor-pointer font-bold active:scale-[0.98] transition-all"
+            className="w-full sm:w-auto bg-white hover:bg-slate-50 border border-brand-blue/20 text-brand-blue font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl shadow-[3px_3px_0px_rgba(6,54,165,0.1)] flex items-center justify-center gap-2 cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
           >
             <FileText className="h-5 w-5 shrink-0" />
             Ver tarifas 2026

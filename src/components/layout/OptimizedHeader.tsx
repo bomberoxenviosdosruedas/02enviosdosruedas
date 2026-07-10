@@ -157,7 +157,7 @@ export default function OptimizedHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute left-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border-2 border-brand-blue py-3 text-brand-ink overflow-hidden z-50"
+                      className="absolute left-0 mt-2 w-72 bg-brand-blue rounded-2xl shadow-xl border border-white/10 py-3 text-white overflow-hidden z-50"
                       onBlur={(e) => {
                         // Cerrar cuando perdemos foco en el último elemento del dropdown
                         if (!e.currentTarget.contains(e.relatedTarget)) {
@@ -172,15 +172,15 @@ export default function OptimizedHeader() {
                             <Link
                               key={subItem.href}
                               href={subItem.href}
-                              className="flex items-start gap-3 p-2.5 rounded-xl transition-all hover:bg-brand-blue/5 text-slate-700 hover:text-brand-blue group focus:outline-none focus:bg-brand-blue/5 focus:text-brand-blue"
+                              className="flex items-start gap-3 p-2.5 rounded-xl transition-all hover:bg-white/5 text-white hover:text-brand-yellow group focus:outline-none focus:bg-white/5 focus:text-brand-yellow"
                             >
-                              <div className="p-1.5 rounded-lg bg-slate-100 text-slate-500 group-hover:bg-brand-blue/10 group-hover:text-brand-blue transition-colors">
+                              <div className="p-1.5 rounded-lg bg-white/5 text-slate-350 group-hover:bg-white/10 group-hover:text-brand-yellow transition-colors">
                                 <SubIcon className="h-4 w-4 shrink-0" />
                               </div>
                               <div>
-                                <p className="text-xs font-semibold uppercase font-subheading tracking-wide leading-tight">{subItem.label}</p>
+                                <p className="text-xs font-semibold uppercase font-subheading tracking-wide leading-tight text-white group-hover:text-brand-yellow transition-colors">{subItem.label}</p>
                                 {subItem.description && (
-                                  <p className="text-[10px] text-gray-500 font-sans mt-0.5">{subItem.description}</p>
+                                  <p className="text-[10px] text-blue-200/70 font-sans mt-0.5 group-hover:text-blue-100 transition-colors">{subItem.description}</p>
                                 )}
                               </div>
                             </Link>
@@ -207,7 +207,7 @@ export default function OptimizedHeader() {
             <Link
               href="/cotizar/express"
               id="header-cta"
-              className="bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-5 py-2.5 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_#003399] transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2 font-bold cursor-pointer"
+              className="bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-5 py-2.5 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_#0636A5] transition-all hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center gap-2 font-bold cursor-pointer"
             >
               <Calculator className="h-4 w-4" />
               Cotizar Envío
@@ -302,7 +302,7 @@ export default function OptimizedHeader() {
               <div className="pt-2">
                 <Link
                   href="/cotizar/express"
-                  className="w-full bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue text-center font-subheading tracking-wider uppercase text-xl py-3 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_#003399] block font-bold transition-all"
+                  className="w-full bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue text-center font-subheading tracking-wider uppercase text-xl py-3 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_#0636A5] block font-bold transition-all active:scale-[0.98] active:translate-y-[1px]"
                 >
                   Cotizar Envío
                 </Link>

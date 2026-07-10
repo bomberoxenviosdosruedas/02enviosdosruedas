@@ -147,7 +147,7 @@ export default function HeroAnimado() {
               <Link
                 href="/cotizar/express"
                 id="hero-cta-solicitar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-[#ffe000] text-brand-blue font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-full border border-brand-yellow transition-all duration-200 hover:scale-[1.02] flex items-center justify-center gap-2 font-bold"
+                className="w-full sm:w-auto bg-brand-yellow hover:bg-[#ffe000] text-brand-blue font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-xl border border-brand-yellow transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center justify-center gap-2 font-bold"
               >
                 Solicitar Servicio
                 <ArrowRight className="h-5 w-5" />
@@ -155,7 +155,7 @@ export default function HeroAnimado() {
               <Link
                 href="/servicios/envios-express"
                 id="hero-cta-servicios"
-                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-full border border-white/30 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-xl border border-white/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center justify-center gap-2"
               >
                 Ver Servicios
               </Link>

@@ -71,14 +71,14 @@ export default function ExpressHero() {
             </motion.div>
 
             {/* Title with Inline Image Typography */}
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3"
             >
               <span>ENVÍOS</span>
               <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#003399]">
                 <Image
-                  src="/express-hero-inline.png" 
+                  src="/express-hero-inline.png"
                   alt="Envíos Express"
                   fill
                   className="object-cover"
@@ -158,7 +158,7 @@ export default function ExpressHero() {
               <div className="relative rounded-3xl border-2 border-brand-blue bg-white p-3.5 shadow-[6px_6px_0px_#FFCC00]">
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-3.5 bg-slate-100 border border-slate-200">
                   <Image
-                    src="/images/card-mapa.webp"
+                    src="/card_mapa.webp"
                     alt="Mapa de Cobertura de Mar del Plata"
                     fill
                     referrerPolicy="no-referrer"

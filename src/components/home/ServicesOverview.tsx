@@ -86,7 +86,7 @@ export default function ServicesOverview() {
                   scale: { type: "spring", stiffness: 300, damping: 20 },
                   opacity: { duration: 0.5, delay: index * 0.08 }
                 }}
-                className="bg-[#04287D] rounded-3xl p-8 border border-white/15 hover:border-brand-yellow/30 shadow-lg hover:shadow-[6px_6px_0px_#FFEC00] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="glassmorphism-premium rounded-3xl p-8 hover:border-brand-yellow/40 hover:shadow-[6px_6px_0px_#FFEC01] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <div className="flex justify-between items-start mb-6">
@@ -113,7 +113,7 @@ export default function ServicesOverview() {
                   </span>
                   <Link
                     href={service.href}
-                    className="h-12 w-12 rounded-xl bg-white/5 text-white border border-white/10 group-hover:border-brand-yellow group-hover:text-brand-blue group-hover:bg-brand-yellow flex items-center justify-center transition-all duration-300 shadow-sm relative overflow-hidden"
+                    className="h-12 w-12 rounded-xl bg-white/5 text-white border border-white/10 group-hover:border-brand-yellow group-hover:text-brand-blue group-hover:bg-brand-yellow flex items-center justify-center transition-all duration-300 shadow-sm relative overflow-hidden active:scale-[0.98] active:translate-y-[1px]"
                   >
                     <ArrowUpRight className="h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 shrink-0" />
                   </Link>

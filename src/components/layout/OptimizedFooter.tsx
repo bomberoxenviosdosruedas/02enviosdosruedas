@@ -28,44 +28,7 @@ export default function OptimizedFooter() {
       {/* Main Footer Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
 
-        {/* UPPER BANNER: CTA / Conversions (Tarifas 2026) */}
-        <motion.div
-          className="mb-16 bg-blue-950/60 border-2 border-white/20 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row justify-between items-center gap-6 shadow-[4px_4px_0px_#FFCC00] backdrop-blur-sm"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="text-center md:text-left space-y-2">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-full text-xs font-subheading tracking-wider uppercase">
-              <Zap className="h-3.5 w-3.5" />
-              Tarifas Vigentes 2026
-            </span>
-            <h3 className="text-2xl font-display uppercase tracking-wide text-white">
-              ¿Tenés un e-commerce o local en Mar del Plata?
-            </h3>
-            <p className="text-blue-200 text-sm max-w-xl">
-              Optimizá tus costos de distribución urbana. Envianos un mensaje o cotizá en el acto de forma online.
-            </p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4 shrink-0 font-subheading">
-            <Link
-              href="/cotizar/express"
-              className="px-6 py-3.5 rounded-xl bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue tracking-wider uppercase text-xl border-2 border-brand-blue shadow-[3px_3px_0px_#003399] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] font-bold"
-            >
-              Cotizar Envío
-            </Link>
-            <a
-              href="https://wa.me/542236602699"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/25 text-white tracking-wider uppercase text-xl border-2 border-white/25 shadow-[3px_3px_0px_#FFCC00] transition-all duration-200 flex items-center gap-2 hover:scale-[1.02]"
-            >
-              <MessageSquare className="h-4.5 w-4.5 text-brand-yellow animate-pulse" />
-              Contactanos
-            </a>
-          </div>
-        </motion.div>
+
 
         {/* MID SECTION: Links & Info Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 items-start">
@@ -75,7 +38,7 @@ export default function OptimizedFooter() {
             <Link href="/" className="flex items-center gap-3 group w-fit">
               <div className="relative w-11 h-11 group-hover:scale-105 transition-transform duration-300 shrink-0">
                 <Image
-                  src="/logo.png"
+                  src="/LogoEnviosDosRuedas.png"
                   alt="Logo Envíos Dos Ruedas"
                   fill
                   sizes="44px"
@@ -103,7 +66,7 @@ export default function OptimizedFooter() {
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
                   <Link
                     href="/nosotros/nuestras-redes"
-                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-brand-blue shadow-[2px_2px_0px_#FFCC00] p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-brand-blue shadow-[2px_2px_0px_#FFEC01] p-2.5 group cursor-pointer"
                     title="Instagram"
                   >
                     <FaInstagram className="h-5 w-5 text-white group-hover:text-brand-blue transition-colors" />
@@ -112,7 +75,7 @@ export default function OptimizedFooter() {
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
                   <Link
                     href="/nosotros/nuestras-redes"
-                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-brand-blue shadow-[2px_2px_0px_#FFCC00] p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-brand-blue shadow-[2px_2px_0px_#FFEC01] p-2.5 group cursor-pointer"
                     title="Facebook"
                   >
                     <FaFacebook className="h-5 w-5 text-white group-hover:text-brand-blue transition-colors" />
@@ -123,7 +86,7 @@ export default function OptimizedFooter() {
                     href="https://wa.me/542236602699"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-brand-blue shadow-[2px_2px_0px_#FFCC00] p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-brand-blue shadow-[2px_2px_0px_#FFEC01] p-2.5 group cursor-pointer"
                     title="WhatsApp"
                   >
                     <FaWhatsapp className="h-5 w-5 text-white group-hover:text-brand-blue transition-colors" />

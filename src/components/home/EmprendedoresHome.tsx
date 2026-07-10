@@ -71,7 +71,7 @@ export default function EmprendedoresHome() {
             whileHover={{ y: -6, scale: 1.01 }}
             viewport={{ once: true }}
             transition={{ y: { type: "spring", stiffness: 300, damping: 20 }, scale: { type: "spring", stiffness: 300, damping: 20 }, opacity: { duration: 0.5 } }}
-            className="lg:col-span-7 bg-[#04287D] rounded-3xl p-8 border border-white/15 flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFEC00] hover:border-brand-yellow/30 transition-all duration-300 group cursor-pointer"
+            className="lg:col-span-7 glassmorphism-premium rounded-3xl p-8 hover:shadow-[6px_6px_0px_#FFEC01] hover:border-brand-yellow/40 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
             <div className="space-y-6">
               <div className="flex justify-between items-start">
@@ -102,7 +102,7 @@ export default function EmprendedoresHome() {
             <div className="pt-8 mt-8 border-t border-white/10">
               <Link
                 href="/servicios/plan-emprendedores"
-                className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-brand-yellow transition-colors"
+                className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-brand-yellow transition-colors active:scale-[0.98] active:translate-y-[1px]"
               >
                 <span>Conocer más</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
@@ -117,7 +117,7 @@ export default function EmprendedoresHome() {
             whileHover={{ y: -6, scale: 1.01 }}
             viewport={{ once: true }}
             transition={{ y: { type: "spring", stiffness: 300, damping: 20 }, scale: { type: "spring", stiffness: 300, damping: 20 }, opacity: { duration: 0.5, delay: 0.1 } }}
-            className="lg:col-span-5 bg-[#04287D] rounded-3xl p-8 border border-white/15 flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFEC00] hover:border-brand-yellow/30 transition-all duration-300 group cursor-pointer"
+            className="lg:col-span-5 glassmorphism-premium rounded-3xl p-8 hover:shadow-[6px_6px_0px_#FFEC01] hover:border-brand-yellow/40 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
             <div className="space-y-6">
               <div className="flex justify-between items-start">
@@ -148,7 +148,7 @@ export default function EmprendedoresHome() {
             <div className="pt-8 mt-8 border-t border-white/10">
               <Link
                 href="/servicios/envios-flex"
-                className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-brand-yellow transition-colors"
+                className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-brand-yellow transition-colors active:scale-[0.98] active:translate-y-[1px]"
               >
                 <span>Conocer más</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
@@ -163,7 +163,7 @@ export default function EmprendedoresHome() {
             whileHover={{ y: -4, scale: 1.005 }}
             viewport={{ once: true }}
             transition={{ y: { type: "spring", stiffness: 300, damping: 20 }, scale: { type: "spring", stiffness: 300, damping: 20 }, opacity: { duration: 0.5, delay: 0.2 } }}
-            className="lg:col-span-12 bg-[#04287D] rounded-3xl p-8 sm:p-10 border border-white/15 hover:shadow-[6px_6px_0px_#FFEC00] hover:border-brand-yellow/30 transition-all duration-300 group cursor-pointer"
+            className="lg:col-span-12 glassmorphism-premium rounded-3xl p-8 sm:p-10 hover:shadow-[6px_6px_0px_#FFEC01] hover:border-brand-yellow/40 transition-all duration-300 group cursor-pointer"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-7 space-y-4">
@@ -194,7 +194,7 @@ export default function EmprendedoresHome() {
                 <div className="pt-2">
                   <Link
                     href="/servicios/logistica-corporativa"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-brand-yellow transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-brand-yellow transition-colors active:scale-[0.98] active:translate-y-[1px]"
                   >
                     <span>Conocer más planes</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />

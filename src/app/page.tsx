@@ -16,22 +16,16 @@ export const metadata: Metadata = {
 function SectionSeparator() {
   return (
     <div className="w-full flex items-center justify-center relative h-16 bg-transparent pointer-events-auto z-20 perspective-1000">
-      {/* Línea horizontal de fondo con degradado */}
+      {/* Línea horizontal de fondo con degradado sutil sin brillos intensos */}
       <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent h-px" />
-      {/* Brillo central amarillo */}
-      <div className="absolute top-1/2 -translate-y-1/2 h-[3px] bg-gradient-to-r from-transparent via-brand-yellow/80 to-transparent w-40 sm:w-64 blur-[1.5px]" />
-      {/* Línea central azul */}
-      <div className="absolute top-1/2 -translate-y-1/2 h-0.5 bg-gradient-to-r from-transparent via-white/20 to-transparent w-72 sm:w-[450px]" />
+      {/* Línea central sutil de acento */}
+      <div className="absolute top-1/2 -translate-y-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent w-48 sm:w-80" />
       
-      {/* Isotipo flotante 3D y Glassmorphic en el centro */}
-      <div className="absolute top-1/2 -translate-y-1/2 cursor-pointer transition-all duration-500 ease-out hover-float hover:scale-110 active:scale-95 group">
-        {/* Glow halo exterior */}
-        <div className="absolute inset-0 bg-brand-yellow/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <div className="absolute inset-0 bg-brand-blue/20 rounded-full blur-xl" />
-        
-        {/* Cuerpo del botón/badge principal */}
-        <div className="relative bg-gradient-to-b from-[#0636A5]/80 to-[#002068]/95 backdrop-blur-md border border-white/20 rounded-full p-3.5 shadow-lg group-hover:border-brand-yellow/60 group-hover:shadow-[0_0_20px_rgba(255,236,1,0.4)] flex items-center justify-center transition-all duration-300">
-          <Bike className="h-5 w-5 text-brand-yellow group-hover:rotate-12 transition-transform duration-300 ease-out shrink-0" />
+      {/* Isotipo flotante y Glassmorphic en el centro */}
+      <div className="absolute top-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 ease-out hover-float hover:scale-105 active:scale-95 group">
+        {/* Cuerpo del botón/badge principal con glassmorphism premium sutil */}
+        <div className="relative bg-brand-blue/80 backdrop-blur-md border border-white/15 rounded-xl p-3 shadow-md group-hover:border-brand-yellow/50 flex items-center justify-center transition-all duration-300">
+          <Bike className="h-5 w-5 text-brand-yellow group-hover:rotate-6 transition-transform duration-300 ease-out shrink-0" />
         </div>
       </div>
     </div>

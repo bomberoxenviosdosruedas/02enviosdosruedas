@@ -86,11 +86,11 @@ export default function CarruselRedes() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.12, ease: "easeOut" }}
-                className="p-8 rounded-3xl border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFCC00] hover:bg-slate-50 transition-all duration-300 group bg-white text-brand-ink"
+                className="p-8 rounded-xl border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFEC01] hover:bg-slate-50 transition-all duration-300 group bg-white text-brand-ink active:scale-[0.98] active:translate-y-[1px]"
               >
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
-                    <div className="p-4 rounded-2xl bg-brand-blue/5 text-brand-blue border border-brand-blue/10">
+                    <div className="p-4 rounded-xl bg-brand-blue/5 text-brand-blue border border-brand-blue/10">
                       <Icon className="h-6 w-6" />
                     </div>
                     <span className="text-[10px] font-subheading tracking-widest text-slate-400 group-hover:text-brand-blue transition-colors">
@@ -112,7 +112,7 @@ export default function CarruselRedes() {
                   <span className="text-xs font-sans font-semibold group-hover:text-brand-blue transition-colors">
                     {isExternal ? 'Contactar ahora' : 'Ver perfil'}
                   </span>
-                  <div className="h-9 w-9 rounded-xl bg-slate-100 text-slate-700 border border-slate-200 group-hover:bg-brand-blue group-hover:text-white flex items-center justify-center transition-all">
+                  <div className="h-9 w-9 rounded-xl bg-slate-100 text-slate-700 border border-slate-200 group-hover:bg-brand-blue group-hover:text-white flex items-center justify-center transition-all active:scale-[0.98] active:translate-y-[1px]">
                     <ArrowUpRight className="h-4 w-4" />
                   </div>
                 </div>
