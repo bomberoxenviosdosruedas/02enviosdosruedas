@@ -40,8 +40,9 @@ El sistema cromático utiliza bloques limpios de contraste sólido para separar 
 
 ### A. The "Double-Bezel" (Doppelrand) Card Architecture
 Las tarjetas informativas u hojas de cálculo en el cotizador no deben presentarse planas sobre el fondo. Deben modelarse como piezas físicas ensambladas:
-*   **Contenedor Exterior (Outer Shell):** Una envoltura `div` con fondo sutil (`bg-[#F1F5F9]`), borde delgado (`border border-slate-200`), un padding pequeño (`p-1.5` o `p-2`) y esquinas redondeadas (`rounded-[2rem]`).
+*   **Contenedor Exterior (Outer Shell):** Una envoltura `div` con fondo sutil (`bg-[#F1F5F9]` o `bg-slate-200/65`), borde delgado (`border border-slate-200` o `border-slate-350`), un padding pequeño (`p-1.5` o `p-2`) y esquinas redondeadas (`rounded-[2rem]`).
 *   **Núcleo Interior (Inner Core):** El contenedor real de información dentro de la envoltura, con fondo plano (`bg-white`), su propia sombra interna suave y esquinas internas proporcionales calculadas matemáticamente (`rounded-[calc(2rem-0.5rem)]`).
+*   **Contraste sobre fondos oscuros/azules:** Cuando las tarjetas se ubican sobre secciones de fondo azul institucional (`#00277c`), **las tarjetas nunca deben usar fondos oscuros o azules**. Se implementan con fondos blancos (`bg-white` en el núcleo interior) y un contenedor exterior claro, garantizando una legibilidad de alta gama y un contraste corporativo premium.
 
 ### B. Nested CTA Pills (Button-in-Button)
 *   Los botones de llamada a la acción primarios deben ser completamente redondeados (`rounded-full`).
@@ -55,6 +56,10 @@ Las tarjetas informativas u hojas de cálculo en el cotizador no deben presentar
 
 ## 5. Layout & Grid Principles
 - **Macro-Whitespace:** Separación generosa de secciones (`py-24` a `py-36`) para permitir que la estructura de información respire.
+- **Intercalación de Secciones (Alternancia cromática):**
+  Las páginas principales de presentación intercalan secciones de fondo azul institucional (`#00277c`) y claro (`#F9F9FC` / blanco):
+  *   **Sección Azul:** El texto de la sección es blanco, los elementos destacados e iconos son amarillos, y las tarjetas de información se presentan en color blanco para legibilidad e impacto visual.
+  *   **Sección Clara/Blanca:** Los títulos y textos principales adoptan el azul corporativo (`#00277c`), mientras que los elementos de control e iconos se destacan en amarillo.
 - **CSS Grid Asimétrico:** Reemplazar el uso repetitivo de tarjetas simétricas de 3 columnas por diseños asimétricos estilo Bento o splits laterales donde la información pesada reside en un bloque más grande (ej: `col-span-8`) y las acciones secundarias en el bloque complementario (`col-span-4`).
 - **Resiliencia Móvil:** Todas las estructuras asimétricas deben colapsar estrictamente a `grid-cols-1`, `w-full` y `px-4` por debajo del breakpoint de `768px` (móviles).
 
