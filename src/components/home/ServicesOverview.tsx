@@ -40,7 +40,7 @@ export default function ServicesOverview() {
   return (
     <section
       id="services-overview"
-      className="py-24 bg-brand-blue relative overflow-hidden text-white"
+      className="py-24 bg-[#00277c] relative overflow-hidden text-white"
     >
       {/* Subtle background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-blue-900/20 blur-3xl -z-10" />
@@ -59,7 +59,7 @@ export default function ServicesOverview() {
 
         {/* Header Block: Left-aligned to break generic centered AI pattern */}
         <div className="max-w-3xl mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-white/10 text-brand-yellow border border-white/20 rounded-full text-xs font-subheading tracking-widest inline-block">
+          <span className="px-4 py-1.5 bg-white/10 text-brand-yellow border border-white/20 rounded-full text-xs font-subheading tracking-widest inline-block uppercase">
             Nuestros servicios
           </span>
           <h2 className="text-white text-display uppercase text-left">
@@ -86,37 +86,39 @@ export default function ServicesOverview() {
                   scale: { type: "spring", stiffness: 300, damping: 20 },
                   opacity: { duration: 0.5, delay: index * 0.08 }
                 }}
-                className="glassmorphism-premium rounded-3xl p-8 hover:border-brand-yellow/40 hover:shadow-[6px_6px_0px_#FFEC01] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="p-2 bg-slate-200/65 border border-slate-350 rounded-[2rem] hover:shadow-[6px_6px_0px_#FFEC01] hover:border-brand-yellow/40 transition-all duration-300 flex flex-col group cursor-pointer"
               >
-                <div>
-                  <div className="flex justify-between items-start mb-6">
-                    <div className="p-4 rounded-2xl bg-white/10 text-brand-yellow group-hover:bg-brand-yellow group-hover:text-brand-blue border border-white/10 transition-all duration-350">
-                      <Icon className="h-6 w-6 group-hover:rotate-6 transition-transform" />
+                <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 flex flex-col justify-between h-full border border-slate-100 shadow-sm">
+                  <div>
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="p-4 rounded-2xl bg-brand-yellow/20 text-[#00277c] group-hover:bg-[#00277c] group-hover:text-brand-yellow border border-brand-yellow/30 transition-all duration-350">
+                        <Icon className="h-6 w-6 group-hover:rotate-6 transition-transform" />
+                      </div>
+                      <span className="px-3 py-1 rounded-xl text-[10px] font-subheading tracking-wider uppercase bg-slate-100 text-slate-600 border border-slate-200">
+                        {service.badge}
+                      </span>
                     </div>
-                    <span className="px-3 py-1 rounded-xl text-[10px] font-subheading tracking-wider uppercase bg-white/10 text-slate-300 border border-white/10">
-                      {service.badge}
-                    </span>
+
+                    <h3 className="text-2xl font-display uppercase tracking-tight text-[#00277c] mb-3 group-hover:text-brand-yellow transition-colors">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-slate-600 text-sm leading-relaxed font-sans mb-8">
+                      {service.description}
+                    </p>
                   </div>
 
-                  <h3 className="text-2xl font-display uppercase tracking-tight text-white mb-3 group-hover:text-brand-yellow transition-colors">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-slate-300 text-sm leading-relaxed font-sans mb-8">
-                    {service.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs font-sans text-slate-400 group-hover:text-brand-yellow transition-colors">
-                    Ver especificaciones de servicio
-                  </span>
-                  <Link
-                    href={service.href}
-                    className="h-12 w-12 rounded-xl bg-white/5 text-white border border-white/10 group-hover:border-brand-yellow group-hover:text-brand-blue group-hover:bg-brand-yellow flex items-center justify-center transition-all duration-300 shadow-sm relative overflow-hidden active:scale-[0.98] active:translate-y-[1px]"
-                  >
-                    <ArrowUpRight className="h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 shrink-0" />
-                  </Link>
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-xs font-sans text-slate-400 group-hover:text-[#00277c] transition-colors">
+                      Ver especificaciones de servicio
+                    </span>
+                    <Link
+                      href={service.href}
+                      className="h-12 w-12 rounded-xl bg-slate-50 text-slate-600 border border-slate-200 group-hover:border-brand-blue group-hover:text-white group-hover:bg-[#00277c] flex items-center justify-center transition-all duration-300 shadow-sm relative overflow-hidden active:scale-[0.98] active:translate-y-[1px]"
+                    >
+                      <ArrowUpRight className="h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 shrink-0" />
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             );

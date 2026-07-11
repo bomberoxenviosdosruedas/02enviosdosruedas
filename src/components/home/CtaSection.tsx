@@ -26,18 +26,18 @@ export default function CtaSection() {
       >
         {/* Animated Badge */}
         <div className="inline-flex justify-center">
-          <span className="px-4 py-2 rounded-full text-xs font-subheading tracking-widest bg-brand-blue text-white border border-brand-blue uppercase font-bold shadow-md">
+          <span className="px-4 py-2 rounded-full text-xs font-subheading tracking-widest bg-brand-yellow/20 text-[#00277c] border border-brand-yellow uppercase font-bold shadow-md">
             SOLUCIONES ESCALABLES 2026
           </span>
         </div>
 
         {/* Heading */}
-        <h2 className="text-brand-ink text-display uppercase max-w-3xl mx-auto leading-tight">
+        <h2 className="text-[#00277c] text-display uppercase max-w-3xl mx-auto leading-tight">
           ¿Listo para escalar la logística de tu e-commerce?
         </h2>
 
         {/* Body */}
-        <p className="text-slate-600 text-lg max-w-2xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-slate-650 text-lg max-w-2xl mx-auto font-sans leading-relaxed font-medium">
           Olvidate de la gestión de paquetes en Mar del Plata y enfocaté en vender más. Dejá la distribución urbana en manos de expertos.
         </p>
 
@@ -50,16 +50,16 @@ export default function CtaSection() {
             id="cta-whatsapp-link"
             whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto bg-brand-yellow hover:bg-[#ffe000] text-brand-blue font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl border border-brand-yellow shadow-[3px_3px_0px_#0636A5] flex items-center justify-center gap-2.5 cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
+            className="w-full sm:w-auto bg-brand-yellow hover:bg-[#ffe000] text-[#00277c] font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl border border-brand-yellow shadow-[3px_3px_0px_#00277c] flex items-center justify-center gap-2.5 cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
           >
-            <MessageSquare className="h-5 w-5 fill-current animate-pulse shrink-0 text-brand-blue" />
+            <MessageSquare className="h-5 w-5 fill-current animate-pulse shrink-0 text-[#00277c]" />
             Contactanos por WhatsApp
           </motion.a>
 
           <Link
             href="/cotizar/lowcost"
             id="cta-rates-link"
-            className="w-full sm:w-auto bg-white hover:bg-slate-50 border border-brand-blue/20 text-brand-blue font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl shadow-[3px_3px_0px_rgba(6,54,165,0.1)] flex items-center justify-center gap-2 cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
+            className="w-full sm:w-auto bg-white hover:bg-slate-50 border border-[#00277c]/20 text-[#00277c] font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl shadow-[3px_3px_0px_rgba(0,39,124,0.1)] flex items-center justify-center gap-2 cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
           >
             <FileText className="h-5 w-5 shrink-0" />
             Ver tarifas 2026

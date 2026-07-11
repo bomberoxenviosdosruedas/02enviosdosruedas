@@ -30,26 +30,26 @@ export default function VisionSection() {
 
           {/* Information Block */}
           <div className="lg:col-span-6 space-y-8">
-            <span className="px-4 py-1.5 bg-brand-blue/5 text-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block border border-brand-blue/20 uppercase">
+            <span className="px-4 py-1.5 bg-brand-yellow/20 text-[#00277c] rounded-full text-xs font-subheading tracking-widest inline-block border border-brand-yellow uppercase">
               Partner Logístico Especializado
             </span>
 
-            <h2 className="text-brand-ink text-display uppercase text-left">
+            <h2 className="text-[#00277c] text-display uppercase text-left">
               Conectamos Mar del Plata de Punta a Punta
             </h2>
 
-            <p className="text-slate-600 text-lg leading-relaxed font-sans max-w-xl">
+            <p className="text-slate-650 text-lg leading-relaxed font-sans max-w-xl">
               Nos especializamos en la distribución de última milla para e-commerce locales y retailers nacionales, asegurando que tus productos lleguen al destino en tiempo récord con tecnología de punta y tarifas transparentes.
             </p>
 
             <div className="space-y-5 pt-4">
               {/* Feature 1 */}
               <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-brand-blue/10 group cursor-default">
-                <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-xl shrink-0 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+                <div className="p-3 bg-brand-yellow text-[#00277c] rounded-xl shrink-0 group-hover:bg-[#00277c] group-hover:text-brand-yellow transition-all duration-300 border border-brand-yellow/30">
                   <Clock className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-subheading uppercase tracking-wider text-brand-ink leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
+                  <h4 className="text-lg font-subheading uppercase tracking-wider text-[#00277c] leading-none mb-1.5 transition-colors">
                     Entregas a Tiempo
                   </h4>
                   <p className="text-sm text-slate-500 font-sans leading-relaxed">
@@ -60,11 +60,11 @@ export default function VisionSection() {
 
               {/* Feature 2 */}
               <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-brand-blue/10 group cursor-default">
-                <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-xl shrink-0 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+                <div className="p-3 bg-brand-yellow text-[#00277c] rounded-xl shrink-0 group-hover:bg-[#00277c] group-hover:text-brand-yellow transition-all duration-300 border border-brand-yellow/30">
                   <ShieldCheck className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-subheading uppercase tracking-wider text-brand-ink leading-none mb-1.5 group-hover:text-brand-blue transition-colors">
+                  <h4 className="text-lg font-subheading uppercase tracking-wider text-[#00277c] leading-none mb-1.5 transition-colors">
                     Envíos Seguros
                   </h4>
                   <p className="text-sm text-slate-500 font-sans leading-relaxed">
@@ -91,18 +91,15 @@ export default function VisionSection() {
                     scale: { type: "spring", stiffness: 300, damping: 20 },
                     opacity: { duration: 0.5, delay: i * 0.1 }
                   }}
-                  className={`p-8 rounded-3xl border border-brand-blue/10 transition-all duration-300 flex flex-col justify-between cursor-pointer group ${i % 3 === 0
-                      ? 'bg-brand-blue/5 hover:bg-brand-blue/10'
-                      : 'bg-white hover:bg-slate-50'
-                    }`}
+                  className="p-8 rounded-3xl border border-slate-200 transition-all duration-300 flex flex-col justify-between cursor-pointer group bg-slate-50 hover:bg-white hover:border-[#00277c]/20 hover:shadow-minimal"
                 >
                   <div className="flex justify-between items-start mb-6">
-                    <div className="p-3.5 rounded-2xl bg-brand-blue/10 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
+                    <div className="p-3.5 rounded-2xl bg-brand-yellow text-[#00277c] group-hover:bg-[#00277c] group-hover:text-brand-yellow border border-brand-yellow/30 transition-colors duration-300">
                       <Icon className="h-6 w-6 group-hover:rotate-6 transition-transform duration-300" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-4xl lg:text-5xl font-display text-brand-blue uppercase leading-none mb-2">
+                    <h3 className="text-4xl lg:text-5xl font-display text-[#00277c] uppercase leading-none mb-2">
                       {stat.value}
                     </h3>
                     <p className="text-xs text-slate-500 font-sans uppercase tracking-wider leading-relaxed">

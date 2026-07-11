@@ -17,14 +17,14 @@ function SectionSeparator() {
   return (
     <div className="w-full flex items-center justify-center relative h-16 bg-transparent pointer-events-auto z-20 perspective-1000">
       {/* Línea horizontal de fondo con degradado sutil sin brillos intensos */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent h-px" />
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-slate-250 to-transparent h-px" />
       {/* Línea central sutil de acento */}
-      <div className="absolute top-1/2 -translate-y-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent w-48 sm:w-80" />
+      <div className="absolute top-1/2 -translate-y-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent w-48 sm:w-80" />
       
       {/* Isotipo flotante y Glassmorphic en el centro */}
       <div className="absolute top-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 ease-out hover-float hover:scale-105 active:scale-95 group">
-        {/* Cuerpo del botón/badge principal con glassmorphism premium sutil */}
-        <div className="relative bg-brand-blue/80 backdrop-blur-md border border-white/15 rounded-xl p-3 shadow-md group-hover:border-brand-yellow/50 flex items-center justify-center transition-all duration-300">
+        {/* Cuerpo del botón/badge principal con marca */}
+        <div className="relative bg-brand-blue border border-brand-blue/10 rounded-xl p-3 shadow-md group-hover:border-brand-yellow flex items-center justify-center transition-all duration-300">
           <Bike className="h-5 w-5 text-brand-yellow group-hover:rotate-6 transition-transform duration-300 ease-out shrink-0" />
         </div>
       </div>
@@ -34,12 +34,7 @@ function SectionSeparator() {
 
 export default function Home() {
   return (
-    <div id="home-page-container" className="w-full bg-brand-blue text-white min-h-screen relative overflow-hidden">
-      {/* Ambient depth orbs — static, no pulse glow (follows DESIGN.md anti-pattern rules) */}
-      <div className="absolute top-[10%] left-[-10%] w-[40vw] h-[40vw] bg-brand-blue/25 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-[40%] right-[-10%] w-[35vw] h-[35vw] bg-brand-navy/40 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[20%] left-[5%] w-[45vw] h-[45vw] bg-brand-blue/20 rounded-full blur-[140px] pointer-events-none" />
-
+    <div id="home-page-container" className="w-full bg-[#F9F9FC] text-slate-900 min-h-screen relative overflow-hidden">
       {/* 1. Animated Hero Presentation */}
       <div className="relative z-10">
         <HeroAnimado />

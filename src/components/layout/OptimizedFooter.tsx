@@ -16,7 +16,7 @@ export default function OptimizedFooter() {
   };
 
   return (
-    <footer id="optimized-footer" className="bg-brand-blue text-white border-t border-white/10 relative overflow-hidden font-sans">
+    <footer id="optimized-footer" className="bg-[#00277c] text-white border-t border-white/10 relative overflow-hidden font-sans">
 
       {/* Decorative top yellow accent bar with neon glow */}
       <div className="h-1.5 bg-brand-yellow w-full shadow-md shadow-brand-yellow/30" />
@@ -66,19 +66,19 @@ export default function OptimizedFooter() {
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
                   <Link
                     href="/nosotros/nuestras-redes"
-                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-brand-blue shadow-[2px_2px_0px_#FFEC01] p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-[#00277c] flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-[#00277c] shadow-[2px_2px_0px_#FFEC01] p-2.5 group cursor-pointer"
                     title="Instagram"
                   >
-                    <FaInstagram className="h-5 w-5 text-white group-hover:text-brand-blue transition-colors" />
+                    <FaInstagram className="h-5 w-5 text-white group-hover:text-[#00277c] transition-colors" />
                   </Link>
                 </motion.div>
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
                   <Link
                     href="/nosotros/nuestras-redes"
-                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-brand-blue shadow-[2px_2px_0px_#FFEC01] p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-[#00277c] flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-[#00277c] shadow-[2px_2px_0px_#FFEC01] p-2.5 group cursor-pointer"
                     title="Facebook"
                   >
-                    <FaFacebook className="h-5 w-5 text-white group-hover:text-brand-blue transition-colors" />
+                    <FaFacebook className="h-5 w-5 text-white group-hover:text-[#00277c] transition-colors" />
                   </Link>
                 </motion.div>
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
@@ -86,10 +86,10 @@ export default function OptimizedFooter() {
                     href="https://wa.me/542236602699"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-brand-blue shadow-[2px_2px_0px_#FFEC01] p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow text-white hover:text-[#00277c] flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-[#00277c] shadow-[2px_2px_0px_#FFEC01] p-2.5 group cursor-pointer"
                     title="WhatsApp"
                   >
-                    <FaWhatsapp className="h-5 w-5 text-white group-hover:text-brand-blue transition-colors" />
+                    <FaWhatsapp className="h-5 w-5 text-white group-hover:text-[#00277c] transition-colors" />
                   </a>
                 </motion.div>
 
@@ -210,7 +210,7 @@ export default function OptimizedFooter() {
           {/* Scroll to Top Floating Button */}
           <motion.button
             onClick={scrollToTop}
-            className="absolute -top-6 right-4 sm:right-8 bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue p-3.5 rounded-xl shadow-[3px_3px_0px_#003399] hover:scale-105 active:scale-95 transition-all flex items-center justify-center border-2 border-brand-blue cursor-pointer"
+            className="absolute -top-6 right-4 sm:right-8 bg-brand-yellow hover:bg-brand-yellow/95 text-[#00277c] p-3.5 rounded-xl shadow-[3px_3px_0px_#00277c] hover:scale-105 active:scale-95 transition-all flex items-center justify-center border-2 border-[#00277c] cursor-pointer"
             title="Volver arriba"
             whileHover={{ y: -2 }}
           >

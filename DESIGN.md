@@ -1,68 +1,65 @@
-# Design System: Envíos DosRuedas (High-Velocity Corporate Theme)
+# Design System: Envíos DosRuedas (High-End Corporate Heritage Theme)
+
+Este documento define la base del sistema de diseño para **Envíos DosRuedas** (2026), unificando la solemnidad estructural de los correos e instituciones logísticas de confianza (inspirado en `correo_propio`) con las micro-interacciones cinéticas de alta gama, ritmos de movimiento premium y arquitectura de hardware de la guía visual moderna.
+
+---
 
 ## 1. Visual Theme & Atmosphere
-Un entorno corporativo e industrial de alto rendimiento que combina precisión operativa y velocidad logística. El flujo visual transita dinámicamente entre secciones inmersivas oscuras de tono institucional y secciones de lienzo claro de alta legibilidad, emulando una cabina de control moderna y profesional.
-- **Density:** Daily App Balanced (6/10) — Diseñado para una lectura ágil de datos de envío y servicios críticos.
-- **Variance:** Offset Asymmetric (6/10) — Diseños de héroe con splits asimétricos e integración lateral de componentes de tracking simulados.
-- **Motion:** Fluid CSS & Kinetic Loops (5/10) — Micro-interacciones cinéticas en barras de progreso y botones con respuestas físicas directas.
-- **Atmósfera:** Estructura limpia y utilitaria, con contrastes de bloque muy definidos donde el azul corporativo transmite seguridad y el amarillo acentúa la acción inmediata.
+El entorno evoca confianza soberana, solidez corporativa y precisión técnica. Es una cabina de control digital de alto rendimiento y velocidad logística. El lienzo principal del sitio es **completamente claro** (siguiendo a `correo_propio`), utilizando el color azul institucional únicamente en cabeceras, menús y pie de página para estructurar el contenido de forma seria y corporativa.
+
+- **Density:** Utility Focused (7/10) — La información debe estar estructurada de manera impecable. El espaciado generoso convive con datos nítidos.
+- **Variance:** Structural Asymmetry (7/10) — Uso de cuadrículas estructuradas (Grids Asimétricos y Bentos de Información) para dar dinamismo a las secciones.
+- **Motion:** Haptic Response (6/10) — Respuestas de animación fluidas con resortes cinéticos controlados en botones y barras de estado, simulando fricción física real.
+- **Atmósfera:** La solemnidad del azul institucional se entrelaza con el amarillo como gatillo de acción principal. Relleno y cuerpo en color blanco y gris claro.
 
 ---
 
 ## 2. Color Palette & Roles
-El sistema de color utiliza bloques sólidos de alto contraste para separar jerarquías de contenido sin recurrir a gradientes sobrecargados.
+El sistema cromático utiliza bloques limpios de contraste sólido para separar jerarquías de contenido, eliminando gradientes estridentes y destellos de fondo artificiales.
 
-- **Primary / Egyptian Blue** (`#0636A5`) — Fondo principal de secciones inmersivas, cabecera y pie de página. Aporta la base de identidad corporativa.
-- **Dark Primary / Deep Navy** (`#002068`) — Fondo secundario para layouts de soporte y contraste estructural.
-- **Accent / Sun Yellow** (`#FFEC01`) — Color de acento único reservado para botones principales de conversión (CTAs), badges de estado críticos y barras de localización activa. Saturación controlada.
-- **Canvas White / Surface** (`#FFFFFF`) — Fondo limpio y despejado para secciones de lectura, paneles internos y tarjetas.
-- **Ink Black / On-Surface** (`#151B2D`) — Texto principal sobre fondos claros. Alta legibilidad.
-- **Muted Gray / On-Surface Variant** (`#444653`) — Texto secundario, subtítulos y metadatos de menor jerarquía.
-- **Subtle Border** (`#E2E8F0`) — Líneas de separación y marcos de tarjetas en secciones claras.
-*(Máximo 1 color de acento. Saturación por debajo del 80%. Prohibido el uso de halos degradados morados/neón).*
+- **Primary / Egyptian Blue** (`#00277c`) — El núcleo de la identidad de confianza. Utilizado exclusivamente en la barra superior (Header), barra de navegación y pie de página.
+- **Accent / Sun Yellow** (`#FFEC01`) — Acento exclusivo y puntual. Reservado para botones principales (CTAs), barras de estado activas y alertas.
+- **Sostenible Green** (`#2E7D32`) — Para etiquetas y badges de sostenibilidad (ej. Flota Eléctrica).
+- **Canvas White / Surface** (`#FFFFFF`) — Fondo principal para todo el cuerpo del sitio, tarjetas de contenido y paneles.
+- **Soft Light Gray / Surface Variant** (`#F9F9FC`) — Fondo secundario general para estructurar secciones de la página, alineado a `correo_propio`.
+- **Ink Black / On-Surface** (`#0F172A`) — Texto principal de alta legibilidad sobre fondos claros.
+- **Muted Gray / Text Variant** (`#475569`) — Metadatos, subtítulos y textos informativos.
+- **Subtle Border** (`#E2E8F0` / `white/10`) — Líneas finas divisorias para estructurar contenedores.
 
 ---
 
 ## 3. Typography Rules
-- **Display / Headlines:** `Anton` — Tipografía condensada e industrial en mayúsculas. Genera impacto visual inmediato. Track-tight y leading controlado.
-- **Body & Text:** `Outfit` (Tipografía principal para producción) — Letra de palo seco limpia y con alta legibilidad para descripciones largas y etiquetas de formulario. Límite estricto de 65 caracteres por línea.
-- **Mono / Data:** `ui-monospace` o `Geist Mono` — Utilizada estrictamente para números de guía, códigos de seguimiento (Tracking ID), horas estimadas de entrega (ETA) y métricas duras.
-- **Banned:** `Inter` y fuentes genéricas de sistema para contextos de producción premium.
+- **Display / Headlines:** `Anton` — Tipografía sans-serif condensada y potente, usada estrictamente en mayúsculas para H1, H2 y números destacados. Transmite velocidad e impacto corporativo.
+- **Subheadings & Accents:** `Bebas Neue` o `IBM Plex Sans` (Medium/Bold) — Para subtítulos rápidos, títulos de tarjetas de servicio y badges de estado.
+- **Body & Forms:** `Outfit` — Fuente geométrica de palo seco de alta legibilidad con excelente peso visual en texto plano y etiquetas de formulario.
+- **Data / Metrics:** `ui-monospace` o `Geist Mono` — Exclusiva para ID de rastreo, costos numéricos, tiempos estimados de entrega (ETA) y métricas de rendimiento.
 
 ---
 
-## 4. Component Stylings
-* **Buttons:** Botones con cantos vivos y planos (esquinas suavizadas, máximo `rounded-xl`). El botón principal utiliza fondo Sun Yellow (`#FFEC01`) con texto en Egyptian Blue (`#0636A5`) y efecto de traslación física en estado activo (`translate-y-[1px]` o `scale(0.98)`). Botones secundarios en secciones oscuras usan bordes translúcidos (`border-white/30`).
-* **Cards:** Contenedores de información con elevación nula o muy baja. Se estructuran mediante fondos blancos limpios y bordes finos `#E2E8F0` para separar la información. En secciones oscuras, se prefiere el uso de bordes de acento translúcidos o efectos de vidrio realistas (`glassmorphism` con 1px de borde interior).
-* **Inputs/Forms:** Campos de formulario con etiqueta superior en mayúsculas pequeñas. Bordes definidos de 1px que transicionan al azul corporativo en foco.
-* **Loading States:** Esqueletos de carga (skeleton loaders) que coinciden exactamente con las dimensiones del componente a renderizar. Prohibido el uso de loaders circulares genéricos.
-* **Progress Bar (Tracking):** Línea gruesa de 6px a 8px donde el tramo recorrido usa color de acento o azul brillante y el tramo restante un gris neutro claro, rematando con un punto activo parpadeante.
+## 4. Component Stylings (Architecture)
+
+### A. The "Double-Bezel" (Doppelrand) Card Architecture
+Las tarjetas informativas u hojas de cálculo en el cotizador no deben presentarse planas sobre el fondo. Deben modelarse como piezas físicas ensambladas:
+*   **Contenedor Exterior (Outer Shell):** Una envoltura `div` con fondo sutil (`bg-[#F1F5F9]`), borde delgado (`border border-slate-200`), un padding pequeño (`p-1.5` o `p-2`) y esquinas redondeadas (`rounded-[2rem]`).
+*   **Núcleo Interior (Inner Core):** El contenedor real de información dentro de la envoltura, con fondo plano (`bg-white`), su propia sombra interna suave y esquinas internas proporcionales calculadas matemáticamente (`rounded-[calc(2rem-0.5rem)]`).
+
+### B. Nested CTA Pills (Button-in-Button)
+*   Los botones de llamada a la acción primarios deben ser completamente redondeados (`rounded-full`).
+*   **Trailing Circle:** Cualquier flecha de acción (`↗` o `→`) o icono debe estar encapsulado en su propio círculo independiente (ej: `w-8 h-8 rounded-full bg-black/5 flex items-center justify-center`) al final del botón para una apariencia mecánica y refinada.
+
+### C. Inputs / Form Controls
+*   Etiquetas en mayúsculas con fuente `Bebas Neue` o `Outfit` en tamaño pequeño y peso bold (`tracking-wider text-slate-500`).
+*   Marcos limpios con bordes definidos de 1px. Al recibir foco, transicionan fluidamente al color azul primario con un anillo de enfoque nítido.
 
 ---
 
-## 5. Layout Principles
-- **Alternancia Dinámica de Fondo:** Estructuración de la landing page alternando secuencialmente entre fondos oscuros (Egyptian Blue) y claros (Canvas White) para generar un ritmo de lectura dinámico.
-- **Split Asimétrico de Héroe:** Héroe alineado a la izquierda con el contenido de copy de ventas principal y CTA, y un widget simulado interactivo de alta fidelidad alineado a la derecha.
-- **Grids Utilitarios:** Estructuras de rejilla que colapsan estrictamente a 1 columna en móviles (<768px). Prohibido el uso de layouts de 3 tarjetas iguales horizontales; usar cuadrículas de 2x2, 2x3 o alternancia asimétrica en su lugar.
-- **Heights:** El tamaño de secciones de pantalla completa debe usar `min-h-[100dvh]` para evitar problemas de scroll y saltos en navegadores móviles (iOS Safari).
+## 5. Layout & Grid Principles
+- **Macro-Whitespace:** Separación generosa de secciones (`py-24` a `py-36`) para permitir que la estructura de información respire.
+- **CSS Grid Asimétrico:** Reemplazar el uso repetitivo de tarjetas simétricas de 3 columnas por diseños asimétricos estilo Bento o splits laterales donde la información pesada reside en un bloque más grande (ej: `col-span-8`) y las acciones secundarias en el bloque complementario (`col-span-4`).
+- **Resiliencia Móvil:** Todas las estructuras asimétricas deben colapsar estrictamente a `grid-cols-1`, `w-full` y `px-4` por debajo del breakpoint de `768px` (móviles).
 
 ---
 
-## 6. Motion & Interaction
-- **Física de Resortes (Spring Physics):** Por defecto para animaciones e interacciones (`stiffness: 100, damping: 20` o `stiffness: 300, damping: 20` para hovers rápidos).
-- **Transiciones de Estado:** Efectos hover limpios de cambio de color o elevación sutil para los elementos interactivos con duraciones controladas de 200ms a 300ms.
-- **Aceleración por Hardware:** Uso exclusivo de propiedades `transform` y `opacity` para mantener el rendimiento web al 100%.
-
----
-
-## 7. Anti-Patterns (Banned)
-- Prohibido el uso de emojis en cualquier sección formal del sitio.
-- Prohibida la tipografía `Inter` en favor de `Outfit`.
-- Prohibido el uso de tipografías serif genéricas (`Times New Roman`, `Georgia`).
-- Prohibido el color negro absoluto (`#000000`) en textos y lienzos (usar Ink Black `#151B2D`).
-- Prohibidas las sombras brillantes de neón o estilos glow artificiales de IA.
-- Prohibidos los degradados en texto de gran tamaño o fondos de tarjetas.
-- Prohibido el desbordamiento horizontal en layouts de móvil.
-- Prohibido el uso de nombres en inglés genéricos para la demostración de rutas locales de Mar del Plata.
-- Prohibidas las palabras de copywriting cliché de IA (*"Elevate"*, *"Seamless"*, *"Unleash"*, *"Next-Gen"*, *"Game-changer"*).
-- Prohibido el texto de relleno innecesario como *"Scroll to explore"*, *"Swipe down"* o iconos de flechas rebotando.
+## 6. Motion Choreography
+*   **Física de Resortes (Spring Transitions):** Uso de transiciones amortiguadas personalizadas para hovers e interacciones (`stiffness: 120, damping: 18`).
+*   **Staggered Entrance:** Los enlaces de navegación del header y las filas en tablas no se cargan estáticamente; se revelan secuencialmente ascendiendo sutilmente desde una máscara invisible.
