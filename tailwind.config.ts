@@ -9,25 +9,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-blue': '#0636A5',
-        'brand-yellow': '#FFEC01',
-        'brand-navy': '#002068',
-        'brand-ink': '#151B2D',
+        'brand-blue': '#00277C',
+        'brand-yellow': '#D8CA00',
+        'brand-navy': '#001C58',
+        'brand-ink': '#1A1C1E',
       },
       fontFamily: {
-        sans: ['var(--font-sans)', 'Inter', 'sans-serif'],
+        sans: ['var(--font-sans)', 'IBM Plex Sans', 'Inter', 'sans-serif'],
         display: ['var(--font-display)', 'Anton', 'sans-serif'],
         subheading: ['var(--font-subheading)', 'Bebas Neue', 'sans-serif'],
       },
       boxShadow: {
-        'glow-blue': '0 0 25px rgba(6, 54, 165, 0.4)',
-        'glow-yellow': '0 0 25px rgba(255, 236, 1, 0.5)',
-        'glow-blue-lg': '0 0 50px rgba(6, 54, 165, 0.5)',
-        'glow-yellow-lg': '0 0 50px rgba(255, 236, 1, 0.65)',
-        'accent-sm': '0 2px 4px rgba(255, 236, 1, 0.2)',
-        'accent-md': '0 4px 8px rgba(255, 236, 1, 0.25), 0 2px 4px rgba(255, 236, 1, 0.15)',
-        'accent-lg': '0 8px 16px rgba(255, 236, 1, 0.35), 0 4px 8px rgba(255, 236, 1, 0.25)',
-        'float-shadow': '0 25px 50px -12px rgba(6, 54, 165, 0.25)',
+        'glow-blue': '0 0 25px rgba(0, 39, 124, 0.25)',
+        'glow-yellow': '0 0 25px rgba(216, 202, 0, 0.35)',
+        'glow-blue-lg': '0 0 50px rgba(0, 39, 124, 0.35)',
+        'glow-yellow-lg': '0 0 50px rgba(216, 202, 0, 0.5)',
+        'accent-sm': '0 2px 4px rgba(216, 202, 0, 0.15)',
+        'accent-md': '0 4px 8px rgba(216, 202, 0, 0.2), 0 2px 4px rgba(216, 202, 0, 0.1)',
+        'accent-lg': '0 8px 16px rgba(216, 202, 0, 0.3), 0 4px 8px rgba(216, 202, 0, 0.2)',
+        'float-shadow': '0 25px 50px -12px rgba(0, 39, 124, 0.15)',
       },
       animation: {
         'float-slow': 'float-slow 6s ease-in-out infinite',

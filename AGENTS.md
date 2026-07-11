@@ -91,7 +91,8 @@ src/
 
 1.  **Uso del Sistema de Temas:**
     *   No utilices colores en formato Hex o Tailwind genérico ad-hoc en los componentes si existen variables oficiales.
-    *   **Azul Principal:** Usa `bg-brand-blue` o `text-brand-blue` (refiere a `#0636A5`).
+    *   **Azul Principal / Egyptian Blue:** Usa `#00277c` para Header, Footer, fondos principales de sección y textos oscuros.
+    *   **Azul Secundario / Brand Blue:** El color `#0636A5` (`bg-brand-blue`) queda reservado como azul secundario y de acento.
     *   **Amarillo Acento:** Usa `bg-brand-yellow` o `text-brand-yellow` (refiere a `#FFEC01`).
     *   **Neutros:** `slate-50` para fondos claros, `slate-900`/`slate-950` para fondos oscuros.
 2.  **Sombras y Brillos:**
