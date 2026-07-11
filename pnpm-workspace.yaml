@@ -12,3 +12,4 @@ allowBuilds:
   unrs-resolver: true
   vitest: true
   '@vitejs/plugin-react': true
+  puppeteer: true
