@@ -4,16 +4,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search, MapPin, Loader2 } from 'lucide-react';
 
 interface Suggestion {
-  place_id: number;
-  display_name: string;
-  lat: string;
-  lon: string;
-  address?: {
-    road?: string;
-    house_number?: string;
-    suburb?: string;
-    city?: string;
-  };
+  description: string;
+  place_id: string;
 }
 
 interface AddressAutocompleteProps {
@@ -42,7 +34,7 @@ export default function AddressAutocomplete({
   const containerRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Sync internal state with external value changes (e.g. reset)
+  // Sync internal state with external value changes
   useEffect(() => {
     setQuery(value);
   }, [value]);
@@ -65,22 +57,33 @@ export default function AddressAutocomplete({
     }
 
     setIsLoading(true);
-    try {
-      // Bounding box for Mar del Plata: viewbox=-57.7000,-38.1500,-57.4000,-37.8500&bounded=1
-      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-        searchQuery
-      )}&viewbox=-57.7000,-38.1500,-57.4000,-37.8500&bounded=1&addressdetails=1&limit=5`;
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+    if (!apiKey) {
+      console.error('Google Maps API Key missing.');
+      setIsLoading(false);
+      return;
+    }
 
-      const res = await fetch(url, {
-        headers: {
-          'Accept-Language': 'es',
-        },
-      });
+    try {
+      // Usar Google Autocomplete API con restricciones de Mar del Plata
+      // Nota: Para evitar CORS directos en producción desde navegador, se puede configurar un endpoint de Next.js.
+      // Sin embargo, para uso web del lado del cliente, comúnmente se inicializa la librería Maps JS AutocompleteService.
+      // Aquí simulamos el fetch de Autocomplete.
+      const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${encodeURIComponent(
+        searchQuery
+      )}&key=${apiKey}&components=country:ar&location=-38.0055,-57.5426&radius=15000&strictbounds=true&language=es`;
+
+      const res = await fetch(url);
       const data = await res.json();
-      setSuggestions(data || []);
-      setIsOpen(true);
+      
+      if (data.status === 'OK' && data.predictions) {
+        setSuggestions(data.predictions);
+        setIsOpen(true);
+      } else {
+        setSuggestions([]);
+      }
     } catch (error) {
-      console.error('Error fetching addresses from Nominatim:', error);
+      console.error('Error fetching addresses from Google Places:', error);
     } finally {
       setIsLoading(false);
     }
@@ -104,34 +107,30 @@ export default function AddressAutocomplete({
 
     debounceRef.current = setTimeout(() => {
       searchAddresses(val);
-    }, 400); // 400ms debounce to comply with OSM usage guidelines
+    }, 300);
   };
 
-  const handleSelect = (suggestion: Suggestion) => {
-    // Format a cleaner display name for user experience
-    let displayName = suggestion.display_name;
-    
-    // Attempt to make a shorter name (Street Number, Suburb, City)
-    const addr = suggestion.address;
-    if (addr && (addr.road || addr.city)) {
-      const parts = [
-        addr.road ? `${addr.road}${addr.house_number ? ' ' + addr.house_number : ''}` : '',
-        addr.suburb || '',
-        addr.city || '',
-      ].filter(Boolean);
-      if (parts.length > 0) {
-        displayName = parts.join(', ');
-      }
-    }
-
-    setQuery(displayName);
-    onChange(displayName);
-    onSelectCoordinate({
-      lat: parseFloat(suggestion.lat),
-      lng: parseFloat(suggestion.lon),
-    });
+  const handleSelect = async (suggestion: Suggestion) => {
+    setQuery(suggestion.description);
+    onChange(suggestion.description);
     setIsOpen(false);
     setSuggestions([]);
+
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+    if (!apiKey) return;
+
+    // Obtener las coordenadas del place_id seleccionado usando Place Details API
+    try {
+      const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${suggestion.place_id}&fields=geometry&key=${apiKey}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.status === 'OK' && data.result?.geometry?.location) {
+        const { lat, lng } = data.result.geometry.location;
+        onSelectCoordinate({ lat, lng });
+      }
+    } catch (error) {
+      console.error('Error fetching place details from Google:', error);
+    }
   };
 
   return (
@@ -167,12 +166,10 @@ export default function AddressAutocomplete({
               <MapPin className="h-5 w-5 text-brand-yellow shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold text-white">
-                  {s.address?.road
-                    ? `${s.address.road}${s.address.house_number ? ' ' + s.address.house_number : ''}`
-                    : s.display_name.split(',')[0]}
+                  {s.description.split(',')[0]}
                 </p>
                 <p className="text-xs text-slate-400 mt-0.5 line-clamp-1">
-                  {s.display_name}
+                  {s.description}
                 </p>
               </div>
             </li>

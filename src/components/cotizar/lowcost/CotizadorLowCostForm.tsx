@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Bike, Calculator, CheckCircle2, AlertTriangle } from 'lucide-react';
 import AddressAutocomplete from '../../ui/AddressAutocomplete';
 import DynamicRouteMap from '../../ui/DynamicRouteMap';
-import { useOSRMRoute, type Coordinate } from '@/src/hooks/useOSRMRoute';
+import { useGoogleRoute, type Coordinate } from '@/src/hooks/useGoogleRoute';
 import { calculateLowCostPrice, type PriceRangeProp } from '@/src/lib/pricing';
 
 
@@ -28,7 +28,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
     precio: number | 'consultar';
   } | null>(null);
 
-  const { fetchRoute } = useOSRMRoute();
+  const { fetchRoute } = useGoogleRoute();
 
   const handleCalculate = async (e: React.FormEvent) => {
     e.preventDefault();
