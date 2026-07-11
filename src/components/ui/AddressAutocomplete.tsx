@@ -57,21 +57,10 @@ export default function AddressAutocomplete({
     }
 
     setIsLoading(true);
-    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-    if (!apiKey) {
-      console.error('Google Maps API Key missing.');
-      setIsLoading(false);
-      return;
-    }
 
     try {
-      // Usar Google Autocomplete API con restricciones de Mar del Plata
-      // Nota: Para evitar CORS directos en producción desde navegador, se puede configurar un endpoint de Next.js.
-      // Sin embargo, para uso web del lado del cliente, comúnmente se inicializa la librería Maps JS AutocompleteService.
-      // Aquí simulamos el fetch de Autocomplete.
-      const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${encodeURIComponent(
-        searchQuery
-      )}&key=${apiKey}&components=country:ar&location=-38.0055,-57.5426&radius=15000&strictbounds=true&language=es`;
+      // Llamar al endpoint proxy local en lugar de directo a Google para evitar CORS y proteger la Key
+      const url = `/api/places/autocomplete?input=${encodeURIComponent(searchQuery)}`;
 
       const res = await fetch(url);
       const data = await res.json();
@@ -83,7 +72,7 @@ export default function AddressAutocomplete({
         setSuggestions([]);
       }
     } catch (error) {
-      console.error('Error fetching addresses from Google Places:', error);
+      console.error('Error fetching addresses from local API:', error);
     } finally {
       setIsLoading(false);
     }
@@ -116,12 +105,9 @@ export default function AddressAutocomplete({
     setIsOpen(false);
     setSuggestions([]);
 
-    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-    if (!apiKey) return;
-
-    // Obtener las coordenadas del place_id seleccionado usando Place Details API
+    // Obtener las coordenadas a través de nuestro endpoint proxy de details
     try {
-      const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${suggestion.place_id}&fields=geometry&key=${apiKey}`;
+      const url = `/api/places/details?place_id=${suggestion.place_id}`;
       const res = await fetch(url);
       const data = await res.json();
       if (data.status === 'OK' && data.result?.geometry?.location) {
@@ -129,7 +115,7 @@ export default function AddressAutocomplete({
         onSelectCoordinate({ lat, lng });
       }
     } catch (error) {
-      console.error('Error fetching place details from Google:', error);
+      console.error('Error fetching place details from local API:', error);
     }
   };
 

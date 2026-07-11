@@ -34,16 +34,8 @@ export function useGoogleRoute() {
     async (origin: Coordinate, destination: Coordinate): Promise<RouteResult | null> => {
       setState({ result: null, error: null, isLoading: true });
 
-      const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-      if (!apiKey) {
-        const errorMsg = 'Clave de API de Google Maps no configurada.';
-        console.error('[useGoogleRoute]', errorMsg);
-        setState({ result: null, error: errorMsg, isLoading: false });
-        return null;
-      }
-
       try {
-        const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin.lat},${origin.lng}&destination=${destination.lat},${destination.lng}&key=${apiKey}`;
+        const url = `/api/routes/directions?origin=${origin.lat},${origin.lng}&destination=${destination.lat},${destination.lng}`;
 
         const res = await fetch(url);
         if (!res.ok) {
