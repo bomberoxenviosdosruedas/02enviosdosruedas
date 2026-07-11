@@ -71,7 +71,7 @@ export default function LowCostHero() {
           <div className="lg:col-span-7 text-center lg:text-left space-y-8">
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-yellow text-brand-blue border-2 border-brand-blue flex items-center gap-1.5 shadow-[2px_2px_0px_#003399]">
+              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-yellow text-brand-blue border-2 border-brand-blue flex items-center gap-1.5 shadow-[2px_2px_0px_#00277c]">
                 <TrendingDown className="h-4.5 w-4.5 animate-bounce shrink-0" />
                 Tarifa Optimizada 2026
               </span>
@@ -83,7 +83,7 @@ export default function LowCostHero() {
               className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3"
             >
               <span>ENVÍOS</span>
-              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#003399]">
+              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#00277c]">
                 <Image
                   src="https://picsum.photos/id/1081/200/100" 
                   alt="Envíos LowCost"
@@ -107,7 +107,7 @@ export default function LowCostHero() {
               <Link
                 href="/cotizar/lowcost"
                 id="lowcost-hero-cta-cotizar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#003399] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold cursor-pointer"
+                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#00277c] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold cursor-pointer"
               >
                 <Calculator className="h-5 w-5 shrink-0" />
                 Cotizar Envío LowCost
@@ -184,7 +184,7 @@ export default function LowCostHero() {
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.6 } }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative rounded-3xl border-2 border-brand-yellow bg-slate-900 p-5 text-white shadow-[6px_6px_0px_#003399]">
+              <div className="relative rounded-3xl border-2 border-brand-yellow bg-slate-900 p-5 text-white shadow-[6px_6px_0px_#00277c]">
                 <div className="space-y-3.5">
                   <div className="flex items-center gap-2.5">
                     <div className="h-2 w-2 rounded-full bg-brand-yellow animate-ping" />

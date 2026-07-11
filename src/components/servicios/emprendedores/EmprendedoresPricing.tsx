@@ -76,7 +76,7 @@ export default function EmprendedoresPricing() {
   return (
     <section 
       id="emprendedores-pricing" 
-      className="py-24 bg-brand-blue relative overflow-hidden text-white border-t-4 border-b-4 border-brand-yellow"
+      className="py-24 bg-[#F9F9FC] relative overflow-hidden border-t-4 border-b-4 border-brand-yellow"
       ref={pricingRef}
     >
       {/* Background Sparkles overlay */}
@@ -85,7 +85,7 @@ export default function EmprendedoresPricing() {
           density={1200}
           direction="bottom"
           speed={0.8}
-          color="#FFFFFF"
+          color="#00277C"
           className="absolute inset-0 h-full w-full"
         />
       </div>
@@ -99,12 +99,12 @@ export default function EmprendedoresPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="span"
-            className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_rgba(255,204,0,0.3)] font-bold"
+            className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,39,124,0.2)] font-bold"
           >
             Planes a Medida
           </TimelineContent>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white flex justify-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue flex justify-center border-l-4 border-brand-yellow pl-4 inline-block">
             <VerticalCutReveal
               splitBy="words"
               staggerDuration={0.1}
@@ -120,7 +120,7 @@ export default function EmprendedoresPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="p"
-            className="text-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
+            className="text-slate-600 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
           >
             Elegí el plan corporativo que mejor se adapte al volumen y necesidades operativas de tu negocio. Desde almacenamiento estratégico hasta ruteo masivo.
           </TimelineContent>
@@ -142,10 +142,8 @@ export default function EmprendedoresPricing() {
                 as="div"
               >
                 <Card
-                  className={`rounded-3xl border-2 flex flex-col justify-between h-full transition-all duration-300 group text-left ${
-                    plan.highlight
-                      ? 'bg-white text-brand-ink border-brand-blue shadow-[6px_6px_0px_#FFCC00] lg:scale-[1.03] relative z-20 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#FFCC00]'
-                      : 'bg-brand-blue/30 text-white border-brand-yellow/30 shadow-[6px_6px_0px_rgba(0,51,153,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(0,51,153,0.4)] hover:border-brand-yellow'
+                  className={`rounded-3xl border-2 bg-white text-brand-blue border-brand-blue flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-[6px_6px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#00277c] ${
+                    plan.highlight ? 'lg:scale-[1.03] relative z-20' : ''
                   }`}
                 >
                   <CardHeader className="p-8 pb-2 text-left relative">
@@ -156,10 +154,10 @@ export default function EmprendedoresPricing() {
                     )}
 
                     <div>
-                      <span className={`text-xs font-subheading tracking-wider uppercase ${plan.highlight ? 'text-brand-blue font-bold' : 'text-brand-yellow'}`}>
+                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue font-bold">
                         {plan.badge}
                       </span>
-                      <h3 className={`text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight ${plan.highlight ? 'text-brand-ink font-bold' : 'text-white'}`}>
+                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight text-brand-ink font-bold">
                         {plan.name}
                       </h3>
                     </div>
@@ -167,7 +165,7 @@ export default function EmprendedoresPricing() {
                     <div className="py-2">
                       {isNumericPrice && numericValue ? (
                         <div className="flex items-baseline">
-                          <span className={`text-5xl font-display uppercase font-bold tracking-tight ${plan.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`}>
+                          <span className="text-5xl font-display uppercase font-bold tracking-tight text-brand-blue">
                             $
                             <NumberFlow
                               value={numericValue}
@@ -177,24 +175,24 @@ export default function EmprendedoresPricing() {
                           </span>
                         </div>
                       ) : (
-                        <span className={`text-5xl font-display uppercase font-bold tracking-tight ${plan.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`}>
+                        <span className="text-5xl font-display uppercase font-bold tracking-tight text-brand-blue">
                           {plan.price}
                         </span>
                       )}
-                      <span className={`text-xs font-subheading tracking-wider uppercase block mt-1 ${plan.highlight ? 'text-slate-500' : 'text-blue-200'}`}>{plan.period}</span>
+                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-slate-500">{plan.period}</span>
                     </div>
 
-                    <p className={`text-sm opacity-90 leading-relaxed font-sans min-h-[48px] ${plan.highlight ? 'text-slate-600' : 'text-slate-200'}`}>
+                    <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-slate-600">
                       {plan.description}
                     </p>
                   </CardHeader>
 
                   <CardContent className="p-8 pt-0 flex flex-col justify-between flex-grow">
                     {/* Bullets */}
-                    <ul className={`space-y-2.5 pt-4 border-t-2 ${plan.highlight ? 'border-slate-100' : 'border-white/10'} mb-6`}>
+                    <ul className="space-y-2.5 pt-4 border-t-2 border-slate-100 mb-6">
                       {plan.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-center gap-2 text-xs">
-                          <Check className={`h-4.5 w-4.5 shrink-0 ${plan.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`} />
+                        <li key={bullet} className="flex items-center gap-2 text-xs text-slate-700">
+                          <Check className="h-4.5 w-4.5 shrink-0 text-brand-blue" />
                           <span className="font-sans text-sm opacity-90">{bullet}</span>
                         </li>
                       ))}
@@ -205,11 +203,7 @@ export default function EmprendedoresPricing() {
                         href="https://wa.me/542236602699"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`w-full py-3 rounded-xl text-sm font-subheading uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-all ${
-                          plan.highlight
-                            ? 'bg-brand-blue text-brand-yellow hover:bg-brand-blue/90 border-2 border-brand-blue shadow-[3px_3px_0px_#FFCC00]'
-                            : 'bg-brand-yellow text-brand-blue hover:bg-brand-yellow/90 border-2 border-brand-blue shadow-[3px_3px_0px_#003399]'
-                        }`}
+                        className="w-full py-3 rounded-xl text-sm font-subheading uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-all bg-brand-blue text-brand-yellow hover:bg-brand-blue/90 border-2 border-brand-blue shadow-[3px_3px_0px_#D8CA00]"
                       >
                         <span>Seleccionar {plan.name.split(' ')[1]}</span>
                         <ArrowRight className="h-4 w-4 animate-pulse shrink-0" />
@@ -228,7 +222,7 @@ export default function EmprendedoresPricing() {
           timelineRef={pricingRef}
           customVariants={revealVariants}
           as="div"
-          className="bg-white text-brand-ink rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#FFCC00] relative overflow-hidden"
+          className="bg-white text-brand-ink rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#00277c] relative overflow-hidden"
         >
           <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-slate-100/50 pointer-events-none -z-10">
             <Briefcase className="h-64 w-64 text-slate-100" />
@@ -254,7 +248,7 @@ export default function EmprendedoresPricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="emprendedores-pricing-cta-whatsapp"
-                className="bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-[4px_4px_0px_#FFCC00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFCC00] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold w-full sm:w-auto"
+                className="bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-[4px_4px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#00277c] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold w-full sm:w-auto"
               >
                 <MessageSquare className="h-5 w-5 fill-current" />
                 Agendar Asesoría 3PL

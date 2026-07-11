@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 
 export default function EnviosLowCostPage() {
   return (
-    <main className="min-h-screen bg-[#001035] text-white relative overflow-hidden">
-      {/* 3D Ambient floating glow-orbs */}
-      <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-[#0636A5]/20 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-[#FFEC01]/5 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />
+    <main className="min-h-screen bg-[#F9F9FC] text-slate-900 relative overflow-hidden">
+      {/* Ambient floating glow-orbs */}
+      <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-[#00277c]/5 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
+      <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-[#FFEC01]/3 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />
 
       {/* Hero Header Block */}
       <div className="relative z-10">

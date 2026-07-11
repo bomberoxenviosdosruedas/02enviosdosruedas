@@ -26,7 +26,7 @@ export default function FlexRequirements() {
   return (
     <section 
       id="flex-requirements" 
-      className="py-24 bg-white relative z-10 overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-[#F9F9FC] relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -41,13 +41,13 @@ export default function FlexRequirements() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,51,153,0.2)]">
+          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,39,124,0.2)]">
             PUESTA EN MARCHA
           </span>
-          <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
+          <h2 className="text-brand-blue text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight border-l-4 border-brand-yellow pl-4 inline-block">
             ¿QUÉ NECESITÁS?
           </h2>
-          <p className="text-slate-655 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-slate-600 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Requisitos mínimos e indispensables para empezar a ofrecer envíos Same-Day y potenciar tu e-commerce hoy mismo.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
@@ -64,14 +64,14 @@ export default function FlexRequirements() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-slate-50 border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#003399] transition-all duration-300 flex flex-col gap-5 text-left"
+                className="bg-white border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#00277c] transition-all duration-300 flex flex-col gap-5 text-left"
               >
-                <div className="p-3 bg-brand-yellow text-brand-blue rounded-2xl w-fit shrink-0 border-2 border-brand-blue shadow-[2px_2px_0px_#003399]">
+                <div className="p-3 bg-brand-yellow text-brand-blue rounded-2xl w-fit shrink-0 border-2 border-brand-blue shadow-[2px_2px_0px_#00277c]">
                   <Icon className="h-5.5 w-5.5 shrink-0" />
                 </div>
                 
                 <div className="space-y-1.5">
-                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-ink font-bold leading-tight">
+                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue font-bold leading-tight">
                     {req.title}
                   </h3>
                   <p className="text-sm text-slate-655 font-sans leading-relaxed">

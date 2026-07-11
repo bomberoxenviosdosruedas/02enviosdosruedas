@@ -124,10 +124,8 @@ export default function FlexPricing() {
                 as="div"
               >
                 <Card
-                  className={`rounded-3xl border-2 flex flex-col justify-between h-full transition-all duration-300 group text-left ${
-                    level.highlight
-                      ? 'bg-white text-brand-ink border-brand-blue shadow-[6px_6px_0px_#FFCC00] lg:scale-[1.03] relative z-20 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#FFCC00]'
-                      : 'bg-brand-blue/30 text-white border-brand-yellow/30 shadow-[6px_6px_0px_rgba(0,51,153,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(0,51,153,0.4)] hover:border-brand-yellow'
+                  className={`rounded-3xl border-2 bg-white text-brand-blue border-brand-blue flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-[6px_6px_0px_#D8CA00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#D8CA00] ${
+                    level.highlight ? 'lg:scale-[1.03] relative z-20' : ''
                   }`}
                 >
                   <CardHeader className="p-8 pb-2 text-left relative">
@@ -138,10 +136,10 @@ export default function FlexPricing() {
                     )}
 
                     <div>
-                      <span className={`text-xs font-subheading tracking-wider uppercase ${level.highlight ? 'text-brand-blue font-bold' : 'text-brand-yellow'}`}>
+                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue font-bold">
                         {level.volume}
                       </span>
-                      <h3 className={`text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight ${level.highlight ? 'text-brand-ink font-bold' : 'text-white'}`}>
+                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight text-brand-ink font-bold">
                         {level.name}
                       </h3>
                     </div>
@@ -149,7 +147,7 @@ export default function FlexPricing() {
                     <div className="py-2">
                       {isNumericPrice && numericValue ? (
                         <div className="flex items-baseline">
-                          <span className={`text-5xl font-display uppercase font-bold tracking-tight ${level.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`}>
+                          <span className="text-5xl font-display uppercase font-bold tracking-tight text-brand-blue">
                             $
                             <NumberFlow
                               value={numericValue}
@@ -159,24 +157,24 @@ export default function FlexPricing() {
                           </span>
                         </div>
                       ) : (
-                        <span className={`text-3xl font-display uppercase font-bold tracking-tight ${level.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`}>
+                        <span className="text-3xl font-display uppercase font-bold tracking-tight text-brand-blue">
                           {level.price}
                         </span>
                       )}
-                      <span className={`text-xs font-subheading tracking-wider uppercase block mt-1 ${level.highlight ? 'text-slate-500' : 'text-blue-200'}`}>/ liquidación quincenal</span>
+                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-slate-500">/ liquidación quincenal</span>
                     </div>
 
-                    <p className={`text-sm opacity-90 leading-relaxed font-sans min-h-[48px] ${level.highlight ? 'text-slate-600' : 'text-slate-200'}`}>
+                    <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-slate-600">
                       {level.description}
                     </p>
                   </CardHeader>
 
                   <CardContent className="p-8 pt-0 flex flex-col justify-between flex-grow">
                     {/* Bullets */}
-                    <ul className={`space-y-2.5 pt-4 border-t-2 ${level.highlight ? 'border-slate-100' : 'border-white/10'} mb-6`}>
+                    <ul className="space-y-2.5 pt-4 border-t-2 border-slate-100 mb-6">
                       {level.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-center gap-2 text-xs">
-                          <Check className={`h-4.5 w-4.5 shrink-0 ${level.highlight ? 'text-brand-blue' : 'text-brand-yellow'}`} />
+                        <li key={bullet} className="flex items-center gap-2 text-xs text-slate-700">
+                          <Check className="h-4.5 w-4.5 shrink-0 text-brand-blue" />
                           <span className="font-sans text-sm opacity-90">{bullet}</span>
                         </li>
                       ))}
@@ -187,11 +185,7 @@ export default function FlexPricing() {
                         href="https://wa.me/542236602699"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`w-full py-3 rounded-xl text-sm font-subheading uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-all ${
-                          level.highlight
-                            ? 'bg-brand-blue text-brand-yellow hover:bg-brand-blue/90 border-2 border-brand-blue shadow-[3px_3px_0px_#FFCC00]'
-                            : 'bg-brand-yellow text-brand-blue hover:bg-brand-yellow/90 border-2 border-brand-blue shadow-[3px_3px_0px_#003399]'
-                        }`}
+                        className="w-full py-3 rounded-xl text-sm font-subheading uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-all bg-brand-blue text-brand-yellow hover:bg-brand-blue/90 border-2 border-brand-blue shadow-[3px_3px_0px_#D8CA00]"
                       >
                         <span>Activar {level.name.split(' ')[0]}</span>
                         <ArrowRight className="h-4 w-4 animate-pulse shrink-0" />
@@ -210,7 +204,7 @@ export default function FlexPricing() {
           timelineRef={pricingRef}
           customVariants={revealVariants}
           as="div"
-          className="bg-white text-brand-ink rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#FFCC00] relative overflow-hidden"
+          className="bg-white text-brand-ink rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#D8CA00] relative overflow-hidden"
         >
           <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-slate-100/50 pointer-events-none -z-10">
             <CloudRain className="h-64 w-64 text-slate-100" />
@@ -236,7 +230,7 @@ export default function FlexPricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="flex-pricing-cta-whatsapp"
-                className="bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-[4px_4px_0px_#FFCC00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFCC00] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold w-full sm:w-auto"
+                className="bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-[4px_4px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#00277c] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold w-full sm:w-auto"
               >
                 <MessageSquare className="h-5 w-5 fill-current" />
                 Más Información Flex

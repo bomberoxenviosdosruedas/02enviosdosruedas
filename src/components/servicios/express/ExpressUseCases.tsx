@@ -45,7 +45,7 @@ export default function ExpressUseCases() {
   return (
     <section 
       id="express-use-cases" 
-      className="py-24 bg-white relative z-10 overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-[#F9F9FC] relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       {/* Background decoration */}
       <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-blue-50/50 blur-3xl -z-10 -translate-y-1/2" />
@@ -64,13 +64,13 @@ export default function ExpressUseCases() {
         
         {/* Header segment */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,51,153,0.2)]">
+          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,39,124,0.2)]">
             CASOS DE USO
           </span>
-          <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
+          <h2 className="text-brand-blue text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight border-l-4 border-brand-yellow pl-4 inline-block">
             ¿CUÁNDO NECESITÁS EXPRESS?
           </h2>
-          <p className="text-slate-655 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-slate-600 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Situaciones cotidianas y corporativas donde cada minuto cuenta y la rapidez es fundamental.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
@@ -91,13 +91,13 @@ export default function ExpressUseCases() {
                 className={`rounded-3xl border-2 transition-all duration-300 flex flex-col justify-between text-left ${
                   isOpen 
                     ? 'bg-slate-900 text-white border-brand-yellow shadow-[6px_6px_0px_#FFCC00]'
-                    : 'bg-slate-50 text-brand-ink border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px]'
+                    : 'bg-white text-brand-blue border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px]'
                 }`}
               >
                 <div className="p-6 sm:p-7 space-y-6">
                   {/* Icon & Badge Header */}
                   <div className="flex justify-between items-center">
-                    <div className="p-3 rounded-2xl w-fit border-2 border-brand-blue bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_#003399]">
+                    <div className="p-3 rounded-2xl w-fit border-2 border-brand-blue bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_#00277c]">
                       <Icon className="h-5.5 w-5.5 shrink-0" />
                     </div>
                     <span className={`text-[10px] font-subheading uppercase tracking-wider px-2.5 py-1 rounded-full border ${
@@ -109,10 +109,10 @@ export default function ExpressUseCases() {
 
                   {/* Title & Description */}
                   <div className="space-y-2">
-                    <h3 className="text-2xl font-display uppercase tracking-wide leading-none">
+                    <h3 className="text-2xl font-display uppercase tracking-wide leading-none text-brand-blue">
                       {useCase.title}
                     </h3>
-                    <p className={`text-sm font-sans leading-relaxed ${isOpen ? 'text-slate-350' : 'text-slate-655'}`}>
+                    <p className={`text-sm font-sans leading-relaxed ${isOpen ? 'text-slate-300' : 'text-slate-600'}`}>
                       {useCase.desc}
                     </p>
                   </div>

@@ -43,7 +43,7 @@ export default function LowCostBenefits() {
   return (
     <section 
       id="lowcost-benefits" 
-      className="py-24 bg-white relative z-10 overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-brand-blue relative z-10 overflow-hidden border-t-4 border-b-4 border-brand-yellow text-white"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -58,13 +58,13 @@ export default function LowCostBenefits() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,51,153,0.2)]">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_rgba(255,204,0,0.3)] font-bold">
             VENTAJAS CLAVE
           </span>
-          <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white">
             BENEFICIOS LOWCOST
           </h2>
-          <p className="text-slate-655 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             La combinación perfecta entre economía inteligente y máxima eficiencia logística para la consolidación de tu negocio.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
@@ -81,18 +81,18 @@ export default function LowCostBenefits() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.08, ease: "easeOut" }}
-                className="bg-slate-50 border-2 border-brand-blue p-8 rounded-3xl shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#003399] transition-all duration-300 flex flex-col justify-between text-left group"
+                className="bg-white border-2 border-brand-blue p-8 rounded-3xl shadow-[4px_4px_0px_#D8CA00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#D8CA00] transition-all duration-300 flex flex-col justify-between text-left group"
               >
                 <div className="space-y-5">
-                  <div className="p-3 bg-brand-yellow text-brand-blue rounded-2xl w-fit border-2 border-brand-blue shadow-[2px_2px_0px_#003399]">
+                  <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl w-fit border-2 border-brand-blue shadow-[2px_2px_0px_#D8CA00]">
                     <Icon className="h-6 w-6 shrink-0" />
                   </div>
                   
-                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-ink font-bold leading-tight">
+                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue font-bold leading-tight">
                     {benefit.title}
                   </h3>
                   
-                  <p className="text-sm text-slate-655 font-sans leading-relaxed">
+                  <p className="text-sm text-slate-600 font-sans leading-relaxed">
                     {benefit.desc}
                   </p>
                 </div>

@@ -64,7 +64,7 @@ export default function ExpressHero() {
 
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-yellow text-brand-blue border-2 border-brand-blue flex items-center gap-1.5 shadow-[2px_2px_0px_#003399] font-bold">
+              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-yellow text-brand-blue border-2 border-brand-blue flex items-center gap-1.5 shadow-[2px_2px_0px_#00277c] font-bold">
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                 Disponible en Mar del Plata
               </span>
@@ -76,7 +76,7 @@ export default function ExpressHero() {
               className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3"
             >
               <span>ENVÍOS</span>
-              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#003399]">
+              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#00277c]">
                 <Image
                   src="/express-hero-inline.png"
                   alt="Envíos Express"
@@ -100,7 +100,7 @@ export default function ExpressHero() {
               <Link
                 href="/cotizar/express"
                 id="express-hero-cta-cotizar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#003399] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold cursor-pointer"
+                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#00277c] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold cursor-pointer"
               >
                 Cotizá tu Envío Express
                 <ArrowRight className="h-5 w-5 shrink-0" />
@@ -187,7 +187,7 @@ export default function ExpressHero() {
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.6 } }}
               whileHover={{ scale: 1.02, zIndex: 40 }}
             >
-              <div className="relative rounded-3xl border-2 border-brand-yellow bg-slate-900 p-5 text-white shadow-[6px_6px_0px_#003399]">
+              <div className="relative rounded-3xl border-2 border-brand-yellow bg-slate-900 p-5 text-white shadow-[6px_6px_0px_#00277c]">
                 <div className="flex items-center gap-3.5 mb-4">
                   <div className="p-2.5 rounded-xl bg-brand-yellow text-brand-blue border border-brand-blue">
                     <Bike className="h-5.5 w-5.5 animate-pulse shrink-0" />
@@ -217,7 +217,7 @@ export default function ExpressHero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.8 } }}
             >
-              <div className="px-4 py-2 bg-brand-yellow text-brand-blue border-2 border-brand-blue font-bold rounded-full text-xs font-subheading tracking-wider uppercase shadow-[3px_3px_0px_#003399] flex items-center gap-1.5">
+              <div className="px-4 py-2 bg-brand-yellow text-brand-blue border-2 border-brand-blue font-bold rounded-full text-xs font-subheading tracking-wider uppercase shadow-[3px_3px_0px_#00277c] flex items-center gap-1.5">
                 <Zap className="h-4.5 w-4.5 animate-bounce fill-current shrink-0" />
                 Entrega Inmediata
               </div>
