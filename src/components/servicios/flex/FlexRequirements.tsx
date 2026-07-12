@@ -26,7 +26,7 @@ export default function FlexRequirements() {
   return (
     <section 
       id="flex-requirements" 
-      className="py-24 bg-[#F9F9FC] relative z-10 overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-gray-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -64,9 +64,9 @@ export default function FlexRequirements() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#00277c] transition-all duration-300 flex flex-col gap-5 text-left"
+                className="bg-white border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col gap-5 text-left"
               >
-                <div className="p-3 bg-brand-yellow text-brand-blue rounded-2xl w-fit shrink-0 border-2 border-brand-blue shadow-[2px_2px_0px_#00277c]">
+                <div className="p-3 bg-brand-yellow text-brand-blue rounded-2xl w-fit shrink-0 border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">
                   <Icon className="h-5.5 w-5.5 shrink-0" />
                 </div>
                 

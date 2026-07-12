@@ -56,9 +56,9 @@ export default function ContactInfo() {
       className="space-y-8 h-full flex flex-col justify-between"
     >
       {/* Contact Channels Grid */}
-      <div className="p-2 bg-slate-200/60 border border-slate-300 rounded-[2rem] hover:shadow-[6px_6px_0px_#FFEC01] hover:border-brand-yellow/40 transition-all duration-300">
+      <div className="p-2 bg-slate-200/60 border border-slate-300 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300">
         <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-slate-100 shadow-sm space-y-6">
-          <h3 className="text-2xl font-display uppercase tracking-tight text-[#00277c] flex items-center gap-2">
+          <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
             CANALES RÁPIDOS
           </h3>
           
@@ -72,12 +72,12 @@ export default function ContactInfo() {
                   rel="noopener noreferrer"
                   whileHover={{ y: -3, scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  className={`p-4 border-2 border-slate-200 rounded-2xl flex items-center gap-3 transition-all duration-300 group/item bg-slate-50 hover:bg-white hover:border-[#00277c] hover:shadow-[3px_3px_0px_#00277c] cursor-pointer ${
-                    chan.label === 'Email Principal' ? 'hover:border-[#00277c] hover:text-[#00277c] hover:shadow-blue-100' : chan.color
+                  className={`p-4 border-2 border-slate-200 rounded-2xl flex items-center gap-3 transition-all duration-300 group/item bg-slate-50 hover:bg-white hover:border-brand-blue hover:shadow-[3px_3px_0px_var(--color-brand-blue)] cursor-pointer ${
+                    chan.label === 'Email Principal' ? 'hover:border-brand-blue hover:text-brand-blue hover:shadow-blue-100' : chan.color
                   }`}
                 >
                   <div className={`p-3 rounded-xl border-2 transition-colors relative w-11 h-11 flex items-center justify-center shrink-0 ${
-                    chan.label === 'Email Principal' ? 'bg-brand-yellow/15 text-[#00277c] border-brand-yellow/30' : chan.iconBg
+                    chan.label === 'Email Principal' ? 'bg-brand-yellow/15 text-brand-blue border-brand-yellow/30' : chan.iconBg
                   } group-hover/item:scale-105 duration-300`}>
                     {chan.isLucide && chan.icon ? (
                       <chan.icon className="h-5 w-5" />
@@ -107,10 +107,10 @@ export default function ContactInfo() {
       </div>
 
       {/* Operating Hours */}
-      <div className="p-2 bg-slate-200/60 border border-slate-300 rounded-[2rem] hover:shadow-[6px_6px_0px_#FFEC01] hover:border-brand-yellow/40 transition-all duration-300">
+      <div className="p-2 bg-slate-200/60 border border-slate-300 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300">
         <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-slate-100 shadow-sm space-y-6">
-          <h3 className="text-2xl font-display uppercase tracking-tight text-[#00277c] flex items-center gap-2">
-            <Clock className="h-6 w-6 text-[#00277c] group-hover:rotate-6 transition-transform" />
+          <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
+            <Clock className="h-6 w-6 text-brand-blue group-hover:rotate-6 transition-transform" />
             HORARIOS DE ATENCIÓN
           </h3>
 
@@ -135,11 +135,11 @@ export default function ContactInfo() {
       </div>
 
       {/* Coverage & Interactive Map */}
-      <div className="p-2 bg-slate-200/60 border border-slate-300 rounded-[2rem] hover:shadow-[6px_6px_0px_#FFEC01] hover:border-brand-yellow/40 transition-all duration-300 flex-grow flex flex-col">
+      <div className="p-2 bg-slate-200/60 border border-slate-300 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300 flex-grow flex flex-col">
         <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-slate-100 shadow-sm space-y-6 flex-grow flex flex-col justify-between">
           <div className="space-y-2">
-            <h3 className="text-2xl font-display uppercase tracking-tight text-[#00277c] flex items-center gap-2">
-              <MapPin className="h-6 w-6 text-[#00277c] shrink-0 group-hover:translate-y-[-2px] transition-transform" />
+            <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
+              <MapPin className="h-6 w-6 text-brand-blue shrink-0 group-hover:translate-y-[-2px] transition-transform" />
               ZONA DE COBERTURA
             </h3>
             <p className="text-sm text-slate-500 font-sans leading-relaxed">
@@ -148,7 +148,7 @@ export default function ContactInfo() {
           </div>
 
           {/* Map iframe with soft shadow glow */}
-          <div className="relative rounded-2xl overflow-hidden border-2 border-[#00277c] h-64 sm:h-72 w-full mt-2 flex-grow min-h-[220px] shadow-inner group-hover:border-[#00277c] transition-all duration-300">
+          <div className="relative rounded-2xl overflow-hidden border-2 border-brand-blue h-64 sm:h-72 w-full mt-2 flex-grow min-h-[220px] shadow-inner group-hover:border-brand-blue transition-all duration-300">
             <iframe
               title="Mapa de cobertura Mar del Plata"
               src="https://www.openstreetmap.org/export/embed.html?bbox=-57.6548%2C-38.0700%2C-57.5146%2C-37.9350&amp;layer=mapnik"
@@ -158,8 +158,8 @@ export default function ContactInfo() {
             />
             
             {/* Overlay Tag */}
-            <div className="absolute bottom-3 left-3 bg-[#00277c] text-brand-yellow px-4 py-2 rounded-full text-xs font-subheading uppercase tracking-wider shadow-lg border-2 border-brand-yellow flex items-center gap-1.5">
-              <ShieldCheck className="h-4.5 w-4.5 text-brand-yellow shrink-0 fill-[#00277c]" />
+            <div className="absolute bottom-3 left-3 bg-brand-blue text-brand-yellow px-4 py-2 rounded-full text-xs font-subheading uppercase tracking-wider shadow-lg border-2 border-brand-yellow flex items-center gap-1.5">
+              <ShieldCheck className="h-4.5 w-4.5 text-brand-yellow shrink-0 fill-brand-blue" />
               COBERTURA TOTAL MAR DEL PLATA
             </div>
           </div>

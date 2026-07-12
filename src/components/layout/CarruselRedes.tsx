@@ -59,7 +59,7 @@ export default function CarruselRedes() {
         
         {/* Header Segment */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block shadow-[2px_2px_0px_#003399]">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block shadow-[2px_2px_0px_var(--color-brand-blue)]">
             Nuestra Comunidad
           </span>
           <h2 className="text-white text-display uppercase text-center">
@@ -86,7 +86,7 @@ export default function CarruselRedes() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.12, ease: "easeOut" }}
-                className="p-8 rounded-xl border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_#FFEC01] hover:bg-slate-50 transition-all duration-300 group bg-white text-brand-ink active:scale-[0.98] active:translate-y-[1px]"
+                className="p-8 rounded-xl border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:bg-slate-50 transition-all duration-300 group bg-white text-brand-ink active:scale-[0.98] active:translate-y-[1px]"
               >
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">

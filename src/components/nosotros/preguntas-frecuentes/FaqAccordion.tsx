@@ -91,8 +91,8 @@ export default function FaqAccordion() {
                 whileHover={{ scale: 1.03, y: -1 }}
                 whileTap={{ scale: 0.97 }}
                 className={`px-6 py-3.5 rounded-2xl text-sm font-subheading uppercase tracking-wider flex items-center gap-2.5 transition-all cursor-pointer border-2 ${isActive
-                    ? 'bg-brand-yellow text-brand-blue border-brand-blue shadow-[4px_4px_0px_#003399]'
-                    : 'bg-white text-slate-700 border-slate-200 shadow-[2px_2px_0px_rgba(0,0,0,0.05)] hover:border-brand-blue hover:shadow-[3px_3px_0px_#003399]'
+                    ? 'bg-brand-yellow text-brand-blue border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)]'
+                    : 'bg-white text-slate-700 border-slate-200 shadow-[2px_2px_0px_rgba(0,0,0,0.05)] hover:border-brand-blue hover:shadow-[3px_3px_0px_var(--color-brand-blue)]'
                   }`}
               >
                 <Icon className={`h-5 w-5 ${isActive ? 'text-brand-blue' : 'text-slate-500'}`} />
@@ -120,8 +120,8 @@ export default function FaqAccordion() {
                   <div
                     key={item.question}
                     className={`rounded-3xl overflow-hidden transition-all duration-300 border-2 ${isExpanded
-                        ? 'bg-white border-brand-blue shadow-[6px_6px_0px_#FFCC00]'
-                        : 'bg-slate-50 border-brand-blue/20 shadow-[4px_4px_0px_rgba(0,51,153,0.08)] hover:border-brand-blue hover:shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px]'
+                        ? 'bg-white border-brand-blue shadow-[6px_6px_0px_var(--color-brand-yellow)]'
+                        : 'bg-slate-50 border-brand-blue/20 shadow-[4px_4px_0px_rgba(0,51,153,0.08)] hover:border-brand-blue hover:shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px]'
                       }`}
                   >
                     {/* Collapsible Header Click Area */}

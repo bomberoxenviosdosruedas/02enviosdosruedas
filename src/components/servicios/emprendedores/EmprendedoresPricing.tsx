@@ -76,7 +76,7 @@ export default function EmprendedoresPricing() {
   return (
     <section 
       id="emprendedores-pricing" 
-      className="py-24 bg-[#F9F9FC] relative overflow-hidden border-t-4 border-b-4 border-brand-yellow"
+      className="py-24 bg-gray-50 relative overflow-hidden border-t-4 border-b-4 border-brand-yellow"
       ref={pricingRef}
     >
       {/* Background Sparkles overlay */}
@@ -142,7 +142,7 @@ export default function EmprendedoresPricing() {
                 as="div"
               >
                 <Card
-                  className={`rounded-3xl border-2 bg-white text-brand-blue border-brand-blue flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-[6px_6px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#00277c] ${
+                  className={`rounded-3xl border-2 bg-white text-brand-blue border-brand-blue flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-[6px_6px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-blue)] ${
                     plan.highlight ? 'lg:scale-[1.03] relative z-20' : ''
                   }`}
                 >
@@ -203,7 +203,7 @@ export default function EmprendedoresPricing() {
                         href="https://wa.me/542236602699"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-3 rounded-xl text-sm font-subheading uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-all bg-brand-blue text-brand-yellow hover:bg-brand-blue/90 border-2 border-brand-blue shadow-[3px_3px_0px_#D8CA00]"
+                        className="w-full py-3 rounded-xl text-sm font-subheading uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-all bg-brand-blue text-brand-yellow hover:bg-brand-blue/90 border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-yellow)]"
                       >
                         <span>Seleccionar {plan.name.split(' ')[1]}</span>
                         <ArrowRight className="h-4 w-4 animate-pulse shrink-0" />
@@ -222,7 +222,7 @@ export default function EmprendedoresPricing() {
           timelineRef={pricingRef}
           customVariants={revealVariants}
           as="div"
-          className="bg-white text-brand-ink rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_#00277c] relative overflow-hidden"
+          className="bg-white text-brand-ink rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-blue)] relative overflow-hidden"
         >
           <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-slate-100/50 pointer-events-none -z-10">
             <Briefcase className="h-64 w-64 text-slate-100" />
@@ -248,7 +248,7 @@ export default function EmprendedoresPricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="emprendedores-pricing-cta-whatsapp"
-                className="bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-[4px_4px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#00277c] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold w-full sm:w-auto"
+                className="bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold w-full sm:w-auto"
               >
                 <MessageSquare className="h-5 w-5 fill-current" />
                 Agendar Asesoría 3PL

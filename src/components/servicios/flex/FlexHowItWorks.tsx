@@ -35,7 +35,7 @@ export default function FlexHowItWorks() {
   return (
     <section 
       id="flex-how-it-works" 
-      className="py-24 bg-[#F9F9FC] relative overflow-hidden border-t-4 border-b-4 border-brand-blue"
+      className="py-24 bg-gray-50 relative overflow-hidden border-t-4 border-b-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -50,7 +50,7 @@ export default function FlexHowItWorks() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_#00277c] font-bold">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)] font-bold">
             LOGÍSTICA SINCRONIZADA
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue border-l-4 border-brand-yellow pl-4 inline-block">
@@ -77,15 +77,15 @@ export default function FlexHowItWorks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.12 }}
-                className="bg-white border-2 border-brand-blue rounded-3xl p-6 shadow-[4px_4px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#00277c] transition-all duration-300 relative flex flex-col items-center text-center group"
+                className="bg-white border-2 border-brand-blue rounded-3xl p-6 shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-300 relative flex flex-col items-center text-center group"
               >
                 {/* Floating step number */}
-                <span className="absolute -top-3.5 -left-3.5 bg-brand-yellow text-brand-blue font-bold font-mono text-xs tracking-widest px-3 py-1 rounded-full border-2 border-brand-blue shadow-[2px_2px_0px_#00277c]">
+                <span className="absolute -top-3.5 -left-3.5 bg-brand-yellow text-brand-blue font-bold font-mono text-xs tracking-widest px-3 py-1 rounded-full border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">
                   {step.number}
                 </span>
 
                 {/* Circle Icon wrapper */}
-                <div className="h-16 w-16 bg-brand-blue text-brand-yellow border-2 border-brand-blue rounded-2xl flex items-center justify-center mb-5 shadow-[2px_2px_0px_#00277c] group-hover:scale-105 transition-transform duration-300">
+                <div className="h-16 w-16 bg-brand-blue text-brand-yellow border-2 border-brand-blue rounded-2xl flex items-center justify-center mb-5 shadow-[2px_2px_0px_var(--color-brand-blue)] group-hover:scale-105 transition-transform duration-300">
                   <Icon className="h-6 w-6 shrink-0" />
                 </div>
 

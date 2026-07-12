@@ -142,7 +142,7 @@ export default function AddressAutocomplete({
       </div>
 
       {isOpen && suggestions.length > 0 && (
-        <ul className="absolute z-50 w-full mt-1 bg-[#0a0d16] border border-white/10 rounded-xl max-h-60 overflow-y-auto shadow-2xl text-slate-200 divide-y divide-white/5">
+        <ul className="absolute z-50 w-full mt-1 bg-gray-900 border border-white/10 rounded-xl max-h-60 overflow-y-auto shadow-2xl text-slate-200 divide-y divide-white/5">
           {suggestions.map((s) => (
             <li
               key={s.place_id}

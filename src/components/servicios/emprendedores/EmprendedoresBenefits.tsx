@@ -76,10 +76,10 @@ export default function EmprendedoresBenefits() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.08, ease: "easeOut" }}
-                className="bg-white border-2 border-brand-blue p-8 rounded-3xl shadow-[4px_4px_0px_#D8CA00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#D8CA00] transition-all duration-300 flex flex-col justify-between text-left group"
+                className="bg-white border-2 border-brand-blue p-8 rounded-3xl shadow-[4px_4px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-yellow)] transition-all duration-300 flex flex-col justify-between text-left group"
               >
                 <div className="space-y-5">
-                  <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl w-fit border-2 border-brand-blue shadow-[2px_2px_0px_#D8CA00]">
+                  <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl w-fit border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-yellow)]">
                     <Icon className="h-6 w-6 shrink-0" />
                   </div>
                   

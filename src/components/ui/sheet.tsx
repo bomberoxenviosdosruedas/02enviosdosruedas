@@ -18,7 +18,7 @@ const SheetPortal = SheetPrimitive.Portal
 const SheetOverlay = ({ className, ref, ...props }: React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay> & { ref?: React.Ref<React.ElementRef<typeof SheetPrimitive.Overlay>> }) => (
   <SheetPrimitive.Overlay
     className={cn(
-      "fixed inset-0 z-50 bg-[#151B2D]/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0",
+      "fixed inset-0 z-50 bg-brand-ink/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0",
       className
     )}
     {...props}

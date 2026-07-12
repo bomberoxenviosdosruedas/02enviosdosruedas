@@ -354,7 +354,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
               <button
                 type="submit"
                 disabled={isCreatingFolder}
-                className="bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase text-xs px-3 py-2 rounded-lg border border-brand-blue cursor-pointer shadow-[2px_2px_0px_#FFCC00] shrink-0"
+                className="bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase text-xs px-3 py-2 rounded-lg border border-brand-blue cursor-pointer shadow-[2px_2px_0px_var(--color-brand-yellow)] shrink-0"
               >
                 {isCreatingFolder ? 'Creando...' : 'Crear'}
               </button>
@@ -477,7 +477,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase py-3.5 rounded-xl border-2 border-brand-blue tracking-wider text-sm flex items-center justify-center gap-2 cursor-pointer shadow-[3px_3px_0px_#FFCC00] transition-transform active:translate-y-[2px]"
+                className="w-full bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase py-3.5 rounded-xl border-2 border-brand-blue tracking-wider text-sm flex items-center justify-center gap-2 cursor-pointer shadow-[3px_3px_0px_var(--color-brand-yellow)] transition-transform active:translate-y-[2px]"
               >
                 <Save className="h-4.5 w-4.5 shrink-0" />
                 {loading ? 'Guardando...' : 'Guardar Imagen'}
@@ -574,7 +574,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                         <div className="flex flex-wrap gap-2">
                           <button
                             onClick={() => handleAddPrompt(image.id)}
-                            className="bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase tracking-wide px-4 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 shadow-[2px_2px_0px_#FFCC00] shrink-0"
+                            className="bg-brand-blue hover:bg-brand-blue/95 text-white font-subheading uppercase tracking-wide px-4 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 shadow-[2px_2px_0px_var(--color-brand-yellow)] shrink-0"
                           >
                             <Plus className="h-3.5 w-3.5 shrink-0" />
                             Agregar Prompt

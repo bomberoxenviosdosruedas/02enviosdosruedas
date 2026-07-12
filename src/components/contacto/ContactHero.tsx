@@ -33,7 +33,7 @@ export default function ContactHero() {
   return (
     <section
       id="contacto-hero"
-      className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-[#00277c] text-white border-b border-white/10"
+      className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue text-white border-b border-white/10"
     >
       {/* Ambient background glows using brand colors */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(0,32,104,0.45),transparent_50%)] pointer-events-none" />
@@ -75,7 +75,7 @@ export default function ContactHero() {
               className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-none text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
             >
               <span>CONTACTO</span>
-              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#00277c]">
+              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_var(--color-brand-blue)]">
                 <Image
                   src="https://picsum.photos/id/1071/200/100"
                   alt="Asesoría Comercial"
@@ -97,7 +97,7 @@ export default function ContactHero() {
             {/* Special Callout Panel (Neo-Brutalist) */}
             <motion.div
               variants={itemVariants}
-              className="p-6 rounded-3xl bg-[#002068]/80 border-2 border-white/10 max-w-xl mx-auto lg:mx-0 shadow-[4px_4px_0px_#FFEC01] space-y-3 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFEC01] transition-all duration-200"
+              className="p-6 rounded-3xl bg-brand-navy/80 border-2 border-white/10 max-w-xl mx-auto lg:mx-0 shadow-[4px_4px_0px_var(--color-brand-yellow)] space-y-3 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-yellow)] transition-all duration-200"
             >
               <div className="flex items-center gap-2 justify-center lg:justify-start">
                 <Sparkles className="h-4.5 w-4.5 text-brand-yellow animate-spin-slow" />
@@ -121,13 +121,13 @@ export default function ContactHero() {
               whileHover={{ scale: 1.025, y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="rounded-3xl border-2 border-[#00277c] bg-white p-8 text-slate-900 shadow-[8px_8px_0px_#FFEC01] relative overflow-hidden group transition-all duration-300">
+              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-slate-900 shadow-[8px_8px_0px_var(--color-brand-yellow)] relative overflow-hidden group transition-all duration-300">
                 {/* Visual Accent Top Bar */}
-                <div className="absolute top-0 inset-x-0 h-2 bg-[#00277c]" />
+                <div className="absolute top-0 inset-x-0 h-2 bg-brand-blue" />
 
                 <div className="space-y-6 relative z-10 pt-2">
                   <div>
-                    <h4 className="text-2xl font-display uppercase font-bold text-[#00277c] leading-none">
+                    <h4 className="text-2xl font-display uppercase font-bold text-brand-blue leading-none">
                       DATOS OFICIALES
                     </h4>
                     <p className="text-xs text-slate-500 font-subheading tracking-wider uppercase mt-1">RESPUESTAS EN EL DÍA</p>
@@ -135,22 +135,22 @@ export default function ContactHero() {
 
                   <div className="space-y-4 text-sm text-slate-600 font-sans">
                     <div className="flex items-center gap-3">
-                      <Phone className="h-5 w-5 text-[#00277c] shrink-0 group-hover:scale-105 transition-transform" />
+                      <Phone className="h-5 w-5 text-brand-blue shrink-0 group-hover:scale-105 transition-transform" />
                       <span className="font-mono font-bold text-slate-900">+54 223 660-2699</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Mail className="h-5 w-5 text-[#00277c] shrink-0" />
+                      <Mail className="h-5 w-5 text-brand-blue shrink-0" />
                       <span className="break-all font-mono font-bold text-slate-900">contacto@enviosdosruedas.com</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <MapPin className="h-5 w-5 text-[#00277c] shrink-0" />
+                      <MapPin className="h-5 w-5 text-brand-blue shrink-0" />
                       <span className="font-semibold text-slate-900">Friuli 1972, Mar del Plata</span>
                     </div>
                   </div>
 
                   <div className="pt-4 border-t-2 border-slate-100 flex justify-between items-center text-xs">
-                    <span className="font-subheading text-[#00277c] font-bold flex items-center gap-1 text-sm tracking-wider">
-                      <ShieldCheck className="h-4.5 w-4.5 text-[#00277c] shrink-0 fill-brand-yellow" />
+                    <span className="font-subheading text-brand-blue font-bold flex items-center gap-1 text-sm tracking-wider">
+                      <ShieldCheck className="h-4.5 w-4.5 text-brand-blue shrink-0 fill-brand-yellow" />
                       ATENCIÓN COMERCIAL
                     </span>
                     <span className="text-emerald-600 font-subheading text-sm tracking-wider font-bold uppercase animate-pulse">DISPONIBLE</span>

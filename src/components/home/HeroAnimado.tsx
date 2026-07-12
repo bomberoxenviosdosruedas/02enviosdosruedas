@@ -75,7 +75,7 @@ export default function HeroAnimado() {
   return (
     <section
       id="hero-animado"
-      className="relative min-h-[95dvh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-[#00277c] text-white"
+      className="relative min-h-[95dvh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue text-white"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onTouchMove={handleTouchMove}
@@ -89,7 +89,7 @@ export default function HeroAnimado() {
       <LogisticaNetworkCanvas />
 
       {/* Decorative overlay for layout integration */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F9F9FC] to-transparent opacity-90 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent opacity-90 pointer-events-none" />
 
       {/* Background illustration overlay with topographic feel */}
       <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none">
@@ -147,7 +147,7 @@ export default function HeroAnimado() {
               <Link
                 href="/cotizar/express"
                 id="hero-cta-solicitar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-[#ffe000] text-brand-blue font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-xl border border-brand-yellow transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center justify-center gap-2 font-bold"
+                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow text-brand-blue font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-xl border border-brand-yellow transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center justify-center gap-2 font-bold"
               >
                 Solicitar Servicio
                 <ArrowRight className="h-5 w-5" />

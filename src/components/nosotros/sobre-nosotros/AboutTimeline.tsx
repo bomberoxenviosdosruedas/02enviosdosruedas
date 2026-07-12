@@ -68,7 +68,7 @@ export default function AboutTimeline() {
 
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_#003399]">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">
             TRAYECTORIA Y EVOLUCIÓN
           </span>
           <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
@@ -116,7 +116,7 @@ export default function AboutTimeline() {
                       scale: { type: "spring", stiffness: 300, damping: 20 },
                       opacity: { duration: 0.55 }
                     }}
-                    className="w-full md:w-[45%] bg-white p-6 sm:p-8 rounded-3xl border-2 border-brand-blue shadow-[4px_4px_0px_#003399] pl-16 md:pl-8 group hover:shadow-[6px_6px_0px_#003399] transition-all duration-300"
+                    className="w-full md:w-[45%] bg-white p-6 sm:p-8 rounded-3xl border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] pl-16 md:pl-8 group hover:shadow-[6px_6px_0px_var(--color-brand-blue)] transition-all duration-300"
                   >
                     <span className="inline-block text-3xl font-display text-brand-blue mb-2">
                       {milestone.year}

@@ -45,7 +45,7 @@ export default function ExpressUseCases() {
   return (
     <section 
       id="express-use-cases" 
-      className="py-24 bg-[#F9F9FC] relative z-10 overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-gray-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       {/* Background decoration */}
       <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-blue-50/50 blur-3xl -z-10 -translate-y-1/2" />
@@ -90,14 +90,14 @@ export default function ExpressUseCases() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className={`rounded-3xl border-2 transition-all duration-300 flex flex-col justify-between text-left ${
                   isOpen 
-                    ? 'bg-slate-900 text-white border-brand-yellow shadow-[6px_6px_0px_#FFCC00]'
-                    : 'bg-white text-brand-blue border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px]'
+                    ? 'bg-slate-900 text-white border-brand-yellow shadow-[6px_6px_0px_var(--color-brand-yellow)]'
+                    : 'bg-white text-brand-blue border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px]'
                 }`}
               >
                 <div className="p-6 sm:p-7 space-y-6">
                   {/* Icon & Badge Header */}
                   <div className="flex justify-between items-center">
-                    <div className="p-3 rounded-2xl w-fit border-2 border-brand-blue bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_#00277c]">
+                    <div className="p-3 rounded-2xl w-fit border-2 border-brand-blue bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">
                       <Icon className="h-5.5 w-5.5 shrink-0" />
                     </div>
                     <span className={`text-[10px] font-subheading uppercase tracking-wider px-2.5 py-1 rounded-full border ${

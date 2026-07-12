@@ -26,7 +26,7 @@ export default function AboutAdvantages() {
         
         {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_#003399]">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">
             DIFERENCIAL COMPETITIVO
           </span>
           <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
@@ -47,7 +47,7 @@ export default function AboutAdvantages() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-7 bg-white p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#003399] transition-all duration-300 flex flex-col justify-between"
+            className="lg:col-span-7 bg-white p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between"
           >
             <div className="space-y-5">
               <div className="p-3 bg-brand-blue/10 text-brand-blue rounded-2xl w-fit">
@@ -72,7 +72,7 @@ export default function AboutAdvantages() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.12 }}
-            className="lg:col-span-5 bg-brand-blue text-white p-8 rounded-3xl border-2 border-brand-yellow shadow-[6px_6px_0px_#FFCC00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#FFCC00] transition-all duration-300 flex flex-col justify-between"
+            className="lg:col-span-5 bg-brand-blue text-white p-8 rounded-3xl border-2 border-brand-yellow shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-yellow)] transition-all duration-300 flex flex-col justify-between"
           >
             <div className="space-y-5">
               <div className="p-3 bg-brand-yellow text-brand-blue rounded-2xl w-fit">
@@ -97,7 +97,7 @@ export default function AboutAdvantages() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.24 }}
-            className="lg:col-span-12 bg-white p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#003399] transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6"
+            className="lg:col-span-12 bg-white p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6"
           >
             <div className="space-y-3 max-w-3xl">
               <div className="flex items-center gap-3">
@@ -113,7 +113,7 @@ export default function AboutAdvantages() {
               </p>
             </div>
             <div className="shrink-0 flex items-center justify-end">
-              <span className="px-5 py-2.5 bg-brand-yellow border-2 border-brand-blue text-brand-blue font-subheading text-lg rounded-2xl uppercase tracking-wider shadow-[3px_3px_0px_#003399]">
+              <span className="px-5 py-2.5 bg-brand-yellow border-2 border-brand-blue text-brand-blue font-subheading text-lg rounded-2xl uppercase tracking-wider shadow-[3px_3px_0px_var(--color-brand-blue)]">
                 100% CONFIABLE
               </span>
             </div>

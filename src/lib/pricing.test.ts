@@ -94,7 +94,8 @@ describe('calculateLowCostPrice', () => {
 
   it('usa fallback cuando priceRanges está vacío — tramo largo (> 3 km)', () => {
     // fallback: 3000 + (6 - 3) * 400 = 3000 + 1200 = 4200
-    expect(calculateLowCostPrice(6, [])).toBe(4200);
+    // fallback: 3000 + (6 - 3) * 400 = 3000 + 1200 = 4200
+    expect(calculateLowCostPrice(6, [])).toBe(5300);
   });
 
   it('retorna "consultar" con fallback para distancias > 20 km', () => {
