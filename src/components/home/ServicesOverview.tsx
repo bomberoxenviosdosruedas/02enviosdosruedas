@@ -44,12 +44,8 @@ export default function ServicesOverview() {
   return (
     <section
       id="services-overview"
-      className="py-24 bg-brand-blue-700 relative overflow-hidden text-white"
+      className="py-24 bg-brand-ink relative overflow-hidden text-brand-white-50"
     >
-      {/* Subtle background decoration adapted to Dark Mode Urbano */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-brand-yellow/5 blur-[120px] -z-10" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-brand-blue-600/10 blur-[120px] -z-10" />
-
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
@@ -63,19 +59,19 @@ export default function ServicesOverview() {
 
         {/* Header Block */}
         <div className="max-w-3xl mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-blue-600 text-brand-yellow border border-brand-blue-500/30 rounded-full text-xs font-subheading tracking-widest inline-block uppercase shadow-sm">
-            Nuestros servicios
+          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading tracking-widest inline-block uppercase shadow-sm">
+            NUESTROS SERVICIOS
           </span>
-          <h2 className="text-white text-display uppercase text-left">
+          <h2 className="text-brand-white-50 text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9] text-left">
             Soluciones logísticas a tu medida
           </h2>
-          <p className="text-brand-blue-100 text-base leading-relaxed font-sans max-w-xl">
+          <p className="text-brand-blue-100 text-base sm:text-lg max-w-prose leading-relaxed font-sans font-medium">
             Cuatro modalidades pensadas para cada tipo de negocio y cada velocidad de entrega en Mar del Plata.
           </p>
         </div>
 
         {/* Services Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-[380px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8 auto-rows-[380px]">
           {services.map((service, index) => {
             const Icon = service.icon;
             // Determine bento column spans: 1st and 4th cards are larger (span 7), 2nd and 3rd are standard (span 5)
@@ -93,27 +89,26 @@ export default function ServicesOverview() {
                   damping: 18,
                   delay: index * 0.1
                 }}
-                className={`group relative h-full flex flex-col ${colSpan} p-2 bg-brand-white-50/5 border border-brand-white-50/10 rounded-[2rem] hover:border-brand-yellow/30 transition-all duration-500 hover:shadow-glow-blue`}
+                className={`group relative h-full flex flex-col ${colSpan} bg-brand-blue border-2 border-brand-blue rounded-xl hover:-translate-y-1 transition-all duration-300 hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] shadow-[4px_4px_0px_var(--color-brand-blue-600)]`}
               >
-                {/* Inner Core (Doppelrand Architecture) */}
-                <div className="relative flex-1 rounded-[calc(2rem-0.5rem)] overflow-hidden bg-brand-blue-700/40 backdrop-blur-2xl flex flex-col justify-between p-8">
+                {/* Inner Core (Color Blocking Architecture) */}
+                <div className="relative flex-1 rounded-xl overflow-hidden flex flex-col justify-between p-8">
                   
-                  {/* Background Image with Scale Zoom */}
-                  <div className="absolute inset-0 z-0 overflow-hidden rounded-[calc(2rem-0.5rem)]">
+                  {/* Background Image with Solid Blocking Overlay (No gradient) */}
+                  <div className="absolute inset-0 z-0 overflow-hidden bg-brand-blue-700">
                     <img
                       src={service.imageUrl}
                       alt={service.title}
-                      className="absolute inset-0 h-full w-full object-cover opacity-35 transition-transform duration-700 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-110 group-hover:opacity-50"
+                      className="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-luminosity transition-transform duration-700 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-105 group-hover:opacity-40"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-700 via-brand-blue-700/70 to-transparent z-10" />
                   </div>
 
                   {/* Card Header: Icon & Badge */}
                   <div className="relative z-20 flex justify-between items-start">
-                    <div className="p-3 bg-brand-yellow/10 text-brand-yellow border border-brand-yellow/20 rounded-2xl">
+                    <div className="p-3 bg-brand-yellow text-brand-blue rounded-xl">
                       <Icon className="h-6 w-6" />
                     </div>
-                    <span className="text-[9px] font-mono tracking-widest uppercase px-2.5 py-1 rounded-full bg-brand-white-50/10 text-brand-yellow font-bold">
+                    <span className="text-xs font-subheading tracking-widest uppercase px-3 py-1.5 rounded-lg bg-brand-ink text-brand-yellow font-bold border border-brand-yellow/30">
                       {service.badge}
                     </span>
                   </div>
