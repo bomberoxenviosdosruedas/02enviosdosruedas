@@ -93,7 +93,7 @@ export default function NetworksChannels() {
           >
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <div className="p-3 bg-pink-50 text-pink-600 border-2 border-brand-blue rounded-2xl relative w-12 h-12 flex items-center justify-center">
+                <div className="p-3 bg-brand-blue-50 text-brand-blue-600 border-2 border-brand-blue rounded-2xl relative w-12 h-12 flex items-center justify-center">
                   <Image
                     src="/iconos/instagram.svg"
                     alt="Instagram"
@@ -102,7 +102,7 @@ export default function NetworksChannels() {
                     className="object-contain"
                   />
                 </div>
-                <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-xs font-subheading font-bold uppercase tracking-wider">
+                <span className="px-3 py-1 bg-brand-blue-100 text-brand-blue-600 rounded-full text-xs font-subheading font-bold uppercase tracking-wider">
                   3.2K+ SEGUIDORES
                 </span>
               </div>

@@ -9,10 +9,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-blue': '#00277C',
-        'brand-yellow': '#FFEC01',
-        'brand-navy': '#001C58',
-        'brand-ink': '#1A1C1E',
+        'brand-blue': {
+          50: '#E6EEFE',
+          100: '#BACEFD',
+          200: '#8EAFFB',
+          300: '#628FF9',
+          400: '#3570F8',
+          500: '#0950F6',
+          600: '#0742CA',
+          700: '#0636A5',
+        },
+        'brand-yellow': {
+          50: '#FFFDE6',
+          100: '#FFFAB8',
+          200: '#FFF78A',
+          300: '#FFF45C',
+          400: '#FFF12E',
+          500: '#FFEC01',
+        },
+        'brand-white': {
+          50: '#FFFFFF',
+        },
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'IBM Plex Sans', 'Inter', 'sans-serif'],

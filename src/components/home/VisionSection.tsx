@@ -75,40 +75,89 @@ export default function VisionSection() {
             </div>
           </div>
 
-          {/* Stats Deck Block: 3-col so all cards align evenly */}
-          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {stats.map((stat, i) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 35 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -6, scale: 1.015 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    y: { type: "spring", stiffness: 300, damping: 20 },
-                    scale: { type: "spring", stiffness: 300, damping: 20 },
-                    opacity: { duration: 0.5, delay: i * 0.1 }
-                  }}
-                  className="p-8 rounded-3xl border border-slate-200 transition-all duration-300 flex flex-col justify-between cursor-pointer group bg-slate-50 hover:bg-white hover:border-brand-blue/20 hover:shadow-minimal"
-                >
-                  <div className="flex justify-between items-start mb-6">
-                    <div className="p-3.5 rounded-2xl bg-brand-yellow text-brand-blue group-hover:bg-brand-blue group-hover:text-brand-yellow border border-brand-yellow/30 transition-colors duration-300">
-                      <Icon className="h-6 w-6 group-hover:rotate-6 transition-transform duration-300" />
-                    </div>
+          {/* Stats Deck Block: Asymmetrical Bento Grid with Double Bezel Architecture */}
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            {/* Main Bento Card: Envíos Realizados (Double Bezel - Dark Corporate Accent) */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 150, damping: 15 }}
+              className="sm:col-span-2 p-2 bg-brand-blue/10 border border-brand-blue/15 rounded-[2rem] hover:shadow-accent-sm transition-all duration-500"
+            >
+              <div className="bg-brand-blue rounded-[calc(2rem-0.5rem)] p-8 text-white relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-brand-yellow/5 blur-[50px] pointer-events-none" />
+                <div className="flex justify-between items-start mb-12">
+                  <div className="p-3.5 rounded-2xl bg-brand-yellow/10 text-brand-yellow border border-brand-yellow/20">
+                    <Truck className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
-                  <div>
-                    <h3 className="text-4xl lg:text-5xl font-display text-brand-blue uppercase leading-none mb-2">
-                      {stat.value}
-                    </h3>
-                    <p className="text-xs text-slate-500 font-sans uppercase tracking-wider leading-relaxed">
-                      {stat.label}
-                    </p>
+                  <span className="text-[10px] font-mono tracking-widest uppercase px-2.5 py-1 rounded-full bg-white/10 text-brand-yellow font-bold">MAR DEL PLATA 2026</span>
+                </div>
+                <div>
+                  <h3 className="text-5xl lg:text-6xl font-display uppercase leading-none mb-3">
+                    +52.000
+                  </h3>
+                  <p className="text-xs text-blue-200 font-sans uppercase tracking-wider leading-relaxed">
+                    Envíos y entregas realizadas con éxito en toda la región
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Bento Card 2: Paquetes Extraviados (Double Bezel - Light Style) */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 150, damping: 15, delay: 0.1 }}
+              className="double-bezel-outer hover:shadow-soft-elevation transition-all duration-500"
+            >
+              <div className="double-bezel-inner p-6 sm:p-8 flex flex-col justify-between h-full group">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="p-3 rounded-xl bg-brand-blue/5 text-brand-blue group-hover:bg-brand-blue group-hover:text-brand-yellow transition-colors duration-300 border border-brand-blue/10">
+                    <ShieldCheck className="h-5 w-5" />
                   </div>
-                </motion.div>
-              );
-            })}
+                </div>
+                <div>
+                  <h3 className="text-4xl font-display text-brand-blue uppercase leading-none mb-2">
+                    0
+                  </h3>
+                  <p className="text-[10px] text-slate-500 font-sans uppercase tracking-widest font-semibold">
+                    Paquetes extraviados
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Bento Card 3: Emprendedores Confían (Double Bezel - Light Style) */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 150, damping: 15, delay: 0.2 }}
+              className="double-bezel-outer hover:shadow-soft-elevation transition-all duration-500"
+            >
+              <div className="double-bezel-inner p-6 sm:p-8 flex flex-col justify-between h-full group">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="p-3 rounded-xl bg-brand-blue/5 text-brand-blue group-hover:bg-brand-blue group-hover:text-brand-yellow transition-colors duration-300 border border-brand-blue/10">
+                    <Users className="h-5 w-5" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-4xl font-display text-brand-blue uppercase leading-none mb-2">
+                    +140
+                  </h3>
+                  <p className="text-[10px] text-slate-500 font-sans uppercase tracking-widest font-semibold">
+                    Emprendedores confían
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
           </div>
 
         </div>

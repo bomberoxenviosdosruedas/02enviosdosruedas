@@ -127,7 +127,7 @@ export default function RecentPosts() {
                     </div>
 
                     <div className={`p-1.5 rounded-lg border ${
-                      post.platform === 'Facebook' ? 'bg-blue-50 text-blue-600 border-blue-200' : 'bg-pink-50 text-pink-600 border-pink-200'
+                      post.platform === 'Facebook' ? 'bg-brand-blue-50 text-brand-blue-600 border-brand-blue-200' : 'bg-brand-yellow-50 text-brand-yellow-500 border-brand-yellow-200'
                     }`}>
                       <SocialIcon className="h-4 w-4" />
                     </div>

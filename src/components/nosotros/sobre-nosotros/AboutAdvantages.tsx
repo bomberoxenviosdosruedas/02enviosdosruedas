@@ -101,10 +101,10 @@ export default function AboutAdvantages() {
           >
             <div className="space-y-3 max-w-3xl">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-red-100 text-red-650 rounded-xl">
+                <div className="p-2.5 bg-brand-yellow-50 text-brand-yellow-500 rounded-xl">
                   <ShieldAlert className="h-5.5 w-5.5" />
                 </div>
-                <h3 className="text-2xl font-display uppercase tracking-wide text-brand-ink font-bold leading-none">
+                <h3 className="text-2xl font-display uppercase tracking-wide text-brand-blue font-bold leading-none">
                   Entregas Confiables en Tiempo y Forma
                 </h3>
               </div>

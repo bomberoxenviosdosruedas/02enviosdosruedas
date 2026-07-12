@@ -65,7 +65,7 @@ const INJECTED_STYLES = `
 
   /* Premium depth card with layered shadows */
   .premium-depth-card {
-    background: linear-gradient(145deg, #080f24 0%, #010816 100%);
+    background: linear-gradient(145deg, var(--color-brand-blue-700) 0%, rgba(6, 54, 165, 0.4) 100%);
     box-shadow:
       0 60px 120px -20px rgba(0, 0, 0, 0.95),
       0 20px 40px -20px rgba(0, 0, 0, 0.8),
@@ -115,13 +115,13 @@ const INJECTED_STYLES = `
   .ambient-orb-2 { animation: orb-breathe 8s ease-in-out infinite reverse; }
 `;
 
-// ─── Service card data ────────────────────────────────────────────────────────
+// ─── Service card data: Using strict scale values from paleta_3_colores.md ────
 const SERVICES = [
   {
     title: "Envíos Express",
     desc: "Entrega en menos de 2 horas con ruta optimizada y tracking en tiempo real.",
     icon: Zap,
-    accent: "rgba(255,236,1,0.85)",
+    accent: "rgba(255,236,1,0.85)", // Amarillo 500
     borderColor: "rgba(255,236,1,0.18)",
     bg: "rgba(255,236,1,0.04)",
   },
@@ -129,25 +129,25 @@ const SERVICES = [
     title: "Envíos LowCost",
     desc: "Ruteo masivo eficiente con entrega garantizada en el día. Hasta 40% más barato.",
     icon: Bike,
-    accent: "rgba(96,165,250,0.85)",
-    borderColor: "rgba(96,165,250,0.18)",
-    bg: "rgba(96,165,250,0.04)",
+    accent: "rgba(98,143,249,0.85)", // Azul 300
+    borderColor: "rgba(98,143,249,0.18)",
+    bg: "rgba(98,143,249,0.04)",
   },
   {
     title: "Envíos Flex",
     desc: "Expertos en MercadoLibre Flex — entregas same-day con escaneo integrado.",
     icon: Shield,
-    accent: "rgba(52,211,153,0.85)",
-    borderColor: "rgba(52,211,153,0.18)",
-    bg: "rgba(52,211,153,0.04)",
+    accent: "rgba(9,80,246,0.85)", // Azul 500
+    borderColor: "rgba(9,80,246,0.18)",
+    bg: "rgba(9,80,246,0.04)",
   },
   {
     title: "E-Commerce & 3PL",
     desc: "Tercerización logística escalable con integración directa a tu tienda.",
     icon: BarChart3,
-    accent: "rgba(167,139,250,0.85)",
-    borderColor: "rgba(167,139,250,0.18)",
-    bg: "rgba(167,139,250,0.04)",
+    accent: "rgba(186,206,253,0.85)", // Azul 100
+    borderColor: "rgba(186,206,253,0.18)",
+    bg: "rgba(186,206,253,0.04)",
   },
 ];
 
@@ -287,7 +287,7 @@ export function CinematicHero({ onComplete, className, ...props }: CinematicHero
     <div
       ref={containerRef}
       className={cn(
-        "fixed inset-0 w-screen h-screen overflow-hidden flex items-center justify-center bg-brand-dark text-white z-[999] font-sans antialiased",
+        "fixed inset-0 w-screen h-screen overflow-hidden flex items-center justify-center bg-brand-blue-700 text-white z-[999] font-sans antialiased",
         className
       )}
       style={{ perspective: "1500px" }}

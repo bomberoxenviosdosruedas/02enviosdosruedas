@@ -22,13 +22,13 @@ export default function NetworksBenefits() {
       title: 'Comunidad Activa',
       desc: 'Formá parte de nuestro grupo diario de clientes locales, compartiendo opiniones y enriqueciendo el servicio con tu feedback directo.',
       icon: Heart,
-      color: 'bg-pink-50 text-pink-600 border-pink-200',
+      color: 'bg-brand-blue-50 text-brand-blue-600 border-brand-blue-200',
     },
     {
       title: 'Soporte Ágil',
       desc: 'Obtené contención y respuestas rápidas a consultas logísticas generales de bultos directamente por medio de mensajes privados directos.',
       icon: MessageSquare,
-      color: 'bg-emerald-50 text-emerald-600 border-emerald-200',
+      color: 'bg-brand-yellow-50 text-brand-yellow-500 border-brand-yellow-200',
     },
   ];
 

@@ -2,33 +2,81 @@
 @config "../../tailwind.config.ts";
 
 @theme {
-  --color-brand-blue: #00277C;
-  --color-brand-yellow: #ffec01;
-  --color-brand-navy: #001C58;
+  /* Official 3-Color Palette Definitions (docs/paleta_3_colores.md) */
+  --color-brand-blue-50: #E6EEFE;
+  --color-brand-blue-100: #BACEFD;
+  --color-brand-blue-200: #8EAFFB;
+  --color-brand-blue-300: #628FF9;
+  --color-brand-blue-400: #3570F8;
+  --color-brand-blue-500: #0950F6;
+  --color-brand-blue-600: #0742CA;
+  --color-brand-blue-700: #0636A5;
 
-  --color-blue-50: #EFF6FF;
-  --color-blue-100: #DBEAFE;
-  --color-blue-200: #BFDBFE;
-  --color-blue-300: #93C5FD;
-  --color-blue-400: #60A5FA;
-  --color-blue-500: #3B82F6;
-  --color-blue-600: #2563EB;
-  --color-blue-700: #1D4ED8;
-  --color-blue-800: #1E3A8A;
-  --color-blue-900: #1E40AF;
-  --color-blue-950: #172554;
+  --color-brand-yellow-50: #FFFDE6;
+  --color-brand-yellow-100: #FFFAB8;
+  --color-brand-yellow-200: #FFF78A;
+  --color-brand-yellow-300: #FFF45C;
+  --color-brand-yellow-400: #FFF12E;
+  --color-brand-yellow-500: #FFEC01;
 
-  --color-gray-50: #F9F9FC;
-  --color-gray-100: #EEEEF0;
-  --color-gray-200: #E2E8F0;
-  --color-gray-300: #CBD5E1;
-  --color-gray-400: #94A3B8;
-  --color-gray-500: #64748B;
-  --color-gray-650: #444653;
-  --color-gray-600: #444653;
-  --color-gray-700: #334155;
-  --color-gray-800: #1A1C1E;
-  --color-gray-900: #1A1C1E;
+  --color-brand-white-50: #FFFFFF;
+
+  /* Global Core Variables */
+  --color-brand-blue: var(--color-brand-blue-700);
+  --color-brand-yellow: var(--color-brand-yellow-500);
+  --color-brand-navy: var(--color-brand-blue-700);
+
+  /* Remapped Blue Scales */
+  --color-blue-50: var(--color-brand-blue-50);
+  --color-blue-100: var(--color-brand-blue-100);
+  --color-blue-200: var(--color-brand-blue-200);
+  --color-blue-300: var(--color-brand-blue-300);
+  --color-blue-400: var(--color-brand-blue-400);
+  --color-blue-500: var(--color-brand-blue-500);
+  --color-blue-600: var(--color-brand-blue-600);
+  --color-blue-700: var(--color-brand-blue-700);
+  --color-blue-800: var(--color-brand-blue-700);
+  --color-blue-900: var(--color-brand-blue-700);
+  --color-blue-950: var(--color-brand-blue-700);
+
+  /* Remapped Gray Scales (using palette variations strictly to avoid adding external colors) */
+  --color-gray-50: var(--color-brand-white-50);
+  --color-gray-100: var(--color-brand-blue-50);
+  --color-gray-200: var(--color-brand-blue-100);
+  --color-gray-300: var(--color-brand-blue-200);
+  --color-gray-400: var(--color-brand-blue-300);
+  --color-gray-500: var(--color-brand-blue-400);
+  --color-gray-650: var(--color-brand-blue-500);
+  --color-gray-600: var(--color-brand-blue-500);
+  --color-gray-700: var(--color-brand-blue-600);
+  --color-gray-800: var(--color-brand-blue-700);
+  --color-gray-900: var(--color-brand-blue-700);
+
+  /* Remapped Slate Scales */
+  --color-slate-50: var(--color-brand-white-50);
+  --color-slate-100: var(--color-brand-blue-50);
+  --color-slate-200: var(--color-brand-blue-100);
+  --color-slate-300: var(--color-brand-blue-200);
+  --color-slate-400: var(--color-brand-blue-300);
+  --color-slate-500: var(--color-brand-blue-400);
+  --color-slate-600: var(--color-brand-blue-500);
+  --color-slate-700: var(--color-brand-blue-600);
+  --color-slate-800: var(--color-brand-blue-700);
+  --color-slate-900: var(--color-brand-blue-700);
+  --color-slate-950: var(--color-brand-blue-700);
+
+  /* Remapped Zinc Scales */
+  --color-zinc-50: var(--color-brand-white-50);
+  --color-zinc-100: var(--color-brand-blue-50);
+  --color-zinc-200: var(--color-brand-blue-100);
+  --color-zinc-300: var(--color-brand-blue-200);
+  --color-zinc-400: var(--color-brand-blue-300);
+  --color-zinc-500: var(--color-brand-blue-400);
+  --color-zinc-600: var(--color-brand-blue-500);
+  --color-zinc-700: var(--color-brand-blue-600);
+  --color-zinc-800: var(--color-brand-blue-700);
+  --color-zinc-900: var(--color-brand-blue-700);
+  --color-zinc-950: var(--color-brand-blue-700);
 
   --font-sans: var(--font-sans), "IBM Plex Sans", "Inter", sans-serif;
   --font-display: var(--font-display), "Anton", sans-serif;

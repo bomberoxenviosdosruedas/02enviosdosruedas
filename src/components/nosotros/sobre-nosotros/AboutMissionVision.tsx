@@ -48,25 +48,25 @@ export default function AboutMissionVision() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="lg:col-span-8 bg-slate-950 border-2 border-brand-yellow text-white p-8 rounded-3xl shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-yellow)] transition-all duration-300 flex flex-col justify-between"
+            className="lg:col-span-8 bg-brand-blue-600 border-2 border-brand-yellow-500 text-white p-8 rounded-3xl shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-yellow)] transition-all duration-300 flex flex-col justify-between"
           >
             <div className="space-y-6">
-              <div className="p-3 bg-brand-yellow text-brand-blue rounded-2xl w-fit border-2 border-brand-blue">
+              <div className="p-3 bg-brand-yellow-500 text-brand-blue rounded-2xl w-fit border-2 border-brand-blue">
                 <Target className="h-6 w-6" />
               </div>
               
-              <h3 className="text-2xl font-display uppercase tracking-wider text-brand-yellow">
+              <h3 className="text-2xl font-display uppercase tracking-wider text-brand-yellow-500">
                 NUESTRA MISIÓN
               </h3>
               
-              <p className="text-sm text-slate-300 font-sans leading-relaxed">
+              <p className="text-sm text-brand-blue-100 font-sans leading-relaxed">
                 Simplificar la logística de última milla local en Mar del Plata.
               </p>
             </div>
 
             <div className="pt-6 mt-6 border-t border-brand-yellow/20 flex items-center gap-2 text-xs">
-              <CheckSquare className="h-4.5 w-4.5 text-brand-yellow shrink-0 fill-brand-blue" />
-              <span className="font-subheading text-brand-yellow uppercase tracking-widest text-sm">SELLO DE CALIDAD DOSRUEDAS</span>
+              <CheckSquare className="h-4.5 w-4.5 text-brand-yellow-500 shrink-0 fill-brand-blue" />
+              <span className="font-subheading text-brand-yellow-500 uppercase tracking-widest text-sm">SELLO DE CALIDAD DOSRUEDAS</span>
             </div>
           </motion.div>
 
@@ -76,10 +76,10 @@ export default function AboutMissionVision() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.12 }}
-            className="lg:col-span-4 bg-white text-brand-ink border-2 border-brand-blue p-8 rounded-3xl shadow-[6px_6px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between"
+            className="lg:col-span-4 bg-brand-white-50 text-brand-blue border-2 border-brand-blue p-8 rounded-3xl shadow-[6px_6px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between"
           >
             <div className="space-y-6">
-              <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl w-fit border-2 border-brand-blue">
+              <div className="p-3 bg-brand-blue text-brand-yellow-500 rounded-2xl w-fit border-2 border-brand-blue">
                 <Eye className="h-6 w-6" />
               </div>
               
@@ -87,13 +87,13 @@ export default function AboutMissionVision() {
                 NUESTRA VISIÓN
               </h3>
               
-              <p className="text-sm text-slate-650 font-sans leading-relaxed">
+              <p className="text-sm text-brand-blue-600 font-sans leading-relaxed">
                 Consolidar la red de última milla y mensajería más confiable de Mar del Plata.
               </p>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-slate-150 flex items-center gap-2 text-xs text-brand-blue">
-              <CheckSquare className="h-4.5 w-4.5 text-brand-blue shrink-0 fill-brand-yellow" />
+            <div className="pt-6 mt-6 border-t border-brand-blue-100 flex items-center gap-2 text-xs text-brand-blue">
+              <CheckSquare className="h-4.5 w-4.5 text-brand-blue shrink-0 fill-brand-yellow-500" />
               <span className="font-subheading uppercase tracking-widest text-sm">VISIÓN DE FUTURO 2026</span>
             </div>
           </motion.div>
@@ -104,23 +104,23 @@ export default function AboutMissionVision() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.24 }}
-            className="lg:col-span-12 bg-slate-900 border-2 border-white text-white p-8 rounded-3xl shadow-[6px_6px_0px_var(--color-white)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-white)] transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6"
+            className="lg:col-span-12 bg-brand-blue-500 border-2 border-brand-white-50 text-white p-8 rounded-3xl shadow-[6px_6px_0px_var(--color-brand-white-50)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-white-50)] transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6"
           >
             <div className="space-y-4 max-w-3xl">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-brand-blue text-brand-yellow rounded-xl border-2 border-brand-yellow">
+                <div className="p-2.5 bg-brand-blue-700 text-brand-yellow-500 rounded-xl border-2 border-brand-yellow-500">
                   <Rocket className="h-5.5 w-5.5" />
                 </div>
-                <h3 className="text-2xl font-display uppercase tracking-wide text-brand-yellow font-bold leading-none">
+                <h3 className="text-2xl font-display uppercase tracking-wide text-brand-yellow-500 font-bold leading-none">
                   INNOVACIÓN CONSTANTE
                 </h3>
               </div>
-              <p className="text-sm text-slate-300 font-sans leading-relaxed">
+              <p className="text-sm text-brand-blue-100 font-sans leading-relaxed">
                 Trabajamos constantemente en nuevas innovaciones para hacer más confiable el servicio.
               </p>
             </div>
             <div className="shrink-0 flex items-center justify-end">
-              <span className="px-5 py-2.5 bg-brand-yellow border-2 border-brand-blue text-brand-blue font-subheading text-lg rounded-2xl uppercase tracking-wider shadow-[3px_3px_0px_rgba(255,255,255,0.8)]">
+              <span className="px-5 py-2.5 bg-brand-yellow-500 border-2 border-brand-blue text-brand-blue font-subheading text-lg rounded-2xl uppercase tracking-wider shadow-[3px_3px_0px_rgba(255,255,255,0.8)]">
                 TECNOLOGÍA PROPIA
               </span>
             </div>

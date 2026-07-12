@@ -19,19 +19,19 @@ export default function NewsletterSubscribe() {
   return (
     <section 
       id="newsletter-subscribe" 
-      className="py-24 bg-brand-blue text-white relative overflow-hidden border-t-4 border-brand-yellow"
+      className="py-24 bg-brand-blue-700 text-white relative overflow-hidden border-t-4 border-brand-yellow"
     >
       {/* Aesthetic ambient lighting */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,204,0,0.03),transparent_30%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,236,1,0.03),transparent_30%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(255,255,255,0.02),transparent_40%)]" />
-
+ 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto space-y-8">
           
           <div className="inline-flex p-3 bg-brand-yellow text-brand-blue rounded-3xl mx-auto border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-blue)]">
             <Mail className="h-6 w-6" />
           </div>
-
+ 
           <div className="space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-yellow font-subheading block">
               COMUNIDAD LOGÍSTICA
@@ -43,9 +43,9 @@ export default function NewsletterSubscribe() {
               Recibí promociones relámpago, novedades operativas de calle, beneficios corporativos y noticias logísticas de Mar del Plata directamente en tu bandeja de entrada.
             </p>
           </div>
-
+ 
           {/* Form container with state change (Neo-Brutalist Box) */}
-          <div className="bg-slate-900 border-2 border-brand-yellow p-6 sm:p-8 rounded-[2rem] shadow-[6px_6px_0px_var(--color-brand-yellow)] backdrop-blur-sm">
+          <div className="bg-brand-blue-600 border-2 border-brand-yellow p-6 sm:p-8 rounded-[2rem] shadow-[6px_6px_0px_var(--color-brand-yellow)] backdrop-blur-sm">
             <AnimatePresence mode="wait">
               {!submitted ? (
                 <motion.form
