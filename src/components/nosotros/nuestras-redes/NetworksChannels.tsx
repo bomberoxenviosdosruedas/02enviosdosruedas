@@ -44,7 +44,7 @@ export default function NetworksChannels() {
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="lg:col-span-12 bg-brand-blue text-white p-8 rounded-3xl border-2 border-brand-yellow shadow-[8px_8px_0px_#FFCC00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[6px_6px_0px_#FFCC00] transition-all duration-300 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 group/card cursor-pointer"
+            className="lg:col-span-12 bg-brand-blue text-white p-8 rounded-3xl border-2 border-brand-yellow shadow-[8px_8px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] transition-all duration-300 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 group/card cursor-pointer"
           >
             <div className="space-y-4 max-w-3xl">
               <div className="flex items-center gap-3">
@@ -75,7 +75,7 @@ export default function NetworksChannels() {
                 href="https://wa.me/5492236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full md:w-auto px-8 py-4 bg-brand-yellow text-brand-blue font-subheading tracking-wider text-base uppercase rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_#003399] hover:bg-white hover:text-brand-blue flex items-center justify-center gap-2 transition-all duration-300"
+                className="w-full md:w-auto px-8 py-4 bg-brand-yellow text-brand-blue font-subheading tracking-wider text-base uppercase rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] hover:bg-white hover:text-brand-blue flex items-center justify-center gap-2 transition-all duration-300"
               >
                 <span>CHATEÁ AHORA</span>
                 <ArrowRight className="h-5 w-5 shrink-0" />
@@ -89,7 +89,7 @@ export default function NetworksChannels() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-6 bg-white p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_#FFCC00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#FFCC00] transition-all duration-300 flex flex-col justify-between group/card cursor-pointer"
+            className="lg:col-span-6 bg-white p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-yellow)] transition-all duration-300 flex flex-col justify-between group/card cursor-pointer"
           >
             <div className="space-y-6">
               <div className="flex items-center justify-between">
@@ -123,7 +123,7 @@ export default function NetworksChannels() {
                 href="https://instagram.com/enviosdosruedas"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 bg-brand-blue hover:bg-brand-blue/95 text-white rounded-2xl text-xs font-subheading text-sm tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-[4px_4px_0px_#FFCC00] group-hover/card:bg-brand-yellow group-hover/card:text-brand-blue cursor-pointer duration-300"
+                className="w-full py-4 bg-brand-blue hover:bg-brand-blue/95 text-white rounded-2xl text-xs font-subheading text-sm tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-[4px_4px_0px_var(--color-brand-yellow)] group-hover/card:bg-brand-yellow group-hover/card:text-brand-blue cursor-pointer duration-300"
               >
                 <span>SEGUINOS EN INSTAGRAM</span>
                 <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover/card:translate-x-0.5" />
@@ -137,7 +137,7 @@ export default function NetworksChannels() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-6 bg-slate-50 p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#003399] transition-all duration-300 flex flex-col justify-between group/card cursor-pointer"
+            className="lg:col-span-6 bg-slate-50 p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between group/card cursor-pointer"
           >
             <div className="space-y-6">
               <div className="flex items-center justify-between">
@@ -171,7 +171,7 @@ export default function NetworksChannels() {
                 href="https://facebook.com/enviosdosruedas"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 bg-brand-blue hover:bg-brand-blue/95 text-white rounded-2xl text-xs font-subheading text-sm tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-[4px_4px_0px_#003399] group-hover/card:bg-brand-yellow group-hover/card:text-brand-blue cursor-pointer duration-300"
+                className="w-full py-4 bg-brand-blue hover:bg-brand-blue/95 text-white rounded-2xl text-xs font-subheading text-sm tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-[4px_4px_0px_var(--color-brand-blue)] group-hover/card:bg-brand-yellow group-hover/card:text-brand-blue cursor-pointer duration-300"
               >
                 <span>SEGUINOS EN FACEBOOK</span>
                 <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover/card:translate-x-0.5" />

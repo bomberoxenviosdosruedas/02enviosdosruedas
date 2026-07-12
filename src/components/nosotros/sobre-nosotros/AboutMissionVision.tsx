@@ -27,7 +27,7 @@ export default function AboutMissionVision() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_#003399]">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">
             PROPÓSITO Y FUTURO
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white">
@@ -48,7 +48,7 @@ export default function AboutMissionVision() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="lg:col-span-8 bg-slate-950 border-2 border-brand-yellow text-white p-8 rounded-3xl shadow-[6px_6px_0px_#FFCC00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#FFCC00] transition-all duration-300 flex flex-col justify-between"
+            className="lg:col-span-8 bg-slate-950 border-2 border-brand-yellow text-white p-8 rounded-3xl shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-yellow)] transition-all duration-300 flex flex-col justify-between"
           >
             <div className="space-y-6">
               <div className="p-3 bg-brand-yellow text-brand-blue rounded-2xl w-fit border-2 border-brand-blue">
@@ -76,7 +76,7 @@ export default function AboutMissionVision() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.12 }}
-            className="lg:col-span-4 bg-white text-brand-ink border-2 border-brand-blue p-8 rounded-3xl shadow-[6px_6px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#003399] transition-all duration-300 flex flex-col justify-between"
+            className="lg:col-span-4 bg-white text-brand-ink border-2 border-brand-blue p-8 rounded-3xl shadow-[6px_6px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between"
           >
             <div className="space-y-6">
               <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl w-fit border-2 border-brand-blue">
@@ -104,7 +104,7 @@ export default function AboutMissionVision() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.24 }}
-            className="lg:col-span-12 bg-slate-900 border-2 border-white text-white p-8 rounded-3xl shadow-[6px_6px_0px_#ffffff] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#ffffff] transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6"
+            className="lg:col-span-12 bg-slate-900 border-2 border-white text-white p-8 rounded-3xl shadow-[6px_6px_0px_var(--color-white)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-white)] transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6"
           >
             <div className="space-y-4 max-w-3xl">
               <div className="flex items-center gap-3">

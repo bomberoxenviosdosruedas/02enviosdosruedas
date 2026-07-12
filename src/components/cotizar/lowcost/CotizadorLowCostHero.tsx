@@ -105,7 +105,7 @@ export default function CotizadorLowCostHero() {
   return (
     <section
       id="cotizador-lowcost-hero"
-      className="relative min-h-[65vh] flex items-center justify-center pt-32 pb-12 overflow-hidden bg-gradient-to-b from-[#001035] via-[#00184c] to-[#001035] text-white border-b border-white/10"
+      className="relative min-h-[65vh] flex items-center justify-center pt-32 pb-12 overflow-hidden bg-gradient-to-b from-brand-dark via-brand-dark to-brand-dark text-white border-b border-white/10"
     >
       {/* Ambient background glows */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,rgba(6,54,165,0.45),transparent_55%)] pointer-events-none" />
@@ -192,7 +192,7 @@ export default function CotizadorLowCostHero() {
             >
               {/* Main Card with Glassmorphism and Custom shadow */}
               <div 
-                className="rounded-3xl border border-white/25 bg-gradient-to-br from-[#0636A5]/50 to-[#001035]/90 backdrop-blur-xl p-8 text-white shadow-[0_30px_60px_-15px_rgba(6,54,165,0.45)] relative overflow-hidden group transition-all duration-300 hover:border-brand-yellow/30"
+                className="rounded-3xl border border-white/25 bg-gradient-to-br from-brand-blue/50 to-brand-dark/90 backdrop-blur-xl p-8 text-white shadow-[0_30px_60px_-15px_rgba(6,54,165,0.45)] relative overflow-hidden group transition-all duration-300 hover:border-brand-yellow/30"
                 style={{
                   background: `radial-gradient(circle at ${lightX}% ${lightY}%, rgba(255, 236, 1, 0.12) 0%, transparent 60%), linear-gradient(135deg, rgba(6, 54, 165, 0.5) 0%, rgba(0, 16, 53, 0.9) 100%)`
                 }}

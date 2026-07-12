@@ -287,7 +287,7 @@ export function CinematicHero({ onComplete, className, ...props }: CinematicHero
     <div
       ref={containerRef}
       className={cn(
-        "fixed inset-0 w-screen h-screen overflow-hidden flex items-center justify-center bg-[#000c22] text-white z-[999] font-sans antialiased",
+        "fixed inset-0 w-screen h-screen overflow-hidden flex items-center justify-center bg-brand-dark text-white z-[999] font-sans antialiased",
         className
       )}
       style={{ perspective: "1500px" }}

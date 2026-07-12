@@ -34,7 +34,7 @@ function SectionSeparator() {
 
 export default function Home() {
   return (
-    <div id="home-page-container" className="w-full bg-[#F9F9FC] text-slate-900 min-h-screen relative overflow-hidden">
+    <div id="home-page-container" className="w-full bg-gray-50 text-slate-900 min-h-screen relative overflow-hidden">
       {/* 1. Animated Hero Presentation */}
       <div className="relative z-10">
         <HeroAnimado />

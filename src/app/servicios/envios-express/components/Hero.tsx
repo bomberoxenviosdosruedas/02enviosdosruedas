@@ -7,8 +7,8 @@ export default function Hero() {
   return (
     <section id="hero" className="relative overflow-hidden gradient-blue text-white py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
       {/* Decorative light blue neon glow circles */}
-      <div className="absolute top-1/4 right-10 w-96 h-96 bg-[#FFCC00]/12 rounded-full blur-[80px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-10 w-80 h-80 bg-[#003399]/30 rounded-full blur-[60px] pointer-events-none" />
+      <div className="absolute top-1/4 right-10 w-96 h-96 bg-brand-yellow/12 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-10 w-80 h-80 bg-brand-blue/30 rounded-full blur-[60px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left text column */}

@@ -28,7 +28,7 @@ export default function NewsletterSubscribe() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto space-y-8">
           
-          <div className="inline-flex p-3 bg-brand-yellow text-brand-blue rounded-3xl mx-auto border-2 border-brand-blue shadow-[3px_3px_0px_#003399]">
+          <div className="inline-flex p-3 bg-brand-yellow text-brand-blue rounded-3xl mx-auto border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-blue)]">
             <Mail className="h-6 w-6" />
           </div>
 
@@ -45,7 +45,7 @@ export default function NewsletterSubscribe() {
           </div>
 
           {/* Form container with state change (Neo-Brutalist Box) */}
-          <div className="bg-slate-900 border-2 border-brand-yellow p-6 sm:p-8 rounded-[2rem] shadow-[6px_6px_0px_#FFCC00] backdrop-blur-sm">
+          <div className="bg-slate-900 border-2 border-brand-yellow p-6 sm:p-8 rounded-[2rem] shadow-[6px_6px_0px_var(--color-brand-yellow)] backdrop-blur-sm">
             <AnimatePresence mode="wait">
               {!submitted ? (
                 <motion.form
@@ -62,11 +62,11 @@ export default function NewsletterSubscribe() {
                     placeholder="Tu correo electrónico..."
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 bg-white text-brand-ink placeholder:text-slate-400 font-sans text-sm rounded-xl px-4 py-4 border-2 border-brand-blue focus:outline-none focus:shadow-[2px_2px_0px_#003399] transition-all"
+                    className="flex-1 bg-white text-brand-ink placeholder:text-slate-400 font-sans text-sm rounded-xl px-4 py-4 border-2 border-brand-blue focus:outline-none focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all"
                   />
                   <button
                     type="submit"
-                    className="bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider font-bold text-sm uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_#003399] transition-all duration-200 shrink-0 cursor-pointer"
+                    className="bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider font-bold text-sm uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_var(--color-brand-blue)] transition-all duration-200 shrink-0 cursor-pointer"
                   >
                     Unirme Ahora
                   </button>

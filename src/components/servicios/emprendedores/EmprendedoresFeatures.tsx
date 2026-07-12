@@ -32,7 +32,7 @@ export default function EmprendedoresFeatures() {
   return (
     <section 
       id="emprendedores-features" 
-      className="py-24 bg-[#F9F9FC] relative z-10 overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-gray-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -78,7 +78,7 @@ export default function EmprendedoresFeatures() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.12, duration: 0.5 }}
-                  className="bg-white border-2 border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_#00277c] p-6 rounded-3xl transition-all duration-300 flex flex-col lg:flex-row gap-5 items-start"
+                  className="bg-white border-2 border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_var(--color-brand-blue)] p-6 rounded-3xl transition-all duration-300 flex flex-col lg:flex-row gap-5 items-start"
                 >
                   <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl shrink-0 border border-brand-blue">
                     <Icon className="h-5.5 w-5.5 shrink-0" />
@@ -110,9 +110,9 @@ export default function EmprendedoresFeatures() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.5 }}
-                  className="bg-white border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_#00277c] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#00277c] transition-all duration-300 flex items-center gap-5 justify-center sm:justify-start"
+                  className="bg-white border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-300 flex items-center gap-5 justify-center sm:justify-start"
                 >
-                  <div className="p-3.5 bg-brand-yellow text-brand-blue rounded-2xl shrink-0 border-2 border-brand-blue shadow-[2px_2px_0px_#00277c]">
+                  <div className="p-3.5 bg-brand-yellow text-brand-blue rounded-2xl shrink-0 border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">
                     <Icon className="h-6 w-6 shrink-0" />
                   </div>
                   <div className="text-left">

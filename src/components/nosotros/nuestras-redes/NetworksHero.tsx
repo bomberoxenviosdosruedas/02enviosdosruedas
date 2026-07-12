@@ -75,7 +75,7 @@ export default function NetworksHero() {
               className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-none text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
             >
               <span>COMUNIDAD EN</span>
-              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_#003399]">
+              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_var(--color-brand-blue)]">
                 <Image
                   src="https://picsum.photos/id/450/200/100" 
                   alt="Comunidad en movimiento"
@@ -97,7 +97,7 @@ export default function NetworksHero() {
             {/* Special Callout Panel (Neo-Brutalist) */}
             <motion.div 
               variants={itemVariants}
-              className="p-6 rounded-3xl bg-slate-900 border-2 border-brand-blue max-w-xl mx-auto lg:mx-0 shadow-[4px_4px_0px_#FFCC00] space-y-3 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#FFCC00] transition-all duration-200"
+              className="p-6 rounded-3xl bg-slate-900 border-2 border-brand-blue max-w-xl mx-auto lg:mx-0 shadow-[4px_4px_0px_var(--color-brand-yellow)] space-y-3 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-yellow)] transition-all duration-200"
             >
               <div className="flex items-center gap-2 justify-center lg:justify-start">
                 <Sparkles className="h-4.5 w-4.5 text-brand-yellow animate-pulse shrink-0" />
@@ -122,7 +122,7 @@ export default function NetworksHero() {
               whileHover={{ scale: 1.025, y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-brand-ink shadow-[8px_8px_0px_#FFCC00] relative overflow-hidden group transition-all duration-300">
+              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-brand-ink shadow-[8px_8px_0px_var(--color-brand-yellow)] relative overflow-hidden group transition-all duration-300">
                 {/* Visual Accent Top Bar */}
                 <div className="absolute top-0 inset-x-0 h-2 bg-brand-blue" />
                 

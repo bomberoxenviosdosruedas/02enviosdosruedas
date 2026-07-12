@@ -57,7 +57,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       )}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only fixed top-4 left-4 z-[9999] bg-[#FFCC00] text-[#003399] px-6 py-3 rounded-xl font-subheading border-2 border-[#003399] shadow-[3px_3px_0px_#003399] uppercase font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue"
+        className="sr-only focus:not-sr-only fixed top-4 left-4 z-[9999] bg-brand-yellow text-brand-blue px-6 py-3 rounded-xl font-subheading border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-blue)] uppercase font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue"
       >
         Saltar al contenido
       </a>

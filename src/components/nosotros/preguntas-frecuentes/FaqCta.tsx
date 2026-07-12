@@ -17,7 +17,7 @@ export default function FaqCta() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
-          className="bg-white text-brand-ink rounded-3xl p-8 sm:p-12 border-2 border-brand-blue shadow-[8px_8px_0px_#FFCC00] relative overflow-hidden text-center"
+          className="bg-white text-brand-ink rounded-3xl p-8 sm:p-12 border-2 border-brand-blue shadow-[8px_8px_0px_var(--color-brand-yellow)] relative overflow-hidden text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -52,7 +52,7 @@ export default function FaqCta() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="faq-cta-whatsapp"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#003399] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold"
+                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold"
               >
                 <MessageSquare className="h-5 w-5 fill-current" />
                 Hablá por WhatsApp
@@ -61,7 +61,7 @@ export default function FaqCta() {
               <Link
                 href="/contacto"
                 id="faq-cta-contacto"
-                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_#003399] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#003399] transition-all duration-200 flex items-center justify-center gap-2 font-bold"
+                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2 font-bold"
               >
                 <Mail className="h-5 w-5 text-brand-blue" />
                 Contacto Directo
