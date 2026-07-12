@@ -8,7 +8,7 @@ export default function AboutAdvantages() {
   return (
     <section 
       id="about-advantages" 
-      className="py-24 bg-slate-50 relative overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-brand-white-50 relative overflow-hidden border-t-4 border-brand-blue"
     >
       {/* Dynamic background accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-yellow/5 rounded-full blur-3xl pointer-events-none" />
@@ -32,7 +32,7 @@ export default function AboutAdvantages() {
           <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
             Por Qué Elegirnos
           </h2>
-          <p className="text-slate-600 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             En un mercado sobresaturado de aplicaciones genéricas y envíos automatizados sin rostro, decidimos ir por el camino de la excelencia territorial en Mar del Plata.
           </p>
           <div className="h-2 w-16 bg-brand-blue mx-auto rounded-full" />
@@ -56,11 +56,11 @@ export default function AboutAdvantages() {
               <h3 className="text-2xl font-display uppercase tracking-wide text-brand-blue font-bold leading-tight">
                 Soporte Humano 24/7
               </h3>
-              <p className="text-sm text-slate-600 font-sans leading-relaxed">
+              <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
                 Damos la cara frente a cualquier inconveniente. Contamos con atención al cliente humana e inmediata disponible las 24 horas, los 7 días de la semana para resolver de manera ágil tus dudas.
               </p>
             </div>
-            <div className="pt-6 mt-6 border-t border-slate-100 flex items-center gap-1.5 text-xs font-subheading uppercase tracking-wider text-brand-blue">
+            <div className="pt-6 mt-6 border-t border-brand-blue-50 flex items-center gap-1.5 text-xs font-subheading uppercase tracking-wider text-brand-blue">
               <Sparkles className="h-4 w-4 text-brand-yellow fill-brand-yellow" />
               <span>SOPORTE DIRECTO WHATSAPP</span>
             </div>
@@ -81,7 +81,7 @@ export default function AboutAdvantages() {
               <h3 className="text-2xl font-display uppercase tracking-wide text-brand-yellow font-bold leading-tight">
                 Flota Propia de Repartidores Capacitados
               </h3>
-              <p className="text-sm text-blue-50 font-sans leading-relaxed">
+              <p className="text-sm text-brand-white-50 font-sans leading-relaxed">
                 Controlamos meticulosamente cada eslabón de la logística con repartidores propios, identificados y altamente capacitados en Mar del Plata.
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function AboutAdvantages() {
                   Entregas Confiables en Tiempo y Forma
                 </h3>
               </div>
-              <p className="text-sm text-slate-500 font-sans leading-relaxed">
+              <p className="text-sm text-brand-blue-400 font-sans leading-relaxed">
                 Tu negocio depende de la puntualidad y el buen trato del paquete. Nos aseguramos de realizar cada entrega en el tiempo pactado y en perfectas condiciones.
               </p>
             </div>

@@ -154,7 +154,7 @@ export default function CotizadorExpressHero() {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans"
+              className="text-base sm:text-lg text-brand-blue-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans"
             >
               Ingresá los puntos de origen y destino en Mar del Plata para calcular la distancia y la tarifa exacta al instante. Planificá tus envíos de extrema prioridad con total transparencia.
             </motion.p>
@@ -164,15 +164,15 @@ export default function CotizadorExpressHero() {
               variants={itemVariants}
               className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 max-w-xl mx-auto lg:mx-0 text-left font-sans text-xs"
             >
-              <div className="flex items-center gap-2 text-slate-300 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm hover:border-white/20 transition-colors">
+              <div className="flex items-center gap-2 text-brand-blue-200 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm hover:border-white/20 transition-colors">
                 <Clock className="h-4 w-4 text-brand-yellow shrink-0" />
                 <span>Entrega en &lt; 2 Horas</span>
               </div>
-              <div className="flex items-center gap-2 text-slate-300 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm hover:border-white/20 transition-colors">
+              <div className="flex items-center gap-2 text-brand-blue-200 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm hover:border-white/20 transition-colors">
                 <Navigation className="h-4 w-4 text-brand-yellow shrink-0" />
                 <span>Ruta Optimizada</span>
               </div>
-              <div className="flex items-center gap-2 text-slate-300 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm hover:border-white/20 transition-colors">
+              <div className="flex items-center gap-2 text-brand-blue-200 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm hover:border-white/20 transition-colors">
                 <ShieldCheck className="h-4 w-4 text-brand-yellow shrink-0" />
                 <span>Tarifa 100% Precisa</span>
               </div>
@@ -203,13 +203,13 @@ export default function CotizadorExpressHero() {
                       <h4 className="text-xl font-display uppercase font-bold text-white tracking-wide">
                         CÁLCULO AUTOMÁTICO
                       </h4>
-                      <p className="text-[10px] text-slate-400 font-subheading tracking-wider uppercase mt-0.5">SISTEMA EXPRESS MAPS</p>
+                      <p className="text-[10px] text-brand-blue-300 font-subheading tracking-wider uppercase mt-0.5">SISTEMA EXPRESS MAPS</p>
                     </div>
                     <Calculator className="h-6 w-6 text-brand-yellow shrink-0 animate-pulse" />
                   </div>
 
                   {/* Calculator Simulation items */}
-                  <div className="space-y-3 font-mono text-xs text-slate-350">
+                  <div className="space-y-3 font-mono text-xs text-brand-blue-200">
                     <div className="flex justify-between items-center py-1 border-b border-white/5">
                       <span>ORIGEN</span>
                       <span className="text-white font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.origen}</span>

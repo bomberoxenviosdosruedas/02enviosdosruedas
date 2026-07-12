@@ -26,7 +26,7 @@ export default function FlexRequirements() {
   return (
     <section 
       id="flex-requirements" 
-      className="py-24 bg-gray-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -47,7 +47,7 @@ export default function FlexRequirements() {
           <h2 className="text-brand-blue text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight border-l-4 border-brand-yellow pl-4 inline-block">
             ¿QUÉ NECESITÁS?
           </h2>
-          <p className="text-slate-600 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Requisitos mínimos e indispensables para empezar a ofrecer envíos Same-Day y potenciar tu e-commerce hoy mismo.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
@@ -74,7 +74,7 @@ export default function FlexRequirements() {
                   <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue font-bold leading-tight">
                     {req.title}
                   </h3>
-                  <p className="text-sm text-slate-655 font-sans leading-relaxed">
+                  <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
                     {req.desc}
                   </p>
                 </div>

@@ -17,7 +17,7 @@ function SectionSeparator() {
   return (
     <div className="w-full flex items-center justify-center relative h-16 bg-transparent pointer-events-auto z-20 perspective-1000">
       {/* Línea horizontal de fondo con degradado sutil sin brillos intensos */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-slate-250 to-transparent h-px" />
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-brand-blue-200 to-transparent h-px" />
       {/* Línea central sutil de acento */}
       <div className="absolute top-1/2 -translate-y-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent w-48 sm:w-80" />
       
@@ -34,7 +34,7 @@ function SectionSeparator() {
 
 export default function Home() {
   return (
-    <div id="home-page-container" className="w-full bg-gray-50 text-slate-900 min-h-screen relative overflow-hidden">
+    <div id="home-page-container" className="w-full bg-brand-white-50 text-brand-blue-700 min-h-screen relative overflow-hidden">
       {/* 1. Animated Hero Presentation */}
       <div className="relative z-10">
         <HeroAnimado />

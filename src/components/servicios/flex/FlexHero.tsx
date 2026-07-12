@@ -89,7 +89,7 @@ export default function FlexHero() {
             {/* Description */}
             <motion.p 
               variants={itemVariants}
-              className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-blue-50"
+              className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-white-50"
             >
               Somos expertos en la logística de MercadoLibre. Optimizamos tus entregas Same-Day para que tu medidor siempre esté en verde y vos solo te enfoques en vender.
             </motion.p>
@@ -127,8 +127,8 @@ export default function FlexHero() {
                   <Award className="h-5 w-5 shrink-0" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-blue-200 leading-none mb-1">Tu Reputación</p>
-                  <p className="text-sm font-subheading uppercase font-semibold text-emerald-400">Medidor 100% en Verde</p>
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-blue-100 leading-none mb-1">Tu Reputación</p>
+                  <p className="text-sm font-subheading uppercase font-semibold text-brand-blue-300">Medidor 100% en Verde</p>
                 </div>
               </div>
 
@@ -137,7 +137,7 @@ export default function FlexHero() {
                   <TrendingUp className="h-5 w-5 shrink-0" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-blue-200 leading-none mb-1">SLA de Despacho</p>
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-blue-100 leading-none mb-1">SLA de Despacho</p>
                   <p className="text-sm font-subheading uppercase font-semibold text-white">Same-Day Garantizado</p>
                 </div>
               </div>
@@ -156,17 +156,17 @@ export default function FlexHero() {
             >
               <div className="relative rounded-3xl border-2 border-brand-blue bg-white p-5 text-brand-ink shadow-[6px_6px_0px_var(--color-brand-yellow)]">
                 <div className="flex justify-between items-start mb-3">
-                  <span className="text-[10px] bg-emerald-100 text-emerald-800 border border-emerald-250 font-bold uppercase px-2.5 py-1 rounded-full">
+                  <span className="text-[10px] bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-200 font-bold uppercase px-2.5 py-1 rounded-full">
                     SOCIOS LOGÍSTICOS CERTIFICADOS
                   </span>
-                  <span className="text-xs font-mono font-bold text-emerald-600">
+                  <span className="text-xs font-mono font-bold text-brand-blue-500">
                     OK
                   </span>
                 </div>
                 <h3 className="text-base font-display uppercase tracking-tight text-brand-ink leading-snug">
                   Entregas en el día sin demoras
                 </h3>
-                <p className="text-xs text-slate-655 font-sans mt-2 leading-relaxed">
+                <p className="text-xs text-brand-blue-500 font-sans mt-2 leading-relaxed">
                   Evitá sanciones en tu panel de MercadoLibre. Nuestro equipo cumple de manera estricta los ruteos y horarios oficiales del canal.
                 </p>
               </div>
@@ -179,7 +179,7 @@ export default function FlexHero() {
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.6 } }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative rounded-3xl border-2 border-brand-yellow bg-slate-900 p-5 text-white shadow-[6px_6px_0px_var(--color-brand-blue)]">
+              <div className="relative rounded-3xl border-2 border-brand-yellow bg-brand-blue-700 p-5 text-white shadow-[6px_6px_0px_var(--color-brand-blue)]">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-brand-yellow animate-ping" />
@@ -188,7 +188,7 @@ export default function FlexHero() {
                   <p className="text-sm font-subheading uppercase font-semibold leading-none">
                     Recibimos hasta las 15:00 hs
                   </p>
-                  <p className="text-xs text-slate-350 font-sans leading-relaxed">
+                  <p className="text-xs text-brand-blue-200 font-sans leading-relaxed">
                     Maximizá tus ventas de la mañana. Coordinamos el ruteo express de tus paquetes durante la tarde sin excepción.
                   </p>
                 </div>

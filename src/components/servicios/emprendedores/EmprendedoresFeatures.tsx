@@ -32,7 +32,7 @@ export default function EmprendedoresFeatures() {
   return (
     <section 
       id="emprendedores-features" 
-      className="py-24 bg-gray-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -57,7 +57,7 @@ export default function EmprendedoresFeatures() {
               <span className="text-brand-yellow font-bold">PARA EMPRENDEDORES</span>
             </h2>
             
-            <p className="text-slate-600 text-base leading-relaxed font-sans">
+            <p className="text-brand-blue-500 text-base leading-relaxed font-sans">
               Somos mucho más que una empresa de envíos tradicional; nos convertimos en el departamento de logística estratégico de tu negocio. Delegá el almacenamiento, empaquetado y distribución en manos de expertos y enfocate de lleno en hacer crecer tu marca.
             </p>
 
@@ -87,7 +87,7 @@ export default function EmprendedoresFeatures() {
                     <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue leading-tight">
                       {feat.title}
                     </h4>
-                    <p className="text-sm text-slate-655 font-sans leading-relaxed">
+                    <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
                       {feat.desc}
                     </p>
                   </div>
@@ -99,7 +99,7 @@ export default function EmprendedoresFeatures() {
         </div>
 
         {/* Stats Section Panel */}
-        <div className="mt-20 border-t-2 border-slate-100 pt-16">
+        <div className="mt-20 border-t-2 border-brand-blue-50 pt-16">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {stats.map((stat, idx) => {
               const Icon = stat.icon;
@@ -119,7 +119,7 @@ export default function EmprendedoresFeatures() {
                     <span className="block text-3xl font-display uppercase tracking-tight text-brand-blue leading-none mb-1">
                       {stat.value}
                     </span>
-                    <span className="block text-xs uppercase tracking-wider font-subheading text-slate-500 font-bold">
+                    <span className="block text-xs uppercase tracking-wider font-subheading text-brand-blue-400 font-bold">
                       {stat.label}
                     </span>
                   </div>

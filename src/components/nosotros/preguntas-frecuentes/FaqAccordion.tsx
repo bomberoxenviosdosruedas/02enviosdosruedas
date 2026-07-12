@@ -72,8 +72,8 @@ export default function FaqAccordion() {
   return (
     <section id="faq-accordion" className="py-24 bg-white relative overflow-hidden">
       {/* Dynamic Background */}
-      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-blue-50/40 blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-yellow-50/40 blur-3xl -z-10" />
+      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-brand-white-50/40 blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-brand-yellow-50/40 blur-3xl -z-10" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -92,10 +92,10 @@ export default function FaqAccordion() {
                 whileTap={{ scale: 0.97 }}
                 className={`px-6 py-3.5 rounded-2xl text-sm font-subheading uppercase tracking-wider flex items-center gap-2.5 transition-all cursor-pointer border-2 ${isActive
                     ? 'bg-brand-yellow text-brand-blue border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)]'
-                    : 'bg-white text-slate-700 border-slate-200 shadow-[2px_2px_0px_rgba(0,0,0,0.05)] hover:border-brand-blue hover:shadow-[3px_3px_0px_var(--color-brand-blue)]'
+                    : 'bg-white text-brand-blue-600 border-brand-blue-100 shadow-[2px_2px_0px_rgba(0,0,0,0.05)] hover:border-brand-blue hover:shadow-[3px_3px_0px_var(--color-brand-blue)]'
                   }`}
               >
-                <Icon className={`h-5 w-5 ${isActive ? 'text-brand-blue' : 'text-slate-500'}`} />
+                <Icon className={`h-5 w-5 ${isActive ? 'text-brand-blue' : 'text-brand-blue-400'}`} />
                 <span>{cat.label}</span>
               </motion.button>
             );
@@ -121,7 +121,7 @@ export default function FaqAccordion() {
                     key={item.question}
                     className={`rounded-3xl overflow-hidden transition-all duration-300 border-2 ${isExpanded
                         ? 'bg-white border-brand-blue shadow-[6px_6px_0px_var(--color-brand-yellow)]'
-                        : 'bg-slate-50 border-brand-blue/20 shadow-[4px_4px_0px_rgba(0,51,153,0.08)] hover:border-brand-blue hover:shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px]'
+                        : 'bg-brand-white-50 border-brand-blue/20 shadow-[4px_4px_0px_rgba(0,51,153,0.08)] hover:border-brand-blue hover:shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px]'
                       }`}
                   >
                     {/* Collapsible Header Click Area */}
@@ -137,7 +137,7 @@ export default function FaqAccordion() {
                           {item.question}
                         </h4>
                       </div>
-                      <div className={`p-2 rounded-full border-2 shrink-0 transition-transform duration-300 ${isExpanded ? 'rotate-180 bg-brand-blue text-brand-yellow border-brand-blue' : 'bg-slate-200/50 text-slate-500 border-slate-300'}`}>
+                      <div className={`p-2 rounded-full border-2 shrink-0 transition-transform duration-300 ${isExpanded ? 'rotate-180 bg-brand-blue text-brand-yellow border-brand-blue' : 'bg-brand-blue-100/50 text-brand-blue-400 border-brand-blue-200'}`}>
                         <ChevronDown className="h-4.5 w-4.5" />
                       </div>
                     </button>
@@ -151,7 +151,7 @@ export default function FaqAccordion() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3, ease: 'easeInOut' }}
                         >
-                          <div className="px-6 pb-7 pl-16 pr-8 border-t-2 border-slate-100 pt-4 text-sm sm:text-base text-slate-650 font-sans leading-relaxed">
+                          <div className="px-6 pb-7 pl-16 pr-8 border-t-2 border-brand-blue-50 pt-4 text-sm sm:text-base text-brand-blue-500 font-sans leading-relaxed">
                             {item.answer}
                           </div>
                         </motion.div>

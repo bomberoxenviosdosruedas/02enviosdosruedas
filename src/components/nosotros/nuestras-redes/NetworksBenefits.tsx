@@ -56,7 +56,7 @@ export default function NetworksBenefits() {
           <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
             BENEFICIOS DE FORMAR PARTE
           </h2>
-          <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Descubrí por qué cientos de marplatenses y PyMEs locales ya nos siguen activamente en nuestros canales de difusión oficiales.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
@@ -73,7 +73,7 @@ export default function NetworksBenefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-slate-50 border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between group text-left"
+                className="bg-brand-white-50 border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between group text-left"
               >
                 <div className="space-y-5">
                   <div className={`p-3 rounded-2xl w-fit border-2 ${benefit.color}`}>
@@ -84,12 +84,12 @@ export default function NetworksBenefits() {
                     {benefit.title}
                   </h3>
 
-                  <p className="text-sm text-slate-650 font-sans leading-relaxed">
+                  <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
                     {benefit.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t-2 border-brand-blue flex items-center gap-1.5 text-xs font-subheading uppercase text-slate-400">
+                <div className="pt-6 mt-6 border-t-2 border-brand-blue flex items-center gap-1.5 text-xs font-subheading uppercase text-brand-blue-300">
                   <CheckCircle className="h-4 w-4 text-brand-yellow shrink-0 fill-brand-blue" />
                   <span>Beneficio Oficial</span>
                 </div>

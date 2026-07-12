@@ -76,7 +76,7 @@ export default function EmprendedoresPricing() {
   return (
     <section 
       id="emprendedores-pricing" 
-      className="py-24 bg-gray-50 relative overflow-hidden border-t-4 border-b-4 border-brand-yellow"
+      className="py-24 bg-brand-white-50 relative overflow-hidden border-t-4 border-b-4 border-brand-yellow"
       ref={pricingRef}
     >
       {/* Background Sparkles overlay */}
@@ -120,7 +120,7 @@ export default function EmprendedoresPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="p"
-            className="text-slate-600 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
+            className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
           >
             Elegí el plan corporativo que mejor se adapte al volumen y necesidades operativas de tu negocio. Desde almacenamiento estratégico hasta ruteo masivo.
           </TimelineContent>
@@ -179,19 +179,19 @@ export default function EmprendedoresPricing() {
                           {plan.price}
                         </span>
                       )}
-                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-slate-500">{plan.period}</span>
+                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-400">{plan.period}</span>
                     </div>
 
-                    <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-slate-600">
+                    <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-brand-blue-500">
                       {plan.description}
                     </p>
                   </CardHeader>
 
                   <CardContent className="p-8 pt-0 flex flex-col justify-between flex-grow">
                     {/* Bullets */}
-                    <ul className="space-y-2.5 pt-4 border-t-2 border-slate-100 mb-6">
+                    <ul className="space-y-2.5 pt-4 border-t-2 border-brand-blue-50 mb-6">
                       {plan.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-center gap-2 text-xs text-slate-700">
+                        <li key={bullet} className="flex items-center gap-2 text-xs text-brand-blue-600">
                           <Check className="h-4.5 w-4.5 shrink-0 text-brand-blue" />
                           <span className="font-sans text-sm opacity-90">{bullet}</span>
                         </li>
@@ -224,8 +224,8 @@ export default function EmprendedoresPricing() {
           as="div"
           className="bg-white text-brand-ink rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-blue)] relative overflow-hidden"
         >
-          <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-slate-100/50 pointer-events-none -z-10">
-            <Briefcase className="h-64 w-64 text-slate-100" />
+          <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-brand-blue-50/50 pointer-events-none -z-10">
+            <Briefcase className="h-64 w-64 text-brand-blue-50" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
@@ -237,7 +237,7 @@ export default function EmprendedoresPricing() {
               <h3 className="text-3xl font-display uppercase tracking-tight text-brand-blue">
                 ¿Tenés necesidades operativas especiales?
               </h3>
-              <p className="text-sm text-slate-655 leading-relaxed font-sans max-w-2xl">
+              <p className="text-sm text-brand-blue-500 leading-relaxed font-sans max-w-2xl">
                 Diseñamos flujos logísticos a medida para grandes e-commerce o distribuidoras con despachos masivos, integraciones API, reportes personalizados y picking especializado.
               </p>
             </div>

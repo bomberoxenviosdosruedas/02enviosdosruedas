@@ -377,7 +377,7 @@ export function CinematicHero({ onComplete, className, ...props }: CinematicHero
             DosRuedas
           </span>
         </h1>
-        <p className="brand-subtitle-large gsap-reveal text-blue-200/70 font-subheading tracking-[0.3em] text-base md:text-lg uppercase mt-3">
+        <p className="brand-subtitle-large gsap-reveal text-brand-blue-100/70 font-subheading tracking-[0.3em] text-base md:text-lg uppercase mt-3">
           Mar del Plata · 2026
         </p>
       </div>
@@ -429,7 +429,7 @@ export function CinematicHero({ onComplete, className, ...props }: CinematicHero
                     DosRuedas
                   </span>
                 </h2>
-                <p className="text-blue-100/50 font-sans text-sm lg:text-base mt-3 max-w-xs leading-relaxed">
+                <p className="text-brand-blue-50/50 font-sans text-sm lg:text-base mt-3 max-w-xs leading-relaxed">
                   Conectamos comercios y clientes con ruteos inteligentes y entregas veloces en Mar del Plata.
                 </p>
                 {/* Stat badges */}
@@ -467,16 +467,15 @@ export function CinematicHero({ onComplete, className, ...props }: CinematicHero
                         border: `1px solid ${service.accent}30`,
                       }}
                     >
-                      <IconComp className="h-4 w-4" style={{ color: service.accent }} />
+                      <IconComp className="h-4 w-4 text-brand-yellow" />
                     </div>
                     <div>
                       <h4
-                        className="font-subheading text-base lg:text-lg uppercase tracking-wide"
-                        style={{ color: service.accent }}
+                        className="font-subheading text-base lg:text-lg uppercase tracking-wide text-brand-yellow"
                       >
                         {service.title}
                       </h4>
-                      <p className="text-blue-200/45 text-[11px] mt-1 leading-normal font-sans">
+                      <p className="text-brand-blue-100/45 text-[11px] mt-1 leading-normal font-sans">
                         {service.desc}
                       </p>
                     </div>

@@ -39,7 +39,7 @@ export default function NewsletterSubscribe() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white leading-tight">
               NEWSLETTER EXCLUSIVO
             </h2>
-            <p className="text-sm sm:text-base text-blue-100 font-sans leading-relaxed max-w-lg mx-auto">
+            <p className="text-sm sm:text-base text-brand-blue-50 font-sans leading-relaxed max-w-lg mx-auto">
               Recibí promociones relámpago, novedades operativas de calle, beneficios corporativos y noticias logísticas de Mar del Plata directamente en tu bandeja de entrada.
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function NewsletterSubscribe() {
                     placeholder="Tu correo electrónico..."
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 bg-white text-brand-ink placeholder:text-slate-400 font-sans text-sm rounded-xl px-4 py-4 border-2 border-brand-blue focus:outline-none focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all"
+                    className="flex-1 bg-white text-brand-ink placeholder:text-brand-blue-300 font-sans text-sm rounded-xl px-4 py-4 border-2 border-brand-blue focus:outline-none focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all"
                   />
                   <button
                     type="submit"
@@ -79,13 +79,13 @@ export default function NewsletterSubscribe() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="inline-flex p-2 bg-emerald-500/10 text-brand-yellow rounded-full">
+                  <div className="inline-flex p-2 bg-brand-blue-400/10 text-brand-yellow rounded-full">
                     <CheckCircle2 className="h-6 w-6 text-brand-yellow animate-bounce" />
                   </div>
                   <h3 className="text-xl font-display uppercase tracking-wide text-brand-yellow">
                     ¡Suscripción Exitosa!
                   </h3>
-                  <p className="text-xs sm:text-sm text-blue-100 font-sans max-w-sm mx-auto">
+                  <p className="text-xs sm:text-sm text-brand-blue-50 font-sans max-w-sm mx-auto">
                     Ya formás parte de la lista prioritaria. Preparate para recibir las mejores novedades y descuentos.
                   </p>
                 </motion.div>
@@ -94,7 +94,7 @@ export default function NewsletterSubscribe() {
           </div>
 
           {/* Disclaimer text */}
-          <div className="flex items-center justify-center gap-2 text-[10px] sm:text-xs text-blue-200/75 font-sans pt-2">
+          <div className="flex items-center justify-center gap-2 text-[10px] sm:text-xs text-brand-blue-100/75 font-sans pt-2">
             <ShieldCheck className="h-4 w-4 text-brand-yellow shrink-0" />
             <span>Garantizamos la privacidad de tus datos. Podés darte de baja con un solo clic en cualquier momento.</span>
           </div>

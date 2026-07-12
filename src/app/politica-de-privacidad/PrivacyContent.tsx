@@ -197,7 +197,7 @@ export default function PrivacyContent() {
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen relative font-sans">
+    <div className="bg-brand-white-50 min-h-screen relative font-sans">
       {/* 🌟 PREMIUM HERO BANNER SECTION */}
       <section className="bg-brand-blue text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
         {/* Subtle background graphics */}
@@ -228,7 +228,7 @@ export default function PrivacyContent() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-blue-100 max-w-2xl mx-auto text-base sm:text-lg lg:text-xl mt-4 leading-relaxed font-sans"
+            className="text-brand-blue-50 max-w-2xl mx-auto text-base sm:text-lg lg:text-xl mt-4 leading-relaxed font-sans"
           >
             En Envíos DosRuedas, tu confianza es nuestra prioridad. Aquí te explicamos cómo protegemos y utilizamos tu información personal.
           </motion.p>
@@ -250,8 +250,8 @@ export default function PrivacyContent() {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* LEFT COLUMN: Sticky table of contents */}
           <aside className="w-full lg:w-1/4 lg:sticky lg:top-24 h-fit self-start">
-            <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm">
-              <h3 className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-4 px-2">
+            <div className="bg-white rounded-3xl p-6 border border-brand-blue-50 shadow-sm">
+              <h3 className="text-xs uppercase tracking-widest text-brand-blue-300 font-bold mb-4 px-2">
                 Índice de Secciones
               </h3>
               <nav className="flex flex-col gap-1.5">
@@ -264,27 +264,27 @@ export default function PrivacyContent() {
                       onClick={() => scrollToSection(section.id)}
                       className={`w-full flex items-center justify-between text-left px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-200 cursor-pointer ${
                         isActive
-                          ? "bg-brand-blue text-white shadow-md shadow-blue-900/10 scale-[1.02]"
-                          : "text-slate-600 hover:text-brand-blue hover:bg-slate-50"
+                          ? "bg-brand-blue text-white shadow-md shadow-brand-blue-700/10 scale-[1.02]"
+                          : "text-brand-blue-500 hover:text-brand-blue hover:bg-brand-white-50"
                       }`}
                     >
                       <div className="flex items-center gap-3 truncate">
-                        <IconComponent className={`h-4.5 w-4.5 shrink-0 ${isActive ? "text-brand-yellow" : "text-slate-400"}`} />
+                        <IconComponent className={`h-4.5 w-4.5 shrink-0 ${isActive ? "text-brand-yellow" : "text-brand-blue-300"}`} />
                         <span className="truncate">{section.shortTitle}</span>
                       </div>
-                      <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow translate-x-0.5" : "text-slate-300"}`} />
+                      <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow translate-x-0.5" : "text-brand-blue-200"}`} />
                     </button>
                   );
                 })}
               </nav>
 
               {/* Quick Trust Banner inside Sidebar */}
-              <div className="mt-8 pt-6 border-t border-slate-100 px-2 text-center">
+              <div className="mt-8 pt-6 border-t border-brand-blue-50 px-2 text-center">
                 <Shield className="h-8 w-8 text-brand-blue mx-auto mb-2" />
                 <p className="text-xs font-bold text-brand-ink uppercase tracking-wide">
                   Seguridad Garantizada
                 </p>
-                <p className="text-[11px] text-slate-400 mt-1 leading-normal font-sans">
+                <p className="text-[11px] text-brand-blue-300 mt-1 leading-normal font-sans">
                   Tus datos logísticos se cifran con los más altos estándares.
                 </p>
               </div>
@@ -310,13 +310,13 @@ export default function PrivacyContent() {
                     className={`scroll-mt-28 bg-white rounded-3xl p-8 sm:p-10 border transition-all duration-300 relative overflow-hidden group ${
                       isActive
                         ? "border-brand-blue/30 shadow-lg"
-                        : "border-slate-100 shadow-sm hover:shadow-md hover:border-slate-200"
+                        : "border-brand-blue-50 shadow-sm hover:shadow-md hover:border-brand-blue-100"
                     }`}
                   >
                     {/* Floating top bar highlighted state */}
                     <div
                       className={`absolute top-0 left-0 right-0 h-1.5 transition-all duration-300 ${
-                        isActive ? "bg-brand-blue" : "bg-transparent group-hover:bg-slate-200"
+                        isActive ? "bg-brand-blue" : "bg-transparent group-hover:bg-brand-blue-100"
                       }`}
                     />
 
@@ -326,13 +326,13 @@ export default function PrivacyContent() {
                         className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shrink-0 ${
                           isActive
                             ? "bg-brand-blue text-brand-yellow"
-                            : "bg-blue-50/50 text-brand-blue group-hover:bg-brand-blue/10"
+                            : "bg-brand-white-50/50 text-brand-blue group-hover:bg-brand-blue/10"
                         }`}
                       >
                         <IconComponent className="h-6 w-6" />
                       </div>
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-brand-blue-300 block mb-1">
                           Sección {index + 1} de {SECTIONS.length}
                         </span>
                         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-brand-ink font-sans">
@@ -343,14 +343,14 @@ export default function PrivacyContent() {
 
                     {/* Section Content */}
                     <div className="prose prose-slate max-w-none">
-                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans font-normal">
+                      <p className="text-brand-blue-500 text-sm sm:text-base leading-relaxed font-sans font-normal">
                         {section.content}
                       </p>
                     </div>
 
                     {/* Details Bullet Points (if available) */}
                     {section.extraDetails && (
-                      <div className="mt-6 pt-5 border-t border-slate-100">
+                      <div className="mt-6 pt-5 border-t border-brand-blue-50">
                         <h4 className="text-xs font-bold uppercase tracking-wider text-brand-ink mb-3">
                           Puntos Clave:
                         </h4>
@@ -358,7 +358,7 @@ export default function PrivacyContent() {
                           {section.extraDetails.map((detail, idx) => (
                             <li
                               key={idx}
-                              className="flex items-start gap-2.5 text-xs text-slate-500 font-sans leading-relaxed"
+                              className="flex items-start gap-2.5 text-xs text-brand-blue-400 font-sans leading-relaxed"
                             >
                               <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-yellow shrink-0" />
                               <span>{detail}</span>
@@ -374,7 +374,7 @@ export default function PrivacyContent() {
               {/* 📬 ADDITIONAL SUPPORT AND DIRECT ENQUIRY CARD */}
               <motion.section
                 variants={cardVariants}
-                className="bg-brand-blue text-white rounded-3xl p-8 sm:p-12 border border-blue-200/20 shadow-xl relative overflow-hidden"
+                className="bg-brand-blue text-white rounded-3xl p-8 sm:p-12 border border-brand-blue-100/20 shadow-xl relative overflow-hidden"
               >
                 {/* Graphics */}
                 <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-brand-yellow/5 blur-2xl -z-10 translate-x-1/4 -translate-y-1/4" />
@@ -388,7 +388,7 @@ export default function PrivacyContent() {
                     <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-sans uppercase">
                       ¿Tenés dudas de privacidad?
                     </h3>
-                    <p className="text-blue-100 text-sm leading-relaxed font-sans">
+                    <p className="text-brand-blue-50 text-sm leading-relaxed font-sans">
                       Nuestro Oficial de Protección de Datos está disponible para guiarte. Escribinos directamente o completá nuestro formulario para que podamos ayudarte de inmediato.
                     </p>
                   </div>

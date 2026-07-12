@@ -21,7 +21,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
+    <div className="min-h-screen bg-brand-white-50 flex flex-col justify-between">
       
       {/* 1. Brand Header */}
       <Header />
@@ -56,7 +56,7 @@ export default function Home() {
       </main>
 
       {/* 10. Footer Section */}
-      <footer className="bg-slate-950 text-white py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+      <footer className="bg-brand-blue-700 text-white py-12 px-4 sm:px-6 lg:px-8 border-t border-brand-blue-700">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           
           {/* Col 1 Brand detail */}
@@ -75,41 +75,41 @@ export default function Home() {
                 </svg>
               </div>
               <span className="font-display text-xl font-black text-white">
-                Envíos <span className="text-cyan-400">DosRuedas</span>
+                Envíos <span className="text-brand-blue-300">DosRuedas</span>
               </span>
             </div>
             
-            <p className="text-xs text-slate-400 leading-relaxed font-normal max-w-sm">
+            <p className="text-xs text-brand-blue-300 leading-relaxed font-normal max-w-sm">
               La plataforma líder de distribución terrestre, mensajería urbana y apoyo última milla e-commerce en Mar del Plata, Provincia de Buenos Aires. Comprometidos con un SLA superior y la tranquilidad de tu stock físico.
             </p>
           </div>
 
           {/* Col 2 Quick Actions links */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider">Secciones rápidas</h4>
-            <ul className="space-y-1.5 text-xs text-slate-400 font-medium">
-              <li><a href="#servicios" className="hover:text-cyan-300 transition-colors">Servicios Logísticos</a></li>
-              <li><a href="#cotizador" className="hover:text-cyan-300 transition-colors">Calculadora Costos</a></li>
-              <li><a href="#consola" className="hover:text-cyan-300 transition-colors">Consola E-Commerce</a></li>
-              <li><a href="#altapyme" className="hover:text-cyan-300 transition-colors">Alta Corriente PyME</a></li>
-              <li><a href="#faqs" className="hover:text-cyan-300 transition-colors">Preguntas Frecuentes</a></li>
+            <h4 className="text-xs font-bold text-brand-blue-300 uppercase tracking-wider">Secciones rápidas</h4>
+            <ul className="space-y-1.5 text-xs text-brand-blue-300 font-medium">
+              <li><a href="#servicios" className="hover:text-brand-blue-200 transition-colors">Servicios Logísticos</a></li>
+              <li><a href="#cotizador" className="hover:text-brand-blue-200 transition-colors">Calculadora Costos</a></li>
+              <li><a href="#consola" className="hover:text-brand-blue-200 transition-colors">Consola E-Commerce</a></li>
+              <li><a href="#altapyme" className="hover:text-brand-blue-200 transition-colors">Alta Corriente PyME</a></li>
+              <li><a href="#faqs" className="hover:text-brand-blue-200 transition-colors">Preguntas Frecuentes</a></li>
             </ul>
           </div>
 
           {/* Col 3 Logistics Hub metadata */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider">Canal Logístico Directo</h4>
-            <div className="text-xs text-slate-400 space-y-2.5">
+            <h4 className="text-xs font-bold text-brand-blue-300 uppercase tracking-wider">Canal Logístico Directo</h4>
+            <div className="text-xs text-brand-blue-300 space-y-2.5">
               <div className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-cyan-500 mt-0.5 flex-shrink-0" />
+                <MapPin className="h-4 w-4 text-brand-blue-400 mt-0.5 flex-shrink-0" />
                 <span>Friuli 1972, Mar del Plata, Argentina</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-cyan-500 flex-shrink-0" />
+                <Phone className="h-4 w-4 text-brand-blue-400 flex-shrink-0" />
                 <span>+54 9 223 660-2699</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-cyan-500 flex-shrink-0" />
+                <Mail className="h-4 w-4 text-brand-blue-400 flex-shrink-0" />
                 <span>matiascejas@enviosdosruedas.com</span>
               </div>
             </div>
@@ -118,10 +118,10 @@ export default function Home() {
         </div>
 
         {/* Under bar copyright legal */}
-        <div className="border-t border-slate-800/80 mt-10 pt-6 text-center text-[10px] text-slate-500 space-y-1">
+        <div className="border-t border-brand-blue-700/80 mt-10 pt-6 text-center text-[10px] text-brand-blue-400 space-y-1">
           <p>© 2026 Envíos DosRuedas. Todos los derechos reservados.</p>
           <p className="flex items-center justify-center gap-1">
-            Diseñado sustentablemente para la costa de Mar del Plata de la mano de <Heart className="h-3 w-3 text-red-500" /> Matías Cejas.
+            Diseñado sustentablemente para la costa de Mar del Plata de la mano de <Heart className="h-3 w-3 text-brand-blue-400" /> Matías Cejas.
           </p>
         </div>
       </footer>

@@ -22,7 +22,7 @@ export default function Hero() {
             La última milla de tu negocio, resuelta en <span className="text-brand-yellow">dos ruedas</span>.
           </h1>
 
-          <p className="text-blue-100 text-base sm:text-lg max-w-xl font-normal leading-relaxed">
+          <p className="text-brand-blue-50 text-base sm:text-lg max-w-xl font-normal leading-relaxed">
             Impulsamos las entregas de tiendas online, PyMEs locales y particulares en <strong className="text-white">Mar del Plata</strong>. Con ruteos inteligentes articulados por geolocalización o flotas comprometidas, garantizamos tiempos récords y protección integral de tu mercadería.
           </p>
 
@@ -30,19 +30,19 @@ export default function Hero() {
           <div className="grid grid-cols-2 gap-4 max-w-md pt-2">
             <div className="flex items-center gap-2">
               <span className="flex-shrink-0 h-5 w-5 rounded-full bg-brand-yellow/20 text-brand-yellow flex items-center justify-center font-bold text-xs">✓</span>
-              <span className="text-sm text-blue-100 font-medium">Retiro a Domicilio</span>
+              <span className="text-sm text-brand-blue-50 font-medium">Retiro a Domicilio</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="flex-shrink-0 h-5 w-5 rounded-full bg-brand-yellow/20 text-brand-yellow flex items-center justify-center font-bold text-xs">✓</span>
-              <span className="text-sm text-blue-100 font-medium">Integración MercadoFlex</span>
+              <span className="text-sm text-brand-blue-50 font-medium">Integración MercadoFlex</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="flex-shrink-0 h-5 w-5 rounded-full bg-brand-yellow/20 text-brand-yellow flex items-center justify-center font-bold text-xs">✓</span>
-              <span className="text-sm text-blue-100 font-medium">Soporte 24/7 de Guardia</span>
+              <span className="text-sm text-brand-blue-50 font-medium">Soporte 24/7 de Guardia</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="flex-shrink-0 h-5 w-5 rounded-full bg-brand-yellow/20 text-brand-yellow flex items-center justify-center font-bold text-xs">✓</span>
-              <span className="text-sm text-blue-100 font-medium">Cuenta PyME Protegida</span>
+              <span className="text-sm text-brand-blue-50 font-medium">Cuenta PyME Protegida</span>
             </div>
           </div>
 
@@ -69,10 +69,10 @@ export default function Hero() {
           <div className="pt-6 border-t border-white/10 flex items-center gap-4">
             <div className="flex -space-x-2">
               <span className="inline-block h-8 w-8 rounded-full ring-2 ring-brand-blue bg-brand-yellow text-brand-blue text-xs font-subheading flex items-center justify-center">E1</span>
-              <span className="inline-block h-8 w-8 rounded-full ring-2 ring-brand-blue bg-blue-600 text-white text-xs font-subheading flex items-center justify-center">M1</span>
-              <span className="inline-block h-8 w-8 rounded-full ring-2 ring-brand-blue bg-blue-800 text-white text-xs font-subheading flex items-center justify-center">D4</span>
+              <span className="inline-block h-8 w-8 rounded-full ring-2 ring-brand-blue bg-brand-blue-500 text-white text-xs font-subheading flex items-center justify-center">M1</span>
+              <span className="inline-block h-8 w-8 rounded-full ring-2 ring-brand-blue bg-brand-blue-700 text-white text-xs font-subheading flex items-center justify-center">D4</span>
             </div>
-            <p className="text-xs text-blue-200 font-medium">
+            <p className="text-xs text-brand-blue-100 font-medium">
               Respaldado por más de <span className="text-white font-bold">140 comercios locales</span> en Mar del Plata.
             </p>
           </div>
@@ -86,10 +86,10 @@ export default function Hero() {
             <div className="flex justify-between items-center pb-4 border-b border-white/10">
               <div>
                 <h3 className="font-subheading text-lg text-white tracking-wider">FLOTA ENVÍOS DOSRUEDAS</h3>
-                <p className="text-xs text-blue-200">Mar del Plata - Zona Operativa activa</p>
+                <p className="text-xs text-brand-blue-100">Mar del Plata - Zona Operativa activa</p>
               </div>
-              <span className="bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-[11px] font-subheading tracking-wider px-2 py-1 rounded-md flex items-center gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span className="bg-brand-blue-400/20 border border-brand-blue-400/30 text-brand-blue-200 text-[11px] font-subheading tracking-wider px-2 py-1 rounded-md flex items-center gap-1">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-blue-300 animate-pulse"></span>
                 ONLINE
               </span>
             </div>
@@ -98,45 +98,45 @@ export default function Hero() {
             <div className="grid grid-cols-2 gap-4">
               
               <div id="metric-entregados" className="bg-brand-blue/40 border border-white/10 p-4 rounded-2xl space-y-1 hover:border-brand-yellow/40 hover:bg-brand-blue/60 transition-all shadow-sm">
-                <div className="flex items-center gap-2 text-blue-200 text-xs font-medium">
+                <div className="flex items-center gap-2 text-brand-blue-100 text-xs font-medium">
                   <TrendingUp className="h-4 w-4 text-brand-yellow" />
                   Entregas Hoy
                 </div>
                 <div className="text-2xl font-display text-white">342 BULTOS</div>
-                <p className="text-[10px] text-emerald-300">✓ 100% de efectividad</p>
+                <p className="text-[10px] text-brand-blue-200">✓ 100% de efectividad</p>
               </div>
 
               <div id="metric-tiempo" className="bg-brand-blue/40 border border-white/10 p-4 rounded-2xl space-y-1 hover:border-brand-yellow/40 hover:bg-brand-blue/60 transition-all shadow-sm">
-                <div className="flex items-center gap-2 text-blue-200 text-xs font-medium">
+                <div className="flex items-center gap-2 text-brand-blue-100 text-xs font-medium">
                   <Clock className="h-4 w-4 text-brand-yellow" />
                   Demora Express
                 </div>
                 <div className="text-2xl font-display text-white">54 MINS</div>
-                <p className="text-[10px] text-blue-200">Promedio general MDQ</p>
+                <p className="text-[10px] text-brand-blue-100">Promedio general MDQ</p>
               </div>
 
               <div id="metric-motos" className="bg-brand-blue/40 border border-white/10 p-4 rounded-2xl space-y-1 hover:border-brand-yellow/40 hover:bg-brand-blue/60 transition-all shadow-sm">
-                <div className="flex items-center gap-2 text-blue-200 text-xs font-medium">
+                <div className="flex items-center gap-2 text-brand-blue-100 text-xs font-medium">
                   <Star className="h-4 w-4 text-brand-yellow animate-spin-slow" />
                   Reputación Flex
                 </div>
                 <div className="text-2xl font-display text-white">99.8% OK</div>
-                <p className="text-[10px] text-emerald-300">Color Verde MercadoLíder</p>
+                <p className="text-[10px] text-brand-blue-200">Color Verde MercadoLíder</p>
               </div>
 
               <div id="metric-cobertura" className="bg-brand-blue/40 border border-white/10 p-4 rounded-2xl space-y-1 hover:border-brand-yellow/40 hover:bg-brand-blue/60 transition-all shadow-sm">
-                <div className="flex items-center gap-2 text-blue-200 text-xs font-medium">
+                <div className="flex items-center gap-2 text-brand-blue-100 text-xs font-medium">
                   <Users className="h-4 w-4 text-brand-yellow" />
                   Sede Depósito
                 </div>
                 <div className="text-2xl font-display text-white">FRIULI 1972</div>
-                <p className="text-[10px] text-blue-200">Pick & Pack habilitado</p>
+                <p className="text-[10px] text-brand-blue-100">Pick & Pack habilitado</p>
               </div>
 
             </div>
 
             {/* Quick status feed */}
-            <div className="bg-brand-blue/60 border border-white/10 rounded-2xl p-4 text-xs text-blue-100">
+            <div className="bg-brand-blue/60 border border-white/10 rounded-2xl p-4 text-xs text-brand-blue-50">
               <span className="font-bold text-brand-yellow">Último reporte del clima costero:</span> Llovizna intermitente atlántica leve. Todo el personal opera con revestimiento estanco impermeable. Las entregas mantienen cronograma normal.
             </div>
 

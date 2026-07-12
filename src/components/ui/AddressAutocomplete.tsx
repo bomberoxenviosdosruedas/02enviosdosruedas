@@ -132,7 +132,7 @@ export default function AddressAutocomplete({
           className={className}
           autoComplete="off"
         />
-        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-slate-400">
+        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-brand-blue-300">
           {isLoading ? (
             <Loader2 className="h-4 w-4 animate-spin" />
           ) : (
@@ -142,7 +142,7 @@ export default function AddressAutocomplete({
       </div>
 
       {isOpen && suggestions.length > 0 && (
-        <ul className="absolute z-50 w-full mt-1 bg-gray-900 border border-white/10 rounded-xl max-h-60 overflow-y-auto shadow-2xl text-slate-200 divide-y divide-white/5">
+        <ul className="absolute z-50 w-full mt-1 bg-brand-blue-700 border border-white/10 rounded-xl max-h-60 overflow-y-auto shadow-2xl text-brand-blue-100 divide-y divide-white/5">
           {suggestions.map((s) => (
             <li
               key={s.place_id}
@@ -154,7 +154,7 @@ export default function AddressAutocomplete({
                 <p className="font-semibold text-white">
                   {s.description.split(',')[0]}
                 </p>
-                <p className="text-xs text-slate-400 mt-0.5 line-clamp-1">
+                <p className="text-xs text-brand-blue-300 mt-0.5 line-clamp-1">
                   {s.description}
                 </p>
               </div>

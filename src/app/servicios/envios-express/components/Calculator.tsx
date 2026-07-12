@@ -105,7 +105,7 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
   };
 
   return (
-    <section id="cotizador" className="py-16 bg-white px-4 sm:px-6 lg:px-8 border-b border-gray-100">
+    <section id="cotizador" className="py-16 bg-white px-4 sm:px-6 lg:px-8 border-b border-brand-blue-50">
       <div className="max-w-7xl mx-auto space-y-12">
         
         {/* Title */}
@@ -116,7 +116,7 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
           <h2 className="text-4xl font-display uppercase tracking-wide text-brand-blue sm:text-5xl">
             Cotizador de Tarifas <span className="underline decoration-brand-yellow decoration-heavy">Express</span>
           </h2>
-          <p className="text-gray-500 text-base leading-relaxed">
+          <p className="text-brand-blue-400 text-base leading-relaxed">
             Estima el valor neto del flete o moto mensajería ingresando las zonas en Mar del Plata. Tarifas transparentes al instante sin sorpresas.
           </p>
         </div>
@@ -124,7 +124,7 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
         {/* Form area */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          <div className="lg:col-span-7 bg-gray-50 border border-gray-200 p-6 sm:p-8 rounded-3xl shadow-sm space-y-6">
+          <div className="lg:col-span-7 bg-brand-white-50 border border-brand-blue-100 p-6 sm:p-8 rounded-3xl shadow-sm space-y-6">
             
             {/* Zones setup */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -135,7 +135,7 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
                 <select 
                   value={origin} 
                   onChange={(e) => setOrigin(e.target.value)}
-                  className="w-full bg-white border border-gray-300 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                  className="w-full bg-white border border-brand-blue-200 rounded-xl px-3 py-2.5 text-sm text-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                 >
                   {zones.map(z => (
                     <option key={z.id} value={z.id}>{z.name}</option>
@@ -150,7 +150,7 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
                 <select 
                   value={destination} 
                   onChange={(e) => setDestination(e.target.value)}
-                  className="w-full bg-white border border-gray-300 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                  className="w-full bg-white border border-brand-blue-200 rounded-xl px-3 py-2.5 text-sm text-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                 >
                   {zones.map(z => (
                     <option key={z.id} value={z.id}>{z.name}</option>
@@ -161,8 +161,8 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
 
             {/* Quick Helper */}
             {origin === destination && (
-              <div className="bg-amber-50 border border-amber-200 rounded-xl p-3.5 flex items-start gap-2.5 text-xs text-amber-800">
-                <AlertCircle className="h-4 w-4 text-amber-600 flex-shrink-0 mt-0.5" />
+              <div className="bg-brand-yellow-50 border border-brand-yellow-50 rounded-xl p-3.5 flex items-start gap-2.5 text-xs text-brand-yellow-500">
+                <AlertCircle className="h-4 w-4 text-brand-yellow-500 flex-shrink-0 mt-0.5" />
                 <span>
                   Has seleccionado el mismo punto de origen y destino. Se calculará una tarifa plana mínima de cadetería local directa.
                 </span>
@@ -181,14 +181,14 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
                     onClick={() => setPackageType(p.id)}
                     className={`p-3.5 rounded-2xl border text-left transition-all ${
                       packageType === p.id 
-                        ? 'border-brand-blue bg-blue-50/50 ring-1 ring-brand-blue text-brand-blue shadow-sm' 
-                        : 'border-gray-200 bg-white hover:bg-gray-100 text-gray-700'
+                        ? 'border-brand-blue bg-brand-white-50/50 ring-1 ring-brand-blue text-brand-blue shadow-sm'
+                        : 'border-brand-blue-100 bg-white hover:bg-brand-blue-50 text-brand-blue-600'
                     }`}
                   >
                     <span className="block text-xs font-subheading tracking-wider uppercase leading-none mb-1">
                       {p.name}
                     </span>
-                    <span className="block text-[11px] text-gray-500 font-normal leading-tight">
+                    <span className="block text-[11px] text-brand-blue-400 font-normal leading-tight">
                       {p.desc}
                     </span>
                   </button>
@@ -208,8 +208,8 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
                     onClick={() => setServiceMode(s.id)}
                     className={`p-3.5 rounded-2xl border text-left relative transition-all ${
                       serviceMode === s.id 
-                        ? 'border-brand-blue bg-blue-50/50 ring-1 ring-brand-blue text-brand-blue shadow-sm' 
-                        : 'border-gray-200 bg-white hover:bg-gray-100 text-gray-700'
+                        ? 'border-brand-blue bg-brand-white-50/50 ring-1 ring-brand-blue text-brand-blue shadow-sm'
+                        : 'border-brand-blue-100 bg-white hover:bg-brand-blue-50 text-brand-blue-600'
                     }`}
                   >
                     <span className="absolute top-2 right-2 px-1.5 py-0.5 bg-brand-blue text-white rounded text-[8px] font-subheading tracking-wider uppercase">
@@ -218,7 +218,7 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
                     <span className="block text-xs font-subheading tracking-wider uppercase leading-none mb-1 pt-1">
                       {s.name}
                     </span>
-                    <span className="block text-[11px] text-gray-500 font-normal leading-tight">
+                    <span className="block text-[11px] text-brand-blue-400 font-normal leading-tight">
                       {s.desc}
                     </span>
                   </button>
@@ -227,26 +227,26 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
             </div>
 
             {/* Optional Financial Protection segment */}
-            <div className="bg-white border border-gray-200 p-4 rounded-2xl space-y-3">
+            <div className="bg-white border border-brand-blue-100 p-4 rounded-2xl space-y-3">
               <div className="flex items-center justify-between">
                 <div>
                   <h4 className="text-xs font-subheading text-brand-blue uppercase tracking-wider flex items-center gap-1.5">
                     🛡️ Seguro Civil de Carga (Opcional)
                   </h4>
-                  <p className="text-[11px] text-gray-400">Ampara el costo neto de productos declarados ante siniestros</p>
+                  <p className="text-[11px] text-brand-blue-300">Ampara el costo neto de productos declarados ante siniestros</p>
                 </div>
                 <input 
                   type="checkbox" 
                   checked={insuranceEnabled}
                   onChange={(e) => setInsuranceEnabled(e.target.checked)}
-                  className="h-4 w-4 text-brand-blue focus:ring-brand-blue border-gray-300 rounded cursor-pointer"
+                  className="h-4 w-4 text-brand-blue focus:ring-brand-blue border-brand-blue-200 rounded cursor-pointer"
                 />
               </div>
 
               {insuranceEnabled && (
-                <div className="pt-2 border-t border-gray-100 space-y-2">
+                <div className="pt-2 border-t border-brand-blue-50 space-y-2">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="text-gray-600">Valor de Mercadería Declarado ($ ARS):</span>
+                    <span className="text-brand-blue-500">Valor de Mercadería Declarado ($ ARS):</span>
                     <span className="font-bold text-brand-blue font-mono">${formatNumber(declaredValue)}</span>
                   </div>
                   <input 
@@ -258,7 +258,7 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
                     onChange={(e) => setDeclaredValue(Number(e.target.value))}
                     className="w-full accent-brand-blue cursor-pointer"
                   />
-                  <div className="flex justify-between text-[10px] text-gray-400 font-mono">
+                  <div className="flex justify-between text-[10px] text-brand-blue-300 font-mono">
                     <span>Min: $10.000</span>
                     <span>Max: $500.000</span>
                   </div>
@@ -269,38 +269,38 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
           </div>
 
           {/* Results Side panel */}
-          <div className="lg:col-span-5 gradient-blue text-white rounded-3xl overflow-hidden shadow-xl border border-blue-900 flex flex-col justify-between h-full">
+          <div className="lg:col-span-5 gradient-blue text-white rounded-3xl overflow-hidden shadow-xl border border-brand-blue-700 flex flex-col justify-between h-full">
             <div>
-              <div className="p-6 bg-brand-blue/30 border-b border-blue-900 flex justify-between items-center">
+              <div className="p-6 bg-brand-blue/30 border-b border-brand-blue-700 flex justify-between items-center">
                 <div>
-                  <h3 className="font-subheading text-lg tracking-wider uppercase text-blue-200">Resumen de Consolidado</h3>
-                  <p className="text-[11px] text-blue-350">Estimador sujeto a demoras en puerta &gt;15m</p>
+                  <h3 className="font-subheading text-lg tracking-wider uppercase text-brand-blue-100">Resumen de Consolidado</h3>
+                  <p className="text-[11px] text-brand-blue-200">Estimador sujeto a demoras en puerta &gt;15m</p>
                 </div>
                 <LayoutGrid className="h-5 w-5 text-brand-yellow" />
               </div>
 
               <div className="p-6 space-y-4">
-                <div className="flex justify-between text-xs pb-1.5 border-b border-blue-800/60">
-                  <span className="text-blue-200">Tarifa Base (Logística):</span>
+                <div className="flex justify-between text-xs pb-1.5 border-b border-brand-blue-700/60">
+                  <span className="text-brand-blue-100">Tarifa Base (Logística):</span>
                   <span className="font-medium text-white font-mono">${formatNumber(baseRate)} ARS</span>
                 </div>
-                <div className="flex justify-between text-xs pb-1.5 border-b border-blue-800/60">
-                  <span className="text-blue-200">Distribución de Rango Geográfico:</span>
+                <div className="flex justify-between text-xs pb-1.5 border-b border-brand-blue-700/60">
+                  <span className="text-brand-blue-100">Distribución de Rango Geográfico:</span>
                   <span className="font-medium text-white font-mono">+${formatNumber(distanceFactor)} ARS</span>
                 </div>
-                <div className="flex justify-between text-xs pb-1.5 border-b border-blue-800/60">
-                  <span className="text-blue-200">Adicional Categoría Medición Paquete:</span>
+                <div className="flex justify-between text-xs pb-1.5 border-b border-brand-blue-700/60">
+                  <span className="text-brand-blue-100">Adicional Categoría Medición Paquete:</span>
                   <span className="font-medium text-white font-mono">+${formatNumber(typeMod)} ARS</span>
                 </div>
-                <div className="flex justify-between text-xs pb-1.5 border-b border-blue-800/60">
-                  <span className="text-blue-200">Variación por Velocidad / SLA:</span>
-                  <span className={`${serviceMod < 0 ? 'text-green-300' : 'text-white'} font-medium font-mono`}>
+                <div className="flex justify-between text-xs pb-1.5 border-b border-brand-blue-700/60">
+                  <span className="text-brand-blue-100">Variación por Velocidad / SLA:</span>
+                  <span className={`${serviceMod < 0 ? 'text-brand-blue-200' : 'text-white'} font-medium font-mono`}>
                     {serviceMod >= 0 ? '+' : '-'}${formatNumber(Math.abs(serviceMod))} ARS
                   </span>
                 </div>
                 
                 {insuranceEnabled && (
-                  <div className="flex justify-between text-xs pb-1.5 border-b border-blue-800/60 text-brand-yellow font-bold">
+                  <div className="flex justify-between text-xs pb-1.5 border-b border-brand-blue-700/60 text-brand-yellow font-bold">
                     <span>Prima Adicional Seguros (1.5%):</span>
                     <span className="font-mono">+${formatNumber(insurancePremium)} ARS</span>
                   </div>
@@ -308,22 +308,22 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
 
                 {/* Final calculation big display */}
                 <div className="pt-2 pb-1 space-y-1">
-                  <span className="block text-center text-xs text-blue-200 font-subheading tracking-wider uppercase">
+                  <span className="block text-center text-xs text-brand-blue-100 font-subheading tracking-wider uppercase">
                     MONTO TOTAL ESTIMADO (NETO)
                   </span>
                   <div className="text-4xl sm:text-5xl font-black text-center text-brand-yellow font-mono">
                     ${formatNumber(totalCost)}{' '}
-                    <span className="text-xs uppercase text-blue-200 font-sans tracking-wide">ars</span>
+                    <span className="text-xs uppercase text-brand-blue-100 font-sans tracking-wide">ars</span>
                   </div>
                 </div>
 
                 {/* Visual badges */}
-                <div className="bg-brand-blue/30 border border-blue-900 rounded-2xl p-4 space-y-2 text-xs">
+                <div className="bg-brand-blue/30 border border-brand-blue-700 rounded-2xl p-4 space-y-2 text-xs">
                   <div className="flex items-center gap-2 text-brand-yellow font-bold">
                     <Coins className="h-4 w-4" />
                     <span className="font-subheading tracking-wider text-sm uppercase">Métodos de Pago Digitales</span>
                   </div>
-                  <p className="text-[11px] text-blue-100 leading-relaxed font-normal">
+                  <p className="text-[11px] text-brand-blue-50 leading-relaxed font-normal">
                     Aceptamos efectivo al retiro/entrega, <strong>Cuenta DNI</strong> (obtené comprobantes al instante), <strong>Mercado Pago</strong> o Transferencias inmediatas.
                   </p>
                 </div>
@@ -338,7 +338,7 @@ export default function Calculator({ onQuoteChange }: CalculatorProps) {
                   🚴 COORDINAR PAQUETE POR WHATSAPP
                 </a>
 
-                <p className="text-[10px] text-blue-300 text-center font-normal leading-normal">
+                <p className="text-[10px] text-brand-blue-200 text-center font-normal leading-normal">
                   Las cotizaciones de este simulador son orientativas. Esperas superiores a los 15 minutos en puerta están sujetas a reajustes por cadetería.
                 </p>
 

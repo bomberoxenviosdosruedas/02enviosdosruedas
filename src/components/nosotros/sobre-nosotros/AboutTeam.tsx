@@ -56,7 +56,7 @@ export default function AboutTeam() {
           <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
             Nuestro Equipo de Calle
           </h2>
-          <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Contamos con cadetes capacitados en Mar del Plata para entregar todos su envios en tiempo y forma<br /><br />Contamos con un equipo de +20 Repartidores y estamos en constante crecimiento para cumplir con todas las entregas en tiempo y forma.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
@@ -73,7 +73,7 @@ export default function AboutTeam() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-slate-50 border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between text-left group"
+                className="bg-brand-white-50 border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between text-left group"
               >
                 <div>
                   {/* Big Stylized Number */}
@@ -85,13 +85,13 @@ export default function AboutTeam() {
                     {member.role}
                   </h3>
 
-                  <p className="text-sm text-slate-650 font-sans leading-relaxed">
+                  <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
                     {member.desc}
                   </p>
                 </div>
 
                 <div className="pt-6 mt-6 border-t-2 border-brand-blue flex items-center justify-between">
-                  <span className="text-xs font-subheading uppercase tracking-wider text-slate-400">DosRuedas Staff</span>
+                  <span className="text-xs font-subheading uppercase tracking-wider text-brand-blue-300">DosRuedas Staff</span>
                   <div className="p-2 bg-brand-blue text-brand-yellow border-2 border-brand-blue rounded-xl">
                     <Icon className="h-4 w-4" />
                   </div>

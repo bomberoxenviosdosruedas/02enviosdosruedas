@@ -169,7 +169,7 @@ export default function TermsContent() {
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen relative font-sans">
+    <div className="bg-brand-white-50 min-h-screen relative font-sans">
       {/* 🌟 HERO HEADER */}
       <section className="bg-brand-blue text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-yellow/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />
@@ -199,7 +199,7 @@ export default function TermsContent() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-blue-100 max-w-2xl mx-auto text-base sm:text-lg lg:text-xl mt-4 leading-relaxed font-sans"
+            className="text-brand-blue-50 max-w-2xl mx-auto text-base sm:text-lg lg:text-xl mt-4 leading-relaxed font-sans"
           >
             Las reglas del juego. Al usar nuestros servicios, aceptas estos términos. Te recomendamos leerlos detenidamente.
           </motion.p>
@@ -221,8 +221,8 @@ export default function TermsContent() {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* LEFT: Sticky Sidebar */}
           <aside className="w-full lg:w-1/4 lg:sticky lg:top-24 h-fit self-start">
-            <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm">
-              <h3 className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-4 px-2">
+            <div className="bg-white rounded-3xl p-6 border border-brand-blue-50 shadow-sm">
+              <h3 className="text-xs uppercase tracking-widest text-brand-blue-300 font-bold mb-4 px-2">
                 Secciones del Contrato
               </h3>
               <nav className="flex flex-col gap-1.5">
@@ -235,27 +235,27 @@ export default function TermsContent() {
                       onClick={() => scrollToSection(section.id)}
                       className={`w-full flex items-center justify-between text-left px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-200 cursor-pointer ${
                         isActive
-                          ? "bg-brand-blue text-white shadow-md shadow-blue-900/10 scale-[1.02]"
-                          : "text-slate-600 hover:text-brand-blue hover:bg-slate-50"
+                          ? "bg-brand-blue text-white shadow-md shadow-brand-blue-700/10 scale-[1.02]"
+                          : "text-brand-blue-500 hover:text-brand-blue hover:bg-brand-white-50"
                       }`}
                     >
                       <div className="flex items-center gap-3 truncate">
-                        <IconComponent className={`h-4.5 w-4.5 shrink-0 ${isActive ? "text-brand-yellow" : "text-slate-400"}`} />
+                        <IconComponent className={`h-4.5 w-4.5 shrink-0 ${isActive ? "text-brand-yellow" : "text-brand-blue-300"}`} />
                         <span className="truncate">{section.shortTitle}</span>
                       </div>
-                      <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow translate-x-0.5" : "text-slate-300"}`} />
+                      <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow translate-x-0.5" : "text-brand-blue-200"}`} />
                     </button>
                   );
                 })}
               </nav>
 
               {/* Security Sidebar Callout */}
-              <div className="mt-8 pt-6 border-t border-slate-100 px-2 text-center">
+              <div className="mt-8 pt-6 border-t border-brand-blue-50 px-2 text-center">
                 <Shield className="h-8 w-8 text-brand-blue mx-auto mb-2" />
                 <p className="text-xs font-bold text-brand-ink uppercase tracking-wide">
                   Operación Transparente
                 </p>
-                <p className="text-[11px] text-slate-400 mt-1 leading-normal font-sans">
+                <p className="text-[11px] text-brand-blue-300 mt-1 leading-normal font-sans">
                   Nuestras pautas operativas aseguran un servicio responsable y veloz.
                 </p>
               </div>
@@ -281,13 +281,13 @@ export default function TermsContent() {
                     className={`scroll-mt-28 bg-white rounded-3xl p-8 sm:p-10 border transition-all duration-300 relative overflow-hidden group ${
                       isActive
                         ? "border-brand-blue/30 shadow-lg"
-                        : "border-slate-100 shadow-sm hover:shadow-md hover:border-slate-200"
+                        : "border-brand-blue-50 shadow-sm hover:shadow-md hover:border-brand-blue-100"
                     }`}
                   >
                     {/* Visual indicators */}
                     <div
                       className={`absolute top-0 left-0 right-0 h-1.5 transition-all duration-300 ${
-                        isActive ? "bg-brand-blue" : "bg-transparent group-hover:bg-slate-200"
+                        isActive ? "bg-brand-blue" : "bg-transparent group-hover:bg-brand-blue-100"
                       }`}
                     />
 
@@ -297,13 +297,13 @@ export default function TermsContent() {
                         className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shrink-0 ${
                           isActive
                             ? "bg-brand-blue text-brand-yellow"
-                            : "bg-blue-50/50 text-brand-blue group-hover:bg-brand-blue/10"
+                            : "bg-brand-white-50/50 text-brand-blue group-hover:bg-brand-blue/10"
                         }`}
                       >
                         <IconComponent className="h-6 w-6" />
                       </div>
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-brand-blue-300 block mb-1">
                           Cláusula {index + 1} de {SECTIONS.length}
                         </span>
                         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-brand-ink font-sans">
@@ -314,14 +314,14 @@ export default function TermsContent() {
 
                     {/* Section textual body */}
                     <div className="prose prose-slate max-w-none">
-                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans font-normal">
+                      <p className="text-brand-blue-500 text-sm sm:text-base leading-relaxed font-sans font-normal">
                         {section.content}
                       </p>
                     </div>
 
                     {/* Section key points */}
                     {section.bullets && (
-                      <div className="mt-6 pt-5 border-t border-slate-100">
+                      <div className="mt-6 pt-5 border-t border-brand-blue-50">
                         <h4 className="text-xs font-bold uppercase tracking-wider text-brand-ink mb-3">
                           Aspectos Clave a Considerar:
                         </h4>
@@ -329,7 +329,7 @@ export default function TermsContent() {
                           {section.bullets.map((bullet, idx) => (
                             <li
                               key={idx}
-                              className="flex items-start gap-2.5 text-xs text-slate-500 font-sans leading-relaxed"
+                              className="flex items-start gap-2.5 text-xs text-brand-blue-400 font-sans leading-relaxed"
                             >
                               <CheckCircle className="mt-0.5 h-4 w-4 text-brand-yellow shrink-0" />
                               <span>{bullet}</span>
@@ -345,7 +345,7 @@ export default function TermsContent() {
               {/* Contact Call to Action */}
               <motion.section
                 variants={cardVariants}
-                className="bg-brand-blue text-white rounded-3xl p-8 sm:p-12 border border-blue-200/20 shadow-xl relative overflow-hidden"
+                className="bg-brand-blue text-white rounded-3xl p-8 sm:p-12 border border-brand-blue-100/20 shadow-xl relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-brand-yellow/5 blur-2xl -z-10 translate-x-1/4 -translate-y-1/4" />
                 <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 blur-xl -z-10 -translate-x-1/4 translate-y-1/4" />
@@ -358,7 +358,7 @@ export default function TermsContent() {
                     <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-sans uppercase">
                       ¿Tenés alguna consulta legal?
                     </h3>
-                    <p className="text-blue-100 text-sm leading-relaxed font-sans">
+                    <p className="text-brand-blue-50 text-sm leading-relaxed font-sans">
                       Si tenés dudas operativas, preguntas de cobertura, seguros o inquietudes legales sobre nuestros términos de servicio, ponete en contacto con nuestro equipo directivo.
                     </p>
                   </div>

@@ -44,7 +44,7 @@ export default function Header() {
   const status = isOperatingNow();
 
   return (
-    <header id="main-header" className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-md">
+    <header id="main-header" className="sticky top-0 z-50 w-full border-b border-brand-blue-100 bg-white/95 backdrop-blur-md">
       {/* Top Banner with info */}
       <div className="bg-brand-blue text-xs text-white py-2 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
@@ -158,12 +158,12 @@ export default function Header() {
 
           {/* Business Hours Indicator Badge */}
           <div className="hidden lg:flex items-center gap-3">
-            <div className="bg-gray-100 border border-gray-200 rounded-xl px-3 py-1.5 flex items-center gap-2">
+            <div className="bg-brand-blue-50 border border-brand-blue-100 rounded-xl px-3 py-1.5 flex items-center gap-2">
               <span className="relative flex h-2.5 w-2.5">
-                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${status ? 'bg-emerald-400' : 'bg-red-400'} opacity-75`}></span>
-                <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${status ? 'bg-emerald-500' : 'bg-red-500'}`}></span>
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${status ? 'bg-brand-blue-300' : 'bg-brand-blue-300'} opacity-75`}></span>
+                <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${status ? 'bg-brand-blue-400' : 'bg-brand-blue-400'}`}></span>
               </span>
-              <span className="text-xs font-medium text-gray-700">
+              <span className="text-xs font-medium text-brand-blue-600">
                 {status ? 'Abierto • Cadetes operando' : 'Cerrado • Reserva tu turno'}
               </span>
             </div>
@@ -181,15 +181,15 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-2">
-            <div className="bg-gray-100 border border-gray-200 rounded-full h-8 px-2 flex items-center gap-1.5">
-              <span className={`h-2.5 w-2.5 rounded-full ${status ? 'bg-emerald-500' : 'bg-red-500'}`}></span>
-              <span className="text-[10px] font-bold text-gray-700 whitespace-nowrap">
+            <div className="bg-brand-blue-50 border border-brand-blue-100 rounded-full h-8 px-2 flex items-center gap-1.5">
+              <span className={`h-2.5 w-2.5 rounded-full ${status ? 'bg-brand-blue-400' : 'bg-brand-blue-400'}`}></span>
+              <span className="text-[10px] font-bold text-brand-blue-600 whitespace-nowrap">
                 {status ? 'MOTOS ALTO SLA' : 'CERRADO'}
               </span>
             </div>
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-brand-blue hover:text-brand-blue/80 p-1.5 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+              className="text-brand-blue hover:text-brand-blue/80 p-1.5 bg-brand-blue-50 rounded-lg hover:bg-brand-blue-100 transition-colors"
               aria-label="Abrir menú"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -201,46 +201,46 @@ export default function Header() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white px-4 py-4 space-y-3 shadow-lg">
+        <div className="md:hidden border-t border-brand-blue-100 bg-white px-4 py-4 space-y-3 shadow-lg">
           <a 
             href="#servicios" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-lg font-subheading tracking-wider uppercase text-gray-700 hover:text-brand-blue py-1"
+            className="block text-lg font-subheading tracking-wider uppercase text-brand-blue-600 hover:text-brand-blue py-1"
           >
             Servicios Logísticos
           </a>
           <a 
             href="#cotizador" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-lg font-subheading tracking-wider uppercase text-gray-700 hover:text-brand-blue py-1"
+            className="block text-lg font-subheading tracking-wider uppercase text-brand-blue-600 hover:text-brand-blue py-1"
           >
             Cotizar Tarifa Online
           </a>
           <a 
             href="#consola" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-lg font-subheading tracking-wider uppercase text-gray-700 hover:text-brand-blue py-1"
+            className="block text-lg font-subheading tracking-wider uppercase text-brand-blue-600 hover:text-brand-blue py-1"
           >
             Panel Despachos (E-Commerce)
           </a>
           <a 
             href="#nosotros" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-lg font-subheading tracking-wider uppercase text-gray-700 hover:text-brand-blue py-1"
+            className="block text-lg font-subheading tracking-wider uppercase text-brand-blue-600 hover:text-brand-blue py-1"
           >
             Sobre Nosotros
           </a>
           <a 
             href="#faqs" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-lg font-subheading tracking-wider uppercase text-gray-700 hover:text-brand-blue py-1"
+            className="block text-lg font-subheading tracking-wider uppercase text-brand-blue-600 hover:text-brand-blue py-1"
           >
             Preguntas Frecuentes
           </a>
           
-          <div className="border-t border-gray-100 pt-3 flex flex-col gap-2">
-            <div className="flex items-center gap-2 px-1 text-gray-600 text-xs py-1">
-              <span className={`h-2.5 w-2.5 rounded-full ${status ? 'bg-emerald-500' : 'bg-red-500'}`}></span>
+          <div className="border-t border-brand-blue-50 pt-3 flex flex-col gap-2">
+            <div className="flex items-center gap-2 px-1 text-brand-blue-500 text-xs py-1">
+              <span className={`h-2.5 w-2.5 rounded-full ${status ? 'bg-brand-blue-400' : 'bg-brand-blue-400'}`}></span>
               <span>{status ? 'Abierto (Lloviznas menores no detienen el flujo)' : 'Cerrado en este momento'}</span>
             </div>
             

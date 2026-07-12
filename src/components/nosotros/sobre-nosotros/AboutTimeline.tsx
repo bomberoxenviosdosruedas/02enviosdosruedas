@@ -53,7 +53,7 @@ export default function AboutTimeline() {
   return (
     <section
       id="about-timeline"
-      className="py-24 bg-slate-50 relative overflow-hidden border-t-4 border-b-4 border-brand-blue"
+      className="py-24 bg-brand-white-50 relative overflow-hidden border-t-4 border-b-4 border-brand-blue"
     >
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -74,7 +74,7 @@ export default function AboutTimeline() {
           <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
             NUESTRA HISTORIA
           </h2>
-          <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Más de 7 años revolucionando la logística de última milla y el delivery estratégico en Mar del Plata.
           </p>
           <div className="h-2 w-16 bg-brand-blue mx-auto rounded-full" />
@@ -124,7 +124,7 @@ export default function AboutTimeline() {
                     <h3 className="text-xl font-display uppercase tracking-wide text-brand-ink font-bold leading-tight mb-2 group-hover:text-brand-blue transition-colors">
                       {milestone.title}
                     </h3>
-                    <p className="text-sm text-slate-650 font-sans leading-relaxed">
+                    <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
                       {milestone.desc}
                     </p>
                   </motion.div>

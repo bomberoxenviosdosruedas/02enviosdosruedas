@@ -102,7 +102,7 @@ export default function OptimizedHeader() {
               <span className="font-display text-2xl tracking-wider text-white flex items-center gap-1">
                 Envíos <span className="text-brand-yellow">Dosruedas</span>
               </span>
-              <span className="block text-[9px] font-sans tracking-widest text-blue-200 uppercase leading-none">
+              <span className="block text-[9px] font-sans tracking-widest text-brand-blue-100 uppercase leading-none">
                 tu solución confiable
               </span>
             </div>
@@ -174,13 +174,13 @@ export default function OptimizedHeader() {
                               href={subItem.href}
                               className="flex items-start gap-3 p-2.5 rounded-xl transition-all hover:bg-white/5 text-white hover:text-brand-yellow group focus:outline-none focus:bg-white/5 focus:text-brand-yellow"
                             >
-                              <div className="p-1.5 rounded-lg bg-white/5 text-slate-350 group-hover:bg-white/10 group-hover:text-brand-yellow transition-colors">
+                              <div className="p-1.5 rounded-lg bg-white/5 text-brand-blue-200 group-hover:bg-white/10 group-hover:text-brand-yellow transition-colors">
                                 <SubIcon className="h-4 w-4 shrink-0" />
                               </div>
                               <div>
                                 <p className="text-xs font-semibold uppercase font-subheading tracking-wide leading-tight text-white group-hover:text-brand-yellow transition-colors">{subItem.label}</p>
                                 {subItem.description && (
-                                  <p className="text-[10px] text-blue-200/70 font-sans mt-0.5 group-hover:text-blue-100 transition-colors">{subItem.description}</p>
+                                  <p className="text-[10px] text-brand-blue-100/70 font-sans mt-0.5 group-hover:text-brand-blue-50 transition-colors">{subItem.description}</p>
                                 )}
                               </div>
                             </Link>
@@ -263,10 +263,10 @@ export default function OptimizedHeader() {
                         className="w-full text-left py-2 text-base font-subheading tracking-wide uppercase flex items-center justify-between text-white cursor-pointer"
                       >
                         <span className="flex items-center gap-2">
-                          {item.icon && <item.icon className="h-5 w-5 text-blue-300" />}
+                          {item.icon && <item.icon className="h-5 w-5 text-brand-blue-200" />}
                           <span>{item.label}</span>
                         </span>
-                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180 text-brand-yellow' : 'text-blue-300'
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180 text-brand-yellow' : 'text-brand-blue-200'
                           }`} />
                       </button>
 
@@ -284,7 +284,7 @@ export default function OptimizedHeader() {
                                 <Link
                                   key={subItem.href}
                                   href={subItem.href}
-                                  className="flex items-center gap-2 py-1.5 text-xs text-blue-250 hover:text-white"
+                                  className="flex items-center gap-2 py-1.5 text-xs text-brand-blue-200 hover:text-white"
                                 >
                                   <SubIcon className="h-4 w-4 text-brand-yellow/75 shrink-0" />
                                   <span>{subItem.label}</span>

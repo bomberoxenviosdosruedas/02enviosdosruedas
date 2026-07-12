@@ -38,13 +38,13 @@ export default function VisionSection() {
               Conectamos Mar del Plata de Punta a Punta
             </h2>
 
-            <p className="text-slate-650 text-lg leading-relaxed font-sans max-w-xl">
+            <p className="text-brand-blue-500 text-lg leading-relaxed font-sans max-w-xl">
               Nos especializamos en la distribución de última milla para e-commerce locales y retailers nacionales, asegurando que tus productos lleguen al destino en tiempo récord con tecnología de punta y tarifas transparentes.
             </p>
 
             <div className="space-y-5 pt-4">
               {/* Feature 1 */}
-              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-brand-blue/10 group cursor-default">
+              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-brand-white-50 transition-all border border-transparent hover:border-brand-blue/10 group cursor-default">
                 <div className="p-3 bg-brand-yellow text-brand-blue rounded-xl shrink-0 group-hover:bg-brand-blue group-hover:text-brand-yellow transition-all duration-300 border border-brand-yellow/30">
                   <Clock className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
                 </div>
@@ -52,14 +52,14 @@ export default function VisionSection() {
                   <h4 className="text-lg font-subheading uppercase tracking-wider text-brand-blue leading-none mb-1.5 transition-colors">
                     Entregas a Tiempo
                   </h4>
-                  <p className="text-sm text-slate-500 font-sans leading-relaxed">
+                  <p className="text-sm text-brand-blue-400 font-sans leading-relaxed">
                     Puntualidad garantizada en cada envío. Optimizamos cada ruta mediante geolocalización avanzada.
                   </p>
                 </div>
               </div>
 
               {/* Feature 2 */}
-              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-brand-blue/10 group cursor-default">
+              <div className="flex gap-4 items-start p-4 rounded-2xl hover:bg-brand-white-50 transition-all border border-transparent hover:border-brand-blue/10 group cursor-default">
                 <div className="p-3 bg-brand-yellow text-brand-blue rounded-xl shrink-0 group-hover:bg-brand-blue group-hover:text-brand-yellow transition-all duration-300 border border-brand-yellow/30">
                   <ShieldCheck className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                 </div>
@@ -67,7 +67,7 @@ export default function VisionSection() {
                   <h4 className="text-lg font-subheading uppercase tracking-wider text-brand-blue leading-none mb-1.5 transition-colors">
                     Envíos Seguros
                   </h4>
-                  <p className="text-sm text-slate-500 font-sans leading-relaxed">
+                  <p className="text-sm text-brand-blue-400 font-sans leading-relaxed">
                     Protección total de tus paquetes. Despachos con custodia digital y firmas de entrega seguras.
                   </p>
                 </div>
@@ -99,7 +99,7 @@ export default function VisionSection() {
                   <h3 className="text-5xl lg:text-6xl font-display uppercase leading-none mb-3">
                     +52.000
                   </h3>
-                  <p className="text-xs text-blue-200 font-sans uppercase tracking-wider leading-relaxed">
+                  <p className="text-xs text-brand-blue-100 font-sans uppercase tracking-wider leading-relaxed">
                     Envíos y entregas realizadas con éxito en toda la región
                   </p>
                 </div>
@@ -125,7 +125,7 @@ export default function VisionSection() {
                   <h3 className="text-4xl font-display text-brand-blue uppercase leading-none mb-2">
                     0
                   </h3>
-                  <p className="text-[10px] text-slate-500 font-sans uppercase tracking-widest font-semibold">
+                  <p className="text-[10px] text-brand-blue-400 font-sans uppercase tracking-widest font-semibold">
                     Paquetes extraviados
                   </p>
                 </div>
@@ -151,7 +151,7 @@ export default function VisionSection() {
                   <h3 className="text-4xl font-display text-brand-blue uppercase leading-none mb-2">
                     +140
                   </h3>
-                  <p className="text-[10px] text-slate-500 font-sans uppercase tracking-widest font-semibold">
+                  <p className="text-[10px] text-brand-blue-400 font-sans uppercase tracking-widest font-semibold">
                     Emprendedores confían
                   </p>
                 </div>

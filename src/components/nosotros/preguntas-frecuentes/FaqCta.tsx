@@ -27,8 +27,8 @@ export default function FaqCta() {
           }}
         >
           {/* Abstract background logo */}
-          <div className="absolute right-0 bottom-0 translate-y-8 translate-x-8 text-slate-100 pointer-events-none -z-10">
-            <HelpCircle className="h-64 w-64 text-slate-50 opacity-40" />
+          <div className="absolute right-0 bottom-0 translate-y-8 translate-x-8 text-brand-blue-50 pointer-events-none -z-10">
+            <HelpCircle className="h-64 w-64 text-brand-white-50 opacity-40" />
           </div>
 
           <div className="max-w-2xl mx-auto space-y-6 relative z-10">
@@ -41,7 +41,7 @@ export default function FaqCta() {
               ¿NO ENCONTRASTE LO QUE BUSCABAS?
             </h3>
             
-            <p className="text-sm sm:text-base text-slate-650 leading-relaxed font-sans">
+            <p className="text-sm sm:text-base text-brand-blue-500 leading-relaxed font-sans">
               No te preocupes. Nuestro equipo de soporte está listo para ayudarte en tiempo real con cualquier consulta específica que tengas sobre nuestros servicios de mensajería y delivery.
             </p>
 
@@ -61,7 +61,7 @@ export default function FaqCta() {
               <Link
                 href="/contacto"
                 id="faq-cta-contacto"
-                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2 font-bold"
+                className="w-full sm:w-auto bg-white hover:bg-brand-white-50 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2 font-bold"
               >
                 <Mail className="h-5 w-5 text-brand-blue" />
                 Contacto Directo

@@ -49,13 +49,13 @@ export default function OptimizedFooter() {
                 <span className="font-display text-2xl tracking-wider text-white flex items-center gap-1.5">
                   Envíos <span className="text-brand-yellow">Dosruedas</span>
                 </span>
-                <span className="block text-[9px] font-sans tracking-widest text-blue-200 uppercase leading-none font-bold">
+                <span className="block text-[9px] font-sans tracking-widest text-brand-blue-100 uppercase leading-none font-bold">
                   tu solución confiable
                 </span>
               </div>
             </Link>
 
-            <p className="text-blue-100 text-sm leading-relaxed max-w-sm">
+            <p className="text-brand-blue-50 text-sm leading-relaxed max-w-sm">
               Logística urbana inteligente de última milla en Mar del Plata. Conectamos tu negocio con entregas express en el día, soluciones Flex para MercadoLibre y distribución 3PL eficiente.
             </p>
             <div className="space-y-3.5 pt-2">
@@ -93,7 +93,7 @@ export default function OptimizedFooter() {
                   </a>
                 </motion.div>
 
-                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border-2 border-white/10 text-xs text-blue-200 font-mono shadow-inner ml-2">
+                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border-2 border-white/10 text-xs text-brand-blue-100 font-mono shadow-inner ml-2">
                   <Award className="h-4 w-4 text-brand-yellow animate-pulse shrink-0" />
                   <span>3PL Certificado</span>
                 </div>
@@ -110,7 +110,7 @@ export default function OptimizedFooter() {
               <li>
                 <Link
                   href="/servicios/envios-express"
-                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
+                  className="text-brand-blue-50 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <Zap className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>Envíos Express</span>
@@ -120,7 +120,7 @@ export default function OptimizedFooter() {
               <li>
                 <Link
                   href="/servicios/envios-lowcost"
-                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
+                  className="text-brand-blue-50 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <TrendingDown className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>Envíos LowCost</span>
@@ -130,7 +130,7 @@ export default function OptimizedFooter() {
               <li>
                 <Link
                   href="/servicios/enviosflex"
-                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
+                  className="text-brand-blue-50 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <Clock className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>Envíos Flex (MeLi)</span>
@@ -140,7 +140,7 @@ export default function OptimizedFooter() {
               <li>
                 <Link
                   href="/servicios/plan-emprendedores"
-                  className="text-blue-100 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
+                  className="text-brand-blue-50 hover:text-brand-yellow flex items-center gap-2.5 group transition-all duration-200 hover:translate-x-1"
                 >
                   <ShoppingBag className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>E-Commerce & 3PL</span>
@@ -156,7 +156,7 @@ export default function OptimizedFooter() {
               Contacto
             </h4>
 
-            <div className="space-y-4 text-xs text-blue-100">
+            <div className="space-y-4 text-xs text-brand-blue-50">
 
               <div className="flex gap-3.5 items-start">
                 <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
@@ -219,24 +219,24 @@ export default function OptimizedFooter() {
         </div>
 
         {/* BOTTOM SECTION: Legal & Copyright */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-6 text-xs text-blue-200 font-sans border-b border-white/5 pb-2">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-6 text-xs text-brand-blue-100 font-sans border-b border-white/5 pb-2">
           <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-6">
             <p className="font-medium text-white">© 2026 Envíos DosRuedas. Todos los derechos reservados.</p>
-            <Link href="/nosotros/sobre-nosotros" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-blue-200">
+            <Link href="/nosotros/sobre-nosotros" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-brand-blue-100">
               Sobre Nosotros
             </Link>
-            <Link href="/nosotros/preguntas-frecuentes" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-blue-200">
+            <Link href="/nosotros/preguntas-frecuentes" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-brand-blue-100">
               Preguntas Frecuentes
             </Link>
-            <Link href="/nosotros/nuestras-redes" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-blue-200">
+            <Link href="/nosotros/nuestras-redes" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-brand-blue-100">
               Nuestras Redes
             </Link>
           </div>
           <div className="flex flex-wrap justify-center gap-6 shrink-0">
-            <Link href="/terminos-y-condiciones" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-blue-200">
+            <Link href="/terminos-y-condiciones" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-brand-blue-100">
               Términos y Condiciones
             </Link>
-            <Link href="/politica-de-privacidad" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-blue-200">
+            <Link href="/politica-de-privacidad" className="hover:text-brand-yellow transition-colors underline decoration-white/10 text-brand-blue-100">
               Política de Privacidad
             </Link>
           </div>

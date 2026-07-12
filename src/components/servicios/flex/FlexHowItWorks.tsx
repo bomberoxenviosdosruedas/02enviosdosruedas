@@ -35,7 +35,7 @@ export default function FlexHowItWorks() {
   return (
     <section 
       id="flex-how-it-works" 
-      className="py-24 bg-gray-50 relative overflow-hidden border-t-4 border-b-4 border-brand-blue"
+      className="py-24 bg-brand-white-50 relative overflow-hidden border-t-4 border-b-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -56,7 +56,7 @@ export default function FlexHowItWorks() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue border-l-4 border-brand-yellow pl-4 inline-block">
             LOGÍSTICA SIN FRICCIONES
           </h2>
-          <p className="text-slate-655 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Integramos tu flujo diario de ventas con nuestra red de distribución de última milla en tiempo real.
           </p>
           <div className="h-2 w-16 bg-brand-blue mx-auto rounded-full" />
@@ -93,7 +93,7 @@ export default function FlexHowItWorks() {
                   <h3 className="text-xl font-display uppercase tracking-wider text-brand-blue font-bold leading-tight">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-slate-655 font-sans leading-relaxed">
+                  <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
                     {step.desc}
                   </p>
                 </div>

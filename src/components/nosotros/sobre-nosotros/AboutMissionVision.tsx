@@ -33,7 +33,7 @@ export default function AboutMissionVision() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white">
             MISIÓN, VISIÓN E INNOVACIÓN
           </h2>
-          <p className="text-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Hacia dónde vamos y cuáles son las convicciones profundas que guían cada entrega y ruteo diario.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
