@@ -17,14 +17,10 @@ El entorno evoca precisión cronométrica, custodia de activos y la espina dorsa
 ## 2. Color Palette & Roles
 El sistema cromático utiliza bloques limpios de contraste sólido para separar jerarquías de contenido, eliminando degradados estridentes o estéticas informales.
 
-*   **Primary / Azul de Estado (`#00277C`):** Representa solidez, orden y presencia institucional. Utilizado en cabeceras principales, navegación y contenedores clave.
-*   **Secondary / Oro Logístico (`#D8CA00`):** Acento quirúrgico para estados, indicadores activos, bordes y micro-detalles.
+*   **Primary / Azul de Estado (`#0635a6`):** Representa solidez, orden y presencia institucional. Utilizado en cabeceras principales, navegación y contenedores clave.
+*   **Secondary / Oro Logístico (`#ffec00`):** Acento quirúrgico para estados, indicadores activos, bordes y micro-detalles.
 *   **Canvas / Fondo Base (`#F9F9FC`):** Superficie clara y fría que reduce la fatiga visual y enmarca contenedores.
 *   **Surface Containers / Capas Físicas (`#EEEEF0` a `#FFFFFF`):** Estructura la profundidad del sitio mediante capas de información.
-*   **Neutral Text / Charcoal de Imprenta (`#1A1C1E`):** Gris oscuro para texto de cuerpo de alta legibilidad.
-*   **Muted Text / Slate Gray (`#444653`):** Para metadatos, etiquetas secundarias e indicadores secundarios.
-*   **Subtle Border (`#E2E8F0`):** Líneas finas divisorias para estructurar contenedores físicos.
-
 ---
 
 ## 3. Typography Rules

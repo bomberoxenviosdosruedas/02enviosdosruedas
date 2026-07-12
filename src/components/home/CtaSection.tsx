@@ -50,19 +50,23 @@ export default function CtaSection() {
             id="cta-whatsapp-link"
             whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow text-brand-blue font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl border border-brand-yellow shadow-[3px_3px_0px_var(--color-brand-blue)] flex items-center justify-center gap-2.5 cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
+            className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow text-brand-blue font-subheading tracking-wider text-xl uppercase cta-nested-pill border border-brand-yellow shadow-[3px_3px_0px_var(--color-brand-blue)] flex items-center justify-between cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
           >
-            <MessageSquare className="h-5 w-5 fill-current animate-pulse shrink-0 text-brand-blue" />
-            Contactanos por WhatsApp
+            <span>Contactanos por WhatsApp</span>
+            <span className="cta-nested-icon bg-brand-blue/15 text-brand-blue">
+              <MessageSquare className="h-5 w-5 fill-current animate-pulse shrink-0" />
+            </span>
           </motion.a>
 
           <Link
             href="/cotizar/lowcost"
             id="cta-rates-link"
-            className="w-full sm:w-auto bg-white hover:bg-slate-50 border border-brand-blue/20 text-brand-blue font-subheading tracking-wider text-xl uppercase px-8 py-4 rounded-xl shadow-[3px_3px_0px_rgba(0,39,124,0.1)] flex items-center justify-center gap-2 cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
+            className="w-full sm:w-auto bg-white hover:bg-slate-50 border border-brand-blue/20 text-brand-blue font-subheading tracking-wider text-xl uppercase cta-nested-pill shadow-[3px_3px_0px_rgba(0,39,124,0.1)] flex items-center justify-between cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
           >
-            <FileText className="h-5 w-5 shrink-0" />
-            Ver tarifas 2026
+            <span>Ver tarifas 2026</span>
+            <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue">
+              <FileText className="h-5 w-5 shrink-0" />
+            </span>
           </Link>
         </div>
 

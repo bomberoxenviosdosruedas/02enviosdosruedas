@@ -10,7 +10,7 @@ export default {
     extend: {
       colors: {
         'brand-blue': '#00277C',
-        'brand-yellow': '#D8CA00',
+        'brand-yellow': '#FFEC01',
         'brand-navy': '#001C58',
         'brand-ink': '#1A1C1E',
       },
@@ -21,12 +21,12 @@ export default {
       },
       boxShadow: {
         'glow-blue': '0 0 25px rgba(0, 39, 124, 0.25)',
-        'glow-yellow': '0 0 25px rgba(216, 202, 0, 0.35)',
+        'glow-yellow': '0 0 25px rgba(255, 236, 1, 0.35)',
         'glow-blue-lg': '0 0 50px rgba(0, 39, 124, 0.35)',
-        'glow-yellow-lg': '0 0 50px rgba(216, 202, 0, 0.5)',
-        'accent-sm': '0 2px 4px rgba(216, 202, 0, 0.15)',
-        'accent-md': '0 4px 8px rgba(216, 202, 0, 0.2), 0 2px 4px rgba(216, 202, 0, 0.1)',
-        'accent-lg': '0 8px 16px rgba(216, 202, 0, 0.3), 0 4px 8px rgba(216, 202, 0, 0.2)',
+        'glow-yellow-lg': '0 0 50px rgba(255, 236, 1, 0.5)',
+        'accent-sm': '0 2px 4px rgba(255, 236, 1, 0.15)',
+        'accent-md': '0 4px 8px rgba(255, 236, 1, 0.2), 0 2px 4px rgba(255, 236, 1, 0.1)',
+        'accent-lg': '0 8px 16px rgba(255, 236, 1, 0.3), 0 4px 8px rgba(255, 236, 1, 0.2)',
         'float-shadow': '0 25px 50px -12px rgba(0, 39, 124, 0.15)',
       },
       animation: {

@@ -147,17 +147,22 @@ export default function HeroAnimado() {
               <Link
                 href="/cotizar/express"
                 id="hero-cta-solicitar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow text-brand-blue font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-xl border border-brand-yellow transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center justify-center gap-2 font-bold"
+                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow text-brand-blue font-mono tracking-wider text-sm uppercase cta-nested-pill border border-brand-yellow transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center justify-between font-bold"
               >
-                Solicitar Servicio
-                <ArrowRight className="h-5 w-5" />
+                <span>Solicitar Servicio</span>
+                <span className="cta-nested-icon bg-brand-blue/15 text-brand-blue">
+                  <ArrowRight className="h-4 w-4" />
+                </span>
               </Link>
               <Link
                 href="/servicios/envios-express"
                 id="hero-cta-servicios"
-                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-mono tracking-wider text-sm uppercase px-8 py-4 rounded-xl border border-white/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-mono tracking-wider text-sm uppercase cta-nested-pill border border-white/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center justify-between"
               >
-                Ver Servicios
+                <span>Ver Servicios</span>
+                <span className="cta-nested-icon bg-white/10 text-white">
+                  <ArrowRight className="h-4 w-4" />
+                </span>
               </Link>
             </motion.div>
 
