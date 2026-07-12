@@ -260,13 +260,13 @@ const renderMenuItem = (item: MenuItem) => {
           {item.title}
         </NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="w-85 p-3 bg-white text-brand-ink rounded-xl shadow-xl border border-slate-100/85">
+          <ul className="w-85 p-3 bg-white text-brand-ink rounded-xl shadow-xl border border-brand-blue-50/85">
             <NavigationMenuLink asChild>
               <div className="flex flex-col gap-1">
                 {item.items.map((subItem) => (
                   <a
                     key={subItem.title}
-                    className="flex select-none gap-4 rounded-xl p-3 leading-none no-underline outline-none transition-all hover:bg-slate-50 text-slate-700 hover:text-brand-blue font-sans group/sub"
+                    className="flex select-none gap-4 rounded-xl p-3 leading-none no-underline outline-none transition-all hover:bg-brand-white-50 text-brand-blue-600 hover:text-brand-blue font-sans group/sub"
                     href={subItem.url}
                   >
                     {renderIcon(subItem.icon, false)}
@@ -275,7 +275,7 @@ const renderMenuItem = (item: MenuItem) => {
                         {subItem.title}
                       </div>
                       {subItem.description && (
-                        <p className="text-xs leading-snug text-slate-500 mt-1">
+                        <p className="text-xs leading-snug text-brand-blue-400 mt-1">
                           {subItem.description}
                         </p>
                       )}

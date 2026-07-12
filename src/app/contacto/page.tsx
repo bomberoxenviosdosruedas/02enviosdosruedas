@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ContactoPage() {
   return (
-    <main className="min-h-screen bg-gray-50 text-slate-900 relative overflow-hidden">
+    <main className="min-h-screen bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
       {/* Ambient floating glow-orbs */}
       <div className="absolute top-[25%] left-[-15%] w-[45vw] h-[45vw] bg-brand-blue/5 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
       <div className="absolute top-[50%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow/3 rounded-full blur-[100px] pointer-events-none" style={{ animationDelay: '-3s' }} />

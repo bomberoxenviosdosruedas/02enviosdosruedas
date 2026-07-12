@@ -59,7 +59,7 @@ export default function FlexBenefits() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white">
             BENEFICIOS PARA VENDEDORES
           </h2>
-          <p className="text-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-brand-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             La solución definitiva para llevar tu tienda o e-commerce de MercadoLibre al siguiente nivel de competitividad.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
@@ -87,7 +87,7 @@ export default function FlexBenefits() {
                     {benefit.title}
                   </h3>
                   
-                  <p className="text-sm text-slate-655 font-sans leading-relaxed">
+                  <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
                     {benefit.desc}
                   </p>
                 </div>

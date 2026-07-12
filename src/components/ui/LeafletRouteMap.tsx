@@ -93,7 +93,7 @@ export default function LeafletRouteMap({
       activeBounds.push(latLng);
       markerAInstance.current = L.marker(latLng, {
         icon: L.divIcon({
-          html: `<div class="bg-emerald-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center border-2 border-white shadow-md">A</div>`,
+          html: `<div class="bg-brand-blue-400 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center border-2 border-white shadow-md">A</div>`,
           className: '',
           iconSize: [32, 32],
           iconAnchor: [16, 16],
@@ -143,7 +143,7 @@ export default function LeafletRouteMap({
   }, [origin, destination, routeCoords]);
 
   return (
-    <div className="w-full h-full min-h-[300px] relative rounded-3xl overflow-hidden bg-slate-950">
+    <div className="w-full h-full min-h-[300px] relative rounded-3xl overflow-hidden bg-brand-blue-700">
       <div ref={mapContainer} className="w-full h-full min-h-[300px] z-10" />
     </div>
   );

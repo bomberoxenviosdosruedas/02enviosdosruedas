@@ -97,7 +97,7 @@ export default function LowCostHero() {
             {/* Description */}
             <motion.p 
               variants={itemVariants}
-              className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-blue-50"
+              className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-white-50"
             >
               Nuestro servicio Lowcost, las entregas son realizadas en el transcurso del día sin elección de rango horario. La mejor tarifa de Mar del Plata para tus envíos diarios sin sacrificar un gramo de seguridad ni control (Cobertura en todo Mar del Plata).
             </motion.p>
@@ -132,8 +132,8 @@ export default function LowCostHero() {
                   <TrendingDown className="h-5 w-5 shrink-0" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-blue-200 leading-none mb-1">Ahorro Promedio</p>
-                  <p className="text-sm font-subheading uppercase font-semibold text-slate-100">Tarifas Competitivas</p>
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-blue-100 leading-none mb-1">Ahorro Promedio</p>
+                  <p className="text-sm font-subheading uppercase font-semibold text-brand-blue-50">Tarifas Competitivas</p>
                 </div>
               </div>
 
@@ -142,8 +142,8 @@ export default function LowCostHero() {
                   <Shield className="h-5 w-5 shrink-0" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-blue-200 leading-none mb-1">Garantía de</p>
-                  <p className="text-sm font-subheading uppercase font-semibold text-slate-100">Entrega en el Día</p>
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-blue-100 leading-none mb-1">Garantía de</p>
+                  <p className="text-sm font-subheading uppercase font-semibold text-brand-blue-50">Entrega en el Día</p>
                 </div>
               </div>
             </motion.div>
@@ -171,7 +171,7 @@ export default function LowCostHero() {
                 <h3 className="text-base font-display uppercase tracking-tight text-brand-ink leading-snug">
                   Maximizá tu margen de ganancia
                 </h3>
-                <p className="text-xs text-slate-655 font-sans mt-2 leading-relaxed">
+                <p className="text-xs text-brand-blue-500 font-sans mt-2 leading-relaxed">
                   Ideal para e-commerce locales que envían todos los días y necesitan un costo de flete ultra competitivo para no perder ventas.
                 </p>
               </div>
@@ -184,7 +184,7 @@ export default function LowCostHero() {
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.6 } }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative rounded-3xl border-2 border-brand-yellow bg-slate-900 p-5 text-white shadow-[6px_6px_0px_var(--color-brand-blue)]">
+              <div className="relative rounded-3xl border-2 border-brand-yellow bg-brand-blue-700 p-5 text-white shadow-[6px_6px_0px_var(--color-brand-blue)]">
                 <div className="space-y-3.5">
                   <div className="flex items-center gap-2.5">
                     <div className="h-2 w-2 rounded-full bg-brand-yellow animate-ping" />
@@ -193,7 +193,7 @@ export default function LowCostHero() {
                   <p className="text-sm font-subheading uppercase font-semibold leading-none">
                     13:00 hs IMPRORROGABLE
                   </p>
-                  <p className="text-xs text-slate-350 font-sans leading-relaxed">
+                  <p className="text-xs text-brand-blue-200 font-sans leading-relaxed">
                     Ingresá tus pedidos antes de la hora límite y garantizá la entrega de todos tus paquetes antes de las 19:00 hs de hoy.
                   </p>
                 </div>

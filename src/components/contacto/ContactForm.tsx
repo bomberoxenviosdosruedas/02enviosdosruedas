@@ -43,9 +43,9 @@ export default function ContactForm() {
         y: { type: "spring", stiffness: 300, damping: 20 },
         opacity: { duration: 0.6 }
       }}
-      className="p-2 bg-slate-200/60 border border-slate-300 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300 flex flex-col group cursor-pointer h-full"
+      className="p-2 bg-brand-blue-100/60 border border-brand-blue-200 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300 flex flex-col group cursor-pointer h-full"
     >
-      <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 md:p-10 border border-slate-100 shadow-sm h-full flex flex-col justify-between relative overflow-hidden">
+      <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 md:p-10 border border-brand-blue-50 shadow-sm h-full flex flex-col justify-between relative overflow-hidden">
         {/* Decorative top bar */}
         <div className="absolute top-0 left-0 right-0 h-2 bg-brand-blue" />
 
@@ -54,7 +54,7 @@ export default function ContactForm() {
             <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue mb-2">
               ¿TENÉS ALGUNA CONSULTA?
             </h3>
-            <p className="text-slate-650 font-sans text-sm sm:text-base leading-relaxed">
+            <p className="text-brand-blue-500 font-sans text-sm sm:text-base leading-relaxed">
               Completá el formulario y te responderemos a la brevedad.
             </p>
           </div>
@@ -67,7 +67,7 @@ export default function ContactForm() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
-                className="bg-emerald-50 rounded-2xl p-6 border-2 border-brand-blue flex flex-col items-center text-center space-y-4 py-12 shadow-[4px_4px_0px_var(--color-brand-blue)]"
+                className="bg-brand-white-50 rounded-2xl p-6 border-2 border-brand-blue flex flex-col items-center text-center space-y-4 py-12 shadow-[4px_4px_0px_var(--color-brand-blue)]"
               >
                 <div className="p-4 bg-brand-yellow text-brand-blue rounded-full border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">
                   <CheckCircle2 className="h-10 w-10 text-brand-blue fill-brand-yellow shrink-0" />
@@ -76,7 +76,7 @@ export default function ContactForm() {
                   <h4 className="text-xl font-display uppercase tracking-wide text-brand-blue font-bold">
                     ¡MENSAJE ENVIADO!
                   </h4>
-                  <p className="text-sm text-slate-700 font-sans max-w-sm leading-relaxed">
+                  <p className="text-sm text-brand-blue-600 font-sans max-w-sm leading-relaxed">
                     Gracias por comunicarte con Envíos DosRuedas. Te responderemos lo antes posible para ayudarte con tu cotización o consulta.
                   </p>
                 </div>
@@ -99,15 +99,15 @@ export default function ContactForm() {
                 exit={{ opacity: 0 }}
               >
                 {status === 'error' && (
-                  <div className="p-4 bg-rose-50 border-2 border-rose-600 rounded-xl flex items-center gap-3 text-rose-800 text-xs font-sans">
-                    <AlertCircle className="h-5.5 w-5.5 text-rose-600 shrink-0" />
+                  <div className="p-4 bg-brand-white-50 border-2 border-brand-blue-500 rounded-xl flex items-center gap-3 text-brand-blue-700 text-xs font-sans">
+                    <AlertCircle className="h-5.5 w-5.5 text-brand-blue-500 shrink-0" />
                     <span>Por favor, completá todos los campos obligatorios (*) antes de enviar.</span>
                   </div>
                 )}
 
                 {/* Nombre */}
                 <div className="space-y-2">
-                  <label htmlFor="nombre" className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label htmlFor="nombre" className="block text-xs font-bold uppercase tracking-wider text-brand-blue-600">
                     Nombre completo <span className="text-brand-blue font-bold">*</span>
                   </label>
                   <input
@@ -119,13 +119,13 @@ export default function ContactForm() {
                     onChange={handleChange}
                     disabled={status === 'submitting'}
                     placeholder="Ej: Juan Pérez"
-                    className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all disabled:opacity-60 bg-slate-50"
+                    className="w-full px-4 py-3.5 rounded-xl border-2 border-brand-blue-100 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all disabled:opacity-60 bg-brand-white-50"
                   />
                 </div>
 
                 {/* Email */}
                 <div className="space-y-2">
-                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-brand-blue-600">
                     Correo electrónico <span className="text-brand-blue font-bold">*</span>
                   </label>
                   <input
@@ -137,13 +137,13 @@ export default function ContactForm() {
                     onChange={handleChange}
                     disabled={status === 'submitting'}
                     placeholder="Ej: juan.perez@email.com"
-                    className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all disabled:opacity-60 bg-slate-50"
+                    className="w-full px-4 py-3.5 rounded-xl border-2 border-brand-blue-100 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all disabled:opacity-60 bg-brand-white-50"
                   />
                 </div>
 
                 {/* Mensaje */}
                 <div className="space-y-2">
-                  <label htmlFor="mensaje" className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label htmlFor="mensaje" className="block text-xs font-bold uppercase tracking-wider text-brand-blue-600">
                     Tu mensaje o consulta <span className="text-brand-blue font-bold">*</span>
                   </label>
                   <textarea
@@ -155,7 +155,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     disabled={status === 'submitting'}
                     placeholder="Escribí acá tu consulta. Decinos en qué podemos ayudarte..."
-                    className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-slate-900 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all disabled:opacity-60 bg-slate-50 resize-none"
+                    className="w-full px-4 py-3.5 rounded-xl border-2 border-brand-blue-100 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all disabled:opacity-60 bg-brand-white-50 resize-none"
                   />
                 </div>
 

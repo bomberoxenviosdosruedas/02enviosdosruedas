@@ -90,7 +90,7 @@ export default function EmprendedoresHero() {
             {/* Description */}
             <motion.p 
               variants={itemVariants}
-              className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-blue-50"
+              className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-white-50"
             >
               Solución integral de almacenamiento y fulfillment para PyMEs en Mar del Plata. Contamos con depósitos propios en la ciudad para garantizar el mejor servicio 3PL. Delegá la logística en manos de expertos.
             </motion.p>
@@ -128,8 +128,8 @@ export default function EmprendedoresHero() {
                   <Landmark className="h-5 w-5 shrink-0" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-blue-200 leading-none mb-1">Depósitos Propios</p>
-                  <p className="text-sm font-subheading uppercase font-semibold text-slate-100">Ubicación Estratégica</p>
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-blue-100 leading-none mb-1">Depósitos Propios</p>
+                  <p className="text-sm font-subheading uppercase font-semibold text-brand-blue-50">Ubicación Estratégica</p>
                 </div>
               </div>
 
@@ -138,8 +138,8 @@ export default function EmprendedoresHero() {
                   <ShieldCheck className="h-5 w-5 shrink-0" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-blue-200 leading-none mb-1">Fulfillment Seguro</p>
-                  <p className="text-sm font-subheading uppercase font-semibold text-slate-100">Custodia Digital 24/7</p>
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-blue-100 leading-none mb-1">Fulfillment Seguro</p>
+                  <p className="text-sm font-subheading uppercase font-semibold text-brand-blue-50">Custodia Digital 24/7</p>
                 </div>
               </div>
             </motion.div>
@@ -167,7 +167,7 @@ export default function EmprendedoresHero() {
                 <h3 className="text-base font-display uppercase tracking-tight text-brand-ink leading-snug">
                   Tu stock bajo control
                 </h3>
-                <p className="text-xs text-slate-650 font-sans mt-2 leading-relaxed">
+                <p className="text-xs text-brand-blue-500 font-sans mt-2 leading-relaxed">
                   Evitá dolores de cabeza. Nos ocupamos del almacenamiento, picking, empaquetado y despacho automatizado de tus ventas en el acto.
                 </p>
               </div>
@@ -180,7 +180,7 @@ export default function EmprendedoresHero() {
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.6 } }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative rounded-3xl border-2 border-brand-yellow bg-slate-900 p-5 text-white shadow-[6px_6px_0px_var(--color-brand-blue)]">
+              <div className="relative rounded-3xl border-2 border-brand-yellow bg-brand-blue-700 p-5 text-white shadow-[6px_6px_0px_var(--color-brand-blue)]">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-brand-yellow animate-ping" />
@@ -189,7 +189,7 @@ export default function EmprendedoresHero() {
                   <p className="text-sm font-subheading uppercase font-semibold leading-none">
                     Esquemas de Pago Flexibles
                   </p>
-                  <p className="text-xs text-slate-355 font-sans leading-relaxed">
+                  <p className="text-xs text-brand-blue-200 font-sans leading-relaxed">
                     Facturación quincenal o mensual consolidada para que no comprometas el flujo de caja diario de tu emprendimiento o PyME.
                   </p>
                 </div>

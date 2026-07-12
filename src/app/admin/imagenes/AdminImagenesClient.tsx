@@ -314,20 +314,20 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
         <h1 className="text-5xl font-display text-brand-blue uppercase tracking-tight">
           Gestión de Imágenes y Prompts de IA
         </h1>
-        <p className="text-slate-600 max-w-2xl mx-auto font-sans text-base">
-          Organizá tus assets en carpetas por página bajo <code className="text-xs bg-slate-100 px-1 py-0.5 rounded font-mono">public/img/</code>. Ingresá el nombre del archivo y validá su existencia física en tiempo real en el servidor.
+        <p className="text-brand-blue-500 max-w-2xl mx-auto font-sans text-base">
+          Organizá tus assets en carpetas por página bajo <code className="text-xs bg-brand-blue-50 px-1 py-0.5 rounded font-mono">public/img/</code>. Ingresá el nombre del archivo y validá su existencia física en tiempo real en el servidor.
         </p>
       </div>
 
       {/* Notifications */}
       {error && (
-        <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded-r-xl flex items-center gap-3 text-red-700">
+        <div className="p-4 bg-brand-white-50 border-l-4 border-brand-blue-400 rounded-r-xl flex items-center gap-3 text-brand-blue-600">
           <AlertCircle className="h-5 w-5 shrink-0" />
           <p className="text-sm font-semibold">{error}</p>
         </div>
       )}
       {success && (
-        <div className="p-4 bg-emerald-50 border-l-4 border-emerald-500 rounded-r-xl flex items-center gap-3 text-emerald-800">
+        <div className="p-4 bg-brand-white-50 border-l-4 border-brand-blue-400 rounded-r-xl flex items-center gap-3 text-brand-blue-700">
           <Check className="h-5 w-5 shrink-0" />
           <p className="text-sm font-semibold">{success}</p>
         </div>
@@ -337,7 +337,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
         {/* Form Column */}
         <div className="lg:col-span-4 space-y-6">
           {/* Create Folder Card */}
-          <div className="bg-white p-6 rounded-3xl border-2 border-slate-200 shadow-accent-sm">
+          <div className="bg-white p-6 rounded-3xl border-2 border-brand-blue-100 shadow-accent-sm">
             <h3 className="text-lg font-subheading text-brand-blue uppercase tracking-wider mb-4 flex items-center gap-2">
               <FolderPlus className="h-5 w-5 text-brand-blue shrink-0" />
               Nueva Carpeta de Página
@@ -349,7 +349,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                 onChange={e => setNewFolderInput(e.target.value)}
                 placeholder="Ej: blog, flex"
                 required
-                className="flex-1 px-3 py-2 text-xs rounded-lg border border-slate-200 focus:outline-none focus:ring-1 focus:ring-brand-blue text-brand-ink"
+                className="flex-1 px-3 py-2 text-xs rounded-lg border border-brand-blue-100 focus:outline-none focus:ring-1 focus:ring-brand-blue text-brand-ink"
               />
               <button
                 type="submit"
@@ -362,7 +362,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
           </div>
 
           {/* Register Image Form Card */}
-          <div className="bg-white p-6 rounded-3xl border-2 border-slate-200 shadow-accent-md">
+          <div className="bg-white p-6 rounded-3xl border-2 border-brand-blue-100 shadow-accent-md">
             <h2 className="text-xl font-subheading text-brand-blue uppercase tracking-wider mb-6 flex items-center gap-2">
               <ImageIcon className="h-5.5 w-5.5 text-brand-blue shrink-0" />
               Registrar Imagen
@@ -370,13 +370,13 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
 
             <form onSubmit={handleSaveImage} className="space-y-5">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                <label className="block text-xs font-bold uppercase tracking-wider text-brand-blue-400 mb-2">
                   Carpeta de la Página (public/img/)
                 </label>
                 <select
                   value={selectedFolder}
                   onChange={e => setSelectedFolder(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-850 text-sm font-semibold"
+                  className="w-full px-3 py-2.5 rounded-xl border border-brand-blue-100 focus:outline-none focus:ring-2 focus:ring-brand-blue text-brand-blue-700 text-sm font-semibold"
                 >
                   {folders.map(f => (
                     <option key={f} value={f}>
@@ -388,7 +388,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
 
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-blue-400">
                     Nombre del Archivo
                   </label>
                   {availableFiles.length > 0 && (
@@ -413,7 +413,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                         setFilename(e.target.value);
                       }
                     }}
-                    className="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-slate-850 text-sm font-semibold"
+                    className="w-full px-3 py-2.5 rounded-xl border border-brand-blue-100 focus:outline-none focus:ring-2 focus:ring-brand-blue text-brand-blue-700 text-sm font-semibold"
                   >
                     {availableFiles.map(file => (
                       <option key={file} value={file}>
@@ -429,30 +429,30 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                     onChange={e => setFilename(e.target.value)}
                     placeholder="Ej: hero-reparto.webp"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink text-sm font-mono"
+                    className="w-full px-4 py-3 rounded-xl border border-brand-blue-100 focus:outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink text-sm font-mono"
                   />
                 )}
               </div>
 
               {/* Dynamic Path & File existence status */}
-              <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2">
-                <div className="text-[10px] font-bold uppercase text-slate-400">Ruta Resultante:</div>
-                <code className="text-xs font-semibold text-slate-700 font-mono block break-all">
+              <div className="bg-brand-white-50 p-4 rounded-2xl border border-brand-blue-100 space-y-2">
+                <div className="text-[10px] font-bold uppercase text-brand-blue-300">Ruta Resultante:</div>
+                <code className="text-xs font-semibold text-brand-blue-600 font-mono block break-all">
                   /img/{selectedFolder}/{filename || '[nombre-de-archivo]'}
                 </code>
 
                 {filename.trim() !== '' && (
-                  <div className="pt-2 border-t border-slate-100 flex items-center gap-2">
+                  <div className="pt-2 border-t border-brand-blue-50 flex items-center gap-2">
                     {isChecking ? (
-                      <span className="text-xs text-slate-400 animate-pulse font-semibold">Verificando en servidor...</span>
+                      <span className="text-xs text-brand-blue-300 animate-pulse font-semibold">Verificando en servidor...</span>
                     ) : fileExists ? (
-                      <div className="text-emerald-700 flex items-center gap-1.5 text-xs font-bold font-sans">
-                        <FileCheck className="h-4.5 w-4.5 text-emerald-600 shrink-0" />
+                      <div className="text-brand-blue-600 flex items-center gap-1.5 text-xs font-bold font-sans">
+                        <FileCheck className="h-4.5 w-4.5 text-brand-blue-500 shrink-0" />
                         ✔ El archivo existe físicamente en el servidor
                       </div>
                     ) : (
-                      <div className="text-amber-700 flex items-center gap-1.5 text-xs font-bold font-sans">
-                        <FileWarning className="h-4.5 w-4.5 text-amber-600 shrink-0" />
+                      <div className="text-brand-yellow-500 flex items-center gap-1.5 text-xs font-bold font-sans">
+                        <FileWarning className="h-4.5 w-4.5 text-brand-yellow-500 shrink-0" />
                         ⚠ El archivo no se encuentra físicamente
                       </div>
                     )}
@@ -461,7 +461,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                <label className="block text-xs font-bold uppercase tracking-wider text-brand-blue-400 mb-2">
                   Descripción Actual
                 </label>
                 <textarea
@@ -470,7 +470,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                   placeholder="Ej: Mapa de calor ilustrado para la sección de entregas express."
                   required
                   rows={3}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink text-sm font-sans"
+                  className="w-full px-4 py-3 rounded-xl border border-brand-blue-100 focus:outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink text-sm font-sans"
                 />
               </div>
 
@@ -494,7 +494,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
           </h2>
 
           {imageList.length === 0 ? (
-            <div className="bg-slate-100 border border-slate-200 rounded-3xl p-12 text-center text-slate-500 font-sans">
+            <div className="bg-brand-blue-50 border border-brand-blue-100 rounded-3xl p-12 text-center text-brand-blue-400 font-sans">
               No hay imágenes registradas todavía. ¡Comenzá registrando tu primer asset!
             </div>
           ) : (
@@ -502,10 +502,10 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
               {imageList.map(image => (
                 <div 
                   key={image.id} 
-                  className="bg-white rounded-3xl border-2 border-slate-200 shadow-accent-sm overflow-hidden"
+                  className="bg-white rounded-3xl border-2 border-brand-blue-100 shadow-accent-sm overflow-hidden"
                 >
                   {/* Image info bar */}
-                  <div className="bg-slate-900 text-white p-5 flex flex-wrap items-center justify-between gap-4">
+                  <div className="bg-brand-blue-700 text-white p-5 flex flex-wrap items-center justify-between gap-4">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <span className="px-2 py-0.5 rounded bg-brand-yellow text-brand-blue text-[10px] font-bold font-mono">
@@ -515,11 +515,11 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                           {image.relativePath}
                         </code>
                       </div>
-                      <p className="text-xs text-slate-300 font-sans">{image.currentDescription}</p>
+                      <p className="text-xs text-brand-blue-200 font-sans">{image.currentDescription}</p>
                     </div>
                     <button
                       onClick={() => handleDeleteImage(image.id)}
-                      className="p-2 rounded-lg bg-red-900/40 hover:bg-red-900/60 text-red-300 border border-red-800 transition-colors cursor-pointer"
+                      className="p-2 rounded-lg bg-brand-blue-700/40 hover:bg-brand-blue-700/60 text-brand-blue-200 border border-brand-blue-700 transition-colors cursor-pointer"
                       title="Eliminar registro"
                     >
                       <Trash2 className="h-4.5 w-4.5 shrink-0" />
@@ -529,7 +529,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                   {/* Prompt management area */}
                   <div className="p-6 space-y-6">
                     {/* Add Prompt Form */}
-                    <div className="bg-slate-50 p-4 rounded-2xl border border-slate-250 space-y-4">
+                    <div className="bg-brand-white-50 p-4 rounded-2xl border border-brand-blue-200 space-y-4">
                       <div className="flex items-center gap-2 text-brand-blue font-subheading text-sm uppercase font-bold tracking-wider">
                         <Sparkles className="h-4.5 w-4.5 text-brand-blue shrink-0" />
                         Agregar Sugerencia de Prompt de IA
@@ -537,11 +537,11 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">Modelo de IA</label>
+                          <label className="block text-[10px] font-bold uppercase text-brand-blue-300 mb-1">Modelo de IA</label>
                           <select
                             value={modelsUsed[image.id] || 'auto'}
                             onChange={e => setModelsUsed(prev => ({ ...prev, [image.id]: e.target.value }))}
-                            className="w-full bg-white px-3 py-2 rounded-lg border border-slate-200 text-xs focus:ring-1 focus:ring-brand-blue text-slate-700"
+                            className="w-full bg-white px-3 py-2 rounded-lg border border-brand-blue-100 text-xs focus:ring-1 focus:ring-brand-blue text-brand-blue-600"
                           >
                             <option value="auto">Auto (Smart Selection)</option>
                             <option value="nano-banana">Nano Banana</option>
@@ -549,11 +549,11 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                           </select>
                         </div>
                         <div>
-                          <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">Aspect Ratio</label>
+                          <label className="block text-[10px] font-bold uppercase text-brand-blue-300 mb-1">Aspect Ratio</label>
                           <select
                             value={aspectRatios[image.id] || '16:9'}
                             onChange={e => setAspectRatios(prev => ({ ...prev, [image.id]: e.target.value }))}
-                            className="w-full bg-white px-3 py-2 rounded-lg border border-slate-200 text-xs focus:ring-1 focus:ring-brand-blue text-slate-700"
+                            className="w-full bg-white px-3 py-2 rounded-lg border border-brand-blue-100 text-xs focus:ring-1 focus:ring-brand-blue text-brand-blue-600"
                           >
                             <option value="16:9">16:9 (Landscape)</option>
                             <option value="1:1">1:1 (Square)</option>
@@ -569,7 +569,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                           onChange={e => setPromptTexts(prev => ({ ...prev, [image.id]: e.target.value }))}
                           placeholder="Ingresá la descripción estructurada del prompt o usá las sugerencias de IA..."
                           rows={3}
-                          className="w-full bg-white px-3 py-2 rounded-lg border border-slate-200 text-xs focus:outline-none focus:ring-1 focus:ring-brand-blue text-slate-700 font-sans"
+                          className="w-full bg-white px-3 py-2 rounded-lg border border-brand-blue-100 text-xs focus:outline-none focus:ring-1 focus:ring-brand-blue text-brand-blue-600 font-sans"
                         />
                         <div className="flex flex-wrap gap-2">
                           <button
@@ -584,7 +584,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                             type="button"
                             onClick={() => handleSuggestPrompt(image.id, image.currentDescription, image.relativePath)}
                             disabled={generatingId === image.id || improvingId === image.id}
-                            className="bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-brand-ink border border-slate-200 font-subheading uppercase tracking-wide px-3 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                            className="bg-brand-blue-50 hover:bg-brand-blue-100 text-brand-blue-600 hover:text-brand-ink border border-brand-blue-100 font-subheading uppercase tracking-wide px-3 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
                             title="Sugerir un prompt estructurado (desde descripción o imagen)"
                           >
                             <Sparkles className="h-3.5 w-3.5 text-brand-blue shrink-0 animate-pulse" />
@@ -595,10 +595,10 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                             type="button"
                             onClick={() => handleImprovePrompt(image.id)}
                             disabled={generatingId === image.id || improvingId === image.id}
-                            className="bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-brand-ink border border-slate-200 font-subheading uppercase tracking-wide px-3 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                            className="bg-brand-blue-50 hover:bg-brand-blue-100 text-brand-blue-600 hover:text-brand-ink border border-brand-blue-100 font-subheading uppercase tracking-wide px-3 py-2 rounded-lg text-xs cursor-pointer flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
                             title="Optimizar el prompt actual con inteligencia artificial"
                           >
-                            <Sparkles className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                            <Sparkles className="h-3.5 w-3.5 text-brand-yellow-500 shrink-0" />
                             {improvingId === image.id ? 'Mejorando...' : 'Mejorar con IA'}
                           </button>
                         </div>
@@ -607,17 +607,17 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
 
                     {/* Display existing suggestions */}
                     <div className="space-y-3">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-brand-blue-300 flex items-center gap-1">
                         Prompts sugeridos guardados ({image.promptSuggestions.length})
                       </h4>
                       {image.promptSuggestions.length === 0 ? (
-                        <p className="text-xs text-slate-400 italic">No hay prompts sugeridos para esta imagen todavía.</p>
+                        <p className="text-xs text-brand-blue-300 italic">No hay prompts sugeridos para esta imagen todavía.</p>
                       ) : (
                         <div className="space-y-3">
                           {image.promptSuggestions.map(prompt => (
                             <div 
                               key={prompt.id} 
-                              className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-start gap-4 hover:bg-slate-100 transition-colors"
+                              className="p-4 rounded-xl bg-brand-white-50 border border-brand-blue-100 flex justify-between items-start gap-4 hover:bg-brand-blue-50 transition-colors"
                             >
                               <div className="space-y-2 flex-1">
                                 <div className="flex flex-wrap items-center gap-2">
@@ -627,20 +627,20 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                                     </span>
                                   )}
                                   {prompt.aspectRatio && (
-                                    <span className="px-2 py-0.5 rounded bg-slate-200 text-slate-600 font-bold text-[9px] font-mono tracking-wider">
+                                    <span className="px-2 py-0.5 rounded bg-brand-blue-100 text-brand-blue-500 font-bold text-[9px] font-mono tracking-wider">
                                       {prompt.aspectRatio}
                                     </span>
                                   )}
                                 </div>
-                                <p className="text-xs text-slate-700 leading-relaxed font-sans">{prompt.promptText}</p>
+                                <p className="text-xs text-brand-blue-600 leading-relaxed font-sans">{prompt.promptText}</p>
                               </div>
                               <button
                                 onClick={() => copyToClipboard(prompt.promptText, prompt.id)}
-                                className="p-2 rounded-lg hover:bg-slate-200 text-slate-500 transition-colors cursor-pointer shrink-0"
+                                className="p-2 rounded-lg hover:bg-brand-blue-100 text-brand-blue-400 transition-colors cursor-pointer shrink-0"
                                 title="Copiar prompt al portapapeles"
                               >
                                 {copiedId === prompt.id ? (
-                                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                                  <Check className="h-4 w-4 text-brand-blue-500 shrink-0" />
                                 ) : (
                                   <Copy className="h-4 w-4 shrink-0" />
                                 )}

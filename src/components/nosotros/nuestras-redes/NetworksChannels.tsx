@@ -30,7 +30,7 @@ export default function NetworksChannels() {
           <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
             CANALES OFICIALES
           </h2>
-          <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Hacé clic para conectarte al instante con nuestras plataformas oficiales y formar parte de la mayor comunidad logística de Mar del Plata.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
@@ -61,12 +61,12 @@ export default function NetworksChannels() {
                   <h3 className="text-2xl font-display uppercase tracking-wide text-brand-yellow font-bold leading-none">
                     WHATSAPP DIRECTO
                   </h3>
-                  <span className="text-xs text-blue-200 font-mono mt-1 block">
+                  <span className="text-xs text-brand-blue-100 font-mono mt-1 block">
                     +54 223 660-2699 | ATENCIÓN INMEDIATA
                   </span>
                 </div>
               </div>
-              <p className="text-sm text-blue-50 font-sans leading-relaxed">
+              <p className="text-sm text-brand-white-50 font-sans leading-relaxed">
                 Atención personalizada y sin demoras por WhatsApp. El canal más ágil para coordinar cotizaciones, retiros inmediatos, envíos FLEX y resolver dudas sobre nuestra operativa diaria.
               </p>
             </div>
@@ -110,15 +110,15 @@ export default function NetworksChannels() {
                 <h3 className="text-2xl font-display uppercase tracking-wide text-brand-ink font-bold leading-none">
                   INSTAGRAM
                 </h3>
-                <span className="text-xs text-slate-400 font-mono mt-1 block">
+                <span className="text-xs text-brand-blue-300 font-mono mt-1 block">
                   @enviosdosruedas
                 </span>
               </div>
-              <p className="text-sm text-slate-600 font-sans leading-relaxed min-h-[60px]">
+              <p className="text-sm text-brand-blue-500 font-sans leading-relaxed min-h-[60px]">
                 Mirá nuestro día a día, fotos reales de las entregas diarias de la flota y promociones especiales diseñadas para tu e-commerce.
               </p>
             </div>
-            <div className="pt-6 mt-6 border-t border-slate-100">
+            <div className="pt-6 mt-6 border-t border-brand-blue-50">
               <a
                 href="https://instagram.com/enviosdosruedas"
                 target="_blank"
@@ -137,11 +137,11 @@ export default function NetworksChannels() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-6 bg-slate-50 p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between group/card cursor-pointer"
+            className="lg:col-span-6 bg-brand-white-50 p-8 rounded-3xl border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between group/card cursor-pointer"
           >
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <div className="p-3 bg-blue-50 text-blue-600 border-2 border-brand-blue rounded-2xl relative w-12 h-12 flex items-center justify-center">
+                <div className="p-3 bg-brand-white-50 text-brand-blue-500 border-2 border-brand-blue rounded-2xl relative w-12 h-12 flex items-center justify-center">
                   <Image
                     src="/iconos/facebook.svg"
                     alt="Facebook"
@@ -150,7 +150,7 @@ export default function NetworksChannels() {
                     className="object-contain"
                   />
                 </div>
-                <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-subheading font-bold uppercase tracking-wider">
+                <span className="px-3 py-1 bg-brand-blue-50 text-brand-blue-500 rounded-full text-xs font-subheading font-bold uppercase tracking-wider">
                   2.5K+ SEGUIDORES
                 </span>
               </div>
@@ -158,15 +158,15 @@ export default function NetworksChannels() {
                 <h3 className="text-2xl font-display uppercase tracking-wide text-brand-ink font-bold leading-none">
                   FACEBOOK
                 </h3>
-                <span className="text-xs text-slate-400 font-mono mt-1 block">
+                <span className="text-xs text-brand-blue-300 font-mono mt-1 block">
                   @enviosdosruedas
                 </span>
               </div>
-              <p className="text-sm text-slate-600 font-sans leading-relaxed min-h-[60px]">
+              <p className="text-sm text-brand-blue-500 font-sans leading-relaxed min-h-[60px]">
                 Seguinos para enterarte de ofertas exclusivas y novedades logísticas sobre el tránsito y cadetería comercial local.
               </p>
             </div>
-            <div className="pt-6 mt-6 border-t border-slate-150">
+            <div className="pt-6 mt-6 border-t border-brand-blue-200">
               <a
                 href="https://facebook.com/enviosdosruedas"
                 target="_blank"

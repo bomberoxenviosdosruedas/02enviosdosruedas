@@ -37,7 +37,7 @@ export default function CtaSection() {
         </h2>
 
         {/* Body */}
-        <p className="text-slate-650 text-lg max-w-2xl mx-auto font-sans leading-relaxed font-medium">
+        <p className="text-brand-blue-500 text-lg max-w-2xl mx-auto font-sans leading-relaxed font-medium">
           Olvidate de la gestión de paquetes en Mar del Plata y enfocaté en vender más. Dejá la distribución urbana en manos de expertos.
         </p>
 
@@ -61,7 +61,7 @@ export default function CtaSection() {
           <Link
             href="/cotizar/lowcost"
             id="cta-rates-link"
-            className="w-full sm:w-auto bg-white hover:bg-slate-50 border border-brand-blue/20 text-brand-blue font-subheading tracking-wider text-xl uppercase cta-nested-pill shadow-[3px_3px_0px_rgba(0,39,124,0.1)] flex items-center justify-between cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
+            className="w-full sm:w-auto bg-white hover:bg-brand-white-50 border border-brand-blue/20 text-brand-blue font-subheading tracking-wider text-xl uppercase cta-nested-pill shadow-[3px_3px_0px_rgba(0,39,124,0.1)] flex items-center justify-between cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
           >
             <span>Ver tarifas 2026</span>
             <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue">
@@ -71,7 +71,7 @@ export default function CtaSection() {
         </div>
 
         {/* Highlight footer stat line */}
-        <p className="text-xs font-mono tracking-widest text-slate-500 font-bold uppercase pt-4 leading-none">
+        <p className="text-xs font-mono tracking-widest text-brand-blue-400 font-bold uppercase pt-4 leading-none">
           Atención comercial inmediata para PyMEs y Emprendedores. Operación centralizada en Friuli 1972.
         </p>
 

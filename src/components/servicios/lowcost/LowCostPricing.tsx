@@ -111,7 +111,7 @@ export default function LowCostPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="p"
-            className="text-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
+            className="text-brand-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
           >
             Eficiencia en ruteo masivo. Garantizamos entregas antes de las 19:00 hs para pedidos cargados antes de las 13:00 hs.
           </TimelineContent>
@@ -170,19 +170,19 @@ export default function LowCostPricing() {
                           {zone.price}
                         </span>
                       )}
-                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-slate-500">/ despacho final</span>
+                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-400">/ despacho final</span>
                     </div>
 
-                    <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-slate-600">
+                    <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-brand-blue-500">
                       {zone.description}
                     </p>
                   </CardHeader>
 
                   <CardContent className="p-6 pt-0 flex flex-col justify-between flex-grow">
                     {/* Bullets */}
-                    <ul className="space-y-2.5 pt-4 border-t-2 border-slate-100 mb-6">
+                    <ul className="space-y-2.5 pt-4 border-t-2 border-brand-blue-50 mb-6">
                       {zone.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-center gap-2 text-xs text-slate-700">
+                        <li key={bullet} className="flex items-center gap-2 text-xs text-brand-blue-600">
                           <Check className="h-4.5 w-4.5 shrink-0 text-brand-blue" />
                           <span className="font-sans text-sm opacity-90">{bullet}</span>
                         </li>
@@ -213,8 +213,8 @@ export default function LowCostPricing() {
           as="div"
           className="bg-white text-brand-ink rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-yellow)] relative overflow-hidden"
         >
-          <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-slate-100/50 pointer-events-none -z-10">
-            <Landmark className="h-64 w-64 text-slate-100" />
+          <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-brand-blue-50/50 pointer-events-none -z-10">
+            <Landmark className="h-64 w-64 text-brand-blue-50" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
@@ -226,7 +226,7 @@ export default function LowCostPricing() {
               <h3 className="text-3xl font-display uppercase tracking-tight text-brand-blue">
                 $700 / km adicional
               </h3>
-              <p className="text-sm text-slate-655 leading-relaxed font-sans max-w-2xl">
+              <p className="text-sm text-brand-blue-500 leading-relaxed font-sans max-w-2xl">
                 Para envíos de larga distancia fuera del ejido urbano masivo tradicional, te ofrecemos la tarifa por kilómetro más competitiva del mercado local para que sigas ruteando con rentabilidad total.
               </p>
             </div>

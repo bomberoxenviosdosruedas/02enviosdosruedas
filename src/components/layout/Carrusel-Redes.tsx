@@ -74,7 +74,7 @@ export const CarruselRedes = () => {
     }
 
     return (
-        <section className="py-24 px-6 bg-gray-50 text-slate-900 overflow-hidden relative border-t border-slate-200">
+        <section className="py-24 px-6 bg-brand-white-50 text-brand-blue-700 overflow-hidden relative border-t border-brand-blue-100">
             {/* Soft background gradient highlight (Light themed blue/yellow) */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-brand-blue/5 blur-[130px] pointer-events-none" />
 
@@ -88,7 +88,7 @@ export const CarruselRedes = () => {
                         <h2 className="font-display text-display uppercase text-left text-brand-ink">
                             SEGUÍ NUESTRO <span className="text-white bg-brand-blue border-2 border-brand-blue px-3.5 py-1 rounded-2xl shadow-[3px_3px_0px_var(--color-brand-yellow)] inline-block rotate-[-1deg] transform hover:rotate-0 transition-transform hover:text-white">MOVIMIENTO</span>
                         </h2>
-                        <p className="text-slate-650 text-base sm:text-lg font-sans max-w-xl leading-relaxed">
+                        <p className="text-brand-blue-500 text-base sm:text-lg font-sans max-w-xl leading-relaxed">
                             Sumate a nuestra comunidad digital y mantente al día con las últimas noticias de logística en Mar del Plata.
                         </p>
                     </div>
@@ -99,14 +99,13 @@ export const CarruselRedes = () => {
                             <motion.button
                                 key={idx}
                                 onClick={net.isWhatsApp ? handleWhatsAppClick : () => window.open(net.href, "_blank")}
-                                className="group flex items-center gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 hover:border-brand-blue/40 hover:bg-slate-50 transition-all cursor-pointer text-slate-900 min-h-[48px] shadow-sm active:scale-[0.98] active:translate-y-[1px]"
+                                className="group flex items-center gap-3.5 p-3.5 rounded-xl bg-white border border-brand-blue-100 hover:border-brand-blue/40 hover:bg-brand-white-50 transition-all cursor-pointer text-brand-blue-700 min-h-[48px] shadow-sm active:scale-[0.98] active:translate-y-[1px]"
                                 aria-label={`Seguinos en ${net.name}`}
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.98 }}
                              >
                                 <div
-                                    className="w-10 h-10 rounded-xl flex items-center justify-center border border-slate-100 transition-transform group-hover:scale-105 p-2 relative shrink-0"
-                                    style={{ backgroundColor: `${net.color}12` }}
+                                    className="w-10 h-10 rounded-xl flex items-center justify-center border border-brand-blue-50 transition-transform group-hover:scale-105 p-2 relative shrink-0 bg-brand-blue-50/10"
                                     aria-hidden="true"
                                 >
                                     {net.name === "Instagram" && <FaInstagram className="h-5 w-5 text-[#E1306C] group-hover:scale-110" />}
@@ -115,7 +114,7 @@ export const CarruselRedes = () => {
                                 </div>
                                 <div className="text-left">
                                     <div className="text-sm font-subheading tracking-wider uppercase text-brand-ink group-hover:text-brand-blue leading-none">{net.name}</div>
-                                    <div className="text-[9px] text-slate-500 uppercase tracking-widest mt-0.5">{net.description}</div>
+                                    <div className="text-[9px] text-brand-blue-400 uppercase tracking-widest mt-0.5">{net.description}</div>
                                 </div>
                             </motion.button>
                         ))}
@@ -123,7 +122,7 @@ export const CarruselRedes = () => {
                 </div>
 
                 {/* Scrolling Feed Panel */}
-                <div className="relative group/carousel rounded-xl border border-slate-200 shadow-sm bg-slate-100 p-4 overflow-hidden">
+                <div className="relative group/carousel rounded-xl border border-brand-blue-100 shadow-sm bg-brand-blue-50 p-4 overflow-hidden">
                     <div className="flex gap-6 w-full overflow-hidden py-2">
                         <motion.div
                             className="flex gap-6 shrink-0"
@@ -142,7 +141,7 @@ export const CarruselRedes = () => {
                                         href={feedUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-64 h-64 sm:w-72 sm:h-72 shrink-0 rounded-xl overflow-hidden relative group border border-slate-200 shadow-md hover:shadow-[4px_4px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all hover:scale-[1.015] block bg-white"
+                                        className="w-64 h-64 sm:w-72 sm:h-72 shrink-0 rounded-xl overflow-hidden relative group border border-brand-blue-100 shadow-md hover:shadow-[4px_4px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all hover:scale-[1.015] block bg-white"
                                         aria-label={`Ver publicación en redes`}
                                     >
                                         <img
@@ -177,8 +176,8 @@ export const CarruselRedes = () => {
                     </div>
 
                     {/* Edge shadow gradients to simulate infinite scroll visually */}
-                    <div className="absolute top-0 left-0 w-24 sm:w-40 h-full bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
-                    <div className="absolute top-0 right-0 w-24 sm:w-40 h-full bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+                    <div className="absolute top-0 left-0 w-24 sm:w-40 h-full bg-gradient-to-r from-brand-white-50 to-transparent z-10 pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-24 sm:w-40 h-full bg-gradient-to-l from-brand-white-50 to-transparent z-10 pointer-events-none" />
                 </div>
             </div>
         </section>

@@ -72,7 +72,7 @@ export default function RecentPosts() {
   return (
     <section 
       id="recent-posts" 
-      className="py-24 bg-slate-50 relative overflow-hidden border-t-4 border-b-4 border-brand-blue"
+      className="py-24 bg-brand-white-50 relative overflow-hidden border-t-4 border-b-4 border-brand-blue"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -84,7 +84,7 @@ export default function RecentPosts() {
           <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
             PUBLICACIONES RECIENTES
           </h2>
-          <p className="text-slate-650 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Lo que está pasando ahora mismo en nuestras redes sociales oficiales. Seguinos para no perderte nada.
           </p>
           <div className="h-2 w-16 bg-brand-blue mx-auto rounded-full" />
@@ -105,7 +105,7 @@ export default function RecentPosts() {
               >
                 <div>
                   {/* Post Profile Header */}
-                  <div className="p-5 flex items-center justify-between border-b-2 border-slate-100">
+                  <div className="p-5 flex items-center justify-between border-b-2 border-brand-blue-50">
                     <div className="flex items-center gap-3">
                       <div className="relative h-9 w-9 rounded-full overflow-hidden border-2 border-brand-blue shrink-0">
                         <Image
@@ -120,7 +120,7 @@ export default function RecentPosts() {
                         <h4 className="text-xs font-display text-brand-ink uppercase tracking-wider">
                           Envíos DosRuedas
                         </h4>
-                        <span className="text-[10px] text-slate-400 font-mono">
+                        <span className="text-[10px] text-brand-blue-300 font-mono">
                           {post.date}
                         </span>
                       </div>
@@ -134,7 +134,7 @@ export default function RecentPosts() {
                   </div>
 
                   {/* Post Simulated Image */}
-                  <div className="relative h-64 w-full overflow-hidden bg-slate-100 border-b-2 border-brand-blue">
+                  <div className="relative h-64 w-full overflow-hidden bg-brand-blue-50 border-b-2 border-brand-blue">
                     <Image
                       src={post.image}
                       alt={post.alt || "Envíos DosRuedas Social Post"}
@@ -146,7 +146,7 @@ export default function RecentPosts() {
 
                   {/* Post Text Description */}
                   <div className="p-5">
-                    <p className="text-sm text-slate-650 font-sans leading-relaxed line-clamp-3">
+                    <p className="text-sm text-brand-blue-500 font-sans leading-relaxed line-clamp-3">
                       {post.text}
                     </p>
                   </div>
@@ -154,12 +154,12 @@ export default function RecentPosts() {
 
                 {/* Simulated Interactions Footer & Original Post Link */}
                 <div className="p-5 pt-0">
-                  <div className="pt-4 border-t-2 border-slate-100 flex items-center justify-between">
+                  <div className="pt-4 border-t-2 border-brand-blue-50 flex items-center justify-between">
                     
                     {/* Likes & Comments mockup */}
-                    <div className="flex items-center gap-4 text-xs text-slate-400 font-mono">
-                      <span className="flex items-center gap-1 hover:text-red-500 transition-colors cursor-pointer">
-                        <Heart className="h-4.5 w-4.5 text-slate-400" />
+                    <div className="flex items-center gap-4 text-xs text-brand-blue-300 font-mono">
+                      <span className="flex items-center gap-1 hover:text-brand-blue-400 transition-colors cursor-pointer">
+                        <Heart className="h-4.5 w-4.5 text-brand-blue-300" />
                         <span>{post.likes}</span>
                       </span>
                       <span className="flex items-center gap-1 cursor-pointer">

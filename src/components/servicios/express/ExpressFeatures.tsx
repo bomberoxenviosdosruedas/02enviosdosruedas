@@ -26,7 +26,7 @@ export default function ExpressFeatures() {
   return (
     <section 
       id="express-features" 
-      className="py-24 bg-gray-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -51,7 +51,7 @@ export default function ExpressFeatures() {
               <span className="text-brand-yellow">Y EFICIENTES</span>
             </h2>
             
-            <p className="text-slate-600 text-base leading-relaxed font-sans">
+            <p className="text-brand-blue-500 text-base leading-relaxed font-sans">
               Nuestro servicio Express ofrece cobertura total en Mar del Plata, llegando a todos los barrios de la ciudad, con posibilidad de elegir el rango horario de entrega (Chauvín, Los Troncos, Güemes, Puerto, Faro, Acantilados, Constitución, Camet y muchos más).
             </p>
 
@@ -81,7 +81,7 @@ export default function ExpressFeatures() {
                     <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue leading-tight">
                       {feat.title}
                     </h4>
-                    <p className="text-sm text-slate-655 font-sans leading-relaxed">
+                    <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
                       {feat.desc}
                     </p>
                   </div>

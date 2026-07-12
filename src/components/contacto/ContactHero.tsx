@@ -89,7 +89,7 @@ export default function ContactHero() {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg lg:text-xl font-sans text-slate-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
               ¿Listo para escalar la logística de tu negocio en Mar del Plata? Hablá con un asesor comercial y diseñemos un esquema tarifario a tu medida para este 2026.
             </motion.p>
@@ -105,7 +105,7 @@ export default function ContactHero() {
                   PROPUESTA PERSONALIZADA
                 </h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans text-center lg:text-left">
+              <p className="text-xs sm:text-sm text-brand-blue-200 leading-relaxed font-sans text-center lg:text-left">
                 Analizamos tu volumen de envíos para diseñar un plan e-commerce, 3PL o de ruteo masivo con tarifas preferenciales y facturación mensual consolidada.
               </p>
             </motion.div>
@@ -121,7 +121,7 @@ export default function ContactHero() {
               whileHover={{ scale: 1.025, y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-slate-900 shadow-[8px_8px_0px_var(--color-brand-yellow)] relative overflow-hidden group transition-all duration-300">
+              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-brand-blue-700 shadow-[8px_8px_0px_var(--color-brand-yellow)] relative overflow-hidden group transition-all duration-300">
                 {/* Visual Accent Top Bar */}
                 <div className="absolute top-0 inset-x-0 h-2 bg-brand-blue" />
 
@@ -130,30 +130,30 @@ export default function ContactHero() {
                     <h4 className="text-2xl font-display uppercase font-bold text-brand-blue leading-none">
                       DATOS OFICIALES
                     </h4>
-                    <p className="text-xs text-slate-500 font-subheading tracking-wider uppercase mt-1">RESPUESTAS EN EL DÍA</p>
+                    <p className="text-xs text-brand-blue-400 font-subheading tracking-wider uppercase mt-1">RESPUESTAS EN EL DÍA</p>
                   </div>
 
-                  <div className="space-y-4 text-sm text-slate-600 font-sans">
+                  <div className="space-y-4 text-sm text-brand-blue-500 font-sans">
                     <div className="flex items-center gap-3">
                       <Phone className="h-5 w-5 text-brand-blue shrink-0 group-hover:scale-105 transition-transform" />
-                      <span className="font-mono font-bold text-slate-900">+54 223 660-2699</span>
+                      <span className="font-mono font-bold text-brand-blue-700">+54 223 660-2699</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="h-5 w-5 text-brand-blue shrink-0" />
-                      <span className="break-all font-mono font-bold text-slate-900">contacto@enviosdosruedas.com</span>
+                      <span className="break-all font-mono font-bold text-brand-blue-700">contacto@enviosdosruedas.com</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <MapPin className="h-5 w-5 text-brand-blue shrink-0" />
-                      <span className="font-semibold text-slate-900">Friuli 1972, Mar del Plata</span>
+                      <span className="font-semibold text-brand-blue-700">Friuli 1972, Mar del Plata</span>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t-2 border-slate-100 flex justify-between items-center text-xs">
+                  <div className="pt-4 border-t-2 border-brand-blue-50 flex justify-between items-center text-xs">
                     <span className="font-subheading text-brand-blue font-bold flex items-center gap-1 text-sm tracking-wider">
                       <ShieldCheck className="h-4.5 w-4.5 text-brand-blue shrink-0 fill-brand-yellow" />
                       ATENCIÓN COMERCIAL
                     </span>
-                    <span className="text-emerald-600 font-subheading text-sm tracking-wider font-bold uppercase animate-pulse">DISPONIBLE</span>
+                    <span className="text-brand-blue-500 font-subheading text-sm tracking-wider font-bold uppercase animate-pulse">DISPONIBLE</span>
                   </div>
                 </div>
               </div>

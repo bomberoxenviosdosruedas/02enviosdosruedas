@@ -65,7 +65,7 @@ export default function ExpressHero() {
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
               <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-yellow text-brand-blue border-2 border-brand-blue flex items-center gap-1.5 shadow-[2px_2px_0px_var(--color-brand-blue)] font-bold">
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                <span className="h-2.5 w-2.5 rounded-full bg-brand-blue-400 animate-pulse shrink-0" />
                 Disponible en Mar del Plata
               </span>
             </motion.div>
@@ -90,7 +90,7 @@ export default function ExpressHero() {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-blue-50"
+              className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-white-50"
             >
               La solución premium para operaciones de alta criticidad horaria. Vos tenés el control total: elegí el rango exacto de entrega con certeza absoluta en toda la ciudad.
             </motion.p>
@@ -128,8 +128,8 @@ export default function ExpressHero() {
                   <Clock className="h-5 w-5 shrink-0" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-blue-200 leading-none mb-1">Entregas en</p>
-                  <p className="text-sm font-subheading uppercase font-semibold text-slate-100">Menos de 2 Horas</p>
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-blue-100 leading-none mb-1">Entregas en</p>
+                  <p className="text-sm font-subheading uppercase font-semibold text-brand-blue-50">Menos de 2 Horas</p>
                 </div>
               </div>
 
@@ -138,8 +138,8 @@ export default function ExpressHero() {
                   <ShieldCheck className="h-5 w-5 shrink-0" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-blue-200 leading-none mb-1">Despacho con</p>
-                  <p className="text-sm font-subheading uppercase font-semibold text-slate-100">Custodia Digital</p>
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-blue-100 leading-none mb-1">Despacho con</p>
+                  <p className="text-sm font-subheading uppercase font-semibold text-brand-blue-50">Custodia Digital</p>
                 </div>
               </div>
             </motion.div>
@@ -156,7 +156,7 @@ export default function ExpressHero() {
               whileHover={{ scale: 1.02, zIndex: 40 }}
             >
               <div className="relative rounded-3xl border-2 border-brand-blue bg-white p-3.5 shadow-[6px_6px_0px_var(--color-brand-yellow)]">
-                <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-3.5 bg-slate-100 border border-slate-200">
+                <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-3.5 bg-brand-blue-50 border border-brand-blue-100">
                   <Image
                     src="/card_mapa.webp"
                     alt="Mapa de Cobertura de Mar del Plata"
@@ -171,9 +171,9 @@ export default function ExpressHero() {
                 <div className="flex items-center justify-between text-brand-ink">
                   <div>
                     <span className="text-xs font-bold uppercase tracking-wider block">Rango de Entrega</span>
-                    <span className="text-[10px] text-slate-400 font-sans block mt-0.5">Asignación prioritaria directa</span>
+                    <span className="text-[10px] text-brand-blue-300 font-sans block mt-0.5">Asignación prioritaria directa</span>
                   </div>
-                  <span className="text-[10px] px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold uppercase font-mono tracking-wider">
+                  <span className="text-[10px] px-2.5 py-1 rounded-lg bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100 font-bold uppercase font-mono tracking-wider">
                     Activo
                   </span>
                 </div>
@@ -187,7 +187,7 @@ export default function ExpressHero() {
               animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.6 } }}
               whileHover={{ scale: 1.02, zIndex: 40 }}
             >
-              <div className="relative rounded-3xl border-2 border-brand-yellow bg-slate-900 p-5 text-white shadow-[6px_6px_0px_var(--color-brand-blue)]">
+              <div className="relative rounded-3xl border-2 border-brand-yellow bg-brand-blue-700 p-5 text-white shadow-[6px_6px_0px_var(--color-brand-blue)]">
                 <div className="flex items-center gap-3.5 mb-4">
                   <div className="p-2.5 rounded-xl bg-brand-yellow text-brand-blue border border-brand-blue">
                     <Bike className="h-5.5 w-5.5 animate-pulse shrink-0" />
@@ -200,11 +200,11 @@ export default function ExpressHero() {
 
                 <div className="space-y-2.5 text-xs">
                   <div className="flex justify-between border-b border-white/10 pb-1.5">
-                    <span className="text-blue-200 font-sans">Velocidad Promedio</span>
+                    <span className="text-brand-blue-100 font-sans">Velocidad Promedio</span>
                     <span className="font-semibold font-mono">Tránsito optimizado</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-blue-200 font-sans">Tiempo Estimado</span>
+                    <span className="text-brand-blue-100 font-sans">Tiempo Estimado</span>
                     <span className="font-semibold text-brand-yellow font-mono">&lt; 120 Minutos</span>
                   </div>
                 </div>

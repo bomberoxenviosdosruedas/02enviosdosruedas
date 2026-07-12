@@ -13,7 +13,7 @@ export default function CarruselRedes() {
       desc: 'Novedades diarias',
       url: '/nosotros/nuestras-redes',
       icon: FaInstagram,
-      color: 'bg-white text-brand-ink hover:border-[#E1306C]/50 border-slate-100 shadow-sm',
+      color: 'bg-white text-brand-ink hover:border-[#E1306C]/50 border-brand-blue-50 shadow-sm',
       iconColor: 'text-[#E1306C]',
       iconBg: 'bg-[#E1306C]/10',
     },
@@ -23,7 +23,7 @@ export default function CarruselRedes() {
       desc: 'Comunidad activa',
       url: '/nosotros/nuestras-redes',
       icon: FaFacebook,
-      color: 'bg-white text-brand-ink hover:border-[#1877F2]/50 border-slate-100 shadow-sm',
+      color: 'bg-white text-brand-ink hover:border-[#1877F2]/50 border-brand-blue-50 shadow-sm',
       iconColor: 'text-[#1877F2]',
       iconBg: 'bg-[#1877F2]/10',
     },
@@ -33,7 +33,7 @@ export default function CarruselRedes() {
       desc: 'Atención inmediata',
       url: 'https://wa.me/542236602699',
       icon: FaWhatsapp,
-      color: 'bg-white text-brand-ink hover:border-[#25D366]/50 border-slate-100 shadow-sm',
+      color: 'bg-white text-brand-ink hover:border-[#25D366]/50 border-brand-blue-50 shadow-sm',
       iconColor: 'text-[#25D366]',
       iconBg: 'bg-[#25D366]/10',
     },
@@ -42,7 +42,7 @@ export default function CarruselRedes() {
   return (
     <section 
       id="carrusel-redes" 
-      className="py-24 bg-brand-blue border-y border-blue-200/60 relative overflow-hidden"
+      className="py-24 bg-brand-blue border-y border-brand-blue-100/60 relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(255,204,0,0.03),transparent_35%)]" />
 
@@ -65,7 +65,7 @@ export default function CarruselRedes() {
           <h2 className="text-white text-display uppercase text-center">
             SIGUE NUESTRO MOVIMIENTO
           </h2>
-          <p className="text-blue-100 text-sm sm:text-base leading-relaxed font-sans">
+          <p className="text-brand-blue-50 text-sm sm:text-base leading-relaxed font-sans">
             Únete a nuestra comunidad digital y mantente al día con las últimas noticias de logística en Mar del Plata.
           </p>
           <div className="h-1.5 w-12 bg-brand-yellow mx-auto rounded-full" />
@@ -86,14 +86,14 @@ export default function CarruselRedes() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.12, ease: "easeOut" }}
-                className="p-8 rounded-xl border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:bg-slate-50 transition-all duration-300 group bg-white text-brand-ink active:scale-[0.98] active:translate-y-[1px]"
+                className="p-8 rounded-xl border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:bg-brand-white-50 transition-all duration-300 group bg-white text-brand-ink active:scale-[0.98] active:translate-y-[1px]"
               >
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
                     <div className="p-4 rounded-xl bg-brand-blue/5 text-brand-blue border border-brand-blue/10">
                       <Icon className="h-6 w-6" />
                     </div>
-                    <span className="text-[10px] font-subheading tracking-widest text-slate-400 group-hover:text-brand-blue transition-colors">
+                    <span className="text-[10px] font-subheading tracking-widest text-brand-blue-300 group-hover:text-brand-blue transition-colors">
                       {net.desc}
                     </span>
                   </div>
@@ -102,17 +102,17 @@ export default function CarruselRedes() {
                     <h3 className="text-2xl font-display uppercase tracking-tight text-brand-ink group-hover:text-brand-blue transition-colors">
                       {net.name}
                     </h3>
-                    <p className="text-slate-500 font-mono text-xs mt-1">
+                    <p className="text-brand-blue-400 font-mono text-xs mt-1">
                       {net.handle}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-brand-ink">
+                <div className="pt-6 mt-6 border-t border-brand-blue-50 flex items-center justify-between text-brand-ink">
                   <span className="text-xs font-sans font-semibold group-hover:text-brand-blue transition-colors">
                     {isExternal ? 'Contactar ahora' : 'Ver perfil'}
                   </span>
-                  <div className="h-9 w-9 rounded-xl bg-slate-100 text-slate-700 border border-slate-200 group-hover:bg-brand-blue group-hover:text-white flex items-center justify-center transition-all active:scale-[0.98] active:translate-y-[1px]">
+                  <div className="h-9 w-9 rounded-xl bg-brand-blue-50 text-brand-blue-600 border border-brand-blue-100 group-hover:bg-brand-blue group-hover:text-white flex items-center justify-center transition-all active:scale-[0.98] active:translate-y-[1px]">
                     <ArrowUpRight className="h-4 w-4" />
                   </div>
                 </div>

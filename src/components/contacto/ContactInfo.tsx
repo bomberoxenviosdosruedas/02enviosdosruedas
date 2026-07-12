@@ -12,8 +12,8 @@ export default function ContactInfo() {
       value: '223-660-2699',
       href: 'https://wa.me/542236602699',
       iconPath: '/iconos/whatapps.svg',
-      color: 'hover:border-emerald-500 hover:text-emerald-600 hover:shadow-emerald-100',
-      iconBg: 'bg-emerald-50 text-emerald-600 border-emerald-250',
+      color: 'hover:border-brand-blue-400 hover:text-brand-blue-500 hover:shadow-brand-blue-50',
+      iconBg: 'bg-brand-white-50 text-brand-blue-500 border-brand-blue-200',
     },
     {
       label: 'Email Principal',
@@ -21,24 +21,24 @@ export default function ContactInfo() {
       href: 'mailto:contacto@enviosdosruedas.com',
       isLucide: true,
       icon: Mail,
-      color: 'hover:border-brand-blue hover:text-brand-blue hover:shadow-blue-100',
-      iconBg: 'bg-blue-50 text-brand-blue border-blue-200',
+      color: 'hover:border-brand-blue hover:text-brand-blue hover:shadow-brand-blue-50',
+      iconBg: 'bg-brand-white-50 text-brand-blue border-brand-blue-100',
     },
     {
       label: 'Instagram',
       value: '@enviosdosruedas',
       href: 'https://instagram.com/enviosdosruedas',
       iconPath: '/iconos/instagram.svg',
-      color: 'hover:border-pink-500 hover:text-pink-600 hover:shadow-pink-100',
-      iconBg: 'bg-pink-50 text-pink-600 border-pink-200',
+      color: 'hover:border-brand-blue-400 hover:text-brand-blue-500 hover:shadow-brand-blue-50',
+      iconBg: 'bg-brand-white-50 text-brand-blue-500 border-brand-blue-100',
     },
     {
       label: 'Facebook',
       value: 'Envíos DosRuedas',
       href: 'https://facebook.com/enviosdosruedas',
       iconPath: '/iconos/facebook.svg',
-      color: 'hover:border-blue-600 hover:text-blue-700 hover:shadow-blue-200',
-      iconBg: 'bg-blue-50 text-blue-700 border-blue-200',
+      color: 'hover:border-brand-blue-500 hover:text-brand-blue-600 hover:shadow-brand-blue-100',
+      iconBg: 'bg-brand-white-50 text-brand-blue-600 border-brand-blue-100',
     },
   ];
 
@@ -56,8 +56,8 @@ export default function ContactInfo() {
       className="space-y-8 h-full flex flex-col justify-between"
     >
       {/* Contact Channels Grid */}
-      <div className="p-2 bg-slate-200/60 border border-slate-300 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300">
-        <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-slate-100 shadow-sm space-y-6">
+      <div className="p-2 bg-brand-blue-100/60 border border-brand-blue-200 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300">
+        <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-brand-blue-50 shadow-sm space-y-6">
           <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
             CANALES RÁPIDOS
           </h3>
@@ -72,8 +72,8 @@ export default function ContactInfo() {
                   rel="noopener noreferrer"
                   whileHover={{ y: -3, scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  className={`p-4 border-2 border-slate-200 rounded-2xl flex items-center gap-3 transition-all duration-300 group/item bg-slate-50 hover:bg-white hover:border-brand-blue hover:shadow-[3px_3px_0px_var(--color-brand-blue)] cursor-pointer ${
-                    chan.label === 'Email Principal' ? 'hover:border-brand-blue hover:text-brand-blue hover:shadow-blue-100' : chan.color
+                  className={`p-4 border-2 border-brand-blue-100 rounded-2xl flex items-center gap-3 transition-all duration-300 group/item bg-brand-white-50 hover:bg-white hover:border-brand-blue hover:shadow-[3px_3px_0px_var(--color-brand-blue)] cursor-pointer ${
+                    chan.label === 'Email Principal' ? 'hover:border-brand-blue hover:text-brand-blue hover:shadow-brand-blue-50' : chan.color
                   }`}
                 >
                   <div className={`p-3 rounded-xl border-2 transition-colors relative w-11 h-11 flex items-center justify-center shrink-0 ${
@@ -92,10 +92,10 @@ export default function ContactInfo() {
                     )}
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] font-subheading uppercase tracking-widest text-slate-400 leading-none mb-1">
+                    <p className="text-[10px] font-subheading uppercase tracking-widest text-brand-blue-300 leading-none mb-1">
                       {chan.label}
                     </p>
-                    <p className="text-xs sm:text-sm font-bold font-mono truncate text-slate-900 leading-tight">
+                    <p className="text-xs sm:text-sm font-bold font-mono truncate text-brand-blue-700 leading-tight">
                       {chan.value}
                     </p>
                   </div>
@@ -107,8 +107,8 @@ export default function ContactInfo() {
       </div>
 
       {/* Operating Hours */}
-      <div className="p-2 bg-slate-200/60 border border-slate-300 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300">
-        <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-slate-100 shadow-sm space-y-6">
+      <div className="p-2 bg-brand-blue-100/60 border border-brand-blue-200 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300">
+        <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-brand-blue-50 shadow-sm space-y-6">
           <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
             <Clock className="h-6 w-6 text-brand-blue group-hover:rotate-6 transition-transform" />
             HORARIOS DE ATENCIÓN
@@ -118,12 +118,12 @@ export default function ContactInfo() {
             {hours.map((item) => (
               <div 
                 key={item.days} 
-                className="flex justify-between items-center py-2.5 border-b-2 border-slate-100 last:border-b-0"
+                className="flex justify-between items-center py-2.5 border-b-2 border-brand-blue-50 last:border-b-0"
               >
-                <span className="text-sm font-bold text-slate-650 font-sans">{item.days}</span>
+                <span className="text-sm font-bold text-brand-blue-500 font-sans">{item.days}</span>
                 <span 
                   className={`text-sm font-bold uppercase tracking-wider font-mono ${
-                    item.isClosed ? 'text-rose-600 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-md text-xs' : 'text-slate-900'
+                    item.isClosed ? 'text-brand-blue-500 bg-brand-white-50 border border-brand-blue-100 px-2.5 py-0.5 rounded-md text-xs' : 'text-brand-blue-700'
                   }`}
                 >
                   {item.time}
@@ -135,14 +135,14 @@ export default function ContactInfo() {
       </div>
 
       {/* Coverage & Interactive Map */}
-      <div className="p-2 bg-slate-200/60 border border-slate-300 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300 flex-grow flex flex-col">
-        <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-slate-100 shadow-sm space-y-6 flex-grow flex flex-col justify-between">
+      <div className="p-2 bg-brand-blue-100/60 border border-brand-blue-200 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300 flex-grow flex flex-col">
+        <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-brand-blue-50 shadow-sm space-y-6 flex-grow flex flex-col justify-between">
           <div className="space-y-2">
             <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
               <MapPin className="h-6 w-6 text-brand-blue shrink-0 group-hover:translate-y-[-2px] transition-transform" />
               ZONA DE COBERTURA
             </h3>
-            <p className="text-sm text-slate-500 font-sans leading-relaxed">
+            <p className="text-sm text-brand-blue-400 font-sans leading-relaxed">
               Operamos en toda la ciudad de Mar del Plata, listos para llegar a donde nos necesites con ruteos eficientes y envíos en el día.
             </p>
           </div>

@@ -25,8 +25,8 @@ export default function CotizadorLowCostDetails() {
   return (
     <div id="cotizador-lowcost-details" className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
       {/* Column 1: Benefits */}
-      <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
-        <h3 className="text-xl font-display uppercase tracking-tight text-brand-blue border-b border-slate-100 pb-3">
+      <div className="bg-white border border-brand-blue-50 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+        <h3 className="text-xl font-display uppercase tracking-tight text-brand-blue border-b border-brand-blue-50 pb-3">
           Beneficios del Cotizador
         </h3>
         <div className="space-y-5">
@@ -41,7 +41,7 @@ export default function CotizadorLowCostDetails() {
                   <h4 className="font-bold text-brand-ink font-sans text-sm uppercase tracking-wide">
                     {feat.title}
                   </h4>
-                  <p className="text-slate-500 text-xs sm:text-sm font-sans mt-1 leading-relaxed">
+                  <p className="text-brand-blue-400 text-xs sm:text-sm font-sans mt-1 leading-relaxed">
                     {feat.desc}
                   </p>
                 </div>
@@ -52,19 +52,19 @@ export default function CotizadorLowCostDetails() {
       </div>
 
       {/* Column 2: Tarification details & Advice */}
-      <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
-        <h3 className="text-xl font-display uppercase tracking-tight text-brand-blue border-b border-slate-100 pb-3">
+      <div className="bg-white border border-brand-blue-50 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+        <h3 className="text-xl font-display uppercase tracking-tight text-brand-blue border-b border-brand-blue-50 pb-3">
           Envios LowCost
         </h3>
-        <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
+        <div className="space-y-4 text-xs sm:text-sm text-brand-blue-500 font-sans leading-relaxed">
           <p>Entregas en el dia si es solicitado antes de 13hs, o al dia siguiente para los solicitados luego de 13hs.</p>
 
-          <div className="bg-amber-50 border border-amber-100 rounded-2xl p-4 mt-6">
-            <h4 className="font-bold text-amber-800 text-xs uppercase tracking-wide flex items-center gap-1.5 mb-1.5">
+          <div className="bg-brand-yellow-50 border border-brand-yellow-50 rounded-2xl p-4 mt-6">
+            <h4 className="font-bold text-brand-yellow-500 text-xs uppercase tracking-wide flex items-center gap-1.5 mb-1.5">
               <Shield className="h-4 w-4 shrink-0" />
               Garantía de Entrega
             </h4>
-            <p className="text-xs text-amber-900/80">
+            <p className="text-xs text-brand-yellow-500/80">
               Tus paquetes viajan seguros. Optimizamos y agrupamos los recorridos diarios para ofrecerte la tarifa más económica del mercado local.
             </p>
           </div>

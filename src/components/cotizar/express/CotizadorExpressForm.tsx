@@ -78,7 +78,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
   return (
     <div id="cotizador-express-form" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       {/* Form Input & Results Panel */}
-      <div className="lg:col-span-6 flex flex-col justify-between bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-sm">
+      <div className="lg:col-span-6 flex flex-col justify-between bg-white border border-brand-blue-50 rounded-3xl p-6 sm:p-8 shadow-sm">
         <div className="space-y-6">
           <div>
             <span className="px-3 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-bold uppercase tracking-wider font-sans">
@@ -87,7 +87,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
             <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue mt-3">
               Calculá tu Envío Express
             </h2>
-            <p className="text-slate-500 text-sm font-sans mt-1">
+            <p className="text-brand-blue-400 text-sm font-sans mt-1">
               Ingresá las direcciones de origen y destino en Mar del Plata para obtener una estimación de costo y tiempo inmediato.
             </p>
           </div>
@@ -95,7 +95,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
           <form onSubmit={handleCalculate} className="space-y-4">
             {/* Input Origen */}
             <div className="space-y-1.5">
-              <label htmlFor="origen-input" className="text-xs font-bold text-slate-700 uppercase tracking-wider block font-sans">
+              <label htmlFor="origen-input" className="text-xs font-bold text-brand-blue-600 uppercase tracking-wider block font-sans">
                 Dirección de Origen
               </label>
               <AddressAutocomplete
@@ -105,13 +105,13 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 onChange={setOrigen}
                 onSelectCoordinate={setOrigenCoords}
                 required
-                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-slate-400 font-sans"
+                className="w-full bg-brand-white-50 border border-brand-blue-50 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
               />
             </div>
 
             {/* Input Destino */}
             <div className="space-y-1.5">
-              <label htmlFor="destino-input" className="text-xs font-bold text-slate-700 uppercase tracking-wider block font-sans">
+              <label htmlFor="destino-input" className="text-xs font-bold text-brand-blue-600 uppercase tracking-wider block font-sans">
                 Dirección de Destino
               </label>
               <AddressAutocomplete
@@ -121,12 +121,12 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 onChange={setDestino}
                 onSelectCoordinate={setDestinoCoords}
                 required
-                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-slate-400 font-sans"
+                className="w-full bg-brand-white-50 border border-brand-blue-50 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label htmlFor="nombre-input" className="text-xs font-bold text-slate-700 uppercase tracking-wider block font-sans">
+              <label htmlFor="nombre-input" className="text-xs font-bold text-brand-blue-600 uppercase tracking-wider block font-sans">
                 Nombre
               </label>
               <input
@@ -136,11 +136,11 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
                 required
-                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-slate-400 font-sans"
+                className="w-full bg-brand-white-50 border border-brand-blue-50 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
               />
             </div>
             <div className="space-y-1.5">
-              <label htmlFor="telefono-input" className="text-xs font-bold text-slate-700 uppercase tracking-wider block font-sans">
+              <label htmlFor="telefono-input" className="text-xs font-bold text-brand-blue-600 uppercase tracking-wider block font-sans">
                 Teléfono
               </label>
               <input
@@ -150,11 +150,11 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 value={telefono}
                 onChange={(e) => setTelefono(e.target.value)}
                 required
-                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-slate-400 font-sans"
+                className="w-full bg-brand-white-50 border border-brand-blue-50 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
               />
             </div>
             <div className="space-y-1.5">
-              <label htmlFor="producto-input" className="text-xs font-bold text-slate-700 uppercase tracking-wider block font-sans">
+              <label htmlFor="producto-input" className="text-xs font-bold text-brand-blue-600 uppercase tracking-wider block font-sans">
                 Tipo de producto a trasladar
               </label>
               <input
@@ -164,12 +164,12 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 value={producto}
                 onChange={(e) => setProducto(e.target.value)}
                 required
-                className="w-full bg-slate-50 border border-slate-100 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-slate-400 font-sans"
+                className="w-full bg-brand-white-50 border border-brand-blue-50 focus:border-brand-blue/40 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
               />
             </div>
 
             {error && (
-              <div className="bg-red-50 text-red-600 text-xs px-4 py-3 rounded-xl flex items-center gap-2 font-sans">
+              <div className="bg-brand-white-50 text-brand-blue-500 text-xs px-4 py-3 rounded-xl flex items-center gap-2 font-sans">
                 <AlertTriangle className="h-4 w-4 shrink-0" />
                 <span>{error}</span>
               </div>
@@ -206,19 +206,19 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
-                className="bg-slate-50 border border-slate-100 rounded-3xl p-5 space-y-4"
+                className="bg-brand-white-50 border border-brand-blue-50 rounded-3xl p-5 space-y-4"
               >
                 <div className="grid grid-cols-2 gap-4 text-center">
-                  <div className="bg-white p-3 rounded-2xl border border-slate-100">
-                    <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-sans">
+                  <div className="bg-white p-3 rounded-2xl border border-brand-blue-50">
+                    <span className="block text-[10px] font-bold text-brand-blue-300 uppercase tracking-widest font-sans">
                       Distancia
                     </span>
                     <span className="text-xl font-display text-brand-ink">
                       {result.distancia} km
                     </span>
                   </div>
-                  <div className="bg-white p-3 rounded-2xl border border-slate-100">
-                    <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-sans">
+                  <div className="bg-white p-3 rounded-2xl border border-brand-blue-50">
+                    <span className="block text-[10px] font-bold text-brand-blue-300 uppercase tracking-widest font-sans">
                       Demora Estimada
                     </span>
                     <span className="text-xl font-display text-brand-ink">
@@ -227,14 +227,14 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                   </div>
                 </div>
 
-                <div className="border-t border-slate-200/60 pt-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+                <div className="border-t border-brand-blue-100/60 pt-4 flex flex-col sm:flex-row justify-between items-center gap-3">
                   <div>
-                    <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-sans">
+                    <span className="block text-[10px] font-bold text-brand-blue-300 uppercase tracking-widest font-sans">
                       Tarifa Estimada Express
                     </span>
                     <div className="flex items-baseline gap-1.5 mt-0.5">
                       {result.precio === 'consultar' ? (
-                        <span className="text-lg font-bold text-amber-600 uppercase font-sans">
+                        <span className="text-lg font-bold text-brand-yellow-500 uppercase font-sans">
                           A Consultar
                         </span>
                       ) : (
@@ -242,7 +242,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                           <span className="text-2xl font-display text-brand-blue">
                             ${result.precio.toLocaleString('es-AR')}
                           </span>
-                          <span className="text-[10px] text-slate-400 font-mono">ARS</span>
+                          <span className="text-[10px] text-brand-blue-300 font-mono">ARS</span>
                         </>
                       )}
                     </div>
@@ -251,7 +251,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                   {result.precio === 'consultar' ? (
                     <a
                       href="/contacto"
-                      className="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-subheading text-xs tracking-wider uppercase px-5 py-3.5 rounded-xl shadow transition-all flex items-center justify-center gap-2"
+                      className="w-full sm:w-auto bg-brand-yellow-500 hover:bg-brand-yellow-500 text-white font-subheading text-xs tracking-wider uppercase px-5 py-3.5 rounded-xl shadow transition-all flex items-center justify-center gap-2"
                     >
                       <AlertTriangle className="h-4.5 w-4.5" />
                       Pedir Cotización Especial
@@ -261,7 +261,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                       href={getWhatsAppLink()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-subheading text-xs tracking-wider uppercase px-5 py-3.5 rounded-xl shadow-md transition-all hover:scale-[1.02] flex items-center justify-center gap-2 font-medium"
+                      className="w-full sm:w-auto bg-brand-blue-400 hover:bg-brand-blue-500 text-white font-subheading text-xs tracking-wider uppercase px-5 py-3.5 rounded-xl shadow-md transition-all hover:scale-[1.02] flex items-center justify-center gap-2 font-medium"
                     >
                       <CheckCircle2 className="h-4.5 w-4.5" />
                       Pedir por WhatsApp
@@ -275,19 +275,19 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
       </div>
 
       {/* Real Interactive Map Panel */}
-      <div className="lg:col-span-6 min-h-[350px] lg:min-h-full bg-slate-900 border border-slate-800 rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between text-white">
+      <div className="lg:col-span-6 min-h-[350px] lg:min-h-full bg-brand-blue-700 border border-brand-blue-700 rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between text-white">
         {/* Map backgrounds grid overlay */}
         <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:32px_32px]" />
 
         {/* Header Map */}
         <div className="relative z-10 flex justify-between items-center border-b border-white/10 pb-4 mb-4">
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-            <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest font-semibold">
+            <div className="w-2.5 h-2.5 rounded-full bg-brand-blue-300 animate-ping" />
+            <span className="text-xs font-mono text-brand-blue-300 uppercase tracking-widest font-semibold">
               Ruteador MDQ Activo
             </span>
           </div>
-          <span className="text-[10px] font-mono text-slate-400">
+          <span className="text-[10px] font-mono text-brand-blue-300">
             Real-time Routing
           </span>
         </div>
@@ -302,7 +302,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
         </div>
 
         {/* Footer map details */}
-        <div className="relative z-10 text-[10px] font-mono text-slate-400 space-y-1.5 border-t border-white/10 pt-4 mt-4">
+        <div className="relative z-10 text-[10px] font-mono text-brand-blue-300 space-y-1.5 border-t border-white/10 pt-4 mt-4">
           <div className="flex justify-between">
             <span>Servicio:</span>
             <span className="text-brand-yellow font-bold uppercase">Envío Express 2H</span>

@@ -100,7 +100,7 @@ export default function SliderServicios() {
             <h2 className="text-brand-blue text-display uppercase">
               Soluciones Especiales para Industrias
             </h2>
-            <p className="text-slate-650 text-lg leading-relaxed font-sans max-w-2xl">
+            <p className="text-brand-blue-500 text-lg leading-relaxed font-sans max-w-2xl">
               Hemos redefinido los estándares de la logística urbana para ofrecerte una ventaja competitiva real en un mercado en constante evolución en Mar del Plata.
             </p>
           </div>
@@ -128,8 +128,8 @@ export default function SliderServicios() {
         </div>
 
         {/* Dynamic Interactive Slide Showcase (Double-Bezel) */}
-        <div className="p-2 bg-slate-100 border border-slate-200 rounded-[2rem] w-full min-h-[320px] flex items-center relative overflow-hidden shadow-minimal">
-          <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 sm:p-12 w-full h-full border border-slate-100 flex items-center justify-center">
+        <div className="p-2 bg-brand-blue-50 border border-brand-blue-100 rounded-[2rem] w-full min-h-[320px] flex items-center relative overflow-hidden shadow-minimal">
+          <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 sm:p-12 w-full h-full border border-brand-blue-50 flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
@@ -165,7 +165,7 @@ export default function SliderServicios() {
                   <h3 className="text-3xl font-display text-brand-blue uppercase leading-none">
                     {slides[current].title}
                   </h3>
-                  <p className="text-slate-600 font-sans text-sm sm:text-base leading-relaxed max-w-xl">
+                  <p className="text-brand-blue-500 font-sans text-sm sm:text-base leading-relaxed max-w-xl">
                     {slides[current].desc}
                   </p>
                 </div>
@@ -180,7 +180,7 @@ export default function SliderServicios() {
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
-              className={`h-2.5 rounded-full transition-all duration-350 focus:outline-none ${idx === current ? 'w-10 bg-brand-blue border border-brand-blue' : 'w-2.5 bg-slate-200 hover:bg-slate-350 border border-slate-300'
+              className={`h-2.5 rounded-full transition-all duration-350 focus:outline-none ${idx === current ? 'w-10 bg-brand-blue border border-brand-blue' : 'w-2.5 bg-brand-blue-100 hover:bg-brand-blue-200 border border-brand-blue-200'
                 }`}
               title={`Ir a slide ${idx + 1}`}
             />

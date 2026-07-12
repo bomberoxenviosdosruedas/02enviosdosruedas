@@ -45,11 +45,11 @@ export default function ExpressUseCases() {
   return (
     <section 
       id="express-use-cases" 
-      className="py-24 bg-gray-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
     >
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-blue-50/50 blur-3xl -z-10 -translate-y-1/2" />
-      <div className="absolute top-1/2 right-0 w-80 h-80 rounded-full bg-yellow-50/40 blur-3xl -z-10 -translate-y-1/2" />
+      <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-brand-white-50/50 blur-3xl -z-10 -translate-y-1/2" />
+      <div className="absolute top-1/2 right-0 w-80 h-80 rounded-full bg-brand-yellow-50/40 blur-3xl -z-10 -translate-y-1/2" />
 
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -70,7 +70,7 @@ export default function ExpressUseCases() {
           <h2 className="text-brand-blue text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight border-l-4 border-brand-yellow pl-4 inline-block">
             ¿CUÁNDO NECESITÁS EXPRESS?
           </h2>
-          <p className="text-slate-600 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Situaciones cotidianas y corporativas donde cada minuto cuenta y la rapidez es fundamental.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
@@ -90,7 +90,7 @@ export default function ExpressUseCases() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className={`rounded-3xl border-2 transition-all duration-300 flex flex-col justify-between text-left ${
                   isOpen 
-                    ? 'bg-slate-900 text-white border-brand-yellow shadow-[6px_6px_0px_var(--color-brand-yellow)]'
+                    ? 'bg-brand-blue-700 text-white border-brand-yellow shadow-[6px_6px_0px_var(--color-brand-yellow)]'
                     : 'bg-white text-brand-blue border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px]'
                 }`}
               >
@@ -101,7 +101,7 @@ export default function ExpressUseCases() {
                       <Icon className="h-5.5 w-5.5 shrink-0" />
                     </div>
                     <span className={`text-[10px] font-subheading uppercase tracking-wider px-2.5 py-1 rounded-full border ${
-                      isOpen ? 'bg-white/10 text-brand-yellow border-white/10' : 'bg-slate-200 text-slate-600 border-slate-300'
+                      isOpen ? 'bg-white/10 text-brand-yellow border-white/10' : 'bg-brand-blue-100 text-brand-blue-500 border-brand-blue-200'
                     }`}>
                       {useCase.badge}
                     </span>
@@ -112,7 +112,7 @@ export default function ExpressUseCases() {
                     <h3 className="text-2xl font-display uppercase tracking-wide leading-none text-brand-blue">
                       {useCase.title}
                     </h3>
-                    <p className={`text-sm font-sans leading-relaxed ${isOpen ? 'text-slate-300' : 'text-slate-600'}`}>
+                    <p className={`text-sm font-sans leading-relaxed ${isOpen ? 'text-brand-blue-200' : 'text-brand-blue-500'}`}>
                       {useCase.desc}
                     </p>
                   </div>
@@ -122,8 +122,8 @@ export default function ExpressUseCases() {
                     onClick={() => toggleTab(idx)}
                     className={`w-full py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase font-subheading flex items-center justify-between border-2 transition-all cursor-pointer ${
                       isOpen 
-                        ? 'bg-slate-800 text-brand-yellow border-brand-yellow hover:bg-slate-700' 
-                        : 'bg-white text-brand-blue border-brand-blue hover:bg-slate-50'
+                        ? 'bg-brand-blue-700 text-brand-yellow border-brand-yellow hover:bg-brand-blue-600'
+                        : 'bg-white text-brand-blue border-brand-blue hover:bg-brand-white-50'
                     }`}
                   >
                     <span className="pl-3.5">Ver Ejemplos</span>
@@ -149,7 +149,7 @@ export default function ExpressUseCases() {
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: exIdx * 0.08 }}
-                                className="flex items-start gap-2 text-xs text-slate-300 font-sans"
+                                className="flex items-start gap-2 text-xs text-brand-blue-200 font-sans"
                               >
                                 <CheckCircle2 className="h-4 w-4 text-brand-yellow shrink-0 mt-0.5" />
                                 <span className="leading-tight">{ex}</span>

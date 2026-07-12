@@ -265,7 +265,7 @@ export default function DispatchConsole() {
   const selectedShipment = shipments.find(s => s.id === selectedId);
 
   return (
-    <section id="consola" className="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
+    <section id="consola" className="py-16 bg-brand-white-50 px-4 sm:px-6 lg:px-8 border-b border-brand-blue-50">
       <div className="max-w-7xl mx-auto space-y-12">
 
         {/* Console title */}
@@ -277,19 +277,19 @@ export default function DispatchConsole() {
             <h2 className="text-4xl font-display uppercase tracking-wide text-brand-blue sm:text-5xl">
               Portal de Despachos <span className="underline decoration-brand-yellow decoration-heavy">en Vivo</span>
             </h2>
-            <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
+            <p className="text-brand-blue-400 text-sm leading-relaxed max-w-xl">
               Simula la preparación de un remito de venta, arrastra una foto del bulto y mira los cambios de estado en tiempo real.
             </p>
           </div>
 
           <div id="search-box" className="relative w-full md:w-80">
-            <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+            <Search className="absolute left-3 top-3 h-4 w-4 text-brand-blue-300" />
             <input 
               type="text" 
               placeholder="Buscar por ID, destinatario o calle..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white border border-gray-300 rounded-xl pl-9 pr-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+              className="w-full bg-white border border-brand-blue-200 rounded-xl pl-9 pr-4 py-2.5 text-sm text-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue"
             />
           </div>
         </div>
@@ -298,8 +298,8 @@ export default function DispatchConsole() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* LEFT COLUMN: Remito / Booking mock-form */}
-          <div className="lg:col-span-4 bg-white border border-gray-200 rounded-3xl p-6 shadow-sm space-y-5">
-            <div className="flex items-center gap-2 pb-3 border-b border-gray-100">
+          <div className="lg:col-span-4 bg-white border border-brand-blue-100 rounded-3xl p-6 shadow-sm space-y-5">
+            <div className="flex items-center gap-2 pb-3 border-b border-brand-blue-50">
               <Plus className="h-5 w-5 text-brand-blue" />
               <h3 className="font-subheading text-xl text-brand-blue uppercase tracking-wide">Crear Nuevo Remito</h3>
             </div>
@@ -318,14 +318,14 @@ export default function DispatchConsole() {
                     value={senderName}
                     onChange={(e) => setSenderName(e.target.value)}
                     required
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-xs text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                    className="w-full bg-brand-white-50 border border-brand-blue-100 rounded-xl px-3 py-2.5 text-xs text-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                   />
                   <input 
                     type="text" 
                     placeholder="Ej. 2235928124"
                     value={senderPhone}
                     onChange={(e) => setSenderPhone(e.target.value)}
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-xs text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                    className="w-full bg-brand-white-50 border border-brand-blue-100 rounded-xl px-3 py-2.5 text-xs text-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                   />
                 </div>
               </div>
@@ -342,7 +342,7 @@ export default function DispatchConsole() {
                     value={recipientName}
                     onChange={(e) => setRecipientName(e.target.value)}
                     required
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-xs text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                    className="w-full bg-brand-white-50 border border-brand-blue-100 rounded-xl px-3 py-2.5 text-xs text-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                   />
                   <input 
                     type="text" 
@@ -350,7 +350,7 @@ export default function DispatchConsole() {
                     value={recipientAddress}
                     onChange={(e) => setRecipientAddress(e.target.value)}
                     required
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-xs text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                    className="w-full bg-brand-white-50 border border-brand-blue-100 rounded-xl px-3 py-2.5 text-xs text-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                   />
                   <input 
                     type="text" 
@@ -358,7 +358,7 @@ export default function DispatchConsole() {
                     value={recipientPhone}
                     onChange={(e) => setRecipientPhone(e.target.value)}
                     required
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-xs text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                    className="w-full bg-brand-white-50 border border-brand-blue-100 rounded-xl px-3 py-2.5 text-xs text-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                   />
                 </div>
               </div>
@@ -374,14 +374,14 @@ export default function DispatchConsole() {
                   value={parcelDesc}
                   onChange={(e) => setParcelDesc(e.target.value)}
                   required
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-xs text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                  className="w-full bg-brand-white-50 border border-brand-blue-100 rounded-xl px-3 py-2.5 text-xs text-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                 />
                 <textarea 
                   placeholder="Indicaciones de timbre o entrega..."
                   rows={2}
                   value={instructions}
                   onChange={(e) => setInstructions(e.target.value)}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-xs text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-blue resize-none"
+                  className="w-full bg-brand-white-50 border border-brand-blue-100 rounded-xl px-3 py-2.5 text-xs text-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue resize-none"
                 />
               </div>
 
@@ -397,7 +397,7 @@ export default function DispatchConsole() {
                   onDrop={handleDrop}
                   onClick={() => fileInputRef.current?.click()}
                   className={`border-2 border-dashed rounded-2xl p-4 text-center cursor-pointer transition-colors ${
-                    dragging ? 'border-brand-blue bg-blue-50/50' : 'border-gray-300 hover:border-brand-blue/60'
+                    dragging ? 'border-brand-blue bg-brand-white-50/50' : 'border-brand-blue-200 hover:border-brand-blue/60'
                   }`}
                 >
                   <input 
@@ -410,16 +410,16 @@ export default function DispatchConsole() {
                   
                   {uploadedFile ? (
                     <div className="space-y-1.5">
-                      <div className="relative aspect-video max-h-24 mx-auto overflow-hidden rounded-xl border border-gray-200">
+                      <div className="relative aspect-video max-h-24 mx-auto overflow-hidden rounded-xl border border-brand-blue-100">
                         <img src={uploadedFile.url} alt="Remito" className="object-cover w-full h-full" />
                       </div>
-                      <span className="block text-[10px] font-mono text-gray-500 truncate">{uploadedFile.name}</span>
+                      <span className="block text-[10px] font-mono text-brand-blue-400 truncate">{uploadedFile.name}</span>
                     </div>
                   ) : (
                     <div className="space-y-1">
-                      <Upload className="h-5 w-5 text-gray-400 mx-auto" />
-                      <p className="text-[10px] font-bold text-gray-600">Arrastre aquí o haga Clic</p>
-                      <p className="text-[9px] text-gray-400">PDF, JPG o PNG de la etiqueta</p>
+                      <Upload className="h-5 w-5 text-brand-blue-300 mx-auto" />
+                      <p className="text-[10px] font-bold text-brand-blue-500">Arrastre aquí o haga Clic</p>
+                      <p className="text-[9px] text-brand-blue-300">PDF, JPG o PNG de la etiqueta</p>
                     </div>
                   )}
                 </div>
@@ -449,7 +449,7 @@ export default function DispatchConsole() {
                   className={`px-3 py-1.5 rounded-xl text-xs font-subheading tracking-wider uppercase whitespace-nowrap transition-colors ${
                     activeTab === tab 
                       ? 'bg-brand-blue text-white shadow-sm' 
-                      : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'
+                      : 'bg-white border border-brand-blue-100 text-brand-blue-500 hover:bg-brand-white-50'
                   }`}
                 >
                   {tab === 'Todos' ? 'Mostrar Todos' : tab}
@@ -458,10 +458,10 @@ export default function DispatchConsole() {
             </div>
 
             {/* List block */}
-            <div className="bg-white border border-gray-200 rounded-3xl p-5 shadow-sm min-h-[400px] divide-y divide-gray-100">
+            <div className="bg-white border border-brand-blue-100 rounded-3xl p-5 shadow-sm min-h-[400px] divide-y divide-brand-blue-50">
               {filteredShipments.length === 0 ? (
-                <div className="h-64 flex flex-col items-center justify-center text-center p-6 text-gray-400 space-y-2">
-                  <Clock className="h-8 w-8 text-gray-300" />
+                <div className="h-64 flex flex-col items-center justify-center text-center p-6 text-brand-blue-300 space-y-2">
+                  <Clock className="h-8 w-8 text-brand-blue-200" />
                   <p className="font-bold text-sm">No se encontraron envíos</p>
                   <p className="text-xs">Crea un remito en la consola para registrar tu primera distribución.</p>
                 </div>
@@ -470,8 +470,8 @@ export default function DispatchConsole() {
                   return (
                     <div 
                       key={s.id} 
-                      className={`py-3.5 flex items-center justify-between gap-4 cursor-pointer hover:bg-gray-50/50 px-2 rounded-2xl transition-all ${
-                        selectedId === s.id ? 'bg-blue-50/50 ring-1 ring-brand-blue/30' : ''
+                      className={`py-3.5 flex items-center justify-between gap-4 cursor-pointer hover:bg-brand-white-50/50 px-2 rounded-2xl transition-all ${
+                        selectedId === s.id ? 'bg-brand-white-50/50 ring-1 ring-brand-blue/30' : ''
                       }`}
                       onClick={() => setSelectedId(s.id)}
                     >
@@ -479,17 +479,17 @@ export default function DispatchConsole() {
                         <div className="flex items-center gap-2">
                           <span className="font-mono text-xs font-bold text-brand-blue">{s.id}</span>
                           <span className={`text-[10px] font-subheading tracking-wide uppercase px-1.5 py-0.5 rounded ${
-                            s.status === 'Entregado' ? 'bg-green-100 text-green-800' :
-                            s.status === 'En Camino' ? 'bg-blue-100 text-blue-800' :
-                            s.status === 'Retirado' ? 'bg-amber-100 text-amber-800' :
-                            'bg-gray-100 text-gray-700'
+                            s.status === 'Entregado' ? 'bg-brand-blue-50 text-brand-blue-700' :
+                            s.status === 'En Camino' ? 'bg-brand-blue-50 text-brand-blue-700' :
+                            s.status === 'Retirado' ? 'bg-brand-yellow-50 text-brand-yellow-500' :
+                            'bg-brand-blue-50 text-brand-blue-600'
                           }`}>
                             {s.status}
                           </span>
                         </div>
                         
-                        <p className="text-xs font-bold text-gray-800 truncate">Destino: {s.recipientAddress}</p>
-                        <p className="text-[10px] text-gray-500 font-normal">Destinatario: {s.recipientName} • Creado: {s.createdAt}</p>
+                        <p className="text-xs font-bold text-brand-blue-700 truncate">Destino: {s.recipientAddress}</p>
+                        <p className="text-[10px] text-brand-blue-400 font-normal">Destinatario: {s.recipientName} • Creado: {s.createdAt}</p>
                       </div>
 
                       {/* Right actions */}
@@ -512,7 +512,7 @@ export default function DispatchConsole() {
                             e.stopPropagation();
                             deleteShipment(s.id);
                           }}
-                          className="text-gray-400 hover:text-red-500 p-1.5 rounded-md hover:bg-gray-100"
+                          className="text-brand-blue-300 hover:text-brand-blue-400 p-1.5 rounded-md hover:bg-brand-blue-50"
                         >
                           <Trash2 className="h-4 w-4" />
                         </button>
@@ -528,15 +528,15 @@ export default function DispatchConsole() {
           {/* RIGHT COLUMN: Active tracking visual representation */}
           <div className="lg:col-span-3">
             {selectedShipment ? (
-              <div className="bg-white border border-gray-200 rounded-3xl p-5 shadow-sm space-y-6">
+              <div className="bg-white border border-brand-blue-100 rounded-3xl p-5 shadow-sm space-y-6">
                 
                 {/* Visual state headers */}
-                <div className="pb-3 border-b border-gray-100 flex justify-between items-center">
+                <div className="pb-3 border-b border-brand-blue-50 flex justify-between items-center">
                   <div>
                     <h4 className="font-subheading text-sm text-brand-blue uppercase tracking-wider">Cronograma En Vivo</h4>
                     <span className="font-mono text-brand-blue font-black text-sm">{selectedShipment.id}</span>
                   </div>
-                  <CheckCircle2 className="h-5 w-5 text-emerald-500" />
+                  <CheckCircle2 className="h-5 w-5 text-brand-blue-400" />
                 </div>
 
                 {/* Timeline steps */}
@@ -546,15 +546,15 @@ export default function DispatchConsole() {
                   <div className="flex gap-3 items-start">
                     <div className="flex flex-col items-center">
                       <div className={`h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold font-mono ${
-                        selectedShipment.trackingStep >= 1 ? 'bg-brand-blue text-white' : 'bg-gray-200 text-gray-500'
+                        selectedShipment.trackingStep >= 1 ? 'bg-brand-blue text-white' : 'bg-brand-blue-100 text-brand-blue-400'
                       }`}>
                         1
                       </div>
-                      <div className={`w-0.5 h-6 ${selectedShipment.trackingStep >= 2 ? 'bg-brand-blue' : 'bg-gray-200'}`}></div>
+                      <div className={`w-0.5 h-6 ${selectedShipment.trackingStep >= 2 ? 'bg-brand-blue' : 'bg-brand-blue-100'}`}></div>
                     </div>
                     <div>
-                      <h5 className="text-xs font-subheading text-gray-900 tracking-wide uppercase">Orden Confirmada</h5>
-                      <span className="text-[10px] text-gray-400 block">{selectedShipment.createdAt}</span>
+                      <h5 className="text-xs font-subheading text-brand-blue-700 tracking-wide uppercase">Orden Confirmada</h5>
+                      <span className="text-[10px] text-brand-blue-300 block">{selectedShipment.createdAt}</span>
                     </div>
                   </div>
 
@@ -562,15 +562,15 @@ export default function DispatchConsole() {
                   <div className="flex gap-3 items-start">
                     <div className="flex flex-col items-center">
                       <div className={`h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold font-mono ${
-                        selectedShipment.trackingStep >= 2 ? 'bg-brand-blue text-white' : 'bg-gray-200 text-gray-500'
+                        selectedShipment.trackingStep >= 2 ? 'bg-brand-blue text-white' : 'bg-brand-blue-100 text-brand-blue-400'
                       }`}>
                         2
                       </div>
-                      <div className={`w-0.5 h-6 ${selectedShipment.trackingStep >= 3 ? 'bg-brand-blue' : 'bg-gray-200'}`}></div>
+                      <div className={`w-0.5 h-6 ${selectedShipment.trackingStep >= 3 ? 'bg-brand-blue' : 'bg-brand-blue-100'}`}></div>
                     </div>
                     <div>
-                      <h5 className="text-xs font-subheading text-gray-900 tracking-wide uppercase">Retirado por Cadetería</h5>
-                      <span className="text-[10px] text-gray-400 block">Sede Friuli 1972 o local</span>
+                      <h5 className="text-xs font-subheading text-brand-blue-700 tracking-wide uppercase">Retirado por Cadetería</h5>
+                      <span className="text-[10px] text-brand-blue-300 block">Sede Friuli 1972 o local</span>
                     </div>
                   </div>
 
@@ -578,39 +578,39 @@ export default function DispatchConsole() {
                   <div className="flex gap-3 items-start">
                     <div className="flex flex-col items-center">
                       <div className={`h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold font-mono ${
-                        selectedShipment.trackingStep >= 3 ? 'bg-brand-blue text-white' : 'bg-gray-200 text-gray-500'
+                        selectedShipment.trackingStep >= 3 ? 'bg-brand-blue text-white' : 'bg-brand-blue-100 text-brand-blue-400'
                       }`}>
                         3
                       </div>
-                      <div className={`w-0.5 h-6 ${selectedShipment.trackingStep >= 4 ? 'bg-brand-blue' : 'bg-gray-200'}`}></div>
+                      <div className={`w-0.5 h-6 ${selectedShipment.trackingStep >= 4 ? 'bg-brand-blue' : 'bg-brand-blue-100'}`}></div>
                     </div>
                     <div>
-                      <h5 className="text-xs font-subheading text-gray-900 tracking-wide uppercase">En Viaje de Reparto</h5>
-                      <span className="text-[10px] text-gray-400 block">Ruta: {selectedShipment.recipientAddress}</span>
+                      <h5 className="text-xs font-subheading text-brand-blue-700 tracking-wide uppercase">En Viaje de Reparto</h5>
+                      <span className="text-[10px] text-brand-blue-300 block">Ruta: {selectedShipment.recipientAddress}</span>
                     </div>
                   </div>
 
                   {/* Step 4 */}
                   <div className="flex gap-3 items-start">
-                    <div className="h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold font-mono bg-gray-100">
+                    <div className="h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold font-mono bg-brand-blue-50">
                       <div className={`h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold font-mono ${
-                        selectedShipment.trackingStep >= 4 ? 'bg-brand-blue text-white' : 'bg-gray-200 text-gray-500'
+                        selectedShipment.trackingStep >= 4 ? 'bg-brand-blue text-white' : 'bg-brand-blue-100 text-brand-blue-400'
                       }`}>
                         4
                       </div>
                     </div>
                     <div>
-                      <h5 className="text-xs font-subheading text-gray-900 tracking-wide uppercase">Entrega Efectuada</h5>
-                      <span className="text-[10px] text-gray-400 block">Confirmado con Firma Escaneada</span>
+                      <h5 className="text-xs font-subheading text-brand-blue-700 tracking-wide uppercase">Entrega Efectuada</h5>
+                      <span className="text-[10px] text-brand-blue-300 block">Confirmado con Firma Escaneada</span>
                     </div>
                   </div>
 
                 </div>
 
                 {/* Cadete allocation information */}
-                <div className="bg-gray-50 border border-gray-200 p-3.5 rounded-2xl space-y-1">
-                  <span className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest">Transportista</span>
-                  <p className="text-xs font-bold text-gray-800 flex items-center gap-1.5">
+                <div className="bg-brand-white-50 border border-brand-blue-100 p-3.5 rounded-2xl space-y-1">
+                  <span className="block text-[9px] font-bold text-brand-blue-300 uppercase tracking-widest">Transportista</span>
+                  <p className="text-xs font-bold text-brand-blue-700 flex items-center gap-1.5">
                     <Bike className="h-4 w-4 text-brand-blue" />
                     {selectedShipment.assignedCadete}
                   </p>
@@ -618,9 +618,9 @@ export default function DispatchConsole() {
 
                 {/* Simulated Delivery Details (Photo preview + Signature) */}
                 {selectedShipment.status === 'Entregado' ? (
-                  <div className="pt-3 border-t border-gray-100 space-y-3">
-                    <span className="block text-[10px] font-subheading text-emerald-800 tracking-wider uppercase font-bold">✔ Comprobación 3PL / SLA</span>
-                    <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-200 bg-gray-100">
+                  <div className="pt-3 border-t border-brand-blue-50 space-y-3">
+                    <span className="block text-[10px] font-subheading text-brand-blue-700 tracking-wider uppercase font-bold">✔ Comprobación 3PL / SLA</span>
+                    <div className="relative aspect-video rounded-xl overflow-hidden border border-brand-blue-100 bg-brand-blue-50">
                       <img src={selectedShipment.filePreview} alt="Foto Entrega" className="object-cover w-full h-full" />
                       <div className="absolute bottom-2 left-2 bg-brand-blue/80 px-2 py-0.5 rounded text-[8px] font-mono text-white">
                         Dropoff Proof
@@ -628,15 +628,15 @@ export default function DispatchConsole() {
                     </div>
                     
                     {/* Visual Cursive Signature */}
-                    <div className="bg-gray-50 border border-gray-200 p-2.5 rounded-xl text-center">
-                      <span className="block text-[9px] text-gray-400 leading-none mb-1">Firma del Cliente Registrada</span>
+                    <div className="bg-brand-white-50 border border-brand-blue-100 p-2.5 rounded-xl text-center">
+                      <span className="block text-[9px] text-brand-blue-300 leading-none mb-1">Firma del Cliente Registrada</span>
                       <span className="font-cursive text-brand-blue text-base italic leading-none font-semibold">
                         {selectedShipment.recipientName}
                       </span>
                     </div>
                   </div>
                 ) : (
-                  <div className="bg-blue-50 border border-blue-100 p-4 rounded-2xl gap-2.5 flex items-start text-xs text-gray-600">
+                  <div className="bg-brand-white-50 border border-brand-blue-50 p-4 rounded-2xl gap-2.5 flex items-start text-xs text-brand-blue-500">
                     <Clock className="h-4 w-4 text-brand-blue flex-shrink-0 mt-0.5" />
                     <span>
                       Presiona el botón celeste <strong className="text-brand-blue uppercase font-subheading">&quot;Ruta&quot;</strong> en la fila del envío para simular los avances y ver la confirmación de firma final.
@@ -646,10 +646,10 @@ export default function DispatchConsole() {
 
               </div>
             ) : (
-              <div className="bg-gray-50 border border-dashed border-gray-300 rounded-3xl p-6 text-center text-gray-400 h-full flex flex-col items-center justify-center space-y-2">
-                <Map className="h-8 w-8 text-gray-300" />
-                <p className="font-bold text-xs text-gray-600">Monitoreo Detallado</p>
-                <p className="text-[10px] text-gray-500">Haga clic en cualquier paquete de la lista del medio para inspeccionar su trazado, firma legal y comprobantes de geolocalización.</p>
+              <div className="bg-brand-white-50 border border-dashed border-brand-blue-200 rounded-3xl p-6 text-center text-brand-blue-300 h-full flex flex-col items-center justify-center space-y-2">
+                <Map className="h-8 w-8 text-brand-blue-200" />
+                <p className="font-bold text-xs text-brand-blue-500">Monitoreo Detallado</p>
+                <p className="text-[10px] text-brand-blue-400">Haga clic en cualquier paquete de la lista del medio para inspeccionar su trazado, firma legal y comprobantes de geolocalización.</p>
               </div>
             )}
           </div>
