@@ -60,19 +60,19 @@ export default function HeroSection() {
           >
             <div className="flex items-center gap-2.5">
               <span className="flex-shrink-0 h-6 w-6 rounded-xl bg-brand-yellow/20 text-brand-yellow flex items-center justify-center font-bold text-xs border border-brand-yellow/30">✓</span>
-              <span className="text-sm text-brand-white-50 font-medium">Retiros directos a domicilio</span>
+              <span className="text-sm text-brand-white-50 font-sans font-medium">Retiros directos a domicilio</span>
             </div>
             <div className="flex items-center gap-2.5">
               <span className="flex-shrink-0 h-6 w-6 rounded-xl bg-brand-yellow/20 text-brand-yellow flex items-center justify-center font-bold text-xs border border-brand-yellow/30">✓</span>
-              <span className="text-sm text-brand-white-50 font-medium">Integración MercadoEnvíos Flex</span>
+              <span className="text-sm text-brand-white-50 font-sans font-medium">Integración MercadoEnvíos Flex</span>
             </div>
             <div className="flex items-center gap-2.5">
               <span className="flex-shrink-0 h-6 w-6 rounded-xl bg-brand-yellow/20 text-brand-yellow flex items-center justify-center font-bold text-xs border border-brand-yellow/30">✓</span>
-              <span className="text-sm text-brand-white-50 font-medium">Soporte y Monitoreo en Tiempo Real</span>
+              <span className="text-sm text-brand-white-50 font-sans font-medium">Soporte y Monitoreo en Tiempo Real</span>
             </div>
             <div className="flex items-center gap-2.5">
               <span className="flex-shrink-0 h-6 w-6 rounded-xl bg-brand-yellow/20 text-brand-yellow flex items-center justify-center font-bold text-xs border border-brand-yellow/30">✓</span>
-              <span className="text-sm text-brand-white-50 font-medium">Garantía y Cobertura de Siniestros</span>
+              <span className="text-sm text-brand-white-50 font-sans font-medium">Garantía y Cobertura de Siniestros</span>
             </div>
           </motion.div>
 

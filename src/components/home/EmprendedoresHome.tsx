@@ -33,9 +33,9 @@ export default function EmprendedoresHome() {
   return (
     <section
       id="emprendedores-home"
-      className="py-24 bg-brand-blue border-y border-white/10 relative overflow-hidden"
+      className="py-24 bg-gradient-to-br from-brand-blue-700 via-brand-blue-600 to-brand-blue-850 border-y border-white/10 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(255,236,1,0.04),transparent_35%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(255,236,1,0.05),transparent_35%)]" />
 
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -62,7 +62,7 @@ export default function EmprendedoresHome() {
           <div className="h-1.5 w-20 bg-brand-yellow rounded-full" />
         </div>
 
-        {/* Solutions Cards Grid: Asymmetric Layout to avoid banned 3 equal cards */}
+        {/* Solutions Cards Grid: Asymmetric Bento Layout with Double-Bezel Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Card 1: PyMEs (E-Commerce) - lg:col-span-7 */}
           <motion.div
@@ -71,9 +71,9 @@ export default function EmprendedoresHome() {
             whileHover={{ y: -6, scale: 1.01 }}
             viewport={{ once: true }}
             transition={{ y: { type: "spring", stiffness: 300, damping: 20 }, scale: { type: "spring", stiffness: 300, damping: 20 }, opacity: { duration: 0.5 } }}
-            className="lg:col-span-7 p-2 bg-brand-blue-100/65 border border-brand-blue-200 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300 flex flex-col group cursor-pointer"
+            className="lg:col-span-7 double-bezel-outer bg-brand-blue-100/80 hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 border border-brand-blue-200 transition-all duration-300 flex flex-col group cursor-pointer"
           >
-            <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 flex flex-col justify-between h-full border border-brand-blue-50 shadow-sm space-y-6">
+            <div className="double-bezel-inner bg-white p-8 flex flex-col justify-between h-full border border-brand-blue-50 shadow-sm space-y-6">
               <div className="space-y-6">
                 <div className="flex justify-between items-start">
                   <div className="p-3.5 bg-brand-yellow/20 text-brand-blue border border-brand-yellow/30 rounded-2xl group-hover:scale-105 transition-transform duration-300">
@@ -119,9 +119,9 @@ export default function EmprendedoresHome() {
             whileHover={{ y: -6, scale: 1.01 }}
             viewport={{ once: true }}
             transition={{ y: { type: "spring", stiffness: 300, damping: 20 }, scale: { type: "spring", stiffness: 300, damping: 20 }, opacity: { duration: 0.5, delay: 0.1 } }}
-            className="lg:col-span-5 p-2 bg-brand-blue-100/65 border border-brand-blue-200 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300 flex flex-col group cursor-pointer"
+            className="lg:col-span-5 double-bezel-outer bg-brand-blue-100/80 hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 border border-brand-blue-200 transition-all duration-300 flex flex-col group cursor-pointer"
           >
-            <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 flex flex-col justify-between h-full border border-brand-blue-50 shadow-sm space-y-6">
+            <div className="double-bezel-inner bg-white p-8 flex flex-col justify-between h-full border border-brand-blue-50 shadow-sm space-y-6">
               <div className="space-y-6">
                 <div className="flex justify-between items-start">
                   <div className="p-3.5 bg-brand-yellow/20 text-brand-blue border border-brand-yellow/30 rounded-2xl group-hover:scale-105 transition-transform duration-300">
@@ -167,9 +167,9 @@ export default function EmprendedoresHome() {
             whileHover={{ y: -4, scale: 1.005 }}
             viewport={{ once: true }}
             transition={{ y: { type: "spring", stiffness: 300, damping: 20 }, scale: { type: "spring", stiffness: 300, damping: 20 }, opacity: { duration: 0.5, delay: 0.2 } }}
-            className="lg:col-span-12 p-2 bg-brand-blue-100/65 border border-brand-blue-200 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300 group cursor-pointer"
+            className="lg:col-span-12 double-bezel-outer bg-brand-blue-100/80 hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 border border-brand-blue-200 transition-all duration-300 group cursor-pointer"
           >
-            <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 sm:p-10 border border-brand-blue-50 shadow-sm">
+            <div className="double-bezel-inner bg-white p-8 sm:p-10 border border-brand-blue-50 shadow-sm">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <div className="md:col-span-7 space-y-4">
                   <div className="flex items-center gap-3">

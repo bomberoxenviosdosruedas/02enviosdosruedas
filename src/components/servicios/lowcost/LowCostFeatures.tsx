@@ -61,29 +61,43 @@ export default function LowCostFeatures() {
             </div>
           </div>
 
-          {/* Features columns (Right) */}
-          <div className="lg:col-span-7 grid grid-cols-1 gap-6 text-left">
+          {/* Features columns (Right) - Bento Grid layout with Double-Bezel cards */}
+          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-6 text-left">
             {features.map((feat, idx) => {
               const Icon = feat.icon;
+              // Asymmetric spans: first is wide, next two are split asymmetrically (span 8 and span 4)
+              const spanClass = idx === 0 
+                ? 'md:col-span-12' 
+                : idx === 1 
+                  ? 'md:col-span-8' 
+                  : 'md:col-span-4';
+
               return (
                 <motion.div
                   key={feat.title}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.12, duration: 0.5 }}
-                  className="bg-white border-2 border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_var(--color-brand-blue)] p-6 rounded-3xl transition-all duration-300 flex flex-col lg:flex-row gap-5 items-start"
+                  transition={{ delay: idx * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ 
+                    y: -5, 
+                    x: 2,
+                    boxShadow: "0 20px 40px -15px rgba(6, 54, 165, 0.15), 0 0 25px -5px rgba(255, 236, 1, 0.2)"
+                  }}
+                  className={`${spanClass} double-bezel-outer border border-brand-blue-200/50 transition-all duration-500 flex flex-col group cursor-pointer`}
                 >
-                  <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl shrink-0 border border-brand-blue">
-                    <Icon className="h-5.5 w-5.5 shrink-0" />
-                  </div>
-                  <div className="space-y-1.5">
-                    <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue leading-tight">
-                      {feat.title}
-                    </h4>
-                    <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
-                      {feat.desc}
-                    </p>
+                  <div className="double-bezel-inner p-6 flex flex-col md:flex-row gap-5 items-start h-full border border-brand-blue-50">
+                    <div className="p-3 bg-brand-blue-600 text-brand-yellow rounded-2xl shrink-0 border border-brand-blue-500 shadow-md group-hover:scale-105 transition-transform duration-300">
+                      <Icon className="h-5.5 w-5.5 shrink-0" />
+                    </div>
+                    <div className="space-y-1.5">
+                      <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue leading-tight group-hover:text-brand-blue-600 transition-colors duration-300">
+                        {feat.title}
+                      </h4>
+                      <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
+                        {feat.desc}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               );

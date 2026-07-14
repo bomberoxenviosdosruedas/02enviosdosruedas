@@ -89,7 +89,12 @@ export default function ServicesOverview() {
                   damping: 18,
                   delay: index * 0.1
                 }}
-                className={`group relative h-full flex flex-col ${colSpan} bg-brand-blue border-2 border-brand-blue rounded-xl hover:-translate-y-1 transition-all duration-300 hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] shadow-[4px_4px_0px_var(--color-brand-blue-600)]`}
+                whileHover={{
+                  y: -6,
+                  x: 2,
+                  boxShadow: "0 25px 50px -12px rgba(6, 54, 165, 0.25), 0 0 30px rgba(255, 236, 1, 0.25)"
+                }}
+                className={`group relative h-full flex flex-col ${colSpan} bg-brand-blue-600 border-2 border-brand-blue rounded-xl transition-all duration-300 shadow-[4px_4px_0px_var(--color-brand-blue-700)] overflow-hidden`}
               >
                 {/* Inner Core (Color Blocking Architecture) */}
                 <div className="relative flex-1 rounded-xl overflow-hidden flex flex-col justify-between p-8">
@@ -105,7 +110,7 @@ export default function ServicesOverview() {
 
                   {/* Card Header: Icon & Badge */}
                   <div className="relative z-20 flex justify-between items-start">
-                    <div className="p-3 bg-brand-yellow text-brand-blue rounded-xl">
+                    <div className="p-3 bg-brand-yellow text-brand-blue rounded-xl shadow-md group-hover:scale-105 transition-transform duration-300">
                       <Icon className="h-6 w-6" />
                     </div>
                     <span className="text-xs font-subheading tracking-widest uppercase px-3 py-1.5 rounded-lg bg-brand-ink text-brand-yellow font-bold border border-brand-yellow/30">
@@ -127,14 +132,20 @@ export default function ServicesOverview() {
                     <div className="pt-2">
                       <a
                         href={service.href}
-                        className="inline-flex bg-brand-yellow hover:bg-brand-yellow text-brand-blue text-xs uppercase tracking-wider cta-nested-pill font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                        className="inline-flex items-center bg-brand-yellow text-brand-blue text-xs uppercase tracking-wider cta-nested-pill font-bold transition-all duration-300 relative overflow-hidden group/btn px-6 py-3 rounded-full hover:shadow-lg"
                       >
-                        <span>Ver más</span>
-                        <span className="cta-nested-icon bg-brand-blue/15 text-brand-blue w-6 h-6 ml-4">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <span className="relative z-10 transition-transform duration-300 group-hover/btn:translate-x-[-2px]">Ver más</span>
+                        <motion.span 
+                          className="cta-nested-icon bg-brand-blue text-brand-yellow w-6 h-6 ml-4 relative z-10 flex items-center justify-center rounded-full shrink-0"
+                          whileHover={{ scale: 1.15, x: 2 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 transition-transform duration-300 group-hover/btn:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
                           </svg>
-                        </span>
+                        </motion.span>
+                        {/* Interactive sliding highlight overlay */}
+                        <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300 pointer-events-none" />
                       </a>
                     </div>
                   </div>
