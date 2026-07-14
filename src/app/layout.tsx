@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Outfit, Anton, Bebas_Neue } from 'next/font/google';
-import './globals.css'; 
+import './globals.css';
 import ClientLayout from '../components/ClientLayout';
 
 const outfit = Outfit({
@@ -23,6 +23,9 @@ const bebasNeue = Bebas_Neue({
 export const metadata: Metadata = {
   title: 'Envíos DosRuedas - Mensajería & Logística en Mar del Plata',
   description: 'La solución logística y última milla de mayor confianza en Mar del Plata. Envíos Express, MercadoLibre Flex, ruteo eficiente y cadetería inteligente.',
+  verification: {
+    google: 'Xmi1zpx45Gdf_z7dZfPWRjDuG7ExiOo7N2fy1hnlBbA',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
