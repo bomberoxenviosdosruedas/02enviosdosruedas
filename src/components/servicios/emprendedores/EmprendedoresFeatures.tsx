@@ -68,21 +68,21 @@ export default function EmprendedoresFeatures() {
           </div>
 
           {/* Features columns (Right) - Bento Grid layout with Double-Bezel cards */}
-          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-6 text-left">
+          <div className="lg:col-span-7 grid grid-cols-1 lg:grid-cols-12 gap-6 text-left">
             {features.map((feat, idx) => {
               const Icon = feat.icon;
-              // Asymmetric spans: first is wide, next two are split asymmetrically (span 8 and span 4)
+              // Asymmetric Bento Grid spans
               const spanClass = idx === 0 
-                ? 'md:col-span-12' 
+                ? 'lg:col-span-12' 
                 : idx === 1 
-                  ? 'md:col-span-8' 
-                  : 'md:col-span-4';
+                  ? 'lg:col-span-7' 
+                  : 'lg:col-span-5';
 
               return (
                 <motion.div
                   key={feat.title}
-                  initial={{ opacity: 0, y: 20, scale: 0.98 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ 
@@ -90,9 +90,9 @@ export default function EmprendedoresFeatures() {
                     x: 2,
                     boxShadow: "0 20px 40px -15px rgba(6, 54, 165, 0.15), 0 0 25px -5px rgba(255, 236, 1, 0.2)"
                   }}
-                  className={`${spanClass} double-bezel-outer border border-brand-blue-200/50 transition-all duration-500 flex flex-col group cursor-pointer`}
+                  className={`${spanClass} double-bezel-outer transition-all duration-500 flex flex-col group cursor-pointer`}
                 >
-                  <div className="double-bezel-inner p-6 flex flex-col md:flex-row gap-5 items-start h-full border border-brand-blue-50">
+                  <div className="double-bezel-inner p-6 flex flex-col md:flex-row gap-5 items-start h-full">
                     <div className="p-3 bg-brand-blue-600 text-brand-yellow rounded-2xl shrink-0 border border-brand-blue-500 shadow-md group-hover:scale-105 transition-transform duration-300">
                       <Icon className="h-5.5 w-5.5 shrink-0" />
                     </div>

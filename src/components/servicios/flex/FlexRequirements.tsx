@@ -53,8 +53,8 @@ export default function FlexRequirements() {
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
-        {/* Requirements Grid (3 Columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Requirements Grid (3 Columns) Bento Grid layout with Double Bezel */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {requirements.map((req, idx) => {
             const Icon = req.icon;
             return (
@@ -63,20 +63,23 @@ export default function FlexRequirements() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col gap-5 text-left"
+                transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -5, x: 2 }}
+                className="lg:col-span-4 double-bezel-outer flex flex-col group"
               >
-                <div className="p-3 bg-brand-yellow text-brand-blue rounded-2xl w-fit shrink-0 border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">
-                  <Icon className="h-5.5 w-5.5 shrink-0" />
-                </div>
-                
-                <div className="space-y-1.5">
-                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue font-bold leading-tight">
-                    {req.title}
-                  </h3>
-                  <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
-                    {req.desc}
-                  </p>
+                <div className="double-bezel-inner p-6 h-full flex flex-col gap-5 text-left">
+                  <div className="p-3 bg-brand-yellow text-brand-blue rounded-2xl w-fit shrink-0 border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)] group-hover:scale-105 transition-transform duration-300">
+                    <Icon className="h-5.5 w-5.5 shrink-0" />
+                  </div>
+                  
+                  <div className="space-y-1.5">
+                    <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue font-bold leading-tight">
+                      {req.title}
+                    </h3>
+                    <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
+                      {req.desc}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             );

@@ -5,7 +5,6 @@ import LowCostFeatures from '@/src/components/servicios/lowcost/LowCostFeatures'
 import LowCostPricing from '@/src/components/servicios/lowcost/LowCostPricing';
 import LowCostBenefits from '@/src/components/servicios/lowcost/LowCostBenefits';
 import LowCostHowItWorks from '@/src/components/servicios/lowcost/LowCostHowItWorks';
-import CarruselRedes from '@/src/components/layout/CarruselRedes';
 
 export const metadata: Metadata = {
   title: 'Envíos LowCost Rentables | Envíos DosRuedas Mar del Plata',
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function EnviosLowCostPage() {
   return (
-    <main className="min-h-screen bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-screen gradient-surface text-brand-blue-700 relative overflow-hidden">
       {/* Ambient floating glow-orbs */}
       <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue/5 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
       <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow/3 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />
@@ -42,11 +41,6 @@ export default function EnviosLowCostPage() {
       {/* Step by step operation diagram */}
       <div className="relative z-10 font-sans">
         <LowCostHowItWorks />
-      </div>
-
-      {/* Unified social network community channel loop */}
-      <div className="relative z-10">
-        <CarruselRedes />
       </div>
     </main>
   );

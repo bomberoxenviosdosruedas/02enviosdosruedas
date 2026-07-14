@@ -34,7 +34,7 @@ export default function FlexHero() {
   return (
     <section 
       id="flex-hero" 
-      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue border-b-4 border-brand-yellow text-white"
+      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden gradient-blue border-b-4 border-brand-yellow text-white"
     >
       {/* Ambient backgrounds */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,204,0,0.06),transparent_40%)]" />
@@ -99,10 +99,12 @@ export default function FlexHero() {
               <Link
                 href="/cotizar/lowcost"
                 id="flex-hero-cta-activar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold cursor-pointer"
+                className="w-full sm:w-auto cta-nested-pill bg-brand-yellow text-brand-dark hover:bg-brand-yellow/90 font-bold cursor-pointer"
               >
-                Activar Envíos Flex
-                <ArrowRight className="h-5 w-5 shrink-0" />
+                <span>Activar Envíos Flex</span>
+                <span className="cta-nested-icon">
+                  <ArrowRight className="h-5 w-5 shrink-0" />
+                </span>
               </Link>
               
               <a
@@ -110,10 +112,12 @@ export default function FlexHero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="flex-hero-cta-whatsapp"
-                className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/90 text-white font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-white shadow-[4px_4px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-yellow)] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto cta-nested-pill bg-brand-blue hover:bg-brand-blue-600 text-white border-2 border-white cursor-pointer"
               >
-                <Phone className="h-5 w-5 text-brand-yellow shrink-0" />
-                Contactar Asesor Flex
+                <span className="cta-nested-icon bg-transparent mr-2">
+                  <Phone className="h-5 w-5 text-brand-yellow shrink-0" />
+                </span>
+                <span>Contactar Asesor Flex</span>
               </a>
             </motion.div>
 

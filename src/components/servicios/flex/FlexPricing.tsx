@@ -109,11 +109,17 @@ export default function FlexPricing() {
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
-        {/* Pricing Cards Grid (3 columns) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        {/* Pricing Cards Grid Bento layout with Double Bezel */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
           {levels.map((level, idx) => {
             const isNumericPrice = level.price.startsWith('$');
             const numericValue = isNumericPrice ? parseInt(level.price.replace('$', '').replace('.', '')) : null;
+
+            // Asymmetric layout
+            let spanClass = 'lg:col-span-4';
+            if (levels.length === 3) {
+              spanClass = 'lg:col-span-4';
+            }
 
             return (
               <TimelineContent
@@ -122,10 +128,11 @@ export default function FlexPricing() {
                 timelineRef={pricingRef}
                 customVariants={revealVariants}
                 as="div"
+                className={`${spanClass} double-bezel-outer flex flex-col`}
               >
                 <Card
-                  className={`rounded-3xl border-2 bg-white text-brand-blue border-brand-blue flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-yellow)] ${
-                    level.highlight ? 'lg:scale-[1.03] relative z-20' : ''
+                  className={`double-bezel-inner border-0 bg-white text-brand-blue flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-none ${
+                    level.highlight ? 'lg:scale-[1.03] relative z-20 shadow-xl' : ''
                   }`}
                 >
                   <CardHeader className="p-8 pb-2 text-left relative">
@@ -185,10 +192,12 @@ export default function FlexPricing() {
                         href="https://wa.me/542236602699"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-3 rounded-xl text-sm font-subheading uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-all bg-brand-blue text-brand-yellow hover:bg-brand-blue/90 border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-yellow)]"
+                        className="w-full cta-nested-pill bg-brand-yellow text-brand-dark hover:bg-brand-yellow/90"
                       >
                         <span>Activar {level.name.split(' ')[0]}</span>
-                        <ArrowRight className="h-4 w-4 animate-pulse shrink-0" />
+                        <span className="cta-nested-icon">
+                          <ArrowRight className="h-4 w-4 animate-pulse shrink-0" />
+                        </span>
                       </a>
                     </div>
                   </CardContent>
@@ -204,8 +213,9 @@ export default function FlexPricing() {
           timelineRef={pricingRef}
           customVariants={revealVariants}
           as="div"
-          className="bg-white text-brand-ink rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-yellow)] relative overflow-hidden"
+          className="double-bezel-outer p-2 relative overflow-hidden"
         >
+          <div className="double-bezel-inner bg-white text-brand-ink rounded-3xl p-8 relative overflow-hidden">
           <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-brand-blue-50/50 pointer-events-none -z-10">
             <CloudRain className="h-64 w-64 text-brand-blue-50" />
           </div>
@@ -230,13 +240,16 @@ export default function FlexPricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="flex-pricing-cta-whatsapp"
-                className="bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold w-full sm:w-auto"
+                className="cta-nested-pill bg-brand-yellow text-brand-dark hover:bg-brand-yellow/90 w-full sm:w-auto"
               >
-                <MessageSquare className="h-5 w-5 fill-current" />
-                Más Información Flex
+                <span>Más Información Flex</span>
+                <span className="cta-nested-icon">
+                  <MessageSquare className="h-5 w-5 fill-current" />
+                </span>
               </a>
             </div>
 
+          </div>
           </div>
         </TimelineContent>
 

@@ -4,7 +4,6 @@ import ExpressHero from '@/src/components/servicios/express/ExpressHero';
 import ExpressFeatures from '@/src/components/servicios/express/ExpressFeatures';
 import ExpressPricing from '@/src/components/servicios/express/ExpressPricing';
 import ExpressUseCases from '@/src/components/servicios/express/ExpressUseCases';
-import CarruselRedes from '@/src/components/layout/CarruselRedes';
 
 export const metadata: Metadata = {
   title: 'Envíos Express Inmediatos | Envíos DosRuedas Mar del Plata',
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function EnviosExpressPage() {
   return (
-    <main className="min-h-screen bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-screen gradient-surface text-brand-blue-700 relative overflow-hidden">
       {/* Ambient floating glow-orbs */}
       <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue/5 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
       <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow/3 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />
@@ -36,11 +35,6 @@ export default function EnviosExpressPage() {
       {/* Common Use Case Scenarios */}
       <div className="relative z-10 font-sans">
         <ExpressUseCases />
-      </div>
-
-      {/* Social Network Media Loop Banner */}
-      <div className="relative z-10">
-        <CarruselRedes />
       </div>
     </main>
   );

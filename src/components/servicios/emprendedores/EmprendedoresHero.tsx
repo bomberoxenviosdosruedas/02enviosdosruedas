@@ -34,7 +34,7 @@ export default function EmprendedoresHero() {
   return (
     <section 
       id="emprendedores-hero" 
-      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue border-b-4 border-brand-yellow text-white"
+      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden gradient-blue border-b-4 border-brand-yellow text-white"
     >
       {/* Ambient backgrounds */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,204,0,0.06),transparent_40%)]" />

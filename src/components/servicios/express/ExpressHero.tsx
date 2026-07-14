@@ -100,10 +100,12 @@ export default function ExpressHero() {
               <Link
                 href="/cotizar/express"
                 id="express-hero-cta-cotizar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold cursor-pointer"
+                className="w-full sm:w-auto cta-nested-pill bg-brand-yellow text-brand-dark hover:bg-brand-yellow/90 font-bold cursor-pointer"
               >
-                Cotizá tu Envío Express
-                <ArrowRight className="h-5 w-5 shrink-0" />
+                <span>Cotizá tu Envío Express</span>
+                <span className="cta-nested-icon">
+                  <ArrowRight className="h-5 w-5 shrink-0" />
+                </span>
               </Link>
 
               <a
@@ -111,10 +113,12 @@ export default function ExpressHero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="express-hero-cta-whatsapp"
-                className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/90 text-white font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-white shadow-[4px_4px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-yellow)] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto cta-nested-pill bg-brand-blue hover:bg-brand-blue-600 text-white border-2 border-white cursor-pointer"
               >
-                <Phone className="h-5 w-5 text-brand-yellow shrink-0" />
-                Hablar por WhatsApp
+                <span className="cta-nested-icon bg-transparent mr-2">
+                  <Phone className="h-5 w-5 text-brand-yellow shrink-0" />
+                </span>
+                <span>Hablar por WhatsApp</span>
               </a>
             </motion.div>
 

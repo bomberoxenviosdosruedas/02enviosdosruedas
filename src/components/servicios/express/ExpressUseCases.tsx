@@ -76,25 +76,28 @@ export default function ExpressUseCases() {
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
-        {/* Interactive Case Columns/Accordions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Interactive Case Columns/Accordions Grid Bento Layout with Double Bezel */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {cases.map((useCase, idx) => {
             const Icon = useCase.icon;
             const isOpen = activeTab === idx;
+            const spanClass = 'lg:col-span-3';
+
             return (
               <motion.div
                 key={useCase.title}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`rounded-3xl border-2 transition-all duration-300 flex flex-col justify-between text-left ${
+                transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -5, x: 2 }}
+                className={`${spanClass} double-bezel-outer transition-all duration-300 flex flex-col group`}
+              >
+                <div className={`double-bezel-inner p-6 sm:p-7 space-y-6 h-full flex flex-col justify-between text-left ${
                   isOpen 
                     ? 'bg-brand-blue-700 text-white border-brand-yellow shadow-[6px_6px_0px_var(--color-brand-yellow)]'
-                    : 'bg-white text-brand-blue border-brand-blue/20 hover:border-brand-blue hover:shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px]'
-                }`}
-              >
-                <div className="p-6 sm:p-7 space-y-6">
+                    : 'bg-white text-brand-blue border-brand-blue/20'
+                }`}>
                   {/* Icon & Badge Header */}
                   <div className="flex justify-between items-center">
                     <div className="p-3 rounded-2xl w-fit border-2 border-brand-blue bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">

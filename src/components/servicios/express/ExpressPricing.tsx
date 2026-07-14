@@ -118,11 +118,17 @@ export default function ExpressPricing() {
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
-        {/* Pricing Cards Grid (4 columns) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {/* Pricing Cards Grid Bento layout with Double Bezel */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
           {zones.map((zone, idx) => {
             const isNumericPrice = zone.price.startsWith('$');
             const numericValue = isNumericPrice ? parseInt(zone.price.replace('$', '').replace('.', '')) : null;
+
+            // Asymmetric layout
+            let spanClass = 'lg:col-span-3';
+            if (zones.length === 4) {
+              spanClass = 'lg:col-span-3';
+            }
 
             return (
               <TimelineContent
@@ -131,10 +137,11 @@ export default function ExpressPricing() {
                 timelineRef={pricingRef}
                 customVariants={revealVariants}
                 as="div"
+                className={`${spanClass} double-bezel-outer flex flex-col`}
               >
                 <Card
-                  className={`rounded-3xl border-2 bg-white text-brand-blue border-brand-blue flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_var(--color-brand-yellow)] ${
-                    zone.highlight ? 'lg:scale-[1.03] relative z-20' : ''
+                  className={`double-bezel-inner border-0 bg-white text-brand-blue flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-none ${
+                    zone.highlight ? 'lg:scale-[1.03] relative z-20 shadow-xl' : ''
                   }`}
                 >
                   <CardHeader className="p-6 pb-2 text-left relative">
@@ -192,10 +199,12 @@ export default function ExpressPricing() {
                     <div>
                       <Link
                         href="/cotizar/express"
-                        className="w-full py-3 rounded-xl text-sm font-subheading uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-all bg-brand-blue text-brand-yellow hover:bg-brand-blue/90 border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-yellow)]"
+                        className="w-full cta-nested-pill bg-brand-blue text-brand-yellow hover:bg-brand-blue-600"
                       >
                         <span>Seleccionar {zone.name}</span>
-                        <ArrowRight className="h-4 w-4 animate-pulse shrink-0" />
+                        <span className="cta-nested-icon bg-brand-yellow/20">
+                          <ArrowRight className="h-4 w-4 animate-pulse shrink-0" />
+                        </span>
                       </Link>
                     </div>
                   </CardContent>
@@ -211,8 +220,9 @@ export default function ExpressPricing() {
           timelineRef={pricingRef}
           customVariants={revealVariants}
           as="div"
-          className="bg-white text-brand-ink rounded-3xl p-8 border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-yellow)] relative overflow-hidden text-left"
+          className="double-bezel-outer p-2 relative overflow-hidden"
         >
+          <div className="double-bezel-inner bg-white text-brand-ink rounded-3xl p-8 relative overflow-hidden text-left">
           {/* Subtle background highlight icon */}
           <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-brand-blue-50/50 pointer-events-none -z-10">
             <Calculator className="h-64 w-64 text-brand-blue-50" />
@@ -236,13 +246,16 @@ export default function ExpressPricing() {
               <Link
                 href="/cotizar/express"
                 id="express-pricing-cta-cotizador"
-                className="bg-brand-yellow hover:bg-brand-yellow/95 border-2 border-brand-blue text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold w-full sm:w-auto"
+                className="cta-nested-pill bg-brand-yellow text-brand-dark hover:bg-brand-yellow/90 w-full sm:w-auto"
               >
-                <Calculator className="h-5 w-5 shrink-0" />
-                Ir al Cotizador
+                <span className="cta-nested-icon bg-transparent mr-2">
+                  <Calculator className="h-5 w-5 shrink-0" />
+                </span>
+                <span>Ir al Cotizador</span>
               </Link>
             </div>
 
+          </div>
           </div>
         </TimelineContent>
 

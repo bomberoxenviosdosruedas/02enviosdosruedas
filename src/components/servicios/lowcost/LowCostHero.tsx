@@ -42,7 +42,7 @@ export default function LowCostHero() {
   return (
     <section 
       id="lowcost-hero" 
-      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue border-b-4 border-brand-yellow text-white"
+      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden gradient-blue border-b-4 border-brand-yellow text-white"
     >
       {/* Ambient backgrounds */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,204,0,0.06),transparent_40%)]" />
@@ -107,18 +107,22 @@ export default function LowCostHero() {
               <Link
                 href="/cotizar/lowcost"
                 id="lowcost-hero-cta-cotizar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold cursor-pointer"
+                className="w-full sm:w-auto cta-nested-pill bg-brand-yellow text-brand-dark hover:bg-brand-yellow/90 font-bold cursor-pointer"
               >
-                <Calculator className="h-5 w-5 shrink-0" />
-                Cotizar Envío LowCost
+                <span className="cta-nested-icon bg-transparent mr-2">
+                  <Calculator className="h-5 w-5 shrink-0" />
+                </span>
+                <span>Cotizar Envío LowCost</span>
               </Link>
               
               <button
                 onClick={handleScrollToPricing}
-                className="w-full sm:w-auto bg-brand-blue hover:bg-brand-blue/90 text-white font-subheading tracking-wider text-base uppercase px-8 py-4 rounded-xl border-2 border-white shadow-[4px_4px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-yellow)] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto cta-nested-pill bg-brand-blue hover:bg-brand-blue-600 text-white border-2 border-white cursor-pointer"
               >
-                <ArrowDown className="h-4.5 w-4.5 text-brand-yellow animate-bounce shrink-0" />
-                Ver Tarifas Optimizadas
+                <span className="cta-nested-icon bg-transparent mr-2">
+                  <ArrowDown className="h-4.5 w-4.5 text-brand-yellow animate-bounce shrink-0" />
+                </span>
+                <span>Ver Tarifas Optimizadas</span>
               </button>
             </motion.div>
 

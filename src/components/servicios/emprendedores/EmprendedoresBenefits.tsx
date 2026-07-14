@@ -65,20 +65,25 @@ export default function EmprendedoresBenefits() {
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
-        {/* Benefits Grid (5 Cards) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Benefits Grid (5 Cards) Bento Grid layout with Double Bezel */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {benefits.map((benefit, idx) => {
             const Icon = benefit.icon;
+            // Asymmetric Bento Grid spans
+            let spanClass = 'lg:col-span-4';
+            if (idx === 0 || idx === 1) spanClass = 'lg:col-span-6';
+
             return (
               <motion.div
                 key={benefit.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.08, ease: "easeOut" }}
-                className="bg-white border-2 border-brand-blue p-8 rounded-3xl shadow-[4px_4px_0px_var(--color-brand-yellow)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-yellow)] transition-all duration-300 flex flex-col justify-between text-left group"
+                transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -5, x: 2 }}
+                className={`${spanClass} double-bezel-outer flex flex-col justify-between text-left group`}
               >
-                <div className="space-y-5">
+                <div className="double-bezel-inner p-8 h-full space-y-5">
                   <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl w-fit border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-yellow)]">
                     <Icon className="h-6 w-6 shrink-0" />
                   </div>
