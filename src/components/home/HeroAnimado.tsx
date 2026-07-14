@@ -88,8 +88,8 @@ export default function HeroAnimado() {
       {/* Interactive Logistics Network Background */}
       <LogisticaNetworkCanvas />
 
-      {/* Decorative overlay for layout integration */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-white-50 to-transparent opacity-90 pointer-events-none" />
+      {/* Remove unnecessary AI-generated gradient to white */}
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-brand-white-50 pointer-events-none" />
 
       {/* Background illustration overlay with topographic feel */}
       <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none">
@@ -113,7 +113,7 @@ export default function HeroAnimado() {
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue border border-brand-yellow">
+              <span className="px-3.5 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue border border-brand-yellow">
                 Tu Solución Confiable
               </span>
             </motion.div>
@@ -169,27 +169,27 @@ export default function HeroAnimado() {
             {/* Features list */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-3 gap-3 pt-8 border-t border-white/10 w-full max-w-lg mx-auto lg:mx-0"
+              className="flex flex-wrap justify-center lg:justify-start gap-6 pt-8 border-t border-white/10 w-full max-w-lg mx-auto lg:mx-0"
             >
-              <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-white/10 rounded-xl mb-2 text-brand-yellow">
-                  <Shield className="h-5 w-5" />
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-white/10 rounded-lg text-brand-yellow">
+                  <Shield className="h-4 w-4" />
                 </div>
-                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-brand-blue-200">100% SEGURO</span>
+                <span className="text-xs font-subheading tracking-widest uppercase text-brand-blue-100">100% SEGURO</span>
               </div>
 
-              <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-white/10 rounded-xl mb-2 text-brand-yellow">
-                  <Zap className="h-5 w-5" />
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-white/10 rounded-lg text-brand-yellow">
+                  <Zap className="h-4 w-4" />
                 </div>
-                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-brand-blue-200">RÁPIDO</span>
+                <span className="text-xs font-subheading tracking-widest uppercase text-brand-blue-100">RÁPIDO</span>
               </div>
 
-              <div className="flex flex-col items-center lg:items-start">
-                <div className="p-2.5 bg-white/10 rounded-xl mb-2 text-brand-yellow">
-                  <MapPin className="h-5 w-5" />
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-white/10 rounded-lg text-brand-yellow">
+                  <MapPin className="h-4 w-4" />
                 </div>
-                <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-brand-blue-200">COBERTURA TOTAL</span>
+                <span className="text-xs font-subheading tracking-widest uppercase text-brand-blue-100">COBERTURA TOTAL</span>
               </div>
             </motion.div>
           </div>

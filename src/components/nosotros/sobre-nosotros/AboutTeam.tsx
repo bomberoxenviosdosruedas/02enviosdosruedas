@@ -49,21 +49,21 @@ export default function AboutTeam() {
       >
 
         {/* Header Block */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <div className="text-left max-w-3xl mb-16 space-y-4">
           <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,51,153,0.2)]">
             FUERZA HUMANA
           </span>
-          <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight">
-            Nuestro Equipo de Calle
+          <h2 className="text-brand-ink text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9]">
+            NUESTRO EQUIPO DE CALLE
           </h2>
-          <p className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-brand-blue-500 font-sans text-base sm:text-lg max-w-prose leading-relaxed font-medium">
             Contamos con cadetes capacitados en Mar del Plata para entregar todos su envios en tiempo y forma<br /><br />Contamos con un equipo de +20 Repartidores y estamos en constante crecimiento para cumplir con todas las entregas en tiempo y forma.
           </p>
-          <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
+          <div className="h-2 w-16 bg-brand-yellow rounded-full" />
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {teamStats.map((member, idx) => {
             const Icon = member.icon;
             return (
@@ -73,15 +73,15 @@ export default function AboutTeam() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-brand-white-50 border-2 border-brand-blue p-6 rounded-3xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between text-left group"
+                className="bg-brand-white-50 border-2 border-brand-blue p-6 rounded-xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between text-left group"
               >
                 <div>
                   {/* Big Stylized Number */}
-                  <span className="block font-display tracking-tight text-6xl text-brand-blue mb-4 group-hover:text-brand-yellow transition-colors duration-300 leading-none">
+                  <span className="block font-mono tracking-tighter text-6xl lg:text-7xl font-bold text-brand-blue mb-4 group-hover:text-brand-yellow transition-colors duration-300 leading-none">
                     {member.number}
                   </span>
 
-                  <h3 className="text-xl font-display uppercase tracking-wider text-brand-ink font-bold leading-tight mb-2 min-h-[40px] flex items-center">
+                  <h3 className="text-2xl font-display uppercase tracking-wider text-brand-ink font-bold leading-tight mb-2 min-h-[40px] flex items-center">
                     {member.role}
                   </h3>
 
@@ -92,8 +92,8 @@ export default function AboutTeam() {
 
                 <div className="pt-6 mt-6 border-t-2 border-brand-blue flex items-center justify-between">
                   <span className="text-xs font-subheading uppercase tracking-wider text-brand-blue-300">DosRuedas Staff</span>
-                  <div className="p-2 bg-brand-blue text-brand-yellow border-2 border-brand-blue rounded-xl">
-                    <Icon className="h-4 w-4" />
+                  <div className="p-2 bg-brand-blue text-brand-yellow border-2 border-brand-blue rounded-xl group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors duration-300">
+                    <Icon className="h-5 w-5" />
                   </div>
                 </div>
               </motion.div>
