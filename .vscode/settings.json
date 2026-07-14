@@ -1,3 +1,49 @@
 {
-    "npm.packageManager": "pnpm"
+  "npm.packageManager": "pnpm",
+  
+  // Linting & Validation
+  "css.lint.unknownAtRules": "ignore",
+  
+  // Editor Formatting & Style
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  
+  // Auto-Fix on Save using ESLint
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  
+  // File Nesting for a cleaner Explorer panel
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "package.json": "pnpm-lock.yaml, pnpm-workspace.yaml, .npmrc, eslint.config.mjs, postcss.config.mjs, tailwind.config.ts, tsconfig.json, vitest.config.ts",
+    ".env": ".env.local, .env.example, .env.development, .env.production",
+    "next.config.ts": "next-env.d.ts, tsconfig.tsbuildinfo",
+    "prisma/schema.prisma": "prisma/migrations"
+  },
+  
+  // File Exclusion to keep search and workspace light and fast
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/.next": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/pnpm-lock.yaml": true
+  },
+  
+  // Tailwind CSS IntelliSense Config
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascriptreact"
+  }
 }
