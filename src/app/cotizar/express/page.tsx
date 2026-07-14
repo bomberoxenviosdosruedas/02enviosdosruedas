@@ -23,7 +23,7 @@ export default async function Page() {
   }
 
   return (
-    <div id="cotizar-express-page" className="w-full bg-brand-dark text-white min-h-screen relative overflow-hidden">
+    <div id="cotizar-express-page" className="w-full gradient-dark text-white min-h-screen relative overflow-hidden">
       {/* Hero Section */}
       <CotizadorExpressHero />
 

@@ -36,7 +36,7 @@ export function calculateExpressPrice(
 
   if (expressRanges.length > 0) {
     const matchingRange = expressRanges.find(
-      (r) => distanceKm >= r.distanciaMinKm && distanceKm < r.distanciaMaxKm
+      (r) => (r.distanciaMinKm === 0 ? distanceKm >= r.distanciaMinKm : distanceKm > r.distanciaMinKm) && distanceKm <= r.distanciaMaxKm
     );
 
     if (matchingRange) {
@@ -88,7 +88,7 @@ export function calculateLowCostPrice(
 
   if (lowCostRanges.length > 0) {
     const matchingRange = lowCostRanges.find(
-      (r) => distanceKm >= r.distanciaMinKm && distanceKm < r.distanciaMaxKm
+      (r) => (r.distanciaMinKm === 0 ? distanceKm >= r.distanciaMinKm : distanceKm > r.distanciaMinKm) && distanceKm <= r.distanciaMaxKm
     );
 
     if (matchingRange) {

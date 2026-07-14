@@ -35,8 +35,8 @@ describe('calculateExpressPrice', () => {
     expect(calculateExpressPrice(5, expressRanges)).toBe(5000);
   });
 
-  it('retorna el precio del rango 7–10 km (incluido extremo inferior)', () => {
-    expect(calculateExpressPrice(7, expressRanges)).toBe(7500);
+  it('retorna el precio del rango 3–7 km (incluido extremo superior)', () => {
+    expect(calculateExpressPrice(7, expressRanges)).toBe(5000);
   });
 
   it('aplica recargo por km para distancias extendidas (> 10 km, <= 20 km)', () => {
@@ -74,8 +74,8 @@ describe('calculateLowCostPrice', () => {
     expect(calculateLowCostPrice(5, lowCostRanges)).toBe(4000);
   });
 
-  it('retorna el precio del rango 7–10 km (incluido extremo inferior)', () => {
-    expect(calculateLowCostPrice(7, lowCostRanges)).toBe(6000);
+  it('retorna el precio del rango 3–7 km (incluido extremo superior)', () => {
+    expect(calculateLowCostPrice(7, lowCostRanges)).toBe(4000);
   });
 
   it('aplica recargo por km para distancias extendidas (> 10 km, <= 20 km)', () => {
@@ -102,3 +102,58 @@ describe('calculateLowCostPrice', () => {
     expect(calculateLowCostPrice(21, [])).toBe('consultar');
   });
 });
+
+// ─── Boundary Mismatches Verification ─────────────────────────────────────────
+
+describe('pricing boundary consistency (DB vs Fallback)', () => {
+  const dbExpressRanges: PriceRangeProp[] = [
+    { id: 1, serviceType: 'EXPRESS', distanciaMinKm: 0, distanciaMaxKm: 3, precioRango: 3700, descripcion: '0-3' },
+    { id: 2, serviceType: 'EXPRESS', distanciaMinKm: 3, distanciaMaxKm: 5, precioRango: 4600, descripcion: '3-5' },
+    { id: 3, serviceType: 'EXPRESS', distanciaMinKm: 5, distanciaMaxKm: 7, precioRango: 6100, descripcion: '5-7' },
+    { id: 4, serviceType: 'EXPRESS', distanciaMinKm: 7, distanciaMaxKm: 10, precioRango: 8200, descripcion: '7-10' },
+  ];
+
+  const dbLowCostRanges: PriceRangeProp[] = [
+    { id: 1, serviceType: 'LOW_COST', distanciaMinKm: 0, distanciaMaxKm: 3, precioRango: 3000, descripcion: '0-3' },
+    { id: 2, serviceType: 'LOW_COST', distanciaMinKm: 3, distanciaMaxKm: 5, precioRango: 4000, descripcion: '3-5' },
+    { id: 3, serviceType: 'LOW_COST', distanciaMinKm: 5, distanciaMaxKm: 7, precioRango: 5300, descripcion: '5-7' },
+    { id: 4, serviceType: 'LOW_COST', distanciaMinKm: 7, distanciaMaxKm: 10, precioRango: 7000, descripcion: '7-10' },
+  ];
+
+  it('Express 3.0 km: DB matching should equal fallback', () => {
+    const dbPrice = calculateExpressPrice(3.0, dbExpressRanges);
+    const fallbackPrice = calculateExpressPrice(3.0, []);
+    expect(dbPrice).toBe(fallbackPrice);
+  });
+
+  it('Express 5.0 km: DB matching should equal fallback', () => {
+    const dbPrice = calculateExpressPrice(5.0, dbExpressRanges);
+    const fallbackPrice = calculateExpressPrice(5.0, []);
+    expect(dbPrice).toBe(fallbackPrice);
+  });
+
+  it('Express 7.0 km: DB matching should equal fallback', () => {
+    const dbPrice = calculateExpressPrice(7.0, dbExpressRanges);
+    const fallbackPrice = calculateExpressPrice(7.0, []);
+    expect(dbPrice).toBe(fallbackPrice);
+  });
+
+  it('LowCost 3.0 km: DB matching should equal fallback', () => {
+    const dbPrice = calculateLowCostPrice(3.0, dbLowCostRanges);
+    const fallbackPrice = calculateLowCostPrice(3.0, []);
+    expect(dbPrice).toBe(fallbackPrice);
+  });
+
+  it('LowCost 5.0 km: DB matching should equal fallback', () => {
+    const dbPrice = calculateLowCostPrice(5.0, dbLowCostRanges);
+    const fallbackPrice = calculateLowCostPrice(5.0, []);
+    expect(dbPrice).toBe(fallbackPrice);
+  });
+
+  it('LowCost 7.0 km: DB matching should equal fallback', () => {
+    const dbPrice = calculateLowCostPrice(7.0, dbLowCostRanges);
+    const fallbackPrice = calculateLowCostPrice(7.0, []);
+    expect(dbPrice).toBe(fallbackPrice);
+  });
+});
+

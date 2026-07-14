@@ -22,11 +22,11 @@ export default async function Page() {
   }
 
   return (
-    <div id="cotizar-lowcost-page" className="w-full bg-brand-dark text-white min-h-screen relative overflow-hidden">
+    <div id="cotizar-lowcost-page" className="w-full gradient-dark text-white min-h-screen relative overflow-hidden">
       {/* Hero Section */}
       <CotizadorLowCostHero />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 pb-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-24 relative z-10">
 
 
         {/* 1. Main Quote Form */}

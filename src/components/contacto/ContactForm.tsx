@@ -40,14 +40,14 @@ export default function ContactForm() {
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
       transition={{ 
-        y: { type: "spring", stiffness: 300, damping: 20 },
+        y: { ease: [0.16, 1, 0.3, 1], duration: 0.6 },
         opacity: { duration: 0.6 }
       }}
-      className="p-2 bg-brand-blue-100/60 border border-brand-blue-200 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300 flex flex-col group cursor-pointer h-full"
+      className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300 flex flex-col group cursor-pointer h-full"
     >
-      <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 md:p-10 border border-brand-blue-50 shadow-sm h-full flex flex-col justify-between relative overflow-hidden">
+      <div className="double-bezel-inner bg-white rounded-xl p-6 border border-brand-blue-50/50 shadow-sm h-full flex flex-col justify-between relative overflow-hidden">
         {/* Decorative top bar */}
-        <div className="absolute top-0 left-0 right-0 h-2 bg-brand-blue" />
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-brand-blue" />
 
         <div className="space-y-6">
           <div>
@@ -163,24 +163,22 @@ export default function ContactForm() {
                 <motion.button
                   type="submit"
                   disabled={status === 'submitting'}
-                  whileHover={{ scale: 1.015, y: -1 }}
-                  whileTap={{ scale: 0.99 }}
-                  className="w-full py-4 rounded-xl font-subheading tracking-wider uppercase text-lg font-bold text-brand-blue bg-brand-yellow hover:bg-brand-yellow border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.4 }}
+                  className="w-full cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue border border-brand-blue-100 shadow-[3px_3px_0px_rgba(0,39,124,0.1)] font-subheading tracking-wider uppercase text-lg cursor-pointer disabled:opacity-60 justify-center"
                 >
-                  {status === 'submitting' ? (
-                    <>
-                      <svg className="animate-spin h-5 w-5 text-brand-blue" fill="none" viewBox="0 0 24 24">
+                  <span>{status === 'submitting' ? 'Enviando...' : 'Enviar Mensaje'}</span>
+                  <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue shrink-0">
+                    {status === 'submitting' ? (
+                      <svg className="animate-spin h-4 w-4 text-brand-blue" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                       </svg>
-                      <span>Enviando...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="h-5 w-5 shrink-0" />
-                      <span>Enviar Mensaje</span>
-                    </>
-                  )}
+                    ) : (
+                      <Send className="h-4 w-4 shrink-0" />
+                    )}
+                  </span>
                 </motion.button>
               </motion.form>
             )}

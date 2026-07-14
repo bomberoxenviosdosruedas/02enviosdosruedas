@@ -105,7 +105,7 @@ export default function CotizadorLowCostHero() {
   return (
     <section
       id="cotizador-lowcost-hero"
-      className="relative min-h-[65vh] flex items-center justify-center pt-32 pb-12 overflow-hidden bg-gradient-to-b from-brand-dark via-brand-dark to-brand-dark text-white border-b border-white/10"
+      className="relative min-h-[65vh] flex items-center justify-center pt-32 pb-12 overflow-hidden bg-gradient-to-b from-brand-blue-700 via-brand-dark to-[#000d2b] text-white border-b border-white/10"
     >
       {/* Ambient background glows */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,rgba(6,54,165,0.45),transparent_55%)] pointer-events-none" />
@@ -141,10 +141,9 @@ export default function CotizadorLowCostHero() {
               </span>
             </motion.div>
 
-            {/* Title with display typography */}
             <motion.h1
               variants={itemVariants}
-              className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-none text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
+              className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-[0.02em] leading-none text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
             >
               <span>COTIZÁ TU</span>
               <span className="text-brand-yellow text-glow-yellow">ENVÍO</span>
@@ -190,48 +189,45 @@ export default function CotizadorLowCostHero() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1, transition: { duration: 0.8, delay: 0.3 } }}
             >
-              {/* Main Card with Glassmorphism and Custom shadow */}
-              <div 
-                className="rounded-3xl border border-white/25 bg-gradient-to-br from-brand-blue/50 to-brand-dark/90 backdrop-blur-xl p-8 text-white shadow-[0_30px_60px_-15px_rgba(6,54,165,0.45)] relative overflow-hidden group transition-all duration-300 hover:border-brand-yellow/30"
-                style={{
-                  background: `radial-gradient(circle at ${lightX}% ${lightY}%, rgba(255, 236, 1, 0.12) 0%, transparent 60%), linear-gradient(135deg, rgba(6, 54, 165, 0.5) 0%, rgba(0, 16, 53, 0.9) 100%)`
-                }}
-              >
-                <div className="space-y-6 relative z-10">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                    <div>
-                      <h4 className="text-xl font-display uppercase font-bold text-white tracking-wide">
-                        TARIFA OPTIMIZADA
-                      </h4>
-                      <p className="text-[10px] text-brand-blue-300 font-subheading tracking-wider uppercase mt-0.5">SISTEMA LOWCOST FLEX</p>
+              {/* Double-Bezel Card wrapper */}
+              <div className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300">
+                <div className="double-bezel-inner bg-white p-8 rounded-xl border border-brand-blue-50/50 text-[#0636A5]">
+                  <div className="space-y-6 relative z-10">
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                      <div>
+                        <h4 className="text-xl font-subheading uppercase text-[#0636A5] tracking-wider">
+                          TARIFA OPTIMIZADA
+                        </h4>
+                        <p className="text-[10px] text-brand-blue-600 font-subheading tracking-wider uppercase mt-0.5">SISTEMA LOWCOST FLEX</p>
+                      </div>
+                      <Calculator className="h-6 w-6 text-[#0636A5] shrink-0 animate-pulse" />
                     </div>
-                    <Calculator className="h-6 w-6 text-brand-yellow shrink-0 animate-pulse" />
-                  </div>
 
-                  {/* Calculator Simulation items */}
-                  <div className="space-y-3 font-mono text-xs text-brand-blue-200">
-                    <div className="flex justify-between items-center py-1 border-b border-white/5">
-                      <span>ORIGEN</span>
-                      <span className="text-white font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.origen}</span>
+                    {/* Calculator Simulation items */}
+                    <div className="space-y-3 text-xs text-slate-700">
+                      <div className="flex justify-between items-center py-1 border-b border-slate-100">
+                        <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-slate-500">ORIGEN</span>
+                        <span className="text-[#0636A5] font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.origen}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-1 border-b border-slate-100">
+                        <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-slate-500">DESTINO</span>
+                        <span className="text-[#0636A5] font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.destino}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-1 border-b border-slate-100">
+                        <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-slate-500">DISTANCIA</span>
+                        <span className="text-[#0636A5] font-bold font-mono">{trip.distancia} km</span>
+                      </div>
+                      <div className="flex justify-between items-center py-1 text-sm pt-2 border-t border-slate-100">
+                        <span className="font-sans font-bold text-[#0636A5]">COSTO UNITARIO</span>
+                        <span className="text-[#0636A5] font-bold text-lg font-mono">${price.toLocaleString('es-AR')} ARS</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center py-1 border-b border-white/5">
-                      <span>DESTINO</span>
-                      <span className="text-white font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.destino}</span>
-                    </div>
-                    <div className="flex justify-between items-center py-1 border-b border-white/5">
-                      <span>DISTANCIA</span>
-                      <span className="text-brand-yellow font-bold">{trip.distancia} km</span>
-                    </div>
-                    <div className="flex justify-between items-center py-1 text-sm pt-2">
-                      <span className="font-sans font-bold text-white">COSTO UNITARIO</span>
-                      <span className="text-brand-yellow font-bold text-lg glow-yellow-lg">${price.toLocaleString('es-AR')} ARS</span>
-                    </div>
-                  </div>
 
-                  <div className="pt-2 flex justify-center">
-                    <span className="px-3 py-1 bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow rounded-xl text-[10px] font-subheading tracking-wider uppercase">
-                      ENTREGA INCLUIDA EN EL DÍA
-                    </span>
+                    <div className="pt-2 flex justify-center">
+                      <span className="px-3 py-1 bg-brand-yellow-50 border border-brand-yellow text-[#0636A5] rounded-xl text-[10px] font-subheading tracking-wider uppercase">
+                        ENTREGA INCLUIDA EN EL DÍA
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

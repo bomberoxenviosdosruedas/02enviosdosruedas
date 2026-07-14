@@ -82,9 +82,9 @@ export default function AddressAutocomplete({
     const val = e.target.value;
     setQuery(val);
     onChange(val);
+    onSelectCoordinate(null);
 
     if (val.trim() === '') {
-      onSelectCoordinate(null);
       setSuggestions([]);
       setIsOpen(false);
       return;

@@ -52,12 +52,12 @@ export default function ContactInfo() {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
       className="space-y-8 h-full flex flex-col justify-between"
     >
       {/* Contact Channels Grid */}
-      <div className="p-2 bg-brand-blue-100/60 border border-brand-blue-200 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300">
-        <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-brand-blue-50 shadow-sm space-y-6">
+      <div className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300">
+        <div className="double-bezel-inner bg-white rounded-xl p-6 border border-brand-blue-50/50 shadow-sm space-y-6">
           <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
             CANALES RÁPIDOS
           </h3>
@@ -72,6 +72,7 @@ export default function ContactInfo() {
                   rel="noopener noreferrer"
                   whileHover={{ y: -3, scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
+                  transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.4 }}
                   className={`p-4 border-2 border-brand-blue-100 rounded-2xl flex items-center gap-3 transition-all duration-300 group/item bg-brand-white-50 hover:bg-white hover:border-brand-blue hover:shadow-[3px_3px_0px_var(--color-brand-blue)] cursor-pointer ${
                     chan.label === 'Email Principal' ? 'hover:border-brand-blue hover:text-brand-blue hover:shadow-brand-blue-50' : chan.color
                   }`}
@@ -107,8 +108,8 @@ export default function ContactInfo() {
       </div>
 
       {/* Operating Hours */}
-      <div className="p-2 bg-brand-blue-100/60 border border-brand-blue-200 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300">
-        <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-brand-blue-50 shadow-sm space-y-6">
+      <div className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300">
+        <div className="double-bezel-inner bg-white rounded-xl p-6 border border-brand-blue-50/50 shadow-sm space-y-6">
           <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
             <Clock className="h-6 w-6 text-brand-blue group-hover:rotate-6 transition-transform" />
             HORARIOS DE ATENCIÓN
@@ -135,8 +136,8 @@ export default function ContactInfo() {
       </div>
 
       {/* Coverage & Interactive Map */}
-      <div className="p-2 bg-brand-blue-100/60 border border-brand-blue-200 rounded-[2rem] hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all duration-300 flex-grow flex flex-col">
-        <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 border border-brand-blue-50 shadow-sm space-y-6 flex-grow flex flex-col justify-between">
+      <div className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300 flex-grow flex flex-col">
+        <div className="double-bezel-inner bg-white rounded-xl p-6 border border-brand-blue-50/50 shadow-sm space-y-6 flex-grow flex flex-col justify-between">
           <div className="space-y-2">
             <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
               <MapPin className="h-6 w-6 text-brand-blue shrink-0 group-hover:translate-y-[-2px] transition-transform" />

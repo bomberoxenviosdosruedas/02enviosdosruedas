@@ -23,9 +23,8 @@ export default function ContactHero() {
       opacity: 1,
       y: 0,
       transition: {
-        type: 'spring' as const,
-        stiffness: 100,
-        damping: 20,
+        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+        duration: 0.8,
       }
     },
   };
@@ -33,7 +32,7 @@ export default function ContactHero() {
   return (
     <section
       id="contacto-hero"
-      className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue text-white border-b border-white/10"
+      className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#00277c] to-[#0636A5] text-white border-b border-white/10"
     >
       {/* Ambient background glows using brand colors */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(0,32,104,0.45),transparent_50%)] pointer-events-none" />
@@ -97,7 +96,7 @@ export default function ContactHero() {
             {/* Special Callout Panel (Neo-Brutalist) */}
             <motion.div
               variants={itemVariants}
-              className="p-6 rounded-3xl bg-brand-navy/80 border-2 border-white/10 max-w-xl mx-auto lg:mx-0 shadow-[4px_4px_0px_var(--color-brand-yellow)] space-y-3 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-yellow)] transition-all duration-200"
+              className="p-6 rounded-2xl bg-white/5 border border-white/10 max-w-xl mx-auto lg:mx-0 shadow-lg space-y-3 backdrop-blur-sm transition-all duration-200 hover:border-brand-yellow/30"
             >
               <div className="flex items-center gap-2 justify-center lg:justify-start">
                 <Sparkles className="h-4.5 w-4.5 text-brand-yellow animate-spin-slow" />
@@ -117,43 +116,45 @@ export default function ContactHero() {
             <motion.div
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] z-20"
               initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1, transition: { duration: 0.8, delay: 0.3 } }}
+              animate={{ scale: 1, opacity: 1 }}
               whileHover={{ scale: 1.025, y: -4 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.8, delay: 0.3 }}
             >
-              <div className="rounded-3xl border-2 border-brand-blue bg-white p-8 text-brand-blue-700 shadow-[8px_8px_0px_var(--color-brand-yellow)] relative overflow-hidden group transition-all duration-300">
-                {/* Visual Accent Top Bar */}
-                <div className="absolute top-0 inset-x-0 h-2 bg-brand-blue" />
+              <div className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl group transition-all duration-300 relative">
+                <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue-700 space-y-6 relative overflow-hidden">
+                  {/* Visual Accent Top Bar */}
+                  <div className="absolute top-0 inset-x-0 h-1.5 bg-brand-blue" />
 
-                <div className="space-y-6 relative z-10 pt-2">
-                  <div>
-                    <h4 className="text-2xl font-display uppercase font-bold text-brand-blue leading-none">
-                      DATOS OFICIALES
-                    </h4>
-                    <p className="text-xs text-brand-blue-400 font-subheading tracking-wider uppercase mt-1">RESPUESTAS EN EL DÍA</p>
-                  </div>
+                  <div className="space-y-6 relative z-10 pt-2">
+                    <div>
+                      <h4 className="text-2xl font-display uppercase font-bold text-brand-blue leading-none">
+                        DATOS OFICIALES
+                      </h4>
+                      <p className="text-xs text-brand-blue-400 font-subheading tracking-wider uppercase mt-1">RESPUESTAS EN EL DÍA</p>
+                    </div>
 
-                  <div className="space-y-4 text-sm text-brand-blue-500 font-sans">
-                    <div className="flex items-center gap-3">
-                      <Phone className="h-5 w-5 text-brand-blue shrink-0 group-hover:scale-105 transition-transform" />
-                      <span className="font-mono font-bold text-brand-blue-700">+54 223 660-2699</span>
+                    <div className="space-y-4 text-sm text-brand-blue-500 font-sans">
+                      <div className="flex items-center gap-3">
+                        <Phone className="h-5 w-5 text-brand-blue shrink-0 group-hover:scale-105 transition-transform" />
+                        <span className="font-mono font-bold text-brand-blue-700">+54 223 660-2699</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Mail className="h-5 w-5 text-brand-blue shrink-0" />
+                        <span className="break-all font-mono font-bold text-brand-blue-700">contacto@enviosdosruedas.com</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <MapPin className="h-5 w-5 text-brand-blue shrink-0" />
+                        <span className="font-semibold text-brand-blue-700">Friuli 1972, Mar del Plata</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <Mail className="h-5 w-5 text-brand-blue shrink-0" />
-                      <span className="break-all font-mono font-bold text-brand-blue-700">contacto@enviosdosruedas.com</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <MapPin className="h-5 w-5 text-brand-blue shrink-0" />
-                      <span className="font-semibold text-brand-blue-700">Friuli 1972, Mar del Plata</span>
-                    </div>
-                  </div>
 
-                  <div className="pt-4 border-t-2 border-brand-blue-50 flex justify-between items-center text-xs">
-                    <span className="font-subheading text-brand-blue font-bold flex items-center gap-1 text-sm tracking-wider">
-                      <ShieldCheck className="h-4.5 w-4.5 text-brand-blue shrink-0 fill-brand-yellow" />
-                      ATENCIÓN COMERCIAL
-                    </span>
-                    <span className="text-brand-blue-500 font-subheading text-sm tracking-wider font-bold uppercase animate-pulse">DISPONIBLE</span>
+                    <div className="pt-4 border-t-2 border-brand-blue-50 flex justify-between items-center text-xs">
+                      <span className="font-subheading text-brand-blue font-bold flex items-center gap-1 text-sm tracking-wider">
+                        <ShieldCheck className="h-4.5 w-4.5 text-brand-blue shrink-0 fill-brand-yellow" />
+                        ATENCIÓN COMERCIAL
+                      </span>
+                      <span className="text-brand-blue-500 font-subheading text-sm tracking-wider font-bold uppercase animate-pulse">DISPONIBLE</span>
+                    </div>
                   </div>
                 </div>
               </div>
