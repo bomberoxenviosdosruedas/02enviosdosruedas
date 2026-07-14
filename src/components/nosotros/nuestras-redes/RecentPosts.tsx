@@ -72,39 +72,33 @@ export default function RecentPosts() {
   return (
     <section 
       id="recent-posts" 
-      className="py-24 bg-brand-white-50 relative overflow-hidden border-t-4 border-b-4 border-brand-blue"
+      className="py-24 bg-gradient-to-br from-[#0636A5] to-[#0742CA] text-white relative overflow-hidden border-t border-brand-yellow-500/20"
     >
+      {/* Ambient background glows */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(6,54,165,0.45),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="text-left max-w-2xl mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">
+          <span className="px-4 py-1.5 bg-brand-blue-700/60 border border-brand-yellow-500/30 text-brand-yellow-500 rounded-full text-base font-subheading uppercase tracking-widest inline-block shadow-sm backdrop-blur-sm">
             EN VIVO
           </span>
-          <h2 className="text-brand-ink text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9]">
+          <h2 className="text-white text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-[0.02em] leading-[1.1]">
             PUBLICACIONES RECIENTES
           </h2>
-          <p className="text-brand-blue-500 font-sans text-base sm:text-lg max-w-prose leading-relaxed font-medium">
+          <p className="text-brand-blue-100 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
             Lo que está pasando ahora mismo en nuestras redes sociales oficiales. Seguinos para no perderte nada.
           </p>
-          <div className="h-2 w-16 bg-brand-blue rounded-full" />
+          <div className="h-1 w-16 bg-brand-yellow-500 rounded-full" />
         </div>
 
         {/* Structured Bento Layout of 5 posts */}
-        <div className="grid grid-cols-1 md:grid-cols-12 auto-rows-auto gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
           {posts.map((post, idx) => {
             const SocialIcon = post.platformIcon;
-
-            // First post is featured: spans full width on md, or 2/3 on lg
             const isFeatured = idx === 0;
-            const gridClass = isFeatured
-              ? "md:col-span-12 lg:col-span-8 bg-brand-ink text-brand-white-50 shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:shadow-[2px_2px_0px_var(--color-brand-yellow)]"
-              : "md:col-span-6 lg:col-span-4 bg-white shadow-[4px_4px_0px_var(--color-brand-blue)] hover:shadow-[2px_2px_0px_var(--color-brand-blue)]";
-
-            const textColorClass = isFeatured ? "text-brand-white-50" : "text-brand-blue-500";
-            const headingColorClass = isFeatured ? "text-brand-yellow" : "text-brand-ink";
-            const borderColorClass = isFeatured ? "border-brand-yellow" : "border-brand-blue";
-            const dividerColorClass = isFeatured ? "border-white/10" : "border-brand-blue-50";
 
             return (
               <motion.div
@@ -113,103 +107,106 @@ export default function RecentPosts() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`${gridClass} rounded-xl border-2 ${borderColorClass} overflow-hidden hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 flex flex-col justify-between group ${isFeatured ? 'md:flex-row' : ''}`}
+                className={`double-bezel-outer bg-[#E6EEFE]/90 border border-[#BACEFD] p-2 rounded-2xl hover-float flex flex-col justify-between ${
+                  isFeatured ? 'md:col-span-12 lg:col-span-8' : 'md:col-span-6 lg:col-span-4'
+                }`}
               >
+                <div className={`double-bezel-inner bg-white rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue overflow-hidden flex flex-col justify-between h-full ${
+                  isFeatured ? 'md:flex-row' : ''
+                }`}>
+                  
+                  {/* Simulated Image */}
+                  <div className={`relative w-full overflow-hidden bg-brand-blue-50 border-b border-brand-blue-100/50 ${
+                    isFeatured ? 'md:w-1/2 h-64 md:h-full min-h-[300px] md:border-b-0 md:border-r' : 'h-64'
+                  }`}>
+                    <Image
+                      src={post.image}
+                      alt={post.alt || "Envíos DosRuedas Social Post"}
+                      fill
+                      referrerPolicy="no-referrer"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    {isFeatured && (
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-brand-yellow text-brand-blue text-xs font-subheading uppercase tracking-widest rounded-lg font-bold border border-brand-blue/30 shadow-md">
+                          DESTACADO
+                        </span>
+                      </div>
+                    )}
+                  </div>
 
-                {/* Simulated Image */}
-                <div className={`relative w-full ${isFeatured ? 'md:w-1/2 h-64 md:h-full min-h-[300px]' : 'h-64'} overflow-hidden bg-brand-blue-50 border-b-2 md:border-b-0 ${isFeatured ? 'md:border-r-2 border-brand-yellow' : 'border-brand-blue'}`}>
-                  <Image
-                    src={post.image}
-                    alt={post.alt || "Envíos DosRuedas Social Post"}
-                    fill
-                    referrerPolicy="no-referrer"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
-                  {isFeatured && (
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-brand-yellow text-brand-blue text-xs font-subheading uppercase tracking-widest rounded-lg font-bold border border-brand-yellow shadow-md">
-                        DESTACADO
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                <div className={`flex flex-col justify-between w-full ${isFeatured ? 'md:w-1/2' : ''}`}>
-                  <div>
-                    {/* Post Profile Header */}
-                    <div className={`p-5 flex items-center justify-between border-b-2 ${dividerColorClass}`}>
-                      <div className="flex items-center gap-3">
-                        <div className={`relative h-9 w-9 rounded-full overflow-hidden border-2 ${borderColorClass} shrink-0`}>
-                          <Image
-                            src={post.avatar}
-                            alt="Envíos DosRuedas Avatar"
-                            fill
-                            referrerPolicy="no-referrer"
-                            className="object-cover"
-                          />
+                  {/* Copy Details */}
+                  <div className={`flex flex-col justify-between w-full ${isFeatured ? 'md:w-1/2' : ''}`}>
+                    <div>
+                      {/* Post Profile Header */}
+                      <div className="p-5 flex items-center justify-between border-b border-brand-blue-100/50">
+                        <div className="flex items-center gap-3">
+                          <div className="relative h-9 w-9 rounded-full overflow-hidden border border-brand-blue-100 shrink-0">
+                            <Image
+                              src={post.avatar}
+                              alt="Envíos DosRuedas Avatar"
+                              fill
+                              referrerPolicy="no-referrer"
+                              className="object-cover"
+                            />
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-sans font-semibold uppercase tracking-wider text-brand-blue-700 leading-none">
+                              Envíos DosRuedas
+                            </h4>
+                            <span className="text-[10px] font-sans font-bold text-brand-blue-400 mt-1 block">
+                              {post.date}
+                            </span>
+                          </div>
                         </div>
-                        <div>
-                          <h4 className={`text-xs font-display uppercase tracking-wider ${headingColorClass}`}>
-                            Envíos DosRuedas
-                          </h4>
-                          <span className={`text-[10px] font-mono ${isFeatured ? 'text-brand-blue-200' : 'text-brand-blue-300'}`}>
-                            {post.date}
+
+                        <div className="p-2 bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100 rounded-lg">
+                          <SocialIcon className="h-4 w-4" />
+                        </div>
+                      </div>
+
+                      {/* Post Text Description */}
+                      <div className={`p-5 ${isFeatured ? 'md:p-8' : ''}`}>
+                        <p className={`text-sm md:text-base font-sans leading-relaxed text-brand-blue-600/90 ${
+                          isFeatured ? 'line-clamp-6' : 'line-clamp-3'
+                        }`}>
+                          {post.text}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Simulated Interactions Footer & Original Post Link */}
+                    <div className={`p-5 pt-0 ${isFeatured ? 'md:px-8' : ''}`}>
+                      <div className="pt-4 border-t border-brand-blue-100/50 flex items-center justify-between">
+                        {/* Likes & Comments mockup */}
+                        <div className="flex items-center gap-4 text-xs font-sans font-bold text-brand-blue-400">
+                          <span className="flex items-center gap-1 hover:text-brand-yellow-600 transition-colors cursor-pointer">
+                            <Heart className="h-4.5 w-4.5" />
+                            <span>{post.likes}</span>
+                          </span>
+                          <span className="flex items-center gap-1 hover:text-brand-yellow-600 transition-colors cursor-pointer">
+                            <MessageCircle className="h-4.5 w-4.5" />
+                            <span>{post.comments}</span>
                           </span>
                         </div>
-                      </div>
 
-                      <div className={`p-2 rounded-lg border ${
-                        post.platform === 'Facebook'
-                          ? (isFeatured ? 'bg-white/10 text-white border-white/20' : 'bg-brand-blue-50 text-brand-blue-600 border-brand-blue-200')
-                          : (isFeatured ? 'bg-white/10 text-white border-white/20' : 'bg-brand-yellow-50 text-brand-yellow-500 border-brand-yellow-200')
-                      }`}>
-                        <SocialIcon className="h-4 w-4" />
+                        {/* Button link */}
+                        <a
+                          href={post.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue border border-brand-blue/50 font-subheading tracking-wider text-base uppercase py-2 px-4 shadow-sm"
+                        >
+                          <span>Ver original</span>
+                          <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue shrink-0 w-6 h-6 ml-2">
+                            <ExternalLink className="h-3.5 w-3.5" />
+                          </span>
+                        </a>
                       </div>
                     </div>
 
-                    {/* Post Text Description */}
-                    <div className={`p-5 ${isFeatured ? 'md:p-8' : ''}`}>
-                      <p className={`text-sm md:text-base font-sans leading-relaxed ${isFeatured ? 'line-clamp-6' : 'line-clamp-3'} ${textColorClass}`}>
-                        {post.text}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Simulated Interactions Footer & Original Post Link */}
-                  <div className={`p-5 pt-0 ${isFeatured ? 'md:px-8' : ''}`}>
-                    <div className={`pt-4 border-t-2 ${dividerColorClass} flex items-center justify-between`}>
-
-                      {/* Likes & Comments mockup */}
-                      <div className={`flex items-center gap-4 text-xs font-mono ${isFeatured ? 'text-brand-blue-200' : 'text-brand-blue-300'}`}>
-                        <span className="flex items-center gap-1 hover:text-brand-yellow transition-colors cursor-pointer">
-                          <Heart className={`h-4.5 w-4.5 ${isFeatured ? 'text-brand-blue-200' : 'text-brand-blue-300'}`} />
-                          <span>{post.likes}</span>
-                        </span>
-                        <span className="flex items-center gap-1 hover:text-brand-yellow transition-colors cursor-pointer">
-                          <MessageCircle className="h-4.5 w-4.5" />
-                          <span>{post.comments}</span>
-                        </span>
-                      </div>
-
-                      {/* Button link */}
-                      <a
-                        href={post.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`text-xs font-subheading uppercase tracking-widest hover:scale-105 inline-flex items-center gap-1.5 font-bold transition-all duration-300 px-4 py-2 rounded-xl border ${
-                          isFeatured
-                            ? 'bg-brand-yellow text-brand-blue border-brand-yellow hover:bg-white hover:text-brand-ink'
-                            : 'text-brand-blue hover:text-brand-yellow-800 bg-brand-yellow/15 border-brand-yellow hover:bg-brand-yellow'
-                        }`}
-                      >
-                        <span>Ver original</span>
-                        <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-                      </a>
-
-                    </div>
                   </div>
                 </div>
-
               </motion.div>
             );
           })}

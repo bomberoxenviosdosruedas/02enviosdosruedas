@@ -25,6 +25,9 @@
   --color-brand-blue: var(--color-brand-blue-700);
   --color-brand-yellow: var(--color-brand-yellow-500);
   --color-brand-navy: var(--color-brand-blue-700);
+  --color-brand-ink: #00277c;
+  --color-brand-dark: #001035;
+
 
   /* Remapped Blue Scales */
   --color-blue-50: var(--color-brand-blue-50);

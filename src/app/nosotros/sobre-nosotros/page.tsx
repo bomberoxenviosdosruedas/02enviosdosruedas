@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 
 export default function SobreNosotrosPage() {
   return (
-    <main className="min-h-screen bg-brand-dark text-white relative overflow-hidden">
+    <main className="min-h-screen bg-white text-slate-900 relative overflow-hidden">
       {/* 3D Ambient floating glow-orbs */}
-      <div className="absolute top-[15%] left-[-10%] w-[40vw] h-[40vw] bg-brand-blue/20 rounded-full blur-[120px] pointer-events-none animate-float-slow" />
-      <div className="absolute top-[50%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow/5 rounded-full blur-[100px] pointer-events-none" style={{ animationDelay: '-2s' }} />
-      <div className="absolute bottom-[10%] left-[5%] w-[45vw] h-[45vw] bg-brand-blue/15 rounded-full blur-[130px] pointer-events-none" style={{ animationDelay: '-4s' }} />
+      <div className="absolute top-[15%] left-[-10%] w-[40vw] h-[40vw] bg-brand-blue-500/10 rounded-full blur-[120px] pointer-events-none animate-float-slow" />
+      <div className="absolute top-[50%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow-500/5 rounded-full blur-[100px] pointer-events-none" style={{ animationDelay: '-2s' }} />
+      <div className="absolute bottom-[10%] left-[5%] w-[45vw] h-[45vw] bg-brand-blue-500/10 rounded-full blur-[130px] pointer-events-none" style={{ animationDelay: '-4s' }} />
 
       {/* Hero Header & Quiénes Somos */}
       <div className="relative z-10">
@@ -52,4 +52,3 @@ export default function SobreNosotrosPage() {
     </main>
   );
 }
-

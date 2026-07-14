@@ -9,7 +9,7 @@ export default function FaqCta() {
   return (
     <section 
       id="faq-cta" 
-      className="py-24 bg-brand-blue text-white relative overflow-hidden border-t-4 border-brand-yellow"
+      className="py-24 bg-gradient-to-br from-[#0636A5] to-[#0742CA] text-white relative overflow-hidden border-t border-brand-yellow-500/20"
     >
       {/* Dynamic Background Overlays */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,204,0,0.04),transparent_35%)]" />
@@ -17,7 +17,7 @@ export default function FaqCta() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
-          className="bg-white text-brand-ink rounded-3xl p-8 sm:p-12 border-2 border-brand-blue shadow-[8px_8px_0px_var(--color-brand-yellow)] relative overflow-hidden text-center"
+          className="double-bezel-outer bg-[#E6EEFE]/90 border border-[#BACEFD] p-2 rounded-3xl max-w-4xl mx-auto shadow-xl relative overflow-hidden"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -26,49 +26,54 @@ export default function FaqCta() {
             visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: "easeOut" } }
           }}
         >
-          {/* Abstract background logo */}
-          <div className="absolute right-0 bottom-0 translate-y-8 translate-x-8 text-brand-blue-50 pointer-events-none -z-10">
-            <HelpCircle className="h-64 w-64 text-brand-white-50 opacity-40" />
-          </div>
-
-          <div className="max-w-2xl mx-auto space-y-6 relative z-10">
-            
-            <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,51,153,0.2)]">
-              SOPORTE HUMANO EN MDP
-            </span>
-            
-            <h3 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-blue leading-tight">
-              ¿NO ENCONTRASTE LO QUE BUSCABAS?
-            </h3>
-            
-            <p className="text-sm sm:text-base text-brand-blue-500 leading-relaxed font-sans">
-              No te preocupes. Nuestro equipo de soporte está listo para ayudarte en tiempo real con cualquier consulta específica que tengas sobre nuestros servicios de mensajería y delivery.
-            </p>
-
-            {/* CTA Buttons (Neo-Brutalist) */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
-              <a
-                href="https://wa.me/5492236602699?text=Hola,%20tengo%20una%20consulta%20que%20no%20encontr%C3%A9%20en%20las%20FAQ"
-                target="_blank"
-                rel="noopener noreferrer"
-                id="faq-cta-whatsapp"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2.5 font-bold"
-              >
-                <MessageSquare className="h-5 w-5 fill-current" />
-                Hablá por WhatsApp
-              </a>
-
-              <Link
-                href="/contacto"
-                id="faq-cta-contacto"
-                className="w-full sm:w-auto bg-white hover:bg-brand-white-50 text-brand-blue font-subheading tracking-wider text-lg uppercase px-8 py-4 rounded-2xl border-2 border-brand-blue shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-200 flex items-center justify-center gap-2 font-bold"
-              >
-                <Mail className="h-5 w-5 text-brand-blue" />
-                Contacto Directo
-                <ArrowRight className="h-5 w-5" />
-              </Link>
+          <div className="double-bezel-inner bg-white p-8 sm:p-12 rounded-2xl border border-brand-blue-50/50 shadow-sm text-brand-blue text-center relative overflow-hidden">
+            {/* Abstract background logo */}
+            <div className="absolute right-0 bottom-0 translate-y-8 translate-x-8 text-brand-blue-50 pointer-events-none -z-10">
+              <HelpCircle className="h-64 w-64 text-brand-blue-100 opacity-20" />
             </div>
 
+            <div className="max-w-2xl mx-auto space-y-6 relative z-10 flex flex-col items-center">
+              
+              <span className="px-4 py-1.5 bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 rounded-full text-xs font-sans font-bold uppercase tracking-widest inline-block">
+                SOPORTE HUMANO EN MDP
+              </span>
+              
+              <h3 className="text-3xl sm:text-4xl font-display uppercase tracking-[0.02em] leading-[1.1] text-brand-blue-700">
+                ¿NO ENCONTRASTE LO QUE BUSCABAS?
+              </h3>
+              
+              <p className="text-sm sm:text-base text-brand-blue-600/90 leading-relaxed font-sans">
+                No te preocupes. Nuestro equipo de soporte está listo para ayudarte en tiempo real con cualquier consulta específica que tengas sobre nuestros servicios de mensajería y delivery.
+              </p>
+
+              {/* CTA Buttons (Double-Bezel & cta-nested-pill compliant) */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full">
+                <a
+                  href="https://wa.me/5492236602699?text=Hola,%20tengo%20una%20consulta%20que%20no%20encontr%C3%A9%20en%20las%20FAQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="faq-cta-whatsapp"
+                  className="cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue font-subheading tracking-wider text-lg uppercase shadow-md hover:shadow-lg w-full sm:w-auto justify-center"
+                >
+                  Hablá por WhatsApp
+                  <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue shrink-0">
+                    <MessageSquare className="h-4.5 w-4.5 fill-current" />
+                  </span>
+                </a>
+
+                <Link
+                  href="/contacto"
+                  id="faq-cta-contacto"
+                  className="cta-nested-pill bg-white hover:bg-brand-blue-50 text-brand-blue border border-brand-blue-100 font-subheading tracking-wider text-lg uppercase shadow-sm hover:shadow-md w-full sm:w-auto justify-center"
+                >
+                  Contacto Directo
+                  <span className="cta-nested-icon bg-brand-blue/5 text-brand-blue shrink-0">
+                    <ArrowRight className="h-4.5 w-4.5" />
+                  </span>
+                </Link>
+              </div>
+
+            </div>
           </div>
         </motion.div>
       </div>

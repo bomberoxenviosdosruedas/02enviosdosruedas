@@ -35,31 +35,28 @@ export default function AboutTeam() {
   return (
     <section
       id="about-team"
-      className="py-24 bg-white relative z-10 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.01)] overflow-hidden border-t-4 border-brand-blue"
+      className="py-24 bg-gradient-to-br from-[#0636A5] to-[#0742CA] text-white relative z-10 overflow-hidden border-t border-brand-yellow-500/20"
     >
-      <motion.div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={{
-          hidden: { opacity: 0, y: 40 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-        }}
-      >
+      {/* Background gradients or subtle clean styling */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(6,54,165,0.45),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header Block */}
         <div className="text-left max-w-3xl mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,51,153,0.2)]">
+          <span className="px-4 py-1.5 bg-brand-blue-700/60 border border-brand-yellow-500/30 text-brand-yellow-500 rounded-full text-base font-subheading uppercase tracking-widest inline-block shadow-sm backdrop-blur-sm">
             FUERZA HUMANA
           </span>
-          <h2 className="text-brand-ink text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9]">
+          <h2 className="text-white text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-[0.02em] leading-[1.1]">
             NUESTRO EQUIPO DE CALLE
           </h2>
-          <p className="text-brand-blue-500 font-sans text-base sm:text-lg max-w-prose leading-relaxed font-medium">
-            Contamos con cadetes capacitados en Mar del Plata para entregar todos su envios en tiempo y forma<br /><br />Contamos con un equipo de +20 Repartidores y estamos en constante crecimiento para cumplir con todas las entregas en tiempo y forma.
+          <p className="text-brand-blue-100 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
+            Contamos con cadetes capacitados en Mar del Plata para entregar todos tus envíos en tiempo y forma.
+            <br /><br />
+            Contamos con un equipo de +20 repartidores y estamos en constante crecimiento para cumplir con todas las entregas de manera impecable.
           </p>
-          <div className="h-2 w-16 bg-brand-yellow rounded-full" />
+          <div className="h-1 w-16 bg-brand-yellow-500 rounded-full" />
         </div>
 
         {/* Team Grid */}
@@ -73,35 +70,37 @@ export default function AboutTeam() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-brand-white-50 border-2 border-brand-blue p-6 rounded-xl shadow-[4px_4px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all duration-300 flex flex-col justify-between text-left group"
+                className="double-bezel-outer bg-[#E6EEFE]/90 border border-[#BACEFD] p-2 rounded-2xl hover-float cursor-default"
               >
-                <div>
-                  {/* Big Stylized Number */}
-                  <span className="block font-mono tracking-tighter text-6xl lg:text-7xl font-bold text-brand-blue mb-4 group-hover:text-brand-yellow transition-colors duration-300 leading-none">
-                    {member.number}
-                  </span>
+                <div className="double-bezel-inner bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue">
+                  <div>
+                    {/* Big Stylized Number in Bebas Neue */}
+                    <span className="block font-subheading tracking-wider text-6xl lg:text-7xl font-bold text-brand-blue-700 mb-2 leading-none">
+                      {member.number}
+                    </span>
 
-                  <h3 className="text-2xl font-display uppercase tracking-wider text-brand-ink font-bold leading-tight mb-2 min-h-[40px] flex items-center">
-                    {member.role}
-                  </h3>
+                    <h3 className="text-2xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold leading-tight mb-2 min-h-[40px] flex items-center">
+                      {member.role}
+                    </h3>
 
-                  <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
-                    {member.desc}
-                  </p>
-                </div>
+                    <p className="text-sm text-brand-blue-600/90 font-sans leading-relaxed">
+                      {member.desc}
+                    </p>
+                  </div>
 
-                <div className="pt-6 mt-6 border-t-2 border-brand-blue flex items-center justify-between">
-                  <span className="text-xs font-subheading uppercase tracking-wider text-brand-blue-300">DosRuedas Staff</span>
-                  <div className="p-2 bg-brand-blue text-brand-yellow border-2 border-brand-blue rounded-xl group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors duration-300">
-                    <Icon className="h-5 w-5" />
+                  <div className="pt-6 mt-6 border-t border-brand-blue-100/60 flex items-center justify-between">
+                    <span className="text-xs font-sans font-bold uppercase tracking-wider text-brand-blue-400">DosRuedas Staff</span>
+                    <div className="p-2 bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100 rounded-xl">
+                      <Icon className="h-5 w-5" />
+                    </div>
                   </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
-
-      </motion.div>
+      </div>
     </section>
   );
 }
+

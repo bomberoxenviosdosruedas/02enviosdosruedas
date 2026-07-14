@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 
 export default function PreguntasFrecuentesPage() {
   return (
-    <main className="min-h-screen bg-brand-dark text-white relative overflow-hidden">
+    <main className="min-h-screen bg-white text-slate-900 relative overflow-hidden">
       {/* 3D Ambient floating glow-orbs */}
-      <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue/20 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow/5 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />
+      <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue-500/10 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
+      <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow-500/5 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />
 
       {/* Hero Header block */}
       <div className="relative z-10">
@@ -33,4 +33,3 @@ export default function PreguntasFrecuentesPage() {
     </main>
   );
 }
-

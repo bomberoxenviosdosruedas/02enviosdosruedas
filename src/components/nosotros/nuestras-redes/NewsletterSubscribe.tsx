@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mail, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { Mail, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 export default function NewsletterSubscribe() {
   const [email, setEmail] = useState('');
@@ -19,86 +19,91 @@ export default function NewsletterSubscribe() {
   return (
     <section 
       id="newsletter-subscribe" 
-      className="py-24 bg-brand-blue-700 text-white relative overflow-hidden border-t-4 border-brand-yellow"
+      className="py-24 bg-gradient-to-br from-[#0636A5] to-[#0742CA] text-white relative overflow-hidden border-t border-brand-yellow-500/20"
     >
       {/* Aesthetic ambient lighting */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,236,1,0.03),transparent_30%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(255,255,255,0.02),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,236,1,0.03),transparent_30%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(255,255,255,0.02),transparent_40%)] pointer-events-none" />
  
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-2xl mx-auto space-y-8">
+        <div className="text-center max-w-2xl mx-auto space-y-8 flex flex-col items-center">
           
-          <div className="inline-flex p-3 bg-brand-yellow text-brand-blue rounded-3xl mx-auto border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-blue)]">
+          <div className="inline-flex p-3 bg-brand-yellow-50 text-brand-blue-700 rounded-3xl mx-auto border border-brand-yellow-100/50 shadow-sm">
             <Mail className="h-6 w-6" />
           </div>
  
           <div className="space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-yellow font-subheading block">
+            <span className="text-base font-bold uppercase tracking-widest text-brand-yellow-500 font-subheading block">
               COMUNIDAD LOGÍSTICA
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white leading-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[0.02em] leading-[1.1] text-white">
               NEWSLETTER EXCLUSIVO
             </h2>
-            <p className="text-sm sm:text-base text-brand-blue-50 font-sans leading-relaxed max-w-lg mx-auto">
+            <p className="text-sm sm:text-base text-brand-blue-100 font-sans leading-relaxed max-w-lg mx-auto">
               Recibí promociones relámpago, novedades operativas de calle, beneficios corporativos y noticias logísticas de Mar del Plata directamente en tu bandeja de entrada.
             </p>
           </div>
- 
-          {/* Form container with state change (Neo-Brutalist Box) */}
-          <div className="bg-brand-blue-600 border-2 border-brand-yellow p-6 sm:p-8 rounded-[2rem] shadow-[6px_6px_0px_var(--color-brand-yellow)] backdrop-blur-sm">
-            <AnimatePresence mode="wait">
-              {!submitted ? (
-                <motion.form
-                  key="newsletter-form"
-                  onSubmit={handleSubmit}
-                  className="flex flex-col sm:flex-row gap-3"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <input
-                    type="email"
-                    required
-                    placeholder="Tu correo electrónico..."
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 bg-white text-brand-ink placeholder:text-brand-blue-300 font-sans text-sm rounded-xl px-4 py-4 border-2 border-brand-blue focus:outline-none focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all"
-                  />
-                  <button
-                    type="submit"
-                    className="bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider font-bold text-sm uppercase px-8 py-4 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-blue)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_var(--color-brand-blue)] transition-all duration-200 shrink-0 cursor-pointer"
+  
+          {/* Form container with state change (Double-Bezel on Blue Background) */}
+          <div className="w-full double-bezel-outer bg-[#E6EEFE]/90 border border-[#BACEFD] p-2 rounded-2xl shadow-lg">
+            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue">
+              <AnimatePresence mode="wait">
+                {!submitted ? (
+                  <motion.form
+                    key="newsletter-form"
+                    onSubmit={handleSubmit}
+                    className="flex flex-col sm:flex-row gap-3 w-full"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
                   >
-                    Unirme Ahora
-                  </button>
-                </motion.form>
-              ) : (
-                <motion.div
-                  key="success-message"
-                  className="py-4 text-center space-y-3"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="inline-flex p-2 bg-brand-blue-400/10 text-brand-yellow rounded-full">
-                    <CheckCircle2 className="h-6 w-6 text-brand-yellow animate-bounce" />
-                  </div>
-                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-yellow">
-                    ¡Suscripción Exitosa!
-                  </h3>
-                  <p className="text-xs sm:text-sm text-brand-blue-50 font-sans max-w-sm mx-auto">
-                    Ya formás parte de la lista prioritaria. Preparate para recibir las mejores novedades y descuentos.
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Tu correo electrónico..."
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="flex-1 bg-slate-50 text-brand-blue-700 placeholder:text-brand-blue-400 font-sans text-sm rounded-xl px-4 py-4 border border-brand-blue-100 focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/50 transition-all"
+                    />
+                    <button
+                      type="submit"
+                      className="cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue border border-brand-blue/50 font-subheading tracking-wider text-base uppercase shadow-sm justify-center shrink-0 cursor-pointer"
+                    >
+                      <span>Unirme Ahora</span>
+                      <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue shrink-0">
+                        <Mail className="h-4.5 w-4.5" />
+                      </span>
+                    </button>
+                  </motion.form>
+                ) : (
+                  <motion.div
+                    key="success-message"
+                    className="py-4 text-center space-y-3 flex flex-col items-center justify-center"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="p-2.5 bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 rounded-full w-fit">
+                      <CheckCircle2 className="h-6 w-6 text-brand-blue-700 animate-bounce" />
+                    </div>
+                    <h3 className="text-2xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
+                      ¡Suscripción Exitosa!
+                    </h3>
+                    <p className="text-xs sm:text-sm text-brand-blue-600/95 font-sans max-w-sm mx-auto">
+                      Ya formás parte de la lista prioritaria. Preparate para recibir las mejores novedades y descuentos.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
-
+ 
           {/* Disclaimer text */}
-          <div className="flex items-center justify-center gap-2 text-[10px] sm:text-xs text-brand-blue-100/75 font-sans pt-2">
-            <ShieldCheck className="h-4 w-4 text-brand-yellow shrink-0" />
+          <div className="flex items-center justify-center gap-2 text-xs text-brand-blue-200/90 font-sans pt-2">
+            <ShieldCheck className="h-4.5 w-4.5 text-brand-yellow-500 shrink-0" />
             <span>Garantizamos la privacidad de tus datos. Podés darte de baja con un solo clic en cualquier momento.</span>
           </div>
-
+ 
         </div>
       </div>
     </section>
