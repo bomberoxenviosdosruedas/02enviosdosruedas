@@ -44,7 +44,7 @@ export default function CarruselRedes() {
       id="carrusel-redes" 
       className="py-24 bg-brand-blue border-y border-brand-blue-100/60 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(255,204,0,0.03),transparent_35%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,var(--color-brand-yellow-500),transparent_35%)]" />
 
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -86,7 +86,7 @@ export default function CarruselRedes() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.12, ease: "easeOut" }}
-                className="p-8 rounded-xl border-2 border-brand-blue flex flex-col justify-between hover:shadow-[6px_6px_0px_var(--color-brand-yellow)] hover:bg-brand-white-50 transition-all duration-300 group bg-white text-brand-ink active:scale-[0.98] active:translate-y-[1px]"
+                className="p-8 rounded-xl border-2 border-brand-blue flex flex-col justify-between hover:float-tilt-card hover:glow-blue hover:bg-brand-white-50 transition-all duration-300 group bg-white text-brand-ink active:scale-[0.98] active:translate-y-[1px]"
               >
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">

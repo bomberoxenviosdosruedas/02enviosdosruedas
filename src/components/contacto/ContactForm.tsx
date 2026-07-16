@@ -43,7 +43,7 @@ export default function ContactForm() {
         y: { ease: [0.16, 1, 0.3, 1], duration: 0.6 },
         opacity: { duration: 0.6 }
       }}
-      className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300 flex flex-col group cursor-pointer h-full"
+      className="double-bezel-outer bg-brand-blue-50/80 hover:shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300 flex flex-col group cursor-pointer h-full"
     >
       <div className="double-bezel-inner bg-white rounded-xl p-6 border border-brand-blue-50/50 shadow-sm h-full flex flex-col justify-between relative overflow-hidden">
         {/* Decorative top bar */}
@@ -119,7 +119,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     disabled={status === 'submitting'}
                     placeholder="Ej: Juan Pérez"
-                    className="w-full px-4 py-3.5 rounded-xl border-2 border-brand-blue-100 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all disabled:opacity-60 bg-brand-white-50"
+                    className="w-full px-4 py-3.5 rounded-2xl border-2 border-brand-blue-700 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:shadow-brutalist transition-all disabled:opacity-60 bg-brand-white-50"
                   />
                 </div>
 
@@ -137,7 +137,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     disabled={status === 'submitting'}
                     placeholder="Ej: juan.perez@email.com"
-                    className="w-full px-4 py-3.5 rounded-xl border-2 border-brand-blue-100 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all disabled:opacity-60 bg-brand-white-50"
+                    className="w-full px-4 py-3.5 rounded-2xl border-2 border-brand-blue-700 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:shadow-brutalist transition-all disabled:opacity-60 bg-brand-white-50"
                   />
                 </div>
 
@@ -155,7 +155,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     disabled={status === 'submitting'}
                     placeholder="Escribí acá tu consulta. Decinos en qué podemos ayudarte..."
-                    className="w-full px-4 py-3.5 rounded-xl border-2 border-brand-blue-100 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue focus:shadow-[2px_2px_0px_var(--color-brand-blue)] transition-all disabled:opacity-60 bg-brand-white-50 resize-none"
+                    className="w-full px-4 py-3.5 rounded-2xl border-2 border-brand-blue-700 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:shadow-brutalist transition-all disabled:opacity-60 bg-brand-white-50 resize-none"
                   />
                 </div>
 
@@ -166,7 +166,7 @@ export default function ContactForm() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.4 }}
-                  className="w-full cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue border border-brand-blue-100 shadow-[3px_3px_0px_rgba(0,39,124,0.1)] font-subheading tracking-wider uppercase text-lg cursor-pointer disabled:opacity-60 justify-center"
+                  className="w-full cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue border border-brand-blue-100 shadow-brutalist font-subheading tracking-wider uppercase text-lg cursor-pointer disabled:opacity-60 justify-center"
                 >
                   <span>{status === 'submitting' ? 'Enviando...' : 'Enviar Mensaje'}</span>
                   <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue shrink-0">

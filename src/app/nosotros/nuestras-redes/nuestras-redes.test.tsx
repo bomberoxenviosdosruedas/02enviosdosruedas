@@ -79,7 +79,7 @@ describe('NuestrasRedesPage — Tier 1 & 2', () => {
     const { container } = render(<NuestrasRedesPage />);
     const newsletterSec = container.querySelector('#newsletter-subscribe');
     expect(newsletterSec?.className).toContain('bg-gradient-to-br');
-    expect(newsletterSec?.className).toContain('from-[#0636A5]');
+    expect(newsletterSec?.className).toContain('from-brand-blue-700');
   });
 
   it('T2.5: verifica que las etiquetas explicativas utilicen IBM Plex Sans / Inter (clase font-sans)', () => {

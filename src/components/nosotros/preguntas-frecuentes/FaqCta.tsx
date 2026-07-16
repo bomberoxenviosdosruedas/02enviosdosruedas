@@ -9,15 +9,15 @@ export default function FaqCta() {
   return (
     <section 
       id="faq-cta" 
-      className="py-24 bg-gradient-to-br from-[#0636A5] to-[#0742CA] text-white relative overflow-hidden border-t border-brand-yellow-500/20"
+      className="py-24 bg-gradient-to-br from-brand-blue-700 to-brand-blue-600 text-white relative overflow-hidden border-t border-brand-yellow-500/20"
     >
       {/* Dynamic Background Overlays */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,204,0,0.04),transparent_35%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_75%,rgba(255,255,255,0.03),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,var(--color-brand-yellow-500),transparent_35%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_75%,var(--color-brand-white-50),transparent_40%)]" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
-          className="double-bezel-outer bg-[#E6EEFE]/90 border border-[#BACEFD] p-2 rounded-3xl max-w-4xl mx-auto shadow-xl relative overflow-hidden"
+          className="double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-3xl max-w-4xl mx-auto shadow-xl relative overflow-hidden"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -53,7 +53,7 @@ export default function FaqCta() {
                   target="_blank"
                   rel="noopener noreferrer"
                   id="faq-cta-whatsapp"
-                  className="cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue font-subheading tracking-wider text-lg uppercase shadow-md hover:shadow-lg w-full sm:w-auto justify-center"
+                  className="link-animated cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-700 font-subheading tracking-wider text-lg uppercase shadow-brutalist w-full sm:w-auto justify-center"
                 >
                   Hablá por WhatsApp
                   <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue shrink-0">

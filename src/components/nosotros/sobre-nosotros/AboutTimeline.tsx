@@ -25,13 +25,13 @@ export default function AboutTimeline() {
       icon: Award,
     },
     {
-      year: '2025',
+      year: '2026',
       title: 'Envíos Flex Pioneros',
       desc: 'Primera mensajeria en ofrecer Envios Flex en Mar del Plata',
       icon: CheckCircle,
     },
     {
-      year: '2025',
+      year: '2026',
       title: 'Depósito Central',
       desc: 'Mudanza a depósito central Friuli 1972 e innovaciones tecnologicas.',
       icon: Truck,
@@ -113,7 +113,7 @@ export default function AboutTimeline() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.55 }}
-                    className="w-full md:w-[45%] double-bezel-outer bg-[#E6EEFE]/80 border border-[#BACEFD] p-2 rounded-2xl hover-float pl-16 md:pl-2"
+                    className="w-full md:w-[45%] double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float pl-16 md:pl-2"
                   >
                     <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue flex flex-col">
                       <span className="inline-block text-4xl font-subheading tracking-wider text-brand-blue-700 mb-1 leading-none">

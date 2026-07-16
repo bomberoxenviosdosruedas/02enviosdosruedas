@@ -46,7 +46,7 @@ export default function NetworksChannels() {
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="lg:col-span-12 double-bezel-outer bg-[#E6EEFE]/80 border border-[#BACEFD] p-2 rounded-2xl hover-float cursor-default"
+            className="lg:col-span-12 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
           >
             <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-brand-blue">
               <div className="space-y-4 max-w-3xl">
@@ -95,7 +95,7 @@ export default function NetworksChannels() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-6 double-bezel-outer bg-[#E6EEFE]/80 border border-[#BACEFD] p-2 rounded-2xl hover-float cursor-default"
+            className="lg:col-span-6 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
           >
             <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue min-h-[340px]">
               <div className="space-y-6">
@@ -147,7 +147,7 @@ export default function NetworksChannels() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-6 double-bezel-outer bg-[#E6EEFE]/80 border border-[#BACEFD] p-2 rounded-2xl hover-float cursor-default"
+            className="lg:col-span-6 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
           >
             <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue min-h-[340px]">
               <div className="space-y-6">

@@ -33,11 +33,11 @@ export default function AboutHero() {
   return (
     <section 
       id="about-hero" 
-      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#0636A5] to-[#0742CA] text-white border-b border-brand-blue-100/10"
+      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-brand-blue-700 to-brand-blue-600 text-white border-b border-brand-blue-100/10"
     >
       {/* Ambient background glows using brand colors */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(6,54,165,0.45),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,var(--color-brand-blue-700),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,var(--color-brand-yellow-500),transparent_50%)] pointer-events-none" />
 
       {/* Background illustration overlay */}
       <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none">
@@ -83,13 +83,13 @@ export default function AboutHero() {
                   className="object-cover"
                 />
               </span>
-              <span className="text-brand-yellow-500 drop-shadow-[0_2px_10px_rgba(255,236,1,0.25)]">ÚLTIMA MILLA</span>
+              <span className="text-brand-yellow-500 drop-shadow-[0_2px_10px_var(--color-brand-yellow-500)]">ÚLTIMA MILLA</span>
             </motion.h1>
  
             {/* Description */}
             <motion.p 
               variants={itemVariants}
-              className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed accent-line-left pl-6"
             >
               Nuestra historia comenzó con una simple meta: hacer los envíos locales más eficientes, rápidos y confiables en Mar del Plata.
             </motion.p>
@@ -97,7 +97,7 @@ export default function AboutHero() {
             {/* Special Callout Panel (Double-Bezel on Blue Background) */}
             <motion.div 
               variants={itemVariants}
-              className="double-bezel-outer bg-[#E6EEFE]/90 border border-[#BACEFD] p-2 rounded-2xl max-w-xl mx-auto lg:mx-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+              className="double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl max-w-xl mx-auto lg:mx-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
             >
               <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue-700 space-y-2">
                 <div className="flex items-center gap-2 justify-center lg:justify-start">
@@ -123,7 +123,7 @@ export default function AboutHero() {
               whileHover={{ scale: 1.02, y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
             >
-              <div className="double-bezel-outer bg-[#E6EEFE]/90 border border-[#BACEFD] p-2 rounded-2xl shadow-[0_20px_50px_rgba(0,39,124,0.15)] group transition-all duration-300">
+              <div className="double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl shadow-[0_20px_50px_var(--color-brand-blue-700)] group transition-all duration-300">
                 <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue space-y-6">
                   {/* Visual Accent Top Bar */}
                   <div className="absolute top-0 inset-x-0 h-1.5 bg-brand-blue" />
