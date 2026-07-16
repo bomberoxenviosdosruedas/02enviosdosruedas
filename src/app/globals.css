@@ -257,6 +257,70 @@
   }
 }
 
+/* New utilities from Vanguard UI Arch request */
+@utility shimmer-bg {
+  background: linear-gradient(
+    90deg,
+    var(--color-brand-blue-50) 25%,
+    var(--color-brand-blue-100) 50%,
+    var(--color-brand-blue-50) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+@utility link-animated {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-brand-yellow-500);
+    transition: width 0.3s ease-out;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@utility cta-pulse {
+  animation: border-pulse 2s ease-in-out infinite;
+}
+
+@utility section-fade-bottom {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+@utility bezel-outer {
+  background-color: var(--color-brand-blue-50);
+  border: 1px solid var(--color-brand-blue-100);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+@utility bezel-inner {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+@utility glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@utility glass-card-blue {
+  background: rgba(6, 54, 165, 0.08);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(6, 54, 165, 0.2);
+}
+
 /* Double-Bezel Card & CTA Nested Button Utilities */
 @utility double-bezel-outer {
   background-color: var(--color-gray-100);

@@ -3,9 +3,11 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'motion/react';
 import { Bike, Shield, Zap, MapPin, ArrowRight } from 'lucide-react';
 import LogisticaNetworkCanvas from './LogisticaNetworkCanvas';
+import gsap from 'gsap';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -72,18 +74,39 @@ export default function HeroAnimado() {
     mouseY.set(0);
   };
 
+  const { scrollY } = useScroll();
+  const parallaxY = useTransform(scrollY, [0, 1000], [0, 150]);
+
+  const counterRef = useRef<HTMLSpanElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (counterRef.current && !hasAnimated) {
+      setHasAnimated(true);
+      gsap.to(counterRef.current, {
+        innerHTML: 5000,
+        duration: 2,
+        snap: { innerHTML: 1 },
+        ease: 'power3.out',
+        delay: 1.5,
+      });
+    }
+  }, [hasAnimated]);
+
   return (
     <section
       id="hero-animado"
-      className="relative min-h-[95dvh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue text-white"
+      className="relative min-h-[95dvh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue text-white section-fade-bottom"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleMouseLeave}
     >
       {/* Background patterns */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.02),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,236,1,0.02),transparent_50%)]" />
+      <motion.div style={{ y: parallaxY }} className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.02),transparent_40%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,236,1,0.02),transparent_50%)]" />
+      </motion.div>
 
       {/* Interactive Logistics Network Background */}
       <LogisticaNetworkCanvas />
@@ -92,7 +115,7 @@ export default function HeroAnimado() {
       <div className="absolute bottom-0 left-0 right-0 h-2 bg-brand-white-50 pointer-events-none" />
 
       {/* Background illustration overlay with topographic feel */}
-      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none">
+      <motion.div style={{ y: parallaxY }} className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none">
         <Image
           src="/hero-background.jpeg"
           alt="Textura de Mapa de calles"
@@ -100,20 +123,20 @@ export default function HeroAnimado() {
           priority
           className="object-cover"
         />
-      </div>
+      </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-12 items-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           {/* Main Info */}
-          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-3.5 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue border border-brand-yellow">
+              <span className="px-3.5 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue border border-brand-yellow cta-pulse shadow-accent-sm">
                 Tu Solución Confiable
               </span>
             </motion.div>
@@ -147,20 +170,20 @@ export default function HeroAnimado() {
               <Link
                 href="/cotizar/express"
                 id="hero-cta-solicitar"
-                className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow text-brand-blue font-mono tracking-wider text-sm uppercase cta-nested-pill border border-brand-yellow transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center justify-between font-bold"
+                className="w-full sm:w-auto bg-brand-yellow text-brand-blue font-mono tracking-wider text-sm uppercase cta-nested-pill border border-brand-yellow hover:shadow-cta-glow transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.95] flex items-center justify-between font-bold"
               >
                 <span>Solicitar Servicio</span>
-                <span className="cta-nested-icon bg-brand-blue/15 text-brand-blue">
+                <span className="cta-nested-icon bg-brand-blue/15 text-brand-blue transition-transform duration-300 group-hover:translate-x-1">
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </Link>
               <Link
                 href="/servicios/envios-express"
                 id="hero-cta-servicios"
-                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-mono tracking-wider text-sm uppercase cta-nested-pill border border-white/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center justify-between"
+                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-mono tracking-wider text-sm uppercase cta-nested-pill border border-white/30 transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.95] flex items-center justify-between group"
               >
                 <span>Ver Servicios</span>
-                <span className="cta-nested-icon bg-white/10 text-white">
+                <span className="cta-nested-icon bg-white/10 text-white transition-transform duration-300 group-hover:translate-x-1">
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </Link>
@@ -196,7 +219,7 @@ export default function HeroAnimado() {
 
           {/* Graphical Representation / Floating Cards (Inversa Flat Style) */}
           <div
-            className="col-span-1 lg:col-span-5 relative h-[380px] sm:h-[450px] w-full mt-10 lg:mt-0 flex justify-center items-center overflow-visible"
+            className="relative h-[380px] sm:h-[450px] w-full mt-10 lg:mt-0 flex justify-center items-center overflow-visible"
             style={{ perspective: 1000 }}
           >
             {/* Contenedor envolvente 3D */}
@@ -286,6 +309,24 @@ export default function HeroAnimado() {
                 <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-yellow text-brand-blue font-mono tracking-widest text-[10px] sm:text-[11px] rounded-full border border-brand-yellow flex items-center gap-1.5 sm:gap-2 font-bold shadow-md">
                   <span className="h-2 w-2 rounded-full bg-brand-blue-400 animate-ping" />
                   ENTREGA FLEX ACTIVA
+                </div>
+              </motion.div>
+
+              {/* Counter Pill */}
+              <motion.div
+                className="absolute -bottom-4 right-4 z-40"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 1.1 } }}
+                style={{
+                  x: floatX,
+                  y: floatYInv,
+                  transform: 'translateZ(80px)',
+                }}
+              >
+                <div className="px-4 py-2 bg-white text-brand-blue-700 font-display text-xl rounded-xl border border-brand-blue-100 shadow-elevated flex items-center gap-2">
+                  <span className="text-brand-yellow-500">+</span>
+                  <span ref={counterRef} className="font-display">0</span>
+                  <span className="text-sm font-subheading tracking-widest ml-1 mt-1 text-brand-blue-400">ENVÍOS</span>
                 </div>
               </motion.div>
             </motion.div>

@@ -1,17 +1,51 @@
 import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/src/lib/utils"
 
-const Card = ({ className, ref, ...props }: React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }) => (
-  <div
-    ref={ref}
-    className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
-      className,
-    )}
-    {...props}
-  />
+const cardVariants = cva(
+  "rounded-lg border bg-card text-card-foreground shadow-sm",
+  {
+    variants: {
+      variant: {
+        default: "",
+        bezel: "double-bezel-outer p-2 shadow-float-shadow bg-brand-blue-50 border-brand-blue-100",
+        glass: "glass-card",
+        elevated: "shadow-elevated hover:shadow-hover-lift transition-shadow duration-300",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
 )
+
+export interface CardProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof cardVariants> {}
+
+const Card = ({ className, variant, ref, ...props }: CardProps & { ref?: React.Ref<HTMLDivElement> }) => {
+  if (variant === 'bezel') {
+    return (
+      <div
+        ref={ref}
+        className={cn(cardVariants({ variant, className }))}
+        {...props}
+      >
+        <div className="double-bezel-inner bg-white rounded-xl h-full shadow-inner relative overflow-hidden">
+          {props.children}
+        </div>
+      </div>
+    )
+  }
+  return (
+    <div
+      ref={ref}
+      className={cn(cardVariants({ variant, className }))}
+      {...props}
+    />
+  )
+}
 Card.displayName = "Card"
 
 const CardHeader = ({ className, ref, ...props }: React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }) => (

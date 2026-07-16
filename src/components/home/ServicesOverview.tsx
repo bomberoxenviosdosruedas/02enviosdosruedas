@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Package, Truck, Zap, Building } from 'lucide-react';
 import { ServiceCard } from '@/components/ui/service-card';
+import Image from 'next/image';
 
 export default function ServicesOverview() {
   const services = [
@@ -101,9 +102,11 @@ export default function ServicesOverview() {
                   
                   {/* Background Image with Solid Blocking Overlay (No gradient) */}
                   <div className="absolute inset-0 z-0 overflow-hidden bg-brand-blue-700">
-                    <img
+                    <Image
                       src={service.imageUrl}
                       alt={service.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-luminosity transition-transform duration-700 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-105 group-hover:opacity-40"
                     />
                   </div>

@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint .",
     "clean": "next clean",
+    "typecheck": "tsc --noEmit",
     "postinstall": "prisma generate",
     "test": "vitest",
     "test:ui": "vitest --ui"

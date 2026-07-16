@@ -27,17 +27,11 @@ export default function AddressAutocomplete({
   required = false,
   className = '',
 }: AddressAutocompleteProps) {
-  const [query, setQuery] = useState(value);
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Sync internal state with external value changes
-  useEffect(() => {
-    setQuery(value);
-  }, [value]);
 
   // Click outside listener to close dropdown
   useEffect(() => {
@@ -80,7 +74,6 @@ export default function AddressAutocomplete({
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
-    setQuery(val);
     onChange(val);
     onSelectCoordinate(null);
 
@@ -100,7 +93,6 @@ export default function AddressAutocomplete({
   };
 
   const handleSelect = async (suggestion: Suggestion) => {
-    setQuery(suggestion.description);
     onChange(suggestion.description);
     setIsOpen(false);
     setSuggestions([]);
@@ -127,7 +119,7 @@ export default function AddressAutocomplete({
           id={id}
           required={required}
           placeholder={placeholder}
-          value={query}
+          value={value}
           onChange={handleInputChange}
           className={className}
           autoComplete="off"
