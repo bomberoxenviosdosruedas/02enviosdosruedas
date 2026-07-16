@@ -110,8 +110,8 @@ export default function SliderServicios() {
               onClick={handlePrev}
               whileHover={{ scale: 1.05, x: -2 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="Slide anterior"
               className="h-12 w-12 rounded-xl border-2 border-brand-yellow bg-brand-yellow hover:bg-brand-blue hover:text-brand-yellow hover:border-brand-blue text-brand-blue flex items-center justify-center transition-all cursor-pointer active:scale-[0.97]"
-              title="Anterior"
             >
               <ChevronLeft className="h-5 w-5" />
             </motion.button>
@@ -119,8 +119,8 @@ export default function SliderServicios() {
               onClick={handleNext}
               whileHover={{ scale: 1.05, x: 2 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="Siguiente slide"
               className="h-12 w-12 rounded-xl border-2 border-brand-yellow bg-brand-yellow hover:bg-brand-blue hover:text-brand-yellow hover:border-brand-blue text-brand-blue flex items-center justify-center transition-all cursor-pointer active:scale-[0.97]"
-              title="Siguiente"
             >
               <ChevronRight className="h-5 w-5" />
             </motion.button>
@@ -174,15 +174,19 @@ export default function SliderServicios() {
           </div>
         </div>
 
-        {/* Bullet Progress Indicators */}
-        <div className="flex justify-center gap-2 mt-8">
-          {slides.map((_, idx) => (
+        <div className="flex justify-center gap-2 mt-8" role="tablist" aria-label="Navegación de slides">
+          {slides.map((slide, idx) => (
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
-              className={`h-2.5 rounded-full transition-all duration-350 focus:outline-none ${idx === current ? 'w-10 bg-brand-blue border border-brand-blue' : 'w-2.5 bg-brand-blue-100 hover:bg-brand-blue-200 border border-brand-blue-200'
-                }`}
-              title={`Ir a slide ${idx + 1}`}
+              role="tab"
+              aria-selected={idx === current}
+              aria-label={`Ir a: ${slide.title}`}
+              className={`h-2.5 rounded-full transition-all duration-350 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow focus-visible:ring-offset-2 ${
+                idx === current
+                  ? 'w-10 bg-brand-yellow shimmer-bg border border-brand-yellow/50'
+                  : 'w-2.5 bg-brand-blue-100 hover:bg-brand-blue-300 border border-brand-blue-200'
+              }`}
             />
           ))}
         </div>

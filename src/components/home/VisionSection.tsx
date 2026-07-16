@@ -34,7 +34,7 @@ export default function VisionSection() {
               Partner Logístico Especializado
             </span>
 
-            <h2 className="text-brand-ink text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9] text-left">
+            <h2 className="kinetic-font-stretch text-brand-ink text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9] text-left inline-block">
               CONECTAMOS MAR DEL PLATA DE PUNTA A PUNTA
             </h2>
 
@@ -121,7 +121,7 @@ export default function VisionSection() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-4xl font-display text-brand-blue uppercase leading-none mb-2">
+                  <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue leading-none mb-2">
                     0
                   </h3>
                   <p className="text-[10px] text-brand-blue-400 font-sans uppercase tracking-widest font-semibold">
@@ -147,7 +147,7 @@ export default function VisionSection() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-4xl font-display text-brand-blue uppercase leading-none mb-2">
+                  <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue leading-none mb-2">
                     +140
                   </h3>
                   <p className="text-[10px] text-brand-blue-400 font-sans uppercase tracking-widest font-semibold">

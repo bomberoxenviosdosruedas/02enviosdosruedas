@@ -15,7 +15,7 @@ export default function CtaSection() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,54,165,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(6,54,165,0.02)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
       
       <motion.div 
-        className="max-w-5xl mx-auto px-8 py-16 card-minimal rounded-3xl text-brand-ink flex flex-col justify-between relative overflow-hidden text-center space-y-8"
+        className="max-w-5xl mx-auto px-8 py-16 card-minimal accent-line-top rounded-3xl text-brand-ink flex flex-col justify-between relative overflow-hidden text-center space-y-8 border border-brand-blue/30 hover:border-brand-blue/50 transition-colors duration-300"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -48,19 +48,21 @@ export default function CtaSection() {
             target="_blank"
             rel="noopener noreferrer"
             id="cta-whatsapp-link"
+            aria-label="Contactar por WhatsApp"
             whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow text-brand-blue font-subheading tracking-wider text-xl uppercase cta-nested-pill border border-brand-yellow shadow-[3px_3px_0px_var(--color-brand-blue)] flex items-center justify-between cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
+            className="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellow text-brand-blue font-subheading tracking-wider text-xl uppercase cta-nested-pill border border-brand-yellow shadow-[3px_3px_0px_var(--color-brand-blue)] flex items-center justify-between cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all group/wa"
           >
             <span>Contactanos por WhatsApp</span>
-            <span className="cta-nested-icon bg-brand-blue/15 text-brand-blue">
-              <MessageSquare className="h-5 w-5 fill-current animate-pulse shrink-0" />
+            <span className="cta-nested-icon bg-brand-blue/15 text-brand-blue group-hover/wa:glow-yellow transition-all duration-300">
+              <MessageSquare className="h-5 w-5 fill-current shrink-0" />
             </span>
           </motion.a>
 
           <Link
             href="/cotizar/lowcost"
             id="cta-rates-link"
+            aria-label="Ver tarifas de envíos 2026"
             className="w-full sm:w-auto bg-white hover:bg-brand-white-50 border border-brand-blue/20 text-brand-blue font-subheading tracking-wider text-xl uppercase cta-nested-pill shadow-[3px_3px_0px_rgba(0,39,124,0.1)] flex items-center justify-between cursor-pointer font-bold active:scale-[0.98] active:translate-y-[1px] transition-all"
           >
             <span>Ver tarifas 2026</span>

@@ -61,7 +61,7 @@ const CardTitle = ({ className, ref, ...props }: React.HTMLAttributes<HTMLHeadin
   <h3
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
+      "text-2xl font-subheading uppercase tracking-wider leading-none text-brand-blue",
       className,
     )}
     {...props}
@@ -72,7 +72,7 @@ CardTitle.displayName = "CardTitle"
 const CardDescription = ({ className, ref, ...props }: React.HTMLAttributes<HTMLParagraphElement> & { ref?: React.Ref<HTMLParagraphElement> }) => (
   <p
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-sm text-brand-blue-400 font-sans leading-relaxed", className)}
     {...props}
   />
 )
