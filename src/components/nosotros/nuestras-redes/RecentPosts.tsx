@@ -72,11 +72,11 @@ export default function RecentPosts() {
   return (
     <section 
       id="recent-posts" 
-      className="py-24 bg-gradient-to-br from-[#0636A5] to-[#0742CA] text-white relative overflow-hidden border-t border-brand-yellow-500/20"
+      className="py-24 bg-gradient-to-br from-brand-blue-700 to-brand-blue-600 text-white relative overflow-hidden border-t border-brand-yellow-500/20"
     >
       {/* Ambient background glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(6,54,165,0.45),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,var(--color-brand-blue-700),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,var(--color-brand-yellow-500),transparent_50%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -107,7 +107,7 @@ export default function RecentPosts() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`double-bezel-outer bg-[#E6EEFE]/90 border border-[#BACEFD] p-2 rounded-2xl hover-float flex flex-col justify-between ${
+                className={`double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl hover-float hover:float-tilt-card hover:glow-blue flex flex-col justify-between ${
                   isFeatured ? 'md:col-span-12 lg:col-span-8' : 'md:col-span-6 lg:col-span-4'
                 }`}
               >

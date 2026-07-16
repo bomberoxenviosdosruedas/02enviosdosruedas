@@ -11,8 +11,8 @@ export default function AboutMissionVision() {
       className="py-24 bg-white relative overflow-hidden border-t border-brand-blue-100/30"
     >
       {/* Visual background enhancements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(6,54,165,0.03),transparent_35%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(255,236,1,0.02),transparent_40%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,var(--color-brand-blue-700),transparent_35%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,var(--color-brand-yellow-500),transparent_40%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -39,7 +39,7 @@ export default function AboutMissionVision() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="lg:col-span-8 double-bezel-outer bg-[#E6EEFE]/80 border border-[#BACEFD] p-2 rounded-2xl hover-float cursor-default"
+            className="lg:col-span-8 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
           >
             <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue">
               <div className="space-y-6">
@@ -69,7 +69,7 @@ export default function AboutMissionVision() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.12 }}
-            className="lg:col-span-4 double-bezel-outer bg-[#E6EEFE]/80 border border-[#BACEFD] p-2 rounded-2xl hover-float cursor-default"
+            className="lg:col-span-4 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
           >
             <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue">
               <div className="space-y-6">
@@ -99,7 +99,7 @@ export default function AboutMissionVision() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.24 }}
-            className="lg:col-span-12 double-bezel-outer bg-[#E6EEFE]/80 border border-[#BACEFD] p-2 rounded-2xl hover-float cursor-default"
+            className="lg:col-span-12 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
           >
             <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6 text-brand-blue">
               <div className="space-y-4 max-w-3xl">

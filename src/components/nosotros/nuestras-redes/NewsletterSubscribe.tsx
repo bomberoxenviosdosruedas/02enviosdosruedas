@@ -19,7 +19,7 @@ export default function NewsletterSubscribe() {
   return (
     <section 
       id="newsletter-subscribe" 
-      className="py-24 bg-gradient-to-br from-[#0636A5] to-[#0742CA] text-white relative overflow-hidden border-t border-brand-yellow-500/20"
+      className="py-24 bg-gradient-to-br from-brand-blue-700 to-brand-blue-600 text-white relative overflow-hidden border-t border-brand-yellow-500/20"
     >
       {/* Aesthetic ambient lighting */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,236,1,0.03),transparent_30%)] pointer-events-none" />
@@ -45,7 +45,7 @@ export default function NewsletterSubscribe() {
           </div>
   
           {/* Form container with state change (Double-Bezel on Blue Background) */}
-          <div className="w-full double-bezel-outer bg-[#E6EEFE]/90 border border-[#BACEFD] p-2 rounded-2xl shadow-lg">
+          <div className="w-full double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl shadow-lg">
             <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue">
               <AnimatePresence mode="wait">
                 {!submitted ? (

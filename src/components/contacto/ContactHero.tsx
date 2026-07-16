@@ -32,11 +32,11 @@ export default function ContactHero() {
   return (
     <section
       id="contacto-hero"
-      className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#00277c] to-[#0636A5] text-white border-b border-white/10"
+      className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-brand-ink-blue to-brand-blue-700 text-white border-b border-white/10"
     >
       {/* Ambient background glows using brand colors */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(0,32,104,0.45),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,var(--color-brand-blue-700),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,var(--color-brand-yellow-500),transparent_50%)] pointer-events-none" />
 
       {/* Background image overlay */}
       <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none">
@@ -62,7 +62,7 @@ export default function ContactHero() {
 
             {/* Badge in Bebas Neue */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-white/10 border-2 border-brand-yellow text-brand-yellow flex items-center gap-1.5 shadow-[2px_2px_0px_rgba(255,236,1,0.35)]">
+              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-white/10 border-2 border-brand-yellow text-brand-yellow flex items-center gap-1.5 shadow-brutalist-yellow">
                 <MailOpen className="h-4.5 w-4.5 text-brand-yellow animate-pulse shrink-0" />
                 ASISTENCIA COMERCIAL
               </span>
@@ -120,7 +120,7 @@ export default function ContactHero() {
               whileHover={{ scale: 1.025, y: -4 }}
               transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.8, delay: 0.3 }}
             >
-              <div className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl group transition-all duration-300 relative">
+              <div className="double-bezel-outer bg-brand-blue-50/80 hover:shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl group transition-all duration-300 relative">
                 <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue-700 space-y-6 relative overflow-hidden">
                   {/* Visual Accent Top Bar */}
                   <div className="absolute top-0 inset-x-0 h-1.5 bg-brand-blue" />
@@ -144,7 +144,9 @@ export default function ContactHero() {
                       </div>
                       <div className="flex items-center gap-3">
                         <MapPin className="h-5 w-5 text-brand-blue shrink-0" />
-                        <span className="font-semibold text-brand-blue-700">Friuli 1972, Mar del Plata</span>
+                        <span className="font-subheading text-brand-yellow-500 bg-brand-blue-700 px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                          Friuli 1972, Mar del Plata
+                        </span>
                       </div>
                     </div>
 

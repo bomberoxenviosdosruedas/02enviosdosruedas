@@ -56,7 +56,7 @@ export default function ContactInfo() {
       className="space-y-8 h-full flex flex-col justify-between"
     >
       {/* Contact Channels Grid */}
-      <div className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300">
+      <div className="double-bezel-outer bg-brand-blue-50/80 hover:shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300">
         <div className="double-bezel-inner bg-white rounded-xl p-6 border border-brand-blue-50/50 shadow-sm space-y-6">
           <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
             CANALES RÁPIDOS
@@ -108,7 +108,7 @@ export default function ContactInfo() {
       </div>
 
       {/* Operating Hours */}
-      <div className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300">
+      <div className="double-bezel-outer bg-brand-blue-50/80 hover:shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300">
         <div className="double-bezel-inner bg-white rounded-xl p-6 border border-brand-blue-50/50 shadow-sm space-y-6">
           <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
             <Clock className="h-6 w-6 text-brand-blue group-hover:rotate-6 transition-transform" />
@@ -136,7 +136,7 @@ export default function ContactInfo() {
       </div>
 
       {/* Coverage & Interactive Map */}
-      <div className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300 flex-grow flex flex-col">
+      <div className="double-bezel-outer bg-brand-blue-50/80 hover:shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300 flex-grow flex flex-col">
         <div className="double-bezel-inner bg-white rounded-xl p-6 border border-brand-blue-50/50 shadow-sm space-y-6 flex-grow flex flex-col justify-between">
           <div className="space-y-2">
             <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue flex items-center gap-2">
@@ -149,7 +149,7 @@ export default function ContactInfo() {
           </div>
 
           {/* Map iframe with soft shadow glow */}
-          <div className="relative rounded-2xl overflow-hidden border-2 border-brand-blue h-64 sm:h-72 w-full mt-2 flex-grow min-h-[220px] shadow-inner group-hover:border-brand-blue transition-all duration-300">
+          <div className="relative rounded-2xl overflow-hidden border-2 border-brand-blue-700 h-64 sm:h-72 w-full mt-2 flex-grow min-h-[220px] shadow-brutalist group-hover:border-brand-blue-700 transition-all duration-300">
             <iframe
               title="Mapa de cobertura Mar del Plata"
               src="https://www.openstreetmap.org/export/embed.html?bbox=-57.6548%2C-38.0700%2C-57.5146%2C-37.9350&amp;layer=mapnik"

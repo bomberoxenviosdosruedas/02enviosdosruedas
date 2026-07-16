@@ -90,7 +90,7 @@ export default function LowCostPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="span"
-            className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_rgba(255,204,0,0.3)] font-bold"
+            className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-brutalist font-bold"
           >
             Tarifario Inteligente
           </TimelineContent>
@@ -163,7 +163,7 @@ export default function LowCostPricing() {
                     <div className="py-2">
                       {isNumericPrice && numericValue ? (
                         <div className="flex items-baseline">
-                          <span className="text-5xl font-display uppercase font-bold tracking-tight text-brand-blue">
+                          <span className="text-5xl font-mono uppercase font-bold tracking-tight text-brand-blue-700">
                             $
                             <NumberFlow
                               value={numericValue}
@@ -173,7 +173,7 @@ export default function LowCostPricing() {
                           </span>
                         </div>
                       ) : (
-                        <span className="text-5xl font-display uppercase font-bold tracking-tight text-brand-blue">
+                        <span className="text-5xl font-mono uppercase font-bold tracking-tight text-brand-blue-700">
                           {zone.price}
                         </span>
                       )}
@@ -233,7 +233,7 @@ export default function LowCostPricing() {
               <span className="px-4 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border border-brand-blue/20">
                 Zona 5 (Larga Distancia LowCost)
               </span>
-              <h3 className="text-3xl font-display uppercase tracking-tight text-brand-blue">
+              <h3 className="text-3xl font-mono uppercase tracking-tight text-brand-blue-700 font-bold">
                 $700 / km adicional
               </h3>
               <p className="text-sm text-brand-blue-500 leading-relaxed font-sans max-w-2xl">

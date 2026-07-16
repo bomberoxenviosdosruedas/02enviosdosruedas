@@ -105,11 +105,11 @@ export default function CotizadorExpressHero() {
   return (
     <section
       id="cotizador-express-hero"
-      className="relative min-h-[65vh] flex items-center justify-center pt-32 pb-12 overflow-hidden bg-gradient-to-b from-brand-blue-700 via-brand-dark to-[#000d2b] text-white border-b border-white/10"
+      className="relative min-h-[65vh] flex items-center justify-center pt-32 pb-12 overflow-hidden bg-gradient-to-b from-brand-blue-700 via-brand-dark to-brand-dark text-white border-b border-white/10"
     >
       {/* Ambient background glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,rgba(6,54,165,0.45),transparent_55%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_65%,rgba(255,236,1,0.06),transparent_45%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,var(--color-brand-blue-700),transparent_55%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_65%,var(--color-brand-yellow-500),transparent_45%)] pointer-events-none" />
 
       {/* Decorative logistics illustration overlay */}
       <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay pointer-events-none">
@@ -135,7 +135,7 @@ export default function CotizadorExpressHero() {
             
             {/* Badge (Bebas Neue) */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-blue border-2 border-brand-yellow text-brand-yellow flex items-center gap-1.5 shadow-[0_0_20px_rgba(255,236,1,0.25)]">
+              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-blue border-2 border-brand-yellow text-brand-yellow flex items-center gap-1.5 shadow-[0_0_20px_var(--color-brand-yellow-500)]">
                 <Zap className="h-4 w-4 text-brand-yellow animate-pulse shrink-0" />
                 TARIFAS AL INSTANTE • 2026
               </span>
@@ -191,41 +191,41 @@ export default function CotizadorExpressHero() {
               animate={{ scale: 1, opacity: 1, transition: { duration: 0.8, delay: 0.3 } }}
             >
               {/* Double-Bezel Card wrapper */}
-              <div className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300">
-                <div className="double-bezel-inner bg-white p-8 rounded-xl border border-brand-blue-50/50 text-[#0636A5]">
+              <div className="double-bezel-outer bg-brand-blue-50/80 shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300">
+                <div className="double-bezel-inner bg-white p-8 rounded-xl border border-brand-blue-50/50 text-brand-blue-700">
                   <div className="space-y-6 relative z-10">
                     <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                       <div>
-                        <h4 className="text-xl font-subheading uppercase text-[#0636A5] tracking-wider">
+                        <h4 className="text-xl font-subheading uppercase text-brand-blue-700 tracking-wider">
                           CÁLCULO AUTOMÁTICO
                         </h4>
                         <p className="text-[10px] text-brand-blue-600 font-subheading tracking-wider uppercase mt-0.5">SISTEMA EXPRESS MAPS</p>
                       </div>
-                      <Calculator className="h-6 w-6 text-[#0636A5] shrink-0 animate-pulse" />
+                      <Calculator className="h-6 w-6 text-brand-blue-700 shrink-0 animate-pulse" />
                     </div>
 
                     {/* Calculator Simulation items */}
                     <div className="space-y-3 text-xs text-slate-700">
                       <div className="flex justify-between items-center py-1 border-b border-slate-100">
                         <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-slate-500">ORIGEN</span>
-                        <span className="text-[#0636A5] font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.origen}</span>
+                        <span className="text-brand-blue-700 font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.origen}</span>
                       </div>
                       <div className="flex justify-between items-center py-1 border-b border-slate-100">
                         <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-slate-500">DESTINO</span>
-                        <span className="text-[#0636A5] font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.destino}</span>
+                        <span className="text-brand-blue-700 font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.destino}</span>
                       </div>
                       <div className="flex justify-between items-center py-1 border-b border-slate-100">
                         <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-slate-500">DISTANCIA</span>
-                        <span className="text-[#0636A5] font-bold font-mono">{trip.distancia} km</span>
+                        <span className="text-brand-blue-700 font-bold font-mono">{trip.distancia} km</span>
                       </div>
                       <div className="flex justify-between items-center py-1 text-sm pt-2 border-t border-slate-100">
-                        <span className="font-sans font-bold text-[#0636A5]">TARIFA FINAL</span>
-                        <span className="text-[#0636A5] font-bold text-lg font-mono">${price.toLocaleString('es-AR')} ARS</span>
+                        <span className="font-sans font-bold text-brand-blue-700">TARIFA FINAL</span>
+                        <span className="text-brand-blue-700 font-bold text-lg font-mono">${price.toLocaleString('es-AR')} ARS</span>
                       </div>
                     </div>
 
                     <div className="pt-2 flex justify-center">
-                      <span className="px-3 py-1 bg-brand-yellow-50 border border-brand-yellow text-[#0636A5] rounded-xl text-[10px] font-subheading tracking-wider uppercase">
+                      <span className="px-3 py-1 bg-brand-yellow-50 border border-brand-yellow text-brand-blue-700 rounded-xl text-[10px] font-subheading tracking-wider uppercase">
                         SIN REGISTRO OBLIGATORIO
                       </span>
                     </div>

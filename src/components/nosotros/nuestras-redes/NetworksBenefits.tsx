@@ -75,7 +75,7 @@ export default function NetworksBenefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`${benefit.colSpan} double-bezel-outer bg-[#E6EEFE]/80 border border-[#BACEFD] p-2 rounded-2xl hover-float cursor-default`}
+                className={`${benefit.colSpan} double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default`}
               >
                 <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue min-h-[220px]">
                   <div className="space-y-5">

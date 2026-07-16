@@ -77,7 +77,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
   return (
     <div id="cotizador-lowcost-form" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       {/* Form Input & Results Panel */}
-      <div className="lg:col-span-7 flex flex-col justify-between double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300">
+      <div className="lg:col-span-7 flex flex-col justify-between double-bezel-outer bg-brand-blue-50/80 shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300">
         <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 flex flex-col justify-between h-full">
           <div className="space-y-6">
             <div>
@@ -105,7 +105,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                   onChange={setOrigen}
                   onSelectCoordinate={setOrigenCoords}
                   required
-                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
+                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-700 border-brand-blue-700/30 rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
                 />
               </div>
 
@@ -121,7 +121,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                   onChange={setDestino}
                   onSelectCoordinate={setDestinoCoords}
                   required
-                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
+                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-700 border-brand-blue-700/30 rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
                 />
               </div>
 
@@ -136,7 +136,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                   value={nombre}
                   onChange={(e) => setNombre(e.target.value)}
                   required
-                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
+                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-700 border-brand-blue-700/30 rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
                 />
               </div>
               <div className="space-y-1.5">
@@ -150,7 +150,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                   value={telefono}
                   onChange={(e) => setTelefono(e.target.value)}
                   required
-                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
+                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-700 border-brand-blue-700/30 rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
                 />
               </div>
               <div className="space-y-1.5">
@@ -164,7 +164,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                   value={producto}
                   onChange={(e) => setProducto(e.target.value)}
                   required
-                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 focus:bg-white rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
+                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-700 border-brand-blue-700/30 rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
                 />
               </div>
 
@@ -180,7 +180,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                 transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.4 }}
                 type="submit"
                 disabled={isCalculating || !origen.trim() || !destino.trim() || !nombre.trim() || !telefono.trim() || !producto.trim()}
-                className="w-full bg-[#0636A5] hover:bg-[#0742CA] text-white font-subheading tracking-wider uppercase text-base py-4 rounded-full shadow-md transition-all flex items-center justify-between cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed px-6"
+                className="w-full bg-brand-blue-700 hover:bg-brand-blue-600 text-white font-subheading tracking-wider uppercase text-base py-4 rounded-full shadow-md transition-all flex items-center justify-between cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed px-6"
               >
                 {isCalculating ? (
                   <>
@@ -215,15 +215,15 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300 w-full"
+                  className="double-bezel-outer bg-brand-blue-50/80 shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300 w-full glow-yellow"
                 >
-                  <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 space-y-4 text-[#0636A5]">
+                  <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 space-y-4 text-brand-blue-700">
                     <div className="grid grid-cols-2 gap-4 text-center">
                       <div className="bg-slate-50 p-3 rounded-2xl border border-brand-blue-50/50">
                         <span className="block text-[10px] font-sans font-bold text-slate-500 uppercase tracking-wider">
                           DISTANCIA
                         </span>
-                        <span className="text-xl font-mono text-[#0636A5] font-bold">
+                        <span className="text-xl font-mono text-brand-blue-700 font-bold">
                           {result.distancia} km
                         </span>
                       </div>
@@ -231,7 +231,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                         <span className="block text-[10px] font-sans font-bold text-slate-500 uppercase tracking-wider">
                           ENTREGA ESTIMADA
                         </span>
-                        <span className="text-xl font-mono text-[#0636A5] font-bold">
+                        <span className="text-xl font-mono text-brand-blue-700 font-bold">
                           Hoy (Mismo Día)
                         </span>
                       </div>
@@ -244,12 +244,12 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                         </span>
                         <div className="flex items-baseline gap-1.5 mt-0.5">
                           {result.precio === 'consultar' ? (
-                            <span className="text-lg font-subheading text-[#0636A5] uppercase tracking-wider">
+                            <span className="text-lg font-subheading text-brand-blue-700 uppercase tracking-wider">
                               A Consultar
                             </span>
                           ) : (
                             <>
-                              <span className="text-2xl font-mono text-[#0636A5] font-bold">
+                              <span className="font-mono font-bold tracking-tighter text-5xl text-brand-blue-700">
                                 ${result.precio.toLocaleString('es-AR')}
                               </span>
                               <span className="text-[10px] text-slate-500 font-mono">ARS</span>
@@ -263,7 +263,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                           whileHover={{ scale: 1.02, y: -2 }}
                           transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.4 }}
                           href="/contacto"
-                          className="w-full sm:w-auto inline-flex items-center justify-between bg-[#0636A5] hover:bg-[#0742CA] text-white font-subheading text-sm tracking-wider uppercase px-5 py-3 rounded-full shadow transition-all"
+                          className="w-full sm:w-auto inline-flex items-center justify-between bg-brand-blue-700 hover:bg-brand-blue-600 text-white font-subheading text-sm tracking-wider uppercase px-5 py-3 rounded-full shadow transition-all"
                         >
                           <span>Pedir Cotización Especial</span>
                           <span className="cta-nested-icon bg-white/20 text-white h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3">
@@ -277,10 +277,10 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                           href={getWhatsAppLink()}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full sm:w-auto inline-flex items-center justify-between bg-[#FFEC01] hover:bg-[#FFF12E] text-[#0636A5] font-subheading text-sm tracking-wider uppercase px-5 py-3 rounded-full shadow-md transition-all"
+                          className="w-full sm:w-auto inline-flex items-center justify-between bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-700 font-subheading text-sm tracking-wider uppercase px-5 py-3 rounded-full shadow-md transition-all"
                         >
                           <span>Pedir por WhatsApp</span>
-                          <span className="cta-nested-icon bg-[#0636A5]/10 text-[#0636A5] h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3">
+                          <span className="cta-nested-icon bg-brand-blue-700/10 text-brand-blue-700 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3">
                             <CheckCircle2 className="h-4 w-4" />
                           </span>
                         </motion.a>
@@ -295,7 +295,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
       </div>
 
       {/* Real Interactive Map Panel */}
-      <div className="lg:col-span-5 min-h-[350px] lg:min-h-full double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-[0_0_20px_rgba(6,54,165,0.15)] border border-[#BACEFD] p-2 rounded-2xl transition-all duration-300">
+      <div className="lg:col-span-5 min-h-[350px] lg:min-h-full double-bezel-outer bg-brand-blue-50/80 shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300">
         <div className="double-bezel-inner gradient-blue p-6 rounded-xl border border-brand-blue-50/50 flex flex-col justify-between h-full relative overflow-hidden text-white">
           {/* Map backgrounds grid overlay */}
           <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
