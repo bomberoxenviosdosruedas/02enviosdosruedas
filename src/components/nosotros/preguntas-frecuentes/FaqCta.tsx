@@ -9,7 +9,7 @@ export default function FaqCta() {
   return (
     <section 
       id="faq-cta" 
-      className="py-24 bg-gradient-to-br from-brand-blue-700 to-brand-blue-600 text-white relative overflow-hidden border-t border-brand-yellow-500/20"
+      className="py-24 bg-brand-blue-700 text-white relative overflow-hidden border-t border-brand-yellow-500/20"
     >
       {/* Dynamic Background Overlays */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,var(--color-brand-yellow-500),transparent_35%)]" />

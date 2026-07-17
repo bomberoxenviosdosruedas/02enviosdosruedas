@@ -32,7 +32,7 @@ export default function ContactHero() {
   return (
     <section
       id="contacto-hero"
-      className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-brand-ink-blue to-brand-blue-700 text-white border-b border-white/10"
+      className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue-700 text-white border-b border-white/10"
     >
       {/* Ambient background glows using brand colors */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,var(--color-brand-blue-700),transparent_50%)] pointer-events-none" />
@@ -41,7 +41,7 @@ export default function ContactHero() {
       {/* Background image overlay */}
       <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none">
         <Image
-          src="https://i.postimg.cc/nLMx4vVc/delivery-background.jpg"
+          src="/assets/delivery-background.jpg"
           alt="Fondo de reparto urbano"
           fill
           priority

@@ -105,7 +105,7 @@ export default function CotizadorLowCostHero() {
   return (
     <section
       id="cotizador-lowcost-hero"
-      className="relative min-h-[65vh] flex items-center justify-center pt-32 pb-12 overflow-hidden bg-gradient-to-b from-brand-blue-700 via-brand-dark to-brand-dark text-white border-b border-white/10"
+      className="relative min-h-[65vh] flex items-center justify-center pt-32 pb-12 overflow-hidden bg-brand-blue-700 text-white border-b border-white/10"
     >
       {/* Ambient background glows */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,var(--color-brand-blue-700),transparent_55%)] pointer-events-none" />
@@ -114,7 +114,7 @@ export default function CotizadorLowCostHero() {
       {/* Decorative logistics illustration overlay */}
       <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay pointer-events-none">
         <Image
-          src="https://i.postimg.cc/nLMx4vVc/delivery-background.jpg"
+          src="/assets/delivery-background.jpg"
           alt="Fondo de reparto"
           fill
           priority
