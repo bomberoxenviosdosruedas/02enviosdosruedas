@@ -94,32 +94,39 @@
 
 **Cuándo aplica:** Al crear, modificar o revisar cualquier componente visual.
 
+### ⚠️ REGLA FUNDAMENTAL: Paleta Exclusiva de 3 Colores
+El sistema cromático usa **SOLAMENTE** azul, amarillo y blanco (y sus escalas).  
+**PROHIBIDO** usar colores externos: slate, gray, zinc, red, green, etc.  
+Los tokens `gray-*`, `slate-*`, `zinc-*` están remapeados a la escala de azul y no deben usarse directamente.
+
 ### Paleta de Colores — Usar siempre tokens, no hex ad-hoc
 
 | Token | Hex | Uso |
 |---|---|---|
-| `#00277c` (Egyptian Blue) | `#00277c` | Header, Footer, fondos principales, textos oscuros |
-| `bg-brand-blue` | `#0636A5` | Azul secundario y de acento |
-| `bg-brand-yellow` / `text-brand-yellow` | `#FFEC01` | Amarillo acento — CTAs, badges |
-| `slate-50` | — | Fondos claros |
-| `slate-900` / `slate-950` | — | Fondos oscuros |
+| `brand-blue-700` | `#0636A5` | Header, Footer, fondos principales, textos oscuros |
+| `brand-blue-500` | `#0950F6` | Botones activos, acentos interactivos |
+| `brand-blue-50` | `#E6EEFE` | Fondos ultra claros, contenedores exteriores |
+| `brand-yellow-500` | `#FFEC01` | CTAs, badges, acentos logísticos |
+| `brand-white-50` | `#FFFFFF` | Fondo base de páginas, núcleo de tarjetas |
+| `brand-ink` | `#00277c` | Texto cuerpo (más oscuro que brand-blue-700) |
 
-> ❌ **Prohibido:** colores hexadecimales inline en clases Tailwind (excepto Canvas/SVG nativos).
+> ❌ **Prohibido:** `text-slate-*`, `bg-slate-*`, `text-gray-*`, `bg-gray-*`, colores hexadecimales inline.
+> ❌ **Prohibido:** Usar `slate-900`, `slate-50`, `slate-600` — NO existen en la paleta oficial.
 
 ### Tipografía
 
 | Token | Fuente | Usar para |
 |---|---|---|
 | `font-display` | Anton | Títulos H1, H2 de impacto |
-| `font-subheading` | Bebas Neue | Subtítulos, números destacados, badges |
-| `font-sans` | Inter / IBM Plex Sans | Cuerpo, textos descriptivos |
+| `font-subheading` | Bebas Neue | Subtítulos, badges, métricas |
+| `font-sans` | Outfit + IBM Plex Sans | Cuerpo, textos descriptivos |
 
 ### Componentes — Contratos de Interfaz
 
 **Double Bezel (tarjetas/bloques principales):**
 ```html
 <!-- Outer -->
-<div class="double-bezel-outer bg-[#E6EEFE]/80 hover:shadow-... border border-[#BACEFD] p-2 rounded-2xl">
+<div class="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl">
   <!-- Inner -->
   <div class="double-bezel-inner bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-sm">
     ...
@@ -127,23 +134,30 @@
 </div>
 ```
 
-**Botones CTA:**
+**Botones CTA (Nested Pill):**
 ```html
-<button class="cta-nested-pill">
-  <span class="cta-nested-icon">...</span>
-  Texto del botón
+<button class="cta-nested-pill bg-brand-yellow text-brand-blue">
+  <span>Texto</span>
+  <span class="cta-nested-icon bg-brand-blue/10">→</span>
 </button>
 ```
 
-**Efectos disponibles:** `glow-blue`, `glow-yellow`, `glow-blue-lg`, `glow-yellow-lg`
-**Sombras de acento:** `shadow-accent-sm`, `shadow-accent-md`, `shadow-accent-lg`
-**Bordes:** preferir `rounded-2xl` o `rounded-3xl` en tarjetas
+### Efectos Disponibles
+- `glow-blue`, `glow-yellow`, `glow-blue-lg`, `glow-yellow-lg`
+- `shadow-accent-sm`, `shadow-accent-md`, `shadow-accent-lg`
+- `glassmorphism`, `glassmorphism-premium`
+- `hover-float`, `float-tilt-card`, `card-minimal`
+- `accent-line-top`, `accent-line-left`
 
-### Fondos Oscuros
-Secciones oscuras deben usar gradientes, NO fills planos:
-```css
-bg-gradient-to-br from-[#0636A5] to-[#0742CA]
-```
+### Secciones — Alternancia Cromática
+Las páginas intercalan secciones:
+- **Sección Azul** (`bg-brand-blue`): texto blanco, elementos destacados en amarillo
+- **Sección Blanca** (`bg-white`): títulos en brand-blue, acentos en brand-yellow
+
+### Responsive
+- Layout Bento asimétrico de 12 columnas en desktop
+- Colapsar a `grid-cols-1` y `w-full` en móviles (< 768px)
+- Touch targets mínimos de 48px
 
 ---
 

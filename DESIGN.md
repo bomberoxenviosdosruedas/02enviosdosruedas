@@ -93,3 +93,41 @@ Las tarjetas informativas u hojas de cálculo en el cotizador no deben presentar
 13. **Preguntas Frecuentes (`/nosotros/preguntas-frecuentes`):** Orden de biblioteca estatal. Los acordeones de preguntas frecuentes utilizan un diseño limpio con bordes inferiores finos en Azul 100 (`#BACEFD`), expandiéndose con transiciones suaves y micro-indicadores en Amarillo 500 (`#FFEC01`).
 14. **Términos y Condiciones (`/terminos-y-condiciones`):** Layout editorial clásico de 1 columna con barra de navegación lateral para los apartados del documento sobre fondo Blanco.
 15. **Política de Privacidad (`/politica-de-privacidad`):** Transparencia institucional y custodia de la privacidad de los datos. Secciones bien delimitadas por separadores horizontales de `1px` en Azul 100 (`#BACEFD`) y llamada de atención visual al canal de consultas de privacidad.
+
+---
+
+## 7. Design Audit & Optimization (2026-07-17)
+
+### Cambios Aplicados en Última Optimización
+
+#### 🔴 Critical — Corrección de colores externos a la paleta
+Se eliminaron todos los usos de `text-slate-*`, `bg-slate-*` y `border-slate-*` en 9 archivos, reemplazándolos con tokens de la paleta oficial:
+
+| Archivo | Cambio |
+|---------|--------|
+| `nosotros/sobre-nosotros/page.tsx` | `text-slate-900` → `text-brand-blue-700` |
+| `nosotros/preguntas-frecuentes/page.tsx` | `text-slate-900` → `text-brand-blue-700` |
+| `nosotros/nuestras-redes/page.tsx` | `text-slate-900` → `text-brand-blue-700` |
+| `cotizar/express/*Form.tsx` | `text-slate-500` → `text-brand-blue-400`, `bg-slate-50` → `bg-brand-blue-50/50` |
+| `cotizar/express/*Hero.tsx` | `text-slate-700/500` → `text-brand-blue-500/400` |
+| `cotizar/lowcost/*Form.tsx` | `text-slate-500` → `text-brand-blue-400`, `bg-slate-50` → `bg-brand-blue-50/50` |
+| `cotizar/lowcost/*Hero.tsx` | `text-slate-700/500` → `text-brand-blue-500/400` |
+| `cotizar/lowcost/*Help.tsx` | `text-slate-600` → `text-brand-blue-500` |
+| `FaqAccordion.tsx` | `text-slate-800` → `text-brand-blue-500` |
+
+#### 🟡 Major — Inconsistencias de layout
+- **gradient-surface** eliminado de 4 páginas de servicios → reemplazado por `bg-white`
+- **gradient-dark** eliminado de cotizar/express → reemplazado por `bg-brand-blue-700`
+- **Logo externo postimg.cc** reemplazado por logo local (`/LogoEnviosDosRuedas.webp`)
+- **CarruselRedes duplicado** unificado (se eliminó import a `Carrusel-Redes.tsx`)
+
+#### 🟢 Minor — Pulido visual
+- Todos los textos ahora usan exclusivamente brand-blue-700 o brand-ink como color base
+
+### Reglas Vigentes Post-Auditoría
+1. **NO** usar `text-slate-*`, `bg-slate-*`, `border-slate-*` — usar siempre brand-blue-* equivalente
+2. **NO** usar gradientes completos de página (`gradient-surface`, `gradient-dark`) como fondo base
+3. **NO** usar URLs externas para assets del brand (logo, imágenes críticas)
+4. Las secciones deben alternar: `bg-brand-blue` (oscura) ↔ `bg-white` (clara)
+5. Los inputs siempre con `border-2 border-brand-blue-700` en foco
+6. Los CTA siempre con `cta-nested-pill` y esquinas `rounded-full`
