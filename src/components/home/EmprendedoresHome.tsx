@@ -33,7 +33,7 @@ export default function EmprendedoresHome() {
   return (
     <section
       id="emprendedores-home"
-      className="py-24 bg-gradient-to-br from-brand-blue-700 via-brand-blue-600 to-brand-blue-850 border-y border-white/10 relative overflow-hidden"
+      className="py-24 bg-brand-blue-700 border-y border-white/10 relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(255,236,1,0.05),transparent_35%)]" />
 

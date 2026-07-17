@@ -98,7 +98,7 @@ export default function ServicesOverview() {
                 className={`group relative h-full flex flex-col ${colSpan} bg-brand-blue-600 border-2 border-brand-blue rounded-xl transition-all duration-300 shadow-[4px_4px_0px_var(--color-brand-blue-700)] overflow-hidden`}
               >
                 {/* Inner Core (Color Blocking Architecture) */}
-                <div className="relative flex-1 rounded-xl overflow-hidden flex flex-col justify-between p-8">
+                <div className="double-bezel-inner ring-1 ring-white/10 relative flex-1 overflow-hidden flex flex-col justify-between p-8">
                   
                   {/* Background Image with Solid Blocking Overlay (No gradient) */}
                   <div className="absolute inset-0 z-0 overflow-hidden bg-brand-blue-700">
