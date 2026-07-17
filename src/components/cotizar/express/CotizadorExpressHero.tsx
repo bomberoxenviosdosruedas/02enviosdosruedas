@@ -194,7 +194,7 @@ export default function CotizadorExpressHero() {
               <div className="double-bezel-outer bg-brand-blue-50/80 shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300">
                 <div className="double-bezel-inner bg-white p-8 rounded-xl border border-brand-blue-50/50 text-brand-blue-700">
                   <div className="space-y-6 relative z-10">
-                    <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <div className="flex items-center justify-between border-b border-brand-blue-50 pb-4">
                       <div>
                         <h4 className="text-xl font-subheading uppercase text-brand-blue-700 tracking-wider">
                           CÁLCULO AUTOMÁTICO
@@ -205,20 +205,20 @@ export default function CotizadorExpressHero() {
                     </div>
 
                     {/* Calculator Simulation items */}
-                    <div className="space-y-3 text-xs text-slate-700">
-                      <div className="flex justify-between items-center py-1 border-b border-slate-100">
-                        <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-slate-500">ORIGEN</span>
+                    <div className="space-y-3 text-xs text-brand-blue-500">
+                      <div className="flex justify-between items-center py-1 border-b border-brand-blue-50">
+                        <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-brand-blue-400">ORIGEN</span>
                         <span className="text-brand-blue-700 font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.origen}</span>
                       </div>
-                      <div className="flex justify-between items-center py-1 border-b border-slate-100">
-                        <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-slate-500">DESTINO</span>
+                      <div className="flex justify-between items-center py-1 border-b border-brand-blue-50">
+                        <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-brand-blue-400">DESTINO</span>
                         <span className="text-brand-blue-700 font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.destino}</span>
                       </div>
-                      <div className="flex justify-between items-center py-1 border-b border-slate-100">
-                        <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-slate-500">DISTANCIA</span>
+                      <div className="flex justify-between items-center py-1 border-b border-brand-blue-50">
+                        <span className="font-sans font-bold uppercase tracking-wider text-[10px] text-brand-blue-400">DISTANCIA</span>
                         <span className="text-brand-blue-700 font-bold font-mono">{trip.distancia} km</span>
                       </div>
-                      <div className="flex justify-between items-center py-1 text-sm pt-2 border-t border-slate-100">
+                      <div className="flex justify-between items-center py-1 text-sm pt-2 border-t border-brand-blue-50">
                         <span className="font-sans font-bold text-brand-blue-700">TARIFA FINAL</span>
                         <span className="text-brand-blue-700 font-bold text-lg font-mono">${price.toLocaleString('es-AR')} ARS</span>
                       </div>

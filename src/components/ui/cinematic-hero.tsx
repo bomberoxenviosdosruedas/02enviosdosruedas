@@ -358,7 +358,7 @@ export function CinematicHero({ onComplete, className, ...props }: CinematicHero
             <div className="absolute inset-0 bg-brand-yellow/10 rounded-full blur-xl" />
             <div className="relative w-full h-full">
               <Image
-                src="https://i.postimg.cc/RF6MBw2d/logo-envios.webp"
+                src="/LogoEnviosDosRuedas.webp"
                 alt="Envíos Dos Ruedas Logo"
                 fill sizes="160px"
                 className="object-contain drop-shadow-[0_8px_20px_rgba(255,236,1,0.4)]"
@@ -411,7 +411,7 @@ export function CinematicHero({ onComplete, className, ...props }: CinematicHero
                 <div className="absolute inset-0 rounded-full" style={{ background: "radial-gradient(circle at 30% 30%, rgba(255,236,1,0.1), transparent 60%)" }} />
                 <div className="relative w-3/4 h-3/4">
                   <Image
-                    src="https://i.postimg.cc/RF6MBw2d/logo-envios.webp"
+                    src="/LogoEnviosDosRuedas.webp"
                     alt="Envíos Dos Ruedas"
                     fill sizes="128px"
                     className="object-contain drop-shadow-[0_4px_12px_rgba(255,236,1,0.3)]"

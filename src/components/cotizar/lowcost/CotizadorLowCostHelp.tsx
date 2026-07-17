@@ -21,7 +21,7 @@ export default function CotizadorLowCostHelp() {
             <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-[0.02em] text-brand-blue-700">
               ¿Tenés una cuenta corporativa?
             </h3>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
+            <p className="text-brand-blue-500 text-sm sm:text-base leading-relaxed font-sans">
               Accedé a facturación semanal, quincenal o mensual. Factura tipo C disponible y resúmenes de los envíos realizados.
             </p>
           </div>
