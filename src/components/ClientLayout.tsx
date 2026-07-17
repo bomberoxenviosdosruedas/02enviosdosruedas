@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import OptimizedHeader from './layout/OptimizedHeader';
 import OptimizedFooter from './layout/OptimizedFooter';
 import { CinematicHero } from './ui/cinematic-hero';
-import { CarruselRedes } from './layout/Carrusel-Redes';
+import CarruselRedes from './layout/CarruselRedes';
 import { Bike } from 'lucide-react';
 
 function SectionSeparator() {
