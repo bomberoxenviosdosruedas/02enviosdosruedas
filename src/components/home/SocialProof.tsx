@@ -129,8 +129,8 @@ export default function SocialProof() {
               }}
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
-              onFocusIn={() => setIsPaused(true)}
-              onFocusOut={() => setIsPaused(false)}
+              onFocus={() => setIsPaused(true)}
+              onBlur={() => setIsPaused(false)}
             >
               {baseTrack.map((logo, index) => (
                 <div

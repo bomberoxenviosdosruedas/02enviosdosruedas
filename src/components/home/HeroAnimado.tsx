@@ -18,7 +18,7 @@ function FloatCard({ depth, children, className }: FloatCardProps) {
     const card = cardRef.current;
     if (!card) return;
 
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleMouseMove = (e: MouseEvent) => {
       const rect = card.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
