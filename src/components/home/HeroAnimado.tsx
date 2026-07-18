@@ -1,281 +1,225 @@
 'use client';
 
-import React from 'react';
-import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'motion/react';
-import { Bike, Shield, Zap, MapPin, ArrowRight } from 'lucide-react';
-import LogisticaNetworkCanvas from './LogisticaNetworkCanvas';
-import gsap from 'gsap';
+import { ArrowRight, Shield, Zap, MapPin } from 'lucide-react';
+
+interface FloatCardProps {
+  depth: number;
+  children: React.ReactNode;
+  className?: string;
+}
+
+function FloatCard({ depth, children, className }: FloatCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [hoverDepth, setHoverDepth] = useState(false);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.setProperty('--rotate-x', `${-y * 8}deg`);
+      card.style.setProperty('--rotate-y', `${x * 8}deg`);
+    };
+
+    const handleMouseLeave = () => {
+      card.style.setProperty('--rotate-x', '0deg');
+      card.style.setProperty('--rotate-y', '0deg');
+    };
+
+    card.addEventListener('mousemove', handleMouseMove);
+    card.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      card.removeEventListener('mousemove', handleMouseMove);
+      card.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`relative transition-all duration-500 ease-smooth group ${className}`}
+      style={{
+        transformStyle: 'preserve-3d',
+        transform: `translateZ(${depth}px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg))`,
+        boxShadow: hoverDepth ? 'var(--shadow-antigravity-deep)' : 'var(--shadow-float)',
+      }}
+      onMouseEnter={() => setHoverDepth(true)}
+      onMouseLeave={() => setHoverDepth(false)}
+    >
+      {children}
+    </div>
+  );
+}
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+      staggerChildren: 0.12,
+      delayChildren: 0.3,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'spring' as const,
-      stiffness: 100,
-      damping: 15,
-    }
+      type: 'spring',
+      stiffness: 120,
+      damping: 18,
+    },
   },
 };
 
 export default function HeroAnimado() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const springConfig = { damping: 25, stiffness: 150 };
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), springConfig);
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), springConfig);
-
-  const floatX = useSpring(useTransform(mouseX, [-0.5, 0.5], [-15, 15]), springConfig);
-  const floatY = useSpring(useTransform(mouseY, [-0.5, 0.5], [-15, 15]), springConfig);
-
-  const floatXInv = useSpring(useTransform(mouseX, [-0.5, 0.5], [20, -20]), springConfig);
-  const floatYInv = useSpring(useTransform(mouseY, [-0.5, 0.5], [20, -20]), springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const x = (e.clientX - rect.left) / width - 0.5;
-    const y = (e.clientY - rect.top) / height - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (e.touches.length === 0) return;
-    const touch = e.touches[0];
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const x = (touch.clientX - rect.left) / width - 0.5;
-    const y = (touch.clientY - rect.top) / height - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
-  };
-
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
-  const { scrollY } = useScroll();
-  const parallaxY = useTransform(scrollY, [0, 1000], [0, 150]);
-
-  const counterRef = useRef<HTMLSpanElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    if (counterRef.current && !hasAnimated) {
-      setHasAnimated(true);
-      gsap.to(counterRef.current, {
-        innerHTML: 5000,
-        duration: 2,
-        snap: { innerHTML: 1 },
-        ease: 'power3.out',
-        delay: 1.5,
-      });
-    }
-  }, [hasAnimated]);
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
 
   return (
     <section
-      id="hero-animado"
-      className="relative min-h-[95dvh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-blue text-white section-fade-bottom"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleMouseLeave}
+      id="hero"
+      className="relative min-h-[95dvh] flex items-center pt-32 pb-20 overflow-hidden bg-brand-blue-700 text-white"
+      aria-label="Hero principal"
     >
-      {/* Background patterns */}
-      <motion.div style={{ y: parallaxY }} className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.02),transparent_40%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,236,1,0.02),transparent_50%)]" />
-      </motion.div>
+      {/* Background mesh gradient */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(6,54,165,0.25)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,236,1,0.08)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_80%,rgba(0,32,104,0.15)_0%,transparent_50%)]" />
+      </div>
 
-      {/* Interactive Logistics Network Background */}
-      <LogisticaNetworkCanvas />
-
-      {/* Remove unnecessary AI-generated gradient to white */}
-      <div className="absolute bottom-0 left-0 right-0 h-2 bg-brand-white-50 pointer-events-none" />
-
-      {/* Background illustration overlay with topographic feel */}
-      <motion.div style={{ y: parallaxY }} className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none">
-        <Image
-          src="/hero-background.jpeg"
-          alt="Textura de Mapa de calles"
-          fill
-          priority
-          className="object-cover"
-        />
-      </motion.div>
-
+      {/* Hero content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <motion.div
+        <div
           className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-12 items-center"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+          role="img"
+          aria-label="Sección hero con tarjetas 3D flotantes del centro de control logístico"
         >
-          {/* Main Info */}
+          {/* Left: Copy */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
             {/* Badge */}
-            <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-3.5 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue border border-brand-yellow cta-pulse shadow-accent-sm">
+            <div className="inline-flex" style={{ animationDelay: prefersReducedMotion ? '0ms' : '0ms' }}>
+              <span className="px-4 py-2 rounded-full text-[11px] font-subheading font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue border border-brand-yellow shadow-[0_0_20px_rgba(255,236,1,0.3)]">
                 Tu Solución Confiable
               </span>
-            </motion.div>
+            </div>
 
-            {/* Title */}
-            <motion.h1
-              variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[-0.03em] leading-[1.15] sm:leading-[1.1] lg:leading-[1.05] text-white flex flex-col items-center lg:items-start select-none"
-            >
-              <span className="kinetic-font-stretch cursor-pointer hover:text-brand-yellow">
+            {/* Title - Anton Display with kinetic stretch */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[-0.02em] leading-[1.05] sm:leading-[1.05] lg:leading-[1.0] text-white flex flex-col items-center lg:items-start select-none space-y-2">
+              <span className="kinetic-font-stretch cursor-pointer hover:text-brand-yellow transition-colors duration-300">
                 Mensajería y Logística
               </span>
-              <span className="kinetic-font-stretch bg-brand-yellow px-2.5 py-0.5 text-brand-blue inline-block my-1 sm:my-1.5 lg:my-0 hover:bg-white">
+              <span className="kinetic-font-stretch bg-brand-yellow px-3 py-0.5 text-brand-blue inline-block hover:bg-white transition-colors duration-300 text-left">
                 E-Commerce
               </span>
-              <span className="kinetic-font-stretch cursor-pointer hover:text-brand-yellow">
+              <span className="kinetic-font-stretch cursor-pointer hover:text-brand-yellow transition-colors duration-300">
                 en Mar del Plata
               </span>
-            </motion.h1>
+            </h1>
 
-            {/* Body Text */}
-            <motion.p
-              variants={itemVariants}
-              className="text-lg max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-blue-100"
-            >
+            {/* Body */}
+            <p className="text-lg max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-blue-100">
               Somos tu partner estratégico en mensajería, envíos en el día y delivery de última milla. Soluciones ágiles, seguras y competitivas para potenciar tu marca.
-            </motion.p>
+            </p>
 
-            {/* CTA Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2 w-full sm:w-auto">
+            {/* Dual CTA */}
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2 w-full sm:w-auto">
+              {/* Primary CTA - Nested Pill Yellow */}
               <Link
                 href="/cotizar/express"
-                id="hero-cta-solicitar"
-                className="w-full sm:w-auto bg-brand-yellow text-brand-blue font-mono tracking-wider text-sm uppercase cta-nested-pill border border-brand-yellow hover:shadow-cta-glow transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.95] flex items-center justify-between font-bold"
+                id="hero-cta-primary"
+                className="w-full sm:w-auto relative inline-flex items-center justify-center gap-3 bg-brand-yellow text-brand-blue font-subheading tracking-wider text-sm uppercase cta-nested-pill border-2 border-brand-yellow shadow-[0_0_20px_rgba(255,236,1,0.3)] transition-all duration-300 ease-smooth hover:shadow-cta-glow hover:scale-[1.02] active:scale-[0.98] font-bold"
               >
-                <span>Solicitar Servicio</span>
-                <span className="cta-nested-icon bg-brand-blue/15 text-brand-blue transition-transform duration-300 group-hover:translate-x-1">
+                <span className="relative z-10">Solicitar Servicio</span>
+                <span className="cta-nested-icon relative z-10 w-8 h-8 rounded-full bg-brand-blue/15 text-brand-blue flex items-center justify-center transition-all duration-300 ease-smooth group-hover:translate-x-1 group-hover:bg-brand-blue group-hover:text-brand-yellow">
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </Link>
+
+              {/* Elevated CTA on blue bg - Nested Pill White */}
               <Link
                 href="/servicios/envios-express"
-                id="hero-cta-servicios"
-                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-mono tracking-wider text-sm uppercase cta-nested-pill border border-white/30 transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.95] flex items-center justify-between group"
+                id="hero-cta-secondary"
+                className="w-full sm:w-auto relative inline-flex items-center justify-center gap-3 bg-white text-brand-blue font-subheading tracking-wider text-sm uppercase cta-nested-pill border-2 border-brand-blue-100 shadow-elevated transition-all duration-300 ease-smooth hover:shadow-hover-lift hover:-translate-y-0.5 active:scale-[0.98] font-bold"
               >
-                <span>Ver Servicios</span>
-                <span className="cta-nested-icon bg-white/10 text-white transition-transform duration-300 group-hover:translate-x-1">
+                <span className="relative z-10">Ver Servicios</span>
+                <span className="cta-nested-icon relative z-10 w-8 h-8 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center transition-all duration-300 ease-smooth group-hover:translate-x-1 group-hover:bg-brand-blue group-hover:text-white">
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </Link>
-            </motion.div>
+            </div>
 
-            {/* Features list */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap justify-center lg:justify-start gap-6 pt-8 border-t border-white/10 w-full max-w-lg mx-auto lg:mx-0"
-            >
+            {/* Trust Pills */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-8 border-t border-white/10 w-full max-w-lg mx-auto lg:mx-0">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-white/10 rounded-lg text-brand-yellow">
                   <Shield className="h-4 w-4" />
                 </div>
-                <span className="text-xs font-subheading tracking-widest uppercase text-brand-blue-100">100% SEGURO</span>
+                <span className="text-[11px] font-subheading tracking-widest uppercase text-brand-blue-100">100% SEGURO</span>
               </div>
-
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-white/10 rounded-lg text-brand-yellow">
                   <Zap className="h-4 w-4" />
                 </div>
-                <span className="text-xs font-subheading tracking-widest uppercase text-brand-blue-100">RÁPIDO</span>
+                <span className="text-[11px] font-subheading tracking-widest uppercase text-brand-blue-100">RÁPIDO</span>
               </div>
-
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-white/10 rounded-lg text-brand-yellow">
                   <MapPin className="h-4 w-4" />
                 </div>
-                <span className="text-xs font-subheading tracking-widest uppercase text-brand-blue-100">COBERTURA TOTAL</span>
+                <span className="text-[11px] font-subheading tracking-widest uppercase text-brand-blue-100">COBERTURA TOTAL</span>
               </div>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Graphical Representation / Floating Cards (Inversa Flat Style) */}
+          {/* Right: Control Tower - 3D Floating Cards */}
           <div
-            className="relative h-[380px] sm:h-[450px] w-full mt-10 lg:mt-0 flex justify-center items-center overflow-visible"
-            style={{ perspective: 1000 }}
+            className="relative h-[380px] sm:h-[450px] w-full flex justify-center items-center overflow-visible"
+            style={{ perspective: '1000px' }}
+            aria-hidden="true"
           >
-            {/* Contenedor envolvente 3D */}
-            <motion.div
+            <div
               className="w-full max-w-[400px] lg:max-w-none h-full relative"
-              style={{
-                rotateX,
-                rotateY,
-                transformStyle: 'preserve-3d',
-              }}
+              style={{ transformStyle: 'preserve-3d' }}
             >
-              {/* Card 1: Map Representation */}
-              <motion.div
-                className="absolute top-8 sm:top-12 right-0 w-[78%] z-25"
-                initial={{ opacity: 0, z: -100 }}
-                animate={{ opacity: 1, z: 0, transition: { duration: 0.9, ease: "easeOut", delay: 0.5 } }}
-                style={{
-                  transformStyle: 'preserve-3d',
-                  transform: 'translateZ(10px)',
-                }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="relative rounded-2xl overflow-hidden border border-brand-blue-100 bg-white p-2.5 sm:p-3 shadow-md">
-                  <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
-                    <Image
-                      src="/card_mapa.webp"
-                      alt="Mapa de Cobertura de Mar del Plata"
-                      width={400}
-                      height={300}
-                      className="rounded-xl object-cover h-40 sm:h-48 w-full"
-                    />
-                  </div>
-                  <div className="mt-3 flex items-center justify-between text-brand-ink font-mono" style={{ transform: 'translateZ(30px)' }}>
+              {/* Card 1: Map Representation (depth: 10px) */}
+              <FloatCard depth={10} className="absolute top-6 sm:top-8 right-0 w-[78%] z-20">
+                <div className="relative rounded-2xl overflow-hidden border border-brand-blue-100 bg-white p-2.5 sm:p-3 shadow-md aspect-[4/3]">
+                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/card_mapa.webp)' }} />
+                  <div className="absolute inset-0 bg-brand-blue-700/10" />
+                  <div className="relative mt-3 flex items-center justify-between text-brand-blue font-mono" style={{ transform: 'translateZ(20px)' }}>
                     <span className="text-[11px] font-bold uppercase tracking-wide">Ruteo de Envíos</span>
-                    <span className="text-[9px] px-1.5 py-0.5 border border-brand-blue-400 bg-brand-white-50 text-brand-blue-700 font-bold uppercase rounded-full">Optimizado</span>
+                    <span className="text-[9px] px-1.5 py-0.5 border border-brand-blue-300 bg-brand-blue-50 text-brand-blue-700 font-bold uppercase rounded-full">Optimizado</span>
                   </div>
                 </div>
-              </motion.div>
+              </FloatCard>
 
-              {/* Card 2: Transit Details */}
-              <motion.div
-                className="absolute bottom-6 sm:bottom-8 left-0 w-[74%] z-30"
-                initial={{ opacity: 0, z: -100 }}
-                animate={{ opacity: 1, z: 0, transition: { duration: 0.9, ease: "easeOut", delay: 0.7 } }}
-                style={{
-                  transformStyle: 'preserve-3d',
-                  x: floatX,
-                  y: floatY,
-                  transform: 'translateZ(40px)',
-                }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="relative rounded-2xl overflow-hidden border border-brand-blue-600 bg-brand-blue-700 p-3.5 sm:p-4 text-white shadow-xl">
+              {/* Card 2: Transit Details (depth: 40px) */}
+              <FloatCard depth={40} className="absolute bottom-4 sm:bottom-6 left-0 w-[74%] z-30">
+                <div className="relative rounded-2xl overflow-hidden border border-brand-blue-500 bg-brand-blue-700 p-3.5 sm:p-4 text-white shadow-xl aspect-[4/3]">
                   <div className="flex items-center gap-3 mb-2.5" style={{ transform: 'translateZ(10px)' }}>
                     <div className="p-2 sm:p-2 rounded-xl bg-brand-yellow text-brand-blue">
-                      <Bike className="h-4.5 w-4.5 sm:h-5 sm:w-5 animate-pulse" />
+                      <svg className="h-4.5 w-4.5 sm:h-5 sm:w-5 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                      </svg>
                     </div>
                     <div>
                       <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white font-display">Reparto en Curso</h4>
@@ -293,46 +237,56 @@ export default function HeroAnimado() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </FloatCard>
 
-              {/* Floating Info Pill */}
-              <motion.div
-                className="absolute top-1/2 left-1/4 -translate-y-1/2 z-35"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.9 } }}
-                style={{
-                  x: floatXInv,
-                  y: floatYInv,
-                  transform: 'translateZ(70px)',
-                }}
-              >
+              {/* Floating Info Pill (depth: 70px) */}
+              <FloatCard depth={70} className="absolute top-1/2 left-1/4 -translate-y-1/2 z-40">
                 <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-yellow text-brand-blue font-mono tracking-widest text-[10px] sm:text-[11px] rounded-full border border-brand-yellow flex items-center gap-1.5 sm:gap-2 font-bold shadow-md">
-                  <span className="h-2 w-2 rounded-full bg-brand-blue-400 animate-ping" />
+                  <span className="h-2 w-2 rounded-full bg-brand-blue-400 animate-pulse" />
                   ENTREGA FLEX ACTIVA
                 </div>
-              </motion.div>
+              </FloatCard>
 
-              {/* Counter Pill */}
-              <motion.div
-                className="absolute -bottom-4 right-4 z-40"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 1.1 } }}
-                style={{
-                  x: floatX,
-                  y: floatYInv,
-                  transform: 'translateZ(80px)',
-                }}
-              >
+              {/* Counter Pill (depth: 80px) */}
+              <FloatCard depth={80} className="absolute -bottom-3 right-3 z-50">
                 <div className="px-4 py-2 bg-white text-brand-blue-700 font-display text-xl rounded-xl border border-brand-blue-100 shadow-elevated flex items-center gap-2">
                   <span className="text-brand-yellow-500">+</span>
-                  <span ref={counterRef} className="font-display">0</span>
+                  <Counter target={5200} duration={2000} delay={1100} className="font-display" />
                   <span className="text-sm font-subheading tracking-widest ml-1 mt-1 text-brand-blue-400">ENVÍOS</span>
                 </div>
-              </motion.div>
-            </motion.div>
+              </FloatCard>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
+}
+
+function Counter({ target, duration = 2000, delay = 0, className = '' }: { target: number; duration?: number; delay?: number; className?: string }) {
+  const [count, setCount] = useState(0);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (hasAnimated.current) return;
+    hasAnimated.current = true;
+
+    const timer = setTimeout(() => {
+      const startTime = performance.now();
+      const animate = (currentTime: number) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        setCount(Math.floor(eased * target));
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+      requestAnimationFrame(animate);
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [target, duration, delay]);
+
+  return <span className={className}>{count.toLocaleString()}</span>;
 }

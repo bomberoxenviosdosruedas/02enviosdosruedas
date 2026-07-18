@@ -74,12 +74,13 @@ export default function OptimizedHeader() {
   return (
     <header
       id="optimized-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+      className={`fixed top-0 left-0 right-0 z-[900] transition-all duration-300 ${
+        scrolled
           ? 'bg-brand-blue/95 shadow-lg border-b border-white/10 py-3 backdrop-blur-md'
           : 'bg-brand-blue py-4'
-        }`}
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
 
           {/* Logo */}
@@ -99,7 +100,7 @@ export default function OptimizedHeader() {
               />
             </div>
             <div>
-              <span className="font-display text-2xl tracking-wider text-white flex items-center gap-1">
+              <span className="font-display text-2xl tracking-wider text-white flex items-center gap-1.5">
                 Envíos <span className="text-brand-yellow">Dosruedas</span>
               </span>
               <span className="block text-[9px] font-sans tracking-widest text-brand-blue-100 uppercase leading-none">
@@ -109,7 +110,7 @@ export default function OptimizedHeader() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav id="desktop-nav-opt" className="hidden lg:flex items-center gap-2">
+          <nav id="desktop-nav-opt" className="hidden lg:flex items-center gap-2" role="navigation" aria-label="Navegación principal">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -120,10 +121,11 @@ export default function OptimizedHeader() {
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`px-4 py-2 text-sm font-subheading tracking-wider uppercase rounded-xl transition-all flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50 ${pathname === item.href
+                    className={`px-4 py-2 text-sm font-subheading tracking-wider uppercase rounded-xl transition-all flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50 ${
+                      pathname === item.href
                         ? 'text-brand-yellow bg-white/10'
                         : 'text-white hover:text-brand-yellow hover:bg-white/5'
-                      }`}
+                    }`}
                   >
                     {item.icon && <item.icon className="h-4 w-4 shrink-0" />}
                     <span>{item.label}</span>
@@ -133,7 +135,6 @@ export default function OptimizedHeader() {
                     onClick={() => handleDropdownToggle(item.label)}
                     onFocus={() => item.dropdownItems && setActiveDropdown(item.label)}
                     onBlur={(e) => {
-                      // Solo cerrar si el foco se mueve fuera del contenedor del dropdown
                       if (!e.currentTarget.parentElement?.contains(e.relatedTarget)) {
                         setActiveDropdown(null);
                       }
@@ -144,8 +145,7 @@ export default function OptimizedHeader() {
                   >
                     {item.icon && <item.icon className="h-4 w-4 shrink-0" />}
                     <span>{item.label}</span>
-                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180 text-brand-yellow' : ''
-                      }`} />
+                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180 text-brand-yellow' : ''}`} />
                   </button>
                 )}
 
@@ -157,9 +157,8 @@ export default function OptimizedHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute left-0 mt-2 w-72 bg-brand-blue rounded-2xl shadow-xl border border-white/10 py-3 text-white overflow-hidden z-50"
+                      className="absolute left-0 mt-2 w-72 bg-brand-blue rounded-2xl shadow-xl border border-white/10 py-3 text-white overflow-hidden z-[1000]"
                       onBlur={(e) => {
-                        // Cerrar cuando perdemos foco en el último elemento del dropdown
                         if (!e.currentTarget.contains(e.relatedTarget)) {
                           setActiveDropdown(null);
                         }
@@ -207,7 +206,7 @@ export default function OptimizedHeader() {
             <Link
               href="/cotizar/express"
               id="header-cta"
-              className="bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue font-subheading tracking-wider text-base uppercase px-5 py-2.5 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-blue)] transition-all hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center gap-2 font-bold cursor-pointer"
+              className="bg-white hover:bg-brand-blue-50 text-brand-blue font-subheading tracking-wider text-base uppercase px-5 py-2.5 rounded-xl border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-blue)] transition-all hover:scale-[1.02] active:scale-[0.98] active:translate-y-[1px] flex items-center gap-2 font-bold cursor-pointer"
             >
               <Calculator className="h-4 w-4" />
               Cotizar Envío
@@ -266,8 +265,7 @@ export default function OptimizedHeader() {
                           {item.icon && <item.icon className="h-5 w-5 text-brand-blue-200" />}
                           <span>{item.label}</span>
                         </span>
-                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180 text-brand-yellow' : 'text-brand-blue-200'
-                          }`} />
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180 text-brand-yellow' : 'text-brand-blue-200'}`} />
                       </button>
 
                       <AnimatePresence>

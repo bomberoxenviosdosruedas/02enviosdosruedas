@@ -292,8 +292,44 @@
   animation: border-pulse 2s ease-in-out infinite;
 }
 
-@utility section-fade-bottom {
-  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+@utility kinetic-font-stretch {
+  display: inline-block;
+  transition: transform var(--duration-slower, 400ms) var(--ease-smooth, cubic-bezier(0.25, 1, 0.5, 1)), letter-spacing var(--duration-slower, 400ms) var(--ease-smooth, cubic-bezier(0.25, 1, 0.5, 1));
+  will-change: transform, letter-spacing;
+
+  &:hover {
+    transform: scaleX(1.1);
+    letter-spacing: 0.02em;
+  }
+}
+
+@utility cta-nested-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-h, 40px);
+  padding: 0 var(--space-6, 24px);
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-subheading, var(--font-sans));
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid;
+  transition: all var(--duration-normal, 300ms) var(--ease-out, cubic-bezier(0, 0, 0.2, 1));
+  position: relative;
+  overflow: hidden;
+}
+
+@utility cta-nested-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--cta-nested-icon-size, 32px);
+  height: var(--cta-nested-icon-size, 32px);
+  border-radius: var(--radius-full, 9999px);
+  transition: all var(--duration-normal, 300ms) var(--ease-out, cubic-bezier(0, 0, 0.2, 1));
+  flex-shrink: 0;
 }
 
 @utility bezel-outer {
