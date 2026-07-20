@@ -220,16 +220,16 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                 >
                   <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 space-y-4 text-brand-blue-700">
                     <div className="grid grid-cols-2 gap-4 text-center">
-                      <div className="bg-brand-blue-50/50 p-3 rounded-2xl border border-brand-blue-50/50">
-                        <span className="block text-[10px] font-sans font-bold text-brand-blue-400 uppercase tracking-wider">
+                      <div className="bg-slate-50 p-3 rounded-2xl border border-brand-blue-50/50">
+                        <span className="block text-[10px] font-sans font-bold text-slate-500 uppercase tracking-wider">
                           DISTANCIA
                         </span>
                         <span className="text-xl font-mono text-brand-blue-700 font-bold">
                           {result.distancia} km
                         </span>
                       </div>
-                      <div className="bg-brand-blue-50/50 p-3 rounded-2xl border border-brand-blue-50/50">
-                        <span className="block text-[10px] font-sans font-bold text-brand-blue-400 uppercase tracking-wider">
+                      <div className="bg-slate-50 p-3 rounded-2xl border border-brand-blue-50/50">
+                        <span className="block text-[10px] font-sans font-bold text-slate-500 uppercase tracking-wider">
                           DEMORA ESTIMADA
                         </span>
                         <span className="text-xl font-mono text-brand-blue-700 font-bold">
@@ -240,7 +240,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
 
                     <div className="border-t border-brand-blue-100/60 pt-4 flex flex-col sm:flex-row justify-between items-center gap-3">
                       <div>
-                        <span className="block text-[10px] font-sans font-bold text-brand-blue-400 uppercase tracking-wider">
+                        <span className="block text-[10px] font-sans font-bold text-slate-500 uppercase tracking-wider">
                           TARIFA ESTIMADA EXPRESS
                         </span>
                         <div className="flex items-baseline gap-1.5 mt-0.5">
@@ -253,7 +253,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                               <span className="font-mono font-bold tracking-tighter text-5xl text-brand-blue-700">
                                 ${result.precio.toLocaleString('es-AR')}
                               </span>
-                              <span className="text-[10px] text-brand-blue-400 font-mono">ARS</span>
+                              <span className="text-[10px] text-slate-500 font-mono">ARS</span>
                             </>
                           )}
                         </div>

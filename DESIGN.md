@@ -4,6 +4,65 @@ Este documento define la base del sistema de diseño para **Envíos DosRuedas** 
 
 ---
 
+## 0. Principios de Marca Inmutables (NO NEGOCIABLES)
+
+> **Estas reglas son ley. Cualquier excepción requiere ADR documentado y aprobación de Brand + Product.**
+
+### 0.1 Logotipo — INALTERABLE
+| Regla | Especificación |
+|-------|----------------|
+| **Archivo maestro** | `/public/logo-master.svg` (vector, sin fondo, safe-area 20% perimetral) |
+| **Colores permitidos** | Solo: **Azul #0636A5** (primary), **Blanco #FFFFFF** (reverso), **Amarillo #FFEC01** (solo en marca compuesta aprobada) |
+| **PROHIBIDO ABSOLUTO** | Recolorear, estirar (aspect-ratio fijo 1:0.45), añadir sombras/glows/efectos, colocar sobre fondos ruidosos sin safe-area, usar versión rasterizada (png/jpg) salvo fallback técnico documentado |
+| **Tamaño mínimo** | 120px ancho (web), 30mm (print) |
+| **Clear space** | 0.25× altura del logotipo en todos los lados |
+| **Variantes aprobadas** | 1. Primaria (Azul sobre blanco) 2. Reverso (Blanco sobre Azul #0636A5) 3. Monocromo negro (solo fax/documentos legales) |
+
+### 0.2 Paleta — LEY DE TRES COLORES
+**Solo existen 3 colores en el sistema.** Todo lo demás son escalas de estos tres.
+
+| Rol | Token CSS | Token Tailwind | Hex | Uso Principal |
+|-----|-----------|----------------|-----|---------------|
+| **Principal / Confianza** | `--color-primary` | `brand-blue-700` | `#0636A5` | Headers, footers, secciones oscuras, navegación, CTA secondary, bordes fuertes |
+| **Acento / Acción / Logística** | `--color-accent` | `brand-yellow-500` | `#FFEC01` | CTA primary, badges, trust pills, iconos activos, focus rings, highlights |
+| **Lienzo / Superficie / Claridad** | `--color-surface` | `brand-white-50` | `#FFFFFF` | Fondos de página, interior de tarjetas, inputs, modales, tablas |
+
+**ESCALAS OFICIALES PERMITIDAS** (definidas en `tailwind.config.ts` + `globals.css`):
+- **Azul:** `brand-blue-50` → `brand-blue-950`
+- **Amarillo:** `brand-yellow-50` → `brand-yellow-600`
+- **Blanco:** `brand-white-50` únicamente
+
+**🚫 PROHIBIDO ABSOLUTO — CERO TOLERANCIA:**
+```css
+/* NUNCA USAR — No existen en el design system */
+slate-*, gray-*, zinc-*, neutral-*, stone-*
+/* NUNCA hex inline arbitrarios */
+#333, #f5f5f5, #666, #999, #ccc, #eee
+/* NUNCA bg-slate-900, text-gray-600, border-zinc-200, etc. */
+/* NUNCA degradados no documentados en Sección 8 */
+```
+
+### 0.3 Voz y Tono — Rioplatense Obligatorio
+| Regla | Correcto ✅ | Incorrecto ❌ |
+|-------|-------------|---------------|
+| **Voseo siempre** | "Cotizá tu envío", "Ingresá origen y destino", "Contactanos" | "Cotice su envío", "Ingrese origen y destino", "Contáctenos" |
+| **Pronombres** | Vos / Tu / Tuyo | Usted / Su / Suyo |
+| **Verbos UI** | Cotizá, Enviá, Rastreá, Elegí, Agendá, Confirmá | Cotice, Envíe, Rastree, Elija, Agende, Confirme |
+| **Expresiones locales** | "Al toque", "En un rato", "Quedate tranquilo", "Te avisamos", "Por acá" | "Inmediatamente", "En breve", "Quede tranquilo", "Le notificaremos" |
+| **Referencias MDQ** | "Desde Güemes hasta Playa Grande", "Hub en Friuli 1972", "Cubrimos Punta Mogotes" | "Desde el centro hasta la playa", "Nuestro centro de distribución", "Cobertura amplia" |
+
+**Ver diccionario completo en:** `docs/knowledge_base/contexto.md` → Sección 3
+
+### 0.4 Identidad Local — Mar del Plata 2026
+- **Enfoque humano:** Riders empleados (no gig), atención WhatsApp humana, nombres de pila
+- **Tradición:** 15+ años en calles MDQ, conocimiento vial heredado (atajos, cortes, horarios pico)
+- **Cercanía:** Hablamos como vecinos, voseo, referencias locales obligatorias
+- **Eficacia:** Tech al servicio de la operación. `Math.ceil` real, OSRM custom, cero sorpresas
+
+---
+
+## 1. Visual Theme & Atmosphere
+
 ## 1. Visual Theme & Atmosphere
 
 El entorno evoca precisión cronométrica, custodia de activos y la espina dorsal de la conectividad corporativa. Es una cabina de control digital organizada y de alto rendimiento. El lienzo principal del sitio es **limpio, blanco y estructurado**, utilizando el azul institucional como ancla de confianza y orden.

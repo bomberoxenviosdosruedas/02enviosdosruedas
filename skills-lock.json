@@ -119,13 +119,13 @@
       "source": "prisma/skills",
       "sourceType": "github",
       "skillPath": "prisma-compute/SKILL.md",
-      "computedHash": "046332926714a9f1ee4eb5b5395fc9d96aa91228ee557e58167a82d9423f8d91"
+      "computedHash": "b2e1d4b2fda6f523b2eb4a38e25c12b7800e4a2801a97b750e95df8131addec0"
     },
     "prisma-database-setup": {
       "source": "prisma/skills",
       "sourceType": "github",
       "skillPath": "prisma-database-setup/SKILL.md",
-      "computedHash": "0d6f44ac34b1ed3f8ed2970ecf90483d0f658fd1d204458f62bfefa28f31b095"
+      "computedHash": "0911d9454bd48df3badd23a50fd90a280eabb15dcbd472c14e7b729075dadefb"
     },
     "prisma-driver-adapter-implementation": {
       "source": "prisma/skills",
@@ -149,7 +149,7 @@
       "source": "prisma/skills",
       "sourceType": "github",
       "skillPath": "prisma-upgrade-v7/SKILL.md",
-      "computedHash": "075d1fc3156d5593c3e9a559ebb07f82a2991db07125ff9df16ad90270f5c584"
+      "computedHash": "dcc6c71adca6b22f37c5bda5ac7fd63c3bb59495596a22e06a29c7c85371558f"
     },
     "redesign-existing-projects": {
       "source": "Leonxlnx/taste-skill",
@@ -161,7 +161,7 @@
       "source": "google-labs-code/stitch-skills",
       "sourceType": "github",
       "skillPath": "plugins/stitch-build/skills/remotion/SKILL.md",
-      "computedHash": "e117a6fd18d8bef4774034300c1d0b3db71e39c94d935227b03793f8ee1f6e49"
+      "computedHash": "86c72dff442c4f725107924f48298391e33eaf9788f0faefe360f3061b25fcec"
     },
     "shadcn-ui": {
       "source": "google-labs-code/stitch-skills",
@@ -215,13 +215,13 @@
       "source": "google-labs-code/stitch-skills",
       "sourceType": "github",
       "skillPath": "plugins/stitch-build/skills/react-components/SKILL.md",
-      "computedHash": "4685971391d8b925281015bbda3497ff4b42d3ff02da6faf22540a7431ed7031"
+      "computedHash": "021d060c8fd0719696cb408e16181fbf872b89e0369278f70b02af8199f41dd1"
     },
     "stitch::react-native": {
       "source": "google-labs-code/stitch-skills",
       "sourceType": "github",
       "skillPath": "plugins/stitch-build/skills/react-native/SKILL.md",
-      "computedHash": "a63c862ea9df1f9173ec51bd8706550a65dd5784f8dc44ce2aafae7f21015aea"
+      "computedHash": "9bf80d73cfa36b99b5b39193ac9bd1badfc4205f12cd4956339c2dfd6c4bf7cf"
     },
     "stitch::upload-to-stitch": {
       "source": "google-labs-code/stitch-skills",

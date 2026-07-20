@@ -90,7 +90,7 @@ export default function OptimizedHeader() {
           >
             <div className="relative w-10 h-10 group-hover:scale-105 transition-transform duration-200 shrink-0">
               <Image
-                src="/LogoEnviosDosRuedas.webp"
+                src="https://i.postimg.cc/RF6MBw2d/logo-envios.webp"
                 alt="Logo Envíos Dos Ruedas simplificado"
                 fill
                 sizes="40px"

@@ -1,6 +1,6 @@
 # ==============================================================================
-# .geminiignore — FinOps & Context Optimization
-# Proyecto: Envíos Dos Ruedas | Stack: Next.js 15 · TS · Prisma · pnpm · Vitest
+# .geminiignore — FinOps & Context Optimization for Google AI / Gemini
+# Proyecto: Envíos DosRuedas | Stack: Next.js 16 · TS · Prisma · pnpm · Vitest/Playwright
 # ==============================================================================
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -29,7 +29,7 @@ $RECYCLE.BIN/
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 2. DEPENDENCIAS Y LOCK FILES (mayor ahorro de tokens del proyecto)
-# pnpm-lock.yaml pesa 493 KB — ignorarlo es el mayor win de FinOps
+# pnpm-lock.yaml pesa ~500 KB — ignorarlo es el mayor win de FinOps
 # ──────────────────────────────────────────────────────────────────────────────
 node_modules/
 pnpm-lock.yaml
@@ -47,12 +47,12 @@ out/
 .output/
 generated/
 
-# TypeScript incremental build cache (569 KB en este proyecto)
+# TypeScript incremental build cache (~570 KB en este proyecto)
 tsconfig.tsbuildinfo
 *.tsbuildinfo
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 4. CACHES DE HERRAMIENTAS Y FRAMEWORKS
+# 4. CACHÉS DE HERRAMIENTAS Y FRAMEWORKS
 # ──────────────────────────────────────────────────────────────────────────────
 .turbo/
 .parcel-cache/
@@ -84,6 +84,7 @@ tsconfig.tsbuildinfo
 # 6. ASSETS BINARIOS Y MULTIMEDIA (evitan tokens de visión costosos)
 # Se excluyen a nivel global; mantener public/manifest.json visible
 # ──────────────────────────────────────────────────────────────────────────────
+
 # Imágenes
 *.png
 *.jpg
@@ -94,8 +95,9 @@ tsconfig.tsbuildinfo
 *.ico
 *.bmp
 *.tiff
+*.svg
 
-# Vectores y diseño (los SVG de código fuente pueden dejarse si son críticos)
+# Vectores y diseño
 *.psd
 *.fig
 *.sketch
@@ -126,6 +128,7 @@ tsconfig.tsbuildinfo
 # Mapas de source (no aportan al análisis de lógica)
 *.js.map
 *.css.map
+*.ts.map
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 7. BASES DE DATOS Y LOGS
@@ -163,7 +166,8 @@ __pycache__/
 # ──────────────────────────────────────────────────────────────────────────────
 # 9. CARPETAS ESPECÍFICAS DE ESTE PROYECTO QUE NO APORTAN AL CONTEXTO IA
 # ──────────────────────────────────────────────────────────────────────────────
-# Datos históricos de operaciones (CSV/JSON de operaciones pasadas)
+
+# Datos históricos de operaciones (CSV/JSON de operaciones pasadas — muy pesados)
 enviosdosruedas_datos_2_anos/
 
 # Carpetas de herramientas internas de IA/agentes (no son código fuente)
@@ -175,7 +179,7 @@ enviosdosruedas_datos_2_anos/
 .stitch/
 .prisma/
 
-# Carpeta de scratch y site de pruebas
+# Carpeta de scratch y sitio de pruebas
 scratch/
 site/
 
@@ -186,17 +190,71 @@ skills-lock.json
 assets/
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 10. DOCS: exclusiones quirúrgicas (los .md de contexto deben VERSE)
+# 10. DOCS: EXCLUSIONES QUIRÚRGICAS (los .md de contexto DEBEN VERSE)
 # ──────────────────────────────────────────────────────────────────────────────
+
 # Archivos extremadamente pesados que no aportan texto útil al agente
 docs/mapa.svg
 docs/imagen_mapa_mdq.png
+docs/heroactual.png
+docs/Captura de pantalla 2026-07-09 235629.png
+docs/tema.json
+
 # HTML de ejemplo y archivos de prompt borrador (no son reglas de arquitectura)
 docs/ejemplo_tema.html
 docs/prompts_jules.md
 docs/refactor-pages-prompt.md
 docs/stitch-design-md-prompt.md
 docs/stitch-home-prompt.md
+docs/public-Feedback-selection.md
+
 # JSON de assets (listas de URLs de imágenes, no lógica de negocio)
 docs/imagenes.json
-docs/public-Feedback-selection.md
+docs/background-image-prompts.md
+
+# Análisis competitivos pesados (>40KB cada uno, no son reglas del proyecto)
+docs/contexto/analisis_correo_argentino.md
+docs/contexto/analisis_correo_uruguayo.md
+docs/contexto/analisis_envios_dosruedas.md
+docs/contexto/analisis_fedex.md
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 11. WHITELIST EXPLÍCITA: ARCHIVOS CRÍTICOS QUE SÍ DEBEN VERSE
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Knowledge Base centralizada (nueva)
+!docs/knowledge_base/contexto.md
+
+# Contexto operativo esencial
+!docs/contexto/precios.md              # Fuente de verdad de tarifas 2026
+!docs/contexto/arquitectura.md         # Decisiones arquitectónicas
+!docs/contexto/convenciones.md         # Convenciones de código
+!docs/contexto/decisiones.md           # ADR / decisiones técnicas
+!docs/contexto/errores-conocidos.md    # Gotchas y workarounds
+!docs/contexto/flujo-de-trabajo.md     # Flujo de desarrollo
+!docs/contexto/glosario.md             # Glosario de términos
+
+# Configuración de proyecto
+!next.config.ts
+!tailwind.config.ts
+!tsconfig.json
+!package.json
+!pnpm-workspace.yaml
+!postcss.config.mjs
+!eslint.config.mjs
+!vitest.config.ts
+!prisma/schema.prisma
+!prisma/seed.ts
+
+# Código fuente principal
+!src/**/*
+!public/**/manifest.json
+
+# Documentación raíz
+!README.md
+!AGENTS.md
+!DESIGN.md
+!PROJECT.md
+!.aiexclude
+!.geminiignore
+!.env.example

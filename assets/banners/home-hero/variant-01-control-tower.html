@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=800">
+  <title>Envíos Dosruedas - Home Hero Variant 1: Control Tower</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* === DESIGN TOKENS === */
+    :root {
+      --brand-blue: #0636A5;
+      --brand-blue-50: #E6EEFE;
+      --brand-blue-100: #BACEFD;
+      --brand-blue-200: #8EAFFB;
+      --brand-blue-600: #0742CA;
+      --brand-blue-700: #0636A5;
+      --brand-blue-800: #052D8C;
+      --brand-blue-900: #04236B;
+      --brand-blue-950: #021440;
+      --brand-yellow: #FFEC01;
+      --brand-yellow-50: #FFFDE6;
+      --brand-yellow-100: #FFFAB8;
+      --brand-yellow-200: #FFF78A;
+      --brand-yellow-600: #E6D400;
+      --white: #FFFFFF;
+      --success: #16A34A;
+      --success-light: #DCFCE7;
+
+      --font-display: 'Anton', sans-serif;
+      --font-subheading: 'Bebas Neue', sans-serif;
+      --font-sans: 'IBM Plex Sans', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+
+      --shadow-float: 0 25px 50px -12px rgba(6, 54, 165, 0.15);
+      --shadow-elevated: 0 20px 40px -8px rgba(6, 54, 165, 0.2), 0 8px 16px -4px rgba(6, 54, 165, 0.12);
+      --shadow-hover-lift: 0 32px 64px -12px rgba(6, 54, 165, 0.25);
+      --shadow-antigravity: 0 30px 60px -15px rgba(6, 54, 165, 0.3), 0 0 50px -10px rgba(255, 236, 1, 0.15);
+      --shadow-cta-glow: 0 0 40px rgba(255, 236, 1, 0.4), 0 0 80px rgba(255, 236, 1, 0.15);
+      --shadow-inner: inset 0 2px 4px rgba(6, 54, 165, 0.06);
+      --shadow-accent-sm: 0 2px 4px rgba(255, 236, 1, 0.15);
+
+      --radius-bezel-outer: 16px;
+      --radius-bezel-inner: 12px;
+      --radius-full: 9999px;
+      --radius-xl: 12px;
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* === RESET === */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 1920px; height: 800px; overflow: hidden; }
+
+    /* === BANNER CONTAINER === */
+    .banner {
+      position: relative;
+      width: 1920px;
+      height: 800px;
+      background: var(--brand-blue-700);
+      font-family: var(--font-sans);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* === BACKGROUND MESH === */
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 0%, rgba(6, 54, 165, 0.25) 0%, transparent 70%),
+        radial-gradient(circle at 80% 20%, rgba(255, 236, 1, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 10% 80%, rgba(0, 32, 104, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* === GRID PATTERN OVERLAY === */
+    .banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(6, 54, 165, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(6, 54, 165, 0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* === LAYOUT === */
+    .banner > * { position: relative; z-index: 2; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr auto;
+      height: 100%;
+      padding: var(--space-8) var(--space-10);
+      gap: var(--space-8);
+    }
+
+    /* Left: Service Bento */
+    .service-bento {
+      grid-area: 1 / 1 / 4 / 2;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: var(--space-6);
+    }
+
+    /* Right: Metrics Tower */
+    .metrics-tower {
+      grid-area: 1 / 2 / 4 / 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-6);
+      padding-top: var(--space-12);
+    }
+
+    /* Bottom CTA Bar */
+    .cta-bar {
+      grid-area: 4 / 1 / 5 / 3;
+      display: flex;
+      justify-content: center;
+      gap: var(--space-6);
+      padding-bottom: var(--space-8);
+    }
+
+    /* === DOUBLE BEZEL CARD === */
+    .double-bezel {
+      /* Outer bezel */
+      background: var(--brand-blue-50);
+      border: 1px solid var(--brand-blue-100);
+      border-radius: var(--radius-bezel-outer);
+      padding: var(--space-2);
+      box-shadow: var(--shadow-float);
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .double-bezel:hover {
+      border-color: var(--brand-blue-300);
+      box-shadow: var(--shadow-antigravity);
+      transform: translateY(-4px);
+    }
+
+    .double-bezel .bezel-inner {
+      /* Inner bezel */
+      background: var(--white);
+      border-radius: var(--radius-bezel-inner);
+      box-shadow: var(--shadow-inner);
+      padding: var(--space-6);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--brand-blue-900);
+    }
+
+    /* Express card (top left) - accent border */
+    .double-bezel.express .bezel-inner {
+      border-top: 4px solid var(--brand-yellow);
+    }
+
+    .double-bezel.express:hover .bezel-inner {
+      border-top-color: var(--brand-yellow-600);
+    }
+
+    /* E-Commerce card (bottom left) - accent border */
+    .double-bezel.ecommerce .bezel-inner {
+      border-top: 4px solid var(--brand-blue-700);
+    }
+
+    .double-bezel.ecommerce:hover .bezel-inner {
+      border-top-color: var(--brand-yellow);
+    }
+
+    /* Card Header */
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: var(--space-4);
+    }
+
+    .icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      background: var(--brand-yellow);
+      color: var(--brand-blue-700);
+      box-shadow: var(--shadow-accent-sm);
+      transition: all 0.3s ease;
+    }
+
+    .double-bezel:hover .icon-badge {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-accent-md);
+    }
+
+    .pill {
+      font-family: var(--font-subheading);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pill.urgent {
+      background: var(--brand-yellow);
+      color: var(--brand-blue-900);
+      border: 1px solid var(--brand-yellow);
+    }
+
+    .pill.corporate {
+      background: var(--Brand-blue-100);
+      color: var(--brand-blue-700);
+      border: 1px solid var(--brand-blue-200);
+    }
+
+    .double-bezel.express .pill.corporate,
+    .double-bezel.ecommerce .pill.urgent {}
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--brand-blue-900);
+      margin-bottom: var(--space-2);
+      transition: color 0.3s ease;
+    }
+
+    .double-bezel:hover .card-title {
+      color: var(--brand-blue-700);
+    }
+
+    .card-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--brand-blue-500);
+      font-weight: 500;
+    }
+
+    .double-bezel.ecommerce .card-title {
+      font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+    }
+
+    /* === FLOATING METRIC CARDS === */
+    .float-card {
+      background: var(--white);
+      border-radius: var(--radius-bezel-outer);
+      padding: var(--space-6) var(--space-8);
+      box-shadow: var(--shadow-elevated);
+      border: 1px solid var(--brand-blue-100);
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .float-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--brand-blue-700), var(--brand-yellow));
+    }
+
+    .float-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: var(--shadow-antigravity);
+      border-color: var(--brand-blue-300);
+    }
+
+    .float-card strong {
+      font-family: var(--font-mono);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+      display: block;
+      margin-bottom: var(--space-2);
+    }
+
+    .float-card:nth-child(1) strong { color: var(--brand-blue-700); }
+    .float-card:nth-child(2) strong { color: var(--success); }
+    .float-card:nth-child(3) strong { color: var(--brand-blue-700); }
+
+    .float-card span:last-child {
+      font-family: var(--font-subheading);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brand-blue-500);
+      font-weight: 600;
+    }
+
+    /* Depth-based animation delay */
+    .float-card.depth-10 { animation: floatUp 6s ease-in-out infinite; animation-delay: 0s; }
+    .float-card.depth-40 { animation: floatUp 6s ease-in-out infinite; animation-delay: 0.5s; }
+    .float-card.depth-70 { animation: floatUp 6s ease-in-out infinite; animation-delay: 1s; }
+
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* === NESTED CTA PILLS === */
+    .nested-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      height: 56px;
+      padding: 0 var(--space-8);
+      border-radius: var(--radius-full);
+      font-family: var(--font-subheading);
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nested-pill::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    .nested-pill:hover::after {
+      transform: translateX(100%);
+    }
+
+    /* Primary - Yellow on Blue */
+    .nested-pill.primary {
+      background: var(--brand-yellow);
+      color: var(--brand-blue-900);
+      border-color: var(--brand-yellow);
+      box-shadow: var(--shadow-accent-sm);
+    }
+
+    .nested-pill.primary:hover {
+      background: var(--brand-yellow-200);
+      box-shadow: var(--shadow-cta-glow);
+      transform: scale(1.02);
+    }
+
+    .nested-pill.primary .pill-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      background: rgba(6, 54, 165, 0.12);
+      color: var(--brand-blue-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .nested-pill.primary:hover .pill-icon {
+      background: var(--brand-blue-700);
+      color: var(--brand-yellow);
+      transform: translateX(4px);
+    }
+
+    /* Elevated - White on Blue */
+    .nested-pill.elevated {
+      background: var(--white);
+      color: var(--brand-blue-700);
+      border-color: var(--brand-blue-100);
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .nested-pill.elevated:hover {
+      box-shadow: var(--shadow-hover-lift);
+      transform: translateY(-3px);
+      border-color: var(--brand-blue-300);
+    }
+
+    .nested-pill.elevated .pill-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      background: rgba(6, 54, 165, 0.08);
+      color: var(--brand-blue-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .nested-pill.elevated:hover .pill-icon {
+      background: var(--brand-blue-700);
+      color: var(--white);
+      transform: translateX(4px);
+    }
+
+    .pill-icon svg { width: 20px; height: 20px; }
+
+    /* === RESPONSIVE (for preview) === */
+    @media (max-width: 1920px) {
+      .banner { transform: scale(0.8); transform-origin: top left; width: 1920px; height: 800px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <!-- Service Bento Grid (Left) -->
+    <section class="service-bento" aria-label="Nuestros servicios principales">
+      <!-- Express Card -->
+      <article class="double-bezel express">
+        <div class="bezel-inner">
+          <header class="card-header">
+            <div class="icon-badge" aria-hidden="true">⚡</div>
+            <span class="pill urgent">URGENTE</span>
+          </header>
+          <div>
+            <h3 class="card-title">Envíos Express</h3>
+            <p class="card-desc">En 2 horas en Mar del Plata</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- E-Commerce Card -->
+      <article class="double-bezel ecommerce">
+        <div class="bezel-inner">
+          <header class="card-header">
+            <div class="icon-badge" aria-hidden="true">🏪</div>
+            <span class="pill corporate">PYMES & CORP.</span>
+          </header>
+          <div>
+            <h3 class="card-title">E-Commerce & 3PL</h3>
+            <p class="card-desc">Logística integral para escalar tu tienda online</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Metrics Tower (Right) -->
+    <aside class="metrics-tower" aria-label="Métricas de confianza">
+      <div class="float-card depth-10" style="--depth: 10px;">
+        <strong>52K+</strong>
+        <span>Envíos realizados</span>
+      </div>
+      <div class="float-card depth-40" style="--depth: 40px;">
+        <strong style="color: var(--success);">0</strong>
+        <span>Paquetes extraviados</span>
+      </div>
+      <div class="float-card depth-70" style="--depth: 70px;">
+        <strong>140+</strong>
+        <span>Emprendedores confían</span>
+      </div>
+    </aside>
+
+    <!-- CTA Bar -->
+    <div class="cta-bar" role="group" aria-label="Acciones principales">
+      <a href="/cotizar/express" class="nested-pill primary" aria-label="Solicitar cotización express">
+        <span>Cotizar Express</span>
+        <span class="pill-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+      <a href="/servicios/envios-express" class="nested-pill elevated" aria-label="Ver todos los servicios">
+        <span>Ver Servicios</span>
+        <span class="pill-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

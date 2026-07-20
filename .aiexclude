@@ -1,44 +1,74 @@
-# AI Exclusion File - Evita el consumo innecesario de tokens y protege secretos
-# Excluye directorios de dependencias y compilación
+# AI Exclusion File — Optimización de Tokens y Protección de Secretos
+# Envíos DosRuedas | 2026 | Mar del Plata
+# Reglas estrictas: excluir directorios de dependencias, builds, control de versiones, binarios y temporales
+
+# ──────────────────────────────────────────────────────────────
+# 1. DEPENDENCIAS Y LOCKFILES (mayor ahorro detokens)
+# ──────────────────────────────────────────────────────────────
 node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+bun.lockb
+.npmrc
+
+# ──────────────────────────────────────────────────────────────
+# 2. BUILDS Y OUTPUTS DE COMPILACIÓN
+# ──────────────────────────────────────────────────────────────
 .next/
 dist/
 build/
 out/
-.hermes/
+.output/
+generated/
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# ──────────────────────────────────────────────────────────────
+# 3. CONTROL DE VERSIONES
+# ──────────────────────────────────────────────────────────────
 .git/
+.gitignore
+.gitattributes
+.gitmodules
+.hg/
+.svn/
 
-# Excluye archivos de bloqueo de paquetes pesados (muy ruidosos en contexto)
-pnpm-lock.yaml
-package-lock.json
-yarn.lock
-
-# Excluye variables de entorno por seguridad y privacidad
+# ──────────────────────────────────────────────────────────────
+# 4. VARIABLES DE ENTORNO Y SECRETOS (nunca al contexto IA)
+# ──────────────────────────────────────────────────────────────
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*.local
 
-# Excluye carpetas de caché y logs de sistemas
-.npm/
-.eslintcache
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+# Whitelist: el ejemplo SÍ se ve para entender estructura
+!.env.example
+
+# ──────────────────────────────────────────────────────────────
+# 5. CACHES DE HERRAMIENTAS Y FRAMEWORKS
+# ──────────────────────────────────────────────────────────────
 .turbo/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.vite/
+.babel-cache/
+.swc/
+.pytest_cache/
+.ruff_cache/
+.vercel/
+.hermes/
+.node_modules/.cache/
 
-# Excluye archivos temporales de editores
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.swp
-
-# Excluye archivos binarios de imagen pesados en public/ que no requieren análisis de código
+# ──────────────────────────────────────────────────────────────
+# 6. ARCHIVOS BINARIOS Y MULTIMEDIA (evitan tokens de visión costosos)
+# ──────────────────────────────────────────────────────────────
+# Imágenes
 public/**/*.png
 public/**/*.jpg
 public/**/*.jpeg
@@ -46,9 +76,111 @@ public/**/*.webp
 public/**/*.gif
 public/**/*.ico
 public/**/*.svg
+public/**/*.avif
+public/**/*.bmp
+public/**/*.tiff
+
+# Fuentes
+public/**/*.woff
+public/**/*.woff2
+public/**/*.ttf
+public/**/*.otf
+public/**/*.eot
+
+# Documentos y comprimidos
+*.pdf
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Video y audio
+*.mp4
+*.webm
+*.mov
+*.mp3
+*.wav
+*.ogg
+
+# Mapas de source (no aportan lógica)
+*.js.map
+*.css.map
+*.ts.map
+
+# ──────────────────────────────────────────────────────────────
+# 7. ARCHIVOS TEMPORALES, LOGS Y BASES DE DATOS LOCALES
+# ──────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+*.sql.gz
+
+# Prisma: conservar schema.prisma y seed.ts, ignorar SQL generado
+prisma/migrations/**/*.sql
+
+# ──────────────────────────────────────────────────────────────
+# 8. CONFIGURACIONES DE EDITORES E IDEs
+# ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# ──────────────────────────────────────────────────────────────
+# 9. CARPETAS ESPECÍFICAS DEL PROYECTO (NO SON CÓDIGO FUENTE)
+# ──────────────────────────────────────────────────────────────
+# Datos históricos de operaciones (CSV/JSON pesados)
+enviosdosruedas_datos_2_anos/
+
+# Herramientas internas de IA/agentes (no código de la app)
+.agents/
+.claude/
+.od-skills/
+.specify/
+.stitch/
+.prisma/
+
+# Scratch y sitios de prueba
+scratch/
+site/
+
+# Skills lock (metadata de herramientas)
+skills-lock.json
+
+# Assets de diseño (no ejecutables)
+assets/
+
+# Documentación pesada que NO es contexto operativo
+docs/
+!docs/knowledge_base/contexto.md
+!docs/contexto/precios.md
+!docs/contexto/arquitectura.md
+!docs/contexto/errores-conocidos.md
+
+# Archivos sueltos en raíz que no son código
 document.md
 document.html
 document.pdf
-.agent/*
-docs/*  
 
+# ──────────────────────────────────────────────────────────────
+# 10. ARCHIVOS DEL SISTEMA OPERATIVO
+# ──────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.suo
+*.swp
+*.sln
+*.iml
+.history/

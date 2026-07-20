@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=800">
+  <title>Envíos Dosruedas - Home Hero Variant 2: Kinetic Statement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* === DESIGN TOKENS === */
+    :root {
+      --brand-blue: #0636A5;
+      --brand-blue-50: #E6EEFE;
+      --brand-blue-100: #BACEFD;
+      --brand-blue-200: #8EAFFB;
+      --brand-blue-300: #628FF9;
+      --brand-blue-400: #3570F8;
+      --brand-blue-500: #0950F6;
+      --brand-blue-600: #0742CA;
+      --brand-blue-700: #0636A5;
+      --brand-blue-800: #052D8C;
+      --brand-blue-900: #04236B;
+      --brand-blue-950: #021440;
+      --brand-yellow: #FFEC01;
+      --brand-yellow-50: #FFFDE6;
+      --brand-yellow-100: #FFFAB8;
+      --brand-yellow-200: #FFF78A;
+      --brand-yellow-300: #FFF45C;
+      --brand-yellow-600: #E6D400;
+      --white: #FFFFFF;
+      --success: #16A34A;
+
+      --font-display: 'Anton', sans-serif;
+      --font-subheading: 'Bebas Neue', sans-serif;
+      --font-sans: 'IBM Plex Sans', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+
+      --shadow-elevated: 0 20px 40px -8px rgba(6, 54, 165, 0.2), 0 8px 16px -4px rgba(6, 54, 165, 0.12);
+      --shadow-hover-lift: 0 32px 64px -12px rgba(6, 54, 165, 0.25);
+      --shadow-cta-glow: 0 0 40px rgba(255, 236, 1, 0.4), 0 0 80px rgba(255, 236, 1, 0.15);
+      --shadow-accent-sm: 0 2px 4px rgba(255, 236, 1, 0.15);
+      --shadow-whatsapp: 0 0 30px rgba(22, 163, 74, 0.4);
+
+      --radius-full: 9999px;
+      --radius-xl: 12px;
+
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* === RESET === */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 1920px; height: 800px; overflow: hidden; }
+
+    /* === BANNER CONTAINER === */
+    .banner {
+      position: relative;
+      width: 1920px;
+      height: 800px;
+      background: var(--brand-blue-700);
+      font-family: var(--font-sans);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(6, 54, 165, 0.25) 0%, transparent 70%),
+        radial-gradient(circle at 80% 20%, rgba(255, 236, 1, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(0, 32, 104, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(6, 54, 165, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(6, 54, 165, 0.02) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .banner > * { position: relative; z-index: 2; }
+
+    .content-wrapper {
+      max-width: 1100px;
+      padding: 0 var(--space-10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-6);
+    }
+
+    /* === KINETIC HEADLINE === */
+    .headline-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .kinetic {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 5.5vw, 5.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+      text-transform: uppercase;
+      color: var(--white);
+      cursor: pointer;
+      display: inline-block;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), letter-spacing 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+      transform-origin: left;
+      will-change: transform, letter-spacing;
+    }
+
+    .kinetic:hover {
+      transform: scaleX(1.1);
+      letter-spacing: 0.02em;
+      color: var(--brand-yellow);
+    }
+
+    .kinetic.highlight {
+      background: var(--brand-yellow);
+      color: var(--brand-blue-900);
+      padding: 0.1em 0.25em 0.05em;
+      border-radius: 4px;
+      box-shadow: 0 4px 24px rgba(255, 236, 1, 0.25);
+    }
+
+    .kinetic.highlight:hover {
+      background: var(--white);
+      color: var(--brand-blue-900);
+      transform: scaleX(1.02);
+    }
+
+    /* Subhead */
+    .subhead {
+      font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+      line-height: 1.65;
+      color: var(--brand-blue-100);
+      font-weight: 400;
+      max-width: 800px;
+      margin: var(--space-4) 0 var(--space-8);
+    }
+
+    /* Trust Pills */
+    .trust-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-10);
+      padding: 0 var(--space-4);
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-full);
+      font-family: var(--font-subheading);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      border: 1px solid;
+      transition: all 0.3s ease;
+    }
+
+    .trust-pill.trust {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--brand-blue-100);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .trust-pill.trust:hover {
+      background: var(--brand-blue-50);
+      color: var(--brand-blue-700);
+      border-color: var(--brand-blue-200);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .trust-pill.verified {
+      background: var(--brand-yellow);
+      color: var(--brand-blue-900);
+      border-color: var(--brand-yellow);
+      box-shadow: var(--shadow-accent-sm);
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    .trust-pill.verified:hover {
+      background: var(--brand-yellow-200);
+      box-shadow: 0 0 30px rgba(255, 236, 1, 0.4);
+    }
+
+    .trust-pill .icon { font-size: 14px; }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(255, 236, 1, 0.2); }
+      50% { box-shadow: 0 0 35px rgba(255, 236, 1, 0.5), 0 0 60px rgba(255, 236, 1, 0.2); }
+    }
+
+    /* CTA Group */
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-6);
+    }
+
+    .nested-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      height: 56px;
+      padding: 0 var(--space-8);
+      border-radius: var(--radius-full);
+      font-family: var(--font-subheading);
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nested-pill::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    .nested-pill:hover::after { transform: translateX(100%); }
+
+    /* WhatsApp CTA - Green Primary */
+    .nested-pill.whatsapp {
+      background: var(--success);
+      color: var(--white);
+      border-color: var(--success);
+      box-shadow: var(--shadow-whatsapp);
+    }
+
+    .nested-pill.whatsapp:hover {
+      background: #15803D;
+      box-shadow: 0 0 50px rgba(22, 163, 74, 0.5), 0 0 100px rgba(22, 163, 74, 0.2);
+      transform: scale(1.02) translateY(-2px);
+    }
+
+    .nested-pill.whatsapp .pill-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .nested-pill.whatsapp:hover .pill-icon {
+      background: var(--white);
+      color: var(--success);
+      transform: translateX(4px);
+    }
+
+    /* Outline CTA - White/Blue */
+    .nested-pill.outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .nested-pill.outline:hover {
+      background: var(--white);
+      color: var(--brand-blue-700);
+      border-color: var(--white);
+      transform: scale(1.02) translateY(-2px);
+      box-shadow: var(--shadow-hover-lift);
+    }
+
+    .nested-pill.outline .pill-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .nested-pill.outline:hover .pill-icon {
+      background: var(--brand-blue-700);
+      color: var(--white);
+      transform: translateX(4px);
+    }
+
+    .pill-icon svg { width: 20px; height: 20px; }
+
+    /* Staggered entrance animation */
+    .headline-stack .kinetic { opacity: 0; transform: translateY(30px); animation: revealUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+    .headline-stack .kinetic:nth-child(1) { animation-delay: 0.1s; }
+    .headline-stack .kinetic:nth-child(2) { animation-delay: 0.2s; }
+    .headline-stack .kinetic:nth-child(3) { animation-delay: 0.3s; }
+    .subhead { opacity: 0; transform: translateY(20px); animation: revealUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards; }
+    .trust-pills { opacity: 0; transform: translateY(20px); animation: revealUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards; }
+    .cta-group { opacity: 0; transform: translateY(20px); animation: revealUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards; }
+
+    @keyframes revealUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <div class="content-wrapper">
+      <!-- Kinetic Headline Stack -->
+      <header class="headline-stack" aria-label="Título principal">
+        <span class="kinetic">Mensajería y Logística</span>
+        <span class="kinetic highlight">E-Commerce</span>
+        <span class="kinetic">en Mar del Plata</span>
+      </header>
+
+      <!-- Subhead -->
+      <p class="subhead">
+        Tu partner estratégico en última milla. Envíos en el día, Flex MercadoLibre y 3PL certificado ISO 9001.
+      </p>
+
+      <!-- Trust Pills -->
+      <div class="trust-pills" role="list" aria-label="Certificaciones y garantías">
+        <span class="trust-pill trust" role="listitem">
+          <span class="icon" aria-hidden="true">🛡️</span> 100% Seguro
+        </span>
+        <span class="trust-pill trust" role="listitem">
+          <span class="icon" aria-hidden="true">⚡</span> Rápido
+        </span>
+        <span class="trust-pill trust" role="listitem">
+          <span class="icon" aria-hidden="true">📍</span> Cobertura Total
+        </span>
+        <span class="trust-pill verified" role="listitem">
+          <span class="icon" aria-hidden="true">✓</span> ISO 9001
+        </span>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="cta-group" role="group" aria-label="Acciones principales">
+        <a href="https://wa.me/542236602699" target="_blank" rel="noopener noreferrer" class="nested-pill whatsapp" aria-label="Contactar por WhatsApp">
+          <span>Contactar por WhatsApp</span>
+          <span class="pill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </span>
+        </a>
+        <a href="/cotizar/lowcost" class="nested-pill outline" aria-label="Ver tarifas 2026">
+          <span>Ver Tarifas 2026</span>
+          <span class="pill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
