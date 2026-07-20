@@ -14,7 +14,7 @@ function SectionSeparator() {
       <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent h-px" />
       {/* Línea central sutil de acento */}
       <div className="absolute top-1/2 -translate-y-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent w-48 sm:w-80" />
-      
+
       {/* Isotipo flotante y Glassmorphic en el centro */}
       <div className="absolute top-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 ease-out hover-float hover:scale-105 active:scale-95 group">
         {/* Cuerpo del botón/badge principal con glassmorphism premium sutil */}
@@ -34,6 +34,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     try {
       const hasVisited = sessionStorage.getItem('visited-cinematic');
       if (!hasVisited) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setShowPreloader(true);
       }
     } catch (e) {
