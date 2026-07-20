@@ -225,6 +225,23 @@ bg-slate-900, text-gray-600, border-zinc-200, etc.
 - **CTA Nested Pill:** `rounded-full`, `font-subheading`, `uppercase`, `tracking-[.05em]`, `font-weight: 700`, icon `w-8 h-8 rounded-full` con transition
 - **Logos Carousel:** `mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent)`, 30s linear infinite, pausa en hover/focus/visibilitychange
 
+### 3.7 Reglas de Implementación — Post-Auditoría
+1.  **NO** usar `text-slate-*`, `bg-slate-*`, `border-slate-*` — usar siempre `brand-blue-*` equivalente
+2.  **NO** usar gradientes completos de página (`gradient-surface`, `gradient-dark`) como fondo base de secciones
+3.  **NO** usar URLs externas para assets del brand (logo, imágenes críticas) — usar `/public/`
+4.  Las secciones deben alternar: `bg-brand-blue` (oscura) ↔ `bg-white` (clara) ↔ `bg-blue-50` (overlay)
+5.  Los inputs siempre con `border-2 border-brand-blue-100` → focus: `border-brand-blue-700` + `ring-brand-blue-500/20`
+6.  Los CTA siempre con `cta-nested-pill` y esquinas `rounded-full`
+7.  **Double Bezel** obligatorio para tarjetas de contenido en secciones blancas
+8.  **Kinetic Font Stretch** en headlines interactivas y CTA text
+9.  **Logos Carousel** con máscara gradient y pausa accesible
+10. **Vertical Stepper** para procesos secuenciales reales (How It Works, Tracking)
+11. **Bento Grid Asimétrico** (7/5 spans) para Services — no grids simétricos 3-col
+12. **3D Float/Tilt** solo en Hero cards — no abusar en otras secciones
+13. Contadores animados con IntersectionObserver + `ease-out` cubic-bezier(0.22, 1, 0.36, 1)
+14. Voseo argentino en copy: "Cotizá", "Ingresá", "Contactanos", "Tu logística"
+15. Localizaciones MDQ: "Friuli 1972", "Centro", "Playa Grande", "Punta Mogotes", "Chauvín"
+
 ---
 
 ## 4. Typography Rules
@@ -547,9 +564,9 @@ bg-slate-900, text-gray-600, border-zinc-200, etc.
 **Vertical (How It Works):**
 *   Línea vertical 2px izquierda, `blue-100`
 *   Dots 24px con border blanco 3px
-*   Completed: `green-500` + `green-100` ring
-*   Active: `yellow-500` + `yellow-500/30` ring + `pulse-subtle`
-*   Pending: `blue-100`
+*   Completed: `brand-yellow-500` + `brand-yellow-100` ring — **NUNCA `green-500`**
+*   Active: `brand-yellow-500` + `brand-yellow-500/30` ring + `pulse-subtle`
+*   Pending: `brand-blue-100`
 *   Numbers: `font-display`, `var(--text-h2)`
 
 ### G. Logos Carousel (Infinite Scroll)
@@ -605,7 +622,7 @@ bg-slate-900, text-gray-600, border-zinc-200, etc.
 | 3 (Services) | `white` | Blue 700 | White (double bezel) | Yellow 500 |
 | 4 (How It Works) | `blue-700` | White | — | Yellow 500 dots |
 | 5 (Social Proof) | `white` | Blue 700 | White (border blue-100) | Yellow 500 |
-| 6 (CTA Final) | `blue-700` | Blue 700 (card white) | White card | Yellow/Green |
+| 6 (CTA Final) | `blue-700` | Blue 700 (card white) | White card | Yellow/Yellow |
 | 7 (Footer) | `blue-700` + gradients | White | — | Yellow 500 |
 
 **Regla:** Nunca dos secciones consecutivas con mismo fondo. El hero SIEMPRE azul. El footer SIEMPRE azul.
@@ -668,7 +685,7 @@ bg-slate-900, text-gray-600, border-zinc-200, etc.
 ├─────────────────────────────────────────────────────────────┤
 │ CTA FINAL (bg-blue-700)                                      │
 │  └─ Card White (rounded-3xl, grid pattern bg)               │
-│      ├─ Badge → H1 → Lead → Dual CTA (Yellow + Green/WA)    │
+│      ├─ Badge → H1 → Lead → Dual CTA (Yellow + Yellow/WA)    │
 │      └─ Mono Note: "Atención < 2 min"                       │
 ├─────────────────────────────────────────────────────────────┤
 │ FOOTER (bg-blue-700 + radial gradients)                     │
@@ -695,20 +712,4 @@ bg-slate-900, text-gray-600, border-zinc-200, etc.
 
 ---
 
-## 15. Reglas Vigentes Post-Auditoría (2026-07-17)
-
-1.  **NO** usar `text-slate-*`, `bg-slate-*`, `border-slate-*` — usar siempre `brand-blue-*` equivalente
-2.  **NO** usar gradientes completos de página (`gradient-surface`, `gradient-dark`) como fondo base de secciones
-3.  **NO** usar URLs externas para assets del brand (logo, imágenes críticas) — usar `/public/`
-4.  Las secciones deben alternar: `bg-brand-blue` (oscura) ↔ `bg-white` (clara) ↔ `bg-blue-50` (overlay)
-5.  Los inputs siempre con `border-2 border-brand-blue-100` → focus: `border-brand-blue-700` + `ring-brand-blue-500/20`
-6.  Los CTA siempre con `cta-nested-pill` y esquinas `rounded-full`
-7.  **Double Bezel** obligatorio para tarjetas de contenido en secciones blancas
-8.  **Kinetic Font Stretch** en headlines interactivas y CTA text
-9.  **Logos Carousel** con máscara gradient y pausa accesible
-10. **Vertical Stepper** para procesos secuenciales reales (How It Works, Tracking)
-11. **Bento Grid Asimétrico** (7/5 spans) para Services — no grids simétricos 3-col
-12. **3D Float/Tilt** solo en Hero cards — no abusar en otras secciones
-13. Contadores animados con IntersectionObserver + `ease-out` cubic-bezier(0.22, 1, 0.36, 1)
-14. Voseo argentino en copy: "Cotizá", "Ingresá", "Contactanos", "Tu logística"
-15. Localizaciones MDQ: "Friuli 1972", "Centro", "Playa Grande", "Punta Mogotes", "Chauvín"
+*Última actualización: 2026-07-20 | Versión: 2.0 | Auditoría de marca: 2026-07-17*

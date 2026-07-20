@@ -129,12 +129,8 @@ prisma/migrations/**/*.sql
 # ──────────────────────────────────────────────────────────────
 .vscode/
 .idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.swp
-*.swo
+*.iml
+.history/
 
 # ──────────────────────────────────────────────────────────────
 # 9. CARPETAS ESPECÍFICAS DEL PROYECTO (NO SON CÓDIGO FUENTE)
@@ -182,5 +178,3 @@ REPORTE_BRAND_AUDIT.md
 Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
-*.iml
-.history/

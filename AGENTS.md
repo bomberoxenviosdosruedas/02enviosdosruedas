@@ -243,9 +243,9 @@ Los tokens `gray-*`, `slate-*`, `zinc-*` están remapeados a escala de azul y **
 **Vertical (How It Works):**
 - Línea vertical 2px izquierda `brand-blue-100`
 - Dots 24px con border blanco 3px
-- Completed: `green-500` + `green-100` ring
-- Active: `yellow-500` + `yellow-500/30` ring + `pulse-subtle`
-- Pending: `blue-100`
+- Completed: `brand-yellow-500` + `brand-yellow-100` ring — **NUNCA `green-500`**
+- Active: `brand-yellow-500` + `brand-yellow-500/30` ring + `pulse-subtle`
+- Pending: `brand-blue-100`
 - Números: `font-display`, `text-h2`
 
 #### Logos Carousel (Infinite Scroll)
