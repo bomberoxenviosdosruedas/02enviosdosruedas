@@ -63,8 +63,6 @@ slate-*, gray-*, zinc-*, neutral-*, stone-*
 
 ## 1. Visual Theme & Atmosphere
 
-## 1. Visual Theme & Atmosphere
-
 El entorno evoca precisión cronométrica, custodia de activos y la espina dorsal de la conectividad corporativa. Es una cabina de control digital organizada y de alto rendimiento. El lienzo principal del sitio es **limpio, blanco y estructurado**, utilizando el azul institucional como ancla de confianza y orden.
 
 *   **Density:** Utility & Operational Focus (8/10) — Estructura impecable con tablas legibles, metadatos claros y jerarquías limpias.
@@ -165,9 +163,71 @@ El sistema cromático utiliza bloques limpios de contraste sólido para separar 
 --color-error-text: #991B1B;
 ```
 
+> **⚠️ NOTE ON STATUS COLORS:** The green/red/yellow status colors above are **semantic exceptions** for system feedback (success/error/warning states) only. They must **never** be used for brand UI elements (CTAs, steppers, badges, primary actions). For brand steppers/badges/CTAs, use only `brand-yellow-500` (accent) and `brand-blue-700` (primary).
+
 ---
 
-## 3. Typography Rules
+## 3. Brand Enforcement Rules (Post-Audit 2026-07-20)
+
+The following rules are **non-negotiable** and were established after the brand compliance audit:
+
+### 3.1 Paleta Estricta — Cero Tolerancia
+```css
+/* NUNCA USAR — No existen en el design system */
+slate-*, gray-*, zinc-*, neutral-*, stone-*
+/* NUNCA hex inline arbitrarios */
+#333, #f5f5f5, #666, #999, #ccc, #eee
+/* NUNCA clases Tailwind de paletas externas */
+bg-slate-900, text-gray-600, border-zinc-200, etc.
+/* NUNCA degradados no documentados en Sección 8 */
+```
+
+### 3.2 Logotipo — Inalterable
+| Regla | Especificación |
+|-------|----------------|
+| **Archivo maestro** | `/public/logo-master.svg` (vector, sin fondo, safe-area 20% perimetral) |
+| **Única fuente** | **Prohibido** usar `LogoEnviosDosRuedas.webp` (raster) u otros PNG/JPG |
+| **Tamaño mínimo** | **120px ancho** (web) — *Audit found 40-44px violations in Header/Footer* |
+| **Clear space** | 0.25× altura del logotipo en todos los lados |
+| **Colores permitidos** | Solo: Azul #0636A5 (primary), Blanco #FFFFFF (reverso), Amarillo #FFEC01 (marca compuesta) |
+
+### 3.3 Stepper States — Sin Verde
+| Componente | Estado Completado | ✅ Correcto | ❌ Prohibido |
+|------------|-------------------|-------------|--------------|
+| **Vertical Stepper (How It Works)** | Completado | `brand-yellow-500` + `brand-yellow-100` ring | `green-500` + `green-100` ring |
+| **Horizontal Stepper (Cotizador)** | Completado | `brand-yellow-500` (línea y círculo) | `green-500` |
+
+### 3.4 WhatsApp CTA — Solo Amarillo de Marca
+| Elemento | ✅ Correcto | ❌ Prohibido |
+|----------|-------------|--------------|
+| **CTA WhatsApp (bg)** | `brand-yellow-500` | `green-500`, `green-600` |
+| **CTA WhatsApp (hover)** | `brand-yellow-400` | `green-400` |
+| **Icono WhatsApp** | SVG blanco sobre amarillo marca | Verde de WhatsApp como fondo |
+
+> **Rationale:** WhatsApp green is an **external brand reference only** (icon color). Our CTA background must always use `brand-yellow-500` for brand consistency.
+
+### 3.5 Copy — Voseo Rioplatense Obligatorio
+| Acción | ✅ Verbo Correcto | ❌ Incorrecto |
+|--------|-------------------|---------------|
+| Cotizar | **Cotizá** | Cotice, Calcule |
+| Enviar | **Enviá** | Envíe, Envie |
+| Rastrear | **Rastreá** | Rastree, Siga |
+| Contactar | **Contactanos / Escribinos** | Contáctenos, Contacte |
+| Ingresar | **Ingresá** | Ingrese |
+| Elegir | **Elegí** | Elija |
+
+**Pronombres:** Vos / Tu / Tuyo — **NUNCA** Usted / Su / Suyo  
+**Expresiones locales:** "Al toque", "Quedate tranquilo", "Te avisamos", "Por acá"  
+**Referencias MDQ obligatorias:** Güemes, Friuli 1972, Playa Grande, Punta Mogotes, Chauvín, Puerto, Batán, Camet
+
+### 3.6 Component Contracts — Inmutables
+- **Double Bezel Card:** Outer `bg-brand-blue-50/80 border-brand-blue-100 rounded-2xl p-2 shadow-float` + Inner `bg-white rounded-xl border-brand-blue-50/50 shadow-sm` — **Obligatorio en secciones blancas**
+- **CTA Nested Pill:** `rounded-full`, `font-subheading`, `uppercase`, `tracking-[.05em]`, `font-weight: 700`, icon `w-8 h-8 rounded-full` con transition
+- **Logos Carousel:** `mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent)`, 30s linear infinite, pausa en hover/focus/visibilitychange
+
+---
+
+## 4. Typography Rules
 
 ### Fuentes Oficiales
 

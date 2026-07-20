@@ -179,6 +179,7 @@ Estos tres valores guían **cada decisión**: código, copy, diseño, proceso, c
 | **Principal / Confianza** | `brand-blue-700` / `--color-primary` | `#0636A5` | Headers, footers, secciones oscuras, navegación, CTA secondary, bordes fuertes |
 | **Acento / Acción / Logística** | `brand-yellow-500` / `--color-accent` | `#FFEC01` | CTA primary, badges, trust pills, iconos activos, focus rings, highlights |
 | **Lienzo / Superficie / Claridad** | `brand-white-50` / `--color-surface` | `#FFFFFF` | Fondos de página, interior de tarjetas, inputs, modales, tablas |
+| **Texto Cuerpo** | `brand-ink` / `--color-text-primary` | `#00277C` | Texto de párrafos, cuerpos descriptivos (más oscuro que blue-700) |
 
 **ESCALAS PERMITIDAS**: Solo las definidas en `DESIGN.md` (blue-50 a blue-950, yellow-50 a yellow-600, white-50).
 **PROHIBIDO ABSOLUTO**: `slate-*`, `gray-*`, `zinc-*`, `neutral-*`, `stone-*`, hex inline arbitrarios, `bg-slate-900`, `text-gray-600`, degradados no documentados.
@@ -219,6 +220,7 @@ Estos tres valores guían **cada decisión**: código, copy, diseño, proceso, c
 | **Guía Desarrollador/IA** | `README.md` | Onboarding, módulos, comandos, deploy, contribuir |
 | **Errores Conocidos** | `docs/contexto/errores-conocidos.md` | Turbopack, ESLint, Prisma starters, tests, TODO MDQ |
 | **Decisiones Arquitectónicas (ADR)** | `docs/contexto/decisiones.md` | Por qué Next.js 16, por qué OSRM self-hosted, por qué pnpm |
+| **Auditoría Marca 2026** | `REPORTE_BRAND_AUDIT.md` | Hallazgos, violaciones, plan de remediación post-auditoría |
 
 ---
 
@@ -262,4 +264,4 @@ Antes de aprobar CUALQUIER entrega (código, copy, diseño, config):
 
 ---
 
-*Última actualización: 2026-07-20 | Versión: 1.0 | Owner: Product & Brand Team | Revisión: Trimestral o ante cambio de marca/tarifas/stack*
+*Última actualización: 2026-07-20 | Versión: 2.0 | Owner: Product & Brand Team | Revisión: Trimestral o ante cambio de marca/tarifas/stack*

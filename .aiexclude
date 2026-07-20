@@ -172,6 +172,9 @@ document.md
 document.html
 document.pdf
 
+# Auditoría de marca (archivo de reporte, no contexto operativo)
+REPORTE_BRAND_AUDIT.md
+
 # ──────────────────────────────────────────────────────────────
 # 10. ARCHIVOS DEL SISTEMA OPERATIVO
 # ──────────────────────────────────────────────────────────────
@@ -179,8 +182,5 @@ document.pdf
 Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
-*.suo
-*.swp
-*.sln
 *.iml
 .history/

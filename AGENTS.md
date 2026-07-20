@@ -145,6 +145,11 @@ Los tokens `gray-*`, `slate-*`, `zinc-*` están remapeados a escala de azul y **
 
 > ❌ **Prohibido:** `text-slate-*`, `bg-slate-*`, `text-gray-*`, `bg-gray-*`, hex inline (`#0636A5` en clase)
 > ❌ **Prohibido:** `slate-900`, `slate-50`, `slate-600` — **NO EXISTEN** en paleta oficial
+> ❌ **Prohibido ABSOLUTO — Auditoría Brand 2026-07-17:**
+> - `green-500` / `green-400` en stepper vertical completed state → **Usar `brand-yellow-500`**
+> - `green-500` / `green-400` en CTA WhatsApp → **Usar `brand-yellow-500`** (WhatsApp es marca externa, no color del sistema)
+> - Logo rasterizado (`LogoEnviosDosRuedas.webp`) → **Solo `/public/logo-master.svg` vectorial**
+> - Logo < 120px ancho → **Mínimo 120px (web) / 30mm (print)**
 
 ### Tipografía (Tokens Obligatorios)
 
@@ -159,6 +164,7 @@ Los tokens `gray-*`, `slate-*`, `zinc-*` están remapeados a escala de azul y **
 - `font-display` / `font-subheading`: **Uppercase obligatorio**, `letter-spacing` ajustado
 - Labels/Badges: Uppercase, `tracking-wider`, `font-weight: 700`
 - Mono: `font-variant-numeric: tabular-nums` siempre
+- **Kinetic Font Stretch:** Elementos interactivos clave — `transform: scaleX(1.1)` + `letter-spacing: 0.02em` en hover
 
 ### Componentes — Contratos de Interfaz (Inmutables)
 
@@ -268,7 +274,26 @@ Los tokens `gray-*`, `slate-*`, `zinc-*` están remapeados a escala de azul y **
 - Línea vertical 2px izquierda `brand-blue-100`
 - Items: `flex gap-6`, dot 24px fixed left
 - Content: número (Display), título (Display), desc (Body)
-- Estados color por step completado/activo/pendiente
+- **Completed:** `brand-yellow-500` + `brand-yellow-100` ring — **NUNCA `green-500`**
+- **Active:** `brand-yellow-500` + `brand-yellow-500/30` ring + `pulse-subtle`
+- **Pending:** `brand-blue-100`
+- Números: `font-display`, `text-h2`
+
+#### Logos Carousel (Infinite Scroll)
+- `mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent)`
+- Track: `flex`, `gap: var(--space-12)` (48px), `animation: logos-scroll 30s linear infinite`
+- Items: `h-12` (48px), `grayscale(100%) contrast(1.2) opacity-60`
+- **Hover/Focus:** `grayscale(0) contrast(1) opacity-100`
+- **Pausa obligatoria:** hover, focusin, `document.hidden` (accesibilidad)
+
+#### WhatsApp CTA — Regla de Marca Externa
+| Elemento | ✅ Correcto (Nuestra Marca) | ❌ Prohibido (Marca Externa) |
+|----------|----------------------------|------------------------------|
+| **Background** | `brand-yellow-500` | `green-500`, `green-600` |
+| **Hover** | `brand-yellow-400` | `green-400` |
+| **Icono** | SVG blanco sobre amarillo marca | Verde WhatsApp como fondo |
+
+> **Rationale:** WhatsApp green es referencia de marca externa **solo para el icono**. Nuestro CTA background **siempre** usa `brand-yellow-500` para coherencia de marca.
 
 ---
 

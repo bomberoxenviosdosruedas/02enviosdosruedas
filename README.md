@@ -257,7 +257,7 @@ pnpm tsc --noEmit
 5. HOW IT WORKS (bg-brand-blue) — Vertical Stepper 4 pasos
    1. Creás la orden → 2. Asignamos rider → 3. Rastreás en vivo → 4. Entrega confirmada
 6. SOCIAL PROOF (bg-white) — Logos Carousel + Testimonials Grid (3 cols)
-7. CTA FINAL (bg-brand-blue) — Card White (rounded-3xl) + Dual CTA (Yellow + Green/WA)
+7. CTA FINAL (bg-brand-blue) — Card White (rounded-3xl) + Dual CTA (Yellow + Yellow/WA)
 8. FOOTER (bg-brand-blue + radial) — Accent bar + 3-col grid + Scroll-to-top + Legal
 ```
 
