@@ -61,11 +61,11 @@
 ### 3.3 Logotipo Maestro SVG
 
 **Acciones:**
-1. Optimizar SVG adjunto con **SVGO**: limpiar metadatos, simplificar paths, eliminar raster embebido → objetivo **<50KB**
+1. **Usar el archivo SVG optimizado provisto por el usuario** (ya adjuntado, más liviano que el actual `logo-master.svg` de 4MB) como nuevo `/public/logo-master.svg`. Verificar con SVGO que pase <50KB, aspect-ratio 1:0.45, safe-area 20%, sin raster embebido.
 2. Verificar: aspect-ratio **1:0.45**, safe-area **20% perimetral**, variante reverso (blanco sobre azul #0636A5)
 3. Reemplazar `LogoEnviosDosRuedas.webp` (raster) en:
-   - `OptimizedHeader.tsx` (actual `w-10 h-10` = 40px → **≥120px**)
-   - `OptimizedFooter.tsx` (actual `w-11 h-11` = 44px → **≥120px**)
+   - `OptimizedHeader.tsx` (actual `w-10 h-10` = 40px → **≥120px ancho renderizado**)
+   - `OptimizedFooter.tsx` (actual `w-11 h-11` = 44px → **≥120px ancho renderizado**)
 4. Agregar wrapper clear-space: `padding: 0.25 × logo-height`
 
 **Variantes aprobadas únicamente:**
@@ -265,7 +265,7 @@ ls -la public/logo-master.svg  # < 50KB
 
 | Criterio | Especificación |
 |----------|----------------|
-| **Lighthouse** | ≥ 90 en Performance, Accessibility, Best Practices, SEO |
+| **Lighthouse** | ≥ 90 en Performance, Accessibility, Best Practices, SEO — **páginas obligatorias: homepage (`page.tsx`), `/cotizar/express`, `/cotizar/lowcost`, `/servicios/express`, `/contacto`** |
 | **Focus Visible** | `ring-2 ring-brand-blue-500 ring-offset-2 ring-offset-white` (sección azul: `ring-offset-brand-blue-700`) |
 | **Skip Link** | Primer elemento enfocable → `#main-content` |
 | **Touch Targets** | ≥ 44×44px (botones, links, inputs) |
