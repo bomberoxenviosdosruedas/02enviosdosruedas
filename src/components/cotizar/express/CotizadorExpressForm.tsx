@@ -315,7 +315,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
           </div>
 
           {/* Leaflet Map Loader */}
-          <div className="double-bezel-outer ring-1 ring-white/10 border-brand-blue-800/40 shadow-inner z-10 relative flex-grow min-h-[260px]">
+          <div className="relative flex-grow min-h-[260px] rounded-2xl overflow-hidden border border-white/5 shadow-inner z-10">
             <DynamicRouteMap
               origin={origenCoords}
               destination={destinoCoords}

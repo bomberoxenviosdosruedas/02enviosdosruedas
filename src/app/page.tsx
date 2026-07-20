@@ -1,44 +1,85 @@
 import type { Metadata } from 'next';
-import HeroAnimado from '@/components/home/HeroAnimado';
-import TrustBar from '@/components/home/TrustBar';
-import ServicesOverview from '@/components/home/ServicesOverview';
-import HowItWorks from '@/components/home/HowItWorks';
-import SocialProof from '@/components/home/SocialProof';
-import CtaSection from '@/components/home/CtaSection';
-import OptimizedHeader from '@/components/layout/OptimizedHeader';
-import OptimizedFooter from '@/components/layout/OptimizedFooter';
+import HeroAnimado from '@/src/components/home/HeroAnimado';
+import VisionSection from '@/src/components/home/VisionSection';
+import ServicesOverview from '@/src/components/home/ServicesOverview';
+import SliderServicios from '@/src/components/home/SliderServicios';
+import EmprendedoresHome from '@/src/components/home/EmprendedoresHome';
+import CtaSection from '@/src/components/home/CtaSection';
+import { Bike } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Mensajería y Logística E-commerce en Mar del Plata | Envíos DosRuedas',
   description: 'Especialistas en logística e-commerce y última milla en Mar del Plata. Envíos en el día, Flex y soluciones 3PL para potenciar tu negocio local.',
 };
 
-export default function Home() {
+// Separador de sección premium con estilo Glassmorphic y Antigravity (Inverted Theme)
+function SectionSeparator() {
   return (
-    <>
-      <OptimizedHeader />
-      <main id="main-content" className="min-h-screen">
-        {/* 1. Hero - Blue bg */}
-        <HeroAnimado />
-
-        {/* 2. Trust Bar - Blue-50 overlay */}
-        <TrustBar />
-
-        {/* 3. Services - White bg */}
-        <ServicesOverview />
-
-        {/* 4. How It Works - Blue bg */}
-        <HowItWorks />
-
-        {/* 5. Social Proof - White bg */}
-        <SocialProof />
-
-        {/* 6. CTA Final - Blue bg */}
-        <CtaSection />
-      </main>
-
-      {/* 7. Footer - Blue + Blue-950 */}
-      <OptimizedFooter />
-    </>
+    <div className="w-full flex items-center justify-center relative h-16 bg-transparent pointer-events-auto z-20 perspective-1000">
+      {/* Línea horizontal de fondo con degradado sutil sin brillos intensos */}
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-brand-blue-200 to-transparent h-px" />
+      {/* Línea central sutil de acento */}
+      <div className="absolute top-1/2 -translate-y-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent w-48 sm:w-80" />
+      
+      {/* Isotipo flotante y Glassmorphic en el centro */}
+      <div className="absolute top-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 ease-out hover-float hover:scale-105 active:scale-95 group">
+        {/* Cuerpo del botón/badge principal con marca */}
+        <div className="relative bg-brand-blue border border-brand-blue/10 rounded-xl p-3 shadow-md group-hover:border-brand-yellow flex items-center justify-center transition-all duration-300">
+          <Bike className="h-5 w-5 text-brand-yellow group-hover:rotate-6 transition-transform duration-300 ease-out shrink-0" />
+        </div>
+      </div>
+    </div>
   );
 }
+
+export default function Home() {
+  return (
+    <div id="home-page-container" className="w-full bg-brand-white-50 text-brand-blue-700 min-h-screen relative overflow-hidden">
+      {/* 1. Animated Hero Presentation */}
+      <div className="relative z-10">
+        <HeroAnimado />
+      </div>
+
+      {/* Separator */}
+      <SectionSeparator />
+
+      {/* 2. Brand Vision Segment */}
+      <div className="relative z-10">
+        <VisionSection />
+      </div>
+
+      {/* Separator */}
+      <SectionSeparator />
+
+      {/* 3. Logistics Overview Solutions */}
+      <div className="relative z-10">
+        <ServicesOverview />
+      </div>
+
+      {/* Separator */}
+      <SectionSeparator />
+
+      {/* 4. Custom Tailored Solutions Slideshow */}
+      <div className="relative z-10">
+        <SliderServicios />
+      </div>
+
+      {/* Separator */}
+      <SectionSeparator />
+
+      {/* 5. Entrepreneurs and Businesses Solutions Panel */}
+      <div className="relative z-10">
+        <EmprendedoresHome />
+      </div>
+
+      {/* Separator */}
+      <SectionSeparator />
+
+      {/* 6. Call to Action High Conversion Segment */}
+      <div className="relative z-10">
+        <CtaSection />
+      </div>
+    </div>
+  );
+}
+

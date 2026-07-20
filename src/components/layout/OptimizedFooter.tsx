@@ -5,8 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import {
-  Bike, Phone, MapPin, Mail, Clock, Award, ArrowUp,
-  Zap, TrendingDown, ShoppingBag, Shield
+  Bike, Phone, MapPin, Mail, Clock, Award, ArrowUpRight,
+  Zap, TrendingDown, ShoppingBag, ArrowUp, MessageSquare
 } from 'lucide-react';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
@@ -16,25 +16,29 @@ export default function OptimizedFooter() {
   };
 
   return (
-    <footer id="optimized-footer" className="bg-brand-blue-700 text-white border-t border-white/10 relative overflow-hidden font-sans">
-      {/* Top accent bar - brand yellow 6px */}
-      <div className="h-1.5 bg-brand-yellow w-full" />
+    <footer id="optimized-footer" className="bg-brand-blue text-white border-t border-white/10 relative overflow-hidden font-sans">
 
-      {/* Subtle radial highlights */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.05),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(0,32,104,0.3),transparent_40%)] pointer-events-none" />
+      {/* Decorative top yellow accent bar with neon glow */}
+      <div className="h-1.5 bg-brand-yellow w-full shadow-md shadow-brand-yellow/30" />
+
+      {/* Center radial gradient highlight for background depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,204,0,0.08),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(0,51,153,0.4),transparent_40%)] pointer-events-none" />
 
       {/* Main Footer Container */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        {/* Grid: 3 cols lg (5/3/4 spans) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+
+
+
+        {/* MID SECTION: Links & Info Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 items-start">
 
-          {/* COLUMN 1: Brand & Socials (5 cols) */}
+          {/* COLUMN 1: Brand details & Socials (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
             <Link href="/" className="flex items-center gap-3 group w-fit">
               <div className="relative w-11 h-11 group-hover:scale-105 transition-transform duration-300 shrink-0">
                 <Image
-                  src="/LogoEnviosDosRuedas.webp"
+                  src="/LogoEnviosDosRuedas.png"
                   alt="Logo Envíos Dos Ruedas"
                   fill
                   sizes="44px"
@@ -54,7 +58,6 @@ export default function OptimizedFooter() {
             <p className="text-brand-blue-50 text-sm leading-relaxed max-w-sm">
               Logística urbana inteligente de última milla en Mar del Plata. Conectamos tu negocio con entregas express en el día, soluciones Flex para MercadoLibre y distribución 3PL eficiente.
             </p>
-
             <div className="space-y-3.5 pt-2">
               <span className="block text-xs font-bold text-brand-yellow uppercase tracking-widest font-sans">
                 Seguinos en redes
@@ -69,7 +72,6 @@ export default function OptimizedFooter() {
                     <FaInstagram className="h-5 w-5 text-white group-hover:text-brand-blue transition-colors" />
                   </Link>
                 </motion.div>
-
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
                   <Link
                     href="/nosotros/nuestras-redes"
@@ -79,7 +81,6 @@ export default function OptimizedFooter() {
                     <FaFacebook className="h-5 w-5 text-white group-hover:text-brand-blue transition-colors" />
                   </Link>
                 </motion.div>
-
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
                   <a
                     href="https://wa.me/542236602699"
@@ -100,7 +101,7 @@ export default function OptimizedFooter() {
             </div>
           </div>
 
-          {/* COLUMN 2: Services (3 cols) */}
+          {/* COLUMN 2: Services (3 Cols) */}
           <div className="lg:col-span-3 space-y-5">
             <h4 className="font-subheading text-lg tracking-wider text-brand-yellow uppercase border-b border-white/10 pb-2">
               Soluciones
@@ -113,7 +114,7 @@ export default function OptimizedFooter() {
                 >
                   <Zap className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>Envíos Express</span>
-                  <ArrowUp className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
@@ -123,7 +124,7 @@ export default function OptimizedFooter() {
                 >
                   <TrendingDown className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>Envíos LowCost</span>
-                  <ArrowUp className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
@@ -133,7 +134,7 @@ export default function OptimizedFooter() {
                 >
                   <Clock className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>Envíos Flex (MeLi)</span>
-                  <ArrowUp className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
@@ -143,19 +144,20 @@ export default function OptimizedFooter() {
                 >
                   <ShoppingBag className="h-4 w-4 text-brand-yellow shrink-0" />
                   <span>E-Commerce & 3PL</span>
-                  <ArrowUp className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* COLUMN 3: Contact & Location (4 cols) */}
+          {/* COLUMN 3: Contact & Location Info (4 Cols) */}
           <div className="lg:col-span-4 space-y-5">
             <h4 className="font-subheading text-lg tracking-wider text-brand-yellow uppercase border-b border-white/10 pb-2">
               Contacto
             </h4>
 
             <div className="space-y-4 text-xs text-brand-blue-50">
+
               <div className="flex gap-3.5 items-start">
                 <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow">
                   <MapPin className="h-[18px] w-[18px]" />
@@ -197,6 +199,7 @@ export default function OptimizedFooter() {
                   <p className="font-sans text-[13px] mt-0.5">Lunes a Sábado: 08:00 a 20:00 hs</p>
                 </div>
               </div>
+
             </div>
           </div>
 
@@ -238,20 +241,8 @@ export default function OptimizedFooter() {
             </Link>
           </div>
         </div>
-      </div>
 
-      {/* Floating Scroll-to-Top Button */}
-      <motion.button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 bg-brand-yellow hover:bg-brand-yellow/95 text-brand-blue p-4 rounded-xl shadow-[3px_3px_0px_var(--color-brand-blue)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center border-2 border-brand-blue cursor-pointer z-[100]"
-        title="Volver arriba"
-        whileHover={{ y: -2 }}
-        aria-label="Volver arriba"
-      >
-        <svg className="h-5 w-5 font-bold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 15l-6-6-6 6" />
-        </svg>
-      </motion.button>
+      </div>
     </footer>
   );
 }

@@ -19,7 +19,7 @@ export default function NewsletterSubscribe() {
   return (
     <section 
       id="newsletter-subscribe" 
-      className="py-24 bg-brand-blue-700 text-white relative overflow-hidden border-t border-brand-yellow-500/20"
+      className="py-24 bg-gradient-to-br from-brand-blue-700 to-brand-blue-600 text-white relative overflow-hidden border-t border-brand-yellow-500/20"
     >
       {/* Aesthetic ambient lighting */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,236,1,0.03),transparent_30%)] pointer-events-none" />
@@ -63,7 +63,7 @@ export default function NewsletterSubscribe() {
                       placeholder="Tu correo electrónico..."
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="flex-1 bg-brand-blue-50/50 text-brand-blue-700 placeholder:text-brand-blue-400 font-sans text-sm rounded-xl px-4 py-4 border border-brand-blue-100 focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/50 transition-all"
+                      className="flex-1 bg-slate-50 text-brand-blue-700 placeholder:text-brand-blue-400 font-sans text-sm rounded-xl px-4 py-4 border border-brand-blue-100 focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/50 transition-all"
                     />
                     <button
                       type="submit"

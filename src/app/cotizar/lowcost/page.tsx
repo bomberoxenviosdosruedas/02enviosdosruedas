@@ -22,7 +22,7 @@ export default async function Page() {
   }
 
   return (
-    <div id="cotizar-lowcost-page" className="w-full bg-brand-blue-700 text-white min-h-screen relative overflow-hidden">
+    <div id="cotizar-lowcost-page" className="w-full gradient-dark text-white min-h-screen relative overflow-hidden">
       {/* Hero Section */}
       <CotizadorLowCostHero />
 

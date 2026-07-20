@@ -12,7 +12,7 @@ export default function RecentPosts() {
       platformIcon: Facebook,
       date: '21 Jun',
       avatar: 'https://picsum.photos/seed/avatar1/100/100',
-      image: '/assets/fac2.jpg',
+      image: 'https://i.postimg.cc/TYqTfdNk/fac2.jpg',
       alt: 'Publicación de Facebook - Solución para tus envíos',
       text: '📦 MENSAJERÍA ENVÍOS DOSRUEDAS 🚀 ~ ¡Somos la solución para tus envíos en Mar del Plata! ~ Confianza y responsabilidad son nuestros pilares.',
       likes: 12,
@@ -24,7 +24,7 @@ export default function RecentPosts() {
       platformIcon: Instagram,
       date: '21 Jun',
       avatar: 'https://picsum.photos/seed/avatar2/100/100',
-      image: '/assets/ig4.jpg',
+      image: 'https://i.postimg.cc/Hs4TdYvN/ig4.jpg',
       alt: 'Publicación de Instagram - Servicio confiable en Mar del Plata',
       text: '📦 MENSAJERÍA ENVÍOS DOSRUEDAS 🚀 ~ ¡Somos la solución para tus envíos en Mar del Plata! ~ Te ofrecemos un servicio confiable...',
       likes: 14,
@@ -36,7 +36,7 @@ export default function RecentPosts() {
       platformIcon: Facebook,
       date: '21 Jun',
       avatar: 'https://picsum.photos/seed/avatar1/100/100',
-      image: '/assets/fac1.jpg',
+      image: 'https://i.postimg.cc/9FtcCmgg/fac1.jpg',
       alt: 'Publicación de Facebook - Confianza y responsabilidad',
       text: 'Para vos, que vendés en Mar del Plata y hacés envíos... ¿Soles usar las apps para tus envíos? Pero no te generan confianza?',
       likes: 19,
@@ -48,7 +48,7 @@ export default function RecentPosts() {
       platformIcon: Instagram,
       date: '21 Jun',
       avatar: 'https://picsum.photos/seed/avatar2/100/100',
-      image: '/assets/ig1.webp',
+      image: 'https://i.postimg.cc/TYXTzLQv/ig1.webp',
       alt: 'Publicación de Instagram - Pilares fundamentales',
       text: 'En Envíos DosRuedas, nuestro servicio se construye sobre tres pilares fundamentales: Responsabilidad, Eficiencia y Confianza...',
       likes: 24,
@@ -60,7 +60,7 @@ export default function RecentPosts() {
       platformIcon: Instagram,
       date: '21 Jun',
       avatar: 'https://picsum.photos/seed/avatar2/100/100',
-      image: '/assets/ig3.webp',
+      image: 'https://i.postimg.cc/15cysm7C/ig3.webp',
       alt: 'Publicación de Instagram - Tu confianza es nuestro motor',
       text: 'En cada envío, nos das tu confianza. Con cada entrega, te demostramos por qué vale la pena. 🤝 En Envíos Dos Ruedas, la responsabilidad es nuestro motor...',
       likes: 31,
@@ -72,7 +72,7 @@ export default function RecentPosts() {
   return (
     <section 
       id="recent-posts" 
-      className="py-24 bg-brand-blue-700 text-white relative overflow-hidden border-t border-brand-yellow-500/20"
+      className="py-24 bg-gradient-to-br from-brand-blue-700 to-brand-blue-600 text-white relative overflow-hidden border-t border-brand-yellow-500/20"
     >
       {/* Ambient background glows */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,var(--color-brand-blue-700),transparent_50%)] pointer-events-none" />
