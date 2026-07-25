@@ -24,7 +24,7 @@ export default function CotizadorExpressHero() {
   useEffect(() => {
     // Select a random trip on mount to avoid SSR hydration mismatch
     const randomIndex = Math.floor(Math.random() * SIMULATED_TRIPS.length);
-    setTrip(SIMULATED_TRIPS[randomIndex]);
+    setTimeout(() => setTrip(SIMULATED_TRIPS[randomIndex]), 0);
   }, []);
 
   // Calcula la tarifa Express según rangos reales de la BD

@@ -22,6 +22,8 @@ vi.mock('next/image', () => ({
       style,
       ...props,
     });
+  MockComp.displayName = `motion(${tag})`;
+  return MockComp;
   },
 }));
 
@@ -42,7 +44,7 @@ vi.mock('next/navigation', () => {
 
 // Mock motion / framer-motion / motion/react
 const mockMotionComponent = (tag: string) => {
-  return React.forwardRef(({ children, ...props }: any, ref: any) => {
+  const MockComp = React.forwardRef(({ children, ...props }: any, ref: any) => {
     const cleanProps = { ...props };
     const motionProps = [
       'animate', 'initial', 'variants', 'transition', 'whileHover',
@@ -51,6 +53,8 @@ const mockMotionComponent = (tag: string) => {
     motionProps.forEach(p => delete cleanProps[p]);
     return React.createElement(tag, { ref, ...cleanProps }, children);
   });
+  MockComp.displayName = `motion(${tag})`;
+  return MockComp;
 };
 
 const mockMotion: any = {};
@@ -134,6 +138,8 @@ vi.mock('@/src/components/ui/AddressAutocomplete', () => ({
         }
       }
     });
+  MockComp.displayName = `motion(${tag})`;
+  return MockComp;
     return React.createElement('div', { 'data-testid': 'address-autocomplete-wrapper' }, labelEl, inputEl);
   },
 }));
