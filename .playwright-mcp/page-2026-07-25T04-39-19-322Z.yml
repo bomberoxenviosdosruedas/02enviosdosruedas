@@ -1,0 +1,342 @@
+- generic [active] [ref=e1]:
+  - link "Saltar al contenido" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Logo Envíos Dos Ruedas simplificado Envíos Dosruedas tu solución confiable" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Logo Envíos Dos Ruedas simplificado" [ref=e8]
+        - generic [ref=e9]:
+          - generic [ref=e10]:
+            - text: Envíos
+            - generic [ref=e11]: Dosruedas
+          - generic [ref=e12]: tu solución confiable
+      - generic [ref=e13]:
+        - link "Llamar" [ref=e14] [cursor=pointer]:
+          - /url: tel:+542236602699
+        - button [ref=e17] [cursor=pointer]
+  - main [ref=e19]:
+    - generic [ref=e21]:
+      - generic [ref=e23]:
+        - generic:
+          - img "Textura de Mapa de calles"
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27]: Tu Solución Confiable
+            - heading "Mensajería y Logística E-Commerce en Mar del Plata" [level=1] [ref=e29]:
+              - generic [ref=e30] [cursor=pointer]: Mensajería y Logística
+              - generic [ref=e31]: E-Commerce
+              - generic [ref=e32] [cursor=pointer]: en Mar del Plata
+            - paragraph [ref=e33]: Somos tu partner estratégico en mensajería, envíos en el día y delivery de última milla. Soluciones ágiles, seguras y competitivas para potenciar tu marca.
+            - generic [ref=e34]:
+              - link "Solicitar Servicio" [ref=e35] [cursor=pointer]:
+                - /url: /cotizar/express
+              - link "Ver Servicios" [ref=e40] [cursor=pointer]:
+                - /url: /servicios/envios-express
+            - generic [ref=e45]:
+              - generic [ref=e46]: 100% SEGURO
+              - generic [ref=e51]: RÁPIDO
+              - generic [ref=e56]: COBERTURA TOTAL
+          - generic [ref=e63]:
+            - generic [ref=e65]:
+              - img "Mapa de Cobertura de Mar del Plata" [ref=e67]
+              - generic [ref=e68]:
+                - generic [ref=e69]: Ruteo de Envíos
+                - generic [ref=e70]: Optimizado
+            - generic [ref=e72]:
+              - generic [ref=e80]:
+                - heading "Reparto en Curso" [level=4] [ref=e81]
+                - paragraph [ref=e82]: "ID: MDQ-FLEX-2026"
+              - generic [ref=e83]:
+                - generic [ref=e84]:
+                  - generic [ref=e85]: Origen
+                  - generic [ref=e86]: CD Centro
+                - generic [ref=e87]:
+                  - generic [ref=e88]: Destinatario
+                  - generic [ref=e89]: Zona Güemes
+            - generic [ref=e90]: ENTREGA FLEX ACTIVA
+            - generic [ref=e94]:
+              - generic [ref=e95]: +
+              - generic [ref=e96]: "0"
+              - generic [ref=e97]: ENVÍOS
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - generic [ref=e113]: Partner Logístico Especializado
+          - heading "CONECTAMOS MAR DEL PLATA DE PUNTA A PUNTA" [level=2] [ref=e114]
+          - paragraph [ref=e115]: Nos especializamos en la distribución de última milla para e-commerce locales y retailers nacionales, asegurando que tus productos lleguen al destino en tiempo récord con tecnología de punta y tarifas transparentes.
+          - generic [ref=e116]:
+            - generic [ref=e122]:
+              - heading "Entregas a Tiempo" [level=4] [ref=e123]
+              - paragraph [ref=e124]: Puntualidad garantizada en cada envío. Optimizamos cada ruta mediante geolocalización avanzada.
+            - generic [ref=e130]:
+              - heading "Envíos Seguros" [level=4] [ref=e131]
+              - paragraph [ref=e132]: Protección total de tus paquetes. Despachos con custodia digital y firmas de entrega seguras.
+        - generic [ref=e133]:
+          - generic [ref=e135]:
+            - generic [ref=e136]: MAR DEL PLATA 2026
+            - generic [ref=e144]:
+              - heading "+52K" [level=3] [ref=e145]
+              - paragraph [ref=e146]: Envíos y entregas realizadas con éxito en toda la región
+          - generic [ref=e154]:
+            - heading "0" [level=3] [ref=e155]
+            - paragraph [ref=e156]: Paquetes extraviados
+          - generic [ref=e166]:
+            - heading "+140" [level=3] [ref=e167]
+            - paragraph [ref=e168]: Emprendedores confían
+      - generic [ref=e181]:
+        - generic [ref=e182]:
+          - generic [ref=e183]: NUESTROS SERVICIOS
+          - heading "Soluciones logísticas a tu medida" [level=2] [ref=e184]
+          - paragraph [ref=e185]: Cuatro modalidades pensadas para cada tipo de negocio y cada velocidad de entrega en Mar del Plata.
+        - generic [ref=e186]:
+          - generic [ref=e188]:
+            - img "Envíos Express" [ref=e190]
+            - generic [ref=e191]: URGENTE
+            - generic [ref=e196]:
+              - generic [ref=e197]:
+                - heading "Envíos Express" [level=3] [ref=e198]
+                - paragraph [ref=e199]: Mensajería en moto, entregas inmediatas en Mar del Plata.
+              - link "Ver más" [ref=e201] [cursor=pointer]:
+                - /url: /servicios/envios-express
+          - generic [ref=e207]:
+            - img "Envíos LowCost" [ref=e209]
+            - generic [ref=e210]: ECONÓMICO
+            - generic [ref=e217]:
+              - generic [ref=e218]:
+                - heading "Envíos LowCost" [level=3] [ref=e219]
+                - paragraph [ref=e220]: Envíos económicos con posibilidad de entregas en el día.
+              - link "Ver más" [ref=e222] [cursor=pointer]:
+                - /url: /servicios/envios-lowcost
+          - generic [ref=e228]:
+            - img "Envíos Flex (MercadoLibre)" [ref=e230]
+            - generic [ref=e231]: INTEGRACIÓN FLEX
+            - generic [ref=e239]:
+              - generic [ref=e240]:
+                - heading "Envíos Flex (MercadoLibre)" [level=3] [ref=e241]
+                - paragraph [ref=e242]: Entregas en el día de tus ventas en MercadoLibre.
+              - link "Ver más" [ref=e244] [cursor=pointer]:
+                - /url: /servicios/enviosflex
+          - generic [ref=e250]:
+            - img "E-Commerce & 3PL" [ref=e252]
+            - generic [ref=e253]: PYMES & CORPORATIVO
+            - generic [ref=e259]:
+              - generic [ref=e260]:
+                - heading "E-Commerce & 3PL" [level=3] [ref=e261]
+                - paragraph [ref=e262]: Recomendado para E-Commerce, escalá tu tienda online.
+              - link "Ver más" [ref=e264] [cursor=pointer]:
+                - /url: /servicios/plan-emprendedores
+      - generic [ref=e283]:
+        - generic [ref=e284]:
+          - generic [ref=e285]:
+            - generic [ref=e286]: Innovación en Distribución
+            - heading "Soluciones Especiales para Industrias" [level=2] [ref=e287]
+            - paragraph [ref=e288]: Hemos redefinido los estándares de la logística urbana para ofrecerte una ventaja competitiva real en un mercado en constante evolución en Mar del Plata.
+          - generic [ref=e289]:
+            - button "Slide anterior" [ref=e290] [cursor=pointer]
+            - button "Siguiente slide" [ref=e293] [cursor=pointer]
+        - generic [ref=e305]:
+          - text: Entregas same day y next day
+          - heading "E-Commerce" [level=3] [ref=e306]
+          - paragraph [ref=e307]: Envíos a domicilio de tus ventas online. Entregas misma jornada o a partir del día siguiente.
+        - tablist "Navegación de slides" [ref=e308]:
+          - 'tab "Ir a: E-Commerce" [selected] [ref=e309]'
+          - 'tab "Ir a: Repuestos automotores" [ref=e310]'
+          - 'tab "Ir a: Indumentaria y calzado" [ref=e311]'
+          - 'tab "Ir a: Trámites" [ref=e312]'
+          - 'tab "Ir a: Insumos varios" [ref=e313]'
+          - 'tab "Ir a: Encomiendas" [ref=e314]'
+      - generic [ref=e328]:
+        - generic [ref=e329]:
+          - generic [ref=e330]: Socio Estratégico Local
+          - heading "Potenciamos tu Negocio Local" [level=2] [ref=e331]
+          - paragraph [ref=e332]: Si vendés online, necesitás un socio logístico que responda. Creamos planes a tu medida con tarifas dinámicas y recolección a domicilio programada en Mar del Plata.
+        - generic [ref=e334]:
+          - generic [ref=e336] [cursor=pointer]:
+            - generic [ref=e337]:
+              - generic [ref=e338]: EMPRENDEDORES
+              - generic [ref=e343]:
+                - heading "Logística E-Commerce" [level=3] [ref=e344]
+                - paragraph [ref=e345]: Gestión integral de última milla para PyMEs en crecimiento. Recolección gratis a domicilio y seguimiento satelital.
+              - list [ref=e346]:
+                - listitem [ref=e347]:
+                  - generic [ref=e351]: Soporte dedicado
+                - listitem [ref=e352]:
+                  - generic [ref=e356]: Entregas contrareembolso sin cargo extra
+                - listitem [ref=e357]:
+                  - generic [ref=e361]: Entregas en tiempo y forma
+            - link "Conocer más" [ref=e363]:
+              - /url: /servicios/plan-emprendedores
+          - generic [ref=e368] [cursor=pointer]:
+            - generic [ref=e369]:
+              - generic [ref=e370]: MERCADOLIBRE
+              - generic [ref=e376]:
+                - heading "Envíos Flex MercadoLibre" [level=3] [ref=e377]
+                - paragraph [ref=e378]: Socio estratégico para potenciar tus ventas con entregas rápidas y seguras en el mismo día.
+              - list [ref=e379]:
+                - listitem [ref=e380]:
+                  - generic [ref=e384]: Cumplimiento de SLAs de entrega
+                - listitem [ref=e385]:
+                  - generic [ref=e389]: Etiquetado compatible
+                - listitem [ref=e390]:
+                  - generic [ref=e394]: Ruteo dinámico inteligente
+            - link "Conocer más" [ref=e396]:
+              - /url: /servicios/envios-flex
+          - generic [ref=e402] [cursor=pointer]:
+            - generic [ref=e403]:
+              - generic [ref=e404]: EMPRESAS / CORPORATIVO
+              - heading "Soluciones Corporativas" [level=3] [ref=e411]
+              - paragraph [ref=e412]: Optimización logística integral para grandes marcas y empresas con Cuenta Corriente Flexible, ruteos personalizados en el día y beneficios de escala exclusivos.
+            - generic [ref=e413]:
+              - list [ref=e414]:
+                - listitem [ref=e415]:
+                  - generic [ref=e419]: Soporte dedicado
+                - listitem [ref=e420]:
+                  - generic [ref=e424]: Entregas contrareembolso sin cargo extra
+                - listitem [ref=e425]:
+                  - generic [ref=e429]: Entregas en tiempo y forma
+              - link "Conocer más planes" [ref=e431]:
+                - /url: /servicios/logistica-corporativa
+      - generic [ref=e447]:
+        - generic [ref=e448]: SOLUCIONES ESCALABLES 2026
+        - heading "¿Listo para escalar la logística de tu e-commerce?" [level=2] [ref=e450]
+        - paragraph [ref=e451]: Olvidate de la gestión de paquetes en Mar del Plata y enfocaté en vender más. Dejá la distribución urbana en manos de expertos.
+        - generic [ref=e452]:
+          - link "Contactar por WhatsApp" [ref=e453] [cursor=pointer]:
+            - /url: https://wa.me/542236602699
+            - generic [ref=e454]: Contactanos por WhatsApp
+          - link "Ver tarifas de envíos 2026" [ref=e458] [cursor=pointer]:
+            - /url: /cotizar/lowcost
+            - generic [ref=e459]: Ver tarifas 2026
+        - paragraph [ref=e464]: Atención comercial inmediata para PyMEs y Emprendedores. Operación centralizada en Friuli 1972.
+  - generic [ref=e476]:
+    - generic [ref=e477]:
+      - generic [ref=e478]:
+        - generic [ref=e479]: Conectate con nosotros
+        - heading "SEGUÍ NUESTRO MOVIMIENTO" [level=2] [ref=e482]:
+          - text: SEGUÍ NUESTRO
+          - generic [ref=e483]: MOVIMIENTO
+        - paragraph [ref=e484]: Sumate a nuestra comunidad digital y mantente al día con las últimas noticias de logística en Mar del Plata.
+      - generic [ref=e485]:
+        - button "Seguinos en Instagram" [ref=e486] [cursor=pointer]:
+          - generic [ref=e490]:
+            - generic [ref=e491]: Instagram
+            - generic [ref=e492]: Novedades diarias
+        - button "Seguinos en Facebook" [ref=e493] [cursor=pointer]:
+          - generic [ref=e497]:
+            - generic [ref=e498]: Facebook
+            - generic [ref=e499]: Comunidad activa
+        - button "Seguinos en WhatsApp" [ref=e500] [cursor=pointer]:
+          - generic [ref=e504]:
+            - generic [ref=e505]: WhatsApp
+            - generic [ref=e506]: Atención inmediata
+    - generic [ref=e509]:
+      - link "Ver publicación en redes" [ref=e510] [cursor=pointer]:
+        - /url: https://www.facebook.com/enviosdosruedas/posts/pfbid0a1i4tygsZQjwp9bsvS9xSHApJqMe5JkeoJbqx12Qvas18nSojtGhj6U9cFn3m5hDl
+        - img "Publicación de redes" [ref=e511]
+        - generic [ref=e512]:
+          - img "Facebook" [ref=e515]
+          - generic [ref=e516]: Ver publicación
+      - link "Ver publicación en redes" [ref=e522] [cursor=pointer]:
+        - /url: https://www.instagram.com/enviosdosruedas/p/DJhlS5xOrTb/
+        - img "Publicación de redes" [ref=e523]
+        - generic [ref=e524]: Ver publicación
+      - link "Ver publicación en redes" [ref=e534] [cursor=pointer]:
+        - /url: https://www.instagram.com/enviosdosruedas/p/DK12WIDslKW/
+        - img "Publicación de redes" [ref=e535]
+        - generic [ref=e536]: Ver publicación
+      - link "Ver publicación en redes" [ref=e546] [cursor=pointer]:
+        - /url: https://www.instagram.com/enviosdosruedas/p/DEaAGAmRMKj/
+        - img "Publicación de redes" [ref=e547]
+        - generic [ref=e548]: Ver publicación
+      - link "Ver publicación en redes" [ref=e558] [cursor=pointer]:
+        - /url: https://www.facebook.com/enviosdosruedas/posts/pfbid03WPv5ZE93ZNwL5PMRwuTpJxGaGSBzLigJqDSyzATNcSkRT3xBMZz7GKbhPv1mC53l
+        - img "Publicación de redes" [ref=e559]
+        - generic [ref=e560]:
+          - img "Facebook" [ref=e563]
+          - generic [ref=e564]: Ver publicación
+      - link "Ver publicación en redes" [ref=e570] [cursor=pointer]:
+        - /url: https://www.facebook.com/enviosdosruedas/posts/pfbid0a1i4tygsZQjwp9bsvS9xSHApJqMe5JkeoJbqx12Qvas18nSojtGhj6U9cFn3m5hDl
+        - img "Publicación de redes" [ref=e571]
+        - generic [ref=e572]:
+          - img "Facebook" [ref=e575]
+          - generic [ref=e576]: Ver publicación
+      - link "Ver publicación en redes" [ref=e582] [cursor=pointer]:
+        - /url: https://www.instagram.com/enviosdosruedas/p/DJhlS5xOrTb/
+        - img "Publicación de redes" [ref=e583]
+        - generic [ref=e584]: Ver publicación
+      - link "Ver publicación en redes" [ref=e594] [cursor=pointer]:
+        - /url: https://www.instagram.com/enviosdosruedas/p/DK12WIDslKW/
+        - img "Publicación de redes" [ref=e595]
+        - generic [ref=e596]: Ver publicación
+      - link "Ver publicación en redes" [ref=e606] [cursor=pointer]:
+        - /url: https://www.instagram.com/enviosdosruedas/p/DEaAGAmRMKj/
+        - img "Publicación de redes" [ref=e607]
+        - generic [ref=e608]: Ver publicación
+  - contentinfo [ref=e618]:
+    - generic [ref=e620]:
+      - generic [ref=e621]:
+        - generic [ref=e622]:
+          - link "Logo Envíos Dos Ruedas Envíos Dosruedas tu solución confiable" [ref=e623] [cursor=pointer]:
+            - /url: /
+            - img "Logo Envíos Dos Ruedas" [ref=e625]
+            - generic [ref=e626]:
+              - generic [ref=e627]:
+                - text: Envíos
+                - generic [ref=e628]: Dosruedas
+              - generic [ref=e629]: tu solución confiable
+          - paragraph [ref=e630]: Logística urbana inteligente de última milla en Mar del Plata. Conectamos tu negocio con entregas express en el día, soluciones Flex para MercadoLibre y distribución 3PL eficiente.
+          - generic [ref=e631]:
+            - generic [ref=e632]: Seguinos en redes
+            - generic [ref=e633]:
+              - link "Instagram" [ref=e635] [cursor=pointer]:
+                - /url: /nosotros/nuestras-redes
+              - link "Facebook" [ref=e639] [cursor=pointer]:
+                - /url: /nosotros/nuestras-redes
+              - link "WhatsApp" [ref=e643] [cursor=pointer]:
+                - /url: https://wa.me/542236602699
+              - generic [ref=e646]: 3PL Certificado
+        - generic [ref=e651]:
+          - heading "Soluciones" [level=4] [ref=e652]
+          - list [ref=e653]:
+            - listitem [ref=e654]:
+              - link "Envíos Express" [ref=e655] [cursor=pointer]:
+                - /url: /servicios/envios-express
+            - listitem [ref=e662]:
+              - link "Envíos LowCost" [ref=e663] [cursor=pointer]:
+                - /url: /servicios/envios-lowcost
+            - listitem [ref=e671]:
+              - link "Envíos Flex (MeLi)" [ref=e672] [cursor=pointer]:
+                - /url: /servicios/enviosflex
+            - listitem [ref=e680]:
+              - link "E-Commerce & 3PL" [ref=e681] [cursor=pointer]:
+                - /url: /servicios/plan-emprendedores
+        - generic [ref=e689]:
+          - heading "Contacto" [level=4] [ref=e690]
+          - generic [ref=e691]:
+            - generic [ref=e697]:
+              - paragraph [ref=e698]: Ubicación
+              - paragraph [ref=e699]: Friuli 1972, Mar del Plata
+            - generic [ref=e704]:
+              - paragraph [ref=e705]: Teléfono
+              - paragraph [ref=e706]: +54 223 660-2699
+            - generic [ref=e712]:
+              - paragraph [ref=e713]: Email
+              - paragraph [ref=e714]: matiascejas@enviosdosruedas.com
+            - generic [ref=e720]:
+              - paragraph [ref=e721]: Horarios
+              - paragraph [ref=e722]: "Lunes a Sábado: 08:00 a 20:00 hs"
+      - button "Volver arriba" [ref=e724] [cursor=pointer]
+      - generic [ref=e727]:
+        - generic [ref=e728]:
+          - paragraph [ref=e729]: © 2026 Envíos DosRuedas. Todos los derechos reservados.
+          - link "Sobre Nosotros" [ref=e730] [cursor=pointer]:
+            - /url: /nosotros/sobre-nosotros
+          - link "Preguntas Frecuentes" [ref=e731] [cursor=pointer]:
+            - /url: /nosotros/preguntas-frecuentes
+          - link "Nuestras Redes" [ref=e732] [cursor=pointer]:
+            - /url: /nosotros/nuestras-redes
+        - generic [ref=e733]:
+          - link "Términos y Condiciones" [ref=e734] [cursor=pointer]:
+            - /url: /terminos-y-condiciones
+          - link "Política de Privacidad" [ref=e735] [cursor=pointer]:
+            - /url: /politica-de-privacidad
