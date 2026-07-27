@@ -6,6 +6,12 @@ import 'leaflet/dist/leaflet.css';
 
 // Se eliminaron las importaciones de imágenes .png que causaban el error TS2307
 
+// Mar del Plata bounds outside component to avoid recreation and dependency issues
+const mdpCenter: L.LatLngExpression = [-38.0055, -57.5426];
+const southWest = L.latLng(-38.1500, -57.7000);
+const northEast = L.latLng(-37.8500, -57.4000);
+const bounds = L.latLngBounds(southWest, northEast);
+
 export default function LeafletMap() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
@@ -21,11 +27,7 @@ export default function LeafletMap() {
   const markerBInstance = useRef<L.Marker | null>(null);
   const polylineInstance = useRef<L.Polyline | null>(null);
 
-  // Mar del Plata bounds
-  const mdpCenter: L.LatLngExpression = [-38.0055, -57.5426];
-  const southWest = L.latLng(-38.1500, -57.7000);
-  const northEast = L.latLng(-37.8500, -57.4000);
-  const bounds = L.latLngBounds(southWest, northEast);
+
 
   useEffect(() => {
     if (!mapContainer.current || mapInstance.current) return;

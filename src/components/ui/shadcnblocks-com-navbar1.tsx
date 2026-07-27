@@ -1,3 +1,4 @@
+import Image from "next/image";
 "use client";
 
 import React from "react";
@@ -169,7 +170,7 @@ const Navbar1 = ({
           <div className="flex items-center gap-8">
             <a href={logo.url} className="flex items-center gap-3 group">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={logo.src} className="w-9 h-auto object-contain" alt={logo.alt} />
+                    <Image src={logo.src} className="w-9 h-auto object-contain" alt={logo.alt} width={36} height={36} />
               <span className="text-xl font-bold tracking-tight text-white group-hover:text-brand-yellow transition-colors font-sans">
                 {logo.title}
               </span>
@@ -195,7 +196,7 @@ const Navbar1 = ({
           <div className="flex items-center justify-between">
             <a href={logo.url} className="flex items-center gap-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={logo.src} className="w-8 h-auto object-contain" alt={logo.alt} />
+                    <Image src={logo.src} className="w-8 h-auto object-contain" alt={logo.alt} width={32} height={32} />
               <span className="text-lg font-bold text-white tracking-tight font-sans">{logo.title}</span>
             </a>
             <Sheet>
@@ -209,7 +210,7 @@ const Navbar1 = ({
                   <SheetTitle>
                     <a href={logo.url} className="flex items-center gap-2">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={logo.src} className="w-8 h-auto object-contain" alt={logo.alt} />
+                    <Image src={logo.src} className="w-8 h-auto object-contain" alt={logo.alt} width={32} height={32} />
                       <span className="text-lg font-bold text-white tracking-tight font-sans">
                         {logo.title}
                       </span>

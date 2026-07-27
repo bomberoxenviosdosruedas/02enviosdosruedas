@@ -6,7 +6,9 @@ import { Bike, Calculator, CheckCircle2, AlertTriangle } from 'lucide-react';
 import AddressAutocomplete from '../../ui/AddressAutocomplete';
 import DynamicRouteMap from '../../ui/DynamicRouteMap';
 import { useGoogleRoute, type Coordinate } from '@/src/hooks/useGoogleRoute';
-import { calculateLowCostPrice, type PriceRangeProp } from '@/src/lib/pricing';
+import { type PriceRangeProp } from '@/src/lib/pricing';
+import { calculateQuoteAction, type QuoteState } from '@/src/actions/quote';
+import { useActionState } from 'react';
 
 
 export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges?: PriceRangeProp[] }) {
@@ -30,6 +32,9 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
 
   const { fetchRoute } = useGoogleRoute();
 
+  const initialState: QuoteState = { success: false, price: null, error: null };
+  const [formState, formAction, isPending] = useActionState(calculateQuoteAction, initialState);
+
   const handleCalculate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!origenCoords || !destinoCoords) {
@@ -51,7 +56,19 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
 
     setRouteCoords(route.routeCoords);
 
-    const price = calculateLowCostPrice(route.distanceKm, priceRanges);
+    const formData = new FormData();
+    formData.append('distanceKm', route.distanceKm.toString());
+    formData.append('serviceType', 'LOW_COST');
+    formData.append('priceRanges', JSON.stringify(priceRanges));
+
+    const actionResult = await calculateQuoteAction(initialState, formData);
+
+    if (!actionResult.success) {
+       setError(actionResult.error || 'Error al calcular precio');
+       setIsCalculating(false);
+       return;
+    }
+    const price = actionResult.price!;
 
     setResult({
       distancia: route.distanceKm,

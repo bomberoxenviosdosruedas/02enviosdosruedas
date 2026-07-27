@@ -29,7 +29,7 @@ Este documento detalla los resultados de la auditoría técnica profunda realiza
 *   En `src/app/api/assistant/route.ts` (Endpoint del chatbot), la variable de entorno de Next.js indica el uso de Gemini pero la configuración de API Key es vulnerable. Faltan Server Actions en lugares críticos donde la manipulación directa de rutas API podría migrarse para mejor type safety con Zod.
 
 **Correcciones Realizadas / Propuestas:**
-1.  **Limpieza de Tests y React DOM:** En `src/test/setup.ts`, se eliminaron declaraciones duplicadas que rompían Vitest y causaban errores (`MockComp is not defined`). Las advertencias de JSDOM (`Received true for a non-boolean attribute fill`) sobre componentes SVG se deben solucionar cambiando `fill="true"` a `fill="currentColor"`.
+1.  **Limpieza de Tests y React DOM:** En `src/test/setup.ts`, se eliminaron declaraciones duplicadas que rompían Vitest y causaban errores (`MockComp is not defined`). Las advertencias de JSDOM (`Received true for a non-boolean attribute fill`) sobre componentes SVG se deben solucionar cambiando `fill="currentColor"` a `fill="currentColor"`.
 2.  **Server Actions en Cotización:** Se recomienda refactorizar las rutas de cotización (si existen en `/api/quote`) hacia Server Actions (`'use server'`) junto a validación estricta con `zod` para integrarse nativamente con `useActionState` de React 19.
 
 ---
@@ -46,7 +46,7 @@ Este documento detalla los resultados de la auditoría técnica profunda realiza
 **Optimizaciones Propuestas:**
 1.  **Reemplazo Sistemático de `<img>` por `<Image />`:** Esto es crítico para mejorar el Largest Contentful Paint (LCP) y el performance de renderizado.
 2.  **Optimización de Carruseles:** En componentes con scroll infinito (como Logos Carousel), asegurarse de usar paginación virtual o animaciones CSS (`translate-x`) aceleradas por hardware en lugar de repintados continuos manejados por JS/React state.
-3.  **Remoción de Prop `fill` en SVGs:** Encontrar los SVG mal formados y corregir el atributo `fill="true"`.
+3.  **Remoción de Prop `fill` en SVGs:** Encontrar los SVG mal formados y corregir el atributo `fill="currentColor"`.
 
 ---
 

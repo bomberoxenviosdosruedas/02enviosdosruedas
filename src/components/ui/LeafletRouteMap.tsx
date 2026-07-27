@@ -27,6 +27,12 @@ interface LeafletRouteMapProps {
   routeCoords: [number, number][]; // Array of [lng, lat] from OSRM GeoJSON
 }
 
+// Mar del Plata bounds outside component to avoid recreation and dependency issues
+const mdpCenter: L.LatLngExpression = [-38.0055, -57.5426];
+const southWest = L.latLng(-38.1500, -57.7000);
+const northEast = L.latLng(-37.8500, -57.4000);
+const bounds = L.latLngBounds(southWest, northEast);
+
 export default function LeafletRouteMap({
   origin,
   destination,
@@ -38,11 +44,7 @@ export default function LeafletRouteMap({
   const markerBInstance = useRef<L.Marker | null>(null);
   const polylineInstance = useRef<L.Polyline | null>(null);
 
-  // Mar del Plata defaults
-  const mdpCenter: L.LatLngExpression = [-38.0055, -57.5426];
-  const southWest = L.latLng(-38.1500, -57.7000);
-  const northEast = L.latLng(-37.8500, -57.4000);
-  const bounds = L.latLngBounds(southWest, northEast);
+
 
   // Initialize Map
   useEffect(() => {
@@ -140,7 +142,7 @@ export default function LeafletRouteMap({
       // Reset view to default center
       map.setView(mdpCenter, 13);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [origin, destination, routeCoords]);
 
   return (

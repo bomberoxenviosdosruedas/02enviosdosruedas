@@ -6,7 +6,9 @@ import { Bike, Calculator, CheckCircle2, AlertTriangle } from 'lucide-react';
 import AddressAutocomplete from '../../ui/AddressAutocomplete';
 import DynamicRouteMap from '../../ui/DynamicRouteMap';
 import { useGoogleRoute, type Coordinate } from '@/src/hooks/useGoogleRoute';
-import { calculateExpressPrice, type PriceRangeProp } from '@/src/lib/pricing';
+import { type PriceRangeProp } from '@/src/lib/pricing';
+import { calculateQuoteAction, type QuoteState } from '@/src/actions/quote';
+import { useActionState } from 'react';
 
 
 export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges?: PriceRangeProp[] }) {
@@ -30,6 +32,9 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
 
   const { fetchRoute } = useGoogleRoute();
 
+  const initialState: QuoteState = { success: false, price: null, error: null };
+  const [formState, formAction, isPending] = useActionState(calculateQuoteAction, initialState);
+
   const handleCalculate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!origenCoords || !destinoCoords) {
@@ -52,7 +57,21 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
 
     setRouteCoords(route.routeCoords);
 
-    const price = calculateExpressPrice(route.distanceKm, priceRanges);
+    const formData = new FormData();
+    formData.append('distanceKm', route.distanceKm.toString());
+    formData.append('serviceType', 'EXPRESS');
+    formData.append('priceRanges', JSON.stringify(priceRanges));
+
+    // Instead of using formAction directly here (which expects native form submission),
+    // we'll call the server action directly for simplicity since it's a Server Action.
+    const actionResult = await calculateQuoteAction(initialState, formData);
+
+    if (!actionResult.success) {
+       setError(actionResult.error || 'Error al calcular precio');
+       setIsCalculating(false);
+       return;
+    }
+    const price = actionResult.price!;
 
     setResult({
       distancia: route.distanceKm,
