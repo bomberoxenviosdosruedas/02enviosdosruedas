@@ -98,7 +98,7 @@ export function TimelineContent({
   timelineRef,
   ...rest
 }: TimelineContentProps) {
-  const Component = motion(as as React.ElementType);
+  const Component = as as any;
 
   // Merge delay into the transition of whichever variants are active
   const activeVariants: Variants = customVariants ?? timelineVariants[variant];
@@ -156,7 +156,7 @@ export function TimelineGroup({
   once = true,
   as = 'div',
 }: TimelineGroupProps) {
-  const Component = motion(as as React.ElementType);
+  const Component = as as any;
 
   const containerVariants: Variants = {
     hidden:  { opacity: 0 },
