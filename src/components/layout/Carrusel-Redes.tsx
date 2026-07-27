@@ -144,6 +144,7 @@ export const CarruselRedes = () => {
                                         className="w-64 h-64 sm:w-72 sm:h-72 shrink-0 rounded-xl overflow-hidden relative group border border-brand-blue-100 shadow-md hover:shadow-[4px_4px_0px_var(--color-brand-yellow)] hover:border-brand-yellow/40 transition-all hover:scale-[1.015] block bg-white"
                                         aria-label={`Ver publicación en redes`}
                                     >
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img
                                             src={feedImg}
                                             alt={`Publicación de redes`}

@@ -40,6 +40,7 @@ const ServiceCard = React.forwardRef<HTMLDivElement, ServiceCardProps>(
         {...props}
       >
         {/* Background Image with Zoom Effect on Hover */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={imageUrl}
           alt={imageAlt || title}
