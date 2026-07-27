@@ -40,7 +40,7 @@ vi.mock('next/navigation', () => {
   };
 });
 
-// Mock motion / framer-motion / motion/react
+// Mock motion/react
 const mockMotionComponent = (tag: string) => {
   const MockComp = React.forwardRef(({ children, ...props }: any, ref: any) => {
     const cleanProps = { ...props };
@@ -66,24 +66,6 @@ const mockUseMotionValue = (init: any) => ({
   on: () => () => {},
   onChange: () => () => {},
 });
-
-vi.mock('motion', () => ({
-  motion: mockMotion,
-  AnimatePresence: ({ children }: any) => children,
-  useMotionValue: mockUseMotionValue,
-  useSpring: (v: any) => ({
-    get: () => (v && typeof v === 'object' && typeof v.get === 'function') ? v.get() : v,
-    set: () => {},
-    on: () => () => {},
-    onChange: () => () => {},
-  }),
-  useTransform: (v: any, r: any, o: any) => ({
-    get: () => (v && typeof v === 'object' && typeof v.get === 'function') ? v.get() : v,
-    set: () => {},
-    on: () => () => {},
-    onChange: () => () => {},
-  }),
-}));
 
 vi.mock('motion/react', () => ({
   motion: mockMotion,

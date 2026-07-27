@@ -1,3 +1,5 @@
+🤖 START HERE: Si eres un agente IA, lee inmediatamente docs/knowledge_base/contexto.md y AGENTS.md antes de proponer cualquier cambio.
+
 # 🚀 Envíos Dos Ruedas — Logística Same-Day en Mar del Plata (2026)
 
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-black?logo=next.js&logoColor=white)](https://nextjs.org/)
