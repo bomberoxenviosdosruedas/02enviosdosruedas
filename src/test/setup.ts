@@ -22,8 +22,6 @@ vi.mock('next/image', () => ({
       style,
       ...props,
     });
-  MockComp.displayName = `motion(${tag})`;
-  return MockComp;
   },
 }));
 
@@ -138,8 +136,6 @@ vi.mock('@/src/components/ui/AddressAutocomplete', () => ({
         }
       }
     });
-  MockComp.displayName = `motion(${tag})`;
-  return MockComp;
     return React.createElement('div', { 'data-testid': 'address-autocomplete-wrapper' }, labelEl, inputEl);
   },
 }));

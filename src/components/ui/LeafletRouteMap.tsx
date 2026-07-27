@@ -140,6 +140,7 @@ export default function LeafletRouteMap({
       // Reset view to default center
       map.setView(mdpCenter, 13);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [origin, destination, routeCoords]);
 
   return (

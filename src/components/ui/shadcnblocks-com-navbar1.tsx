@@ -168,7 +168,8 @@ const Navbar1 = ({
         <nav className="hidden justify-between lg:flex items-center">
           <div className="flex items-center gap-8">
             <a href={logo.url} className="flex items-center gap-3 group">
-              <img src={logo.src} className="w-9 h-auto object-contain" alt={logo.alt} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={logo.src} className="w-9 h-auto object-contain" alt={logo.alt} />
               <span className="text-xl font-bold tracking-tight text-white group-hover:text-brand-yellow transition-colors font-sans">
                 {logo.title}
               </span>
@@ -193,7 +194,8 @@ const Navbar1 = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             <a href={logo.url} className="flex items-center gap-2">
-              <img src={logo.src} className="w-8 h-auto object-contain" alt={logo.alt} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={logo.src} className="w-8 h-auto object-contain" alt={logo.alt} />
               <span className="text-lg font-bold text-white tracking-tight font-sans">{logo.title}</span>
             </a>
             <Sheet>
@@ -206,7 +208,8 @@ const Navbar1 = ({
                 <SheetHeader className="text-left border-b border-white/10 pb-4">
                   <SheetTitle>
                     <a href={logo.url} className="flex items-center gap-2">
-                      <img src={logo.src} className="w-8 h-auto object-contain" alt={logo.alt} />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={logo.src} className="w-8 h-auto object-contain" alt={logo.alt} />
                       <span className="text-lg font-bold text-white tracking-tight font-sans">
                         {logo.title}
                       </span>
