@@ -242,7 +242,7 @@ export default function HeroAnimado() {
                 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="relative rounded-2xl overflow-hidden border border-brand-blue-100 bg-white p-2.5 sm:p-3 shadow-md">
+                <div className="relative rounded-2xl overflow-hidden border border-brand-blue-100 bg-white p-2.5 sm:p-3 shadow-[4px_4px_0px_var(--color-brand-blue-600)]">
                   <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
                     <Image
                       src="/card_mapa.webp"
@@ -272,7 +272,7 @@ export default function HeroAnimado() {
                 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="relative rounded-2xl overflow-hidden border border-brand-blue-600 bg-brand-blue-700 p-3.5 sm:p-4 text-white shadow-xl">
+                <div className="relative rounded-2xl overflow-hidden border-2 border-brand-yellow bg-brand-blue-700 p-3.5 sm:p-4 text-white shadow-[4px_4px_0px_var(--color-brand-yellow)]">
                   <div className="flex items-center gap-3 mb-2.5" style={{ transform: 'translateZ(10px)' }}>
                     <div className="p-2 sm:p-2 rounded-xl bg-brand-yellow text-brand-blue">
                       <Bike className="h-4.5 w-4.5 sm:h-5 sm:w-5 animate-pulse" />
@@ -306,7 +306,7 @@ export default function HeroAnimado() {
                   transform: 'translateZ(70px)',
                 }}
               >
-                <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-yellow text-brand-blue font-mono tracking-widest text-[10px] sm:text-[11px] rounded-full border border-brand-yellow flex items-center gap-1.5 sm:gap-2 font-bold shadow-md">
+                <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-yellow text-brand-blue font-mono tracking-widest text-[10px] sm:text-[11px] rounded-full border border-brand-yellow flex items-center gap-1.5 sm:gap-2 font-bold shadow-[2px_2px_0px_var(--color-brand-blue)]">
                   <span className="h-2 w-2 rounded-full bg-brand-blue-400 animate-ping" />
                   ENTREGA FLEX ACTIVA
                 </div>
