@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight, Zap, Package, Truck, Building, Info, X, Clock, ShieldCheck, MapPin } from 'lucide-react';
+import Image from 'next/image';
+import { ChevronLeft, ChevronRight, Zap, Package, Truck, Building, Info, X, MapPin, ShieldCheck } from 'lucide-react';
 
 export default function ServicesOverview() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -21,7 +22,19 @@ export default function ServicesOverview() {
       badge: 'URGENTE',
       city: 'Cobertura MDQ',
       founded: '15+ Años en Calles',
-      championships: 'EXPRESS',
+      imageUrl: '/img/generales/envios_express.webp',
+      // Visual styling configs
+      cardStyleCenter: 'border-brand-yellow bg-gradient-to-br from-brand-blue-700 to-brand-blue-900 shadow-cta-glow text-white',
+      cardStyleSide: 'border-brand-blue-500/20 bg-brand-blue-700/80 text-white/90',
+      textColor: 'text-white',
+      titleColor: 'text-white group-hover:text-brand-yellow',
+      descColor: 'text-brand-blue-100',
+      imgBlend: 'opacity-25 mix-blend-overlay',
+      badgeStyle: 'bg-brand-yellow text-brand-blue border-brand-yellow/30',
+      statBoxStyle: 'bg-white/10 border border-white/10 text-white',
+      statValStyle: 'text-brand-yellow',
+      statLabelStyle: 'text-brand-blue-200',
+      hintColor: 'text-brand-yellow',
       stats: {
         time: '30-90 min',
         price: '$3.700 Base',
@@ -47,7 +60,19 @@ export default function ServicesOverview() {
       badge: 'ECONÓMICO',
       city: 'Todo Gral. Pueyrredón',
       founded: 'Tarifa Fija Especial',
-      championships: 'LOWCOST',
+      imageUrl: '/img/generales/envios_low_cost.webp',
+      // Visual styling configs
+      cardStyleCenter: 'border-brand-blue-500 bg-gradient-to-br from-brand-white-50 to-brand-blue-50/50 shadow-[8px_8px_0px_rgba(6,54,165,0.2)] text-brand-ink',
+      cardStyleSide: 'border-brand-blue-100 bg-white/90 text-brand-ink',
+      textColor: 'text-brand-ink',
+      titleColor: 'text-brand-ink group-hover:text-brand-blue-700',
+      descColor: 'text-brand-blue-600',
+      imgBlend: 'opacity-[0.15] grayscale mix-blend-multiply',
+      badgeStyle: 'bg-brand-blue-700 text-brand-yellow border-brand-blue-600/30',
+      statBoxStyle: 'bg-brand-blue-50/80 border border-brand-blue-100 text-brand-ink',
+      statValStyle: 'text-brand-blue-700',
+      statLabelStyle: 'text-brand-blue-400',
+      hintColor: 'text-brand-blue-700',
       stats: {
         time: 'Same / Next Day',
         price: '$3.000 Base',
@@ -73,7 +98,19 @@ export default function ServicesOverview() {
       badge: 'MERCADOLIBRE FLEX',
       city: 'Mar del Plata y Batán',
       founded: 'Corte extendido 15hs',
-      championships: 'FLEX',
+      imageUrl: '/img/generales/servicio_flex.jpeg',
+      // Visual styling configs
+      cardStyleCenter: 'border-brand-blue bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-[8px_8px_0px_rgba(255,236,1,0.2)] text-brand-ink',
+      cardStyleSide: 'border-brand-yellow-500/30 bg-brand-yellow-500/85 text-brand-ink',
+      textColor: 'text-brand-ink',
+      titleColor: 'text-brand-ink group-hover:text-brand-blue-900',
+      descColor: 'text-brand-blue-900/80',
+      imgBlend: 'opacity-20 mix-blend-multiply',
+      badgeStyle: 'bg-brand-blue-700 text-white border-brand-blue-600/20',
+      statBoxStyle: 'bg-brand-blue-700/10 border border-brand-blue-700/20 text-brand-ink',
+      statValStyle: 'text-brand-blue-900',
+      statLabelStyle: 'text-brand-blue-800',
+      hintColor: 'text-brand-blue-900',
       stats: {
         time: 'En el día',
         price: 'Zonificado LowCost',
@@ -99,7 +136,19 @@ export default function ServicesOverview() {
       badge: 'LOGÍSTICA INTEGRAL',
       city: 'Depósito Friuli 1972',
       founded: 'Depósito Inteligente',
-      championships: '3PL CORPORATIVO',
+      imageUrl: '/img/generales/Emprendedoresbanner.webp',
+      // Visual styling configs
+      cardStyleCenter: 'border-brand-blue-300 bg-gradient-to-br from-brand-ink to-brand-blue-950 shadow-cta-glow text-white',
+      cardStyleSide: 'border-brand-blue-500/20 bg-brand-ink/90 text-white/90',
+      textColor: 'text-white',
+      titleColor: 'text-white group-hover:text-brand-yellow',
+      descColor: 'text-brand-blue-200',
+      imgBlend: 'opacity-25 mix-blend-overlay',
+      badgeStyle: 'bg-brand-yellow text-brand-blue border-brand-yellow/30',
+      statBoxStyle: 'bg-white/10 border border-white/10 text-white',
+      statValStyle: 'text-brand-yellow',
+      statLabelStyle: 'text-brand-blue-200',
+      hintColor: 'text-brand-yellow',
       stats: {
         time: '24 hs / Stock',
         price: 'Planes a Medida',
@@ -264,21 +313,38 @@ export default function ServicesOverview() {
                   transformStyle: 'preserve-3d'
                 }}
               >
-                {/* Card Outer Structure with Editorial Border */}
+                {/* Card Structure with Color Block Themes */}
                 <div 
                   className={`w-full h-full rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden border-4 transition-[border-color,background-color,box-shadow] duration-300 shadow-2xl ${
                     isCenter 
-                      ? 'border-brand-yellow shadow-[8px_8px_0px_rgba(6,54,165,0.3)] bg-brand-blue-700' 
-                      : 'border-white/10 bg-brand-blue-700/80 backdrop-blur-md shadow-lg hover:border-white/30'
+                      ? service.cardStyleCenter 
+                      : service.cardStyleSide
                   }`}
                 >
-                  {/* Subtle Radial Glow */}
+                  {/* Card Background Image with Rich Styled Mask */}
+                  <div className="absolute inset-0 z-0">
+                    <Image 
+                      src={service.imageUrl} 
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 360px"
+                      className={`object-cover transition-transform duration-700 group-hover:scale-110 ${service.imgBlend}`} 
+                    />
+                    {/* Shadow overlay block to guarantee legibility */}
+                    <div className={`absolute inset-0 ${
+                      index === 1 || index === 2 
+                        ? 'bg-gradient-to-t from-white/95 via-white/50 to-transparent' 
+                        : 'bg-gradient-to-t from-brand-ink/90 via-brand-ink/40 to-transparent'
+                    }`} />
+                  </div>
+
+                  {/* Subtle Glow Overlay */}
                   <div className={`absolute bottom-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none opacity-20 -mr-12 -mb-12 ${
                     isCenter ? 'bg-brand-yellow-500' : 'bg-brand-blue-400'
                   }`} />
 
                   {/* Huge Watermark Background Icon */}
-                  <div className="absolute right-4 bottom-4 text-white opacity-[0.03] pointer-events-none select-none transition-transform duration-500 group-hover:scale-105 group-hover:rotate-6">
+                  <div className="absolute right-4 bottom-4 opacity-[0.03] pointer-events-none select-none transition-transform duration-500 group-hover:scale-105 group-hover:rotate-6">
                     <Icon className="w-48 h-48" />
                   </div>
 
@@ -288,11 +354,7 @@ export default function ServicesOverview() {
                       <div className="p-3 bg-brand-yellow text-brand-blue rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-700)] group-hover:scale-105 transition-transform duration-300">
                         <Icon className="h-5 w-5" />
                       </div>
-                      <span className={`text-[10px] font-bold font-subheading px-2.5 py-1 rounded-full border shadow-sm ${
-                        isCenter
-                          ? 'bg-brand-ink text-brand-yellow border-brand-yellow/30'
-                          : 'bg-white/10 text-white border-white/20'
-                      }`}>
+                      <span className={`text-[10px] font-bold font-subheading px-2.5 py-1 rounded-full border shadow-sm ${service.badgeStyle}`}>
                         {service.badge}
                       </span>
                     </div>
@@ -300,38 +362,38 @@ export default function ServicesOverview() {
 
                   {/* Middle Service Information */}
                   <div className="relative z-10 space-y-2 mt-auto">
-                    <div className="text-xs font-bold text-brand-yellow uppercase tracking-widest font-subheading flex items-center gap-1">
+                    <div className={`text-xs font-bold uppercase tracking-widest font-subheading flex items-center gap-1 ${service.hintColor}`}>
                       <MapPin className="w-3.5 h-3.5" />
                       {service.city}
                     </div>
-                    <h3 className="font-display text-2xl sm:text-3xl font-extrabold uppercase text-white leading-none group-hover:text-brand-yellow transition-colors text-balance">
+                    <h3 className={`font-display text-2xl sm:text-3xl font-extrabold uppercase leading-none transition-colors text-balance ${service.titleColor}`}>
                       {service.title}
                     </h3>
-                    <p className="text-xs text-brand-blue-100 line-clamp-2 leading-relaxed">
+                    <p className={`text-xs line-clamp-2 leading-relaxed ${service.descColor}`}>
                       {service.description}
                     </p>
                   </div>
 
                   {/* Bottom Stats Grid & Callout */}
-                  <div className="relative z-10 pt-4 border-t border-white/10 grid grid-cols-3 gap-2 text-center">
-                    <div className="bg-white/5 p-2 rounded-xl backdrop-blur-sm">
-                      <div className="text-sm font-bold font-subheading text-brand-yellow truncate">{service.stats.time}</div>
-                      <div className="text-[9px] text-brand-blue-200 uppercase font-bold tracking-wider">ENTREGA</div>
+                  <div className="relative z-10 pt-4 border-t border-black/5 grid grid-cols-3 gap-2 text-center">
+                    <div className={`p-2 rounded-xl backdrop-blur-sm ${service.statBoxStyle}`}>
+                      <div className="text-sm font-bold font-subheading truncate">{service.stats.time}</div>
+                      <div className={`text-[9px] uppercase font-bold tracking-wider ${service.statLabelStyle}`}>ENTREGA</div>
                     </div>
-                    <div className="bg-white/5 p-2 rounded-xl backdrop-blur-sm">
-                      <div className="text-sm font-bold font-subheading text-white truncate">{service.stats.price}</div>
-                      <div className="text-[9px] text-brand-blue-200 uppercase font-bold tracking-wider">TARIFA</div>
+                    <div className={`p-2 rounded-xl backdrop-blur-sm ${service.statBoxStyle}`}>
+                      <div className="text-sm font-bold font-subheading truncate">{service.stats.price}</div>
+                      <div className={`text-[9px] uppercase font-bold tracking-wider ${service.statLabelStyle}`}>TARIFA</div>
                     </div>
-                    <div className="bg-white/5 p-2 rounded-xl backdrop-blur-sm">
-                      <div className="text-sm font-bold font-subheading text-brand-yellow truncate">{service.stats.weight}</div>
-                      <div className="text-[9px] text-brand-blue-200 uppercase font-bold tracking-wider">PESO</div>
+                    <div className={`p-2 rounded-xl backdrop-blur-sm ${service.statBoxStyle}`}>
+                      <div className="text-sm font-bold font-subheading truncate">{service.stats.weight}</div>
+                      <div className={`text-[9px] uppercase font-bold tracking-wider ${service.statLabelStyle}`}>PESO</div>
                     </div>
                   </div>
 
                   {/* Center Card Click Hint */}
                   {isCenter && (
                     <div className="relative z-10 mt-3 text-center animate-pulse">
-                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-yellow font-subheading tracking-wider underline uppercase">
+                      <span className={`inline-flex items-center gap-1.5 text-xs font-bold font-subheading tracking-wider underline uppercase ${service.hintColor}`}>
                         <Info className="w-3.5 h-3.5" />
                         Mirá la Ficha Técnica
                       </span>
