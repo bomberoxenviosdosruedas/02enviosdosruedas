@@ -13,9 +13,10 @@ export default function CarruselRedes() {
       desc: 'Novedades diarias',
       url: '/nosotros/nuestras-redes',
       icon: FaInstagram,
-      color: 'bg-white text-brand-ink hover:border-[#E1306C]/50 border-brand-blue-50 shadow-sm',
-      iconColor: 'text-[#E1306C]',
-      iconBg: 'bg-[#E1306C]/10',
+      color: 'hover:border-[#E1306C]/40 hover:bg-[#E1306C]/5 hover:shadow-[0_20px_40px_-15px_rgba(225,48,108,0.25)]',
+      hoverIcon: 'group-hover:bg-[#E1306C]/10 group-hover:text-[#E1306C] group-hover:border-[#E1306C]/20',
+      hoverTitle: 'group-hover:text-[#E1306C]',
+      hoverArrow: 'group-hover:bg-[#E1306C] group-hover:text-white group-hover:border-[#E1306C]',
     },
     {
       name: 'Facebook',
@@ -23,19 +24,21 @@ export default function CarruselRedes() {
       desc: 'Comunidad activa',
       url: '/nosotros/nuestras-redes',
       icon: FaFacebook,
-      color: 'bg-white text-brand-ink hover:border-[#1877F2]/50 border-brand-blue-50 shadow-sm',
-      iconColor: 'text-[#1877F2]',
-      iconBg: 'bg-[#1877F2]/10',
+      color: 'hover:border-[#1877F2]/40 hover:bg-[#1877F2]/5 hover:shadow-[0_20px_40px_-15px_rgba(24,119,242,0.25)]',
+      hoverIcon: 'group-hover:bg-[#1877F2]/10 group-hover:text-[#1877F2] group-hover:border-[#1877F2]/20',
+      hoverTitle: 'group-hover:text-[#1877F2]',
+      hoverArrow: 'group-hover:bg-[#1877F2] group-hover:text-white group-hover:border-[#1877F2]',
     },
     {
       name: 'WhatsApp',
-      handle: '+54 223 660-2699',
+      handle: '2236602699',
       desc: 'Atención inmediata',
       url: 'https://wa.me/542236602699',
       icon: FaWhatsapp,
-      color: 'bg-white text-brand-ink hover:border-[#25D366]/50 border-brand-blue-50 shadow-sm',
-      iconColor: 'text-[#25D366]',
-      iconBg: 'bg-[#25D366]/10',
+      color: 'hover:border-[#25D366]/40 hover:bg-[#25D366]/5 hover:shadow-[0_20px_40px_-15px_rgba(37,211,102,0.25)]',
+      hoverIcon: 'group-hover:bg-[#25D366]/10 group-hover:text-[#25D366] group-hover:border-[#25D366]/20',
+      hoverTitle: 'group-hover:text-[#25D366]',
+      hoverArrow: 'group-hover:bg-[#25D366] group-hover:text-white group-hover:border-[#25D366]',
     },
   ];
 
@@ -86,34 +89,36 @@ export default function CarruselRedes() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.12, ease: "easeOut" }}
-                className="p-8 rounded-xl border-2 border-brand-blue flex flex-col justify-between hover:float-tilt-card hover:glow-blue hover:bg-brand-white-50 transition-all duration-300 group bg-white text-brand-ink active:scale-[0.98] active:translate-y-[1px]"
+                className={`double-bezel-outer p-2 rounded-2xl bg-brand-blue-50/80 border border-brand-blue-100/50 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group ${net.color}`}
               >
-                <div className="space-y-6">
-                  <div className="flex justify-between items-center">
-                    <div className="p-4 rounded-xl bg-brand-blue/5 text-brand-blue border border-brand-blue/10">
-                      <Icon className="h-6 w-6" />
+                <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-ink">
+                  <div className="space-y-6">
+                    <div className="flex justify-between items-center">
+                      <div className={`p-3 rounded-xl bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100/50 transition-all duration-300 ${net.hoverIcon}`}>
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <span className="text-[10px] font-subheading tracking-widest text-brand-blue-300 group-hover:text-brand-blue transition-colors font-bold uppercase">
+                        {net.desc}
+                      </span>
                     </div>
-                    <span className="text-[10px] font-subheading tracking-widest text-brand-blue-300 group-hover:text-brand-blue transition-colors">
-                      {net.desc}
-                    </span>
+                    
+                    <div className="text-left">
+                      <h3 className={`text-2xl font-display uppercase tracking-tight text-brand-ink transition-colors duration-300 ${net.hoverTitle}`}>
+                        {net.name}
+                      </h3>
+                      <p className="text-brand-blue-400 font-mono text-xs mt-1">
+                        {net.handle}
+                      </p>
+                    </div>
                   </div>
-                  
-                  <div>
-                    <h3 className="text-2xl font-display uppercase tracking-tight text-brand-ink group-hover:text-brand-blue transition-colors">
-                      {net.name}
-                    </h3>
-                    <p className="text-brand-blue-400 font-mono text-xs mt-1">
-                      {net.handle}
-                    </p>
-                  </div>
-                </div>
 
-                <div className="pt-6 mt-6 border-t border-brand-blue-50 flex items-center justify-between text-brand-ink">
-                  <span className="text-xs font-sans font-semibold group-hover:text-brand-blue transition-colors">
-                    {isExternal ? 'Contactar ahora' : 'Ver perfil'}
-                  </span>
-                  <div className="h-9 w-9 rounded-xl bg-brand-blue-50 text-brand-blue-600 border border-brand-blue-100 group-hover:bg-brand-blue group-hover:text-white flex items-center justify-center transition-all active:scale-[0.98] active:translate-y-[1px]">
-                    <ArrowUpRight className="h-4 w-4" />
+                  <div className="pt-6 mt-6 border-t border-brand-blue-50 flex items-center justify-between text-brand-ink">
+                    <span className="text-xs font-sans font-bold group-hover:text-brand-blue-600 transition-colors">
+                      {isExternal ? 'Contactar ahora' : 'Ver perfil'}
+                    </span>
+                    <div className={`h-9 w-9 rounded-xl bg-brand-blue-50 text-brand-blue-600 border border-brand-blue-100 flex items-center justify-center transition-all duration-300 ${net.hoverArrow}`}>
+                      <ArrowUpRight className="h-4 w-4" />
+                    </div>
                   </div>
                 </div>
               </motion.a>
