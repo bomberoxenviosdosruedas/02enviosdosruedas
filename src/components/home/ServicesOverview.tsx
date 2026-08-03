@@ -138,17 +138,17 @@ export default function ServicesOverview() {
       founded: 'Depósito Inteligente',
       imageUrl: '/img/generales/Emprendedoresbanner.webp',
       // Visual styling configs
-      cardStyleCenter: 'border-brand-blue-300 bg-gradient-to-br from-brand-ink to-brand-blue-950 shadow-cta-glow text-white',
-      cardStyleSide: 'border-brand-blue-500/20 bg-brand-ink/90 text-white/90',
+      cardStyleCenter: 'border-emerald-400 bg-gradient-to-br from-emerald-800 to-emerald-950 shadow-[0_20px_40px_-15px_rgba(16,185,129,0.25)] text-white',
+      cardStyleSide: 'border-emerald-600/20 bg-emerald-900/80 text-white/90',
       textColor: 'text-white',
-      titleColor: 'text-white group-hover:text-brand-yellow',
-      descColor: 'text-brand-blue-200',
+      titleColor: 'text-white group-hover:text-emerald-300',
+      descColor: 'text-emerald-100',
       imgBlend: 'opacity-25 mix-blend-overlay',
-      badgeStyle: 'bg-brand-yellow text-brand-blue border-brand-yellow/30',
+      badgeStyle: 'bg-emerald-400 text-emerald-950 border-emerald-300/30',
       statBoxStyle: 'bg-white/10 border border-white/10 text-white',
-      statValStyle: 'text-brand-yellow',
-      statLabelStyle: 'text-brand-blue-200',
-      hintColor: 'text-brand-yellow',
+      statValStyle: 'text-emerald-300',
+      statLabelStyle: 'text-emerald-100',
+      hintColor: 'text-emerald-300',
       stats: {
         time: '24 hs / Stock',
         price: 'Planes a Medida',
@@ -334,13 +334,19 @@ export default function ServicesOverview() {
                     <div className={`absolute inset-0 ${
                       index === 1 || index === 2 
                         ? 'bg-gradient-to-t from-white/95 via-white/50 to-transparent' 
-                        : 'bg-gradient-to-t from-brand-ink/90 via-brand-ink/40 to-transparent'
+                        : index === 3
+                          ? 'bg-gradient-to-t from-emerald-950/90 via-emerald-950/40 to-transparent'
+                          : 'bg-gradient-to-t from-brand-ink/90 via-brand-ink/40 to-transparent'
                     }`} />
                   </div>
 
                   {/* Subtle Glow Overlay */}
                   <div className={`absolute bottom-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none opacity-20 -mr-12 -mb-12 ${
-                    isCenter ? 'bg-brand-yellow-500' : 'bg-brand-blue-400'
+                    isCenter 
+                      ? index === 3 
+                        ? 'bg-emerald-400' 
+                        : 'bg-brand-yellow-500' 
+                      : 'bg-brand-blue-400'
                   }`} />
 
                   {/* Huge Watermark Background Icon */}
