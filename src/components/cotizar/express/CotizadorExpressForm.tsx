@@ -89,7 +89,6 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
 👤 *Nombre:* ${nombre}\n📞 *Teléfono:* ${telefono}\n📦 *Producto:* ${producto}\n📍 *Origen:* ${origen}
 🏁 *Destino:* ${destino}
 📏 *Distancia:* ${result.distancia} km
-⏱️ *Tiempo Estimado:* ${result.tiempo} min
 💵 *Tarifa Express:* ${priceText}`;
     return `https://wa.me/542236602699?text=${encodeURIComponent(text)}`;
   };

@@ -60,7 +60,7 @@ export default function EmprendedoresBenefits() {
             POTENCIAMOS TU PYME
           </h2>
           <p className="text-brand-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-            Potenciamos tu capacidad operativa con soluciones logísticas de clase mundial y soporte dedicado a tu crecimiento.
+            Dedicá a vender, de la logística nos encargamos nosotros.
           </p>
           <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>

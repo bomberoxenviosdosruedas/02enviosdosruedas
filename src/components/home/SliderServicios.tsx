@@ -36,7 +36,7 @@ export default function SliderServicios() {
     {
       title: 'Trámites',
       subtitle: 'Cadería administrativa',
-      desc: 'Todo tipo de trámites, cobranzas y despacho de documentación. Atención el mismo día.',
+      desc: 'Todo tipo de trámites, cobranzas, despacho de encomiendas.',
       icon: FileText,
     },
     {

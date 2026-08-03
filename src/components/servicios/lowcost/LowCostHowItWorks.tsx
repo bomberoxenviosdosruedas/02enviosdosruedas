@@ -2,32 +2,26 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { UploadCloud, Truck, Cpu, CheckSquare } from 'lucide-react';
+import { MessageSquare, Truck, CheckSquare } from 'lucide-react';
 
 export default function LowCostHowItWorks() {
   const steps = [
     {
       number: '01',
-      title: 'Despacho',
-      desc: 'Prepará tus pedidos y cargalos en nuestro sistema digital antes del horario límite de corte.',
-      icon: UploadCloud,
+      title: 'Solicitud',
+      desc: 'Nos solicitás el envío por WhatsApp.',
+      icon: MessageSquare,
     },
     {
       number: '02',
-      title: 'Recolección',
-      desc: 'Nuestro equipo retira todos tus paquetes agrupados en una sola visita ágil por tu local o depósito.',
+      title: 'Retiro',
+      desc: 'Retiramos el paquete por tu local o depósito en el transcurso del día.',
       icon: Truck,
     },
     {
       number: '03',
-      title: 'Ruteo',
-      desc: 'Utilizamos algoritmos de ruteo masivo para trazar el recorrido más rápido y económico en la calle.',
-      icon: Cpu,
-    },
-    {
-      number: '04',
       title: 'Entrega',
-      desc: 'Entregamos absolutamente todos tus paquetes en el transcurso del día, siempre antes de las 19:00 hs.',
+      desc: 'Entregamos de forma segura en manos de tu destinatario.',
       icon: CheckSquare,
     },
   ];
@@ -70,7 +64,7 @@ export default function LowCostHowItWorks() {
 
           {steps.map((step, idx) => {
             const Icon = step.icon;
-            const spanClass = 'lg:col-span-3'; // 4 columns = 3 cols each
+            const spanClass = 'lg:col-span-4';
 
             return (
               <motion.div

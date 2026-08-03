@@ -25,15 +25,15 @@ export default function AboutTimeline() {
       icon: Award,
     },
     {
-      year: '2026',
+      year: '2025',
       title: 'Envíos Flex Pioneros',
-      desc: 'Primera mensajeria en ofrecer Envios Flex en Mar del Plata',
+      desc: 'Primera mensajería en ofrecer Envíos Flex en Mar del Plata',
       icon: CheckCircle,
     },
     {
-      year: '2026',
+      year: '2025',
       title: 'Depósito Central',
-      desc: 'Mudanza a depósito central Friuli 1972 e innovaciones tecnologicas.',
+      desc: 'Mudanza a depósito central Friuli 1972 e innovaciones tecnológicas.',
       icon: Truck,
     },
     {

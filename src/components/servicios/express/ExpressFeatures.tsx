@@ -2,24 +2,29 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Flame, Clock, CalendarDays, Compass } from 'lucide-react';
+import { ShieldCheck, Clock, Compass, Users } from 'lucide-react';
 
 export default function ExpressFeatures() {
   const features = [
     {
-      title: 'Alta criticidad horaria',
-      desc: 'Servicio diseñado para cuando el tiempo es el factor más importante. Vos elegís exactamente cuándo entregamos.',
-      icon: Flame,
+      title: 'Entrega puerta a puerta',
+      desc: 'Retiramos y entregamos en mano, garantizando comodidad y seguridad en todo momento.',
+      icon: ShieldCheck,
     },
     {
-      title: 'Rango horario a elección',
-      desc: 'Elegí el rango de entrega que mejor se adapte a tu comodidad o a los tiempos específicos de tu cliente.',
+      title: 'Horario de corte 15hs:',
+      desc: 'Los envíos solicitados antes de las 15:00 hs se entregan garantizados en el mismo día.',
       icon: Clock,
     },
     {
-      title: 'Anticipación mínima',
-      desc: 'Solo requerimos un mínimo de 2 horas de anticipación para coordinar y despachar tu envío prioritario en el día.',
-      icon: CalendarDays,
+      title: 'Seguimiento en tiempo real de nuestros cadetes',
+      desc: 'Rastreá el recorrido de tu paquete al instante directamente desde tu celular.',
+      icon: Compass,
+    },
+    {
+      title: 'Equipo capacitado y de confianza',
+      desc: 'Nuestros cadetes están identificados y altamente capacitados en logística de calle.',
+      icon: Users,
     },
   ];
 
@@ -65,12 +70,7 @@ export default function ExpressFeatures() {
           <div className="lg:col-span-7 grid grid-cols-1 lg:grid-cols-12 gap-6 text-left">
             {features.map((feat, idx) => {
               const Icon = feat.icon;
-              // Asymmetric Bento Grid spans
-              const spanClass = idx === 0 
-                ? 'lg:col-span-12' 
-                : idx === 1 
-                  ? 'lg:col-span-7' 
-                  : 'lg:col-span-5';
+              const spanClass = 'lg:col-span-6';
 
               return (
                 <motion.div

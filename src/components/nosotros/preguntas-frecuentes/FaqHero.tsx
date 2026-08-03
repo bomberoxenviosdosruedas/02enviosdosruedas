@@ -137,7 +137,7 @@ export default function FaqHero() {
                   </div>
  
                   <p className="text-sm text-brand-blue-600 font-sans leading-relaxed">
-                    Lunes a Viernes de 9:00 a 18:00 hs y Sábados de 10:00 a 15:00 hs. Escribinos para coordinar tus despachos directamente.
+                    Lunes a Viernes de 08:00 a 18:00 hs y Sábados de 09:00 a 15:00 hs. Escribinos para coordinar tus despachos directamente.
                   </p>
  
                   <div className="pt-4 border-t border-brand-blue-50 flex justify-between items-center text-xs">

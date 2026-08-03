@@ -2,39 +2,32 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { FileText, HeartPulse, Briefcase, Gift, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { FileText, Package, Clock, ChevronDown, CheckCircle2 } from 'lucide-react';
 
 export default function ExpressUseCases() {
   const [activeTab, setActiveTab] = useState<number | null>(0);
 
   const cases = [
     {
-      title: 'Documentos',
+      title: 'Envíos de documentación',
       desc: 'Contratos, documentos legales, certificados y papeles críticos que no pueden esperar.',
       examples: ['Documentos notariales y escrituras', 'Contratos comerciales firmados', 'Certificados médicos y habilitaciones'],
       icon: FileText,
       badge: 'LEGAL & TRÁMITES',
     },
     {
-      title: 'Salud',
-      desc: 'Medicamentos, análisis médicos y suministros de salud con prioridad absoluta de entrega.',
-      examples: ['Medicamentos especiales recetados', 'Resultados de laboratorio clínico', 'Suministros e insumos médicos urgentes'],
-      icon: HeartPulse,
-      badge: 'URGENCIA MÉDICA',
+      title: 'Envío de insumos',
+      desc: 'Distribución rápida de repuestos, insumos médicos y todo tipo de suministros comerciales.',
+      examples: ['Repuestos y piezas críticas de maquinaria', 'Insumos y productos de stock', 'Suministros médicos urgentes'],
+      icon: Package,
+      badge: 'INSUMOS & REPUES.',
     },
     {
-      title: 'Negocios',
-      desc: 'Entregas comerciales que no pueden retrasarse sin afectar tus operaciones diarias.',
-      examples: ['Repuestos y piezas críticas de maquinaria', 'Muestras comerciales prioritarias', 'Insumos y productos perecederos de stock'],
-      icon: Briefcase,
-      badge: 'B2B & PyMEs',
-    },
-    {
-      title: 'Regalos',
-      desc: 'Sorpresas y presentes especiales que deben llegar en un rango horario sumamente acotado.',
-      examples: ['Regalos sorpresa de cumpleaños', 'Desayunos, meriendas y catering a domicilio', 'Comida especial y repostería artesanal'],
-      icon: Gift,
-      badge: 'REGALERÍA & EVENTOS',
+      title: 'Entregas con necesidades de horarios',
+      desc: 'Envíos que requieren entregas sumamente precisas dentro de un rango de tiempo restringido.',
+      examples: ['Entregas con turnos específicos', 'Desayunos, meriendas y catering', 'Entregas coordinadas en obra'],
+      icon: Clock,
+      badge: 'HORARIOS ESTRICTOS',
     },
   ];
 
@@ -64,7 +57,7 @@ export default function ExpressUseCases() {
         
         {/* Header segment */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,39,124,0.2)]">
+          <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,39,124,0.2)] font-bold">
             CASOS DE USO
           </span>
           <h2 className="text-brand-blue text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight border-l-4 border-brand-yellow pl-4 inline-block">
@@ -81,7 +74,7 @@ export default function ExpressUseCases() {
           {cases.map((useCase, idx) => {
             const Icon = useCase.icon;
             const isOpen = activeTab === idx;
-            const spanClass = 'lg:col-span-3';
+            const spanClass = 'lg:col-span-4';
 
             return (
               <motion.div
@@ -112,7 +105,7 @@ export default function ExpressUseCases() {
 
                   {/* Title & Description */}
                   <div className="space-y-2">
-                    <h3 className="text-2xl font-display uppercase tracking-wide leading-none text-brand-blue">
+                    <h3 className={`text-2xl font-display uppercase tracking-wide leading-none ${isOpen ? 'text-white' : 'text-brand-blue'}`}>
                       {useCase.title}
                     </h3>
                     <p className={`text-sm font-sans leading-relaxed ${isOpen ? 'text-brand-blue-200' : 'text-brand-blue-500'}`}>

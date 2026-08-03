@@ -134,9 +134,9 @@ export default function CotizadorLowCostHero() {
             
             {/* Badge (Bebas Neue) */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-blue border-2 border-brand-yellow text-brand-yellow flex items-center gap-1.5 shadow-[0_0_20px_var(--color-brand-yellow-500)]">
+              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-blue border-2 border-brand-yellow text-brand-yellow flex items-center gap-1.5 shadow-[0_0_20px_var(--color-brand-yellow-500)] font-bold">
                 <ShoppingBag className="h-4 w-4 text-brand-yellow animate-pulse shrink-0" />
-                LOGÍSTICA LOWCOST • 2026
+                Servicio Económico y Programado
               </span>
             </motion.div>
 
@@ -154,7 +154,7 @@ export default function CotizadorLowCostHero() {
               variants={itemVariants}
               className="text-base sm:text-lg text-brand-blue-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans"
             >
-              Optimizá tus costos de distribución en Mar del Plata. Calculá la tarifa de entrega de tus ruteos diarios con rumbos consolidados y entrega garantizada en el día.
+              Eficiencia y rentabilidad. Calculá tu envío con entrega garantizada en el día si es solicitado antes de 13hs.
             </motion.p>
 
             {/* Features Indicators */}

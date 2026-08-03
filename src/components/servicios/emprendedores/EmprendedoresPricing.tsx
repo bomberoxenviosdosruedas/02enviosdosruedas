@@ -13,12 +13,12 @@ export default function EmprendedoresPricing() {
 
   const plans = [
     {
-      name: 'Plan E-Commerce (3PL Fulfillment)',
+      name: 'E-Commerce Same Day',
       price: '$6.000',
-      period: 'Tarifa Plana Same Day',
-      description: 'Incluye almacenamiento, picking y embalaje básico de productos.',
+      period: 'Fijo a toda la ciudad',
+      description: 'Guardado de mercadería (stock de rotación, productos chicos o medianos).',
       bullets: [
-        'Cobranza contra-reembolso bonificada',
+        'Cobranza contrarreembolso bonificada',
         'Rechazos devueltos 100% sin cargo',
         'Control y monitoreo de stock incluido',
         'Despacho y logística en el acto'
@@ -27,29 +27,29 @@ export default function EmprendedoresPricing() {
       badge: 'EL MÁS COMPLETO'
     },
     {
-      name: 'Plan Escala (Plan 24HS)',
+      name: 'E-Commerce 24HS',
       price: '$3.800',
-      period: 'Next Day (Retiro hoy)',
-      description: 'Tarifas decrecientes: Pro $3.500 | Elite $3.200 | Partner $3.000.',
+      period: 'Desde $3.800',
+      description: 'A mayor cantidad de envíos, baja la tarifa (consultar).',
       bullets: [
-        '20% OFF aplicando Drop-Off en local',
         'Entrega garantizada menor a 24hs',
-        'Ideal para grandes volúmenes diarios',
-        'Reporte consolidado de envíos'
+        'Retiro consolidado en local',
+        'Ideal para volúmenes diarios constantes',
+        'Reporte de envíos mensuales'
       ],
       highlight: false,
       badge: 'MAYOR VOLUMEN'
     },
     {
-      name: 'Plan Corporativo (Cta. Cte. Flexible)',
-      price: 'Híbrido',
-      period: 'LowCost + Beneficios Express',
-      description: 'Pagá tarifas LowCost súper económicas pero con prioridad alta de gestión.',
+      name: 'Plan Cuenta Corriente',
+      price: 'Flexible',
+      period: 'Liquidación Quincenal/Mensual',
+      description: 'Esquemas de facturación centralizada adaptados al flujo de tu PyME.',
       bullets: [
-        'Corte extendido de carga hasta 15:00 hs',
-        'Elección de rango horario de entrega',
-        'Facturación mensual centralizada',
-        'Asesor y soporte dedicado por chat'
+        'Facturación mensual consolidada',
+        'Factura tipo C disponible de forma directa',
+        'Asesor y soporte dedicado por chat',
+        'Resúmenes periódicos de envíos realizados'
       ],
       highlight: false,
       badge: 'CTA CTE FLEXIBLE'

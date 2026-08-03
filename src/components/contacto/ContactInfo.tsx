@@ -9,7 +9,7 @@ export default function ContactInfo() {
   const contactChannels = [
     {
       label: 'WhatsApp',
-      value: '223-660-2699',
+      value: '2236602699',
       href: 'https://wa.me/542236602699',
       iconPath: '/iconos/whatapps.svg',
       color: 'hover:border-brand-blue-400 hover:text-brand-blue-500 hover:shadow-brand-blue-50',
@@ -17,8 +17,8 @@ export default function ContactInfo() {
     },
     {
       label: 'Email Principal',
-      value: 'contacto@enviosdosruedas.com',
-      href: 'mailto:contacto@enviosdosruedas.com',
+      value: 'matiascejas@enviosdosruedas.com',
+      href: 'mailto:matiascejas@enviosdosruedas.com',
       isLucide: true,
       icon: Mail,
       color: 'hover:border-brand-blue hover:text-brand-blue hover:shadow-brand-blue-50',
@@ -43,8 +43,8 @@ export default function ContactInfo() {
   ];
 
   const hours = [
-    { days: 'Lunes a Viernes', time: '9:00 - 18:00 hs' },
-    { days: 'Sábados', time: '10:00 - 15:00 hs' },
+    { days: 'Lunes a Viernes', time: '08:00 - 18:00 hs' },
+    { days: 'Sábados', time: '09:00 - 15:00 hs' },
     { days: 'Domingos', time: 'Cerrado', isClosed: true },
   ];
 

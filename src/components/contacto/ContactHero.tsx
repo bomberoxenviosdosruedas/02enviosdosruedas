@@ -139,7 +139,7 @@ export default function ContactHero() {
                       </div>
                       <div className="flex items-center gap-3">
                         <Mail className="h-5 w-5 text-brand-blue shrink-0" />
-                        <span className="break-all font-mono font-bold text-brand-blue-700">contacto@enviosdosruedas.com</span>
+                        <span className="break-all font-mono font-bold text-brand-blue-700">matiascejas@enviosdosruedas.com</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <MapPin className="h-5 w-5 text-brand-blue shrink-0" />

@@ -7,18 +7,18 @@ import { Sparkles, MapPin, Clock } from 'lucide-react';
 export default function FlexRequirements() {
   const requirements = [
     {
-      title: 'Cuenta MercadoLibre',
-      desc: 'Tener activa y habilitada la opción logística de Mercado Envíos Flex dentro de tu panel o cuenta de vendedor.',
+      title: 'Cuenta activa de vendedor',
+      desc: 'Tener una cuenta activa de vendedor dentro de MercadoLibre.',
       icon: Sparkles,
     },
     {
-      title: 'Ubicación de Retiro',
-      desc: 'Estar localizado operativamente dentro de nuestras amplias zonas de cobertura para retiro en Mar del Plata.',
+      title: 'Envíos flex activados',
+      desc: 'Habilitar la opción de envíos rápidos en el día en tu configuración logística.',
       icon: MapPin,
     },
     {
-      title: 'Horario de Corte',
-      desc: 'Establecer un horario de corte coordinado (sugerido 15:00 hs) para procesar tus ventas diarias de forma organizada.',
+      title: 'Embalaje apto para moto',
+      desc: 'Tener tus paquetes embalados de forma adecuada para el traslado seguro en moto.',
       icon: Clock,
     },
   ];

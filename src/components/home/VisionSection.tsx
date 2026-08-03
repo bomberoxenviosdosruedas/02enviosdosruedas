@@ -6,9 +6,9 @@ import { Clock, ShieldCheck, Users, Truck } from 'lucide-react';
 
 export default function VisionSection() {
   const stats = [
-    { value: '+52k', label: 'Envíos realizados', icon: Truck },
+    { value: '+50k', label: 'Envíos realizados', icon: Truck },
     { value: '0', label: 'Paquetes extraviados', icon: ShieldCheck },
-    { value: '+140', label: 'Emprendedores confían', icon: Users },
+    { value: '+50', label: 'Emprendedores confían', icon: Users },
   ];
 
   return (
@@ -96,7 +96,7 @@ export default function VisionSection() {
                 </div>
                 <div>
                   <h3 className="text-7xl lg:text-8xl font-mono tracking-tighter font-bold uppercase leading-none mb-3">
-                    +52K
+                    +50K
                   </h3>
                   <p className="text-sm text-brand-blue-100 font-sans uppercase tracking-wider leading-relaxed">
                     Envíos y entregas realizadas con éxito en toda la región
@@ -148,7 +148,7 @@ export default function VisionSection() {
                 </div>
                 <div>
                   <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue leading-none mb-2">
-                    +140
+                    +50
                   </h3>
                   <p className="text-[10px] text-brand-blue-400 font-sans uppercase tracking-widest font-semibold">
                     Emprendedores confían

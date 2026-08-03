@@ -2,24 +2,29 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Award, Clock, Smartphone, MapPin } from 'lucide-react';
+import { Truck, Clock, Coins } from 'lucide-react';
 
 export default function FlexFeatures() {
   const features = [
     {
-      title: 'Reputación Garantizada',
-      desc: 'Cumplimos rigurosamente con los estrictos SLAs y horarios de MercadoLibre para que tu medidor de reputación siempre esté en verde.',
-      icon: Award,
+      title: 'Recolección gratis',
+      desc: 'Retiramos tus paquetes sin costo adicional directamente por tu local o depósito.',
+      icon: Truck,
     },
     {
-      title: 'Corte extendido 15:00 hs',
-      desc: 'Garantizamos la Cobertura MDP y la entrega Same-Day en toda la ciudad recibiendo tus paquetes en mano hasta las 15:00 hs.',
+      title: 'Entrega en el día antes de 20hs.',
+      desc: 'Garantizamos que tus clientes reciban sus compras el mismo día antes de las 20:00 hs.',
       icon: Clock,
     },
     {
-      title: 'Seguimiento por App',
-      desc: 'Notificaciones en tiempo real, confirmación de entrega digital con firma/foto para cada paquete despachado.',
-      icon: Smartphone,
+      title: 'Tarifas LowCost.',
+      desc: 'Tarifas competitivas súper económicas para cuidar la rentabilidad de cada una de tus ventas.',
+      icon: Coins,
+    },
+    {
+      title: 'Horario de corte: 15hs.',
+      desc: 'Recibimos y procesamos tus despachos del día hasta las 15:00 hs de manera garantizada.',
+      icon: Clock,
     },
   ];
 
@@ -56,7 +61,7 @@ export default function FlexFeatures() {
             </p>
 
             <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-blue font-bold uppercase tracking-wider font-subheading">
-              <MapPin className="h-5 w-5 text-brand-yellow shrink-0 fill-brand-blue" />
+              <Truck className="h-5 w-5 text-brand-yellow shrink-0 fill-brand-blue" />
               <span>COBERTURA TOTAL EN MAR DEL PLATA</span>
             </div>
           </div>
@@ -65,12 +70,7 @@ export default function FlexFeatures() {
           <div className="lg:col-span-7 grid grid-cols-1 lg:grid-cols-12 gap-6 text-left">
             {features.map((feat, idx) => {
               const Icon = feat.icon;
-              // Asymmetric Bento Grid spans
-              const spanClass = idx === 0 
-                ? 'lg:col-span-12' 
-                : idx === 1 
-                  ? 'lg:col-span-7' 
-                  : 'lg:col-span-5';
+              const spanClass = 'lg:col-span-6';
 
               return (
                 <motion.div

@@ -21,7 +21,7 @@ export default function FlexHowItWorks() {
     {
       number: '03',
       title: 'Entregamos',
-      desc: 'Nuestra flota especializada distribuye eficientemente los paquetes en Mar del Plata durante la tarde.',
+      desc: 'Todas las ventas realizadas antes de 15hs serán entregadas en el día.',
       icon: CheckSquare,
     },
     {

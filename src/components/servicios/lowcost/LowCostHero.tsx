@@ -90,7 +90,7 @@ export default function LowCostHero() {
                   className="object-cover"
                 />
               </span>
-              <span className="text-brand-yellow">LOWCOST</span>
+              <span className="text-brand-yellow">LOWCOST - ENTREGAS ECONÓMICAS</span>
             </motion.h1>
 
             {/* Description */}
@@ -98,7 +98,7 @@ export default function LowCostHero() {
               variants={itemVariants}
               className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-white-50"
             >
-              Nuestro servicio Lowcost, las entregas son realizadas en el transcurso del día sin elección de rango horario. La mejor tarifa de Mar del Plata para tus envíos diarios sin sacrificar un gramo de seguridad ni control (Cobertura en todo Mar del Plata).
+              Maximizá tu rentabilidad. Entregamos tus paquetes en el día o al día siguiente al menor costo de Mar del Plata.
             </motion.p>
 
             {/* CTA Buttons */}

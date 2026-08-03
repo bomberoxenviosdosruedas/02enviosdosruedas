@@ -134,9 +134,9 @@ export default function CotizadorExpressHero() {
             
             {/* Badge (Bebas Neue) */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-blue border-2 border-brand-yellow text-brand-yellow flex items-center gap-1.5 shadow-[0_0_20px_var(--color-brand-yellow-500)]">
+              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-blue border-2 border-brand-yellow text-brand-yellow flex items-center gap-1.5 shadow-[0_0_20px_var(--color-brand-yellow-500)] font-bold">
                 <Zap className="h-4 w-4 text-brand-yellow animate-pulse shrink-0" />
-                TARIFAS AL INSTANTE • 2026
+                Servicio Express Prioritario
               </span>
             </motion.div>
 
@@ -155,7 +155,7 @@ export default function CotizadorExpressHero() {
               variants={itemVariants}
               className="text-base sm:text-lg text-brand-blue-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans"
             >
-              Ingresá los puntos de origen y destino en Mar del Plata para calcular la distancia y la tarifa exacta al instante. Planificá tus envíos de extrema prioridad con total transparencia.
+              Calculá el costo de tu envío prioritario al instante. Obtené la tarifa de entrega según la distancia y coordiná en el acto con nosotros por WhatsApp.
             </motion.p>
 
             {/* Features Indicators */}

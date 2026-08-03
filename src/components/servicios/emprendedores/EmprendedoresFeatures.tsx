@@ -7,18 +7,18 @@ import { Container, PackageCheck, Receipt, Landmark, BarChart3, Users, Clock } f
 export default function EmprendedoresFeatures() {
   const features = [
     {
-      title: 'Soluciones 3PL',
-      desc: 'Tercerizá tu logística integral con nosotros. Almacenamos, preparamos de forma minuciosa y enviamos todos tus productos directamente.',
+      title: 'Almacenamiento en Friuli 1972',
+      desc: 'Tercerizá tu logística integral con nosotros. Guardamos tu stock en nuestro depósito central de Friuli 1972.',
       icon: Container,
     },
     {
-      title: 'Fulfillment',
-      desc: 'Picking y packing ágil y profesional con altos estándares de empaquetado. Tu mercadería segura y lista para salir en minutos.',
+      title: 'Picking por código QR o de barras',
+      desc: 'Armado ágil y preciso con picking por código QR o de barras y packing seguro, ideal para tu tienda online.',
       icon: PackageCheck,
     },
     {
       title: 'Cuentas Corrientes',
-      desc: 'Esquemas de facturación mensual flexible y cuentas corrientes centralizadas adaptadas al flujo de caja de tu empresa o PyME.',
+      desc: 'Esquemas de facturación mensual flexible y cuentas corrientes centralizadas adaptadas al flujo de caja de tu empresa.',
       icon: Receipt,
     },
   ];

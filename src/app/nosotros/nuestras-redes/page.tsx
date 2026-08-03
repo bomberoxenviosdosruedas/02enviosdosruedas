@@ -3,8 +3,6 @@ import { Metadata } from 'next';
 import NetworksHero from '@/src/components/nosotros/nuestras-redes/NetworksHero';
 import NetworksChannels from '@/src/components/nosotros/nuestras-redes/NetworksChannels';
 import RecentPosts from '@/src/components/nosotros/nuestras-redes/RecentPosts';
-import NetworksBenefits from '@/src/components/nosotros/nuestras-redes/NetworksBenefits';
-import NewsletterSubscribe from '@/src/components/nosotros/nuestras-redes/NewsletterSubscribe';
 
 export const metadata: Metadata = {
   title: 'Nuestras Redes y Comunidad | Envíos DosRuedas Mar del Plata',
@@ -31,16 +29,6 @@ export default function NuestrasRedesPage() {
       {/* Social mockup posts grid visualizer */}
       <div className="relative z-10">
         <RecentPosts />
-      </div>
-
-      {/* Grid items representing followers benefits */}
-      <div className="relative z-10">
-        <NetworksBenefits />
-      </div>
-
-      {/* Secure Newsletter subscription box */}
-      <div className="relative z-10">
-        <NewsletterSubscribe />
       </div>
     </main>
   );

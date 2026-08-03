@@ -83,7 +83,7 @@ export default function ExpressHero() {
                   className="object-cover"
                 />
               </span>
-              <span className="text-brand-yellow font-bold">EXPRESS INMEDIATOS</span>
+              <span className="text-brand-yellow font-bold">EXPRESS - ENTREGA INMEDIATA</span>
             </motion.h1>
 
             {/* Description */}
@@ -91,7 +91,7 @@ export default function ExpressHero() {
               variants={itemVariants}
               className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-white-50"
             >
-              La solución premium para operaciones de alta criticidad horaria. Vos tenés el control total: elegí el rango exacto de entrega con certeza absoluta en toda la ciudad.
+              Prioridad total. Tu paquete entregado en el día si es solicitado antes de 15hs.
             </motion.p>
 
             {/* CTA Buttons */}

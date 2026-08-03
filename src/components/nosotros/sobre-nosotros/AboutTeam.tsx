@@ -52,9 +52,7 @@ export default function AboutTeam() {
             NUESTRO EQUIPO DE CALLE
           </h2>
           <p className="text-brand-blue-100 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
-            Contamos con cadetes capacitados en Mar del Plata para entregar todos tus envíos en tiempo y forma.
-            <br /><br />
-            Contamos con un equipo de +20 repartidores y estamos en constante crecimiento para cumplir con todas las entregas de manera impecable.
+            Contamos con un equipo de +20 Repartidores y estamos en constante crecimiento para cumplir con todas las entregas en tiempo y forma.
           </p>
           <div className="h-1 w-16 bg-brand-yellow-500 rounded-full" />
         </div>

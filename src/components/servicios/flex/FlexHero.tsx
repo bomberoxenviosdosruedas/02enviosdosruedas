@@ -73,7 +73,7 @@ export default function FlexHero() {
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3"
             >
-              <span>ENVÍOS FLEX</span>
+              <span>ENVÍOS EN EL DÍA</span>
               <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_var(--color-brand-blue)]">
                 <Image
                   src="https://picsum.photos/id/1070/200/100" 
@@ -82,7 +82,7 @@ export default function FlexHero() {
                   className="object-cover"
                 />
               </span>
-              <span className="text-brand-yellow">MERCADOLIBRE</span>
+              <span className="text-brand-yellow">PARA MERCADOLIBRE</span>
             </motion.h1>
 
             {/* Description */}
@@ -90,7 +90,7 @@ export default function FlexHero() {
               variants={itemVariants}
               className="text-lg max-w-2xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-white-50"
             >
-              Somos expertos en la logística de MercadoLibre. Optimizamos tus entregas Same-Day para que tu medidor siempre esté en verde y vos solo te enfoques en vender.
+              Solución para vendedores de MercadoLibre en Mar del Plata. Despachá tus ventas Same-Day y mantené tu medidor verde.
             </motion.p>
 
             {/* CTA Buttons */}

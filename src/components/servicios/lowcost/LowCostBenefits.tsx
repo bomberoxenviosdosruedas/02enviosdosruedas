@@ -3,40 +3,30 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { 
-  Route, Clock, Coins, Compass, ClipboardCheck, Sparkles 
+  Route, Clock, Coins, TrendingDown 
 } from 'lucide-react';
 
 export default function LowCostBenefits() {
   const benefits = [
     {
-      title: 'Eficiencia en Ruteo',
-      desc: 'Ruteo diario masivo optimizado de última milla. No se elige rango horario para maximizar tu rentabilidad y amortizar el transporte.',
-      icon: Route,
-    },
-    {
-      title: 'Corte y Entrega (SLA)',
-      desc: 'Ingresá tus pedidos antes de las 13:00 hs y te garantizamos la entrega efectiva en el mismo día, antes de las 19:00 hs.',
-      icon: Clock,
-    },
-    {
-      title: 'Economía y Escala',
-      desc: 'Bajá tus costos fijos drásticamente y pagá exclusivamente por los paquetes reales que enviás cada jornada.',
+      title: 'Entregas a valores LowCost con las condiciones de express',
+      desc: 'Disfrutá del mejor precio con un servicio rápido y seguro que se adapta a vos.',
       icon: Coins,
     },
     {
-      title: 'Cobertura Total',
-      desc: 'Llegamos a absolutamente todos los barrios residenciales, comerciales e industriales de Mar del Plata sin recargos ocultos.',
-      icon: Compass,
+      title: 'Horario de corte extendido hasta 15hs',
+      desc: 'Ingresá tus envíos del día hasta las 15:00 hs y los entregamos en la misma jornada.',
+      icon: Clock,
     },
     {
-      title: 'Menos Operatividad',
-      desc: 'Simplificá tus despachos diarios con un esquema inteligente de retiro programado en tu local o punto de venta.',
-      icon: ClipboardCheck,
+      title: 'Elección de rango horario',
+      desc: 'Vos y tus clientes eligen cuándo es más conveniente recibir los paquetes.',
+      icon: Route,
     },
     {
-      title: 'Ideal Emprendedores',
-      desc: 'Escalá tu volumen de ventas y expandí el alcance de tu e-commerce sin preocuparte por los altos costos fijos de transporte.',
-      icon: Sparkles,
+      title: 'Ahorro de costos logísticos',
+      desc: 'Maximizá tu rentabilidad pagando tarifas súper económicas por cada entrega.',
+      icon: TrendingDown,
     },
   ];
 
@@ -74,9 +64,7 @@ export default function LowCostBenefits() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {benefits.map((benefit, idx) => {
             const Icon = benefit.icon;
-            // Asymmetric Bento Grid spans
-            let spanClass = 'lg:col-span-4';
-            if (idx === 0 || idx === 1) spanClass = 'lg:col-span-6';
+            const spanClass = 'lg:col-span-6';
 
             return (
               <motion.div

@@ -15,25 +15,40 @@ export default function FlexPricing() {
     {
       name: 'Nivel 1 (Crecimiento)',
       volume: '1 a 4 envíos diarios',
-      price: 'Tarifa LowCost',
-      description: 'Ideal para vendedores que recién comienzan con MercadoLibre Flex.',
-      bullets: ['Tarifa zonificada estándar', 'Segunda visita bonificada', 'Retiro sin cargo por tu domicilio'],
+      price: '$3.000',
+      description: 'Tarifas estándar segmentadas por distancia en km.',
+      bullets: [
+        'Z1 (0-3km) $3.000 | Z2 (3-5km) $4.000',
+        'Z3 (5-7km) $5.300 | Z4 (7-10km) $7.000',
+        'Z5 (+10km) $7.000 + $700 x km adicional',
+        'Segunda visita bonificada al 50%'
+      ],
       highlight: false,
     },
     {
       name: 'Nivel 2 (Pro)',
-      volume: 'Más de 5 envíos diarios',
-      price: 'Tarifario Híbrido',
-      description: 'Beneficios exclusivos y optimizaciones para vendedores constantes.',
-      bullets: ['Zonas lejanas con tope fijo', 'Segunda visita GRATIS (Zona Centro)', 'Prioridad absoluta en ruteo diario'],
+      volume: '5 a 10 envíos diarios',
+      price: '$3.000',
+      description: 'Tarifas con tope fijo para envíos de mayor distancia.',
+      bullets: [
+        'Z1 (0-3km) $3.000 | Z2 (3-5km) $4.000',
+        'Z3 (5-7km) $5.300 | Z4 y Z5 (Tope) $6.500',
+        'Segunda visita Z1 gratis, otras al 50%',
+        'Retiro bonificado sin cargo'
+      ],
       highlight: true,
     },
     {
       name: 'Nivel 3 (Elite)',
-      volume: 'Grandes Cuentas',
+      volume: '+10 envíos diarios',
       price: '$4.500',
-      description: 'Máxima eficiencia y previsibilidad de costos para operaciones grandes.',
-      bullets: ['Tarifa PLANA en toda la ciudad', 'Reprogramaciones 100% GRATIS', 'Soporte y gestor dedicado'],
+      description: 'Tarifa plana unificada para toda la ciudad sin límites.',
+      bullets: [
+        'Tarifa plana de $4.500 a toda la ciudad',
+        'Segunda visita sin cargo a toda la ciudad',
+        'Soporte directo prioritario',
+        'Retiro bonificado sin cargo'
+      ],
       highlight: false,
     },
   ];
@@ -224,13 +239,13 @@ export default function FlexPricing() {
             
             <div className="lg:col-span-8 space-y-4 text-left">
               <span className="px-4 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border border-brand-blue/20">
-                BENEFICIO EXCLUSIVO CLIMA
+                RECARGO POR LLUVIA
               </span>
               <h3 className="text-3xl font-display uppercase tracking-tight text-brand-blue">
-                Recargo por lluvia: Mínimo Indispensable
+                30% adicional en caso de lluvia
               </h3>
               <p className="text-sm text-brand-blue-500 leading-relaxed font-sans max-w-2xl">
-                Para todos nuestros clientes asociados al canal Flex, el recargo por días de lluvia es reducido al mínimo indispensable. Minimizamos al máximo el impacto directo en tus costos operativos mensuales para que sigas vendiendo con tranquilidad.
+                Para todos nuestros clientes asociados al canal Flex, el recargo por días de lluvia es de solo un 30% adicional sobre el valor del envío. Cuidamos tu rentabilidad operativa para que sigas vendiendo con tranquilidad.
               </p>
             </div>
 
