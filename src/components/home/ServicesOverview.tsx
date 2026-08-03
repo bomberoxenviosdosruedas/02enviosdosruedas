@@ -3,8 +3,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Package, Truck, Zap, Building } from 'lucide-react';
-import { ServiceCard } from '@/components/ui/service-card';
-import Image from 'next/image';
 
 export default function ServicesOverview() {
   const services = [
@@ -14,7 +12,6 @@ export default function ServicesOverview() {
       href: '/servicios/envios-express',
       icon: Zap,
       badge: 'URGENTE',
-      imageUrl: '/img/generales/envios_express.webp',
     },
     {
       title: 'Envíos LowCost',
@@ -22,7 +19,6 @@ export default function ServicesOverview() {
       href: '/servicios/envios-lowcost',
       icon: Package,
       badge: 'ECONÓMICO',
-      imageUrl: '/img/generales/envios_low_cost.webp',
     },
     {
       title: 'Envíos Flex (MercadoLibre)',
@@ -30,7 +26,6 @@ export default function ServicesOverview() {
       href: '/servicios/enviosflex',
       icon: Truck,
       badge: 'INTEGRACIÓN FLEX',
-      imageUrl: '/img/generales/servicio_flex.jpeg',
     },
     {
       title: 'E-Commerce & 3PL',
@@ -38,7 +33,6 @@ export default function ServicesOverview() {
       href: '/servicios/plan-emprendedores',
       icon: Building,
       badge: 'PYMES & CORPORATIVO',
-      imageUrl: '/img/generales/Emprendedoresbanner.webp',
     },
   ];
 
@@ -90,29 +84,23 @@ export default function ServicesOverview() {
                   damping: 18,
                   delay: index * 0.1
                 }}
-                whileHover={{
-                  y: -6,
-                  x: 2,
-                  boxShadow: index === 2 || index === 3 ? "6px 6px 0px var(--color-brand-yellow)" : "6px 6px 0px var(--color-brand-blue-500)"
-                }}
-                className={`group relative h-full flex flex-col ${colSpan} bg-brand-blue-600 ${index === 2 || index === 3 ? "border-2 border-brand-yellow" : "border border-brand-blue-500"} rounded-xl transition-all duration-300 shadow-[4px_4px_0px_var(--color-brand-blue-700)] overflow-hidden`}
+                className={`${colSpan} double-bezel-outer p-2 rounded-2xl bg-brand-blue-50/5 border border-brand-blue-500/20 hover:border-brand-yellow/30 hover:bg-brand-blue-50/10 hover:shadow-antigravity-deep transition-all duration-300 group`}
               >
                 {/* Inner Core (Color Blocking Architecture) */}
-                <div className="relative flex-1 rounded-xl overflow-hidden flex flex-col justify-between p-8">
+                <div className="double-bezel-inner bg-brand-blue-700/60 p-6 sm:p-8 rounded-xl border border-brand-blue-500/20 shadow-inner flex flex-col justify-between h-full relative overflow-hidden text-left">
                   
-                  {/* Background Image with Solid Blocking Overlay (No gradient) */}
-                  <div className="absolute inset-0 z-0 overflow-hidden bg-brand-blue-700">
-                    <Image
-                      src={service.imageUrl}
-                      alt={service.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="absolute inset-0 h-full w-full object-cover opacity-20 transition-transform duration-700 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-105 group-hover:opacity-30"
-                    />
+                  {/* Subtle Brand Ambient Glow in Bottom Right */}
+                  <div className={`absolute bottom-0 right-0 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-25 -mr-16 -mb-16 transition-opacity duration-300 group-hover:opacity-45 ${
+                    index === 0 || index === 2 ? 'bg-brand-yellow-500' : 'bg-brand-blue-400'
+                  }`} />
+
+                  {/* Huge Watermark Background Icon */}
+                  <div className="absolute right-4 bottom-4 text-white opacity-[0.03] pointer-events-none select-none transition-transform duration-500 group-hover:scale-105 group-hover:rotate-6">
+                    <Icon className="w-48 h-48" />
                   </div>
 
                   {/* Card Header: Icon & Badge */}
-                  <div className="relative z-20 flex justify-between items-start">
+                  <div className="relative z-10 flex justify-between items-start">
                     <div className="p-3 bg-brand-yellow text-brand-blue rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-700)] group-hover:scale-105 transition-transform duration-300">
                       <Icon className="h-6 w-6" />
                     </div>
@@ -122,7 +110,7 @@ export default function ServicesOverview() {
                   </div>
 
                   {/* Card Content & CTA */}
-                  <div className="relative z-20 space-y-4">
+                  <div className="relative z-10 space-y-4">
                     <div>
                       <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white group-hover:text-brand-yellow transition-colors duration-300">
                         {service.title}
