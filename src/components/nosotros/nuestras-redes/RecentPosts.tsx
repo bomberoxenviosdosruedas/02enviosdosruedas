@@ -124,6 +124,7 @@ export default function RecentPosts() {
                       alt={post.alt || "Envíos DosRuedas Social Post"}
                       fill
                       referrerPolicy="no-referrer"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                     {isFeatured && (
@@ -147,6 +148,7 @@ export default function RecentPosts() {
                               alt="Envíos DosRuedas Avatar"
                               fill
                               referrerPolicy="no-referrer"
+                              sizes="40px"
                               className="object-cover"
                             />
                           </div>

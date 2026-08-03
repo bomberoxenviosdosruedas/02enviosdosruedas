@@ -118,6 +118,7 @@ export default function CotizadorLowCostHero() {
           alt="Fondo de reparto"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
       </div>

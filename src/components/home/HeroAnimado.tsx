@@ -121,6 +121,7 @@ export default function HeroAnimado() {
           alt="Textura de Mapa de calles"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
       </motion.div>

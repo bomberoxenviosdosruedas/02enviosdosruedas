@@ -47,6 +47,7 @@ export default function FlexHero() {
           alt="Banner del servicio MercadoLibre Flex"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
       </div>
@@ -76,9 +77,10 @@ export default function FlexHero() {
               <span>ENVÍOS EN EL DÍA</span>
               <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_var(--color-brand-blue)]">
                 <Image
-                  src="https://picsum.photos/id/1070/200/100" 
+                  src="/img/generales/banner-servicio-flex.jpg"
                   alt="MercadoLibre Flex"
                   fill
+                  sizes="(max-width: 768px) 64px, 80px"
                   className="object-cover"
                 />
               </span>

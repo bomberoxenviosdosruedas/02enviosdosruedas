@@ -47,6 +47,7 @@ export default function ExpressHero() {
           alt="Fondo de reparto urbano"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
       </div>
@@ -80,6 +81,7 @@ export default function ExpressHero() {
                   src="/express-hero-inline.png"
                   alt="Envíos Express"
                   fill
+                  sizes="(max-width: 768px) 64px, 80px"
                   className="object-cover"
                 />
               </span>
@@ -165,6 +167,7 @@ export default function ExpressHero() {
                     alt="Mapa de Cobertura de Mar del Plata"
                     fill
                     referrerPolicy="no-referrer"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover"
                   />
                   <div className="absolute top-3 right-3 bg-brand-blue text-brand-yellow border border-brand-yellow px-2.5 py-1 rounded text-[9px] font-bold uppercase tracking-widest font-mono">

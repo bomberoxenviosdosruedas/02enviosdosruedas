@@ -46,6 +46,7 @@ export default function FaqHero() {
           alt="Fondo de reparto urbano"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
       </div>
@@ -69,16 +70,17 @@ export default function FaqHero() {
             </motion.div>
  
             {/* Title with Inline Image Typography */}
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
               className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-[0.02em] leading-[1.1] text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
             >
               <span>CENTRO DE</span>
               <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow-500 align-middle shrink-0 shadow-md">
                 <Image
-                  src="https://picsum.photos/id/1070/200/100" 
+                  src="/img/generales/card_express.png"
                   alt="Preguntas Soporte"
                   fill
+                  sizes="(max-width: 768px) 64px, 80px"
                   className="object-cover"
                 />
               </span>
