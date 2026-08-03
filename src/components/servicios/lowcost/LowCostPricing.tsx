@@ -15,31 +15,31 @@ export default function LowCostPricing() {
   const zones = [
     {
       name: 'Zona 1',
-      scope: 'Radio céntrico',
+      scope: 'Hasta 3 km',
       price: '$3.000',
-      description: 'La mejor tarifa para ruteo diario en el centro.',
+      description: 'La mejor tarifa para ruteo diario de cercanía.',
       bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'SLA de entrega garantizada'],
       highlight: false,
     },
     {
       name: 'Zona 2',
-      scope: 'Periferia cercana',
+      scope: '3 a 5 km',
       price: '$4.000',
-      description: 'Cobertura extendida económica para PyMEs.',
+      description: 'Cobertura intermedia económica para PyMEs.',
       bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'SLA de entrega garantizada'],
       highlight: true,
     },
     {
       name: 'Zona 3',
-      scope: 'Zonas alejadas',
+      scope: '5 a 7 km',
       price: '$5.300',
-      description: 'Llegamos a toda la ciudad al mejor costo.',
+      description: 'Llegamos a distancias medias al mejor costo.',
       bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'SLA de entrega garantizada'],
       highlight: false,
     },
     {
       name: 'Zona 4',
-      scope: 'Límites de ciudad',
+      scope: '7 a 10 km',
       price: '$7.000',
       description: 'Máximo ahorro en distancias urbanas largas.',
       bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'SLA de entrega garantizada'],
@@ -231,10 +231,10 @@ export default function LowCostPricing() {
             
             <div className="lg:col-span-8 space-y-4 text-left">
               <span className="px-4 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border border-brand-blue/20">
-                Zona 5 (Larga Distancia LowCost)
+                Zona 5 (Más de 10 km)
               </span>
               <h3 className="text-3xl font-mono uppercase tracking-tight text-brand-blue-700 font-bold">
-                $700 / km adicional
+                $700 x km
               </h3>
               <p className="text-sm text-brand-blue-500 leading-relaxed font-sans max-w-2xl">
                 Para envíos de larga distancia fuera del ejido urbano masivo tradicional, te ofrecemos la tarifa por kilómetro más competitiva del mercado local para que sigas ruteando con rentabilidad total.

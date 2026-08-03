@@ -15,33 +15,33 @@ export default function ExpressPricing() {
   const zones = [
     {
       name: 'Zona 1',
-      scope: 'Radio céntrico',
+      scope: 'Hasta 3 km',
       price: '$3.700',
-      description: 'Ideal para entregas inmediatas en el centro.',
+      description: 'Ideal para entregas inmediatas de cercanía.',
       bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Seguimiento en tiempo real', 'Custodia digital'],
       highlight: false,
     },
     {
       name: 'Zona 2',
-      scope: 'Periferia cercana',
+      scope: '3 a 5 km',
       price: '$4.600',
-      description: 'Cobertura extendida con rapidez.',
+      description: 'Cobertura intermedia rápida.',
       bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Seguimiento en tiempo real', 'Custodia digital'],
       highlight: true,
     },
     {
       name: 'Zona 3',
-      scope: 'Zonas alejadas',
+      scope: '5 a 7 km',
       price: '$6.100',
-      description: 'Llegamos a donde otros no.',
+      description: 'Llegamos a distancias medias.',
       bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Seguimiento en tiempo real', 'Custodia digital'],
       highlight: false,
     },
     {
       name: 'Zona 4',
-      scope: 'Límites de ciudad',
+      scope: '7 a 10 km',
       price: '$8.200',
-      description: 'Máxima cobertura urbana.',
+      description: 'Máxima cobertura urbana estándar.',
       bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Seguimiento en tiempo real', 'Custodia digital'],
       highlight: false,
     },
@@ -232,10 +232,10 @@ export default function ExpressPricing() {
             
             <div className="lg:col-span-8 space-y-4 text-left">
               <span className="px-4 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border border-brand-blue/20">
-                Zona 5 (Larga Distancia)
+                Zona 5 (Más de 10 km)
               </span>
               <h3 className="text-3xl font-mono uppercase tracking-tight text-brand-blue-700 font-bold">
-                $1.000 / km adicional
+                $1.000 x km
               </h3>
               <p className="text-sm text-brand-blue-500 leading-relaxed font-sans max-w-2xl">
                 Para envíos de larga distancia fuera del ejido urbano o si querés obtener una cotización de altísima precisión basada en mapa y geolocalización exacta, utilizá nuestro cotizador inteligente en tiempo real.

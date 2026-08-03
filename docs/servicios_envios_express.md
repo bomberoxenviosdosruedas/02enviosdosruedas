@@ -60,11 +60,11 @@ Tarifa 2026
 
 ### Zona 1
 
-Radio céntrico
+Hasta 3 km
 
 $3.700
 
-Ideal para entregas inmediatas en el centro
+Ideal para entregas inmediatas de cercanía
 
   * Elegís rango horario
   * Mínimo 2hs anticipación
@@ -76,11 +76,11 @@ Tarifa 2026
 
 ### Zona 2
 
-Periferia cercana
+3 a 5 km
 
 $4.600
 
-Cobertura extendida con rapidez
+Cobertura intermedia rápida
 
   * Elegís rango horario
   * Mínimo 2hs anticipación
@@ -92,11 +92,11 @@ Tarifa 2026
 
 ### Zona 3
 
-Zonas alejadas
+5 a 7 km
 
 $6.100
 
-Llegamos a donde otros no
+Llegamos a distancias medias
 
   * Elegís rango horario
   * Mínimo 2hs anticipación
@@ -108,11 +108,11 @@ Tarifa 2026
 
 ### Zona 4
 
-Límites de ciudad
+7 a 10 km
 
 $8.200
 
-Máxima cobertura urbana
+Máxima cobertura urbana estándar
 
   * Elegís rango horario
   * Mínimo 2hs anticipación
@@ -122,7 +122,7 @@ Máxima cobertura urbana
 
 COTIZACIÓN DINÁMICA
 
-### ZONA 5: $1.000 / KM
+### ZONA 5: $1.000 x km
 
 Para envíos de larga distancia fuera del ejido urbano o una cotización precisa con mapa, utilizá nuestro cotizador inteligente de alta precisión.
 

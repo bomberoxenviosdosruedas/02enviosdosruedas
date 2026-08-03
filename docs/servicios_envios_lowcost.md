@@ -56,11 +56,11 @@ Tarifa 2026
 
 ### Zona 1
 
-Radio céntrico
+Hasta 3 km
 
 $3.000
 
-La mejor tarifa para ruteo en el centro
+La mejor tarifa para ruteo diario de cercanía
 
   * Eficiencia en ruteo
   * Corte 13:00 hs
@@ -72,11 +72,11 @@ Tarifa 2026
 
 ### Zona 2
 
-Periferia cercana
+3 a 5 km
 
 $4.000
 
-Cobertura extendida económica
+Cobertura intermedia económica
 
   * Eficiencia en ruteo
   * Corte 13:00 hs
@@ -88,11 +88,11 @@ Tarifa 2026
 
 ### Zona 3
 
-Zonas alejadas
+5 a 7 km
 
 $5.300
 
-Llegamos a toda la ciudad al mejor costo
+Llegamos a distancias medias al mejor costo
 
   * Eficiencia en ruteo
   * Corte 13:00 hs
@@ -104,7 +104,7 @@ Tarifa 2026
 
 ### Zona 4
 
-Límites de ciudad
+7 a 10 km
 
 $7.000
 
@@ -118,7 +118,7 @@ Máximo ahorro en distancias largas
 
 COTIZACIÓN ESPECIAL
 
-### ZONA 5: $700 / KM
+### ZONA 5: $700 x km
 
 Para envíos de larga distancia fuera del ejido urbano masivo, ofrecemos la tarifa más competitiva por kilómetro.
 
