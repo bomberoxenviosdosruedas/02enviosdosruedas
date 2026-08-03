@@ -6,18 +6,21 @@ import ClientLayout from '../components/ClientLayout';
 const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-sans',
+  display: 'swap',
 });
 
 const anton = Anton({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-display',
+  display: 'swap',
 });
 
 const bebasNeue = Bebas_Neue({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-subheading',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {

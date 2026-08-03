@@ -43,11 +43,10 @@ export default function FlexHero() {
       {/* Background illustration overlay */}
       <div className="absolute inset-0 opacity-10 mix-blend-overlay">
         <Image
-          src="https://i.postimg.cc/2Skr5sPW/banner-servicio-flex.jpg"
+          src="/banner-servicio-flex.jpg"
           alt="Banner del servicio MercadoLibre Flex"
           fill
           priority
-          referrerPolicy="no-referrer"
           className="object-cover"
         />
       </div>

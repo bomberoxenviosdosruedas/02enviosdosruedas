@@ -41,11 +41,10 @@ export default function ContactHero() {
       {/* Background image overlay */}
       <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none">
         <Image
-          src="https://i.postimg.cc/nLMx4vVc/delivery-background.jpg"
+          src="/delivery-background.jpg"
           alt="Fondo de reparto urbano"
           fill
           priority
-          referrerPolicy="no-referrer"
           className="object-cover"
         />
       </div>

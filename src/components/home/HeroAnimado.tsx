@@ -250,6 +250,7 @@ export default function HeroAnimado() {
                       width={400}
                       height={300}
                       className="rounded-xl object-cover h-40 sm:h-48 w-full"
+                      priority
                     />
                   </div>
                   <div className="mt-3 flex items-center justify-between text-brand-ink font-mono" style={{ transform: 'translateZ(30px)' }}>

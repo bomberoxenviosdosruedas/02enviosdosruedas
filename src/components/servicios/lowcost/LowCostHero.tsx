@@ -51,11 +51,10 @@ export default function LowCostHero() {
       {/* Background image overlay */}
       <div className="absolute inset-0 opacity-10 mix-blend-overlay">
         <Image
-          src="https://i.postimg.cc/QMVDQpNM/abstracto-background.jpg"
+          src="/abstracto-background.jpg"
           alt="Fondo abstracto azul y amarillo"
           fill
           priority
-          referrerPolicy="no-referrer"
           className="object-cover"
         />
       </div>

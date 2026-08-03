@@ -43,11 +43,10 @@ export default function ExpressHero() {
       {/* Background illustration overlay */}
       <div className="absolute inset-0 opacity-15 mix-blend-overlay">
         <Image
-          src="https://i.postimg.cc/nLMx4vVc/delivery-background.jpg"
+          src="/delivery-background.jpg"
           alt="Fondo de reparto urbano"
           fill
           priority
-          referrerPolicy="no-referrer"
           className="object-cover"
         />
       </div>
