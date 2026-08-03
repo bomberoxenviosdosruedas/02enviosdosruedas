@@ -5,6 +5,7 @@ import ServicesOverview from '@/src/components/home/ServicesOverview';
 import SliderServicios from '@/src/components/home/SliderServicios';
 import EmprendedoresHome from '@/src/components/home/EmprendedoresHome';
 import CtaSection from '@/src/components/home/CtaSection';
+import SocialProofSection from '@/src/components/home/SocialProofSection';
 import { Bike } from 'lucide-react';
 
 export const metadata: Metadata = {
