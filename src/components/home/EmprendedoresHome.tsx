@@ -285,7 +285,7 @@ export default function EmprendedoresHome() {
             <div className="flex gap-16 whitespace-nowrap animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused]">
               {/* Set 1 */}
               <div className="flex gap-16 items-center">
-                {['CAFÉ CHAUVÍN', 'BOUTIQUE GÜEMES', 'PUERTO MDQ LOGÍSTICA', 'REGALOS PLAYA GRANDE', 'LIBROS TRADICIÓN', 'E-SHOP LA PERLA', 'REPUESTOS CONSTITUCIÓN'].map((partner, index) => (
+                {['TOY PIOLA JUGUETERÍA', 'AMA & POLA', 'DROPIX 3D', 'EL CÓNDOR', 'STARCEL', 'URBANCOW', 'WANCA', 'CATALINA INDUMENTARIA', 'ENVASES 3G', 'LA PERI'].map((partner, index) => (
                   <span key={index} className="font-display text-2xl tracking-wider text-brand-blue-300/40 uppercase hover:text-brand-yellow transition-colors duration-300 cursor-default">
                     {partner}
                   </span>
@@ -293,7 +293,7 @@ export default function EmprendedoresHome() {
               </div>
               {/* Set 2 (for infinite loop) */}
               <div className="flex gap-16 items-center" aria-hidden="true">
-                {['CAFÉ CHAUVÍN', 'BOUTIQUE GÜEMES', 'PUERTO MDQ LOGÍSTICA', 'REGALOS PLAYA GRANDE', 'LIBROS TRADICIÓN', 'E-SHOP LA PERLA', 'REPUESTOS CONSTITUCIÓN'].map((partner, index) => (
+                {['TOY PIOLA JUGUETERÍA', 'AMA & POLA', 'DROPIX 3D', 'EL CÓNDOR', 'STARCEL', 'URBANCOW', 'WANCA', 'CATALINA INDUMENTARIA', 'ENVASES 3G', 'LA PERI'].map((partner, index) => (
                   <span key={`dup-${index}`} className="font-display text-2xl tracking-wider text-brand-blue-300/40 uppercase hover:text-brand-yellow transition-colors duration-300 cursor-default">
                     {partner}
                   </span>
