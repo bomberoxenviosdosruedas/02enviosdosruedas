@@ -1,11 +1,11 @@
 {
   "name": "Envios DosRuedas",
   "short_name": "DosRuedas",
-  "description": "Servicio confiable de mensajería y delivery en moto en Mar del Plata.",
+  "description": "La solución logística y última milla de mayor confianza en Mar del Plata. Envíos Express, MercadoLibre Flex, ruteo eficiente y cadetería inteligente.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1E40AF",
-  "theme_color": "#1E40AF",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0636A5",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
