@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/nosotros/nuestras-redes',
     '/nosotros/preguntas-frecuentes',
     '/nosotros/sobre-nosotros',
+    '/revisar',
     '/servicios/envios-express',
     '/servicios/envios-lowcost',
     '/servicios/enviosflex',
@@ -36,6 +37,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     } else if (route.startsWith('/servicios') || route.startsWith('/cotizar')) {
       priority = 0.9 // Páginas transaccionales de alto valor comercial
       changeFrequency = 'weekly'
+    } else if (route === '/revisar') {
+      priority = 0.7 // Herramienta de usuario, menos prioridad SEO
+      changeFrequency = 'monthly'
     }
 
     return {
