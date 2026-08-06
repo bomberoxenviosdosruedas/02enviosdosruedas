@@ -57,7 +57,7 @@ export default function FlexHowItWorks() {
             LOGÍSTICA SIN FRICCIONES
           </h2>
           <p className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto">
-            Integramos tu flujo diario de ventas con nuestra red de distribución de última milla en tiempo real.
+            Integramos tu flujo diario de ventas con nuestra red de distribución de última milla de forma directa.
           </p>
           <div className="h-2 w-16 bg-brand-blue mx-auto rounded-full" />
         </div>

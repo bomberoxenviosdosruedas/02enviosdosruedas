@@ -7,7 +7,7 @@ import { Star, TrendingUp, Users, HeartHandshake, Quote } from 'lucide-react';
 export default function SocialProofSection() {
   const testimonials = [
     {
-      text: "Con DosRuedas pasamos de entregar en 48hs a same-day en toda la ciudad. El seguimiento en vivo redujo a cero las consultas de '¿dónde está mi pedido?'.",
+      text: "Con DosRuedas pasamos de entregar en 48hs a same-day en toda la ciudad. La notificación digital de entrega redujo a cero las consultas de '¿dónde está mi pedido?'.",
       author: "Martín R.",
       role: "E-commerce Indumentaria, Güemes",
     },

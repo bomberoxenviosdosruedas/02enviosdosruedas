@@ -261,68 +261,66 @@ export default function HeroAnimado() {
                 </div>
               </motion.div>
 
-              {/* Card 2: Transit Details */}
+              {/* Badge 1: Seguridad Garantizada */}
               <motion.div
-                className="absolute bottom-6 sm:bottom-8 left-0 w-[74%] z-30"
-                initial={{ opacity: 0, z: -100 }}
-                animate={{ opacity: 1, z: 0, transition: { duration: 0.9, ease: "easeOut", delay: 0.7 } }}
+                className="absolute top-12 left-4 sm:left-8 z-30"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.7 } }}
                 style={{
-                  transformStyle: 'preserve-3d',
                   x: floatX,
                   y: floatY,
-                  transform: 'translateZ(40px)',
+                  transform: 'translateZ(30px)',
                 }}
-                whileHover={{ scale: 1.02 }}
               >
-                <div className="relative rounded-2xl overflow-hidden border-2 border-brand-yellow bg-brand-blue-700 p-3.5 sm:p-4 text-white shadow-[4px_4px_0px_var(--color-brand-yellow)]">
-                  <div className="flex items-center gap-3 mb-2.5" style={{ transform: 'translateZ(10px)' }}>
-                    <div className="p-2 sm:p-2 rounded-xl bg-brand-yellow text-brand-blue">
-                      <Bike className="h-4.5 w-4.5 sm:h-5 sm:w-5 animate-pulse" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white font-display">Reparto en Curso</h4>
-                      <p className="text-[9px] sm:text-[10px] text-brand-yellow font-mono">ID: MDQ-FLEX-2026</p>
-                    </div>
-                  </div>
-                  <div className="space-y-1.5 sm:space-y-2 text-xs font-mono" style={{ transform: 'translateZ(20px)' }}>
-                    <div className="flex justify-between border-b border-white/10 pb-1">
-                      <span className="text-brand-blue-300 text-[10px] sm:text-[11px]">Origen</span>
-                      <span className="font-semibold text-white text-[10px] sm:text-[11px]">CD Centro</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-brand-blue-300 text-[10px] sm:text-[11px]">Destinatario</span>
-                      <span className="font-semibold text-brand-yellow text-[10px] sm:text-[11px]">Zona Güemes</span>
-                    </div>
-                  </div>
+                <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-white text-brand-blue-700 font-mono tracking-widest text-[10px] sm:text-[11px] rounded-full border border-brand-blue-100 flex items-center gap-1.5 sm:gap-2 font-bold shadow-elevated">
+                  <Shield className="h-3.5 w-3.5 text-brand-blue-500" />
+                  SEGURIDAD GARANTIZADA
                 </div>
               </motion.div>
 
-              {/* Floating Info Pill */}
+              {/* Badge 2: 100% Marplatense */}
               <motion.div
-                className="absolute top-1/2 left-1/4 -translate-y-1/2 z-35"
+                className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-4 z-35"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.9 } }}
                 style={{
                   x: floatXInv,
                   y: floatYInv,
-                  transform: 'translateZ(70px)',
+                  transform: 'translateZ(50px)',
                 }}
               >
                 <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-yellow text-brand-blue font-mono tracking-widest text-[10px] sm:text-[11px] rounded-full border border-brand-yellow flex items-center gap-1.5 sm:gap-2 font-bold shadow-[2px_2px_0px_var(--color-brand-blue)]">
-                  <span className="h-2 w-2 rounded-full bg-brand-blue-400 animate-ping" />
-                  ENTREGA FLEX ACTIVA
+                  <MapPin className="h-3.5 w-3.5" />
+                  100% MARPLATENSE
                 </div>
               </motion.div>
 
-              {/* Counter Pill */}
+              {/* Badge 3: Envíos en el Día */}
               <motion.div
-                className="absolute -bottom-4 right-4 z-40"
+                className="absolute bottom-8 left-6 sm:left-12 z-40"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 1.1 } }}
                 style={{
                   x: floatX,
                   y: floatYInv,
-                  transform: 'translateZ(80px)',
+                  transform: 'translateZ(70px)',
+                }}
+              >
+                <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-blue-700 text-white font-mono tracking-widest text-[10px] sm:text-[11px] rounded-full border border-brand-yellow flex items-center gap-1.5 sm:gap-2 font-bold shadow-[2px_2px_0px_var(--color-brand-yellow)]">
+                  <Zap className="h-3.5 w-3.5 text-brand-yellow" />
+                  ENVÍOS EN EL DÍA
+                </div>
+              </motion.div>
+
+              {/* Counter Pill */}
+              <motion.div
+                className="absolute -bottom-4 right-4 z-45"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 1.3 } }}
+                style={{
+                  x: floatX,
+                  y: floatYInv,
+                  transform: 'translateZ(90px)',
                 }}
               >
                 <div className="px-4 py-2 bg-white text-brand-blue-700 font-display text-xl rounded-xl border border-brand-blue-100 shadow-elevated flex items-center gap-2">

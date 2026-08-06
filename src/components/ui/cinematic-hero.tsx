@@ -119,7 +119,7 @@ const INJECTED_STYLES = `
 const SERVICES = [
   {
     title: "Envíos Express",
-    desc: "Entrega en menos de 2 horas con ruta optimizada y tracking en tiempo real.",
+    desc: "Entrega en menos de 2 horas con ruta optimizada y notificación instantánea.",
     icon: Zap,
     accent: "rgba(255,236,1,0.85)", // Amarillo 500
     borderColor: "rgba(255,236,1,0.18)",

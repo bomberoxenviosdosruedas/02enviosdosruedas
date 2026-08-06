@@ -43,7 +43,7 @@ export default function FaqCta() {
               </h3>
               
               <p className="text-sm sm:text-base text-brand-blue-600/90 leading-relaxed font-sans">
-                No te preocupes. Nuestro equipo de soporte está listo para ayudarte en tiempo real con cualquier consulta específica que tengas sobre nuestros servicios de mensajería y delivery.
+                No te preocupes. Nuestro equipo de soporte está listo para ayudarte de inmediato con cualquier consulta específica que tengas sobre nuestros servicios de mensajería y delivery.
               </p>
 
               {/* CTA Buttons (Double-Bezel & cta-nested-pill compliant) */}

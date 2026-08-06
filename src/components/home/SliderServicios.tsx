@@ -48,7 +48,7 @@ export default function SliderServicios() {
     {
       title: 'Encomiendas',
       subtitle: 'Retiro y despacho',
-      desc: 'Retiro a domicilio y despacho de encomiendas con seguimiento en tiempo real.',
+      desc: 'Retiro a domicilio y despacho de encomiendas con confirmación de entrega.',
       icon: Package,
     },
   ];

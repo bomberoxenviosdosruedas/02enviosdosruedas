@@ -18,7 +18,7 @@ export default function ExpressPricing() {
       scope: 'Hasta 3 km',
       price: '$3.700',
       description: 'Ideal para entregas inmediatas de cercanía.',
-      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Seguimiento en tiempo real', 'Custodia digital'],
+      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Notificación digital de estado', 'Custodia digital'],
       highlight: false,
     },
     {
@@ -26,7 +26,7 @@ export default function ExpressPricing() {
       scope: '3 a 5 km',
       price: '$4.600',
       description: 'Cobertura intermedia rápida.',
-      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Seguimiento en tiempo real', 'Custodia digital'],
+      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Notificación digital de estado', 'Custodia digital'],
       highlight: true,
     },
     {
@@ -34,7 +34,7 @@ export default function ExpressPricing() {
       scope: '5 a 7 km',
       price: '$6.100',
       description: 'Llegamos a distancias medias.',
-      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Seguimiento en tiempo real', 'Custodia digital'],
+      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Notificación digital de estado', 'Custodia digital'],
       highlight: false,
     },
     {
@@ -42,7 +42,7 @@ export default function ExpressPricing() {
       scope: '7 a 10 km',
       price: '$8.200',
       description: 'Máxima cobertura urbana estándar.',
-      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Seguimiento en tiempo real', 'Custodia digital'],
+      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Notificación digital de estado', 'Custodia digital'],
       highlight: false,
     },
   ];
@@ -238,7 +238,7 @@ export default function ExpressPricing() {
                 $1.000 x km
               </h3>
               <p className="text-sm text-brand-blue-500 leading-relaxed font-sans max-w-2xl">
-                Para envíos de larga distancia fuera del ejido urbano o si querés obtener una cotización de altísima precisión basada en mapa y geolocalización exacta, utilizá nuestro cotizador inteligente en tiempo real.
+                Para envíos de larga distancia fuera del ejido urbano o si querés obtener una cotización de altísima precisión basada en mapa y geolocalización exacta, utilizá nuestro cotizador inteligente en línea.
               </p>
             </div>
 

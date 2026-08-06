@@ -45,7 +45,7 @@ export default function ServicesOverview() {
         features: [
           'Tarifa base de $3.700 hasta 3 km.',
           'Entrega garantizada puerta a puerta en tiempo récord.',
-          'Notificación en tiempo real por WhatsApp.'
+          'Notificación automática de entrega por WhatsApp.'
         ],
         ctaText: 'COTIZÁ TU EXPRESS',
         ctaHref: '/cotizar/express'
@@ -157,7 +157,7 @@ export default function ServicesOverview() {
       details: {
         summary: 'Almacená tus productos en nuestro depósito central en Mar del Plata y olvidate del empaque y los despachos. Nosotros nos encargamos de todo el proceso logístico para que te dediques a vender.',
         features: [
-          'Control de stock en tiempo real por sistema QR/barras.',
+          'Control de stock digital por sistema QR/barras.',
           'Embalaje profesional (packing personalizado y seguro).',
           'Distribución de pedidos Same-Day y Next-Day.'
         ],

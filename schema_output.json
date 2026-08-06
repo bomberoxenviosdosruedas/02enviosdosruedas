@@ -1,0 +1,67 @@
+{
+  "block_count": 1,
+  "processed_count": 1,
+  "total_bytes": 946,
+  "truncated": false,
+  "blocks": [
+    {
+      "index": 1,
+      "size_bytes": 946,
+      "valid": true,
+      "types": [
+        "City",
+        "CourierService",
+        "GeoCoordinates",
+        "OpeningHoursSpecification",
+        "PostalAddress"
+      ],
+      "types_truncated": false,
+      "data": {
+        "@context": "https://schema.org",
+        "@type": "CourierService",
+        "name": "Envíos DosRuedas",
+        "description": "Soluciones de logística, mensajería, MercadoLibre Flex y Fulfillment 3PL para e-commerce y pymes en Mar del Plata.",
+        "image": "https://www.enviosdosruedas.com/icons/icon-512x512.png",
+        "url": "https://www.enviosdosruedas.com",
+        "telephone": "+542236602699",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Friuli 1972",
+          "addressLocality": "Mar del Plata",
+          "addressRegion": "Buenos Aires",
+          "postalCode": "B7600",
+          "addressCountry": "AR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "-38.0055",
+          "longitude": "-57.5426"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Mar del Plata"
+        },
+        "sameAs": [
+          "https://www.instagram.com/enviosdosruedas/",
+          "https://facebook.com/enviosdosruedas"
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ]
+      }
+    }
+  ]
+}

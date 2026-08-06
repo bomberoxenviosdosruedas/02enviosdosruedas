@@ -17,8 +17,8 @@ export default function ExpressFeatures() {
       icon: Clock,
     },
     {
-      title: 'Seguimiento en tiempo real de nuestros cadetes',
-      desc: 'Rastreá el recorrido de tu paquete al instante directamente desde tu celular.',
+      title: 'Notificaciones y control digital',
+      desc: 'Recibí avisos automáticos sobre el estado y la entrega de tu paquete al instante.',
       icon: Compass,
     },
     {
