@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Zap, Package, Truck, Building, Info, X, MapPin, ShieldCheck } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Zap, Package, Truck, Warehouse, Info, X, MapPin, ShieldCheck } from 'lucide-react';
 
 export default function ServicesOverview() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -100,7 +100,7 @@ export default function ServicesOverview() {
       founded: 'Corte extendido 15hs',
       imageUrl: '/img/generales/servicio_flex.jpeg',
       // Visual styling configs
-      cardStyleCenter: 'border-brand-blue bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-[8px_8px_0px_rgba(255,236,1,0.2)] text-brand-ink',
+      cardStyleCenter: 'border-brand-blue bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-[8px_8px_0px_rgba(255,236,1,0.25)] text-brand-ink',
       cardStyleSide: 'border-brand-yellow-500/30 bg-brand-yellow-500/85 text-brand-ink',
       textColor: 'text-brand-ink',
       titleColor: 'text-brand-ink group-hover:text-brand-blue-900',
@@ -132,23 +132,23 @@ export default function ServicesOverview() {
       title: 'E-Commerce & 3PL',
       description: 'Logística integral: almacenamiento, preparación y despacho de pedidos.',
       href: '/servicios/plan-emprendedores',
-      icon: Building,
+      icon: Warehouse,
       badge: 'LOGÍSTICA INTEGRAL',
       city: 'Depósito Friuli 1972',
       founded: 'Depósito Inteligente',
       imageUrl: '/img/generales/Emprendedoresbanner.webp',
       // Visual styling configs
-      cardStyleCenter: 'border-emerald-400 bg-gradient-to-br from-emerald-800 to-emerald-950 shadow-[0_20px_40px_-15px_rgba(16,185,129,0.25)] text-white',
-      cardStyleSide: 'border-emerald-600/20 bg-emerald-900/80 text-white/90',
+      cardStyleCenter: 'border-brand-blue bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 shadow-2xl text-white',
+      cardStyleSide: 'border-brand-blue-800/20 bg-brand-blue-900/90 text-white/90',
       textColor: 'text-white',
-      titleColor: 'text-white group-hover:text-emerald-300',
-      descColor: 'text-emerald-100',
+      titleColor: 'text-white group-hover:text-brand-yellow',
+      descColor: 'text-brand-blue-100',
       imgBlend: 'opacity-25 mix-blend-overlay',
-      badgeStyle: 'bg-emerald-400 text-emerald-950 border-emerald-300/30',
+      badgeStyle: 'bg-brand-blue-500 text-white border-brand-blue-400/30',
       statBoxStyle: 'bg-white/10 border border-white/10 text-white',
-      statValStyle: 'text-emerald-300',
-      statLabelStyle: 'text-emerald-100',
-      hintColor: 'text-emerald-300',
+      statValStyle: 'text-brand-yellow',
+      statLabelStyle: 'text-brand-blue-200',
+      hintColor: 'text-brand-yellow',
       stats: {
         time: '24 hs / Stock',
         price: 'Planes a Medida',
@@ -235,7 +235,7 @@ export default function ServicesOverview() {
             <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-tight leading-none text-balance">
               SOLUCIONES LOGÍSTICAS <br />
               <span className="text-brand-yellow drop-shadow-[0_2px_10px_rgba(255,236,1,0.25)] underline decoration-brand-blue-500 underline-offset-8">
-                EN MOVIMIENTO 3D
+                A TU MEDIDA
               </span>
             </h2>
           </div>
@@ -321,36 +321,17 @@ export default function ServicesOverview() {
                       : service.cardStyleSide
                   }`}
                 >
-                  {/* Card Background Image with Rich Styled Mask */}
-                  <div className="absolute inset-0 z-0">
-                    <Image 
-                      src={service.imageUrl} 
-                      alt={service.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 360px"
-                      className={`object-cover transition-transform duration-700 group-hover:scale-110 ${service.imgBlend}`} 
-                    />
-                    {/* Shadow overlay block to guarantee legibility */}
-                    <div className={`absolute inset-0 ${
-                      index === 1 || index === 2 
-                        ? 'bg-gradient-to-t from-white/95 via-white/50 to-transparent' 
-                        : index === 3
-                          ? 'bg-gradient-to-t from-emerald-950/90 via-emerald-950/40 to-transparent'
-                          : 'bg-gradient-to-t from-brand-ink/90 via-brand-ink/40 to-transparent'
-                    }`} />
-                  </div>
-
                   {/* Subtle Glow Overlay */}
                   <div className={`absolute bottom-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none opacity-20 -mr-12 -mb-12 ${
                     isCenter 
                       ? index === 3 
-                        ? 'bg-emerald-400' 
+                        ? 'bg-brand-blue-500' 
                         : 'bg-brand-yellow-500' 
                       : 'bg-brand-blue-400'
                   }`} />
 
                   {/* Huge Watermark Background Icon */}
-                  <div className="absolute right-4 bottom-4 opacity-[0.03] pointer-events-none select-none transition-transform duration-500 group-hover:scale-105 group-hover:rotate-6">
+                  <div className="absolute right-4 bottom-4 opacity-[0.06] pointer-events-none select-none transition-transform duration-500 group-hover:scale-105 group-hover:rotate-6">
                     <Icon className="w-48 h-48" />
                   </div>
 
