@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Dominio de producción unificado (sin barra al final)
-  const baseUrl = 'https://enviosdosruedas.com'
+  // Dominio de producción unificado CON www para consistencia SEO
+  const baseUrl = 'https://www.enviosdosruedas.com'
 
   // Rutas públicas optimizadas para indexación
   const publicRoutes = [
@@ -13,11 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/nosotros/nuestras-redes',
     '/nosotros/preguntas-frecuentes',
     '/nosotros/sobre-nosotros',
+    '/rastrear',
     '/servicios/envios-express',
     '/servicios/envios-lowcost',
     '/servicios/enviosflex',
     '/servicios/plan-emprendedores',
-    '/seguimiento',
   ]
 
   // Rutas legales secundarias
@@ -37,6 +37,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     } else if (route.startsWith('/servicios') || route.startsWith('/cotizar')) {
       priority = 0.9 // Páginas transaccionales de alto valor comercial
       changeFrequency = 'weekly'
+    } else if (route === '/rastrear') {
+      priority = 0.7 // Herramienta de usuario, menos prioridad SEO
+      changeFrequency = 'monthly'
     }
 
     return {

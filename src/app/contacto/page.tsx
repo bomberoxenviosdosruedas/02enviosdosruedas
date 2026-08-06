@@ -4,9 +4,27 @@ import ContactHero from '@/src/components/contacto/ContactHero';
 import ContactForm from '@/src/components/contacto/ContactForm';
 import ContactInfo from '@/src/components/contacto/ContactInfo';
 
+const baseUrl = 'https://www.enviosdosruedas.com';
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contacto Comercial',
+  description: '¿Listo para escalar la logística de tu e-commerce? Hablá con un asesor comercial de Envíos DosRuedas y diseñemos un esquema tarifario a tu medida.',
+  url: `${baseUrl}/contacto`,
+  mainEntity: {
+    '@type': 'LocalBusiness',
+    '@id': `${baseUrl}#localbusiness`,
+    name: 'Envíos DosRuedas',
+  },
+};
+
 export const metadata: Metadata = {
   title: 'Contacto Comercial | Envíos DosRuedas Mar del Plata',
   description: '¿Listo para escalar la logística de tu e-commerce? Hablá con un asesor comercial de Envíos DosRuedas y diseñemos un esquema tarifario a tu medida.',
+  other: {
+    'script:ld+json': JSON.stringify(contactSchema),
+  },
 };
 
 export default function ContactoPage() {

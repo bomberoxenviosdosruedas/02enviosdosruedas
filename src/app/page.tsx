@@ -8,9 +8,29 @@ import CtaSection from '@/src/components/home/CtaSection';
 import SocialProofSection from '@/src/components/home/SocialProofSection';
 import { Bike } from 'lucide-react';
 
+const baseUrl = 'https://www.enviosdosruedas.com';
+
+const webSiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Envíos DosRuedas',
+  url: baseUrl,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${baseUrl}/cotizar/express?search={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
 export const metadata: Metadata = {
   title: 'Mensajería y Logística E-commerce en Mar del Plata | Envíos DosRuedas',
   description: 'Especialistas en logística e-commerce y última milla en Mar del Plata. Envíos en el día, Flex y soluciones 3PL para potenciar tu negocio local.',
+  other: {
+    'script:ld+json': JSON.stringify(webSiteSchema),
+  },
 };
 
 // Separador de sección premium con estilo Glassmorphic y Antigravity (Inverted Theme)

@@ -6,9 +6,65 @@ import LowCostPricing from '@/src/components/servicios/lowcost/LowCostPricing';
 import LowCostBenefits from '@/src/components/servicios/lowcost/LowCostBenefits';
 import LowCostHowItWorks from '@/src/components/servicios/lowcost/LowCostHowItWorks';
 
+const baseUrl = 'https://www.enviosdosruedas.com';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Envíos LowCost Rentables',
+  description: 'Optimizá tus ruteos urbanos diarios en Mar del Plata. Envíos LowCost económicos, con entrega garantizada en el día y tarifas altamente competitivas para PyMEs.',
+  url: `${baseUrl}/servicios/envios-lowcost`,
+  provider: {
+    '@type': 'LocalBusiness',
+    '@id': `${baseUrl}#localbusiness`,
+    name: 'Envíos DosRuedas',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Mar del Plata',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Tarifas LowCost por Zona',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'LowCost 0-5 km',
+        price: '2200',
+        priceCurrency: 'ARS',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        '@type': 'Offer',
+        name: 'LowCost 5-10 km',
+        price: '2800',
+        priceCurrency: 'ARS',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        '@type': 'Offer',
+        name: 'LowCost 10-15 km',
+        price: '3500',
+        priceCurrency: 'ARS',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        '@type': 'Offer',
+        name: 'LowCost 15-20 km',
+        price: '4200',
+        priceCurrency: 'ARS',
+        availability: 'https://schema.org/InStock',
+      },
+    ],
+  },
+};
+
 export const metadata: Metadata = {
   title: 'Envíos LowCost Rentables | Envíos DosRuedas Mar del Plata',
   description: 'Optimizá tus ruteos urbanos diarios en Mar del Plata. Envíos LowCost económicos, con entrega garantizada en el día y tarifas altamente competitivas para PyMEs.',
+  other: {
+    'script:ld+json': JSON.stringify(serviceSchema),
+  },
 };
 
 export default function EnviosLowCostPage() {

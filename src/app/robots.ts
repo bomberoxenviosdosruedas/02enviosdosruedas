@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  // Dominio oficial unificado con www para consistencia SEO
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.enviosdosruedas.com'
+  // Dominio oficial unificado CON www para consistencia SEO
+  const baseUrl = 'https://www.enviosdosruedas.com'
 
   return {
     rules: [
