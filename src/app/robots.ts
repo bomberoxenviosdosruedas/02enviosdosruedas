@@ -12,8 +12,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/admin',      // Bloquea la landing de login de administración
           '/admin/',     // Bloquea cualquier subcarpeta interna del panel
-          '/ordenes',    // Bloquea el listado dinámico de paquetes
-          '/ordenes/',   // Bloquea datos privados de clientes/entregas
         ],
       },
     ],

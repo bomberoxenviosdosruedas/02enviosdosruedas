@@ -48,13 +48,6 @@
       "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
     },
     {
-      "name": "Rastrear Paquete",
-      "short_name": "Rastrear",
-      "description": "Seguí tu envío en tiempo real",
-      "url": "/rastrear",
-      "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
-    },
-    {
       "name": "Contacto",
       "short_name": "Contacto",
       "description": "Hablá con un asesor",
