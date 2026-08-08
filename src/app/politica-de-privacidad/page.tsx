@@ -3,9 +3,14 @@ import { Metadata } from 'next';
 import PrivacyContent from './PrivacyContent';
 import CarruselRedes from '@/src/components/layout/CarruselRedes';
 
+const baseUrl = 'https://www.enviosdosruedas.com';
+
 export const metadata: Metadata = {
   title: 'Política de Privacidad | Envíos DosRuedas Mar del Plata',
   description: 'Conocé cómo protegemos, procesamos y resguardamos tu información personal y los datos logísticos de tus despachos en Envíos DosRuedas.',
+  alternates: {
+    canonical: `${baseUrl}/politica-de-privacidad`,
+  },
 };
 
 export default function PoliticaPrivacidadPage() {

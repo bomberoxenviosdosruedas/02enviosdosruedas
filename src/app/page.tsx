@@ -28,6 +28,9 @@ const webSiteSchema = {
 export const metadata: Metadata = {
   title: 'Mensajería y Logística E-commerce en Mar del Plata | Envíos DosRuedas',
   description: 'Especialistas en logística e-commerce y última milla en Mar del Plata. Envíos en el día, Flex y soluciones 3PL para potenciar tu negocio local.',
+  alternates: {
+    canonical: baseUrl,
+  },
   other: {
     'script:ld+json': JSON.stringify(webSiteSchema),
   },

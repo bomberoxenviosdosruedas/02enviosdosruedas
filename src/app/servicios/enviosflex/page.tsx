@@ -59,6 +59,9 @@ const serviceSchema = {
 export const metadata: Metadata = {
   title: 'Envíos Flex MercadoLibre | Envíos DosRuedas Mar del Plata',
   description: 'Optimizá tus entregas Same-Day en Mar del Plata. Socios logísticos certificados para Mercado Envíos Flex. Medidor de reputación siempre en verde y envíos rápidos.',
+  alternates: {
+    canonical: `${baseUrl}/servicios/enviosflex`,
+  },
   other: {
     'script:ld+json': JSON.stringify(serviceSchema),
   },

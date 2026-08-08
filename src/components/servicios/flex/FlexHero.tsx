@@ -43,7 +43,7 @@ export default function FlexHero() {
       {/* Background illustration overlay */}
       <div className="absolute inset-0 opacity-10 mix-blend-overlay">
         <Image
-          src="/banner-servicio-flex.jpg"
+          src="/img/generales/banner_servicio_flex.jpeg"
           alt="Banner del servicio MercadoLibre Flex"
           fill
           priority
@@ -70,14 +70,14 @@ export default function FlexHero() {
             </motion.div>
 
             {/* Title with Inline Image Typography */}
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3"
             >
               <span>ENVÍOS EN EL DÍA</span>
               <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_var(--color-brand-blue)]">
                 <Image
-                  src="/img/generales/banner-servicio-flex.jpg"
+                  src="/img/generales/servicio_flex.jpeg"
                   alt="MercadoLibre Flex"
                   fill
                   sizes="(max-width: 768px) 64px, 80px"

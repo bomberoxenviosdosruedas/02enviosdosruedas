@@ -62,6 +62,9 @@ const serviceSchema = {
 export const metadata: Metadata = {
   title: 'Envíos LowCost Rentables | Envíos DosRuedas Mar del Plata',
   description: 'Optimizá tus ruteos urbanos diarios en Mar del Plata. Envíos LowCost económicos, con entrega garantizada en el día y tarifas altamente competitivas para PyMEs.',
+  alternates: {
+    canonical: `${baseUrl}/servicios/envios-lowcost`,
+  },
   other: {
     'script:ld+json': JSON.stringify(serviceSchema),
   },

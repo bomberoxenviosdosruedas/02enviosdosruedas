@@ -61,6 +61,9 @@ const serviceSchema = {
 export const metadata: Metadata = {
   title: 'Envíos Express Inmediatos | Envíos DosRuedas Mar del Plata',
   description: 'La solución premium para operaciones de alta criticidad horaria en Mar del Plata. Vos elegís el rango exacto de entrega con certeza absoluta en menos de 2 horas.',
+  alternates: {
+    canonical: `${baseUrl}/servicios/envios-express`,
+  },
   other: {
     'script:ld+json': JSON.stringify(serviceSchema),
   },

@@ -57,6 +57,9 @@ const serviceSchema = {
 export const metadata: Metadata = {
   title: 'Logística 3PL y Plan Emprendedores | Envíos DosRuedas Mar del Plata',
   description: 'Solución integral de almacenamiento, picking, packing y fulfillment para PyMEs y e-commerce en Mar del Plata. Alquilá espacio en nuestro depósito 3PL propio.',
+  alternates: {
+    canonical: `${baseUrl}/servicios/plan-emprendedores`,
+  },
   other: {
     'script:ld+json': JSON.stringify(serviceSchema),
   },

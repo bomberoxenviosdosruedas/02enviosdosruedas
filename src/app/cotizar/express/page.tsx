@@ -71,6 +71,9 @@ const quoteSchema = {
 export const metadata: Metadata = {
   title: 'Cotizador de Envíos Express en Mar del Plata | Envíos DosRuedas',
   description: 'Calculá el costo y tiempo estimado de tu envío prioritario al instante. Alta precisión de tarifa y entrega en el día en Mar del Plata.',
+  alternates: {
+    canonical: `${baseUrl}/cotizar/express`,
+  },
   other: {
     'script:ld+json': JSON.stringify(quoteSchema),
   },

@@ -32,6 +32,9 @@ const aboutSchema = {
 export const metadata: Metadata = {
   title: 'Sobre Nosotros | Envíos DosRuedas Mar del Plata',
   description: 'Conocé la historia, valores y equipo detrás de Envíos DosRuedas. Más de 7 años liderando la logística urbana y la última milla de e-commerce en Mar del Plata.',
+  alternates: {
+    canonical: `${baseUrl}/nosotros/sobre-nosotros`,
+  },
   other: {
     'script:ld+json': JSON.stringify(aboutSchema),
   },

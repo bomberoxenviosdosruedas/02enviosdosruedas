@@ -22,6 +22,9 @@ const contactSchema = {
 export const metadata: Metadata = {
   title: 'Contacto Comercial | Envíos DosRuedas Mar del Plata',
   description: '¿Listo para escalar la logística de tu e-commerce? Hablá con un asesor comercial de Envíos DosRuedas y diseñemos un esquema tarifario a tu medida.',
+  alternates: {
+    canonical: `${baseUrl}/contacto`,
+  },
   other: {
     'script:ld+json': JSON.stringify(contactSchema),
   },

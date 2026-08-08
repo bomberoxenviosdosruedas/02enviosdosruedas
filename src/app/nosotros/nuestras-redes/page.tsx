@@ -4,9 +4,14 @@ import NetworksHero from '@/src/components/nosotros/nuestras-redes/NetworksHero'
 import NetworksChannels from '@/src/components/nosotros/nuestras-redes/NetworksChannels';
 import RecentPosts from '@/src/components/nosotros/nuestras-redes/RecentPosts';
 
+const baseUrl = 'https://www.enviosdosruedas.com';
+
 export const metadata: Metadata = {
   title: 'Nuestras Redes y Comunidad | Envíos DosRuedas Mar del Plata',
   description: 'Conectate con la mayor comunidad logística y de mensajería urbana en Mar del Plata. Seguí nuestras novedades operativas de calle, beneficios y promociones.',
+  alternates: {
+    canonical: `${baseUrl}/nosotros/nuestras-redes`,
+  },
 };
 
 export default function NuestrasRedesPage() {
