@@ -3,6 +3,7 @@ import { Outfit, Anton, Bebas_Neue } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import ClientLayout from '../components/ClientLayout';
+import SchemaScript from '../components/seo/SchemaScript';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -210,6 +211,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }, null, 2)
           }}
         />
+
+        {/* Page-specific Schema Markup (Service, FAQPage, AboutPage, ContactPage) */}
+        <SchemaScript />
       </head>
       <body className="bg-white text-brand-ink font-sans antialiased selection:bg-brand-yellow selection:text-brand-blue min-h-screen flex flex-col" suppressHydrationWarning>
         <ClientLayout>

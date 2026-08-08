@@ -9,34 +9,11 @@ import AboutMissionVision from '@/src/components/nosotros/sobre-nosotros/AboutMi
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
-const aboutSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'AboutPage',
-  name: 'Sobre Nosotros',
-  description: 'Conocé la historia, valores y equipo detrás de Envíos DosRuedas. Más de 7 años liderando la logística urbana y la última milla de e-commerce en Mar del Plata.',
-  url: `${baseUrl}/nosotros/sobre-nosotros`,
-  mainEntity: {
-    '@type': 'LocalBusiness',
-    '@id': `${baseUrl}#localbusiness`,
-    name: 'Envíos DosRuedas',
-    description: 'Más de 7 años liderando la logística urbana y la última milla de e-commerce en Mar del Plata.',
-    foundingDate: '2017',
-    numberOfEmployees: {
-      '@type': 'QuantitativeValue',
-      minValue: 10,
-      maxValue: 50,
-    },
-  },
-};
-
 export const metadata: Metadata = {
   title: 'Sobre Nosotros | Envíos DosRuedas Mar del Plata',
   description: 'Conocé la historia, valores y equipo detrás de Envíos DosRuedas. Más de 7 años liderando la logística urbana y la última milla de e-commerce en Mar del Plata.',
   alternates: {
     canonical: `${baseUrl}/nosotros/sobre-nosotros`,
-  },
-  other: {
-    'script:ld+json': JSON.stringify(aboutSchema),
   },
 };
 
