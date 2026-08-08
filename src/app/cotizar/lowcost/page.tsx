@@ -70,6 +70,9 @@ const quoteSchema = {
 export const metadata: Metadata = {
   title: 'Cotizador de Envíos LowCost en Mar del Plata | Envíos DosRuedas',
   description: 'Calculá tu envío con entrega garantizada en el dia si es solicitado antes de 13hs. Eficiencia y rentabilidad.',
+  alternates: {
+    canonical: `${baseUrl}/cotizar/lowcost`,
+  },
   other: {
     'script:ld+json': JSON.stringify(quoteSchema),
   },

@@ -64,6 +64,9 @@ const faqSchema = {
 export const metadata: Metadata = {
   title: 'Preguntas Frecuentes (FAQ) | Envíos DosRuedas Mar del Plata',
   description: 'Todo lo que necesitás saber sobre nuestros servicios de mensajería, delivery, tarifas zonificadas, límites de bulto y logística en Mar del Plata.',
+  alternates: {
+    canonical: `${baseUrl}/nosotros/preguntas-frecuentes`,
+  },
   other: {
     'script:ld+json': JSON.stringify(faqSchema),
   },
