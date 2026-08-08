@@ -1,4 +1,4 @@
-# Mensajería y Logística E-commerce en Mar del Plata | Envíos DosRuedas
+# Envíos DosRuedas
 
 > Especialistas en logística e-commerce y última milla en Mar del Plata. Envíos en el día, Flex y soluciones 3PL para potenciar tu negocio local.
 
@@ -6,20 +6,19 @@ This file lists pages on enviosdosruedas.com to help AI assistants find and cite
 
 ## Pages
 - [Contacto](https://www.enviosdosruedas.com/contacto)
-- [Terminos Y Condiciones](https://www.enviosdosruedas.com/terminos-y-condiciones)
+- [Revisar](https://www.enviosdosruedas.com/revisar)
 - [Politica De Privacidad](https://www.enviosdosruedas.com/politica-de-privacidad)
+- [Terminos Y Condiciones](https://www.enviosdosruedas.com/terminos-y-condiciones)
 - [Express](https://www.enviosdosruedas.com/cotizar/express)
 - [Lowcost](https://www.enviosdosruedas.com/cotizar/lowcost)
 
 ## Nosotros
 - [Nuestras Redes](https://www.enviosdosruedas.com/nosotros/nuestras-redes)
-- [Sobre Nosotros](https://www.enviosdosruedas.com/nosotros/sobre-nosotros)
 - [Preguntas Frecuentes](https://www.enviosdosruedas.com/nosotros/preguntas-frecuentes)
+- [Sobre Nosotros](https://www.enviosdosruedas.com/nosotros/sobre-nosotros)
 
 ## Servicios
 - [Envios Express](https://www.enviosdosruedas.com/servicios/envios-express)
-- [Emprendedores](https://www.enviosdosruedas.com/servicios/emprendedores)
-- [Flex](https://www.enviosdosruedas.com/servicios/flex)
 - [Envios Lowcost](https://www.enviosdosruedas.com/servicios/envios-lowcost)
 - [Enviosflex](https://www.enviosdosruedas.com/servicios/enviosflex)
 - [Plan Emprendedores](https://www.enviosdosruedas.com/servicios/plan-emprendedores)
