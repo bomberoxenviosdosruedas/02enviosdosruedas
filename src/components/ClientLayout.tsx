@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import OptimizedHeader from './layout/OptimizedHeader';
 import OptimizedFooter from './layout/OptimizedFooter';
-import { CinematicHero } from './ui/cinematic-hero';
 import CarruselRedes from './layout/CarruselRedes';
 import { Bike } from 'lucide-react';
 
@@ -27,35 +26,8 @@ function SectionSeparator() {
 }
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
-  const [showPreloader, setShowPreloader] = useState(false);
-
-  useEffect(() => {
-    // Only show preloader once per user session
-    try {
-      const hasVisited = sessionStorage.getItem('visited-cinematic');
-      if (!hasVisited) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setShowPreloader(true);
-      }
-    } catch (e) {
-      console.warn('sessionStorage not available:', e);
-    }
-  }, []);
-
-  const handleComplete = () => {
-    try {
-      sessionStorage.setItem('visited-cinematic', 'true');
-    } catch (e) {
-      console.warn('sessionStorage not available:', e);
-    }
-    setShowPreloader(false);
-  };
-
   return (
     <>
-      {showPreloader && (
-        <CinematicHero onComplete={handleComplete} />
-      )}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only fixed top-4 left-4 z-[9999] bg-brand-yellow text-brand-blue px-6 py-3 rounded-xl font-subheading border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-blue)] uppercase font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue"
