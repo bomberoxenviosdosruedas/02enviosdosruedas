@@ -9,61 +9,11 @@ import FlexRequirements from '@/src/components/servicios/flex/FlexRequirements';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Envíos Flex MercadoLibre',
-  description: 'Optimizá tus entregas Same-Day en Mar del Plata. Socios logísticos certificados para Mercado Envíos Flex. Medidor de reputación siempre en verde y envíos rápidos.',
-  url: `${baseUrl}/servicios/enviosflex`,
-  provider: {
-    '@type': 'LocalBusiness',
-    '@id': `${baseUrl}#localbusiness`,
-    name: 'Envíos DosRuedas',
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Mar del Plata',
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Planes Flex para Vendedores',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        name: 'Flex Estándar',
-        description: 'Hasta 50 envíos/día - ideal para vendedores en crecimiento',
-        price: '0',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Flex Pro',
-        description: 'Hasta 200 envíos/día - para vendedores establecidos',
-        price: '0',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Flex Enterprise',
-        description: 'Volumen ilimitado - integración API + gestor dedicado',
-        price: '0',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-    ],
-  },
-};
-
 export const metadata: Metadata = {
   title: 'Envíos Flex MercadoLibre | Envíos DosRuedas Mar del Plata',
   description: 'Optimizá tus entregas Same-Day en Mar del Plata. Socios logísticos certificados para Mercado Envíos Flex. Medidor de reputación siempre en verde y envíos rápidos.',
   alternates: {
     canonical: `${baseUrl}/servicios/enviosflex`,
-  },
-  other: {
-    'script:ld+json': JSON.stringify(serviceSchema),
   },
 };
 

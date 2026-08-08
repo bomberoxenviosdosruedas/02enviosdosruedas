@@ -10,72 +10,11 @@ import CarruselRedes from '@/src/components/layout/CarruselRedes';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
-const quoteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Cotizador de Envíos Express',
-  description: 'Calculá el costo y tiempo estimado de tu envío prioritario al instante. Alta precisión de tarifa y entrega en el día en Mar del Plata.',
-  url: `${baseUrl}/cotizar/express`,
-  provider: {
-    '@type': 'LocalBusiness',
-    '@id': `${baseUrl}#localbusiness`,
-    name: 'Envíos DosRuedas',
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Mar del Plata',
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Tarifas Express por Distancia',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        name: 'Express 0-3 km',
-        price: '3700',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Express 3-6 km',
-        price: '4200',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Express 6-10 km',
-        price: '5200',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Express 10-15 km',
-        price: '6800',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Express 15-20 km',
-        price: '8500',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-    ],
-  },
-};
-
 export const metadata: Metadata = {
   title: 'Cotizador de Envíos Express en Mar del Plata | Envíos DosRuedas',
   description: 'Calculá el costo y tiempo estimado de tu envío prioritario al instante. Alta precisión de tarifa y entrega en el día en Mar del Plata.',
   alternates: {
     canonical: `${baseUrl}/cotizar/express`,
-  },
-  other: {
-    'script:ld+json': JSON.stringify(quoteSchema),
   },
 };
 

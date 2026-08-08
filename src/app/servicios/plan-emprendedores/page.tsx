@@ -7,61 +7,11 @@ import EmprendedoresPricing from '@/src/components/servicios/emprendedores/Empre
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Logística 3PL y Plan Emprendedores',
-  description: 'Solución integral de almacenamiento, picking, packing y fulfillment para PyMEs y e-commerce en Mar del Plata. Alquilá espacio en nuestro depósito 3PL propio.',
-  url: `${baseUrl}/servicios/plan-emprendedores`,
-  provider: {
-    '@type': 'LocalBusiness',
-    '@id': `${baseUrl}#localbusiness`,
-    name: 'Envíos DosRuedas',
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Mar del Plata',
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Planes 3PL y Fulfillment',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        name: 'Plan Emprendedor',
-        description: 'Hasta 100 órdenes/mes - almacenamiento + picking + packing',
-        price: '0',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Plan PyME',
-        description: 'Hasta 500 órdenes/mes - todo lo anterior + gestión devoluciones',
-        price: '0',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Plan Enterprise',
-        description: 'Volumen ilimitado - integración ERP + KPIs dedicados',
-        price: '0',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-    ],
-  },
-};
-
 export const metadata: Metadata = {
   title: 'Logística 3PL y Plan Emprendedores | Envíos DosRuedas Mar del Plata',
   description: 'Solución integral de almacenamiento, picking, packing y fulfillment para PyMEs y e-commerce en Mar del Plata. Alquilá espacio en nuestro depósito 3PL propio.',
   alternates: {
     canonical: `${baseUrl}/servicios/plan-emprendedores`,
-  },
-  other: {
-    'script:ld+json': JSON.stringify(serviceSchema),
   },
 };
 
