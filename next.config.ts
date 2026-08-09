@@ -29,8 +29,6 @@ const nextConfig: NextConfig = {
     // Tamaños de dispositivo para imagenes responsive
     deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    // Calidad por defecto
-    quality: 75,
   },
 
   output: 'standalone',
