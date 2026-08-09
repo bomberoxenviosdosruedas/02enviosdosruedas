@@ -79,7 +79,7 @@ export default function ServicesOverview() {
       badgeStyle: 'bg-brand-blue-700 text-brand-yellow border-brand-blue-600/30',
       statBoxStyle: 'bg-brand-blue-50/80 border border-brand-blue-100 text-brand-ink',
       statValStyle: 'text-brand-blue-700',
-      statLabelStyle: 'text-brand-blue-400',
+      statLabelStyle: 'text-brand-blue-600',
       hintColor: 'text-brand-blue-700',
       stats: {
         time: 'Same / Next Day',
@@ -113,7 +113,7 @@ export default function ServicesOverview() {
       titleColor: 'text-brand-ink group-hover:text-brand-blue-900',
       descColor: 'text-brand-blue-900/80',
       imgBlend: 'opacity-20 mix-blend-multiply',
-      badgeStyle: 'bg-brand-blue-700 text-white border-brand-blue-600/20',
+      badgeStyle: 'bg-brand-blue-900 text-white border-brand-blue-700/30',
       statBoxStyle: 'bg-brand-blue-700/10 border border-brand-blue-700/20 text-brand-ink',
       statValStyle: 'text-brand-blue-900',
       statLabelStyle: 'text-brand-blue-800',
@@ -150,7 +150,7 @@ export default function ServicesOverview() {
       titleColor: 'text-white group-hover:text-brand-yellow',
       descColor: 'text-brand-blue-100',
       imgBlend: 'opacity-25 mix-blend-overlay',
-      badgeStyle: 'bg-brand-blue-500 text-white border-brand-blue-400/30',
+      badgeStyle: 'bg-brand-blue-900 text-white border-brand-blue-700/30',
       statBoxStyle: 'bg-white/10 border border-white/10 text-white',
       statValStyle: 'text-brand-yellow',
       statLabelStyle: 'text-brand-blue-200',
@@ -476,6 +476,8 @@ export default function ServicesOverview() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5 }}
           className="flex items-center justify-center gap-2 mt-8"
+          role="tablist"
+          aria-label="Navegación de servicios"
         >
           {services.map((service, i) => (
             <motion.button
@@ -487,7 +489,9 @@ export default function ServicesOverview() {
               role="tab"
               aria-selected={i === activeIndex}
               aria-label={`Ir al servicio ${service.title}`}
-              className={`h-2.5 rounded-full cursor-pointer ${
+              aria-controls={`service-panel-${service.id}`}
+              id={`service-tab-${service.id}`}
+              className={`min-w-[44px] min-h-[44px] flex items-center justify-center h-2.5 rounded-full cursor-pointer ${
                 i === activeIndex ? 'w-10 bg-brand-yellow' : 'w-2.5 bg-white/30 hover:bg-white/60 border border-brand-blue-200'
               }`}
               whileHover={i !== activeIndex ? { scale: 1.2, transition: springConfigSnappy } : undefined}

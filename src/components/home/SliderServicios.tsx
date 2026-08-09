@@ -236,7 +236,7 @@ export default function SliderServicios() {
               role="tab"
               aria-selected={idx === current}
               aria-label={`Ir a: ${slide.title}`}
-              className={`h-2.5 rounded-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow focus-visible:ring-offset-2 border ${
+              className={`min-w-[44px] min-h-[44px] flex items-center justify-center h-2.5 rounded-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow focus-visible:ring-offset-2 border ${
                 idx === current
                   ? 'bg-brand-yellow border-brand-yellow/50'
                   : 'bg-brand-blue-100 hover:bg-brand-blue-300 border-brand-blue-200'

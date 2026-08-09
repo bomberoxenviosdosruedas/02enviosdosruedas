@@ -384,7 +384,7 @@ export default function HeroAnimado() {
                 <div className="px-4 py-2 bg-white text-brand-blue-700 font-display text-xl rounded-xl border border-brand-blue-100 shadow-elevated flex items-center gap-2">
                   <span className="text-brand-yellow-500">+</span>
                   <span ref={counterRef} className="font-display">0</span>
-                  <span className="text-sm font-subheading tracking-widest ml-1 mt-1 text-brand-blue-400">ENVÍOS</span>
+                  <span className="text-sm font-subheading tracking-widest ml-1 mt-1 text-brand-blue-700">ENVÍOS</span>
                 </div>
               </motion.div>
             </motion.div>

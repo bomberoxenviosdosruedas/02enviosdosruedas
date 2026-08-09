@@ -417,7 +417,7 @@ export default function EmprendedoresHome() {
           transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.3 }}
           className="mt-24 pt-12 border-t border-brand-blue-500/10"
         >
-          <p className="text-center font-subheading text-xs tracking-widest text-brand-blue-300 mb-6 uppercase">
+          <p className="text-center font-subheading text-xs tracking-widest text-brand-blue-200 mb-6 uppercase">
             Marcas locales que confían en nosotros
           </p>
           <div className="w-full overflow-hidden relative py-4">
@@ -436,7 +436,7 @@ export default function EmprendedoresHome() {
                   <motion.span
                     key={index}
                     whileHover={{ color: 'var(--color-brand-yellow-500)', scale: 1.02, transition: { type: 'spring', stiffness: 300, damping: 25 } }}
-                    className="font-display text-2xl tracking-wider text-brand-blue-300/40 uppercase cursor-default"
+                    className="font-display text-2xl tracking-wider text-brand-blue-200 uppercase cursor-default"
                   >
                     {partner}
                   </motion.span>
@@ -448,7 +448,7 @@ export default function EmprendedoresHome() {
                   <motion.span
                     key={`dup-${index}`}
                     whileHover={{ color: 'var(--color-brand-yellow-500)', scale: 1.02, transition: { type: 'spring', stiffness: 300, damping: 25 } }}
-                    className="font-display text-2xl tracking-wider text-brand-blue-300/40 uppercase cursor-default"
+                    className="font-display text-2xl tracking-wider text-brand-blue-200 uppercase cursor-default"
                   >
                     {partner}
                   </motion.span>

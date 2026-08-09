@@ -87,9 +87,9 @@ export default function VisionSection() {
                   <Clock className="h-6 w-6" />
                 </motion.div>
                 <div>
-                  <h4 className="text-2xl font-subheading uppercase tracking-wider text-brand-blue leading-none mb-2">
+                  <h3 className="text-2xl font-subheading uppercase tracking-wider text-brand-blue leading-none mb-2">
                     Entregas a Tiempo
-                  </h4>
+                  </h3>
                   <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
                     Puntualidad garantizada en cada envío. Optimizamos cada ruta mediante geolocalización avanzada.
                   </p>
@@ -109,9 +109,9 @@ export default function VisionSection() {
                   <ShieldCheck className="h-6 w-6" />
                 </motion.div>
                 <div>
-                  <h4 className="text-2xl font-subheading uppercase tracking-wider text-brand-blue leading-none mb-2">
+                  <h3 className="text-2xl font-subheading uppercase tracking-wider text-brand-blue leading-none mb-2">
                     Envíos Seguros
-                  </h4>
+                  </h3>
                   <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
                     Protección total de tus paquetes. Despachos con custodia digital y firmas de entrega seguras.
                   </p>
@@ -175,7 +175,7 @@ export default function VisionSection() {
                   <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue leading-none mb-2">
                     0
                   </h3>
-                  <p className="text-[10px] text-brand-blue-400 font-sans uppercase tracking-widest font-semibold">
+                  <p className="text-[10px] text-brand-blue-600 font-sans uppercase tracking-widest font-semibold">
                     Paquetes extraviados
                   </p>
                 </div>
