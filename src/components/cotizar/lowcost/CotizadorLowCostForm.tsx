@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useTransition } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Bike, Calculator, CheckCircle2, AlertTriangle } from 'lucide-react';
 import AddressAutocomplete from '../../ui/AddressAutocomplete';
@@ -22,6 +22,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
   const [routeCoords, setRouteCoords] = useState<[number, number][]>([]);
 
   const [isCalculating, setIsCalculating] = useState(false);
+  const [isTransitionPending, startTransition] = useTransition();
   const [calculated, setCalculated] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<{
@@ -35,8 +36,9 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
   const initialState: QuoteState = { success: false, price: null, error: null };
   const [formState, formAction, isPending] = useActionState(calculateQuoteAction, initialState);
 
-  const handleCalculate = async (e: React.FormEvent) => {
+  const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
+    startTransition(async () => {
     if (!origenCoords || !destinoCoords) {
       setError('Por favor, selecciona direcciones válidas de la lista de sugerencias.');
       return;
@@ -77,6 +79,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
     });
     setCalculated(true);
     setIsCalculating(false);
+    });
   };
 
   const getWhatsAppLink = () => {
