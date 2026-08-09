@@ -476,7 +476,7 @@ export default function ServicesOverview() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5 }}
           className="flex items-center justify-center gap-2 mt-8"
-          role="tablist"
+          role="group"
           aria-label="Navegación de servicios"
         >
           {services.map((service, i) => (
@@ -486,11 +486,8 @@ export default function ServicesOverview() {
                 setActiveIndex(i);
                 setIsAutoRotate(false);
               }}
-              role="tab"
-              aria-selected={i === activeIndex}
-              aria-label={`Ir al servicio ${service.title}`}
-              aria-controls={`service-panel-${service.id}`}
-              id={`service-tab-${service.id}`}
+              aria-label={`Ir al servicio ${service.title}${i === activeIndex ? ', servicio actual' : ''}`}
+              aria-current={i === activeIndex ? 'true' : 'false'}
               className={`min-w-[44px] min-h-[44px] flex items-center justify-center h-2.5 rounded-full cursor-pointer ${
                 i === activeIndex ? 'w-10 bg-brand-yellow' : 'w-2.5 bg-white/30 hover:bg-white/60 border border-brand-blue-200'
               }`}

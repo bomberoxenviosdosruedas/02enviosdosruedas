@@ -37,7 +37,7 @@ export default function EmprendedoresHome() {
         const wordElements = paragraphRef.current.querySelectorAll('.word-span');
         gsap.fromTo(
           wordElements,
-          { opacity: 0.15 },
+          { opacity: 0 },
           {
             opacity: 1,
             stagger: 0.05,
@@ -177,10 +177,10 @@ export default function EmprendedoresHome() {
           <div className="pt-2">
             <p
               ref={paragraphRef}
-              className="text-brand-blue-100 font-sans text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl font-medium tracking-tight"
+              className="text-brand-blue-200 font-sans text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl font-medium tracking-tight"
             >
               {words.map((word, i) => (
-                <span key={i} className="word-span inline-block mr-1.5">
+                <span key={i} className="word-span inline-block mr-1.5" style={{ opacity: 1 }}>
                   {word}
                 </span>
               ))}
@@ -240,7 +240,7 @@ export default function EmprendedoresHome() {
                   >
                     Logística E-Commerce
                   </motion.h3>
-                  <p className="text-brand-blue-100 text-sm leading-relaxed font-sans">
+                  <p className="text-brand-blue-200 text-sm leading-relaxed font-sans">
                     Gestión de última milla pensada para PyMEs y marcas locales. Optimizamos tus costos de envío con retiros programados a domicilio y soporte post-venta.
                   </p>
                 </div>
@@ -315,12 +315,12 @@ export default function EmprendedoresHome() {
 
                 <div className="space-y-1">
                   <motion.h3
-                    className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue"
+                    className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-950"
                     whileHover={{ x: 4, color: 'var(--color-brand-blue-950)', transition: { type: 'spring', stiffness: 300, damping: 25 } }}
                   >
                     Envíos Flex Meli
                   </motion.h3>
-                  <p className="text-brand-blue-950/80 text-xs sm:text-sm leading-relaxed font-sans font-medium">
+                  <p className="text-brand-blue-950 text-xs sm:text-sm leading-relaxed font-sans font-medium">
                     Socio logístico homologado para tus envíos rápidos en el día. Recolección gratis en tu local y entrega garantizada dentro del SLA establecido.
                   </p>
                 </div>
@@ -385,7 +385,7 @@ export default function EmprendedoresHome() {
                   >
                     Soluciones Corporativas
                   </motion.h3>
-                  <p className="text-brand-blue-500 text-xs sm:text-sm leading-relaxed font-sans">
+                  <p className="text-brand-blue-200 text-xs sm:text-sm leading-relaxed font-sans">
                     Soporte a gran escala con facturación mensual, ruteos especiales para grandes volúmenes y entregas express coordinadas en Mar del Plata.
                   </p>
                 </div>
