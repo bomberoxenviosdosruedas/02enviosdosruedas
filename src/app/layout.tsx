@@ -80,9 +80,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${outfit.variable} ${anton.variable} ${bebasNeue.variable} scroll-smooth`} data-scroll-behavior="smooth">
       <head>
-        {/* Preconnect para Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload para imagen LCP del Hero */}
+        <link rel="preload" as="image" href="/hero-background.jpeg" fetchPriority="high" />
 
         {/* DNS Prefetch para dominios externos */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
@@ -91,9 +90,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-LSLQ3RJ8WT"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

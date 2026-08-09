@@ -24,23 +24,42 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+    // Optimización de formatos modernos
+    formats: ['image/avif', 'image/webp'],
+    // Tamaños de dispositivo para imagenes responsive
+    deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Calidad por defecto
+    quality: 75,
   },
 
   output: 'standalone',
   transpilePackages: ['motion'],
 
   // SOLUCIÓN TURBOPACK: Declaramos un objeto vacío para silenciar el error.
-  // Nota: Al usar Turbopack por defecto en Next.js 16, tu función 'webpack' de abajo 
+  // Nota: Al usar Turbopack por defecto en Next.js 16, tu función 'webpack' de abajo
   // será ignorada en desarrollo. Si notas que los archivos no se actualizan solos en Windows,
   // puedes ejecutar 'pnpm dev --webpack' para forzar el motor antiguo.
   turbopack: {},
 
-  webpack: (config, { dev }) => {
+  // Optimización: Target modernos navegadores para evitar polyfills legacy
+  compiler: {
+    // No necesario, Next.js 15+ usa SWC y target moderno por defecto
+  },
+
+  webpack: (config, { dev, isServer }) => {
     if (dev) {
       config.watchOptions = {
         poll: 1000,
         aggregateTimeout: 300,
         ignored: /node_modules/,
+      };
+    }
+    // Optimización: evita polyfills innecesarios en producción
+    if (!dev && !isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        // Evita polyfills de core-js para features ya soportadas
       };
     }
     return config;

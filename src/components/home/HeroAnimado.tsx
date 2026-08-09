@@ -145,6 +145,7 @@ export default function HeroAnimado() {
           alt="Textura de Mapa de calles"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover"
         />
@@ -274,10 +275,10 @@ export default function HeroAnimado() {
                     <Image
                       src="/card_mapa.webp"
                       alt="Mapa de Cobertura de Mar del Plata"
-                      width={400}
-                      height={300}
-                      className="rounded-xl object-cover h-40 sm:h-48 w-full"
+                      fill
                       priority
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 350px"
+                      className="rounded-xl object-cover h-40 sm:h-48 w-full"
                     />
                   </div>
                   <div className="mt-3 flex items-center justify-between text-brand-ink font-mono" style={{ transform: 'translateZ(30px)' }}>
