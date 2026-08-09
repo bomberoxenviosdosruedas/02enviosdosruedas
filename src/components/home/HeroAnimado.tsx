@@ -46,29 +46,29 @@ export default function HeroAnimado() {
   // Apply spring physics to mouse tracking (HyperFrames standard: stiffness: 100, damping: 20)
   // Use simpler transform when reduceMotion
   const rotateX = useSpring(
-    useTransform(mouseY, [-0.5, 0.5], reduceMotion ? [0, 0] : [8, -8]),
+    useTransform(mouseY, [-0.5, 0.5], (reduceMotion ? [0, 0] : [8, -8]) as [number, number]),
     reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
   );
   const rotateY = useSpring(
-    useTransform(mouseX, [-0.5, 0.5], reduceMotion ? [0, 0] : [-8, 8]),
+    useTransform(mouseX, [-0.5, 0.5], (reduceMotion ? [0, 0] : [-8, 8]) as [number, number]),
     reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
   );
 
   // Float offsets for badges - only when not reduceMotion
   const floatX = useSpring(
-    useTransform(mouseX, [-0.5, 0.5], reduceMotion ? [0, 0] : [-12, 12]),
+    useTransform(mouseX, [-0.5, 0.5], (reduceMotion ? [0, 0] : [-12, 12]) as [number, number]),
     reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
   );
   const floatY = useSpring(
-    useTransform(mouseY, [-0.5, 0.5], reduceMotion ? [0, 0] : [-12, 12]),
+    useTransform(mouseY, [-0.5, 0.5], (reduceMotion ? [0, 0] : [-12, 12]) as [number, number]),
     reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
   );
   const floatXInv = useSpring(
-    useTransform(mouseX, [-0.5, 0.5], reduceMotion ? [0, 0] : [15, -15]),
+    useTransform(mouseX, [-0.5, 0.5], (reduceMotion ? [0, 0] : [15, -15]) as [number, number]),
     reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
   );
   const floatYInv = useSpring(
-    useTransform(mouseY, [-0.5, 0.5], reduceMotion ? [0, 0] : [15, -15]),
+    useTransform(mouseY, [-0.5, 0.5], (reduceMotion ? [0, 0] : [15, -15]) as [number, number]),
     reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
   );
 
@@ -482,8 +482,8 @@ export default function HeroAnimado() {
                   <span className="text-sm font-subheading tracking-widest ml-1 mt-1 text-brand-blue-700">ENVÍOS</span>
                 </div>
               </motion.div>
-            </motion.div>
-        </motion.div>
+            </div>
+          </motion.div>
       </div>
     </section>
   );
