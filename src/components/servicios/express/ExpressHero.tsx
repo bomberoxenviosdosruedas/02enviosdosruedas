@@ -78,11 +78,11 @@ export default function ExpressHero() {
               <span>ENVÍOS</span>
               <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow align-middle shrink-0 shadow-[2px_2px_0px_var(--color-brand-blue)]">
                 <Image
-                  src="/express-hero-inline.png"
+                  src="/cards/hero_express.webp"
                   alt="Envíos Express"
                   fill
                   sizes="(max-width: 768px) 64px, 80px"
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </span>
               <span className="text-brand-yellow font-bold">EXPRESS - ENTREGA INMEDIATA</span>
