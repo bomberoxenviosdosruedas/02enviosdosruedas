@@ -11,7 +11,6 @@ export default function ServicesOverview() {
   const [selectedService, setSelectedService] = useState<any | null>(null);
   const [isAutoRotate, setIsAutoRotate] = useState<boolean>(true);
   const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
-  const [hasMounted, setHasMounted] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   // Spring configurations following HyperFrames standard
@@ -177,11 +176,6 @@ export default function ServicesOverview() {
   const totalServices = services.length;
   const autoRotateIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Initialize reduced motion from document class
-  useEffect(() => {
-    // Check if reduce-motion class is on document (set by global script)
-    setHasMounted(true);
-  }, []);
 
   // Handle resize
   useEffect(() => {
@@ -196,7 +190,7 @@ export default function ServicesOverview() {
   // Sync activeIndexMotion with activeIndex (with spring)
   useEffect(() => {
     activeIndexMotion.set(activeIndex);
-  }, [activeIndex]);
+  }, [activeIndex, activeIndexMotion]);
 
   // Auto-rotation with deterministic timing
   useEffect(() => {
