@@ -38,7 +38,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <main id="main-content" className="flex-grow pt-[72px]" tabIndex={-1}>
         {children}
       </main>
-      <SectionSeparator />
       <CarruselRedes />
       <OptimizedFooter />
     </>
