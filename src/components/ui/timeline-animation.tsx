@@ -60,6 +60,53 @@ export const timelineVariants = {
 
 export type TimelineVariantName = keyof typeof timelineVariants;
 
+// Component to dynamically switch motion tags statically (React Compiler requirement)
+function RenderMotionElement({
+  as,
+  children,
+  className,
+  style,
+  variants,
+  initial,
+  whileInView,
+  viewport,
+  custom,
+  ...rest
+}: any) {
+  switch (as) {
+    case 'p':
+      return <motion.p className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.p>;
+    case 'span':
+      return <motion.span className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.span>;
+    case 'h1':
+      return <motion.h1 className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.h1>;
+    case 'h2':
+      return <motion.h2 className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.h2>;
+    case 'h3':
+      return <motion.h3 className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.h3>;
+    case 'h4':
+      return <motion.h4 className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.h4>;
+    case 'h5':
+      return <motion.h5 className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.h5>;
+    case 'h6':
+      return <motion.h6 className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.h6>;
+    case 'section':
+      return <motion.section className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.section>;
+    case 'article':
+      return <motion.article className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.article>;
+    case 'aside':
+      return <motion.aside className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.aside>;
+    case 'header':
+      return <motion.header className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.header>;
+    case 'footer':
+      return <motion.footer className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.footer>;
+    case 'nav':
+      return <motion.nav className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.nav>;
+    default:
+      return <motion.div className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.div>;
+  }
+}
+
 // ─── Props ────────────────────────────────────────────────────────────────────
 
 interface TimelineContentProps extends Omit<HTMLMotionProps<'div'>, 'variants'> {
@@ -98,8 +145,6 @@ export function TimelineContent({
   timelineRef,
   ...rest
 }: TimelineContentProps) {
-  const Component = as as any;
-
   // Merge delay into the transition of whichever variants are active
   const activeVariants: Variants = customVariants ?? timelineVariants[variant];
   const resolvedVariants: Variants = delay > 0
@@ -116,7 +161,8 @@ export function TimelineContent({
     : activeVariants;
 
   return (
-    <Component
+    <RenderMotionElement
+      as={as}
       className={className}
       style={style}
       variants={resolvedVariants}
@@ -127,7 +173,7 @@ export function TimelineContent({
       {...rest}
     >
       {children}
-    </Component>
+    </RenderMotionElement>
   );
 }
 
@@ -156,8 +202,6 @@ export function TimelineGroup({
   once = true,
   as = 'div',
 }: TimelineGroupProps) {
-  const Component = as as any;
-
   const containerVariants: Variants = {
     hidden:  { opacity: 0 },
     visible: {
@@ -170,7 +214,8 @@ export function TimelineGroup({
   };
 
   return (
-    <Component
+    <RenderMotionElement
+      as={as}
       className={className}
       style={style}
       variants={containerVariants}
@@ -179,6 +224,6 @@ export function TimelineGroup({
       viewport={{ once, margin: viewportMargin }}
     >
       {children}
-    </Component>
+    </RenderMotionElement>
   );
 }

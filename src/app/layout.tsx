@@ -78,7 +78,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${outfit.variable} ${anton.variable} ${bebasNeue.variable} scroll-smooth`}>
+    <html lang="es" className={`${outfit.variable} ${anton.variable} ${bebasNeue.variable} scroll-smooth`} data-scroll-behavior="smooth">
       <head>
         {/* Preconnect para Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

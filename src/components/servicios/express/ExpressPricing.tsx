@@ -65,8 +65,8 @@ export default function ExpressPricing() {
   };
 
   return (
-    <section 
-      id="express-pricing" 
+    <section
+      id="express-pricing"
       className="py-24 bg-brand-blue relative overflow-hidden text-white border-t-4 border-b-4 border-brand-yellow"
       ref={pricingRef}
     >
@@ -82,7 +82,7 @@ export default function ExpressPricing() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        
+
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
           <TimelineContent
@@ -102,7 +102,7 @@ export default function ExpressPricing() {
               staggerFrom="first"
               containerClassName="justify-center"
             >
-              TARIFAS 2026 ENVÍOS EXPRESS
+              TARIFAS
             </VerticalCutReveal>
           </h2>
 
@@ -115,7 +115,6 @@ export default function ExpressPricing() {
           >
             Consultá los precios actualizados para nuestro servicio premium con rango horario a elección.
           </TimelineContent>
-          <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
         {/* Pricing Cards Grid Bento layout with Double Bezel */}
@@ -150,7 +149,7 @@ export default function ExpressPricing() {
                         RECOMENDADO
                       </span>
                     )}
-                    
+
                     <div>
                       <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue font-bold">
                         {zone.name}
@@ -229,7 +228,7 @@ export default function ExpressPricing() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            
+
             <div className="lg:col-span-8 space-y-4 text-left">
               <span className="px-4 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border border-brand-blue/20">
                 Zona 5 (Más de 10 km)
