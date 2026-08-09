@@ -1,53 +1,59 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'motion/react';
+import { motion, useMotionValue, useSpring, useTransform, useScroll, useReducedMotion, type Variants, type Transition } from 'motion/react';
 import { Bike, Shield, Zap, MapPin, ArrowRight } from 'lucide-react';
 import LogisticaNetworkCanvas from './LogisticaNetworkCanvas';
 import gsap from 'gsap';
 
-const containerVariants = {
+// Spring configuration following HyperFrames standard: stiffness: 100, damping: 20
+const springConfig: Transition = { type: 'spring', stiffness: 100, damping: 20 };
+const springConfigSnappy: Transition = { type: 'spring', stiffness: 300, damping: 25 };
+
+// Container variants with orchestrated stagger (capped at ~500ms total)
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+      staggerChildren: 0.08,
+      delayChildren: 0.15,
     },
   },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      type: 'spring' as const,
-      stiffness: 100,
-      damping: 15,
-    }
+    transition: { type: 'spring', stiffness: 100, damping: 20 },
   },
 };
 
 export default function HeroAnimado() {
+  const reduceMotion = useReducedMotion();
+  const counterRef = useRef<HTMLSpanElement>(null);
+  const hasAnimatedRef = useRef(false);
+
+  // Mouse tracking for 3D tilt effect
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 150 };
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), springConfig);
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), springConfig);
+  // Apply spring physics to mouse tracking (HyperFrames standard: stiffness: 100, damping: 20)
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), springConfig);
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), springConfig);
 
-  const floatX = useSpring(useTransform(mouseX, [-0.5, 0.5], [-15, 15]), springConfig);
-  const floatY = useSpring(useTransform(mouseY, [-0.5, 0.5], [-15, 15]), springConfig);
-
-  const floatXInv = useSpring(useTransform(mouseX, [-0.5, 0.5], [20, -20]), springConfig);
-  const floatYInv = useSpring(useTransform(mouseY, [-0.5, 0.5], [20, -20]), springConfig);
+  // Float offsets for badges with spring physics
+  const floatX = useSpring(useTransform(mouseX, [-0.5, 0.5], [-12, 12]), springConfig);
+  const floatY = useSpring(useTransform(mouseY, [-0.5, 0.5], [-12, 12]), springConfig);
+  const floatXInv = useSpring(useTransform(mouseX, [-0.5, 0.5], [15, -15]), springConfig);
+  const floatYInv = useSpring(useTransform(mouseY, [-0.5, 0.5], [15, -15]), springConfig);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (reduceMotion) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -58,6 +64,7 @@ export default function HeroAnimado() {
   };
 
   const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (reduceMotion) return;
     if (e.touches.length === 0) return;
     const touch = e.touches[0];
     const rect = e.currentTarget.getBoundingClientRect();
@@ -70,28 +77,36 @@ export default function HeroAnimado() {
   };
 
   const handleMouseLeave = () => {
+    if (reduceMotion) return;
     mouseX.set(0);
     mouseY.set(0);
   };
 
+  // Parallax scroll using transform only
   const { scrollY } = useScroll();
   const parallaxY = useTransform(scrollY, [0, 1000], [0, 150]);
 
-  const counterRef = useRef<HTMLSpanElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
-
+  // Counter animation using GSAP (deterministic, seek-safe)
   useEffect(() => {
-    if (counterRef.current && !hasAnimated) {
-      setHasAnimated(true);
-      gsap.to(counterRef.current, {
-        innerHTML: 5000,
-        duration: 2,
-        snap: { innerHTML: 1 },
-        ease: 'power3.out',
-        delay: 1.5,
-      });
+    if (!counterRef.current || hasAnimatedRef.current) return;
+    hasAnimatedRef.current = true;
+
+    gsap.to(counterRef.current, {
+      innerHTML: 5000,
+      duration: 2.5,
+      snap: { innerHTML: 1 },
+      ease: 'power3.out',
+      delay: 1.8,
+    });
+  }, []);
+
+  // Reduced motion: reset mouse tracking
+  useEffect(() => {
+    if (reduceMotion) {
+      mouseX.set(0);
+      mouseY.set(0);
     }
-  }, [hasAnimated]);
+  }, [reduceMotion]);
 
   return (
     <section
@@ -101,9 +116,14 @@ export default function HeroAnimado() {
       onMouseLeave={handleMouseLeave}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleMouseLeave}
+      style={{ perspective: 1000 }}
     >
-      {/* Background patterns */}
-      <motion.div style={{ y: parallaxY }} className="absolute inset-0 pointer-events-none">
+      {/* Background patterns - using transform for parallax */}
+      <motion.div
+        style={{ y: parallaxY }}
+        className="absolute inset-0 pointer-events-none"
+        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.02),transparent_40%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,236,1,0.02),transparent_50%)]" />
       </motion.div>
@@ -111,11 +131,15 @@ export default function HeroAnimado() {
       {/* Interactive Logistics Network Background */}
       <LogisticaNetworkCanvas />
 
-      {/* Remove unnecessary AI-generated gradient to white */}
+      {/* Bottom gradient fade to white section */}
       <div className="absolute bottom-0 left-0 right-0 h-2 bg-brand-white-50 pointer-events-none" />
 
       {/* Background illustration overlay with topographic feel */}
-      <motion.div style={{ y: parallaxY }} className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none">
+      <motion.div
+        style={{ y: parallaxY }}
+        className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none"
+        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+      >
         <Image
           src="/hero-background.jpeg"
           alt="Textura de Mapa de calles"
@@ -223,7 +247,7 @@ export default function HeroAnimado() {
             className="relative h-[380px] sm:h-[450px] w-full mt-10 lg:mt-0 flex justify-center items-center overflow-visible"
             style={{ perspective: 1000 }}
           >
-            {/* Contenedor envolvente 3D */}
+            {/* 3D Container with mouse-following tilt */}
             <motion.div
               className="w-full max-w-[400px] lg:max-w-none h-full relative"
               style={{
@@ -231,17 +255,19 @@ export default function HeroAnimado() {
                 rotateY,
                 transformStyle: 'preserve-3d',
               }}
+              transition={{ type: 'spring', stiffness: 100, damping: 20 }}
             >
               {/* Card 1: Map Representation */}
               <motion.div
                 className="absolute top-8 sm:top-12 right-0 w-[78%] z-25"
                 initial={{ opacity: 0, z: -100 }}
-                animate={{ opacity: 1, z: 0, transition: { duration: 0.9, ease: "easeOut", delay: 0.5 } }}
+                animate={{ opacity: 1, z: 0 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5, duration: 0.8 }}
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: 'translateZ(10px)',
                 }}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.02, transition: springConfigSnappy }}
               >
                 <div className="relative rounded-2xl overflow-hidden border border-brand-blue-100 bg-white p-2.5 sm:p-3 shadow-[4px_4px_0px_var(--color-brand-blue-600)]">
                   <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
@@ -261,16 +287,24 @@ export default function HeroAnimado() {
                 </div>
               </motion.div>
 
-              {/* Badge 1: Seguridad Garantizada */}
+              {/* Badge 1: Seguridad Garantizada - with perpetual micro-float */}
               <motion.div
                 className="absolute top-12 left-4 sm:left-8 z-30"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.7 } }}
+                initial={reduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                animate={reduceMotion ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 100,
+                  damping: 20,
+                  delay: 0.7,
+                  duration: 0.6,
+                }}
                 style={{
-                  x: floatX,
-                  y: floatY,
+                  x: reduceMotion ? 0 : floatX,
+                  y: reduceMotion ? 0 : floatY,
                   transform: 'translateZ(30px)',
                 }}
+                whileHover={{ scale: 1.05, transition: springConfigSnappy }}
               >
                 <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-white text-brand-blue-700 font-mono tracking-widest text-[10px] sm:text-[11px] rounded-full border border-brand-blue-100 flex items-center gap-1.5 sm:gap-2 font-bold shadow-elevated">
                   <Shield className="h-3.5 w-3.5 text-brand-blue-500" />
@@ -278,16 +312,24 @@ export default function HeroAnimado() {
                 </div>
               </motion.div>
 
-              {/* Badge 2: 100% Marplatense */}
+              {/* Badge 2: 100% MARPLATENSE - with perpetual micro-float (inverse) */}
               <motion.div
                 className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-4 z-35"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.9 } }}
+                initial={reduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                animate={reduceMotion ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 100,
+                  damping: 20,
+                  delay: 0.9,
+                  duration: 0.6,
+                }}
                 style={{
-                  x: floatXInv,
-                  y: floatYInv,
+                  x: reduceMotion ? 0 : floatXInv,
+                  y: reduceMotion ? 0 : floatYInv,
                   transform: 'translateZ(50px)',
                 }}
+                whileHover={{ scale: 1.05, transition: springConfigSnappy }}
               >
                 <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-yellow text-brand-blue font-mono tracking-widest text-[10px] sm:text-[11px] rounded-full border border-brand-yellow flex items-center gap-1.5 sm:gap-2 font-bold shadow-[2px_2px_0px_var(--color-brand-blue)]">
                   <MapPin className="h-3.5 w-3.5" />
@@ -295,16 +337,24 @@ export default function HeroAnimado() {
                 </div>
               </motion.div>
 
-              {/* Badge 3: Envíos en el Día */}
+              {/* Badge 3: Envíos en el Día - with perpetual micro-float */}
               <motion.div
                 className="absolute bottom-8 left-6 sm:left-12 z-40"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 1.1 } }}
+                initial={reduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                animate={reduceMotion ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 100,
+                  damping: 20,
+                  delay: 1.1,
+                  duration: 0.6,
+                }}
                 style={{
-                  x: floatX,
-                  y: floatYInv,
+                  x: reduceMotion ? 0 : floatX,
+                  y: reduceMotion ? 0 : floatYInv,
                   transform: 'translateZ(70px)',
                 }}
+                whileHover={{ scale: 1.05, transition: springConfigSnappy }}
               >
                 <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-brand-blue-700 text-white font-mono tracking-widest text-[10px] sm:text-[11px] rounded-full border border-brand-yellow flex items-center gap-1.5 sm:gap-2 font-bold shadow-[2px_2px_0px_var(--color-brand-yellow)]">
                   <Zap className="h-3.5 w-3.5 text-brand-yellow" />
@@ -312,16 +362,24 @@ export default function HeroAnimado() {
                 </div>
               </motion.div>
 
-              {/* Counter Pill */}
+              {/* Counter Pill - with spring pop entrance */}
               <motion.div
                 className="absolute -bottom-4 right-4 z-45"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 1.3 } }}
+                initial={reduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.6 }}
+                animate={reduceMotion ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 100,
+                  damping: 15,
+                  delay: 1.4,
+                  duration: 0.7,
+                }}
                 style={{
-                  x: floatX,
-                  y: floatYInv,
+                  x: reduceMotion ? 0 : floatX,
+                  y: reduceMotion ? 0 : floatYInv,
                   transform: 'translateZ(90px)',
                 }}
+                whileHover={{ scale: 1.03, transition: springConfigSnappy }}
               >
                 <div className="px-4 py-2 bg-white text-brand-blue-700 font-display text-xl rounded-xl border border-brand-blue-100 shadow-elevated flex items-center gap-2">
                   <span className="text-brand-yellow-500">+</span>
