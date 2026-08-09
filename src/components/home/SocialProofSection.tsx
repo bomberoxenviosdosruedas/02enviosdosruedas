@@ -189,7 +189,7 @@ export default function SocialProofSection() {
                 ))}
               </motion.div>
               <motion.p className="text-brand-blue-600 font-sans italic mb-6 text-sm leading-relaxed">
-                "{t.text}"
+                &ldquo;{t.text}&rdquo;
               </motion.p>
               <div className="border-t border-brand-blue-50 pt-4 mt-auto">
                 <motion.p className="font-bold text-brand-blue font-sans text-sm uppercase tracking-wide">
