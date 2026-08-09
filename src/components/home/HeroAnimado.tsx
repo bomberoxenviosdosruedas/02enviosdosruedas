@@ -44,32 +44,33 @@ export default function HeroAnimado() {
   const mouseY = useMotionValue(0);
 
   // Apply spring physics to mouse tracking (HyperFrames standard: stiffness: 100, damping: 20)
-  // Use simpler transform when reduceMotion
+  const springOptions = { stiffness: 100, damping: 20 };
+
   const rotateX = useSpring(
-    useTransform(mouseY, [-0.5, 0.5], (reduceMotion ? [0, 0] : [8, -8]) as [number, number]),
-    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+    useTransform(mouseY, [-0.5, 0.5], [8, -8]),
+    springOptions
   );
   const rotateY = useSpring(
-    useTransform(mouseX, [-0.5, 0.5], (reduceMotion ? [0, 0] : [-8, 8]) as [number, number]),
-    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+    useTransform(mouseX, [-0.5, 0.5], [-8, 8]),
+    springOptions
   );
 
   // Float offsets for badges - only when not reduceMotion
   const floatX = useSpring(
-    useTransform(mouseX, [-0.5, 0.5], (reduceMotion ? [0, 0] : [-12, 12]) as [number, number]),
-    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+    useTransform(mouseX, [-0.5, 0.5], [-12, 12]),
+    springOptions
   );
   const floatY = useSpring(
-    useTransform(mouseY, [-0.5, 0.5], (reduceMotion ? [0, 0] : [-12, 12]) as [number, number]),
-    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+    useTransform(mouseY, [-0.5, 0.5], [-12, 12]),
+    springOptions
   );
   const floatXInv = useSpring(
-    useTransform(mouseX, [-0.5, 0.5], (reduceMotion ? [0, 0] : [15, -15]) as [number, number]),
-    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+    useTransform(mouseX, [-0.5, 0.5], [15, -15]),
+    springOptions
   );
   const floatYInv = useSpring(
-    useTransform(mouseY, [-0.5, 0.5], (reduceMotion ? [0, 0] : [15, -15]) as [number, number]),
-    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+    useTransform(mouseY, [-0.5, 0.5], [15, -15]),
+    springOptions
   );
 
   // Debounced mouse move handler to reduce main thread work
