@@ -31,7 +31,7 @@ export default function OptimizedHeader() {
         setScrolled(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -67,9 +67,10 @@ export default function OptimizedHeader() {
     { label: 'Contacto', href: '/contacto', icon: Mail },
   ];
 
-  const handleDropdownToggle = (label: string) => {
-    setActiveDropdown(activeDropdown === label ? null : label);
-  };
+  const handleDropdownToggleRef = React.useRef((label: string) => {
+    setActiveDropdown(prev => prev === label ? null : label);
+  });
+  const handleDropdownToggle = (label: string) => handleDropdownToggleRef.current(label);
 
   return (
     <header
