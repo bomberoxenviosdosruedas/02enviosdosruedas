@@ -33,7 +33,7 @@ export default function ServicesOverview() {
       badge: 'URGENTE',
       city: 'Cobertura MDQ',
       founded: '15+ Años en Calles',
-      imageUrl: '/img/generales/envios_express.webp',
+      imageUrl: '/cards/fondo_express.webp',
       cardStyleCenter: 'border-brand-yellow bg-gradient-to-br from-brand-blue-700 to-brand-blue-900 shadow-cta-glow text-white',
       cardStyleSide: 'border-brand-blue-500/20 bg-brand-blue-700/80 text-white/90',
       textColor: 'text-white',
@@ -70,7 +70,7 @@ export default function ServicesOverview() {
       badge: 'ECONÓMICO',
       city: 'Todo Gral. Pueyrredón',
       founded: 'Tarifa Fija Especial',
-      imageUrl: '/img/generales/envios_low_cost.webp',
+      imageUrl: '/cards/fondo_lowcost.webp',
       cardStyleCenter: 'border-brand-blue-500 bg-gradient-to-br from-brand-white-50 to-brand-blue-50/50 shadow-[8px_8px_0px_rgba(6,54,165,0.2)] text-brand-ink',
       cardStyleSide: 'border-brand-blue-100 bg-white/90 text-brand-ink',
       textColor: 'text-brand-ink',
@@ -107,7 +107,7 @@ export default function ServicesOverview() {
       badge: 'MERCADOLIBRE FLEX',
       city: 'Mar del Plata y Batán',
       founded: 'Corte extendido 15hs',
-      imageUrl: '/img/generales/servicio_flex.jpeg',
+      imageUrl: '/cards/fondo_flex.webp',
       cardStyleCenter: 'border-brand-blue bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-[8px_8px_0px_rgba(255,236,1,0.25)] text-brand-ink',
       cardStyleSide: 'border-brand-yellow-500/30 bg-brand-yellow-500/85 text-brand-ink',
       textColor: 'text-brand-ink',
@@ -144,7 +144,7 @@ export default function ServicesOverview() {
       badge: 'LOGÍSTICA INTEGRAL',
       city: 'Depósito Friuli 1972',
       founded: 'Depósito Inteligente',
-      imageUrl: '/img/generales/Emprendedoresbanner.webp',
+      imageUrl: '/cards/fondo_emprendedores.webp',
       cardStyleCenter: 'border-brand-blue bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 shadow-2xl text-white',
       cardStyleSide: 'border-brand-blue-800/20 bg-brand-blue-900/90 text-white/90',
       textColor: 'text-white',
@@ -375,6 +375,19 @@ export default function ServicesOverview() {
                     isCenter ? service.cardStyleCenter : service.cardStyleSide
                   }`}
                 >
+                  {/* Imagen de fondo premium con mezcla de capa */}
+                  <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0">
+                    <Image
+                      src={service.imageUrl}
+                      alt={service.title}
+                      fill
+                      sizes="(max-w-7xl) 350px, 290px"
+                      className={`object-cover ${service.imgBlend}`}
+                      priority={index === 0}
+                    />
+                    {/* Gradiente de overlay para garantizar legibilidad de textos */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-brand-ink/20 to-transparent opacity-60" />
+                  </div>
                   {/* Subtle Glow Overlay - only on center card with subtle animation */}
                   {isCenter && (
                     <motion.div
