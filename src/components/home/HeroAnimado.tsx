@@ -37,47 +37,82 @@ export default function HeroAnimado() {
   const reduceMotion = useReducedMotion();
   const counterRef = useRef<HTMLSpanElement>(null);
   const hasAnimatedRef = useRef(false);
+  const mouseMoveRAF = useRef<number | null>(null);
 
-  // Mouse tracking for 3D tilt effect
+  // Mouse tracking for 3D tilt effect - simplified when reduceMotion
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   // Apply spring physics to mouse tracking (HyperFrames standard: stiffness: 100, damping: 20)
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), springConfig);
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), springConfig);
+  // Use simpler transform when reduceMotion
+  const rotateX = useSpring(
+    useTransform(mouseY, [-0.5, 0.5], reduceMotion ? [0, 0] : [8, -8]),
+    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+  );
+  const rotateY = useSpring(
+    useTransform(mouseX, [-0.5, 0.5], reduceMotion ? [0, 0] : [-8, 8]),
+    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+  );
 
-  // Float offsets for badges with spring physics
-  const floatX = useSpring(useTransform(mouseX, [-0.5, 0.5], [-12, 12]), springConfig);
-  const floatY = useSpring(useTransform(mouseY, [-0.5, 0.5], [-12, 12]), springConfig);
-  const floatXInv = useSpring(useTransform(mouseX, [-0.5, 0.5], [15, -15]), springConfig);
-  const floatYInv = useSpring(useTransform(mouseY, [-0.5, 0.5], [15, -15]), springConfig);
+  // Float offsets for badges - only when not reduceMotion
+  const floatX = useSpring(
+    useTransform(mouseX, [-0.5, 0.5], reduceMotion ? [0, 0] : [-12, 12]),
+    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+  );
+  const floatY = useSpring(
+    useTransform(mouseY, [-0.5, 0.5], reduceMotion ? [0, 0] : [-12, 12]),
+    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+  );
+  const floatXInv = useSpring(
+    useTransform(mouseX, [-0.5, 0.5], reduceMotion ? [0, 0] : [15, -15]),
+    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+  );
+  const floatYInv = useSpring(
+    useTransform(mouseY, [-0.5, 0.5], reduceMotion ? [0, 0] : [15, -15]),
+    reduceMotion ? { type: 'spring', stiffness: 0, damping: 0 } : springConfig
+  );
 
+  // Debounced mouse move handler to reduce main thread work
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (reduceMotion) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const x = (e.clientX - rect.left) / width - 0.5;
-    const y = (e.clientY - rect.top) / height - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
+    if (mouseMoveRAF.current) return; // Throttle to one per frame
+
+    mouseMoveRAF.current = requestAnimationFrame(() => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
+      const x = (e.clientX - rect.left) / width - 0.5;
+      const y = (e.clientY - rect.top) / height - 0.5;
+      mouseX.set(x);
+      mouseY.set(y);
+      mouseMoveRAF.current = null;
+    });
   };
 
   const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
     if (reduceMotion) return;
     if (e.touches.length === 0) return;
-    const touch = e.touches[0];
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const x = (touch.clientX - rect.left) / width - 0.5;
-    const y = (touch.clientY - rect.top) / height - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
+    if (mouseMoveRAF.current) return;
+
+    mouseMoveRAF.current = requestAnimationFrame(() => {
+      const touch = e.touches[0];
+      const rect = e.currentTarget.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
+      const x = (touch.clientX - rect.left) / width - 0.5;
+      const y = (touch.clientY - rect.top) / height - 0.5;
+      mouseX.set(x);
+      mouseY.set(y);
+      mouseMoveRAF.current = null;
+    });
   };
 
   const handleMouseLeave = () => {
     if (reduceMotion) return;
+    if (mouseMoveRAF.current) {
+      cancelAnimationFrame(mouseMoveRAF.current);
+      mouseMoveRAF.current = null;
+    }
     mouseX.set(0);
     mouseY.set(0);
   };
@@ -87,8 +122,9 @@ export default function HeroAnimado() {
   const parallaxY = useTransform(scrollY, [0, 1000], [0, 150]);
 
   // Counter animation using GSAP (deterministic, seek-safe)
+  // Only run if not reduceMotion to avoid main thread work
   useEffect(() => {
-    if (!counterRef.current || hasAnimatedRef.current) return;
+    if (reduceMotion || !counterRef.current || hasAnimatedRef.current) return;
     hasAnimatedRef.current = true;
 
     gsap.to(counterRef.current, {
@@ -98,13 +134,17 @@ export default function HeroAnimado() {
       ease: 'power3.out',
       delay: 1.8,
     });
-  }, []);
+  }, [reduceMotion]);
 
   // Reduced motion: reset mouse tracking
   useEffect(() => {
     if (reduceMotion) {
       mouseX.set(0);
       mouseY.set(0);
+      if (mouseMoveRAF.current) {
+        cancelAnimationFrame(mouseMoveRAF.current);
+        mouseMoveRAF.current = null;
+      }
     }
   }, [reduceMotion]);
 
@@ -119,37 +159,62 @@ export default function HeroAnimado() {
       style={{ perspective: 1000 }}
     >
       {/* Background patterns - using transform for parallax */}
-      <motion.div
-        style={{ y: parallaxY }}
-        className="absolute inset-0 pointer-events-none"
-        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.02),transparent_40%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,236,1,0.02),transparent_50%)]" />
-      </motion.div>
+      {reduceMotion ? (
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.02),transparent_40%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,236,1,0.02),transparent_50%)]" />
+        </div>
+      ) : (
+        <motion.div
+          style={{ y: parallaxY }}
+          className="absolute inset-0 pointer-events-none"
+          transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.02),transparent_40%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,236,1,0.02),transparent_50%)]" />
+        </motion.div>
+      )}
 
       {/* Interactive Logistics Network Background */}
-      <LogisticaNetworkCanvas />
+      {reduceMotion ? (
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 bg-gradient-to-br from-brand-blue-900/20 via-brand-blue-800/10 to-brand-blue-900/20" />
+      ) : (
+        <LogisticaNetworkCanvas />
+      )}
 
       {/* Bottom gradient fade to white section */}
       <div className="absolute bottom-0 left-0 right-0 h-2 bg-brand-white-50 pointer-events-none" />
 
       {/* Background illustration overlay with topographic feel */}
-      <motion.div
-        style={{ y: parallaxY }}
-        className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none"
-        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-      >
-        <Image
-          src="/hero-background.jpeg"
-          alt="Textura de Mapa de calles"
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="object-cover"
-        />
-      </motion.div>
+      {reduceMotion ? (
+        <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none">
+          <Image
+            src="/hero-background.jpeg"
+            alt="Textura de Mapa de calles"
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      ) : (
+        <motion.div
+          style={{ y: parallaxY }}
+          className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none"
+          transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+        >
+          <Image
+            src="/hero-background.jpeg"
+            alt="Textura de Mapa de calles"
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover"
+          />
+        </motion.div>
+      )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <motion.div
@@ -248,45 +313,74 @@ export default function HeroAnimado() {
             className="relative h-[380px] sm:h-[450px] w-full mt-10 lg:mt-0 flex justify-center items-center overflow-visible"
             style={{ perspective: 1000 }}
           >
-            {/* 3D Container with mouse-following tilt */}
-            <motion.div
-              className="w-full max-w-[400px] lg:max-w-none h-full relative"
-              style={{
-                rotateX,
-                rotateY,
-                transformStyle: 'preserve-3d',
-              }}
-              transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-            >
-              {/* Card 1: Map Representation */}
-              <motion.div
-                className="absolute top-8 sm:top-12 right-0 w-[78%] z-25"
-                initial={{ opacity: 0, z: -100 }}
-                animate={{ opacity: 1, z: 0 }}
-                transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5, duration: 0.8 }}
-                style={{
-                  transformStyle: 'preserve-3d',
-                  transform: 'translateZ(10px)',
-                }}
-                whileHover={{ scale: 1.02, transition: springConfigSnappy }}
-              >
-                <div className="relative rounded-2xl overflow-hidden border border-brand-blue-100 bg-white p-2.5 sm:p-3 shadow-[4px_4px_0px_var(--color-brand-blue-600)]">
-                  <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
-                    <Image
-                      src="/card_mapa.webp"
-                      alt="Mapa de Cobertura de Mar del Plata"
-                      fill
-                      priority
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 350px"
-                      className="rounded-xl object-cover h-40 sm:h-48 w-full"
-                    />
-                  </div>
-                  <div className="mt-3 flex items-center justify-between text-brand-ink font-mono" style={{ transform: 'translateZ(30px)' }}>
-                    <span className="text-[11px] font-bold uppercase tracking-wide">Ruteo de Envíos</span>
-                    <span className="text-[9px] px-1.5 py-0.5 border border-brand-blue-400 bg-brand-white-50 text-brand-blue-700 font-bold uppercase rounded-full">Optimizado</span>
+            {/* 3D Container with mouse-following tilt - static when reduceMotion */}
+            {reduceMotion ? (
+              <div className="w-full max-w-[400px] lg:max-w-none h-full relative" style={{ transformStyle: 'preserve-3d' }}>
+                {/* Card 1: Map Representation - static */}
+                <div
+                  className="absolute top-8 sm:top-12 right-0 w-[78%] z-25"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    transform: 'translateZ(10px)',
+                  }}
+                >
+                  <div className="relative rounded-2xl overflow-hidden border border-brand-blue-100 bg-white p-2.5 sm:p-3 shadow-[4px_4px_0px_var(--color-brand-blue-600)]">
+                    <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
+                      <Image
+                        src="/card_mapa.webp"
+                        alt="Mapa de Cobertura de Mar del Plata"
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 350px"
+                        className="rounded-xl object-cover h-40 sm:h-48 w-full"
+                      />
+                    </div>
+                    <div className="mt-3 flex items-center justify-between text-brand-ink font-mono" style={{ transform: 'translateZ(30px)' }}>
+                      <span className="text-[11px] font-bold uppercase tracking-wide">Ruteo de Envíos</span>
+                      <span className="text-[9px] px-1.5 py-0.5 border border-brand-blue-400 bg-brand-white-50 text-brand-blue-700 font-bold uppercase rounded-full">Optimizado</span>
+                    </div>
                   </div>
                 </div>
+              </div>
+            ) : (
+              <motion.div
+                className="w-full max-w-[400px] lg:max-w-none h-full relative"
+                style={{
+                  rotateX,
+                  rotateY,
+                  transformStyle: 'preserve-3d',
+                }}
+                transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+              >
+                {/* Card 1: Map Representation */}
+                <motion.div
+                  className="absolute top-8 sm:top-12 right-0 w-[78%] z-25"
+                  initial={{ opacity: 0, z: -100 }}
+                  animate={{ opacity: 1, z: 0 }}
+                  transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5, duration: 0.8 }}
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    transform: 'translateZ(10px)',
+                  }}
+                  whileHover={{ scale: 1.02, transition: springConfigSnappy }}
+                >
+                  <div className="relative rounded-2xl overflow-hidden border border-brand-blue-100 bg-white p-2.5 sm:p-3 shadow-[4px_4px_0px_var(--color-brand-blue-600)]">
+                    <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
+                      <Image
+                        src="/card_mapa.webp"
+                        alt="Mapa de Cobertura de Mar del Plata"
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 350px"
+                        className="rounded-xl object-cover h-40 sm:h-48 w-full"
+                      />
+                    </div>
+                    <div className="mt-3 flex items-center justify-between text-brand-ink font-mono" style={{ transform: 'translateZ(30px)' }}>
+                      <span className="text-[11px] font-bold uppercase tracking-wide">Ruteo de Envíos</span>
+                      <span className="text-[9px] px-1.5 py-0.5 border border-brand-blue-400 bg-brand-white-50 text-brand-blue-700 font-bold uppercase rounded-full">Optimizado</span>
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
+            )}
 
               {/* Badge 1: Seguridad Garantizada - with perpetual micro-float */}
               <motion.div
@@ -389,7 +483,6 @@ export default function HeroAnimado() {
                 </div>
               </motion.div>
             </motion.div>
-          </div>
         </motion.div>
       </div>
     </section>
