@@ -238,28 +238,28 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                 >
                   <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 space-y-4 text-brand-blue-700">
                     <div className="grid grid-cols-2 gap-4 text-center">
-                      <div className="bg-slate-50 p-3 rounded-2xl border border-brand-blue-50/50">
-                        <span className="block text-[10px] font-sans font-bold text-slate-500 uppercase tracking-wider">
+                      <div className="bg-brand-blue-50/60 p-3 rounded-2xl border border-brand-blue-100/50">
+                        <span className="block text-[10px] font-subheading font-bold text-brand-blue-600 uppercase tracking-wider">
                           DISTANCIA
                         </span>
                         <span className="text-xl font-mono text-brand-blue-700 font-bold">
                           {result.distancia} km
                         </span>
                       </div>
-                      <div className="bg-slate-50 p-3 rounded-2xl border border-brand-blue-50/50">
-                        <span className="block text-[10px] font-sans font-bold text-slate-500 uppercase tracking-wider">
+                      <div className="bg-brand-blue-50/60 p-3 rounded-2xl border border-brand-blue-100/50">
+                        <span className="block text-[10px] font-subheading font-bold text-brand-blue-600 uppercase tracking-wider">
                           ENTREGA ESTIMADA
                         </span>
                         <span className="text-xl font-mono text-brand-blue-700 font-bold">
-                          Hoy (Mismo Día)
+                          {result.tiempo} min
                         </span>
                       </div>
                     </div>
 
                     <div className="border-t border-brand-blue-100/60 pt-4 flex flex-col sm:flex-row justify-between items-center gap-3">
                       <div>
-                        <span className="block text-[10px] font-sans font-bold text-slate-500 uppercase tracking-wider">
-                          TARIFA ESTIMADA LOW COST
+                        <span className="block text-[10px] font-subheading font-bold text-brand-blue-600 uppercase tracking-wider">
+                          TARIFA ESTIMADA LOWCOST
                         </span>
                         <div className="flex items-baseline gap-1.5 mt-0.5">
                           {result.precio === 'consultar' ? (
@@ -271,7 +271,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                               <span className="font-mono font-bold tracking-tighter text-5xl text-brand-blue-700">
                                 ${result.precio.toLocaleString('es-AR')}
                               </span>
-                              <span className="text-[10px] text-slate-500 font-mono">ARS</span>
+                              <span className="text-[10px] text-brand-blue-400 font-mono">ARS</span>
                             </>
                           )}
                         </div>
