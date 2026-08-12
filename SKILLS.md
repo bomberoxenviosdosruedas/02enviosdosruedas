@@ -20,6 +20,19 @@ Estos 4 skills son específicos de Envíos DosRuedas. Son los más importantes y
 
 ---
 
+## 🛠️ Skills de Mantenimiento del Repo (comandos universales)
+
+Skills tipo "comando" (/doctor, /init, /design) agnósticos del agente: funcionan igual en Claude, Antigravity, Codex, etc.
+
+| Skill | Cuándo usarlo |
+|---|---|
+| **[token-optimizer](.agents/skills/token-optimizer/SKILL.md)** | Analizar el repo y generar archivos de contexto condensados en `.agents/context/` (mapa del repo, índice de docs, módulos) para que cualquier agente gaste menos tokens al orientarse. |
+| **[repo-doctor](.agents/skills/repo-doctor/SKILL.md)** | Diagnóstico de salud: lint, typecheck, deps, enlaces rotos en docs, archivos huérfanos y deriva docs↔código. Genera reporte con severidades en `docs/reports/`. Diagnostica, no arregla sin aprobación. |
+| **[design-sync](.agents/skills/design-sync/SKILL.md)** | Extraer los tokens reales del código (globals.css, tailwind.config) y actualizar DESIGN.md. Detecta tokens fantasma, valores hardcodeados y docs de diseño redundantes. |
+| **[agent-init](.agents/skills/agent-init/SKILL.md)** | Inicializar o actualizar AGENTS.md, SKILLS.md (verificado contra el disco) y archivos puente (CLAUDE.md, GEMINI.md) en cualquier repo. Idempotente. |
+
+---
+
 ## 🎨 Diseño Visual y UI/UX
 
 Skills para diseño de interfaces, sistemas de diseño y estética visual.
