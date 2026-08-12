@@ -7,168 +7,85 @@ Organizado por categoría. Leer antes de iniciar una tarea para elegir el skill 
 
 ---
 
-## 🏍️ Skills Propios del Proyecto (DosRuedas)
-
-Estos 4 skills son específicos de Envíos DosRuedas. Son los más importantes y deben consultarse primero.
+## 🛠️ Skills de Mantenimiento e Infraestructura (Comandos Universales)
 
 | Skill | Cuándo usarlo |
 |---|---|
-| **[dos-ruedas-maestro](.agents/skills/dos-ruedas-maestro/SKILL.md)** | Reglas del negocio: horarios (09–18 hs), cortes logísticos (13 hs LowCost, 15 hs Flex), tarifas 2026, tono de voz, voseo rioplatense, consignas de marca. Leer antes de escribir cualquier copy o lógica de negocio. |
-| **[dos-ruedas-ui-ux](.agents/skills/dos-ruedas-ui-ux/SKILL.md)** | Contratos de interfaz: tokens de Tailwind (`bg-brand-blue`, `text-brand-yellow`), patrón double-bezel, botones `cta-nested-pill`, gradientes en fondos oscuros, efectos glow/sombras. Leer antes de crear o modificar cualquier componente visual. |
-| **[dos-ruedas-prompter](.agents/skills/dos-ruedas-prompter/SKILL.md)** | Generación de prompts de imágenes de marca — cubre Nano Banana MCP y Google Flows. Estructura de 5 partes obligatoria. Paleta Egyptian Blue + Sunbeam Yellow. Contexto Mar del Plata. |
-| **[dos-ruedas-verify](.agents/skills/dos-ruedas-verify/SKILL.md)** | Checklist pre-ship por criticidad (🔴🟠🟡🟢). Verificar precios, tokens UI, lint, build, tests y commits antes de hacer merge o deploy. |
+| **[agent-init](.agents/skills/agent-init/SKILL.md)** | Inicializar o actualizar AGENTS.md, SKILLS.md (verificado contra el disco) y archivos puente en cualquier repo. Idempotente. |
+| **[repo-doctor](.agents/skills/repo-doctor/SKILL.md)** | Diagnóstico de salud: lint, typecheck, deps, enlaces rotos en docs, archivos huérfanos y deriva docs↔código. |
+| **[token-optimizer](.agents/skills/token-optimizer/SKILL.md)** | Analizar el repo y generar archivos de contexto condensados en `.agents/context/` para optimizar consumo de tokens. |
+| **[design-sync](.agents/skills/design-sync/SKILL.md)** | Extraer los tokens reales del código (globals.css, tailwind.config) y actualizar DESIGN.md. |
 
 ---
 
-## 🛠️ Skills de Mantenimiento del Repo (comandos universales)
-
-Skills tipo "comando" (/doctor, /init, /design) agnósticos del agente: funcionan igual en Claude, Antigravity, Codex, etc.
+## 🎨 Diseño Visual, UI/UX y Estética Frontend
 
 | Skill | Cuándo usarlo |
 |---|---|
-| **[token-optimizer](.agents/skills/token-optimizer/SKILL.md)** | Analizar el repo y generar archivos de contexto condensados en `.agents/context/` (mapa del repo, índice de docs, módulos) para que cualquier agente gaste menos tokens al orientarse. |
-| **[repo-doctor](.agents/skills/repo-doctor/SKILL.md)** | Diagnóstico de salud: lint, typecheck, deps, enlaces rotos en docs, archivos huérfanos y deriva docs↔código. Genera reporte con severidades en `docs/reports/`. Diagnostica, no arregla sin aprobación. |
-| **[design-sync](.agents/skills/design-sync/SKILL.md)** | Extraer los tokens reales del código (globals.css, tailwind.config) y actualizar DESIGN.md. Detecta tokens fantasma, valores hardcodeados y docs de diseño redundantes. |
-| **[agent-init](.agents/skills/agent-init/SKILL.md)** | Inicializar o actualizar AGENTS.md, SKILLS.md (verificado contra el disco) y archivos puente (CLAUDE.md, GEMINI.md) en cualquier repo. Idempotente. |
+| **[design-md](.agents/skills/design-md/SKILL.md)** | Analizar proyectos Stitch y sintetizar el sistema de diseño en archivos `DESIGN.md`. |
+| **[design-taste-frontend](.agents/skills/design-taste-frontend/SKILL.md)** | Anti-slop frontend para landing pages, portfolios y rediseños. |
+| **[frontend-design](.agents/skills/frontend-design/SKILL.md)** | Dirección visual distintiva para UI y maquetación web. |
+| **[high-end-visual-design](.agents/skills/high-end-visual-design/SKILL.md)** | Estándares de diseño de agencias de alto nivel (tipografía, spacing, sombras premium). |
+| **[industrial-brutalist-ui](.agents/skills/industrial-brutalist-ui/SKILL.md)** | Interfaces mecánicas: tipografía suiza, terminales militares y grillas rígidas. |
+| **[minimalist-ui](.agents/skills/minimalist-ui/SKILL.md)** | Interfaces editoriales limpias: monochrome cálido, bento grids planos, sin sombras pesadas. |
+| **[gpt-taste](.agents/skills/gpt-taste/SKILL.md)** | UX/UI e ingeniería de animación con GSAP, ScrollTrigger y tipografía editorial. |
+| **[taste-design](.agents/skills/taste-design/SKILL.md)** | Sistema de diseño semántico para Stitch y generación de `DESIGN.md`. |
+| **[redesign-existing-projects](.agents/skills/redesign-existing-projects/SKILL.md)** | Auditoría y actualización de sitios existentes a estándares premium. |
 
 ---
 
-## 🎨 Diseño Visual y UI/UX
-
-Skills para diseño de interfaces, sistemas de diseño y estética visual.
+## 📸 Prompts y Generación de Imágenes
 
 | Skill | Cuándo usarlo |
 |---|---|
-| **[design-md](.agents/skills/design-md/SKILL.md)** | Analizar proyectos Stitch y sintetizar el sistema de diseño en archivos `DESIGN.md`. Usar cuando se necesita documentar formalmente el design system. |
-| **[design-taste-frontend](.agents/skills/design-taste-frontend/SKILL.md)** | Sistema de diseño semántico premium para Stitch — tipografía estricta, color calibrado, layouts asimétricos, micro-motion. |
-| **[design-taste-frontend-v1](.agents/skills/design-taste-frontend-v1/SKILL.md)** | Versión anterior de `design-taste-frontend`. Usar solo si se necesita compatibilidad con proyectos Stitch más antiguos. |
-| **[taste-design](.agents/skills/taste-design/SKILL.md)** | Sistema de diseño semántico para Stitch. Genera `DESIGN.md` con estándares premium anti-genéricos. |
-| **[ui-ux-designer](.agents/skills/ui-ux-designer/SKILL.md)** | Diseño de interfaces, wireframes y design systems. Investigación de usuario, accesibilidad y herramientas de diseño. |
-| **[ui-ux-pro-max](.agents/skills/ui-ux-pro-max/SKILL.md)** | UI/UX avanzado: 50+ estilos, 161 paletas, 57 pairings tipográficos, 161 tipos de producto, 99 guías UX. Soporta React, Next.js, Tailwind, shadcn/ui, Flutter y más. |
-| **[frontend-design](.agents/skills/frontend-design/SKILL.md)** | Diseño frontend premium para web — composición, color, tipografía, responsive. |
-| **[high-end-visual-design](.agents/skills/high-end-visual-design/SKILL.md)** | Estándares de diseño visual de alto nivel. Eleva la calidad visual de interfaces a nivel premium. |
-| **[industrial-brutalist-ui](.agents/skills/industrial-brutalist-ui/SKILL.md)** | Interfaces mecánicas y brutales: tipografía suiza, terminales militares, grillas rígidas, degradación analógica. Para dashboards o portfolios que necesitan sentirse como planos clasificados. |
-| **[minimalist-ui](.agents/skills/minimalist-ui/SKILL.md)** | Interfaces editoriales limpias: paleta monochrome cálida, contraste tipográfico, bento grids, pasteles apagados. Sin gradientes ni sombras pesadas. |
-| **[3d-web-experience](.agents/skills/3d-web-experience/SKILL.md)** | Experiencias web 3D interactivas — WebGL, Three.js, efectos de profundidad y animaciones espaciales. |
-| **[canvas-design](.agents/skills/canvas-design/SKILL.md)** | Diseño y renderizado en Canvas HTML5 — gráficos vectoriales, animaciones custom, visualizaciones 2D. |
-| **[gpt-taste](.agents/skills/gpt-taste/SKILL.md)** | Criterio estético de diseño — evalúa y mejora el gusto visual de interfaces generadas por IA. |
+| **[brandkit](.agents/skills/brandkit/SKILL.md)** | Generación de tableros de identidad visual, guías de marca y mockups premium. |
+| **[imagegen-frontend-web](.agents/skills/imagegen-frontend-web/SKILL.md)** | Genera una referencia visual horizontal por cada sección de una landing page. |
+| **[imagegen-frontend-mobile](.agents/skills/imagegen-frontend-mobile/SKILL.md)** | Diseños de pantallas e interfaces nativas para aplicaciones móviles. |
+| **[enhance-prompt](.agents/skills/enhance-prompt/SKILL.md)** | Transforma ideas vagas de UI en prompts optimizados para Stitch y modelos de imagen. |
 
 ---
 
-## 📸 Generación de Imágenes
-
-Skills para crear prompts y assets visuales con IA.
+## 🎬 Stitch (Design System y Prototipado)
 
 | Skill | Cuándo usarlo |
 |---|---|
-| **[nano-banana-prompter](.agents/skills/nano-banana-prompter/SKILL.md)** | Prompts optimizados para modelos Nano Banana con identidad de marca DosRuedas. *(Nota: el skill `dos-ruedas-prompter` lo supera y unifica — preferir ese.)* |
-| **[nano-banana-pro-prompts-recommend-skill](.agents/skills/nano-banana-pro-prompts-recommend-skill/SKILL.md)** | Recomendador de prompts pro para Nano Banana — sugiere la estructura y el estilo óptimos según el tipo de imagen. |
-| **[imagegen-frontend-web](.agents/skills/imagegen-frontend-web/SKILL.md)** | Genera referencias visuales premium para sitios web. Produce **una imagen por sección** del sitio — landing page con 8 secciones = 8 imágenes. Para marketing sites y producto comps. |
-| **[imagegen-frontend-mobile](.agents/skills/imagegen-frontend-mobile/SKILL.md)** | Genera conceptos de pantallas para apps móviles (iOS, Android, cross-platform). Incluye mockups con frame de iPhone. Genera imágenes, no código. |
-| **[image-to-code](.agents/skills/image-to-code/SKILL.md)** | Convierte imágenes o mockups de diseño en código de componentes React/Tailwind. Útil para implementar diseños de Stitch. |
-| **[enhance-prompt](.agents/skills/enhance-prompt/SKILL.md)** | Mejora y refina prompts de texto — útil antes de pasar un prompt a cualquier modelo de imagen o de lenguaje. |
-
----
-
-## 🎬 Stitch — Design System y Prototipado
-
-Skills para trabajar con Google Stitch en la generación y gestión del design system.
-
-| Skill | Cuándo usarlo |
-|---|---|
-| **[stitch-loop](.agents/skills/stitch-loop/SKILL.md)** | Construir sitios web iterativamente con Stitch usando el patrón de loop autónomo (baton-passing). Flujo principal de trabajo con Stitch. |
-| **[stitch-generate-design](.agents/skills/stitch-generate-design/SKILL.md)** | Generar un diseño nuevo en Stitch desde cero o desde una descripción. |
-| **[stitch-extract-design-md](.agents/skills/stitch-extract-design-md/SKILL.md)** | Extraer el design system de un proyecto Stitch y guardarlo como `DESIGN.md`. |
-| **[stitch-extract-static-html](.agents/skills/stitch-extract-static-html/SKILL.md)** | Extraer HTML estático de un proyecto Stitch para usarlo como referencia o como base de implementación. |
-| **[stitch-react-components](.agents/skills/stitch-react-components/SKILL.md)** | Convertir diseños de Stitch en componentes React/Next.js listos para producción. |
-| **[stitch-react-native](.agents/skills/stitch-react-native/SKILL.md)** | Convertir diseños de Stitch en componentes React Native para apps móviles. |
-| **[stitch-upload-to-stitch](.agents/skills/stitch-upload-to-stitch/SKILL.md)** | Subir diseños o assets a un proyecto Stitch existente. |
-| **[stitch-code-to-design](.agents/skills/stitch-code-to-design/SKILL.md)** | Convertir código existente de vuelta a un diseño en Stitch — para sincronizar cambios hechos en código con el prototipo. |
-| **[stitch-manage-design-system](.agents/skills/stitch-manage-design-system/SKILL.md)** | Gestionar y actualizar el design system dentro de un proyecto Stitch. |
-| **[stitch-design-taste](.agents/skills/stitch-design-taste/SKILL.md)** | Aplicar criterio de diseño premium (anti-genérico) a proyectos Stitch. |
+| **[stitch-loop](.agents/skills/stitch-loop/SKILL.md)** | Flujo iterativo baton-passing para construir sitios web en Stitch. |
+| **[stitch-generate-design](.agents/skills/stitch-generate-design/SKILL.md)** | Generar pantallas nuevas desde prompts o editar pantallas existentes. |
+| **[stitch-extract-design-md](.agents/skills/stitch-extract-design-md/SKILL.md)** | Extraer un `DESIGN.md` completo desde código fuente frontend. |
+| **[stitch-extract-static-html](.agents/skills/stitch-extract-static-html/SKILL.md)** | Extraer HTML estático autocontenido con CSS/imágenes inline. |
+| **[stitch-react-components](.agents/skills/stitch-react-components/SKILL.md)** | Convertir diseños de Stitch a componentes React / Next.js. |
+| **[stitch-react-native](.agents/skills/stitch-react-native/SKILL.md)** | Convertir diseños de Stitch a componentes React Native con StyleSheet. |
+| **[stitch-upload-to-stitch](.agents/skills/stitch-upload-to-stitch/SKILL.md)** | Cargar assets y archivos a un proyecto Stitch. |
+| **[stitch-code-to-design](.agents/skills/stitch-code-to-design/SKILL.md)** | Convertir código frontend existente en un diseño Stitch. |
+| **[stitch-manage-design-system](.agents/skills/stitch-manage-design-system/SKILL.md)** | Gestionar y aplicar design systems dentro de Stitch via MCP. |
+| **[stitch-design-taste](.agents/skills/stitch-design-taste/SKILL.md)** | Estándares semánticos de diseño para Stitch. |
 
 ---
 
 ## 🗄️ Prisma ORM y Base de Datos
 
-Skills para trabajar con Prisma y PostgreSQL.
+| Skill | Cuándo usarlo |
+|---|---|
+| **[prisma-cli](.agents/skills/prisma-cli/SKILL.md)** | Comandos CLI de Prisma: `init`, `generate`, `migrate`, `db`, `studio`. |
+| **[prisma-client-api](.agents/skills/prisma-client-api/SKILL.md)** | Consultas y operaciones CRUD con Prisma Client API. |
+| **[prisma-database-setup](.agents/skills/prisma-database-setup/SKILL.md)** | Configuración de conectores BD (PostgreSQL, MySQL, SQLite, MongoDB). |
+| **[prisma-postgres-setup](.agents/skills/prisma-postgres-setup/SKILL.md)** | Aprovisionamiento de base de datos Prisma Postgres. |
+| **[prisma-compute](.agents/skills/prisma-compute/SKILL.md)** | Despliegue y hosting en Prisma Compute. |
+| **[prisma-driver-adapter-implementation](.agents/skills/prisma-driver-adapter-implementation/SKILL.md)** | Implementación de driver adapters para Prisma v7. |
+| **[prisma-upgrade-v7](.agents/skills/prisma-upgrade-v7/SKILL.md)** | Guía de migración de Prisma v6 a v7 (breaking changes). |
+
+---
+
+## 🚀 Calidad, Rendimiento, SEO y Otros
 
 | Skill | Cuándo usarlo |
 |---|---|
-| **[prisma-cli](.agents/skills/prisma-cli/SKILL.md)** | Referencia de comandos CLI de Prisma: `init`, `generate`, `migrate`, `db push`, `studio`, `validate`. Usar para comandos de la terminal de Prisma. |
-| **[prisma-client-api](.agents/skills/prisma-client-api/SKILL.md)** | API del cliente Prisma: queries, filtros, operadores, CRUD. Usar al escribir consultas con `findMany`, `create`, `update`, `delete`, `$transaction`. |
-| **[prisma-database-setup](.agents/skills/prisma-database-setup/SKILL.md)** | Configurar Prisma con diferentes proveedores de BD (PostgreSQL, MySQL, SQLite, MongoDB). Útil al iniciar un proyecto o cambiar de BD. |
-| **[prisma-postgres](.agents/skills/prisma-postgres/SKILL.md)** | Guía de Prisma Postgres — Console, CLI `create-db`, Management API y SDK. Para crear y gestionar bases de datos Prisma Postgres. |
-| **[prisma-postgres-setup](.agents/skills/prisma-postgres-setup/SKILL.md)** | Setup rápido de Prisma Postgres: crear BD, obtener connection string, conectar proyecto local. |
-| **[prisma-compute](.agents/skills/prisma-compute/SKILL.md)** | Deploy y hosting con Prisma Compute. Para frameworks Hono, Elysia, Next.js, Nuxt, Astro, etc. |
-| **[prisma-driver-adapter-implementation](.agents/skills/prisma-driver-adapter-implementation/SKILL.md)** | Referencia para implementar driver adapters personalizados en Prisma v7. Incluye protocolo de ciclo de vida de transacciones y error mapping. |
-| **[prisma-upgrade-v7](.agents/skills/prisma-upgrade-v7/SKILL.md)** | Guía completa de migración de Prisma ORM v6 → v7. Cubre todos los breaking changes, incluyendo el requisito de driver adapter. |
+| **[vercel-react-best-practices](.agents/skills/vercel-react-best-practices/SKILL.md)** | Buenas prácticas y rendimiento React / Next.js de Vercel. |
+| **[seo-audit](.agents/skills/seo-audit/SKILL.md)** | Auditoría técnica y corrección de SEO en sitio. |
+| **[full-output-enforcement](.agents/skills/full-output-enforcement/SKILL.md)** | Enforzar generación de código completa sin truncar ni usar placeholders. |
+| **[shadcn-ui](.agents/skills/shadcn-ui/SKILL.md)** | Instalación y uso de componentes shadcn/ui. |
+| **[remotion](.agents/skills/remotion/SKILL.md)** | Creación de videos walkthrough programmaticos. |
 
 ---
 
-## 🚀 Deploy y Hosting
-
-Skills para despliegue y optimización en producción.
-
-| Skill | Cuándo usarlo |
-|---|---|
-| **[deploy-to-vercel](.agents/skills/deploy-to-vercel/SKILL.md)** | Desplegar el proyecto en Vercel — configuración, variables de entorno, dominios y CI/CD. |
-| **[vercel-react-best-practices](.agents/skills/vercel-react-best-practices/SKILL.md)** | Optimización de rendimiento en React y Next.js según Vercel Engineering: componentes, data fetching, bundle, imágenes. |
-| **[vercel-composition-patterns](.agents/skills/vercel-composition-patterns/SKILL.md)** | Patrones de composición avanzados para Next.js en Vercel — layouts, streaming, parallelism. |
-
----
-
-## 🎥 Video y Animación
-
-| Skill | Cuándo usarlo |
-|---|---|
-| **[remotion](.agents/skills/remotion/SKILL.md)** | Generar videos de walkthrough a partir de proyectos Stitch usando Remotion — transiciones suaves, zoom y overlays de texto. |
-
----
-
-## 🏷️ Marca y Branding
-
-| Skill | Cuándo usarlo |
-|---|---|
-| **[brand-guidelines](.agents/skills/brand-guidelines/SKILL.md)** | Guías oficiales de marca — voz, tono, colores, tipografías y uso correcto del logotipo. |
-| **[brandkit](.agents/skills/brandkit/SKILL.md)** | Kit de marca completo — assets, plantillas y guías de aplicación de la identidad visual. |
-
----
-
-## 🔧 Componentes UI Externos
-
-| Skill | Cuándo usarlo |
-|---|---|
-| **[shadcn-ui](.agents/skills/shadcn-ui/SKILL.md)** | Integrar y personalizar componentes de shadcn/ui — descubrimiento, instalación y customización. Útil si se decide adoptar shadcn en el proyecto. |
-
----
-
-## 🔄 Refactorización y Mejora
-
-| Skill | Cuándo usarlo |
-|---|---|
-| **[redesign-existing-projects](.agents/skills/redesign-existing-projects/SKILL.md)** | Actualizar sitios o apps existentes a calidad premium. Audita el diseño actual, identifica patrones genéricos de IA y aplica estándares de alto nivel sin romper funcionalidad. |
-
----
-
-## 📖 Guía de Uso Rápido
-
-### "¿Qué skill uso para mi tarea?"
-
-| Tarea | Skill a leer |
-|---|---|
-| Escribir un copy, mensaje o label de UI | `dos-ruedas-maestro` |
-| Crear o modificar un componente React/Tailwind | `dos-ruedas-ui-ux` |
-| Generar una imagen para el sitio | `dos-ruedas-prompter` |
-| Verificar antes de hacer merge | `dos-ruedas-verify` |
-| Trabajar con la BD o esquema Prisma | `prisma-cli` + `prisma-client-api` |
-| Desplegar en Vercel | `deploy-to-vercel` |
-| Generar diseño con Stitch | `stitch-loop` → `stitch-generate-design` |
-| Extraer DESIGN.md de Stitch | `stitch-extract-design-md` |
-| Convertir diseño Stitch a código React | `stitch-react-components` |
-| Generar video walkthrough | `remotion` |
-| Mejorar calidad visual del sitio | `redesign-existing-projects` |
-
----
-
-*Última actualización: 2026-07-16 · Skills totales: 50*
+*Última actualización: 2026-08-12 · Total de skills verificados en disco: 39*
