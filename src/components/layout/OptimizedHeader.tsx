@@ -91,15 +91,20 @@ export default function OptimizedHeader() {
             id="nav-logo-opt"
             className="flex items-center gap-3 group focus:outline-none"
           >
-            <div className="relative w-36 sm:w-40 h-10 group-hover:scale-105 transition-transform duration-200 shrink-0">
-              <Image
-                src="/logo-master.svg"
-                alt="Logo Envíos Dos Ruedas"
-                width={160}
-                height={44}
-                className="object-contain w-36 sm:w-40 h-auto"
-                priority
-              />
+            <div className="flex items-center gap-2.5">
+              <div className="relative w-10 h-10 group-hover:rotate-12 transition-transform duration-200 shrink-0">
+                <Image
+                  src="/logo-master.svg"
+                  alt="Isotipo Envíos Dos Ruedas"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+              <span className="font-display text-2xl tracking-tight leading-none uppercase select-none flex flex-col sm:flex-row sm:gap-1 items-start sm:items-center">
+                <span className="text-brand-yellow-500">Envíos</span>
+                <span className="text-white">DosRuedas</span>
+              </span>
             </div>
           </Link>
 

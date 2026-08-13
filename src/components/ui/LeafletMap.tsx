@@ -86,9 +86,9 @@ export default function LeafletMap() {
         const distMeters = a.distanceTo(clickedLatLng);
         setDistance(distMeters);
 
-        // Draw Polyline (Tailwind blue-600 color #2563eb)
+        // Draw Polyline (Brand blue color #0636A5)
         const line = L.polyline([a, clickedLatLng], {
-          color: '#2563eb',
+          color: '#0636A5',
           weight: 4,
           dashArray: '8, 8',
         }).addTo(map);
