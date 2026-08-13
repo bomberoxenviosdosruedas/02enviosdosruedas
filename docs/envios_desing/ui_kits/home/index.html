@@ -1,0 +1,42 @@
+<!-- @dsCard group="Home" viewport="1280x900" name="Home Envíos DosRuedas" subtitle="Recreación navegable: hero, features, servicios 3D, cobertura, cotizador y comunidad" -->
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Envíos DosRuedas — Home</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="data.js"></script>
+<style>*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:var(--brand-white);color:var(--brand-blue-700);font-family:var(--font-sans);line-height:var(--lh-body);overflow-x:hidden}::selection{background:var(--brand-yellow);color:var(--brand-blue-700)}a{color:var(--brand-blue-700);text-decoration:none}a:hover{color:var(--brand-blue-500)}img{display:block;max-width:100%}h1,h2,h3,h4{margin:0}</style>
+</head><body>
+<div id="root"></div>
+<script type="text/babel" src="HomeScreen.jsx"></script>
+<script type="text/babel">
+const { Navbar, Footer, Toast } = window.XTRAMusicDesignSystem_bd8062;
+const D = window.EDR_DATA;
+
+function App(){
+  const [scrolled,setScrolled]=React.useState(false);
+  const [toast,setToast]=React.useState('');
+  const [service,setService]=React.useState(null);
+  React.useEffect(()=>{const f=()=>setScrolled(window.scrollY>30);window.addEventListener('scroll',f,{passive:true});return()=>window.removeEventListener('scroll',f);},[]);
+  const say=m=>{setToast(m);setTimeout(()=>setToast(''),2400);};
+  return <div>
+    <Navbar logoSrc="../../assets/logo-envios-simplified.webp" items={D.nav} active="inicio" scrolled={scrolled}
+      onNavigate={id=>say('Navegación simulada — '+id)}/>
+    <HomeScreen onQuote={()=>say('Listo — te escribimos por WhatsApp.')}
+      onOpenService={setService} openService={service} onCloseService={()=>setService(null)}/>
+    <Footer logoSrc="../../assets/logo-envios-simplified.webp"
+      about="Logística urbana inteligente de última milla en Mar del Plata. Conectamos tu negocio con entregas express en el día, soluciones Flex para MercadoLibre y distribución 3PL eficiente."
+      socials={[{name:'Instagram',href:'https://www.instagram.com/enviosdosruedas/'},{name:'Facebook',href:'https://www.facebook.com/enviosdosruedas/'},{name:'MessageCircle',href:'https://wa.me/542236602699'}]}
+      columns={[
+        {title:'Soluciones',links:[{label:'Envíos Express',icon:'Zap'},{label:'Envíos LowCost',icon:'TrendingDown'},{label:'Envíos Flex',icon:'Clock'},{label:'E-Commerce & 3PL',icon:'ShoppingBag'}]},
+        {title:'Nosotros',links:[{label:'Sobre nosotros',icon:'Info'},{label:'Preguntas frecuentes',icon:'HelpCircle'},{label:'Nuestras redes',icon:'Share2'}]},
+        {title:'Contacto',links:[{label:'Friuli 1972, MDP',icon:'MapPin'},{label:'223 660 2699',icon:'Phone'},{label:'Lun a Vie 9 a 18 hs',icon:'Clock'}]}
+      ]}/>
+    <Toast show={!!toast} message={toast}/>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body></html>

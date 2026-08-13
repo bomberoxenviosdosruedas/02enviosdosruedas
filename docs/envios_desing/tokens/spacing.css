@@ -1,0 +1,22 @@
+/* Envíos DosRuedas — Espaciado y layout. Escala Tailwind (múltiplos de 4px). */
+:root{
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-8:32px;
+  --space-10:40px;
+  --space-12:48px;
+  --space-16:64px;
+  --space-24:96px;
+
+  --section-pad-y:96px;    /* py-24, el ritmo estándar */
+  --section-pad-y-lg:144px;/* py-36, secciones editoriales */
+  --container:1280px;      /* max-w-7xl */
+  --container-pad:32px;    /* lg:px-8 */
+  --header-h:88px;
+  --grid-gap:24px;
+  --grid-gap-lg:48px;
+}

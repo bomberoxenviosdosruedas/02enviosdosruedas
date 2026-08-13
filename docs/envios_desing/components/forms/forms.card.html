@@ -1,0 +1,19 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Formularios" subtitle="Field (input, textarea, select) y SubscribeForm" -->
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script><script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script><script src="../../_ds_bundle.js"></script><style>*{box-sizing:border-box}html,body{margin:0}body{background:var(--brand-white);color:var(--brand-blue-700);font-family:var(--font-sans);padding:24px}a{color:var(--brand-blue-700)}a:hover{color:var(--brand-blue-500)}</style></head><body><div id="root"></div><script type="text/babel">
+const {Field,SubscribeForm,Button}=window.XTRAMusicDesignSystem_bd8062;
+ReactDOM.createRoot(document.getElementById('root')).render(<div>
+ <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
+  <Field label="Tu nombre" placeholder="Juan Pérez"/>
+  <Field label="WhatsApp" placeholder="223 660 2699"/>
+ </div>
+ <div style={{marginTop:16}}><Field label="Servicio" as="select" options={['Envíos Express','Envíos LowCost','Envíos Flex','E-Commerce & 3PL']}/></div>
+ <div style={{marginTop:16}}><Field label="Contanos qué necesitás" as="textarea" rows={4} placeholder="Retiro en Güemes, entrega en el Puerto…" hint="Te respondemos en el día."/></div>
+ <div style={{marginTop:16,display:'flex',justifyContent:'flex-end'}}><Button icon="Send">Enviar consulta</Button></div>
+ <div style={{marginTop:28,background:'var(--brand-ink)',padding:24,borderRadius:16}}>
+  <div style={{fontFamily:'var(--font-subheading)',fontSize:20,letterSpacing:'.05em',textTransform:'uppercase',color:'#fff',marginBottom:12}}>Novedades y promos relámpago</div>
+  <SubscribeForm/>
+ </div>
+</div>);
+</script></body></html>
