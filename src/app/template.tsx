@@ -1,13 +1,19 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function Template({ children }: { children: React.ReactNode }) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        initial={{ opacity: 0, filter: "blur(4px)" }}
+        initial={isMounted ? { opacity: 0, filter: "blur(4px)" } : false}
         animate={{ opacity: 1, filter: "blur(0px)" }}
         exit={{ opacity: 0, filter: "blur(4px)" }}
         transition={{ duration: 0.35, ease: "easeInOut" }}
@@ -18,3 +24,4 @@ export default function Template({ children }: { children: React.ReactNode }) {
     </AnimatePresence>
   );
 }
+

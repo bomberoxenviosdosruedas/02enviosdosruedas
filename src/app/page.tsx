@@ -31,15 +31,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: baseUrl,
   },
-  other: {
-    'script:ld+json': JSON.stringify(webSiteSchema),
-  },
 };
 
 
 export default function Home() {
   return (
     <div id="home-page-container" className="w-full bg-brand-white-50 text-brand-blue-700 min-h-screen relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
+      />
       {/* 1. Animated Hero Presentation */}
       <div className="relative z-10">
         <HeroAnimado />
