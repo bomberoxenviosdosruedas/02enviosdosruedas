@@ -36,15 +36,21 @@ export default function OptimizedFooter() {
           {/* COLUMN 1: Brand details & Socials (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
             <Link href="/" className="flex items-center gap-3 group w-fit">
-              <div className="relative w-36 sm:w-44 h-12 group-hover:scale-105 transition-transform duration-300 shrink-0">
+            <div className="flex items-center gap-2.5">
+              <div className="relative w-10 h-10 group-hover:rotate-12 transition-transform duration-200 shrink-0">
                 <Image
                   src="/logo-master.svg"
-                  alt="Logo Envíos Dos Ruedas"
-                  width={176}
-                  height={48}
-                  className="object-contain w-36 sm:w-44 h-auto"
+                  alt="Isotipo Envíos Dos Ruedas"
+                  fill
+                  className="object-contain"
+                  priority
                 />
               </div>
+              <span className="font-display text-2xl tracking-tight leading-none uppercase select-none flex flex-col sm:flex-row sm:gap-1 items-start sm:items-center">
+                <span className="text-brand-yellow-500">Envíos</span>
+                <span className="text-white">DosRuedas</span>
+              </span>
+            </div>
             </Link>
 
             <p className="text-brand-blue-50 text-sm leading-relaxed max-w-sm">
@@ -58,19 +64,19 @@ export default function OptimizedFooter() {
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
                   <Link
                     href="/nosotros/nuestras-redes"
-                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-900 flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-brand-blue-700 shadow-sm p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center transition-all duration-200 border border-[#dc2743] hover:border-white shadow-sm p-2.5 group cursor-pointer"
                     title="Instagram"
                   >
-                    <FaInstagram className="h-5 w-5 text-white group-hover:text-brand-blue-900 transition-colors" />
+                    <FaInstagram className="h-5 w-5 text-white" />
                   </Link>
                 </motion.div>
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
                   <Link
                     href="/nosotros/nuestras-redes"
-                    className="h-10 w-10 rounded-xl bg-white/5 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-900 flex items-center justify-center transition-all duration-200 border-2 border-white/20 hover:border-brand-blue-700 shadow-sm p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-[#1877F2] text-white flex items-center justify-center transition-all duration-200 border border-[#1877F2] hover:border-white shadow-sm p-2.5 group cursor-pointer"
                     title="Facebook"
                   >
-                    <FaFacebook className="h-5 w-5 text-white group-hover:text-brand-blue-900 transition-colors" />
+                    <FaFacebook className="h-5 w-5 text-white" />
                   </Link>
                 </motion.div>
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
@@ -78,10 +84,10 @@ export default function OptimizedFooter() {
                     href="https://wa.me/542236602699"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 flex items-center justify-center transition-all duration-200 border-2 border-brand-yellow-500 shadow-sm p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center transition-all duration-200 border border-[#25D366] hover:border-white shadow-sm p-2.5 group cursor-pointer"
                     title="WhatsApp"
                   >
-                    <FaWhatsapp className="h-5 w-5 text-brand-blue-900 transition-colors" />
+                    <FaWhatsapp className="h-5 w-5 text-white" />
                   </a>
                 </motion.div>
 

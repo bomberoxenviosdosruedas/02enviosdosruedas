@@ -12,8 +12,8 @@ export default function ContactInfo() {
       value: '2236602699',
       href: 'https://wa.me/542236602699',
       iconPath: '/iconos/whatapps.svg',
-      color: 'hover:border-brand-blue-400 hover:text-brand-blue-500 hover:shadow-brand-blue-50',
-      iconBg: 'bg-brand-white-50 text-brand-blue-500 border-brand-blue-200',
+      color: 'hover:border-[#25D366] hover:bg-[#25D366]/5 hover:shadow-[3px_3px_0px_#25D366]',
+      iconBg: 'bg-[#25D366] text-white border-[#25D366]',
     },
     {
       label: 'Email Principal',
@@ -21,24 +21,24 @@ export default function ContactInfo() {
       href: 'mailto:matiascejas@enviosdosruedas.com',
       isLucide: true,
       icon: Mail,
-      color: 'hover:border-brand-blue hover:text-brand-blue hover:shadow-brand-blue-50',
-      iconBg: 'bg-brand-white-50 text-brand-blue border-brand-blue-100',
+      color: 'hover:border-brand-blue hover:bg-brand-blue-50/50 hover:shadow-[3px_3px_0px_var(--color-brand-blue)]',
+      iconBg: 'bg-brand-blue text-white border-brand-blue-100',
     },
     {
       label: 'Instagram',
       value: '@enviosdosruedas',
       href: 'https://instagram.com/enviosdosruedas',
       iconPath: '/iconos/instagram.svg',
-      color: 'hover:border-brand-blue-400 hover:text-brand-blue-500 hover:shadow-brand-blue-50',
-      iconBg: 'bg-brand-white-50 text-brand-blue-500 border-brand-blue-100',
+      color: 'hover:border-[#dc2743] hover:bg-gradient-to-tr hover:from-[#f09433]/5 hover:via-[#dc2743]/5 hover:to-[#bc1888]/5 hover:shadow-[3px_3px_0px_#dc2743]',
+      iconBg: 'bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white border-[#dc2743]',
     },
     {
       label: 'Facebook',
       value: 'Envíos DosRuedas',
       href: 'https://facebook.com/enviosdosruedas',
       iconPath: '/iconos/facebook.svg',
-      color: 'hover:border-brand-blue-500 hover:text-brand-blue-600 hover:shadow-brand-blue-100',
-      iconBg: 'bg-brand-white-50 text-brand-blue-600 border-brand-blue-100',
+      color: 'hover:border-[#1877F2] hover:bg-[#1877F2]/5 hover:shadow-[3px_3px_0px_#1877F2]',
+      iconBg: 'bg-[#1877F2] text-white border-[#1877F2]',
     },
   ];
 
@@ -73,13 +73,9 @@ export default function ContactInfo() {
                   whileHover={{ y: -3, scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
                   transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.4 }}
-                  className={`p-4 border-2 border-brand-blue-100 rounded-2xl flex items-center gap-3 transition-all duration-300 group/item bg-brand-white-50 hover:bg-white hover:border-brand-blue hover:shadow-[3px_3px_0px_var(--color-brand-blue)] cursor-pointer ${
-                    chan.label === 'Email Principal' ? 'hover:border-brand-blue hover:text-brand-blue hover:shadow-brand-blue-50' : chan.color
-                  }`}
+                  className={`p-4 border-2 border-brand-blue-100 rounded-2xl flex items-center gap-3 transition-all duration-300 group/item bg-brand-white-50 hover:bg-white cursor-pointer ${chan.color}`}
                 >
-                  <div className={`p-3 rounded-xl border-2 transition-colors relative w-11 h-11 flex items-center justify-center shrink-0 ${
-                    chan.label === 'Email Principal' ? 'bg-brand-yellow/15 text-brand-blue border-brand-yellow/30' : chan.iconBg
-                  } group-hover/item:scale-105 duration-300`}>
+                  <div className={`p-3 rounded-xl border border-white/10 relative w-11 h-11 flex items-center justify-center shrink-0 ${chan.iconBg} group-hover/item:scale-105 duration-300`}>
                     {chan.isLucide && chan.icon ? (
                       <chan.icon className="h-5 w-5" />
                     ) : (
