@@ -60,6 +60,11 @@ export const timelineVariants = {
 
 export type TimelineVariantName = keyof typeof timelineVariants;
 
+interface RenderMotionElementProps extends HTMLMotionProps<'div'> {
+  as?: React.ElementType | string;
+  custom?: unknown;
+}
+
 // Component to dynamically switch motion tags statically (React Compiler requirement)
 function RenderMotionElement({
   as,
@@ -72,7 +77,7 @@ function RenderMotionElement({
   viewport,
   custom,
   ...rest
-}: any) {
+}: RenderMotionElementProps) {
   switch (as) {
     case 'p':
       return <motion.p className={className} style={style} variants={variants} initial={initial} whileInView={whileInView} viewport={viewport} custom={custom} {...rest}>{children}</motion.p>;
@@ -126,7 +131,7 @@ interface TimelineContentProps extends Omit<HTMLMotionProps<'div'>, 'variants'> 
   className?: string;
   style?: React.CSSProperties;
   animationNum?: number;
-  timelineRef?: React.RefObject<any>;
+  timelineRef?: React.RefObject<HTMLElement | null>;
 }
 
 // ─── Component ───────────────────────────────────────────────────────────────

@@ -34,14 +34,14 @@ export default function FlexHero() {
   return (
     <section 
       id="flex-hero" 
-      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden gradient-blue border-b-4 border-brand-yellow text-white"
+      className="relative w-full min-h-dvh pt-32 pb-12 lg:py-0 flex items-center justify-center overflow-hidden bg-brand-dark text-white"
     >
-      {/* Ambient backgrounds */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,204,0,0.06),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.04),transparent_50%)]" />
+      {/* Dynamic Animated Ambient Glow Orbs */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-brand-blue-700/30 rounded-full blur-[120px] pointer-events-none z-0 animate-pulse" />
+      <div className="absolute bottom-10 right-0 w-[500px] h-[500px] bg-brand-yellow-500/10 rounded-full blur-[150px] pointer-events-none z-0 animate-pulse" style={{ animationDelay: '700ms' }} />
 
       {/* Background illustration overlay */}
-      <div className="absolute inset-0 opacity-10 mix-blend-overlay">
+      <div className="absolute inset-0 z-0 opacity-10 mix-blend-overlay pointer-events-none">
         <Image
           src="/img/generales/banner_servicio_flex.jpeg"
           alt="Banner del servicio MercadoLibre Flex"
@@ -51,10 +51,11 @@ export default function FlexHero() {
           className="object-cover"
         />
       </div>
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-brand-dark/95 via-brand-blue-700/60 to-brand-dark backdrop-blur-[2px]"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full py-6 my-auto">
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"

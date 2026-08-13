@@ -63,9 +63,10 @@ interface Navbar1Props {
 const renderIcon = (icon: React.ReactNode, isDarkBg: boolean) => {
   if (!icon) return null;
   if (React.isValidElement(icon)) {
-    return React.cloneElement(icon as React.ReactElement<any>, {
+    const element = icon as React.ReactElement<Record<string, unknown>>;
+    return React.cloneElement(element, {
       className: cn(
-        (icon as React.ReactElement<any>).props.className,
+        (element.props as { className?: string }).className,
         isDarkBg ? "!text-brand-yellow" : "!text-brand-blue"
       ),
     });

@@ -114,12 +114,22 @@ export default function CarruselRedes() {
             const Icon = net.icon;
             const isLight = net.variant === 'light';
 
+            // Determine platform specific colors
+            let customBg = '';
+            if (net.name === 'FACEBOOK') {
+              customBg = 'bg-[#1877F2]/95 border-[#1877F2] text-white';
+            } else if (net.name === 'INSTAGRAM') {
+              customBg = 'bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] border-[#dc2743] text-white';
+            } else if (net.name === 'WHATSAPP') {
+              customBg = 'bg-[#25D366]/95 border-[#25D366] text-white';
+            }
+
             return (
               <DoubleBezelCard
                 key={net.name}
-                variant={net.variant}
-                className="social-block group h-[380px] md:h-[420px] transition-all duration-300"
-                innerClassName="flex flex-col justify-between h-full relative"
+                variant="dark"
+                className={`social-block group h-[380px] md:h-[420px] transition-all duration-300 border-2`}
+                innerClassName={`flex flex-col justify-between h-full relative ${customBg}`}
               >
                 {/* Background Watermark Icon that rotates on hover */}
                 <div className="absolute -right-8 -bottom-8 text-brand-blue-500/10 group-hover:text-brand-yellow-500/15 transition-all duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
@@ -129,57 +139,43 @@ export default function CarruselRedes() {
                 <div className="z-10 text-left space-y-3">
                   <div className="flex items-center justify-between">
                     <span
-                      className={`text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading ${
-                        isLight
-                          ? 'bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100'
-                          : 'bg-white/10 text-brand-yellow-500 border border-white/10'
-                      }`}
+                      className="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading bg-white/10 text-brand-yellow-500 border border-white/10"
                     >
                       {net.badgeText}
                     </span>
 
                     <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                        isLight
-                          ? 'bg-brand-blue-700 text-white'
-                          : 'bg-brand-yellow-500 text-brand-blue-900'
-                      }`}
+                      className="w-10 h-10 rounded-full flex items-center justify-center bg-brand-yellow-500 text-brand-blue-900"
                     >
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
                   <h3
-                    className={`font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none ${
-                      isLight ? 'text-brand-blue-900' : 'text-white'
-                    }`}
+                    className="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white"
                   >
                     {net.name}
                   </h3>
 
                   <p
-                    className={`font-mono text-xs font-bold ${
-                      isLight ? 'text-brand-blue-500' : 'text-brand-yellow-500'
-                    }`}
+                    className="font-mono text-xs font-bold text-brand-yellow-500"
                   >
                     {net.handle}
                   </p>
 
                   <p
-                    className={`font-sans text-xs sm:text-sm leading-relaxed ${
-                      isLight ? 'text-brand-blue-700/80' : 'text-brand-blue-100/90'
-                    }`}
+                    className="font-sans text-xs sm:text-sm leading-relaxed text-brand-blue-50/90"
                   >
                     {net.desc}
                   </p>
                 </div>
 
-                <div className="z-10 pt-4 border-t border-current/10">
+                <div className="z-10 pt-4 border-t border-white/10">
                   <CTANestedPill
                     href={net.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    variant={isLight ? 'primary' : 'elevated'}
+                    variant="elevated"
                     size="compact"
                     className="w-full justify-between"
                     icon={<ArrowUpRight className="w-4 h-4" />}

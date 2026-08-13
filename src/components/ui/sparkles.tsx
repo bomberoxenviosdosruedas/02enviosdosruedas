@@ -17,7 +17,7 @@ interface SparklesProps {
   color?: string;
   background?: string;
   direction?: string;
-  options?: any;
+  options?: Record<string, unknown>;
 }
 
 export function Sparkles({
@@ -37,7 +37,7 @@ export function Sparkles({
 }: SparklesProps) {
   const id = useId()
 
-  const particlesInit = async (engine: any) => {
+  const particlesInit = async (engine: Parameters<typeof loadSlim>[0]) => {
     await loadSlim(engine)
   }
 
@@ -58,7 +58,7 @@ export function Sparkles({
       },
       move: {
         enable: true,
-        direction: direction,
+        direction: direction as any,
         speed: {
           min: minSpeed || speed / 10,
           max: speed,
