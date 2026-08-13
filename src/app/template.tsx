@@ -1,14 +1,16 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useSyncExternalStore } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
-export default function Template({ children }: { children: React.ReactNode }) {
-  const [isMounted, setIsMounted] = useState(false);
+const subscribe = () => () => {};
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+export default function Template({ children }: { children: React.ReactNode }) {
+  const isMounted = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false
+  );
 
   return (
     <AnimatePresence mode="wait">

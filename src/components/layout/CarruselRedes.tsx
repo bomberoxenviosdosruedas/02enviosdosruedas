@@ -5,11 +5,7 @@ import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { ArrowUpRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-// Deterministic design variables based on gpt-taste rules
-// Typography: Geist / Display: Anton
-// GSAP: Hover Physics + Image Scale & Fade Scroll
-// Components: Horizontal Accordions + Inline Typography Images
+import { DoubleBezelCard, CTANestedPill } from '@/components/ui';
 
 export default function CarruselRedes() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -52,35 +48,32 @@ export default function CarruselRedes() {
     {
       name: 'FACEBOOK',
       handle: 'Envíos DosRuedas',
-      desc: 'Sigue nuestro día a día, novedades operativas y comunidad en Mar del Plata.',
+      desc: 'Seguí nuestro día a día, novedades operativas y la comunidad en Mar del Plata.',
       action: 'SEGUIR COMUNIDAD',
       url: 'https://www.facebook.com/share/1RnSzyweir/',
       icon: FaFacebook,
-      colorClass: 'bg-[#1877F2]',
-      shadowColor: 'rgba(24,119,242,0.3)',
-      rotationClass: 'hover:-rotate-1',
+      variant: 'dark' as const,
+      badgeText: 'FACEBOOK OFICIAL',
     },
     {
       name: 'INSTAGRAM',
       handle: '@enviosdosruedas',
-      desc: 'Mira el detrás de escena de nuestros riders y la flota recorriendo la ciudad.',
+      desc: 'Mirá el detrás de escena de nuestros riders y la flota recorriendo las calles de MDQ.',
       action: 'VER CONTENIDO',
       url: 'https://www.instagram.com/enviosdosruedas/',
       icon: FaInstagram,
-      colorClass: 'bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]',
-      shadowColor: 'rgba(220,39,67,0.3)',
-      rotationClass: 'hover:rotate-1',
+      variant: 'light' as const,
+      badgeText: 'INSTAGRAM MDQ',
     },
     {
       name: 'WHATSAPP',
       handle: '223 660 2699',
-      desc: 'Escribinos directamente para consultas, reclamos o soporte express al toque.',
+      desc: 'Escribinos directamente para consultas, contrataciones o soporte express al toque.',
       action: 'INICIAR CHAT',
       url: 'https://wa.me/542236602699',
       icon: FaWhatsapp,
-      colorClass: 'bg-[#25D366]',
-      shadowColor: 'rgba(37,211,102,0.3)',
-      rotationClass: 'hover:-rotate-1',
+      variant: 'dark' as const,
+      badgeText: 'WHATSAPP DIRECTO',
     },
   ];
 
@@ -88,8 +81,7 @@ export default function CarruselRedes() {
     <section
       ref={sectionRef}
       id="carrusel-redes"
-      className="py-32 md:py-48 bg-brand-blue border-y border-brand-blue-100/60 relative overflow-hidden"
-      style={{ fontFamily: "'Geist Mono', ui-monospace, monospace" }}
+      className="py-24 md:py-36 bg-brand-blue-700 border-y border-white/10 relative overflow-hidden font-sans"
     >
       {/* Background Decorative Mesh Overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,var(--color-brand-yellow-500),transparent_40%)] opacity-[0.06] pointer-events-none" />
@@ -97,71 +89,105 @@ export default function CarruselRedes() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header Segment - Centered wide display with inline typography image */}
-        <div className="text-center max-w-4xl mx-auto mb-24 space-y-6">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue border-2 border-brand-blue rounded-full text-xs font-bold tracking-widest inline-block shadow-[2px_2px_0px_var(--color-brand-blue)] font-subheading uppercase">
-            Nuestra Comunidad
+        {/* Header Segment */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-bold tracking-widest inline-block font-subheading uppercase shadow-accent-sm">
+            Nuestra Comunidad Digital
           </span>
           
-          <h2 className="text-white text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9] text-center">
-            SEGUÍ NUESTRO{' '}
-            <span
-              className="inline-block w-16 sm:w-20 md:w-24 h-8 sm:h-10 md:h-12 rounded-full align-middle bg-cover bg-center mx-2 border border-brand-yellow/30 shadow-md"
-              style={{ backgroundImage: "url('https://picsum.photos/seed/community/400/200')" }}
-              role="img"
-              aria-label="Community"
-            />{' '}
-            MOVIMIENTO
+          <h2 className="text-white text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[0.95] text-center">
+            SEGUÍ NUESTRO <span className="text-brand-yellow-500">MOVIMIENTO</span>
           </h2>
 
-          <p className="text-brand-blue-50 text-sm sm:text-base md:text-lg leading-relaxed font-sans max-w-2xl mx-auto opacity-90">
+          <p className="text-brand-blue-50 text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto opacity-90">
             Sumate a nuestros canales digitales y enterate al toque de todas las novedades operativas en Mar del Plata.
           </p>
-          <div className="h-[2px] w-24 bg-brand-yellow mx-auto rounded-full pt-1" />
+          <div className="h-0.5 w-20 bg-brand-yellow-500 mx-auto rounded-full mt-4" />
         </div>
 
-        {/* Networks Accordion Grid */}
+        {/* Networks Accordion Grid with DoubleBezelCard Styling */}
         <div
           ref={containerRef}
-          className="flex flex-col lg:flex-row gap-6 w-full"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full"
         >
           {networks.map((net) => {
             const Icon = net.icon;
+            const isLight = net.variant === 'light';
+
             return (
-              <a
+              <DoubleBezelCard
                 key={net.name}
-                href={net.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`social-block group relative overflow-hidden h-[380px] lg:h-[420px] p-8 lg:p-12 flex flex-col justify-between transition-all duration-500 ease-out lg:flex-1 lg:hover:flex-[1.4] active:scale-[0.98] rounded-2xl border border-white/10 ${net.colorClass} ${net.rotationClass}`}
-                style={{
-                  boxShadow: `12px 12px 0px 0px ${net.shadowColor}`,
-                }}
+                variant={net.variant}
+                className="social-block group h-[380px] md:h-[420px] transition-all duration-300"
+                innerClassName="flex flex-col justify-between h-full relative"
               >
-                {/* Background Watermark Icon that enlarges on hover */}
-                <div className="absolute -right-12 -top-12 text-white/10 transition-transform duration-700 ease-out group-hover:scale-150 group-hover:rotate-12 pointer-events-none select-none">
-                  <Icon className="w-[280px] h-[280px]" />
+                {/* Background Watermark Icon that rotates on hover */}
+                <div className="absolute -right-8 -bottom-8 text-brand-blue-500/10 group-hover:text-brand-yellow-500/15 transition-all duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+                  <Icon className="w-56 h-56" />
                 </div>
 
-                <div className="z-10 text-left">
-                  <span className="text-[10px] font-bold tracking-widest bg-white/20 text-white px-3 py-1 rounded-full uppercase mb-4 inline-block font-sans border border-white/10">
-                    {net.handle}
-                  </span>
-                  <h3 className="font-display text-white text-4xl sm:text-5xl uppercase tracking-tighter mb-3 leading-none">
+                <div className="z-10 text-left space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span
+                      className={`text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading ${
+                        isLight
+                          ? 'bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100'
+                          : 'bg-white/10 text-brand-yellow-500 border border-white/10'
+                      }`}
+                    >
+                      {net.badgeText}
+                    </span>
+
+                    <div
+                      className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                        isLight
+                          ? 'bg-brand-blue-700 text-white'
+                          : 'bg-brand-yellow-500 text-brand-blue-900'
+                      }`}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </div>
+                  </div>
+
+                  <h3
+                    className={`font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none ${
+                      isLight ? 'text-brand-blue-900' : 'text-white'
+                    }`}
+                  >
                     {net.name}
                   </h3>
-                  <p className="text-white/80 font-sans text-sm sm:text-base max-w-xs leading-relaxed font-medium">
+
+                  <p
+                    className={`font-mono text-xs font-bold ${
+                      isLight ? 'text-brand-blue-500' : 'text-brand-yellow-500'
+                    }`}
+                  >
+                    {net.handle}
+                  </p>
+
+                  <p
+                    className={`font-sans text-xs sm:text-sm leading-relaxed ${
+                      isLight ? 'text-brand-blue-700/80' : 'text-brand-blue-100/90'
+                    }`}
+                  >
                     {net.desc}
                   </p>
                 </div>
 
-                <div className="z-10 flex items-center gap-4 text-white font-bold text-xs sm:text-sm tracking-wider">
-                  <span className="font-sans">{net.action}</span>
-                  <span className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center border border-white/10 transition-transform duration-500 ease-out group-hover:translate-x-3 group-hover:bg-white/25">
-                    <ArrowUpRight className="w-4 h-4" />
-                  </span>
+                <div className="z-10 pt-4 border-t border-current/10">
+                  <CTANestedPill
+                    href={net.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant={isLight ? 'primary' : 'elevated'}
+                    size="compact"
+                    className="w-full justify-between"
+                    icon={<ArrowUpRight className="w-4 h-4" />}
+                  >
+                    {net.action}
+                  </CTANestedPill>
                 </div>
-              </a>
+              </DoubleBezelCard>
             );
           })}
         </div>
