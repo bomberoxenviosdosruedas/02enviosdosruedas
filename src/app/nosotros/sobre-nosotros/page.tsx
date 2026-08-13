@@ -17,9 +17,33 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLdSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'Sobre Nosotros',
+  description: 'Conocé la historia, valores y equipo detrás de Envíos DosRuedas. Más de 7 años liderando la logística urbana y la última milla de e-commerce en Mar del Plata.',
+  url: `${baseUrl}/nosotros/sobre-nosotros`,
+  mainEntity: {
+    '@type': 'LocalBusiness',
+    '@id': `${baseUrl}#localbusiness`,
+    name: 'Envíos DosRuedas',
+    description: 'Más de 7 años liderando la logística urbana y la última milla de e-commerce en Mar del Plata.',
+    foundingDate: '2017',
+    numberOfEmployees: {
+      '@type': 'QuantitativeValue',
+      minValue: 10,
+      maxValue: 50,
+    },
+  },
+};
+
 export default function SobreNosotrosPage() {
   return (
     <main className="min-h-screen bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+      />
       {/* 3D Ambient floating glow-orbs */}
       <div className="absolute top-[15%] left-[-10%] w-[40vw] h-[40vw] bg-brand-blue-500/10 rounded-full blur-[120px] pointer-events-none animate-float-slow" />
       <div className="absolute top-[50%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow-500/5 rounded-full blur-[100px] pointer-events-none" style={{ animationDelay: '-2s' }} />

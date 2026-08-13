@@ -16,9 +16,40 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLdSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Envíos LowCost Rentables',
+  description: 'Optimizá tus ruteos urbanos diarios en Mar del Plata. Envíos LowCost económicos, con entrega garantizada en el día y tarifas altamente competitivas para PyMEs.',
+  url: `${baseUrl}/servicios/envios-lowcost`,
+  provider: {
+    '@type': 'LocalBusiness',
+    '@id': `${baseUrl}#localbusiness`,
+    name: 'Envíos DosRuedas',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Mar del Plata',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Tarifas LowCost por Zona',
+    itemListElement: [
+      { '@type': 'Offer', name: 'LowCost 0-5 km', price: '2200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'LowCost 5-10 km', price: '2800', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'LowCost 10-15 km', price: '3500', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'LowCost 15-20 km', price: '4200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+    ],
+  },
+};
+
 export default function EnviosLowCostPage() {
   return (
     <main className="min-h-screen gradient-surface text-brand-blue-700 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+      />
       {/* Ambient floating glow-orbs */}
       <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue/5 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
       <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow/3 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />

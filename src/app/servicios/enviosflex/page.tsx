@@ -17,9 +17,39 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLdSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Envíos Flex MercadoLibre',
+  description: 'Optimizá tus entregas Same-Day en Mar del Plata. Socios logísticos certificados para Mercado Envíos Flex. Medidor de reputación siempre en verde y envíos rápidos.',
+  url: `${baseUrl}/servicios/enviosflex`,
+  provider: {
+    '@type': 'LocalBusiness',
+    '@id': `${baseUrl}#localbusiness`,
+    name: 'Envíos DosRuedas',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Mar del Plata',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Planes Flex para Vendedores',
+    itemListElement: [
+      { '@type': 'Offer', name: 'Flex Estándar', description: 'Hasta 50 envíos/día - ideal para vendedores en crecimiento', price: '0', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Flex Pro', description: 'Hasta 200 envíos/día - para vendedores establecidos', price: '0', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Flex Enterprise', description: 'Volumen ilimitado - integración API + gestor dedicado', price: '0', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+    ],
+  },
+};
+
 export default function EnviosFlexPage() {
   return (
     <main className="min-h-screen gradient-surface text-brand-blue-700 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+      />
       {/* Ambient floating glow-orbs */}
       <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue/5 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
       <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow/3 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />

@@ -18,6 +18,34 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLdSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Cotizador de Envíos Express',
+  description: 'Calculá el costo y tiempo estimado de tu envío prioritario al instante. Alta precisión de tarifa y entrega en el día en Mar del Plata.',
+  url: `${baseUrl}/cotizar/express`,
+  provider: {
+    '@type': 'LocalBusiness',
+    '@id': `${baseUrl}#localbusiness`,
+    name: 'Envíos DosRuedas',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Mar del Plata',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Tarifas Express por Distancia',
+    itemListElement: [
+      { '@type': 'Offer', name: 'Express 0-3 km', price: '3700', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Express 3-6 km', price: '4200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Express 6-10 km', price: '5200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Express 10-15 km', price: '6800', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Express 15-20 km', price: '8500', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+    ],
+  },
+};
+
 export default async function Page() {
   // Fetch price ranges from database (RSC)
   let priceRanges: PriceRange[] = [];
@@ -28,7 +56,12 @@ export default async function Page() {
   }
 
   return (
-    <div id="cotizar-express-page" className="w-full gradient-dark text-white min-h-screen relative overflow-hidden">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+      />
+      <div id="cotizar-express-page" className="w-full gradient-dark text-white min-h-screen relative overflow-hidden">
       {/* Hero Section */}
       <CotizadorExpressHero />
 
@@ -52,6 +85,7 @@ export default async function Page() {
       </div>
 
     </div>
+    </>
   );
 }
 

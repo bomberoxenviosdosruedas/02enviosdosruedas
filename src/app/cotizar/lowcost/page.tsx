@@ -17,6 +17,34 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLdSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Cotizador de Envíos LowCost',
+  description: 'Calculá tu envío con entrega garantizada en el dia si es solicitado antes de 13hs. Eficiencia y rentabilidad.',
+  url: `${baseUrl}/cotizar/lowcost`,
+  provider: {
+    '@type': 'LocalBusiness',
+    '@id': `${baseUrl}#localbusiness`,
+    name: 'Envíos DosRuedas',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Mar del Plata',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Tarifas LowCost por Distancia',
+    itemListElement: [
+      { '@type': 'Offer', name: 'LowCost 0-5 km', price: '2200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'LowCost 5-10 km', price: '2800', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'LowCost 10-15 km', price: '3500', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'LowCost 15-20 km', price: '4200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'LowCost 20-25 km', price: '5000', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+    ],
+  },
+};
+
 export default async function Page() {
   // Fetch price ranges from database (RSC)
   let priceRanges: PriceRange[] = [];
@@ -27,7 +55,12 @@ export default async function Page() {
   }
 
   return (
-    <div id="cotizar-lowcost-page" className="w-full gradient-dark text-white min-h-screen relative overflow-hidden">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+      />
+      <div id="cotizar-lowcost-page" className="w-full gradient-dark text-white min-h-screen relative overflow-hidden">
       {/* Hero Section */}
       <CotizadorLowCostHero />
 
@@ -51,6 +84,7 @@ export default async function Page() {
 
       </div>
     </div>
+    </>
   );
 }
 
