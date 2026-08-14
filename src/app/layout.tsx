@@ -86,17 +86,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://wa.me" />
 
-        {/* Google tag (gtag.js) */}
+        {/* Google tag (gtag.js) - Google Ads & Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-LSLQ3RJ8WT"
-          strategy="lazyOnload"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17510443994"
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-tag-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
+            gtag('config', 'AW-17510443994');
             gtag('config', 'G-LSLQ3RJ8WT');
           `}
         </Script>
