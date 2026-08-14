@@ -49,12 +49,12 @@ export async function calculateQuoteAction(
       price,
       error: null,
     };
-  } catch (error: any) {
-    if (error && error.name === 'ZodError') {
+  } catch (error: unknown) {
+    if (error instanceof z.ZodError) {
       return {
         success: false,
         price: null,
-        error: error.errors?.[0]?.message || 'Error de validación',
+        error: error.issues?.[0]?.message || 'Error de validación',
       };
     }
     return {

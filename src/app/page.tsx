@@ -66,7 +66,12 @@ export default function Home() {
         <EmprendedoresHome />
       </div>
 
-      {/* 6. Call to Action High Conversion Segment */}
+      {/* 6. Social Proof & Testimonials */}
+      <div className="relative z-10">
+        <SocialProofSection />
+      </div>
+
+      {/* 7. Call to Action High Conversion Segment */}
       <div className="relative z-10">
         <CtaSection />
       </div>

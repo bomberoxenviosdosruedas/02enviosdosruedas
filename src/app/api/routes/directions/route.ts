@@ -23,8 +23,9 @@ export async function GET(request: NextRequest) {
     const data = await res.json();
 
     return NextResponse.json(data);
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[API Directions]', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    const message = error instanceof Error ? error.message : 'Error interno al consultar ruta';
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

@@ -262,9 +262,9 @@ export default function HeroAnimado() {
               <Link
                 href="/cotizar/express"
                 id="hero-cta-solicitar"
-                className="w-full sm:w-auto bg-brand-yellow text-brand-blue font-mono tracking-wider text-sm uppercase cta-nested-pill border border-brand-yellow hover:shadow-cta-glow transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.95] flex items-center justify-between font-bold"
+                className="w-full sm:w-auto bg-brand-yellow text-brand-blue font-subheading tracking-wider text-base uppercase cta-nested-pill border border-brand-yellow hover:shadow-cta-glow transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.95] flex items-center justify-between font-bold px-7 py-3"
               >
-                <span>Solicitar Servicio</span>
+                <span>Cotizá Express</span>
                 <span className="cta-nested-icon bg-brand-blue/15 text-brand-blue transition-transform duration-300 group-hover:translate-x-1">
                   <ArrowRight className="h-4 w-4" />
                 </span>
@@ -272,9 +272,9 @@ export default function HeroAnimado() {
               <Link
                 href="/servicios/envios-express"
                 id="hero-cta-servicios"
-                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-mono tracking-wider text-sm uppercase cta-nested-pill border border-white/30 transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.95] flex items-center justify-between group"
+                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-subheading tracking-wider text-base uppercase cta-nested-pill border border-white/30 transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.95] flex items-center justify-between group px-7 py-3 font-bold"
               >
-                <span>Ver Servicios</span>
+                <span>Mirá los Servicios</span>
                 <span className="cta-nested-icon bg-white/10 text-white transition-transform duration-300 group-hover:translate-x-1">
                   <ArrowRight className="h-4 w-4" />
                 </span>

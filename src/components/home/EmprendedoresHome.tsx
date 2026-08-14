@@ -167,7 +167,7 @@ export default function EmprendedoresHome() {
             Potenciamos tu{' '}
             <span
               className="inline-block w-16 sm:w-20 md:w-24 h-8 sm:h-10 md:h-12 rounded-full align-middle bg-cover bg-center mx-2 border border-brand-yellow/30 shadow-md group-hover:scale-105 transition-transform duration-500"
-              style={{ backgroundImage: "url('https://picsum.photos/seed/delivery/400/200')" }}
+              style={{ backgroundImage: "url('/cards/fondo_express.webp')" }}
               role="img"
               aria-label="Delivery"
             />{' '}
@@ -263,7 +263,7 @@ export default function EmprendedoresHome() {
 
               <div className="pt-6 mt-6 border-t border-brand-blue-500/20 relative z-10 flex justify-end">
                 <Link
-                  href="/servicios/emprendedores"
+                  href="/servicios/plan-emprendedores"
                   className="cta-nested-pill bg-brand-yellow text-brand-blue px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2"
                 >
                   <span>Conocer más</span>
@@ -328,7 +328,7 @@ export default function EmprendedoresHome() {
 
               <div className="pt-4 mt-4 border-t border-brand-blue/10 relative z-10 flex justify-end">
                 <Link
-                  href="/servicios/flex"
+                  href="/servicios/enviosflex"
                   className="cta-nested-pill bg-brand-blue text-white px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-md hover:bg-brand-blue-800"
                 >
                   <span>Configurar Flex</span>

@@ -94,58 +94,58 @@ export default function SocialProofSection() {
         >
           <motion.div
             variants={metricCardVariants}
-            whileHover={{ y: -6, boxShadow: '0 20px 40px -15px rgba(6, 54, 165, 0.2)', transition: springConfigCard }}
-            className="double-bezel-outer bg-white border border-brand-blue-200 group"
+            whileHover={{ y: -6, transition: springConfigCard }}
+            className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep"
           >
-            <div className="double-bezel-inner p-8 flex flex-col items-center text-center">
+            <div className="double-bezel-inner bg-white p-8 rounded-xl border border-brand-blue-50/50 flex flex-col items-center text-center">
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 12, transition: springConfigCard }}
-                className="mb-4"
+                className="mb-4 p-3 bg-brand-yellow/20 rounded-xl border border-brand-yellow/30"
               >
-                <Users className="h-10 w-10 text-brand-yellow" />
+                <Users className="h-8 w-8 text-brand-blue-700" />
               </motion.div>
-              <motion.h3 className="text-6xl font-mono font-bold text-brand-blue mb-2">
-                +150
+              <motion.h3 className="text-5xl sm:text-6xl font-mono font-bold text-brand-blue-700 mb-2 tabular-nums">
+                +100
               </motion.h3>
-              <p className="font-subheading text-brand-blue-500 uppercase tracking-widest">Mensajeros Activos</p>
+              <p className="font-subheading text-brand-blue-500 uppercase tracking-widest text-sm font-bold">Flota Propia en Calle</p>
             </div>
           </motion.div>
 
           <motion.div
             variants={metricCardVariants}
-            whileHover={{ y: -6, boxShadow: '0 20px 40px -15px rgba(255, 236, 1, 0.15)', transition: springConfigCard }}
-            className="double-bezel-outer bg-white border border-brand-blue-200 group"
+            whileHover={{ y: -6, transition: springConfigCard }}
+            className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep"
           >
-            <div className="double-bezel-inner p-8 flex flex-col items-center text-center">
+            <div className="double-bezel-inner bg-white p-8 rounded-xl border border-brand-blue-50/50 flex flex-col items-center text-center">
               <motion.div
                 whileHover={{ scale: 1.1, transition: springConfigCard }}
-                className="mb-4"
+                className="mb-4 p-3 bg-brand-yellow/20 rounded-xl border border-brand-yellow/30"
               >
-                <HeartHandshake className="h-10 w-10 text-brand-yellow" />
+                <HeartHandshake className="h-8 w-8 text-brand-blue-700" />
               </motion.div>
-              <motion.h3 className="text-6xl font-mono font-bold text-brand-blue mb-2">
-                98%
+              <motion.h3 className="text-5xl sm:text-6xl font-mono font-bold text-brand-blue-700 mb-2 tabular-nums">
+                99.8%
               </motion.h3>
-              <p className="font-subheading text-brand-blue-500 uppercase tracking-widest">Satisfacción</p>
+              <p className="font-subheading text-brand-blue-500 uppercase tracking-widest text-sm font-bold">Efectividad de Entrega</p>
             </div>
           </motion.div>
 
           <motion.div
             variants={metricCardVariants}
-            whileHover={{ y: -6, boxShadow: '0 20px 40px -15px rgba(6, 54, 165, 0.2)', transition: springConfigCard }}
-            className="double-bezel-outer bg-white border border-brand-blue-200 group"
+            whileHover={{ y: -6, transition: springConfigCard }}
+            className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep"
           >
-            <div className="double-bezel-inner p-8 flex flex-col items-center text-center">
+            <div className="double-bezel-inner bg-white p-8 rounded-xl border border-brand-blue-50/50 flex flex-col items-center text-center">
               <motion.div
                 whileHover={{ scale: 1.1, rotate: -12, transition: springConfigCard }}
-                className="mb-4"
+                className="mb-4 p-3 bg-brand-yellow/20 rounded-xl border border-brand-yellow/30"
               >
-                <TrendingUp className="h-10 w-10 text-brand-yellow" />
+                <TrendingUp className="h-8 w-8 text-brand-blue-700" />
               </motion.div>
-              <motion.h3 className="text-6xl font-mono font-bold text-brand-blue mb-2">
-                +7
+              <motion.h3 className="text-5xl sm:text-6xl font-mono font-bold text-brand-blue-700 mb-2 tabular-nums">
+                +15
               </motion.h3>
-              <p className="font-subheading text-brand-blue-500 uppercase tracking-widest">Años de Experiencia</p>
+              <p className="font-subheading text-brand-blue-500 uppercase tracking-widest text-sm font-bold">Años en Calles de MDQ</p>
             </div>
           </motion.div>
         </motion.div>

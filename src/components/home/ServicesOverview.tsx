@@ -5,10 +5,48 @@ import { motion, AnimatePresence, useReducedMotion, useSpring, useMotionValue } 
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Zap, Package, Truck, Warehouse, Info, X, MapPin, ShieldCheck } from 'lucide-react';
 
+interface ServiceDetails {
+  summary: string;
+  features: string[];
+  ctaText: string;
+  ctaHref: string;
+}
+
+interface ServiceStats {
+  time: string;
+  price: string;
+  weight: string;
+}
+
+interface ServiceItem {
+  id: string;
+  title: string;
+  description: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+  badge: string;
+  city: string;
+  founded: string;
+  imageUrl: string;
+  cardStyleCenter: string;
+  cardStyleSide: string;
+  textColor: string;
+  titleColor: string;
+  descColor: string;
+  imgBlend: string;
+  badgeStyle: string;
+  statBoxStyle: string;
+  statValStyle: string;
+  statLabelStyle: string;
+  hintColor: string;
+  stats: ServiceStats;
+  details: ServiceDetails;
+}
+
 export default function ServicesOverview() {
   const reduceMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [selectedService, setSelectedService] = useState<any | null>(null);
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const [isAutoRotate, setIsAutoRotate] = useState<boolean>(true);
   const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
   const carouselRef = useRef<HTMLDivElement>(null);

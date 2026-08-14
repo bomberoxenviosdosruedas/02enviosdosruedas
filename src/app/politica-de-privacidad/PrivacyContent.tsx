@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import Link from "next/link";
 import {
   Shield,
@@ -177,7 +177,7 @@ export default function PrivacyContent() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const containerVariants: any = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -187,7 +187,7 @@ export default function PrivacyContent() {
     },
   };
 
-  const cardVariants: any = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 25 },
     visible: {
       opacity: 1,
