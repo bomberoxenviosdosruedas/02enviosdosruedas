@@ -160,19 +160,19 @@ export default function VisionSection() {
               whileHover={{ y: -6, transition: springConfigCard }}
               viewport={{ once: true }}
               transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.1 }}
-              className="double-bezel-outer hover:shadow-soft-elevation group"
+              className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover:shadow-antigravity-deep group"
             >
-              <div className="double-bezel-inner p-6 sm:p-8 flex flex-col justify-between h-full">
+              <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full">
                 <div className="flex justify-between items-start mb-6">
                   <motion.div
-                    className="p-3 rounded-xl bg-brand-blue/5 text-brand-blue group-hover:bg-brand-blue group-hover:text-brand-yellow border border-brand-blue/10"
+                    className="p-3 rounded-xl bg-brand-blue-50 text-brand-blue-700 group-hover:bg-brand-blue-700 group-hover:text-brand-yellow-500 border border-brand-blue-100 transition-colors"
                     whileHover={{ scale: 1.05, transition: springConfigCard }}
                   >
                     <ShieldCheck className="h-5 w-5" />
                   </motion.div>
                 </div>
                 <div>
-                  <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue leading-none mb-2">
+                  <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue-700 leading-none mb-2 tabular-nums">
                     0
                   </h3>
                   <p className="text-[10px] text-brand-blue-600 font-sans uppercase tracking-widest font-semibold">
@@ -189,22 +189,22 @@ export default function VisionSection() {
               whileHover={{ y: -6, transition: springConfigCard }}
               viewport={{ once: true }}
               transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
-              className="double-bezel-outer hover:shadow-soft-elevation group"
+              className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover:shadow-antigravity-deep group"
             >
-              <div className="double-bezel-inner p-6 sm:p-8 flex flex-col justify-between h-full">
+              <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full">
                 <div className="flex justify-between items-start mb-6">
                   <motion.div
-                    className="p-3 rounded-xl bg-brand-blue/5 text-brand-blue group-hover:bg-brand-blue group-hover:text-brand-yellow border border-brand-blue/10"
+                    className="p-3 rounded-xl bg-brand-blue-50 text-brand-blue-700 group-hover:bg-brand-blue-700 group-hover:text-brand-yellow-500 border border-brand-blue-100 transition-colors"
                     whileHover={{ scale: 1.05, transition: springConfigCard }}
                   >
                     <Users className="h-5 w-5" />
                   </motion.div>
                 </div>
                 <div>
-                  <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue leading-none mb-2">
+                  <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue-700 leading-none mb-2 tabular-nums">
                     +50
                   </h3>
-                  <p className="text-[10px] text-brand-blue-400 font-sans uppercase tracking-widest font-semibold">
+                  <p className="text-[10px] text-brand-blue-600 font-sans uppercase tracking-widest font-semibold">
                     Emprendedores confían
                   </p>
                 </div>

@@ -95,7 +95,7 @@ export default function LeafletRouteMap({
       activeBounds.push(latLng);
       markerAInstance.current = L.marker(latLng, {
         icon: L.divIcon({
-          html: `<div class="bg-brand-blue-400 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center border-2 border-white shadow-md">A</div>`,
+          html: `<div class="relative flex items-center justify-center w-8 h-8"><span class="absolute w-full h-full rounded-full bg-brand-blue-500/40 animate-ping"></span><div class="relative bg-brand-blue-700 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center border-2 border-white shadow-lg text-sm font-display">A</div></div>`,
           className: '',
           iconSize: [32, 32],
           iconAnchor: [16, 16],
@@ -109,7 +109,7 @@ export default function LeafletRouteMap({
       activeBounds.push(latLng);
       markerBInstance.current = L.marker(latLng, {
         icon: L.divIcon({
-          html: `<div class="bg-brand-yellow text-brand-blue font-bold rounded-full w-8 h-8 flex items-center justify-center border-2 border-white shadow-md">B</div>`,
+          html: `<div class="relative flex items-center justify-center w-8 h-8"><span class="absolute w-full h-full rounded-full bg-brand-yellow-500/50 animate-ping"></span><div class="relative bg-brand-yellow-500 text-brand-blue-900 font-bold rounded-full w-8 h-8 flex items-center justify-center border-2 border-brand-blue-700 shadow-lg text-sm font-display">B</div></div>`,
           className: '',
           iconSize: [32, 32],
           iconAnchor: [16, 16],

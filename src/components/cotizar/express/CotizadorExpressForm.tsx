@@ -40,7 +40,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
     e.preventDefault();
     startTransition(async () => {
     if (!origenCoords || !destinoCoords) {
-      setError('Por favor, selecciona direcciones válidas de la lista de sugerencias.');
+      setError('Por favor, elegí direcciones válidas de la lista de sugerencias.');
       return;
     }
 

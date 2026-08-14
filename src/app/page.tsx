@@ -5,7 +5,6 @@ import ServicesOverview from '@/src/components/home/ServicesOverview';
 import SliderServicios from '@/src/components/home/SliderServicios';
 import EmprendedoresHome from '@/src/components/home/EmprendedoresHome';
 import CtaSection from '@/src/components/home/CtaSection';
-import SocialProofSection from '@/src/components/home/SocialProofSection';
 import { Bike } from 'lucide-react';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
@@ -64,11 +63,6 @@ export default function Home() {
       {/* 5. Entrepreneurs and Businesses Solutions Panel */}
       <div className="relative z-10">
         <EmprendedoresHome />
-      </div>
-
-      {/* 6. Social Proof & Testimonials */}
-      <div className="relative z-10">
-        <SocialProofSection />
       </div>
 
       {/* 7. Call to Action High Conversion Segment */}

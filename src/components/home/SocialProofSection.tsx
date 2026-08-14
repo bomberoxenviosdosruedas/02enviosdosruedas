@@ -165,37 +165,41 @@ export default function SocialProofSection() {
             <motion.div
               key={idx}
               variants={itemVariants}
-              whileHover={{ y: -4, boxShadow: '0 20px 40px -15px rgba(6, 54, 165, 0.15)', transition: springConfigCard }}
-              className="bg-white border-2 border-brand-blue-100 p-8 rounded-2xl shadow-[4px_4px_0px_var(--color-brand-blue-200)] relative group"
+              whileHover={{ y: -4, transition: springConfigCard }}
+              className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep"
             >
-              <motion.div
-                className="absolute top-6 right-6 h-8 w-8 text-brand-yellow/30"
-                whileHover={{ rotate: 180, scale: 1.1, transition: springConfigCard }}
-              >
-                <Quote className="h-full w-full" />
-              </motion.div>
-              <motion.div
-                className="flex text-brand-yellow mb-4"
-                whileHover={{ x: 4, transition: springConfigCard }}
-              >
-                {[1,2,3,4,5].map(star => (
-                  <motion.span
-                    key={star}
-                    className="w-4 h-4 fill-current"
-                    whileHover={{ scale: 1.2, transition: springConfigCard }}
+              <div className="double-bezel-inner bg-white p-7 rounded-xl border border-brand-blue-50/50 shadow-sm relative flex flex-col justify-between h-full">
+                <motion.div
+                  className="absolute top-6 right-6 h-8 w-8 text-brand-yellow-500/30"
+                  whileHover={{ rotate: 180, scale: 1.1, transition: springConfigCard }}
+                >
+                  <Quote className="h-full w-full" />
+                </motion.div>
+                <div>
+                  <motion.div
+                    className="flex text-brand-yellow-500 mb-4"
+                    whileHover={{ x: 4, transition: springConfigCard }}
                   >
-                    <Star className="w-full h-full" />
-                  </motion.span>
-                ))}
-              </motion.div>
-              <motion.p className="text-brand-blue-600 font-sans italic mb-6 text-sm leading-relaxed">
-                &ldquo;{t.text}&rdquo;
-              </motion.p>
-              <div className="border-t border-brand-blue-50 pt-4 mt-auto">
-                <motion.p className="font-bold text-brand-blue font-sans text-sm uppercase tracking-wide">
-                  {t.author}
-                </motion.p>
-                <p className="text-xs text-brand-blue-400 font-sans">{t.role}</p>
+                    {[1,2,3,4,5].map(star => (
+                      <motion.span
+                        key={star}
+                        className="w-4 h-4 fill-current"
+                        whileHover={{ scale: 1.2, transition: springConfigCard }}
+                      >
+                        <Star className="w-full h-full" />
+                      </motion.span>
+                    ))}
+                  </motion.div>
+                  <motion.p className="text-brand-blue-600 font-sans italic mb-6 text-sm leading-relaxed">
+                    &ldquo;{t.text}&rdquo;
+                  </motion.p>
+                </div>
+                <div className="border-t border-brand-blue-50 pt-4 mt-auto">
+                  <motion.p className="font-bold text-brand-blue-700 font-sans text-sm uppercase tracking-wide">
+                    {t.author}
+                  </motion.p>
+                  <p className="text-xs text-brand-blue-400 font-sans">{t.role}</p>
+                </div>
               </div>
             </motion.div>
           ))}

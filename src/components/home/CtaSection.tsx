@@ -45,17 +45,17 @@ export default function CtaSection() {
   return (
     <section
       id="cta-section"
-      className="py-24 bg-brand-blue-700 relative z-10 overflow-hidden px-4 sm:px-6 lg:px-8"
+      className="py-20 lg:py-28 bg-brand-blue-700 relative z-10 overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       <motion.div
-        className="max-w-6xl mx-auto double-bezel-outer bg-brand-blue-100/50 p-2 sm:p-4 rounded-[2.5rem]"
+        className="max-w-6xl mx-auto double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 sm:p-3 rounded-3xl shadow-antigravity-deep"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
       >
         <motion.div
-          className="double-bezel-inner bg-white rounded-[2rem] p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 border-2 border-brand-blue-100 shadow-minimal relative overflow-hidden"
+          className="double-bezel-inner bg-white rounded-2xl p-8 sm:p-12 lg:p-14 flex flex-col lg:flex-row items-center gap-10 lg:gap-16 border border-brand-blue-50/50 shadow-sm relative overflow-hidden"
           variants={itemVariants}
         >
 

@@ -123,8 +123,12 @@ export default function AddressAutocomplete({
           onChange={handleInputChange}
           className={className}
           autoComplete="off"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded={isOpen && suggestions.length > 0}
+          aria-controls={`${id}-suggestions`}
         />
-        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-brand-blue-300">
+        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-brand-blue-300 pointer-events-none" aria-hidden="true">
           {isLoading ? (
             <Loader2 className="h-4 w-4 animate-spin" />
           ) : (
@@ -134,14 +138,20 @@ export default function AddressAutocomplete({
       </div>
 
       {isOpen && suggestions.length > 0 && (
-        <ul className="absolute z-50 w-full mt-1 bg-brand-blue-700 border border-white/10 rounded-xl max-h-60 overflow-y-auto shadow-2xl text-brand-blue-100 divide-y divide-white/5">
+        <ul
+          id={`${id}-suggestions`}
+          role="listbox"
+          className="absolute z-50 w-full mt-1 bg-brand-blue-700 border border-white/10 rounded-xl max-h-60 overflow-y-auto shadow-2xl text-brand-blue-100 divide-y divide-white/5"
+        >
           {suggestions.map((s) => (
             <li
               key={s.place_id}
+              role="option"
+              aria-selected="false"
               onClick={() => handleSelect(s)}
               className="px-4 py-3 hover:bg-white/5 cursor-pointer flex items-start gap-3 transition-colors text-sm"
             >
-              <MapPin className="h-5 w-5 text-brand-yellow shrink-0 mt-0.5" />
+              <MapPin className="h-5 w-5 text-brand-yellow shrink-0 mt-0.5" aria-hidden="true" />
               <div>
                 <p className="font-semibold text-white">
                   {s.description.split(',')[0]}

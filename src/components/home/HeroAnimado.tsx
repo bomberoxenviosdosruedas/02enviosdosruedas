@@ -76,34 +76,43 @@ export default function HeroAnimado() {
   // Debounced mouse move handler to reduce main thread work
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (reduceMotion) return;
-    if (mouseMoveRAF.current) return; // Throttle to one per frame
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+
+    if (mouseMoveRAF.current) return;
 
     mouseMoveRAF.current = requestAnimationFrame(() => {
-      const rect = e.currentTarget.getBoundingClientRect();
       const width = rect.width;
       const height = rect.height;
-      const x = (e.clientX - rect.left) / width - 0.5;
-      const y = (e.clientY - rect.top) / height - 0.5;
-      mouseX.set(x);
-      mouseY.set(y);
+      if (width > 0 && height > 0) {
+        const x = (clientX - rect.left) / width - 0.5;
+        const y = (clientY - rect.top) / height - 0.5;
+        mouseX.set(x);
+        mouseY.set(y);
+      }
       mouseMoveRAF.current = null;
     });
   };
 
   const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (reduceMotion) return;
-    if (e.touches.length === 0) return;
+    if (reduceMotion || e.touches.length === 0) return;
+    const touch = e.touches[0];
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clientX = touch.clientX;
+    const clientY = touch.clientY;
+
     if (mouseMoveRAF.current) return;
 
     mouseMoveRAF.current = requestAnimationFrame(() => {
-      const touch = e.touches[0];
-      const rect = e.currentTarget.getBoundingClientRect();
       const width = rect.width;
       const height = rect.height;
-      const x = (touch.clientX - rect.left) / width - 0.5;
-      const y = (touch.clientY - rect.top) / height - 0.5;
-      mouseX.set(x);
-      mouseY.set(y);
+      if (width > 0 && height > 0) {
+        const x = (clientX - rect.left) / width - 0.5;
+        const y = (clientY - rect.top) / height - 0.5;
+        mouseX.set(x);
+        mouseY.set(y);
+      }
       mouseMoveRAF.current = null;
     });
   };
@@ -326,13 +335,13 @@ export default function HeroAnimado() {
                   }}
                 >
                   <div className="relative rounded-2xl overflow-hidden border border-brand-blue-100 bg-white p-2.5 sm:p-3 shadow-[4px_4px_0px_var(--color-brand-blue-600)]">
-                    <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
+                    <div className="relative h-40 sm:h-48 w-full overflow-hidden rounded-xl" style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
                       <Image
                         src="/card_mapa.webp"
                         alt="Mapa de Cobertura de Mar del Plata"
                         fill={true}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 350px"
-                        className="rounded-xl object-cover h-40 sm:h-48 w-full"
+                        className="rounded-xl object-cover"
                       />
                     </div>
                     <div className="mt-3 flex items-center justify-between text-brand-ink font-mono" style={{ transform: 'translateZ(30px)' }}>
@@ -365,13 +374,13 @@ export default function HeroAnimado() {
                   whileHover={{ scale: 1.02, transition: springConfigSnappy }}
                 >
                   <div className="relative rounded-2xl overflow-hidden border border-brand-blue-100 bg-white p-2.5 sm:p-3 shadow-[4px_4px_0px_var(--color-brand-blue-600)]">
-                    <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
+                    <div className="relative h-40 sm:h-48 w-full overflow-hidden rounded-xl" style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
                       <Image
                         src="/card_mapa.webp"
                         alt="Mapa de Cobertura de Mar del Plata"
                         fill={true}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 350px"
-                        className="rounded-xl object-cover h-40 sm:h-48 w-full"
+                        className="rounded-xl object-cover"
                       />
                     </div>
                     <div className="mt-3 flex items-center justify-between text-brand-ink font-mono" style={{ transform: 'translateZ(30px)' }}>
