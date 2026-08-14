@@ -71,13 +71,13 @@ export const MobileNav: React.FC<MobileNavProps> = ({
             {/* Header Mobile Brand Info */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0">
               <Link href="/" onClick={onClose} className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50 rounded-lg">
-                <div className="relative w-32 h-10">
+                <div className="relative w-24 h-8">
                   <Image
                     src="/logo-master.svg"
                     alt="Logo Envíos Dos Ruedas"
-                    width={128}
-                    height={40}
-                    className="object-contain w-32 h-auto"
+                    width={96}
+                    height={30}
+                    className="object-contain w-24 h-auto"
                     priority
                   />
                 </div>
