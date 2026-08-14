@@ -7,13 +7,13 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function NetworksChannels() {
   return (
-    <section 
-      id="networks-channels" 
-      className="py-24 bg-white relative z-10 border-t border-brand-blue-100/30"
+    <section
+      id="networks-channels"
+      className="py-24 bg-brand-white-50 relative z-10 border-t border-brand-blue-100/30"
     >
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-yellow-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
@@ -23,10 +23,10 @@ export default function NetworksChannels() {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
         }}
       >
-        
+
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1 bg-brand-yellow text-brand-blue rounded-full text-base font-subheading uppercase tracking-widest inline-block border border-brand-blue/50">
+          <span className="px-4 py-1 bg-brand-yellow-500 text-brand-blue-700 rounded-full text-base font-subheading uppercase tracking-widest inline-block border border-brand-blue-200/50">
             CONEXIÓN SOCIAL
           </span>
           <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[0.02em] leading-[1.1]">
@@ -40,7 +40,7 @@ export default function NetworksChannels() {
 
         {/* Asymmetric Bento Grid (Replaces banned 3 equal card layout) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          
+
           {/* WhatsApp: Full width 12 columns (Main Call Channel) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
@@ -51,7 +51,7 @@ export default function NetworksChannels() {
             <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-brand-blue">
               <div className="space-y-4 max-w-3xl">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 bg-brand-yellow-50 text-brand-blue border border-brand-yellow-100 rounded-2xl relative w-12 h-12 flex items-center justify-center shrink-0">
+                  <div className="p-3 bg-brand-yellow-50 text-brand-blue-700 border border-brand-yellow-100 rounded-2xl relative w-12 h-12 flex items-center justify-center shrink-0">
                     <Image
                       src="/iconos/whatapps.svg"
                       alt="WhatsApp"
@@ -78,10 +78,10 @@ export default function NetworksChannels() {
                   href="https://wa.me/5492236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full md:w-auto cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue border border-brand-blue/50 font-subheading tracking-wider text-lg uppercase shadow-sm justify-center"
+                  className="w-full md:w-auto cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 border border-brand-blue-200 font-subheading tracking-wider text-lg uppercase shadow-sm justify-center"
                 >
                   <span>CHATEÁ AHORA</span>
-                  <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue shrink-0">
+                  <span className="cta-nested-icon bg-brand-blue-100 text-brand-blue-700 shrink-0">
                     <ArrowRight className="h-5 w-5" />
                   </span>
                 </a>
@@ -130,10 +130,10 @@ export default function NetworksChannels() {
                   href="https://instagram.com/enviosdosruedas"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full cta-nested-pill bg-brand-blue hover:bg-brand-blue-600 text-white font-subheading tracking-wider text-base uppercase shadow-sm justify-center"
+                  className="w-full cta-nested-pill bg-brand-blue-700 hover:bg-brand-blue-600 text-brand-white-50 font-subheading tracking-wider text-base uppercase shadow-sm justify-center"
                 >
                   <span>SEGUINOS EN INSTAGRAM</span>
-                  <span className="cta-nested-icon bg-white/20 text-white shrink-0">
+                  <span className="cta-nested-icon bg-brand-blue-50 text-brand-blue-700 shrink-0">
                     <ArrowRight className="h-4.5 w-4.5" />
                   </span>
                 </a>
@@ -182,10 +182,10 @@ export default function NetworksChannels() {
                   href="https://facebook.com/enviosdosruedas"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full cta-nested-pill bg-brand-blue hover:bg-brand-blue-600 text-white font-subheading tracking-wider text-base uppercase shadow-sm justify-center"
+                  className="w-full cta-nested-pill bg-brand-blue-700 hover:bg-brand-blue-600 text-brand-white-50 font-subheading tracking-wider text-base uppercase shadow-sm justify-center"
                 >
                   <span>SEGUINOS EN FACEBOOK</span>
-                  <span className="cta-nested-icon bg-white/20 text-white shrink-0">
+                  <span className="cta-nested-icon bg-brand-blue-50 text-brand-blue-700 shrink-0">
                     <ArrowRight className="h-4.5 w-4.5" />
                   </span>
                 </a>

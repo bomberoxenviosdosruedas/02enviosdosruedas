@@ -122,7 +122,7 @@ export default function RecentPosts() {
                     <Image
                       src={post.image}
                       alt={post.alt || "Envíos DosRuedas Social Post"}
-                      fill
+                      fill={true}
                       referrerPolicy="no-referrer"
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -146,7 +146,7 @@ export default function RecentPosts() {
                             <Image
                               src={post.avatar}
                               alt="Envíos DosRuedas Avatar"
-                              fill
+                              fill={true}
                               referrerPolicy="no-referrer"
                               sizes="40px"
                               className="object-cover"

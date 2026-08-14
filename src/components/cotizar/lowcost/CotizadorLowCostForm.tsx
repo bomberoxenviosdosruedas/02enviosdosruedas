@@ -93,6 +93,12 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
     return `https://wa.me/542236602699?text=${encodeURIComponent(text)}`;
   };
 
+  const getDeliveryETA = (minutes: number): string => {
+    if (minutes <= 60) return 'Hoy (Mismo Día)';
+    if (minutes <= 180) return `En ${Math.ceil(minutes / 60)} hs (Mismo Día)`;
+    return `${Math.ceil(minutes / 60)} hs`;
+  };
+
   return (
     <div id="cotizador-lowcost-form" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       {/* Form Input & Results Panel */}
@@ -250,8 +256,8 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                         <span className="block text-[10px] font-subheading font-bold text-brand-blue-600 uppercase tracking-wider">
                           ENTREGA ESTIMADA
                         </span>
-                        <span className="text-xl font-mono text-brand-blue-700 font-bold">
-                          {result.tiempo} min
+                        <span className="text-lg font-mono text-brand-blue-700 font-bold">
+                          {getDeliveryETA(result.tiempo)}
                         </span>
                       </div>
                     </div>

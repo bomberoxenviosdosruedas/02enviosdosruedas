@@ -44,7 +44,7 @@ export default function FaqHero() {
         <Image
           src="/delivery-background.jpg"
           alt="Fondo de reparto urbano"
-          fill
+          fill={true}
           priority
           sizes="100vw"
           className="object-cover"
@@ -79,7 +79,7 @@ export default function FaqHero() {
                 <Image
                   src="/img/generales/card_express.png"
                   alt="Preguntas Soporte"
-                  fill
+                  fill={true}
                   sizes="(max-width: 768px) 64px, 80px"
                   className="object-cover"
                 />

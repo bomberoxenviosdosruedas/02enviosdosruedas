@@ -65,9 +65,9 @@ export default function LowCostPricing() {
   };
 
   return (
-    <section 
-      id="lowcost-pricing" 
-      className="py-24 bg-brand-blue relative overflow-hidden text-white border-t-4 border-b-4 border-brand-yellow"
+    <section
+      id="lowcost-pricing"
+      className="py-24 bg-brand-blue-700 relative overflow-hidden text-white border-t-4 border-b-4 border-brand-yellow-500"
       ref={pricingRef}
     >
       {/* Background Sparkles overlay */}
@@ -82,7 +82,7 @@ export default function LowCostPricing() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        
+
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
           <TimelineContent
@@ -90,12 +90,12 @@ export default function LowCostPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="span"
-            className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-brutalist font-bold"
+            className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue-700 shadow-brutalist font-bold"
           >
             Tarifario Inteligente
           </TimelineContent>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white flex justify-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-white-50 flex justify-center">
             <VerticalCutReveal
               splitBy="words"
               staggerDuration={0.1}
@@ -111,11 +111,11 @@ export default function LowCostPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="p"
-            className="text-brand-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
+            className="text-brand-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
           >
             Eficiencia en ruteo masivo. Garantizamos entregas antes de las 19:00 hs para pedidos cargados antes de las 13:00 hs.
           </TimelineContent>
-          <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
+          <div className="h-2 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
         </div>
 
         {/* Pricing Cards Grid Bento layout with Double Bezel */}
@@ -140,22 +140,22 @@ export default function LowCostPricing() {
                 className={`${spanClass} double-bezel-outer flex flex-col`}
               >
                 <Card
-                  className={`double-bezel-inner border-0 bg-white text-brand-blue flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-none ${
+                  className={`double-bezel-inner border-0 bg-brand-white-50 text-brand-blue-700 flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-none ${
                     zone.highlight ? 'lg:scale-[1.03] relative z-20 shadow-xl' : ''
                   }`}
                 >
                   <CardHeader className="p-6 pb-2 text-left relative">
                     {zone.highlight && (
-                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-yellow text-brand-blue border-2 border-brand-blue font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-md">
+                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-yellow-500 text-brand-blue-900 border-2 border-brand-blue-700 font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-md">
                         RECOMENDADO PYME
                       </span>
                     )}
 
                     <div>
-                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue font-bold">
+                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-700 font-bold">
                         {zone.name}
                       </span>
-                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[48px] leading-tight text-brand-ink font-bold">
+                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[48px] leading-tight text-brand-blue-700 font-bold">
                         {zone.scope}
                       </h3>
                     </div>
@@ -187,10 +187,10 @@ export default function LowCostPricing() {
 
                   <CardContent className="p-6 pt-0 flex flex-col justify-between flex-grow">
                     {/* Bullets */}
-                    <ul className="space-y-2.5 pt-4 border-t-2 border-brand-blue-50 mb-6">
+                    <ul className="space-y-2.5 pt-4 border-t-2 border-brand-blue-100 mb-6">
                       {zone.bullets.map((bullet) => (
                         <li key={bullet} className="flex items-center gap-2 text-xs text-brand-blue-600">
-                          <Check className="h-4.5 w-4.5 shrink-0 text-brand-blue" />
+                          <Check className="h-4.5 w-4.5 shrink-0 text-brand-blue-700" />
                           <span className="font-sans text-sm opacity-90">{bullet}</span>
                         </li>
                       ))}
@@ -199,10 +199,10 @@ export default function LowCostPricing() {
                     <div>
                       <Link
                         href="/cotizar/lowcost"
-                        className="w-full cta-nested-pill bg-brand-blue text-brand-yellow hover:bg-brand-blue-600"
+                        className="w-full cta-nested-pill bg-brand-blue-700 text-brand-yellow-500 hover:bg-brand-blue-600"
                       >
                         <span>Ver {zone.name}</span>
-                        <span className="cta-nested-icon bg-brand-yellow/20">
+                        <span className="cta-nested-icon bg-brand-yellow-100">
                           <ArrowRight className="h-4 w-4 animate-pulse shrink-0" />
                         </span>
                       </Link>
@@ -222,15 +222,15 @@ export default function LowCostPricing() {
           as="div"
           className="double-bezel-outer p-2 relative overflow-hidden"
         >
-          <div className="double-bezel-inner bg-white text-brand-ink rounded-3xl p-8 relative overflow-hidden">
-          <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-brand-blue-50/50 pointer-events-none -z-10">
-            <Landmark className="h-64 w-64 text-brand-blue-50" />
+          <div className="double-bezel-inner bg-brand-white-50 text-brand-blue-700 rounded-3xl p-8 relative overflow-hidden">
+          <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-brand-blue-100/50 pointer-events-none -z-10">
+            <Landmark className="h-64 w-64 text-brand-blue-100" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            
+
             <div className="lg:col-span-8 space-y-4 text-left">
-              <span className="px-4 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border border-brand-blue/20">
+              <span className="px-4 py-1 bg-brand-blue-100 text-brand-blue-700 rounded-full text-xs font-subheading uppercase tracking-widest inline-block border border-brand-blue-200">
                 Zona 5 (Más de 10 km)
               </span>
               <h3 className="text-3xl font-mono uppercase tracking-tight text-brand-blue-700 font-bold">
@@ -247,10 +247,10 @@ export default function LowCostPricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="lowcost-pricing-cta-whatsapp"
-                className="cta-nested-pill bg-brand-blue text-brand-yellow hover:bg-brand-blue-600 w-full sm:w-auto"
+                className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 w-full sm:w-auto"
               >
                 <span>Consultar por WhatsApp</span>
-                <span className="cta-nested-icon bg-brand-yellow/20">
+                <span className="cta-nested-icon bg-brand-blue-200">
                   <MessageSquare className="h-5 w-5 fill-current animate-pulse" />
                 </span>
               </a>

@@ -33,13 +33,13 @@ export default function NetworksBenefits() {
   ];
 
   return (
-    <section 
-      id="networks-benefits" 
-      className="py-24 bg-white relative z-10 overflow-hidden border-t border-brand-blue-100/30"
+    <section
+      id="networks-benefits"
+      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t border-brand-blue-100/30"
     >
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
@@ -49,10 +49,10 @@ export default function NetworksBenefits() {
           visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
         }}
       >
-        
+
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1 bg-brand-yellow text-brand-blue rounded-full text-base font-subheading uppercase tracking-widest inline-block border border-brand-blue/50">
+          <span className="px-4 py-1 bg-brand-yellow-500 text-brand-blue-700 rounded-full text-base font-subheading uppercase tracking-widest inline-block border border-brand-blue-200/50">
             VALORES DE COMUNIDAD
           </span>
           <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[0.02em] leading-[1.1]">

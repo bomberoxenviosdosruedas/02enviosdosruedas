@@ -16,7 +16,7 @@ export default function ContactHero() {
         <Image
           src="/delivery-background.jpg"
           alt="Envíos DosRuedas Contacto"
-          fill
+          fill={true}
           priority
           sizes="100vw"
           className="object-cover"

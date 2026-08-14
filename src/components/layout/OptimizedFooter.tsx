@@ -41,7 +41,7 @@ export default function OptimizedFooter() {
                 <Image
                   src="/logo-master.svg"
                   alt="Isotipo Envíos Dos Ruedas"
-                  fill
+                  fill={true}
                   className="object-contain"
                   priority
                 />
@@ -84,10 +84,10 @@ export default function OptimizedFooter() {
                     href="https://wa.me/542236602699"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center transition-all duration-200 border border-[#25D366] hover:border-white shadow-sm p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center transition-all duration-200 border border-brand-yellow-500 hover:border-white shadow-sm p-2.5 group cursor-pointer"
                     title="WhatsApp"
                   >
-                    <FaWhatsapp className="h-5 w-5 text-white" />
+                    <FaWhatsapp className="h-5 w-5 text-brand-blue-900" />
                   </a>
                 </motion.div>
 

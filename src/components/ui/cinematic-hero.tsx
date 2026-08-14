@@ -360,7 +360,7 @@ export function CinematicHero({ onComplete, className, ...props }: CinematicHero
               <Image
                 src="/logo-envios-simplified.webp"
                 alt="Envíos Dos Ruedas Logo"
-                fill sizes="160px"
+                fill={true} sizes="160px"
                 className="object-contain drop-shadow-[0_8px_20px_rgba(255,236,1,0.4)]"
                 priority
               />
@@ -413,7 +413,7 @@ export function CinematicHero({ onComplete, className, ...props }: CinematicHero
                   <Image
                     src="/logo-envios-simplified.webp"
                     alt="Envíos Dos Ruedas"
-                    fill sizes="128px"
+                    fill={true} sizes="128px"
                     className="object-contain drop-shadow-[0_4px_12px_rgba(255,236,1,0.3)]"
                   />
                 </div>

@@ -116,7 +116,7 @@ export default function CotizadorExpressHero() {
         <Image
           src="/delivery-background.jpg"
           alt="Fondo de reparto"
-          fill
+          fill={true}
           priority
           sizes="100vw"
           className="object-cover"

@@ -29,11 +29,11 @@ export default function ExpressFeatures() {
   ];
 
   return (
-    <section 
-      id="express-features" 
-      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t-4 border-brand-blue"
+    <section
+      id="express-features"
+      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t-4 border-brand-blue-700"
     >
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
@@ -44,24 +44,24 @@ export default function ExpressFeatures() {
         }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Header Segment (Left Side in Desk) */}
           <div className="lg:col-span-5 space-y-6 text-left">
-            <span className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow shadow-[2px_2px_0px_rgba(0,39,124,0.2)]">
+            <span className="px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow-500 shadow-[2px_2px_0px_rgba(0,39,124,0.2)]">
               SOLUCIONES PREMIUM
             </span>
-            
-            <h2 className="text-brand-blue text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-none border-l-4 border-brand-yellow pl-4">
+
+            <h2 className="text-brand-blue-700 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-none border-l-4 border-brand-yellow-500 pl-4">
               ENTREGAS RÁPIDAS <br />
-              <span className="text-brand-yellow">Y EFICIENTES</span>
+              <span className="text-brand-yellow-500">Y EFICIENTES</span>
             </h2>
-            
+
             <p className="text-brand-blue-500 text-base leading-relaxed font-sans">
               Nuestro servicio Express ofrece cobertura total en Mar del Plata, llegando a todos los barrios de la ciudad, con posibilidad de elegir el rango horario de entrega (Chauvín, Los Troncos, Güemes, Puerto, Faro, Acantilados, Constitución, Camet y muchos más).
             </p>
 
-            <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-blue font-bold uppercase tracking-wider font-subheading">
-              <Compass className="h-5 w-5 text-brand-yellow shrink-0 animate-spin-slow fill-brand-blue" />
+            <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-blue-700 font-bold uppercase tracking-wider font-subheading">
+              <Compass className="h-5 w-5 text-brand-yellow-500 shrink-0 animate-spin-slow fill-current" />
               <span>LOGÍSTICA URBANA INTEGRAL</span>
             </div>
           </div>
@@ -79,19 +79,19 @@ export default function ExpressFeatures() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ 
-                    y: -5, 
+                  whileHover={{
+                    y: -5,
                     x: 2,
                     boxShadow: "0 20px 40px -15px rgba(6, 54, 165, 0.15), 0 0 25px -5px rgba(255, 236, 1, 0.2)"
                   }}
                   className={`${spanClass} double-bezel-outer transition-all duration-500 flex flex-col group cursor-pointer`}
                 >
                   <div className="double-bezel-inner p-6 flex flex-col md:flex-row gap-5 items-start h-full">
-                    <div className="p-3 bg-brand-blue-600 text-brand-yellow rounded-2xl shrink-0 border border-brand-blue-500 shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <div className="p-3 bg-brand-blue-600 text-brand-yellow-500 rounded-2xl shrink-0 border border-brand-blue-500 shadow-md group-hover:scale-105 transition-transform duration-300">
                       <Icon className="h-5.5 w-5.5 shrink-0" />
                     </div>
                     <div className="space-y-1.5">
-                      <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue leading-tight group-hover:text-brand-blue-600 transition-colors duration-300">
+                      <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue-700 leading-tight group-hover:text-brand-blue-600 transition-colors duration-300">
                         {feat.title}
                       </h4>
                       <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">

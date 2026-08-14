@@ -44,7 +44,7 @@ export default function NetworksHero() {
         <Image
           src="/delivery-background.jpg"
           alt="Fondo de reparto urbano"
-          fill
+          fill={true}
           priority
           sizes="100vw"
           className="object-cover"
@@ -79,7 +79,7 @@ export default function NetworksHero() {
                 <Image
                   src="/img/generales/repartidor.webp"
                   alt="Comunidad en movimiento"
-                  fill
+                  fill={true}
                   sizes="(max-width: 768px) 64px, 80px"
                   className="object-cover"
                 />

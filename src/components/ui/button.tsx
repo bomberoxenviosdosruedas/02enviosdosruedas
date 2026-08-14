@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-brand-blue text-white hover:bg-brand-blue-600 transition-colors duration-200",
+        default: "bg-brand-blue-700 text-white hover:bg-brand-blue-600 transition-colors duration-200",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
@@ -19,7 +19,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         haptic: "bg-brand-blue-700 text-white transition-all duration-300 ease-out hover:scale-[1.02] active:scale-95 active:shadow-none shadow-md",
-        glow: "bg-brand-yellow-500 text-brand-blue-700 hover:bg-brand-yellow-400 transition-all duration-300 ease-out hover:shadow-cta-glow active:scale-95 font-bold border border-brand-yellow-500",
+        glow: "bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 transition-all duration-300 ease-out hover:shadow-cta-glow active:scale-95 font-bold border border-brand-yellow-500",
         elevated: "bg-white text-brand-blue-700 border border-brand-blue-100 shadow-elevated hover:shadow-hover-lift hover:-translate-y-1 transition-all duration-300 ease-out active:translate-y-0 active:scale-95",
       },
       size: {

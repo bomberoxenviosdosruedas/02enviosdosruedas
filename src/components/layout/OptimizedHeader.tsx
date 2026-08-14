@@ -96,7 +96,7 @@ export default function OptimizedHeader() {
                 <Image
                   src="/logo-master.svg"
                   alt="Isotipo Envíos Dos Ruedas"
-                  fill
+                  fill={true}
                   className="object-contain"
                   priority
                 />

@@ -4,12 +4,12 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/src/lib/utils"
 
 const cardVariants = cva(
-  "rounded-lg border bg-card text-card-foreground shadow-sm",
+  "rounded-lg border bg-brand-white-50 text-brand-blue-900 shadow-sm",
   {
     variants: {
       variant: {
-        default: "",
-        bezel: "double-bezel-outer p-2 shadow-float-shadow bg-brand-blue-50 border-brand-blue-100",
+        default: "border-brand-blue-100",
+        bezel: "double-bezel-outer p-2 shadow-float-shadow bg-brand-blue-50/80 border-brand-blue-100",
         glass: "glass-card",
         elevated: "shadow-elevated hover:shadow-hover-lift transition-shadow duration-300",
       },
@@ -61,7 +61,7 @@ const CardTitle = ({ className, ref, ...props }: React.HTMLAttributes<HTMLHeadin
   <h3
     ref={ref}
     className={cn(
-      "text-2xl font-subheading uppercase tracking-wider leading-none text-brand-blue",
+      "text-2xl font-subheading uppercase tracking-wider leading-none text-brand-blue-700",
       className,
     )}
     {...props}

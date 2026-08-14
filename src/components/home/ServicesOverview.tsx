@@ -292,8 +292,8 @@ export default function ServicesOverview() {
               whileTap={{ scale: 0.98 }}
               className={`px-4 py-2 rounded-full text-xs font-bold font-subheading tracking-wider border transition-colors cursor-pointer ${
                 isAutoRotate
-                  ? 'bg-brand-yellow text-brand-blue border-brand-yellow shadow-cta-glow'
-                  : 'bg-white/10 text-gray-300 border-white/20'
+                  ? 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-500 shadow-cta-glow'
+                  : 'bg-brand-blue-50/80 text-brand-blue-400 border-brand-blue-100 hover:bg-brand-blue-100 hover:text-brand-blue-700'
               }`}
             >
               {isAutoRotate ? '⚡ ROTACIÓN AUTOMÁTICA' : 'ROTACIÓN PAUSADA'}
@@ -374,7 +374,7 @@ export default function ServicesOverview() {
                     <Image
                       src={service.imageUrl}
                       alt={service.title}
-                      fill
+                      fill={true}
                       sizes="(max-w-7xl) 350px, 290px"
                       className={`object-cover ${service.imgBlend}`}
                       priority={index === 0}

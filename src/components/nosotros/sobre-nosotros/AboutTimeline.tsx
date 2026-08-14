@@ -53,7 +53,7 @@ export default function AboutTimeline() {
   return (
     <section
       id="about-timeline"
-      className="py-24 bg-white relative overflow-hidden border-t border-b border-brand-blue-100/30"
+      className="py-24 bg-brand-white-50 relative overflow-hidden border-t border-b border-brand-blue-100/30"
     >
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -70,7 +70,7 @@ export default function AboutTimeline() {
 
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
-          <span className="px-4 py-1 bg-brand-yellow text-brand-blue rounded-full text-base font-subheading uppercase tracking-widest inline-block border border-brand-blue/50">
+          <span className="px-4 py-1 bg-brand-yellow-500 text-brand-blue-700 rounded-full text-base font-subheading uppercase tracking-widest inline-block border border-brand-blue-200/50">
             TRAYECTORIA Y EVOLUCIÓN
           </span>
           <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[0.02em] leading-[1.1]">
@@ -100,7 +100,7 @@ export default function AboutTimeline() {
                 >
 
                   {/* Circle Pin on Line */}
-                  <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1.5 md:top-auto w-10 h-10 rounded-full bg-brand-yellow border border-brand-blue-100/80 shadow-sm flex items-center justify-center z-10 text-brand-blue-700 group-hover/card:scale-110 group-hover/card:bg-brand-blue-700 group-hover/card:text-brand-yellow transition-all duration-300">
+                  <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1.5 md:top-auto w-10 h-10 rounded-full bg-brand-yellow-500 border border-brand-blue-100/80 shadow-sm flex items-center justify-center z-10 text-brand-blue-700 group-hover/card:scale-110 group-hover/card:bg-brand-blue-700 group-hover/card:text-brand-yellow-500 transition-all duration-300">
                     <Icon className="h-5 w-5" />
                   </div>
 

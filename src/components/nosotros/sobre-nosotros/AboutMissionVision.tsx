@@ -6,19 +6,19 @@ import { Target, Eye, Rocket, CheckSquare } from 'lucide-react';
 
 export default function AboutMissionVision() {
   return (
-    <section 
-      id="about-mission-vision" 
-      className="py-24 bg-white relative overflow-hidden border-t border-brand-blue-100/30"
+    <section
+      id="about-mission-vision"
+      className="py-24 bg-brand-white-50 relative overflow-hidden border-t border-brand-blue-100/30"
     >
       {/* Visual background enhancements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,var(--color-brand-blue-700),transparent_35%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,var(--color-brand-yellow-500),transparent_40%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1 bg-brand-yellow text-brand-blue rounded-full text-base font-subheading uppercase tracking-widest inline-block border border-brand-blue/50">
+          <span className="px-4 py-1 bg-brand-yellow-500 text-brand-blue-700 rounded-full text-base font-subheading uppercase tracking-widest inline-block border border-brand-blue-200/50">
             PROPÓSITO Y FUTURO
           </span>
           <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[0.02em] leading-[1.1]">
@@ -32,7 +32,7 @@ export default function AboutMissionVision() {
 
         {/* Asymmetric Bento Grid (Replaces banned 3 equal card layout) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          
+
           {/* Card 1: Nuestra Misión (8 columns) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -46,11 +46,11 @@ export default function AboutMissionVision() {
                 <div className="p-3 bg-brand-blue-50 text-brand-blue-700 rounded-2xl w-fit border border-brand-blue-100/50">
                   <Target className="h-6 w-6" />
                 </div>
-                
+
                 <h3 className="text-3xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
                   NUESTRA MISIÓN
                 </h3>
-                
+
                 <p className="text-sm text-brand-blue-600/90 font-sans leading-relaxed">
                   Simplificar la logística de última milla local en Mar del Plata.
                 </p>
@@ -76,11 +76,11 @@ export default function AboutMissionVision() {
                 <div className="p-3 bg-brand-blue-50 text-brand-blue-700 rounded-2xl w-fit border border-brand-blue-100/50">
                   <Eye className="h-6 w-6" />
                 </div>
-                
+
                 <h3 className="text-3xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
                   NUESTRA VISIÓN
                 </h3>
-                
+
                 <p className="text-sm text-brand-blue-600/90 font-sans leading-relaxed">
                   Consolidar la red de última milla y mensajería más confiable de Mar del Plata.
                 </p>
@@ -116,9 +116,9 @@ export default function AboutMissionVision() {
                 </p>
               </div>
               <div className="shrink-0 flex items-center justify-end">
-                <span className="cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue border border-brand-blue/50 font-subheading text-lg rounded-full uppercase tracking-wider shadow-sm">
+                <span className="cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 border border-brand-blue-200 font-subheading text-lg rounded-full uppercase tracking-wider shadow-sm">
                   <span>TECNOLOGÍA PROPIA</span>
-                  <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue shrink-0">
+                  <span className="cta-nested-icon bg-brand-blue-100 text-brand-blue-700 shrink-0">
                     <Rocket className="h-4.5 w-4.5" />
                   </span>
                 </span>

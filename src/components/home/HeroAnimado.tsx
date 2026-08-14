@@ -192,7 +192,7 @@ export default function HeroAnimado() {
           <Image
             src="/hero-background.jpeg"
             alt="Textura de Mapa de calles"
-            fill
+            fill={true}
             priority
             fetchPriority="high"
             sizes="100vw"
@@ -208,7 +208,7 @@ export default function HeroAnimado() {
           <Image
             src="/hero-background.jpeg"
             alt="Textura de Mapa de calles"
-            fill
+            fill={true}
             priority
             fetchPriority="high"
             sizes="100vw"
@@ -330,7 +330,7 @@ export default function HeroAnimado() {
                       <Image
                         src="/card_mapa.webp"
                         alt="Mapa de Cobertura de Mar del Plata"
-                        fill
+                        fill={true}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 350px"
                         className="rounded-xl object-cover h-40 sm:h-48 w-full"
                       />
@@ -369,7 +369,7 @@ export default function HeroAnimado() {
                       <Image
                         src="/card_mapa.webp"
                         alt="Mapa de Cobertura de Mar del Plata"
-                        fill
+                        fill={true}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 350px"
                         className="rounded-xl object-cover h-40 sm:h-48 w-full"
                       />
