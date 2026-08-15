@@ -1,6 +1,0 @@
-{
-  "name": "Envíos DosRuedas",
-  "description": "Plataforma premium de logística, mensajería y distribución e-commerce en Mar del Plata, Argentina. Incluye cotizador de envíos inteligente y asistente inteligente integrado.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

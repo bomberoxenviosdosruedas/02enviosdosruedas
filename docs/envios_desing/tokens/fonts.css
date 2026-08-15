@@ -1,4 +1,0 @@
-/* Envíos DosRuedas — Webfonts.
-   El sitio las carga con next/font (Anton 400, Bebas Neue 400, Outfit 400–800).
-   Acá se importan de Google Fonts para que los consumidores tengan un solo archivo. */
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800&display=swap');
