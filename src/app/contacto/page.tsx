@@ -106,14 +106,14 @@ export default function ContactoPage() {
       <section id="contacto-main" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           
-          {/* Column 1: Contact Details, Hours & Coverage Map (5 Cols on desktop) */}
+          {/* Column 1: Inquiry & Commercial Request Form (5 Cols on desktop) */}
           <div className="lg:col-span-5 h-full">
-            <ContactInfo />
+            <ContactForm />
           </div>
 
-          {/* Column 2: Inquiry & Commercial Request Form (7 Cols on desktop) */}
+          {/* Column 2: Contact Details, Hours & Coverage Map (7 Cols on desktop) */}
           <div className="lg:col-span-7 h-full">
-            <ContactForm />
+            <ContactInfo />
           </div>
 
         </div>

@@ -178,7 +178,7 @@ export default function ContactHero() {
                       Hub de Distribución
                     </span>
                     <span className="block font-sans text-xs sm:text-sm font-bold text-brand-white-50">
-                      Friuli 1972, Mar del Plata
+                      Chauvín, Mar del Plata
                     </span>
                   </div>
                 </div>

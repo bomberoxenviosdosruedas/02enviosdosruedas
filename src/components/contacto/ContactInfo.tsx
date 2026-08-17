@@ -179,7 +179,7 @@ export default function ContactInfo() {
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-brand-yellow-500 animate-ping" />
                 <span className="font-subheading uppercase text-xs tracking-wider text-brand-yellow-500 font-bold">
-                  Hub Friuli 1972
+                  Hub Central MDQ
                 </span>
               </div>
               <div className="flex items-center gap-1 font-mono text-[11px] text-brand-blue-100">

@@ -86,7 +86,7 @@ export default function ContactForm() {
 
                 <div className="space-y-2 max-w-md">
                   <h3 className="font-display text-2xl uppercase tracking-tight text-brand-blue-700">
-                    ¡MENSAJE RECIBIDO CON ÉXITO!
+                    ¡MENSAJE ENVIADO!
                   </h3>
                   <p className="font-sans text-sm text-brand-ink leading-relaxed">
                     Gracias por contactarte con <strong className="text-brand-blue-700">Envíos DosRuedas</strong>. Un asesor comercial revisará tu consulta y te responderá a la brevedad.
@@ -99,7 +99,7 @@ export default function ContactForm() {
                     onClick={handleReset}
                     className="flex-1 px-5 py-3 rounded-full border-2 border-brand-blue-700 text-brand-blue-700 hover:bg-brand-blue-50 font-subheading uppercase text-sm tracking-wider font-bold transition-all cursor-pointer"
                   >
-                    Enviar otra consulta
+                    Enviar otro mensaje
                   </button>
                   <a
                     href={`https://wa.me/542236602699?text=Hola!%20Acabo%20de%20enviar%20una%20consulta%20web%20a%20nombre%20de%20${encodeURIComponent(
@@ -126,7 +126,7 @@ export default function ContactForm() {
                 {status === 'error' && (
                   <div className="p-3.5 bg-brand-yellow-50 border border-brand-yellow-200 rounded-xl flex items-center gap-3 text-brand-blue-900 text-xs font-sans">
                     <AlertCircle className="w-5 h-5 text-brand-blue-700 shrink-0" />
-                    <span>Por favor, completá los campos obligatorios (*) para que podamos comunicarnos.</span>
+                    <span>Por favor, completá todos los campos obligatorios (*) para que podamos comunicarnos.</span>
                   </div>
                 )}
 
@@ -134,7 +134,7 @@ export default function ContactForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label htmlFor="nombre" className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
-                      Nombre o Empresa <span className="text-brand-yellow-500">*</span>
+                      Nombre completo <span className="text-brand-yellow-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -144,7 +144,7 @@ export default function ContactForm() {
                       value={formData.nombre}
                       onChange={handleChange}
                       disabled={status === 'submitting'}
-                      placeholder="Ej: Tienda Güemes / Juan Pérez"
+                      placeholder="Ej: Juan Pérez"
                       className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-brand-white-50 transition-all placeholder:text-brand-blue-300 disabled:opacity-60"
                     />
                   </div>
@@ -170,7 +170,7 @@ export default function ContactForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label htmlFor="email" className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
-                      Correo Electrónico <span className="text-brand-yellow-500">*</span>
+                      Correo electrónico <span className="text-brand-yellow-500">*</span>
                     </label>
                     <input
                       type="email"
@@ -180,7 +180,7 @@ export default function ContactForm() {
                       value={formData.email}
                       onChange={handleChange}
                       disabled={status === 'submitting'}
-                      placeholder="ejemplo@negocio.com"
+                      placeholder="Ej: juan.perez@email.com"
                       className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-brand-white-50 transition-all placeholder:text-brand-blue-300 disabled:opacity-60"
                     />
                   </div>
@@ -211,7 +211,7 @@ export default function ContactForm() {
                 <div className="space-y-1.5">
                   <div className="flex justify-between items-center">
                     <label htmlFor="mensaje" className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
-                      Detalle de tu consulta o volumen estimado <span className="text-brand-yellow-500">*</span>
+                      Tu mensaje o consulta <span className="text-brand-yellow-500">*</span>
                     </label>
                     <span className="text-[11px] font-mono text-brand-blue-400">Mar del Plata 2026</span>
                   </div>
@@ -223,7 +223,7 @@ export default function ContactForm() {
                     value={formData.mensaje}
                     onChange={handleChange}
                     disabled={status === 'submitting'}
-                    placeholder="Contanos cuántos paquetes estimás por día, zonas frecuentes (Centro, Güemes, Puerto, Constitución, etc.) o cualquier duda..."
+                    placeholder="Escribí acá tu consulta. Decinos en qué podemos ayudarte..."
                     className="w-full p-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-brand-white-50 transition-all placeholder:text-brand-blue-300 resize-none disabled:opacity-60"
                   />
                 </div>
@@ -242,7 +242,7 @@ export default function ContactForm() {
                   disabled={status === 'submitting'}
                   className="w-full cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 border-none shadow-accent font-subheading tracking-wider uppercase text-lg cursor-pointer disabled:opacity-60 justify-center transition-all duration-300 active:scale-[0.99]"
                 >
-                  <span>{status === 'submitting' ? 'Enviando Solicitud...' : 'Enviar Solicitud Comercial'}</span>
+                  <span>{status === 'submitting' ? 'Enviando...' : 'Enviar Mensaje'}</span>
                   <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 shrink-0">
                     {status === 'submitting' ? (
                       <svg className="animate-spin h-4 w-4 text-brand-blue-900" fill="none" viewBox="0 0 24 24">
