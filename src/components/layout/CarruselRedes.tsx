@@ -112,24 +112,13 @@ export default function CarruselRedes() {
         >
           {networks.map((net) => {
             const Icon = net.icon;
-            const isLight = net.variant === 'light';
-
-            // Determine platform specific colors
-            let customBg = '';
-            if (net.name === 'FACEBOOK') {
-              customBg = 'bg-[#1877F2]/95 border-[#1877F2] text-white';
-            } else if (net.name === 'INSTAGRAM') {
-              customBg = 'bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] border-[#dc2743] text-white';
-            } else if (net.name === 'WHATSAPP') {
-              customBg = 'bg-[#25D366]/95 border-[#25D366] text-white';
-            }
 
             return (
               <DoubleBezelCard
                 key={net.name}
                 variant="dark"
-                className={`social-block group h-[380px] md:h-[420px] transition-all duration-300 border-2`}
-                innerClassName={`flex flex-col justify-between h-full relative ${customBg}`}
+                className="social-block group h-[380px] md:h-[420px] transition-all duration-300"
+                innerClassName="flex flex-col justify-between h-full relative bg-brand-blue-700 text-white border border-white/10"
               >
                 {/* Background Watermark Icon that rotates on hover */}
                 <div className="absolute -right-8 -bottom-8 text-brand-blue-500/10 group-hover:text-brand-yellow-500/15 transition-all duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
