@@ -226,6 +226,13 @@ export default function HeroAnimado() {
         </motion.div>
       )}
 
+      {/* Ghost Wordmark Monumental de Fondo */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
+        <span className="font-display uppercase text-[15vw] leading-none text-white/[0.035] tracking-tighter whitespace-nowrap">
+          ENVÍOS DOS RUEDAS
+        </span>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-12 items-center"
@@ -237,7 +244,7 @@ export default function HeroAnimado() {
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
             {/* Badge */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-3.5 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue border border-brand-yellow cta-pulse shadow-accent-sm">
+              <span className="px-4 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-900 border border-brand-yellow-500 cta-pulse shadow-accent-sm">
                 Tu Solución Confiable
               </span>
             </motion.div>
@@ -245,15 +252,15 @@ export default function HeroAnimado() {
             {/* Title */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[-0.03em] leading-[1.15] sm:leading-[1.1] lg:leading-[1.05] text-white flex flex-col items-center lg:items-start select-none"
+              className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[-0.03em] leading-[1.05] sm:leading-[1.0] lg:leading-[0.95] text-white flex flex-col items-center lg:items-start select-none"
             >
-              <span className="kinetic-font-stretch cursor-pointer hover:text-brand-yellow">
+              <span className="kinetic-font-stretch cursor-pointer hover:text-brand-yellow-500 transition-colors">
                 Mensajería y Logística
               </span>
-              <span className="kinetic-font-stretch bg-brand-yellow px-2.5 py-0.5 text-brand-blue inline-block my-1 sm:my-1.5 lg:my-0 hover:bg-white">
+              <span className="kinetic-font-stretch bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 inline-block my-1.5 transform -rotate-1 rounded-sm shadow-sm">
                 E-Commerce
               </span>
-              <span className="kinetic-font-stretch cursor-pointer hover:text-brand-yellow">
+              <span className="kinetic-font-stretch cursor-pointer hover:text-brand-yellow-500 transition-colors">
                 en Mar del Plata
               </span>
             </motion.h1>
@@ -261,7 +268,7 @@ export default function HeroAnimado() {
             {/* Body Text */}
             <motion.p
               variants={itemVariants}
-              className="text-lg max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-blue-100"
+              className="text-lg max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-blue-50 font-normal"
             >
               Somos tu partner estratégico en mensajería, envíos en el día y delivery de última milla. Soluciones ágiles, seguras y competitivas para potenciar tu marca.
             </motion.p>

@@ -102,8 +102,8 @@ export default function OptimizedHeader() {
                 />
               </div>
               <span className="font-display text-2xl tracking-tight leading-none uppercase select-none flex flex-col sm:flex-row sm:gap-1 items-start sm:items-center">
-                <span className="text-brand-yellow-500">Envíos</span>
-                <span className="text-white">DosRuedas</span>
+                <span className="text-white">Envíos</span>
+                <span className="text-brand-yellow-500">DosRuedas</span>
               </span>
             </div>
           </Link>

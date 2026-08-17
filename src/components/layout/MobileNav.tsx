@@ -72,8 +72,8 @@ export const MobileNav: React.FC<MobileNavProps> = ({
             <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0">
               <Link href="/" onClick={onClose} className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50 rounded-lg">
                 <span className="font-display text-xl tracking-tight uppercase select-none flex flex-col items-start leading-none">
-                  <span className="text-brand-yellow-500">Envíos</span>
-                  <span className="text-white">DosRuedas</span>
+                  <span className="text-white">Envíos</span>
+                  <span className="text-brand-yellow-500">DosRuedas</span>
                 </span>
               </Link>
 

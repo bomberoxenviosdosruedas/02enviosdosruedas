@@ -4,8 +4,8 @@ import VisionSection from '@/src/components/home/VisionSection';
 import ServicesOverview from '@/src/components/home/ServicesOverview';
 import SliderServicios from '@/src/components/home/SliderServicios';
 import EmprendedoresHome from '@/src/components/home/EmprendedoresHome';
+import SocialProofSection from '@/src/components/home/SocialProofSection';
 import CtaSection from '@/src/components/home/CtaSection';
-import { Bike } from 'lucide-react';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
@@ -32,7 +32,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function Home() {
   return (
     <div id="home-page-container" className="w-full bg-brand-white-50 text-brand-blue-700 min-h-screen relative overflow-hidden">
@@ -40,36 +39,40 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
       />
-      {/* 1. Animated Hero Presentation */}
-      <div className="relative z-10">
+      {/* 1. Hero Presentation — Dark Blue 700 Canvas */}
+      <section className="relative z-10">
         <HeroAnimado />
-      </div>
+      </section>
 
-      {/* 2. Brand Vision Segment */}
-      <div className="relative z-10">
+      {/* 2. Brand Vision & Trust Metrics — Light Surface */}
+      <section className="relative z-10">
         <VisionSection />
-      </div>
+      </section>
 
-      {/* 3. Logistics Overview Solutions */}
-      <div className="relative z-10">
+      {/* 3. Logistics Services Overview — White Bento Grid Canvas */}
+      <section className="relative z-10">
         <ServicesOverview />
-      </div>
+      </section>
 
-      {/* 4. Custom Tailored Solutions Slideshow */}
-      <div className="relative z-10">
+      {/* 4. Tailored Solutions for Industries — Alternating Surface */}
+      <section className="relative z-10">
         <SliderServicios />
-      </div>
+      </section>
 
-      {/* 5. Entrepreneurs and Businesses Solutions Panel */}
-      <div className="relative z-10">
+      {/* 5. Entrepreneurs & B2B Solutions Panel — Dark Ink Canvas */}
+      <section className="relative z-10">
         <EmprendedoresHome />
-      </div>
+      </section>
 
-      {/* 7. Call to Action High Conversion Segment */}
-      <div className="relative z-10">
+      {/* 6. Social Proof & Verified Testimonials — Light Blue Canvas */}
+      <section className="relative z-10">
+        <SocialProofSection />
+      </section>
+
+      {/* 7. Call to Action High Conversion Segment — Blue 700 with White Card */}
+      <section className="relative z-10">
         <CtaSection />
-      </div>
+      </section>
     </div>
   );
 }
-

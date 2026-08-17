@@ -8,8 +8,8 @@ import ExpressUseCases from '@/src/components/servicios/express/ExpressUseCases'
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Envíos Express Inmediatos | Envíos DosRuedas Mar del Plata',
-  description: 'La solución premium para operaciones de alta criticidad horaria en Mar del Plata. Vos elegís el rango exacto de entrega con certeza absoluta en menos de 2 horas.',
+  title: 'Envíos Express Inmediatos en Mar del Plata | Envíos DosRuedas',
+  description: 'Servicio de mensajería urbana inmediata y entrega en menos de 2 horas en Mar del Plata. Tarifas transparentes 2026 y seguimiento digital en tiempo real.',
   alternates: {
     canonical: `${baseUrl}/servicios/envios-express`,
   },
@@ -19,12 +19,20 @@ const jsonLdSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Envíos Express Inmediatos',
-  description: 'La solución premium para operaciones de alta criticidad horaria en Mar del Plata. Vos elegís el rango exacto de entrega con certeza absoluta en menos de 2 horas.',
+  description: 'Servicio de mensajería urbana inmediata y entrega en menos de 2 horas en Mar del Plata. Vos elegís el rango exacto de entrega con certeza absoluta.',
   url: `${baseUrl}/servicios/envios-express`,
   provider: {
     '@type': 'LocalBusiness',
     '@id': `${baseUrl}#localbusiness`,
     name: 'Envíos DosRuedas',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Friuli 1972',
+      addressLocality: 'Mar del Plata',
+      addressRegion: 'Buenos Aires',
+      addressCountry: 'AR',
+    },
+    telephone: '+54 223 660-2699',
   },
   areaServed: {
     '@type': 'City',
@@ -32,47 +40,43 @@ const jsonLdSchema = {
   },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Tarifas Express por Zona',
+    name: 'Tarifas Express Vigentes 2026',
     itemListElement: [
-      { '@type': 'Offer', name: 'Express 0-3 km', price: '3700', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'Express 3-6 km', price: '4200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'Express 6-10 km', price: '5200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'Express 10-15 km', price: '6800', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Express Zona 1 (0 a 3 km)', price: '3700', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Express Zona 2 (3 a 5 km)', price: '4600', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Express Zona 3 (5 a 7 km)', price: '6100', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Express Zona 4 (7 a 10 km)', price: '8200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Express Zona 5 (+10 km)', price: '8200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock', description: '$8.200 base más $1.000 por kilómetro adicional entero' },
     ],
   },
 };
 
 export default function EnviosExpressPage() {
   return (
-    <main className="min-h-screen gradient-surface text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-screen bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-      {/* Ambient floating glow-orbs */}
-      <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue/5 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow/3 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />
-
-      {/* Hero Header Segment */}
-      <div className="relative z-10">
+      {/* 1. Hero Presentation — Dark Brand Blue */}
+      <section className="relative z-10">
         <ExpressHero />
-      </div>
+      </section>
 
-      {/* Value Propositions / Features */}
-      <div className="relative z-10 font-sans">
+      {/* 2. Value Propositions & Key Features — Pure White Surface */}
+      <section className="relative z-10 font-sans">
         <ExpressFeatures />
-      </div>
+      </section>
 
-      {/* 2026 Zone Pricing Rates & Dynamic Cotizador Hook */}
-      <div className="relative z-10">
+      {/* 3. 2026 Zone Pricing Rates & Dynamic Quote Hook — Dark Blue 700 with Double Bezel */}
+      <section className="relative z-10">
         <ExpressPricing />
-      </div>
+      </section>
 
-      {/* Common Use Case Scenarios */}
-      <div className="relative z-10 font-sans">
+      {/* 4. Common Use Cases & Scenarios — Alternating Light Surface */}
+      <section className="relative z-10 font-sans">
         <ExpressUseCases />
-      </div>
+      </section>
     </main>
   );
 }
-
