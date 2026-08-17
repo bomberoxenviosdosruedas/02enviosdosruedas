@@ -22,7 +22,11 @@ export async function GET(request: NextRequest) {
     const res = await fetch(url);
     const data = await res.json();
 
-    return NextResponse.json(data);
+    return NextResponse.json(data, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+      },
+    });
   } catch (error: unknown) {
     console.error('[API Directions]', error);
     const message = error instanceof Error ? error.message : 'Error interno al consultar ruta';

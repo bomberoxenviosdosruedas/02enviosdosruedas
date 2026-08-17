@@ -19,7 +19,11 @@ export async function GET(request: NextRequest) {
     const res = await fetch(url);
     const data = await res.json();
 
-    return NextResponse.json(data);
+    return NextResponse.json(data, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
+      },
+    });
   } catch (error: unknown) {
     console.error('[API Place Details]', error);
     const message = error instanceof Error ? error.message : 'Error interno al consultar detalles del lugar';
