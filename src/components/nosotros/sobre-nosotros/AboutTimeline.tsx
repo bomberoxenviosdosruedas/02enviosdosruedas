@@ -19,6 +19,12 @@ export default function AboutTimeline() {
       icon: Truck,
     },
     {
+      year: '2019',
+      title: 'Lanzamiento Inicial',
+      desc: 'Expandimos la red operativa con centro de operaciones dedicado a comercios y emprendedores locales.',
+      icon: Award,
+    },
+    {
       year: '2021',
       title: 'Soluciones PyME y LowCost',
       desc: 'Lanzamos la modalidad LowCost agrupada y el Plan Emprendedores para impulsar las ventas online durante la expansión del e-commerce.',

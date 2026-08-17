@@ -198,7 +198,7 @@ export default function PrivacyContent() {
 
   return (
     <div className="bg-brand-white-50 min-h-screen relative font-sans">
-      {/* 🌟 PREMIUM HERO BANNER SECTION */}
+      {/* HERO BANNER SECTION */}
       <section className="bg-brand-blue text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
         {/* Subtle background graphics */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-yellow/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />
@@ -245,7 +245,7 @@ export default function PrivacyContent() {
         </div>
       </section>
 
-      {/* 🧭 NAVIGATION & CONTENT PANEL */}
+      {/* NAVIGATION & CONTENT PANEL */}
       <section className="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* LEFT COLUMN: Sticky table of contents */}
@@ -371,7 +371,7 @@ export default function PrivacyContent() {
                 );
               })}
 
-              {/* 📬 ADDITIONAL SUPPORT AND DIRECT ENQUIRY CARD */}
+              {/* ADDITIONAL SUPPORT AND DIRECT ENQUIRY CARD */}
               <motion.section
                 variants={cardVariants}
                 className="bg-brand-blue text-white rounded-3xl p-8 sm:p-12 border border-brand-blue-100/20 shadow-xl relative overflow-hidden"
@@ -415,7 +415,7 @@ export default function PrivacyContent() {
         </div>
       </section>
 
-      {/* 🚀 FLOAT TO TOP BUTTON */}
+      {/* FLOAT TO TOP BUTTON */}
       {showScrollTop && (
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }}

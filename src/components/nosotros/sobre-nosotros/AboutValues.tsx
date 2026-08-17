@@ -7,19 +7,19 @@ import { ShieldCheck, Zap, Handshake, Heart } from 'lucide-react';
 export default function AboutValues() {
   const values = [
     {
-      title: 'Transparencia Tarifaria',
+      title: 'Transparencia Total',
       desc: 'Tarifas públicas por kilómetro exacto según tabla oficial 2026. Sin costos ocultos, sin sorpresas en la liquidación de tus envíos.',
       icon: Handshake,
     },
     {
-      title: 'Cuidado Extremo del Bulto',
+      title: 'Cuidado del Paquete',
       desc: 'Tratamos cada paquete como si fuera nuestro. Mochilas térmicas reforzadas, cajas seguras y manipulación profesional de mercadería frágil.',
       icon: ShieldCheck,
       featured: true,
     },
     {
-      title: 'Compromiso Territorial',
-      desc: 'Somos de Mar del Plata. Invertimos en fuentes de trabajo locales, capacitamos a nuestra flota y apoyamos el comercio de proximidad.',
+      title: 'Innovación Tecnológica',
+      desc: 'Ruteo optimizado en tiempo real, trazabilidad GPS instantánea y avisos automáticos para tus clientes en Mar del Plata.',
       icon: Heart,
     },
   ];
@@ -69,7 +69,7 @@ export default function AboutValues() {
                   Pilar de Confianza
                 </span>
                 <h3 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
-                  Cuidado Extremo del Bulto
+                  Cuidado del Paquete
                 </h3>
                 <p className="text-brand-ink font-sans leading-relaxed text-sm sm:text-base max-w-prose">
                   Manipulación profesional de paquetería e-commerce, indumentaria, tecnología y alimentos no perecederos. Cada envío viaja seguro y protegido de las inclemencias del clima.

@@ -9,7 +9,7 @@ export default function AboutHero() {
   return (
     <section 
       id="about-hero" 
-      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-dark text-brand-white-50 border-b border-brand-blue-500/20"
+      className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-r from-brand-blue-700 to-brand-blue-600 text-brand-white-50 border-b border-brand-blue-500/20"
     >
       {/* Dynamic Ambient Background Glows */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-brand-blue-700/30 rounded-full blur-[130px] pointer-events-none" />
@@ -46,7 +46,8 @@ export default function AboutHero() {
 
             {/* Monumental Headline with Anton SC */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.95] text-brand-white-50 flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-2">
-              <span>PASIÓN POR LA</span>
+              <span>LÍDERES EN</span>
+              <span>LOGÍSTICA DE</span>
               <span className="text-brand-yellow-500 italic drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">
                 ÚLTIMA MILLA
               </span>
@@ -91,8 +92,9 @@ export default function AboutHero() {
                       <Star key={i} className="h-5 w-5 fill-brand-yellow-500 text-brand-blue-700" />
                     ))}
                   </div>
-                  <span className="text-xs font-subheading font-bold bg-brand-blue-700 text-brand-yellow-500 px-3 py-1 rounded-full tracking-wider">
-                    5.0 / 5.0 REPUTACIÓN
+                  <span className="text-xs font-subheading font-bold bg-brand-blue-700 text-brand-yellow-500 px-3 py-1 rounded-full tracking-wider flex items-center gap-1">
+                    <span>GOOGLE REVIEWS</span>
+                    <span>5.0 / 5</span>
                   </span>
                 </div>
 

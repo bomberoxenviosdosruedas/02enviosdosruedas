@@ -170,7 +170,7 @@ export default function TermsContent() {
 
   return (
     <div className="bg-brand-white-50 min-h-screen relative font-sans">
-      {/* 🌟 HERO HEADER */}
+      {/* HERO HEADER */}
       <section className="bg-brand-blue text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-yellow/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />
         <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-white/5 blur-3xl -z-10 -translate-x-1/4 translate-y-1/4" />
@@ -216,7 +216,7 @@ export default function TermsContent() {
         </div>
       </section>
 
-      {/* 🧭 NAVIGATION & LEGAL CONTENT */}
+      {/* NAVIGATION & LEGAL CONTENT */}
       <section className="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* LEFT: Sticky Sidebar */}
