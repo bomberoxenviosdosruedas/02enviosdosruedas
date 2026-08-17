@@ -2,119 +2,122 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { MessageSquare, ShieldCheck, Truck, Sparkles } from 'lucide-react';
+import { MessageSquare, ShieldCheck, Truck, Sparkles, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function AboutAdvantages() {
   return (
     <section 
       id="about-advantages" 
-      className="py-24 bg-white relative overflow-hidden border-t border-brand-blue-100/30"
+      className="py-20 sm:py-24 bg-brand-white-50 relative overflow-hidden border-t border-brand-blue-100/50"
     >
-      {/* Dynamic background accents */}
+      {/* Background ambient accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-yellow-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1 bg-brand-yellow text-brand-blue rounded-full text-base font-subheading uppercase tracking-widest inline-block border border-brand-blue/50">
-            DIFERENCIAL COMPETITIVO
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3.5">
+          <span className="px-4 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold">
+            VENTAJAS TERRITORIALES
           </span>
-          <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[0.02em] leading-[1.1]">
-            POR QUÉ ELEGIRNOS
+          <h2 className="text-brand-blue-700 text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
+            POR QUÉ CONFIAR EN DOSRUEDAS
           </h2>
-          <p className="text-brand-blue-600/90 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            En un mercado sobresaturado de aplicaciones genéricas y envíos automatizados sin rostro, decidimos ir por el camino de la excelencia territorial en Mar del Plata.
+          <p className="text-brand-ink/80 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            Frente a aplicaciones automatizadas y plataformas impersonales, nosotros brindamos compromiso presencial, operadores locales y conocimiento metro a metro de Mar del Plata.
           </p>
-          <div className="h-1 w-16 bg-brand-blue-700 mx-auto rounded-full" />
         </div>
 
-        {/* Asymmetric Bento Grid (Replaces banned 3 equal card layout) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Asymmetric Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
           
-          {/* Card 1: Soporte Humano 24/7 (Main White Card, 7 columns) */}
+          {/* Card 1: Soporte Humano Directo (7 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-7 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
+            className="lg:col-span-7 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-minimal"
           >
-            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue">
-              <div className="space-y-5">
-                <div className="p-3 bg-brand-blue-50 text-brand-blue-700 rounded-2xl w-fit border border-brand-blue-100/50">
+            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue-700 space-y-6">
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-brand-blue-50 text-brand-blue-700 rounded-2xl flex items-center justify-center border border-brand-blue-100">
                   <MessageSquare className="h-6 w-6" />
                 </div>
-                <h3 className="text-3xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold leading-tight">
-                  Soporte Humano 24/7
+                <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
+                  Atención Humana & Directa
                 </h3>
-                <p className="text-sm text-brand-blue-600/90 font-sans leading-relaxed">
-                  Damos la cara frente a cualquier inconveniente. Contamos con atención al cliente humana e inmediata disponible las 24 horas, los 7 días de la semana para resolver de manera ágil tus dudas.
+                <p className="text-sm sm:text-base text-brand-ink leading-relaxed font-sans">
+                  Damos la cara siempre. Cuando surge una duda o reprogramación, te comunicás directamente por WhatsApp con operadores en Mar del Plata que gestionan y resuelven en el acto.
                 </p>
               </div>
-              <div className="pt-6 mt-6 border-t border-brand-blue-100/40 flex items-center gap-1.5 text-xs font-sans font-bold uppercase tracking-wider text-brand-blue-500">
+              <div className="pt-4 border-t border-brand-blue-50 flex items-center gap-2 text-xs font-subheading font-bold uppercase tracking-wider text-brand-blue-500">
                 <Sparkles className="h-4 w-4 text-brand-yellow-500 fill-brand-yellow-500" />
-                <span>SOPORTE DIRECTO WHATSAPP</span>
+                <span>COMUNICACIÓN DIRECTA VÍA WHATSAPP</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Card 2: Flota Propia (5 columns) */}
+          {/* Card 2: Flota Propia Coordinada (5 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.12 }}
-            className="lg:col-span-5 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-5 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-minimal"
           >
-            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue">
-              <div className="space-y-5">
-                <div className="p-3 bg-brand-yellow-50 text-brand-blue rounded-2xl w-fit border border-brand-yellow-100/50">
+            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue-700 space-y-6">
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-brand-yellow-50 text-brand-blue-900 rounded-2xl flex items-center justify-center border border-brand-yellow-200">
                   <Truck className="h-6 w-6 text-brand-blue-700" />
                 </div>
-                <h3 className="text-3xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
                   Flota Propia Capacitada
                 </h3>
-                <p className="text-sm text-brand-blue-600/90 font-sans leading-relaxed">
-                  Controlamos meticulosamente cada eslabón de la logística con repartidores propios, identificados y altamente capacitados en Mar del Plata.
+                <p className="text-sm sm:text-base text-brand-ink leading-relaxed font-sans">
+                  No tercerizamos de forma descontrolada. Nuestro equipo de cadetes está uniformado, capacitado en manejo de paquetes frágiles y con base física en <strong>Friuli 1972</strong>.
                 </p>
               </div>
-              <div className="pt-6 mt-6 border-t border-brand-blue-100/40 flex items-center gap-1.5 text-xs font-sans font-bold uppercase tracking-wider text-brand-blue-500">
+              <div className="pt-4 border-t border-brand-blue-50 flex items-center gap-2 text-xs font-subheading font-bold uppercase tracking-wider text-brand-blue-500">
                 <Sparkles className="h-4 w-4 text-brand-yellow-500 fill-brand-yellow-500 animate-pulse" />
-                <span>COBERTURA TOTAL MDP</span>
+                <span>COBERTURA TOTAL GENERAL PUEYRREDÓN</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Card 3: Entregas Confiables (Full-width horizontal Bento Card, 12 columns) */}
+          {/* Card 3: Garantía de Puntualidad (12 cols full width) */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.24 }}
-            className="lg:col-span-12 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-12 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-minimal"
           >
             <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-3 max-w-3xl">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 bg-brand-blue-50 text-brand-blue-700 rounded-xl">
-                    <ShieldCheck className="h-5.5 w-5.5" />
+                    <ShieldCheck className="h-6 w-6 text-brand-blue-700" />
                   </div>
-                  <h3 className="text-3xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold leading-none">
-                    Entregas Confiables en Tiempo y Forma
+                  <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 leading-none">
+                    Garantía Operativa Sin Excusas
                   </h3>
                 </div>
-                <p className="text-sm text-brand-blue-600/90 font-sans leading-relaxed">
-                  Tu negocio depende de la puntualidad y el buen trato del paquete. Nos aseguramos de realizar cada entrega en el tiempo pactado y en perfectas condiciones.
+                <p className="text-sm sm:text-base text-brand-ink leading-relaxed font-sans">
+                  Tu reputación comercial depende de la puntualidad de entrega. Si coordinamos un envío express en 2 horas o un ruteo programado, cumplimos la franja pactada sin desvíos.
                 </p>
               </div>
-              <div className="shrink-0 flex items-center justify-end">
-                <span className="cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue border border-brand-blue/50 font-subheading text-lg rounded-full uppercase tracking-wider shadow-sm">
-                  <span>100% CONFIABLE</span>
-                  <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue shrink-0">
-                    <ShieldCheck className="h-4.5 w-4.5" />
+              <div className="shrink-0 flex items-center">
+                <Link
+                  href="/cotizar/express"
+                  className="cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 border-none shadow-accent font-subheading text-base sm:text-lg rounded-full uppercase tracking-wider cursor-pointer"
+                >
+                  <span>Cotizar tu Envío</span>
+                  <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 shrink-0">
+                    <ArrowRight className="h-4 w-4" />
                   </span>
-                </span>
+                </Link>
               </div>
             </div>
           </motion.div>

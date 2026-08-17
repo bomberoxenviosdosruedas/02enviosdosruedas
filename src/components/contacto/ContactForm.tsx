@@ -2,18 +2,22 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Sparkles, MessageCircle, HelpCircle } from 'lucide-react';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
+    telefono: '',
+    servicio: 'express',
     mensaje: '',
   });
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -26,152 +30,222 @@ export default function ContactForm() {
     }
 
     setStatus('submitting');
-    
-    // Simular un envío asincrónico ágil de 1.5s
+
+    // Simulación de envío con confirmación inmediata
     setTimeout(() => {
       setStatus('success');
-      setFormData({ nombre: '', email: '', mensaje: '' });
-    }, 1500);
+    }, 1200);
+  };
+
+  const handleReset = () => {
+    setFormData({
+      nombre: '',
+      email: '',
+      telefono: '',
+      servicio: 'express',
+      mensaje: '',
+    });
+    setStatus('idle');
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -4 }}
-      transition={{ 
-        y: { ease: [0.16, 1, 0.3, 1], duration: 0.6 },
-        opacity: { duration: 0.6 }
-      }}
-      className="double-bezel-outer bg-brand-blue-50/80 hover:shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300 flex flex-col group cursor-pointer h-full"
-    >
-      <div className="double-bezel-inner bg-white rounded-xl p-6 border border-brand-blue-50/50 shadow-sm h-full flex flex-col justify-between relative overflow-hidden">
-        {/* Decorative top bar */}
-        <div className="absolute top-0 left-0 right-0 h-1.5 bg-brand-blue" />
+    <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-minimal h-full flex flex-col">
+      <div className="double-bezel-inner bg-white rounded-xl p-6 sm:p-8 border border-brand-blue-50/50 shadow-sm h-full flex flex-col justify-between relative overflow-hidden">
+        
+        {/* Accent Bar */}
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-blue-700 via-brand-blue-500 to-brand-yellow-500" />
 
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue mb-2">
-              ¿TENÉS ALGUNA CONSULTA?
-            </h3>
-            <p className="text-brand-blue-500 font-sans text-sm sm:text-base leading-relaxed">
-              Completá el formulario y te responderemos a la brevedad.
+        <div>
+          {/* Header */}
+          <div className="mb-6 pb-5 border-b border-brand-blue-50">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 text-xs font-subheading uppercase tracking-wider mb-2 font-bold">
+              <Sparkles className="w-3.5 h-3.5 text-brand-blue-500" />
+              COTIZACIONES & CONSULTAS
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 mb-1.5">
+              ENVIANOS TU CONSULTA
+            </h2>
+            <p className="text-brand-ink/80 font-sans text-sm sm:text-base leading-relaxed">
+              Completá el formulario con tus datos y los detalles de tu operativa. Te contactamos hoy mismo con una propuesta clara.
             </p>
           </div>
 
           <AnimatePresence mode="wait">
             {status === 'success' ? (
               <motion.div
-                key="success-message"
+                key="success-card"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                className="bg-brand-white-50 rounded-2xl p-6 border-2 border-brand-blue flex flex-col items-center text-center space-y-4 py-12 shadow-[4px_4px_0px_var(--color-brand-blue)]"
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="py-10 px-4 text-center flex flex-col items-center justify-center space-y-5"
               >
-                <div className="p-4 bg-brand-yellow text-brand-blue rounded-full border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)]">
-                  <CheckCircle2 className="h-10 w-10 text-brand-blue fill-brand-yellow shrink-0" />
+                <div className="w-16 h-16 rounded-full bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center border-2 border-brand-blue-700 shadow-accent">
+                  <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <div className="space-y-2">
-                  <h4 className="text-xl font-display uppercase tracking-wide text-brand-blue font-bold">
-                    ¡MENSAJE ENVIADO!
-                  </h4>
-                  <p className="text-sm text-brand-blue-600 font-sans max-w-sm leading-relaxed">
-                    Gracias por comunicarte con Envíos DosRuedas. Te responderemos lo antes posible para ayudarte con tu cotización o consulta.
+
+                <div className="space-y-2 max-w-md">
+                  <h3 className="font-display text-2xl uppercase tracking-tight text-brand-blue-700">
+                    ¡MENSAJE RECIBIDO CON ÉXITO!
+                  </h3>
+                  <p className="font-sans text-sm text-brand-ink leading-relaxed">
+                    Gracias por contactarte con <strong className="text-brand-blue-700">Envíos DosRuedas</strong>. Un asesor comercial revisará tu consulta y te responderá a la brevedad.
                   </p>
                 </div>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setStatus('idle')}
-                  className="px-6 py-3 bg-brand-blue hover:bg-brand-blue/95 border-2 border-brand-blue text-brand-yellow font-subheading uppercase text-sm tracking-wider rounded-xl shadow-[3px_3px_0px_var(--color-brand-yellow)] cursor-pointer font-bold"
-                >
-                  Enviar otro mensaje
-                </motion.button>
+
+                <div className="flex flex-col sm:flex-row gap-3 pt-2 w-full max-w-sm">
+                  <button
+                    type="button"
+                    onClick={handleReset}
+                    className="flex-1 px-5 py-3 rounded-full border-2 border-brand-blue-700 text-brand-blue-700 hover:bg-brand-blue-50 font-subheading uppercase text-sm tracking-wider font-bold transition-all cursor-pointer"
+                  >
+                    Enviar otra consulta
+                  </button>
+                  <a
+                    href={`https://wa.me/542236602699?text=Hola!%20Acabo%20de%20enviar%20una%20consulta%20web%20a%20nombre%20de%20${encodeURIComponent(
+                      formData.nombre || 'un cliente'
+                    )}.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase text-sm tracking-wider font-bold shadow-accent transition-all cursor-pointer"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    Avisar por WhatsApp
+                  </a>
+                </div>
               </motion.div>
             ) : (
               <motion.form
-                key="contact-form"
+                key="form"
                 onSubmit={handleSubmit}
-                className="space-y-5"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                className="space-y-5"
               >
                 {status === 'error' && (
-                  <div className="p-4 bg-brand-white-50 border-2 border-brand-blue-500 rounded-xl flex items-center gap-3 text-brand-blue-700 text-xs font-sans">
-                    <AlertCircle className="h-5.5 w-5.5 text-brand-blue-500 shrink-0" />
-                    <span>Por favor, completá todos los campos obligatorios (*) antes de enviar.</span>
+                  <div className="p-3.5 bg-brand-yellow-50 border border-brand-yellow-200 rounded-xl flex items-center gap-3 text-brand-blue-900 text-xs font-sans">
+                    <AlertCircle className="w-5 h-5 text-brand-blue-700 shrink-0" />
+                    <span>Por favor, completá los campos obligatorios (*) para que podamos comunicarnos.</span>
                   </div>
                 )}
 
-                {/* Nombre */}
-                <div className="space-y-2">
-                  <label htmlFor="nombre" className="block text-xs font-bold uppercase tracking-wider text-brand-blue-600">
-                    Nombre completo <span className="text-brand-blue font-bold">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    required
-                    value={formData.nombre}
-                    onChange={handleChange}
-                    disabled={status === 'submitting'}
-                    placeholder="Ej: Juan Pérez"
-                    className="w-full px-4 py-3.5 rounded-2xl border-2 border-brand-blue-700 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:shadow-brutalist transition-all disabled:opacity-60 bg-brand-white-50"
-                  />
+                {/* Grid: Nombre y Teléfono */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label htmlFor="nombre" className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
+                      Nombre o Empresa <span className="text-brand-yellow-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      required
+                      value={formData.nombre}
+                      onChange={handleChange}
+                      disabled={status === 'submitting'}
+                      placeholder="Ej: Tienda Güemes / Juan Pérez"
+                      className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-brand-white-50 transition-all placeholder:text-brand-blue-300 disabled:opacity-60"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label htmlFor="telefono" className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
+                      WhatsApp / Teléfono
+                    </label>
+                    <input
+                      type="tel"
+                      id="telefono"
+                      name="telefono"
+                      value={formData.telefono}
+                      onChange={handleChange}
+                      disabled={status === 'submitting'}
+                      placeholder="Ej: 223 660-2699"
+                      className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-brand-white-50 transition-all placeholder:text-brand-blue-300 disabled:opacity-60"
+                    />
+                  </div>
                 </div>
 
-                {/* Email */}
-                <div className="space-y-2">
-                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-brand-blue-600">
-                    Correo electrónico <span className="text-brand-blue font-bold">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    disabled={status === 'submitting'}
-                    placeholder="Ej: juan.perez@email.com"
-                    className="w-full px-4 py-3.5 rounded-2xl border-2 border-brand-blue-700 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:shadow-brutalist transition-all disabled:opacity-60 bg-brand-white-50"
-                  />
+                {/* Grid: Email y Tipo de Servicio */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label htmlFor="email" className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
+                      Correo Electrónico <span className="text-brand-yellow-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      disabled={status === 'submitting'}
+                      placeholder="ejemplo@negocio.com"
+                      className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-brand-white-50 transition-all placeholder:text-brand-blue-300 disabled:opacity-60"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label htmlFor="servicio" className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
+                      Servicio de Interés
+                    </label>
+                    <select
+                      id="servicio"
+                      name="servicio"
+                      value={formData.servicio}
+                      onChange={handleChange}
+                      disabled={status === 'submitting'}
+                      className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-brand-white-50 transition-all disabled:opacity-60 cursor-pointer"
+                    >
+                      <option value="express">Envíos Express (2 horas)</option>
+                      <option value="lowcost">Envíos LowCost (En el día)</option>
+                      <option value="flex">MercadoLibre Flex Partner</option>
+                      <option value="3pl">3PL & Plan Emprendedores</option>
+                      <option value="corporativo">Cadetería & Cuenta Empresa</option>
+                      <option value="otro">Otra consulta general</option>
+                    </select>
+                  </div>
                 </div>
 
                 {/* Mensaje */}
-                <div className="space-y-2">
-                  <label htmlFor="mensaje" className="block text-xs font-bold uppercase tracking-wider text-brand-blue-600">
-                    Tu mensaje o consulta <span className="text-brand-blue font-bold">*</span>
-                  </label>
+                <div className="space-y-1.5">
+                  <div className="flex justify-between items-center">
+                    <label htmlFor="mensaje" className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
+                      Detalle de tu consulta o volumen estimado <span className="text-brand-yellow-500">*</span>
+                    </label>
+                    <span className="text-[11px] font-mono text-brand-blue-400">Mar del Plata 2026</span>
+                  </div>
                   <textarea
                     id="mensaje"
                     name="mensaje"
                     required
-                    rows={5}
+                    rows={4}
                     value={formData.mensaje}
                     onChange={handleChange}
                     disabled={status === 'submitting'}
-                    placeholder="Escribí acá tu consulta. Decinos en qué podemos ayudarte..."
-                    className="w-full px-4 py-3.5 rounded-2xl border-2 border-brand-blue-700 text-brand-blue-700 font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:shadow-brutalist transition-all disabled:opacity-60 bg-brand-white-50 resize-none"
+                    placeholder="Contanos cuántos paquetes estimás por día, zonas frecuentes (Centro, Güemes, Puerto, Constitución, etc.) o cualquier duda..."
+                    className="w-full p-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-brand-white-50 transition-all placeholder:text-brand-blue-300 resize-none disabled:opacity-60"
                   />
                 </div>
 
-                {/* Submit Button (Neo-Brutalist) */}
-                <motion.button
+                {/* Notice */}
+                <div className="flex items-start gap-2 text-xs text-brand-blue-400 font-sans">
+                  <HelpCircle className="w-4 h-4 shrink-0 mt-0.5 text-brand-blue-300" />
+                  <span>
+                    Tus datos se utilizan únicamente para responder tu solicitud comercial de forma confidencial.
+                  </span>
+                </div>
+
+                {/* Submit CTA */}
+                <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.4 }}
-                  className="w-full cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue border border-brand-blue-100 shadow-brutalist font-subheading tracking-wider uppercase text-lg cursor-pointer disabled:opacity-60 justify-center"
+                  className="w-full cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 border-none shadow-accent font-subheading tracking-wider uppercase text-lg cursor-pointer disabled:opacity-60 justify-center transition-all duration-300 active:scale-[0.99]"
                 >
-                  <span>{status === 'submitting' ? 'Enviando...' : 'Enviar Mensaje'}</span>
-                  <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue shrink-0">
+                  <span>{status === 'submitting' ? 'Enviando Solicitud...' : 'Enviar Solicitud Comercial'}</span>
+                  <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 shrink-0">
                     {status === 'submitting' ? (
-                      <svg className="animate-spin h-4 w-4 text-brand-blue" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin h-4 w-4 text-brand-blue-900" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                       </svg>
@@ -179,12 +253,19 @@ export default function ContactForm() {
                       <Send className="h-4 w-4 shrink-0" />
                     )}
                   </span>
-                </motion.button>
+                </button>
               </motion.form>
             )}
           </AnimatePresence>
         </div>
+
+        {/* Footer Guarantee */}
+        <div className="pt-4 mt-6 border-t border-brand-blue-50 flex items-center justify-between text-xs text-brand-blue-400 font-sans">
+          <span>Atención Comercial: Lunes a Sábados</span>
+          <span className="font-mono font-bold text-brand-blue-700">MDQ · 7600</span>
+        </div>
+
       </div>
-    </motion.div>
+    </div>
   );
 }

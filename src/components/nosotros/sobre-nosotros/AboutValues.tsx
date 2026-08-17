@@ -2,108 +2,116 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, Zap, Handshake, Sparkles } from 'lucide-react';
+import { ShieldCheck, Zap, Handshake, Heart } from 'lucide-react';
 
 export default function AboutValues() {
   const values = [
     {
-      title: 'Transparencia Total',
-      desc: 'Comunicación clara, tarifas sin sorpresas y reportes honestos sobre cada una de tus entregas.',
+      title: 'Transparencia Tarifaria',
+      desc: 'Tarifas públicas por kilómetro exacto según tabla oficial 2026. Sin costos ocultos, sin sorpresas en la liquidación de tus envíos.',
       icon: Handshake,
     },
     {
-      title: 'Cuidado del Paquete',
-      desc: 'Manipulación profesional y segura para garantizar que cada bulto llegue en impecables condiciones.',
+      title: 'Cuidado Extremo del Bulto',
+      desc: 'Tratamos cada paquete como si fuera nuestro. Mochilas térmicas reforzadas, cajas seguras y manipulación profesional de mercadería frágil.',
       icon: ShieldCheck,
+      featured: true,
     },
     {
-      title: 'Innovación Tecnológica',
-      desc: 'Optimización inteligente de recorridos y tracking digital avanzado adaptado al año 2026.',
-      icon: Zap,
+      title: 'Compromiso Territorial',
+      desc: 'Somos de Mar del Plata. Invertimos en fuentes de trabajo locales, capacitamos a nuestra flota y apoyamos el comercio de proximidad.',
+      icon: Heart,
     },
   ];
 
   return (
     <section 
       id="about-values" 
-      className="py-24 bg-gradient-to-br from-brand-blue-700 to-brand-blue-600 text-white relative z-10 overflow-hidden border-t border-brand-yellow-500/20"
+      className="py-20 sm:py-24 bg-brand-dark text-brand-white-50 relative z-10 overflow-hidden border-t border-brand-blue-500/20"
     >
-      {/* Background gradients or subtle clean styling */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,var(--color-brand-blue-700),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,var(--color-brand-yellow-500),transparent_50%)] pointer-events-none" />
+      {/* Background ambient radial glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-blue-700/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
-        <div className="text-left max-w-2xl mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-blue-700/60 border border-brand-yellow-500/30 text-brand-yellow-500 rounded-full text-base font-subheading uppercase tracking-widest inline-block shadow-sm backdrop-blur-sm">
+        <div className="text-left max-w-2xl mb-16 space-y-3.5">
+          <span className="px-4 py-1.5 bg-brand-blue-700/70 border border-brand-yellow-500/40 text-brand-yellow-500 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block backdrop-blur-sm font-bold">
             FILOSOFÍA OPERATIVA
           </span>
-          <h2 className="text-white text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-[0.02em] leading-[1.1]">
+          <h2 className="text-brand-white-50 text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
             NUESTROS VALORES
           </h2>
           <p className="text-brand-blue-100 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
-            Los pilares estratégicos e innegociables que sostienen nuestra operativa diaria y nos permiten ser tu partner de absoluta confianza.
+            Los pilares innegociables que sostienen nuestra operativa diaria en cada rincón de General Pueyrredón.
           </p>
-          <div className="h-1 w-16 bg-brand-yellow-500 rounded-full" />
         </div>
 
         {/* Values Asymmetrical Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Featured Value (Cuidado del Paquete) - Wrapped in light Double Bezel */}
+          
+          {/* Featured Value (Cuidado Extremo) - 7 cols */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0 }}
-            className="lg:col-span-8 double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-7 double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl shadow-xl"
           >
-            <div className="double-bezel-inner bg-white p-8 lg:p-12 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col gap-6 text-brand-blue h-full justify-between">
-              <div className="p-4 bg-brand-blue-50 text-brand-blue rounded-xl w-fit shrink-0 border border-brand-blue-100/50">
-                <ShieldCheck className="h-8 w-8 text-brand-blue-700" />
+            <div className="double-bezel-inner bg-white p-7 sm:p-10 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col gap-6 text-brand-blue-700 h-full justify-between">
+              <div className="w-14 h-14 bg-brand-blue-50 text-brand-blue-700 rounded-2xl flex items-center justify-center border border-brand-blue-100">
+                <ShieldCheck className="h-7 w-7 text-brand-blue-700" />
               </div>
 
               <div className="space-y-3">
-                <h3 className="text-4xl lg:text-5xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold leading-tight">
-                  Cuidado del Paquete
+                <span className="text-xs font-subheading uppercase tracking-wider text-brand-yellow-500 font-bold bg-brand-blue-700 px-3 py-1 rounded-full w-fit">
+                  Pilar de Confianza
+                </span>
+                <h3 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
+                  Cuidado Extremo del Bulto
                 </h3>
-                <p className="text-brand-blue-600/90 font-sans leading-relaxed text-base sm:text-lg max-w-prose">
-                  Manipulación profesional y segura para garantizar que cada bulto llegue en impecables condiciones.
+                <p className="text-brand-ink font-sans leading-relaxed text-sm sm:text-base max-w-prose">
+                  Manipulación profesional de paquetería e-commerce, indumentaria, tecnología y alimentos no perecederos. Cada envío viaja seguro y protegido de las inclemencias del clima.
                 </p>
               </div>
             </div>
           </motion.div>
 
-          <div className="lg:col-span-4 flex flex-col gap-6">
-            {values.filter(v => v.title !== 'Cuidado del Paquete').map((val, idx) => {
-              const Icon = val.icon;
-              return (
-                <motion.div
-                  key={val.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: (idx + 1) * 0.08 }}
-                  className="double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default flex-1"
-                >
-                  <div className="double-bezel-inner bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col gap-4 text-brand-blue h-full justify-between">
-                    <div className="p-3 bg-brand-blue-50 text-brand-blue rounded-xl w-fit shrink-0 border border-brand-blue-100/50">
-                      <Icon className="h-6 w-6 text-brand-blue-700" />
-                    </div>
+          {/* Secondary Values - 5 cols */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            {values
+              .filter((v) => !v.featured)
+              .map((val, idx) => {
+                const Icon = val.icon;
+                return (
+                  <motion.div
+                    key={val.title}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: (idx + 1) * 0.1 }}
+                    className="double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl shadow-xl flex-1"
+                  >
+                    <div className="double-bezel-inner bg-white p-6 sm:p-7 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col gap-4 text-brand-blue-700 h-full justify-between">
+                      <div className="w-11 h-11 bg-brand-blue-50 text-brand-blue-700 rounded-xl flex items-center justify-center border border-brand-blue-100 shrink-0">
+                        <Icon className="h-5 w-5 text-brand-blue-700" />
+                      </div>
 
-                    <div className="space-y-1.5 mt-auto">
-                      <h3 className="text-2xl sm:text-3xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold leading-tight">
-                        {val.title}
-                      </h3>
-                      <p className="text-sm text-brand-blue-600/90 font-sans leading-relaxed">
-                        {val.desc}
-                      </p>
+                      <div className="space-y-1.5">
+                        <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
+                          {val.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-brand-ink leading-relaxed font-sans">
+                          {val.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                  </motion.div>
+                );
+              })}
           </div>
+
         </div>
 
       </div>

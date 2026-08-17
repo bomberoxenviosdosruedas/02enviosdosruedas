@@ -2,126 +2,132 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Target, Eye, Rocket, CheckSquare } from 'lucide-react';
+import { Target, Eye, Rocket, ArrowRight, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
 
 export default function AboutMissionVision() {
   return (
     <section
       id="about-mission-vision"
-      className="py-24 bg-brand-white-50 relative overflow-hidden border-t border-brand-blue-100/30"
+      className="py-20 sm:py-24 bg-brand-white-50 relative overflow-hidden border-t border-brand-blue-100/50"
     >
-      {/* Visual background enhancements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,var(--color-brand-blue-700),transparent_35%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,var(--color-brand-yellow-500),transparent_40%)] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header Block */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1 bg-brand-yellow-500 text-brand-blue-700 rounded-full text-base font-subheading uppercase tracking-widest inline-block border border-brand-blue-200/50">
-            PROPÓSITO Y FUTURO
+        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3.5">
+          <span className="px-4 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold">
+            PROPÓSITO & FUTURO
           </span>
-          <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[0.02em] leading-[1.1]">
-            MISIÓN, VISIÓN E INNOVACIÓN
+          <h2 className="text-brand-blue-700 text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
+            MISIÓN, VISIÓN & COMPROMISO
           </h2>
-          <p className="text-brand-blue-600/90 font-sans text-sm sm:text-base max-w-lg mx-auto">
-            Hacia dónde vamos y cuáles son las convicciones profundas que guían cada entrega y ruteo diario.
+          <p className="text-brand-ink/80 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+            Hacia dónde vamos y cuáles son las convicciones que guían cada entrega y ruteo diario en Mar del Plata.
           </p>
-          <div className="h-1 w-16 bg-brand-blue-700 mx-auto rounded-full" />
         </div>
 
-        {/* Asymmetric Bento Grid (Replaces banned 3 equal card layout) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Asymmetric Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
 
-          {/* Card 1: Nuestra Misión (8 columns) */}
+          {/* Card 1: Nuestra Misión (7 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-            className="lg:col-span-8 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-7 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-minimal"
           >
-            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue">
-              <div className="space-y-6">
-                <div className="p-3 bg-brand-blue-50 text-brand-blue-700 rounded-2xl w-fit border border-brand-blue-100/50">
+            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue-700 space-y-6">
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-brand-blue-50 text-brand-blue-700 rounded-2xl flex items-center justify-center border border-brand-blue-100">
                   <Target className="h-6 w-6" />
                 </div>
 
-                <h3 className="text-3xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
+                <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
                   NUESTRA MISIÓN
                 </h3>
 
-                <p className="text-sm text-brand-blue-600/90 font-sans leading-relaxed">
-                  Simplificar la logística de última milla local en Mar del Plata.
+                <p className="text-sm sm:text-base text-brand-ink leading-relaxed font-sans">
+                  Brindar a cada negocio, e-commerce y particular de Mar del Plata una infraestructura de última milla confiable, accesible y ágil. Eliminamos las fricciones logísticas para que nuestros clientes puedan enfocarse en vender más y crecer.
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-brand-blue-100/60 flex items-center gap-2 text-xs text-brand-blue-400">
-                <CheckSquare className="h-4.5 w-4.5 text-brand-blue shrink-0" />
-                <span className="font-subheading uppercase tracking-widest text-sm">SELLO DE CALIDAD DOSRUEDAS</span>
+              <div className="pt-4 border-t border-brand-blue-50 flex items-center gap-2 text-xs font-subheading font-bold uppercase tracking-wider text-brand-blue-500">
+                <ShieldCheck className="h-4 w-4 text-brand-yellow-500" />
+                <span>COMPROMISO OPERATIVO PERMANENTE</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Card 2: Nuestra Visión (4 columns) */}
+          {/* Card 2: Nuestra Visión (5 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.55, delay: 0.12 }}
-            className="lg:col-span-4 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-5 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-minimal"
           >
-            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue">
-              <div className="space-y-6">
-                <div className="p-3 bg-brand-blue-50 text-brand-blue-700 rounded-2xl w-fit border border-brand-blue-100/50">
-                  <Eye className="h-6 w-6" />
+            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue-700 space-y-6">
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-brand-yellow-50 text-brand-blue-900 rounded-2xl flex items-center justify-center border border-brand-yellow-200">
+                  <Eye className="h-6 w-6 text-brand-blue-700" />
                 </div>
 
-                <h3 className="text-3xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
+                <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
                   NUESTRA VISIÓN
                 </h3>
 
-                <p className="text-sm text-brand-blue-600/90 font-sans leading-relaxed">
-                  Consolidar la red de última milla y mensajería más confiable de Mar del Plata.
+                <p className="text-sm sm:text-base text-brand-ink leading-relaxed font-sans">
+                  Ser el estándar indiscutido de logística urbana y fulfillment 3PL en la Costa Atlántica, reconocidos por nuestra puntualidad, tecnología de ruteo y calidez en la atención humana.
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-brand-blue-100/60 flex items-center gap-2 text-xs text-brand-blue-400">
-                <CheckSquare className="h-4.5 w-4.5 text-brand-blue shrink-0" />
-                <span className="font-subheading uppercase tracking-widest text-sm">VISIÓN DE FUTURO 2026</span>
+              <div className="pt-4 border-t border-brand-blue-50 flex items-center gap-2 text-xs font-subheading font-bold uppercase tracking-wider text-brand-blue-500">
+                <ShieldCheck className="h-4 w-4 text-brand-yellow-500" />
+                <span>VISIÓN DE FUTURO 2026</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Card 3: Innovación Constante (12 columns) */}
+          {/* Card 3: Compromiso e Innovación CTA (12 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.55, delay: 0.24 }}
-            className="lg:col-span-12 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-12 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-minimal"
           >
-            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6 text-brand-blue">
-              <div className="space-y-4 max-w-3xl">
+            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="space-y-3 max-w-3xl">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 bg-brand-blue-50 text-brand-blue-700 rounded-xl border border-brand-blue-100/50">
-                    <Rocket className="h-5.5 w-5.5 animate-bounce-slow" />
+                  <div className="p-2.5 bg-brand-blue-50 text-brand-blue-700 rounded-xl">
+                    <Rocket className="h-6 w-6 text-brand-blue-700" />
                   </div>
-                  <h3 className="text-3xl font-subheading uppercase tracking-wide text-brand-blue-700 font-bold leading-none">
-                    INNOVACIÓN CONSTANTE
+                  <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 leading-none">
+                    ¿LISTO PARA ENVIAR CON LOS MEJORES?
                   </h3>
                 </div>
-                <p className="text-sm text-brand-blue-600/90 font-sans leading-relaxed">
-                  Trabajamos constantemente en nuevas innovaciones para hacer más confiable el servicio.
+                <p className="text-sm sm:text-base text-brand-ink leading-relaxed font-sans">
+                  Sumate a las cientos de tiendas y emprendimientos de Mar del Plata que confían su logística diaria en Envíos DosRuedas. Cotizá en línea o hablá hoy con un asesor comercial.
                 </p>
               </div>
-              <div className="shrink-0 flex items-center justify-end">
-                <span className="cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 border border-brand-blue-200 font-subheading text-lg rounded-full uppercase tracking-wider shadow-sm">
-                  <span>TECNOLOGÍA PROPIA</span>
-                  <span className="cta-nested-icon bg-brand-blue-100 text-brand-blue-700 shrink-0">
-                    <Rocket className="h-4.5 w-4.5" />
+
+              <div className="shrink-0 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/cotizar/express"
+                  className="cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 border-none shadow-accent font-subheading text-base sm:text-lg rounded-full uppercase tracking-wider cursor-pointer"
+                >
+                  <span>Cotizar Envío</span>
+                  <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 shrink-0">
+                    <ArrowRight className="h-4 w-4" />
                   </span>
-                </span>
+                </Link>
+                <Link
+                  href="/contacto"
+                  className="px-6 py-3 rounded-full border-2 border-brand-blue-700 text-brand-blue-700 hover:bg-brand-blue-50 font-subheading uppercase text-sm sm:text-base tracking-wider font-bold transition-all cursor-pointer"
+                >
+                  Contactar Asesor
+                </Link>
               </div>
             </div>
           </motion.div>
