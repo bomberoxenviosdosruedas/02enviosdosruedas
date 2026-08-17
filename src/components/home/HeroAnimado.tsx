@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useMotionValue, useSpring, useTransform, useScroll, useReducedMotion, type Variants, type Transition } from 'motion/react';
 import { Bike, Shield, Zap, MapPin, ArrowRight } from 'lucide-react';
+import { CTANestedPill } from '@/components/ui';
 import LogisticaNetworkCanvas from './LogisticaNetworkCanvas';
 import gsap from 'gsap';
 
@@ -275,26 +276,24 @@ export default function HeroAnimado() {
 
             {/* CTA Buttons */}
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2 w-full sm:w-auto">
-              <Link
+              <CTANestedPill
                 href="/cotizar/express"
+                variant="primary"
+                size="large"
                 id="hero-cta-solicitar"
-                className="w-full sm:w-auto bg-brand-yellow text-brand-blue font-subheading tracking-wider text-base uppercase cta-nested-pill border border-brand-yellow hover:shadow-cta-glow transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.95] flex items-center justify-between font-bold px-7 py-3"
+                className="w-full sm:w-auto"
               >
-                <span>Cotizá Express</span>
-                <span className="cta-nested-icon bg-brand-blue/15 text-brand-blue transition-transform duration-300 group-hover:translate-x-1">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
-              <Link
+                Cotizá Express
+              </CTANestedPill>
+              <CTANestedPill
                 href="/servicios/envios-express"
+                variant="elevated"
+                size="large"
                 id="hero-cta-servicios"
-                className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-subheading tracking-wider text-base uppercase cta-nested-pill border border-white/30 transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.95] flex items-center justify-between group px-7 py-3 font-bold"
+                className="w-full sm:w-auto"
               >
-                <span>Mirá los Servicios</span>
-                <span className="cta-nested-icon bg-white/10 text-white transition-transform duration-300 group-hover:translate-x-1">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
+                Mirá los Servicios
+              </CTANestedPill>
             </motion.div>
 
             {/* Features list */}
