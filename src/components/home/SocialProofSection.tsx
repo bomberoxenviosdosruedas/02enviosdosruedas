@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Star,
@@ -16,6 +16,8 @@ import {
   Flame,
   Building2,
   Bike,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
@@ -174,9 +176,9 @@ const REVIEWS_DATA: GoogleReview[] = [
 ];
 
 const CATEGORIES = [
-  { id: 'todas', label: 'Todas las Reseñas', icon: Sparkles },
+  { id: 'todas', label: 'Todas', icon: Sparkles },
   { id: 'destacadas', label: 'Destacadas', icon: Flame },
-  { id: 'express', label: 'Envíos Express & Flex', icon: Bike },
+  { id: 'express', label: 'Express & Flex', icon: Bike },
   { id: 'empresas', label: 'Comercios & PyMEs', icon: Building2 },
   { id: 'humanos', label: 'Cara Humana', icon: HeartHandshake },
 ];
@@ -184,6 +186,11 @@ const CATEGORIES = [
 export default function SocialProofSection() {
   const [activeCategory, setActiveCategory] = useState<string>('todas');
   const [expandedReviewId, setExpandedReviewId] = useState<string | null>(null);
+  const [activeSnapIndex, setActiveSnapIndex] = useState<number>(0);
+  const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
+  const [canScrollRight, setCanScrollRight] = useState<boolean>(true);
+
+  const carouselRef = useRef<HTMLDivElement | null>(null);
 
   const filteredReviews =
     activeCategory === 'todas'
@@ -194,87 +201,182 @@ export default function SocialProofSection() {
     setExpandedReviewId((prev) => (prev === id ? null : id));
   };
 
+  // Scroll Snap tracking and state updater
+  const updateScrollState = useCallback(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = el;
+    setCanScrollLeft(scrollLeft > 10);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+
+    // Calculate approximate active slide index
+    const childWidth = el.firstElementChild?.clientWidth || 360;
+    const gap = 24;
+    const index = Math.round(scrollLeft / (childWidth + gap));
+    setActiveSnapIndex(Math.min(Math.max(index, 0), filteredReviews.length - 1));
+  }, [filteredReviews.length]);
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    updateScrollState();
+    el.addEventListener('scroll', updateScrollState, { passive: true });
+    window.addEventListener('resize', updateScrollState);
+
+    return () => {
+      el.removeEventListener('scroll', updateScrollState);
+      window.removeEventListener('resize', updateScrollState);
+    };
+  }, [updateScrollState]);
+
+  // Handle slide snap navigation
+  const scrollToIndex = (index: number) => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const children = el.children;
+    if (children[index]) {
+      (children[index] as HTMLElement).scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest',
+      });
+    }
+  };
+
+  const handlePrev = () => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const slideWidth = (el.firstElementChild?.clientWidth || 360) + 24;
+    el.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+  };
+
+  const handleNext = () => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const slideWidth = (el.firstElementChild?.clientWidth || 360) + 24;
+    el.scrollBy({ left: slideWidth, behavior: 'smooth' });
+  };
+
   return (
     <section
       id="social-proof"
       className="py-24 bg-gradient-to-b from-brand-white-50 via-brand-blue-50/40 to-brand-white-50 relative z-10 border-y border-brand-blue-100 overflow-hidden"
     >
-      {/* Decorative ambient lighting */}
+      {/* Ambient background glows */}
       <div className="absolute top-0 right-10 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-10 w-96 h-96 bg-brand-blue-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold tracking-widest uppercase shadow-sm mb-4 border border-brand-yellow-400">
-            <Star className="w-3.5 h-3.5 fill-brand-blue-900" />
-            <span>5.0 / 5.0 en Google Maps · Calificación Perfecta</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12">
+          <div className="lg:col-span-8 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold tracking-widest uppercase shadow-sm border border-brand-yellow-400">
+              <Star className="w-3.5 h-3.5 fill-brand-blue-900" />
+              <span>5.0 / 5.0 en Google Maps · Calificación Perfecta</span>
+            </div>
+
+            <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[0.95]">
+              Reseñas Reales de Mar del Plata
+            </h2>
+
+            <p className="text-brand-blue-600/90 font-sans text-base sm:text-lg max-w-2xl">
+              Deslizá el carrusel para conocer la experiencia de vecinos, tiendas online y emprendedores que confían a diario en nuestra flota propia.
+            </p>
           </div>
 
-          <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[0.95] mb-4">
-            Reseñas Reales de Mar del Plata
-          </h2>
+          {/* Carousel Controls */}
+          <div className="lg:col-span-4 flex items-center justify-start lg:justify-end gap-3">
+            <div className="font-mono text-xs font-bold text-brand-blue-500 bg-brand-blue-50 px-3.5 py-1.5 rounded-full border border-brand-blue-100 mr-2">
+              <span className="text-brand-blue-700 text-sm font-extrabold">{activeSnapIndex + 1}</span> / {filteredReviews.length}
+            </div>
 
-          <p className="text-brand-blue-600/90 font-sans text-base sm:text-lg max-w-2xl mx-auto">
-            Descubrí lo que dicen clientes, comercios, vecinos y emprendedores sobre nuestra flota propia y atención directa.
-          </p>
+            <button
+              type="button"
+              onClick={handlePrev}
+              disabled={!canScrollLeft}
+              aria-label="Reseña anterior"
+              className={cn(
+                'h-11 w-11 rounded-xl border-2 flex items-center justify-center transition-all cursor-pointer shadow-xs active:scale-95',
+                canScrollLeft
+                  ? 'border-brand-blue-200 bg-white text-brand-blue-700 hover:bg-brand-blue-700 hover:text-white hover:border-brand-blue-700'
+                  : 'border-brand-blue-100 bg-brand-blue-50/50 text-brand-blue-300 cursor-not-allowed opacity-50'
+              )}
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+
+            <button
+              type="button"
+              onClick={handleNext}
+              disabled={!canScrollRight}
+              aria-label="Siguiente reseña"
+              className={cn(
+                'h-11 w-11 rounded-xl border-2 flex items-center justify-center transition-all cursor-pointer shadow-xs active:scale-95 font-bold',
+                canScrollRight
+                  ? 'border-brand-yellow-500 bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400'
+                  : 'border-brand-blue-100 bg-brand-blue-50/50 text-brand-blue-300 cursor-not-allowed opacity-50'
+              )}
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
         </div>
 
-        {/* Top 3 Interactive Metrics Strips */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
-          {/* Card 1: 5.0 Rating */}
+        {/* 3 Interactive Trust Metrics Strips */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-all">
-            <div className="double-bezel-inner bg-white p-6 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center shrink-0 shadow-xs">
-                <Star className="w-7 h-7 fill-brand-blue-900" />
+            <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center shrink-0 shadow-xs">
+                <Star className="w-6 h-6 fill-brand-blue-900" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="font-mono text-3xl sm:text-4xl font-bold text-brand-blue-700 tabular-nums">
+                  <span className="font-mono text-2xl sm:text-3xl font-bold text-brand-blue-700 tabular-nums">
                     5.0
                   </span>
                   <div className="flex text-brand-yellow-500">
                     {[1, 2, 3, 4, 5].map((s) => (
-                      <Star key={s} className="w-3.5 h-3.5 fill-current" />
+                      <Star key={s} className="w-3 h-3 fill-current" />
                     ))}
                   </div>
                 </div>
-                <p className="font-subheading text-xs uppercase tracking-wider text-brand-blue-500 font-bold">
+                <p className="font-subheading text-[11px] uppercase tracking-wider text-brand-blue-500 font-bold">
                   15 Opiniones en Google Maps
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Card 2: 100% Flota Propia */}
           <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-all">
-            <div className="double-bezel-inner bg-white p-6 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-brand-blue-700 text-brand-yellow-500 flex items-center justify-center shrink-0 shadow-xs">
-                <HeartHandshake className="w-7 h-7" />
+            <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-brand-blue-700 text-brand-yellow-500 flex items-center justify-center shrink-0 shadow-xs">
+                <HeartHandshake className="w-6 h-6" />
               </div>
               <div>
-                <span className="font-mono text-3xl sm:text-4xl font-bold text-brand-blue-700 tabular-nums">
+                <span className="font-mono text-2xl sm:text-3xl font-bold text-brand-blue-700 tabular-nums">
                   100%
                 </span>
-                <p className="font-subheading text-xs uppercase tracking-wider text-brand-blue-500 font-bold">
+                <p className="font-subheading text-[11px] uppercase tracking-wider text-brand-blue-500 font-bold">
                   Flota Propia Sin Tercerizar
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Card 3: +7 Años de Trayectoria */}
           <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-all">
-            <div className="double-bezel-inner bg-white p-6 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-brand-yellow-500/20 text-brand-blue-700 flex items-center justify-center shrink-0 border border-brand-yellow-500/40">
-                <TrendingUp className="w-7 h-7" />
+            <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-brand-yellow-500/20 text-brand-blue-700 flex items-center justify-center shrink-0 border border-brand-yellow-500/40">
+                <TrendingUp className="w-6 h-6" />
               </div>
               <div>
-                <span className="font-mono text-3xl sm:text-4xl font-bold text-brand-blue-700 tabular-nums">
+                <span className="font-mono text-2xl sm:text-3xl font-bold text-brand-blue-700 tabular-nums">
                   +7
                 </span>
-                <p className="font-subheading text-xs uppercase tracking-wider text-brand-blue-500 font-bold">
+                <p className="font-subheading text-[11px] uppercase tracking-wider text-brand-blue-500 font-bold">
                   Años de Trayectoria en MDQ
                 </p>
               </div>
@@ -283,7 +385,7 @@ export default function SocialProofSection() {
         </div>
 
         {/* Dynamic Category Filter Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-10">
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar">
           {CATEGORIES.map((cat) => {
             const Icon = cat.icon;
             const isActive = activeCategory === cat.id;
@@ -292,9 +394,12 @@ export default function SocialProofSection() {
               <button
                 key={cat.id}
                 type="button"
-                onClick={() => setActiveCategory(cat.id)}
+                onClick={() => {
+                  setActiveCategory(cat.id);
+                  scrollToIndex(0);
+                }}
                 className={cn(
-                  'px-4 py-2 rounded-full font-subheading text-xs sm:text-sm uppercase tracking-wider font-bold transition-all duration-200 flex items-center gap-2 cursor-pointer border',
+                  'px-4 py-2 rounded-full font-subheading text-xs sm:text-sm uppercase tracking-wider font-bold whitespace-nowrap transition-all duration-200 flex items-center gap-2 cursor-pointer border shrink-0',
                   isActive
                     ? 'bg-brand-blue-700 text-white border-brand-blue-700 shadow-sm scale-105'
                     : 'bg-white text-brand-blue-700 border-brand-blue-100 hover:bg-brand-blue-50 hover:border-brand-blue-300'
@@ -312,212 +417,234 @@ export default function SocialProofSection() {
           })}
         </div>
 
-        {/* Varied Backgrounds Bento / Grid of Reviews */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <AnimatePresence mode="popLayout">
-            {filteredReviews.map((review) => {
-              const isExpanded = expandedReviewId === review.id;
+        {/* Blossom-Style Scroll-Snap Carousel Container */}
+        <div
+          ref={carouselRef}
+          tabIndex={0}
+          aria-label="Carrusel de testimonios"
+          className="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[420px] lg:auto-cols-[460px] gap-6 overflow-x-auto pb-8 pt-2 scroll-smooth no-scrollbar focus:outline-none"
+          style={{
+            scrollSnapType: 'x mandatory',
+            WebkitOverflowScrolling: 'touch',
+          }}
+        >
+          {filteredReviews.map((review, idx) => {
+            const isExpanded = expandedReviewId === review.id;
+            const isCurrentSnap = idx === activeSnapIndex;
 
-              // Compute Card Background & Palette Variant according to Design System
-              const isDarkBlue = review.variant === 'dark-blue';
-              const isYellowAccent = review.variant === 'yellow-accent';
-              const isFrostBlue = review.variant === 'frost-blue';
+            // Palette Variant calculation
+            const isDarkBlue = review.variant === 'dark-blue';
+            const isYellowAccent = review.variant === 'yellow-accent';
+            const isFrostBlue = review.variant === 'frost-blue';
 
-              return (
-                <motion.div
-                  layout
-                  key={review.id}
-                  initial={{ opacity: 0, scale: 0.96, y: 15 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                  transition={{ duration: 0.25 }}
-                  whileHover={{ y: -5 }}
+            return (
+              <div
+                key={review.id}
+                style={{ scrollSnapAlign: 'center' }}
+                className={cn(
+                  'double-bezel-outer p-2 sm:p-2.5 rounded-3xl transition-all duration-300 flex flex-col h-full select-none',
+                  isDarkBlue && 'bg-brand-blue-900/90 border-brand-blue-700 shadow-md',
+                  isYellowAccent && 'bg-brand-yellow-100/80 border-brand-yellow-300 shadow-md',
+                  isFrostBlue && 'bg-brand-blue-100/70 border-brand-blue-200 shadow-sm',
+                  !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-brand-blue-50/80 border-brand-blue-100 shadow-sm',
+                  isCurrentSnap ? 'scale-[1.02] shadow-antigravity-deep' : 'opacity-95'
+                )}
+              >
+                <div
                   className={cn(
-                    'double-bezel-outer p-2 sm:p-2.5 rounded-2xl transition-all duration-300 flex flex-col',
-                    isDarkBlue && 'bg-brand-blue-900/90 border-brand-blue-700 shadow-md',
-                    isYellowAccent && 'bg-brand-yellow-100/70 border-brand-yellow-300 shadow-md',
-                    isFrostBlue && 'bg-brand-blue-100/60 border-brand-blue-200 shadow-sm',
-                    !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-brand-blue-50/80 border-brand-blue-100 shadow-sm'
+                    'double-bezel-inner p-6 sm:p-7 rounded-2xl border relative flex flex-col justify-between h-full transition-colors',
+                    isDarkBlue && 'bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 text-white border-brand-blue-700/60',
+                    isYellowAccent && 'bg-gradient-to-br from-white via-brand-yellow-50/60 to-white text-brand-ink border-brand-yellow-200/80',
+                    isFrostBlue && 'bg-gradient-to-br from-white via-brand-blue-50/60 to-white text-brand-ink border-brand-blue-100',
+                    !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white text-brand-ink border-brand-blue-50'
                   )}
                 >
+                  {/* Top Watermark Icon */}
                   <div
                     className={cn(
-                      'double-bezel-inner p-5 sm:p-6 rounded-xl border relative flex flex-col justify-between h-full transition-colors',
-                      isDarkBlue && 'bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 text-white border-brand-blue-700/60',
-                      isYellowAccent && 'bg-gradient-to-br from-white via-brand-yellow-50/50 to-white text-brand-ink border-brand-yellow-200/80',
-                      isFrostBlue && 'bg-gradient-to-br from-white via-brand-blue-50/50 to-white text-brand-ink border-brand-blue-100',
-                      !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white text-brand-ink border-brand-blue-50'
+                      'absolute top-5 right-5 h-8 w-8 pointer-events-none opacity-20',
+                      isDarkBlue ? 'text-brand-yellow-500 opacity-30' : 'text-brand-blue-700'
                     )}
                   >
-                    {/* Top Watermark Quote Icon */}
-                    <div
-                      className={cn(
-                        'absolute top-4 right-4 h-7 w-7 pointer-events-none opacity-20',
-                        isDarkBlue ? 'text-brand-yellow-500 opacity-30' : 'text-brand-blue-700'
-                      )}
-                    >
-                      <Quote className="h-full w-full" />
+                    <Quote className="h-full w-full" />
+                  </div>
+
+                  {/* Card Header: Rating, Tag & Time */}
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <div className="flex text-brand-yellow-500">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <Star key={star} className="w-4 h-4 fill-current" />
+                        ))}
+                      </div>
+                      <span
+                        className={cn(
+                          'text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full border',
+                          isDarkBlue
+                            ? 'bg-white/10 text-brand-yellow-400 border-white/15'
+                            : 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-100'
+                        )}
+                      >
+                        {review.categoryLabel}
+                      </span>
                     </div>
 
-                    {/* Card Header: Rating, Tag & Time */}
-                    <div>
-                      <div className="flex items-center justify-between gap-2 mb-3">
-                        <div className="flex text-brand-yellow-500">
-                          {[1, 2, 3, 4, 5].map((star) => (
-                            <Star key={star} className="w-3.5 h-3.5 fill-current" />
-                          ))}
-                        </div>
-                        <span
+                    {/* Scannable Quote Headline */}
+                    <h3
+                      className={cn(
+                        'font-subheading text-xl sm:text-2xl uppercase font-bold leading-tight mb-3',
+                        isDarkBlue ? 'text-brand-yellow-400' : 'text-brand-blue-700'
+                      )}
+                    >
+                      {review.quoteHighlight}
+                    </h3>
+
+                    {/* Review Body */}
+                    <p
+                      className={cn(
+                        'font-sans text-xs sm:text-sm leading-relaxed mb-6',
+                        isDarkBlue ? 'text-brand-blue-100/90' : 'text-brand-ink/85'
+                      )}
+                    >
+                      {review.text}
+                    </p>
+                  </div>
+
+                  {/* Author & Footer Details */}
+                  <div
+                    className={cn(
+                      'pt-3 border-t mt-auto',
+                      isDarkBlue ? 'border-white/10' : 'border-brand-blue-100/60'
+                    )}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        <div
                           className={cn(
-                            'text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full border',
+                            'w-9 h-9 rounded-full font-subheading font-bold text-xs flex items-center justify-center shrink-0 border',
                             isDarkBlue
-                              ? 'bg-white/10 text-brand-yellow-400 border-white/15'
-                              : 'bg-brand-blue-50 text-brand-blue-600 border-brand-blue-100'
+                              ? 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-400'
+                              : 'bg-brand-blue-700 text-white border-brand-blue-800'
                           )}
                         >
-                          {review.categoryLabel}
-                        </span>
-                      </div>
-
-                      {/* Main Quote Highlight (Scannable Headline) */}
-                      <h3
-                        className={cn(
-                          'font-subheading text-lg sm:text-xl uppercase font-bold leading-tight mb-2.5',
-                          isDarkBlue ? 'text-brand-yellow-400' : 'text-brand-blue-700'
-                        )}
-                      >
-                        {review.quoteHighlight}
-                      </h3>
-
-                      {/* Body Quote */}
-                      <p
-                        className={cn(
-                          'font-sans text-xs sm:text-sm leading-relaxed mb-4',
-                          isDarkBlue ? 'text-brand-blue-100/90' : 'text-brand-ink/85'
-                        )}
-                      >
-                        {review.text}
-                      </p>
-                    </div>
-
-                    {/* Author & Footer Block */}
-                    <div
-                      className={cn(
-                        'pt-3 border-t mt-auto',
-                        isDarkBlue ? 'border-white/10' : 'border-brand-blue-100/60'
-                      )}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2.5">
-                          <div
+                          {review.author.charAt(0)}
+                        </div>
+                        <div>
+                          <p
                             className={cn(
-                              'w-8 h-8 rounded-full font-subheading font-bold text-xs flex items-center justify-center shrink-0 border',
-                              isDarkBlue
-                                ? 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-400'
-                                : 'bg-brand-blue-700 text-white border-brand-blue-800'
+                              'font-bold font-sans text-xs sm:text-sm leading-none',
+                              isDarkBlue ? 'text-white' : 'text-brand-blue-700'
                             )}
                           >
-                            {review.author.charAt(0)}
-                          </div>
-                          <div>
-                            <p
-                              className={cn(
-                                'font-bold font-sans text-xs sm:text-sm leading-none',
-                                isDarkBlue ? 'text-white' : 'text-brand-blue-700'
-                              )}
-                            >
-                              {review.author}
-                            </p>
-                            <div className="flex items-center gap-1 mt-1">
-                              {review.badge && (
-                                <span
-                                  className={cn(
-                                    'text-[9px] font-mono px-1 py-0.2 rounded font-bold uppercase',
-                                    isDarkBlue
-                                      ? 'bg-brand-yellow-500/20 text-brand-yellow-400'
-                                      : 'bg-brand-yellow-500/20 text-brand-blue-800'
-                                  )}
-                                >
-                                  {review.badge}
-                                </span>
-                              )}
+                            {review.author}
+                          </p>
+                          <div className="flex items-center gap-1.5 mt-1">
+                            {review.badge && (
                               <span
                                 className={cn(
-                                  'text-[10px] font-mono',
-                                  isDarkBlue ? 'text-brand-blue-300' : 'text-brand-blue-400'
+                                  'text-[9px] font-mono px-1.5 py-0.2 rounded font-bold uppercase',
+                                  isDarkBlue
+                                    ? 'bg-brand-yellow-500/20 text-brand-yellow-400'
+                                    : 'bg-brand-yellow-500/20 text-brand-blue-800'
                                 )}
                               >
-                                {review.timeAgo}
+                                {review.badge}
                               </span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Owner response toggle if available */}
-                        {review.ownerResponse && (
-                          <button
-                            type="button"
-                            onClick={() => toggleExpand(review.id)}
-                            className={cn(
-                              'p-1.5 rounded-lg text-xs font-mono flex items-center gap-1 transition-colors cursor-pointer border',
-                              isDarkBlue
-                                ? 'bg-white/10 text-white border-white/15 hover:bg-white/20'
-                                : 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-100 hover:bg-brand-blue-100'
                             )}
-                            title="Ver respuesta del equipo"
-                          >
-                            <MessageSquareQuote className="w-3.5 h-3.5" />
-                            <ChevronDown
+                            <span
                               className={cn(
-                                'w-3 h-3 transition-transform duration-200',
-                                isExpanded && 'rotate-180'
-                              )}
-                            />
-                          </button>
-                        )}
-                      </div>
-
-                      {/* Expandable Owner Response Dropdown */}
-                      <AnimatePresence>
-                        {isExpanded && review.ownerResponse && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden"
-                          >
-                            <div
-                              className={cn(
-                                'mt-3 p-3 rounded-lg text-xs font-sans italic border-l-2 leading-relaxed',
-                                isDarkBlue
-                                  ? 'bg-white/5 border-brand-yellow-500 text-brand-blue-100'
-                                  : 'bg-brand-blue-50/80 border-brand-blue-700 text-brand-ink'
+                                'text-[10px] font-mono',
+                                isDarkBlue ? 'text-brand-blue-300' : 'text-brand-blue-400'
                               )}
                             >
-                              <span className="font-bold not-italic block text-[10px] uppercase font-mono mb-1 text-brand-yellow-500">
-                                Respuesta de Envíos DosRuedas:
-                              </span>
-                              &ldquo;{review.ownerResponse}&rdquo;
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </motion.div>
+                              {review.timeAgo}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
 
-        {/* Bottom CTA / Verification Link to Google Maps */}
+                      {/* Owner response toggle */}
+                      {review.ownerResponse && (
+                        <button
+                          type="button"
+                          onClick={() => toggleExpand(review.id)}
+                          className={cn(
+                            'p-1.5 rounded-lg text-xs font-mono flex items-center gap-1 transition-colors cursor-pointer border',
+                            isDarkBlue
+                              ? 'bg-white/10 text-white border-white/15 hover:bg-white/20'
+                              : 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-100 hover:bg-brand-blue-100'
+                          )}
+                          title="Ver respuesta del equipo"
+                        >
+                          <MessageSquareQuote className="w-3.5 h-3.5" />
+                          <ChevronDown
+                            className={cn(
+                              'w-3 h-3 transition-transform duration-200',
+                              isExpanded && 'rotate-180'
+                            )}
+                          />
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Expandable Owner Response */}
+                    <AnimatePresence>
+                      {isExpanded && review.ownerResponse && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden"
+                        >
+                          <div
+                            className={cn(
+                              'mt-3 p-3 rounded-lg text-xs font-sans italic border-l-2 leading-relaxed',
+                              isDarkBlue
+                                ? 'bg-white/5 border-brand-yellow-500 text-brand-blue-100'
+                                : 'bg-brand-blue-50/80 border-brand-blue-700 text-brand-ink'
+                            )}
+                          >
+                            <span className="font-bold not-italic block text-[10px] uppercase font-mono mb-1 text-brand-yellow-500">
+                              Respuesta de Envíos DosRuedas:
+                            </span>
+                            &ldquo;{review.ownerResponse}&rdquo;
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Scroll Snap Pagination Dots */}
+        <div className="flex justify-center items-center gap-2 mb-10">
+          {filteredReviews.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => scrollToIndex(idx)}
+              aria-label={`Ir a la reseña ${idx + 1}`}
+              className={cn(
+                'h-2 rounded-full transition-all duration-300 cursor-pointer border',
+                idx === activeSnapIndex
+                  ? 'w-10 bg-brand-yellow-500 border-brand-yellow-400'
+                  : 'w-2 bg-brand-blue-200 border-brand-blue-200 hover:bg-brand-blue-400'
+              )}
+            />
+          ))}
+        </div>
+
+        {/* Verification Link to Google Maps */}
         <div className="text-center">
           <a
             href="https://share.google/ofw5wAQt3Fc1dArom"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-sm sm:text-base uppercase tracking-wider font-bold hover:bg-brand-yellow-400 transition-all shadow-md group hover:scale-[1.02] cursor-pointer"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-sm sm:text-base uppercase tracking-wider font-bold hover:bg-brand-yellow-400 transition-all shadow-md group hover:scale-[1.02] cursor-pointer"
           >
             <span>Ver Ficha y Opiniones en Google Maps</span>
             <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
