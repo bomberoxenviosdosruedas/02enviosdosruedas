@@ -30,7 +30,7 @@ describe('SobreNosotrosPage — Tier 1 & 2', () => {
     render(<SobreNosotrosPage />);
     expect(screen.getByText('2019')).toBeInTheDocument();
     expect(screen.getAllByText('2026')[0]).toBeInTheDocument();
-    expect(screen.getByText('Lanzamiento Inicial')).toBeInTheDocument();
+    expect(screen.getByText('Lanzamiento Inicial en MDQ')).toBeInTheDocument();
   });
 
   it('T1.5: renderiza el widget de Google Reviews con puntuación 5.0 / 5', () => {

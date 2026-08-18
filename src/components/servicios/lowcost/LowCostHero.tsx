@@ -24,13 +24,13 @@ export default function LowCostHero() {
       id="lowcost-hero"
       className="relative w-full overflow-hidden bg-brand-blue-700 text-white min-h-[80vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-brand-blue-500/20"
     >
-      {/* Pure Vector & Dynamic Procedural Background (0 KB static images) */}
+      {/* Pure Vector & Dynamic Procedural Background */}
       <HeroProceduralBackground variant="lowcost" />
 
       {/* Ghost Wordmark Monumental de Fondo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
         <span className="font-display uppercase text-[16vw] leading-none text-white/[0.03] tracking-tighter whitespace-nowrap">
-          ENVÍOS LOWCOST
+          PAQUETERÍA LOWCOST
         </span>
       </div>
 
@@ -46,23 +46,23 @@ export default function LowCostHero() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-brand-blue-900/80 backdrop-blur-md border border-brand-yellow-500/30 text-brand-yellow-500 shadow-md"
             >
               <TrendingDown className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-              <span>RUTEO MASIVO INTELIGENTE · TARIFA MÍNIMA MDQ</span>
+              <span>PAQUETERÍA E-COMMERCE Y CADETERÍA ECONÓMICA · MDQ 2026</span>
             </motion.div>
 
             {/* Monumental Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.75rem] font-display uppercase tracking-tight leading-[0.9] text-white">
-              <span className="block">ENVÍOS</span>
+            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.9] text-white">
+              <span className="block">PAQUETERÍA E-COMMERCE Y</span>
               <span className="block text-brand-yellow-500 drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">
-                LOWCOST
+                ENCOMIENDAS LOWCOST
               </span>
               <span className="block text-2xl sm:text-4xl lg:text-5xl text-brand-blue-100 mt-1">
-                MÁXIMO AHORRO EN TUS VENTAS
+                EL SERVICIO DE CADETERÍA MÁS RENTABLE
               </span>
             </h1>
 
             {/* Description */}
             <p className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-50 max-w-2xl mx-auto lg:mx-0 leading-relaxed pl-4 border-l-2 border-brand-yellow-500 font-light">
-              Agrupamos tus entregas por circuitos zonales para ofrecerte la tarifa más competitiva de Mar del Plata con la misma garantía de entrega en el día.
+              Solución en paquetería e-commerce, servicio de cadetería y servicio de encomiendas programadas en Mar del Plata. Pedidos solicitados antes de las 13:00 hs se entregan en el día antes de las 19:00 hs.
             </p>
 
             {/* CTAs */}
@@ -104,18 +104,18 @@ export default function LowCostHero() {
               </div>
               <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                 <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
-                  -30%
+                  13:00 hs
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
-                  Ahorro en Envíos
+                  Horario de Corte
                 </span>
               </div>
               <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                 <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
-                  Mismo Día
+                  Antes 19:00 hs
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
-                  Entrega Garantizada
+                  Entrega Misma Jornada
                 </span>
               </div>
             </div>
@@ -165,7 +165,7 @@ export default function LowCostHero() {
                     }`}
                   >
                     <Clock className="w-3.5 h-3.5 shrink-0" />
-                    <span>Franjas de Entrega</span>
+                    <span>Horario y Corte</span>
                   </button>
                 </div>
 
@@ -185,10 +185,10 @@ export default function LowCostHero() {
                           <CheckCircle2 className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
                           <div>
                             <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
-                              Tarifa Plana Reducida
+                              Paquetería E-Commerce Rentable
                             </p>
                             <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              Costo desde $3.000 para envíos locales, optimizando los márgenes de ganancia de tu tienda.
+                              Optimización en paquetería e-commerce y encomiendas para bajar costos de envío significativamente.
                             </p>
                           </div>
                         </div>
@@ -197,10 +197,10 @@ export default function LowCostHero() {
                           <Layers className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
                           <div>
                             <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
-                              Carga Masiva con Planilla
+                              Servicio de Cadetería Flexible
                             </p>
                             <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              Subí hasta 15 destinos simultáneos en nuestro cotizador y procesá todo en un solo click.
+                              Ideal para emprendedores con envíos esporádicos o volúmenes diarios ruteados.
                             </p>
                           </div>
                         </div>
@@ -209,10 +209,10 @@ export default function LowCostHero() {
                           <ShieldCheck className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
                           <div>
                             <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
-                              Trazabilidad Completa
+                              Seguimiento y Notificaciones
                             </p>
                             <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              Cada destinatario recibe notificación de franja horaria para asegurar recepción en el primer intento.
+                              Notificaciones directas vía WhatsApp para cada despacho en Mar del Plata.
                             </p>
                           </div>
                         </div>
@@ -230,12 +230,12 @@ export default function LowCostHero() {
                           <div className="flex justify-between items-center text-xs font-subheading uppercase font-bold text-brand-blue-700">
                             <span className="flex items-center gap-1.5">
                               <Clock className="w-3.5 h-3.5 text-brand-yellow-500" />
-                              Turno Mañana (Retiro 09:00 - 11:00)
+                              Corte Solicitud
                             </span>
-                            <span className="font-mono text-brand-blue-500 font-bold">13:00 - 16:00 hs</span>
+                            <span className="font-mono text-brand-blue-500 font-bold">13:00 hs Límite</span>
                           </div>
                           <p className="text-[11px] text-brand-ink/75 font-sans">
-                            Ideal para pedidos recibidos la noche anterior en tu tienda online.
+                            Pedí tu servicio de encomiendas o cadetería antes de las 13:00 hs para entrega el mismo día.
                           </p>
                         </div>
 
@@ -243,19 +243,19 @@ export default function LowCostHero() {
                           <div className="flex justify-between items-center text-xs font-subheading uppercase font-bold text-brand-blue-700">
                             <span className="flex items-center gap-1.5">
                               <Clock className="w-3.5 h-3.5 text-brand-yellow-500" />
-                              Turno Tarde (Retiro 14:00 - 16:00)
+                              Horario de Entrega
                             </span>
-                            <span className="font-mono text-brand-blue-500 font-bold">17:00 - 20:00 hs</span>
+                            <span className="font-mono text-brand-blue-500 font-bold">Antes de 19:00 hs</span>
                           </div>
                           <p className="text-[11px] text-brand-ink/75 font-sans">
-                            Para las ventas concretadas durante la mañana y mediodía.
+                            Entregas continuas ruteadas en el transcurso del día sin elección de hora puntual.
                           </p>
                         </div>
 
                         <div className="p-2.5 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 flex items-center justify-between text-xs font-subheading uppercase font-bold text-brand-blue-700">
                           <span className="flex items-center gap-1.5">
                             <MapPin className="w-3.5 h-3.5 text-brand-yellow-500" />
-                            Todo Mar del Plata & Batán
+                            Todo Mar del Plata
                           </span>
                           <span className="text-brand-blue-500">100% Cobertura</span>
                         </div>

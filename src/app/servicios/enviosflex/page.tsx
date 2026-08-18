@@ -10,16 +10,23 @@ import FlexRequirements from '@/src/components/servicios/flex/FlexRequirements';
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Mercado Envíos Flex en Mar del Plata | Reparto Same-Day Oficial | Envíos DosRuedas',
+  title: 'Envíos Flex, Reparto MercadoLibre y Logística Flex Mar del Plata | Envíos DosRuedas',
   description:
-    'Socio logístico especializado en Mercado Envíos Flex en Mar del Plata. Retiramos y entregamos tus ventas en el mismo día. Protegé tu reputación y medalla de vendedor.',
+    'Socio logístico especialista en envíos flex y reparto MercadoLibre en Mar del Plata. SLA 100% entregas en el día para proteger tu reputación MercadoLíder. Horario de corte 15:00 hs, entregas antes de las 20:00 hs, sin mínimo de paquetes.',
+  keywords: [
+    'envios flex',
+    'reparto mercadolibre',
+    'logistica flex',
+    'envios flex mar del plata',
+    'mercado envios flex mar del plata',
+  ],
   alternates: {
     canonical: `${baseUrl}/servicios/enviosflex`,
   },
   openGraph: {
-    title: 'Mercado Envíos Flex en Mar del Plata | Envíos DosRuedas',
+    title: 'Envíos Flex, Reparto MercadoLibre y Logística Flex | Envíos DosRuedas',
     description:
-      'Entregas en el día (Same-Day) para MercadoLibre en Mar del Plata. Retiro en tu local y entrega garantizada con flota propia.',
+      'Logística flex y reparto MercadoLibre Same-Day en Mar del Plata. SLA 100% entregas garantizadas en el día, corte 15:00 hs y múltiples retiros sin mínimos.',
     url: `${baseUrl}/servicios/enviosflex`,
     type: 'website',
     locale: 'es_AR',
@@ -29,9 +36,9 @@ export const metadata: Metadata = {
 const jsonLdSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Mercado Envíos Flex Same-Day en Mar del Plata',
+  name: 'Envíos Flex, Reparto MercadoLibre y Logística Flex en Mar del Plata',
   description:
-    'Entregas en el día para vendedores de MercadoLibre en Mar del Plata. Retiro programado, cumplimiento estricto de horarios y medalla de reputación garantizada.',
+    'Solución integral en envíos flex, reparto MercadoLibre y logística flex en Mar del Plata. SLA de 100% entregas en el día para proteger reputación MercadoLíder. Horario de corte 15:00 hs, entregas antes de las 20:00 hs, múltiples retiros diarios sin mínimo de envíos.',
   url: `${baseUrl}/servicios/enviosflex`,
   provider: {
     '@type': 'LocalBusiness',
@@ -57,15 +64,15 @@ const jsonLdSchema = {
     itemListElement: [
       {
         '@type': 'Offer',
-        name: 'Flex Emprendedor',
-        description: 'Retiro diario y entregas Same-Day en toda la ciudad para tiendas en crecimiento',
+        name: 'Logística Flex Emprendedor',
+        description: 'Retiros diarios sin mínimos y 100% de entregas Same-Day antes de las 20:00 hs',
         priceCurrency: 'ARS',
         availability: 'https://schema.org/InStock',
       },
       {
         '@type': 'Offer',
-        name: 'Flex Alto Volumen',
-        description: 'Logística masiva diaria para MercadoLíderes con soporte prioritario vía WhatsApp',
+        name: 'Reparto MercadoLibre Alto Volumen',
+        description: 'Múltiples retiros diarios y soporte dedicado vía WhatsApp para MercadoLíderes',
         priceCurrency: 'ARS',
         availability: 'https://schema.org/InStock',
       },

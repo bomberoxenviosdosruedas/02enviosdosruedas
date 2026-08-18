@@ -24,13 +24,13 @@ export default function FlexHero() {
       id="flex-hero"
       className="relative w-full overflow-hidden bg-brand-blue-700 text-white min-h-[80vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-brand-blue-500/20"
     >
-      {/* Pure Vector & Dynamic Procedural Background (0 KB static images) */}
+      {/* Pure Vector & Dynamic Procedural Background */}
       <HeroProceduralBackground variant="flex" />
 
       {/* Ghost Wordmark Monumental de Fondo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
         <span className="font-display uppercase text-[16vw] leading-none text-white/[0.03] tracking-tighter whitespace-nowrap">
-          ENVÍOS FLEX
+          LOGÍSTICA FLEX
         </span>
       </div>
 
@@ -46,23 +46,23 @@ export default function FlexHero() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-brand-blue-900/80 backdrop-blur-md border border-brand-yellow-500/30 text-brand-yellow-500 shadow-md"
             >
               <Award className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-              <span>SOCIO CERTIFICADO MERCADO LIBRE FLEX · MDQ 2026</span>
+              <span>ENVÍOS FLEX Y REPARTO MERCADOLIBRE · MDQ 2026</span>
             </motion.div>
 
             {/* Monumental Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.75rem] font-display uppercase tracking-tight leading-[0.9] text-white">
-              <span className="block">ENVÍOS</span>
+            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.9] text-white">
+              <span className="block">ENVÍOS FLEX Y</span>
               <span className="block text-brand-yellow-500 drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">
-                FLEX
+                REPARTO MERCADOLIBRE
               </span>
               <span className="block text-2xl sm:text-4xl lg:text-5xl text-brand-blue-100 mt-1">
-                ENTREGAS EN EL DÍA (SAME-DAY)
+                LOGÍSTICA FLEX CON 100% CUMPLIMIENTO
               </span>
             </h1>
 
             {/* Description */}
             <p className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-50 max-w-2xl mx-auto lg:mx-0 leading-relaxed pl-4 border-l-2 border-brand-yellow-500 font-light">
-              Mantené tu reputación en verde y aumentá tus ventas en MercadoLibre. Corte extendido a las 15:00 hs, escaneo de etiquetas QR por app oficial y despacho 100% garantizado.
+              Líderes en envíos flex, reparto MercadoLibre y logística flex en Mar del Plata. SLA real con 100% de entregas en el día antes de las 20:00 hs para proteger la reputación de MercadoLíder. Horario de corte 15:00 hs y múltiples retiros diarios sin mínimos de paquetes.
             </p>
 
             {/* CTAs */}
@@ -107,15 +107,15 @@ export default function FlexHero() {
                   100%
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
-                  Reputación Verde
+                  Entregas en el Día
                 </span>
               </div>
               <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                 <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
-                  QR Flex
+                  Sin Mínimos
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
-                  Escaneo Oficial
+                  Retiros Múltiples
                 </span>
               </div>
             </div>
@@ -133,11 +133,11 @@ export default function FlexHero() {
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-yellow-500" />
                     </span>
                     <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-blue-700">
-                      INTEGRACIÓN MELI FLEX
+                      INTEGRACIÓN LOGÍSTICA FLEX
                     </span>
                   </div>
                   <span className="font-mono text-xs font-bold bg-brand-blue-50 text-brand-blue-700 px-2.5 py-1 rounded-lg border border-brand-blue-100">
-                    CERTIFICADO
+                    SLA 100%
                   </span>
                 </div>
 
@@ -153,7 +153,7 @@ export default function FlexHero() {
                     }`}
                   >
                     <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                    <span>Ventajas MeLi</span>
+                    <span>Ventajas MercadoLíder</span>
                   </button>
                   <button
                     type="button"
@@ -188,7 +188,7 @@ export default function FlexHero() {
                               Corte a las 15:00 hs
                             </p>
                             <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              3 horas más de ventas diarias para tu cuenta en comparación con la competencia.
+                              Procesamos tus envíos flex recibidos hasta las 15:00 hs con entregas aseguradas antes de las 20:00 hs.
                             </p>
                           </div>
                         </div>
@@ -197,10 +197,10 @@ export default function FlexHero() {
                           <ShieldCheck className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
                           <div>
                             <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
-                              Cero Reclamos por Demora
+                              Protección de Reputación
                             </p>
                             <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              Tus métricas de Mercado Envíos Flex se protegen con entregas puntuales y reintentos automáticos.
+                              100% de entregas en el día para mantener tu reputación y medalla de MercadoLíder impecable.
                             </p>
                           </div>
                         </div>
@@ -209,10 +209,10 @@ export default function FlexHero() {
                           <Zap className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
                           <div>
                             <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
-                              Retiro en tu Depósito o Local
+                              Sin Mínimos y Múltiples Retiros
                             </p>
                             <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              Pasamos por tu dirección diariamente a las 15:00 hs sin que tengas que moverte.
+                              Retiramos en tu local cuantas veces sea necesario en el día sin mínimo de paquetes.
                             </p>
                           </div>
                         </div>
@@ -228,7 +228,7 @@ export default function FlexHero() {
                       >
                         <div className="p-3 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-1">
                           <div className="flex justify-between items-center text-xs font-subheading uppercase font-bold text-brand-blue-700">
-                            <span>1. Imprimís tus etiquetas MeLi</span>
+                            <span>1. Imprimís tus etiquetas Flex</span>
                             <span className="text-brand-blue-500 font-mono">Paso 1</span>
                           </div>
                           <p className="text-[11px] text-brand-ink/75 font-sans">
@@ -242,7 +242,7 @@ export default function FlexHero() {
                             <span className="text-brand-blue-500 font-mono">Paso 2</span>
                           </div>
                           <p className="text-[11px] text-brand-ink/75 font-sans">
-                            Nuestro cadete escanea el paquete con la app de Mercado Envíos Flex al retirar.
+                            Nuestro cadete escanea el paquete con la app oficial al retirar en tu dirección.
                           </p>
                         </div>
 
@@ -252,7 +252,7 @@ export default function FlexHero() {
                             <span className="text-brand-blue-500 font-mono">Paso 3</span>
                           </div>
                           <p className="text-[11px] text-brand-ink/75 font-sans">
-                            Se entrega antes de las 21:00 hs con confirmación digital en la plataforma.
+                            Entrega final antes de las 20:00 hs asegurando tu reputación.
                           </p>
                         </div>
                       </motion.div>
@@ -262,8 +262,8 @@ export default function FlexHero() {
 
                 {/* Footer trust strip */}
                 <div className="pt-3 border-t border-brand-blue-100 flex items-center justify-between text-[11px] font-subheading uppercase tracking-wider text-brand-blue-600 font-bold">
-                  <span>Plataforma MercadoLibre</span>
-                  <span className="text-brand-blue-700 font-mono text-xs">Liquidación Semanal</span>
+                  <span>Reparto MercadoLibre MDQ</span>
+                  <span className="text-brand-blue-700 font-mono text-xs">Corte 15:00 hs</span>
                 </div>
               </div>
             </div>

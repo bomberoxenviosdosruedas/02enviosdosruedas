@@ -8,16 +8,23 @@ import EmprendedoresPricing from '@/src/components/servicios/emprendedores/Empre
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Logística 3PL y Fulfillment para E-Commerce en Mar del Plata | Envíos DosRuedas',
+  title: 'Paquetería E-Commerce, Envíos E-Commerce y Logística 3PL Mar del Plata | Envíos DosRuedas',
   description:
-    'Almacenamiento, preparación de pedidos (picking & packing) y distribución de última milla para PyMEs y marcas en Mar del Plata. Depósito en Friuli 1972.',
+    'Especialistas en paquetería e-commerce, envíos e-commerce y logística 3PL en Mar del Plata. Almacenamiento en Friuli 1972 con picking QR Same Day, E-Commerce Next Day (24hs), opción DropOFF (-20% OFF) y contrareembolso sin cargo extra.',
+  keywords: [
+    'paqueteria ecommerce',
+    'envios ecommerce',
+    'logistica 3pl mar del plata',
+    'fulfillment mar del plata',
+    'dropoff envios mar del plata',
+  ],
   alternates: {
     canonical: `${baseUrl}/servicios/plan-emprendedores`,
   },
   openGraph: {
-    title: 'Logística 3PL y Fulfillment para E-Commerce | Envíos DosRuedas Mar del Plata',
+    title: 'Paquetería E-Commerce, Envíos E-Commerce y Logística 3PL | Envíos DosRuedas',
     description:
-      'Tercerizá tu depósito y logística en Mar del Plata. Almacenamos tu stock, preparamos tus órdenes y las entregamos en el día.',
+      'Soluciones integrales de paquetería e-commerce y logística 3PL en Mar del Plata. Depósito en Friuli 1972, picking QR Same Day, Next Day 24hs, DropOFF 20% OFF y cobro contrareembolso gratis.',
     url: `${baseUrl}/servicios/plan-emprendedores`,
     type: 'website',
     locale: 'es_AR',
@@ -27,9 +34,9 @@ export const metadata: Metadata = {
 const jsonLdSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Logística 3PL, Fulfillment y Plan Emprendedores en Mar del Plata',
+  name: 'Paquetería E-Commerce, Envíos E-Commerce y Logística 3PL en Mar del Plata',
   description:
-    'Solución integral de almacenamiento inteligente, picking, packing y distribución de última milla para PyMEs y e-commerce en Mar del Plata.',
+    'Servicio integral de paquetería e-commerce y logística 3PL en Mar del Plata. Incluye E-Commerce Same Day desde Friuli 1972 con picking QR, E-Commerce Next Day 24hs, opción DropOFF con 20% de descuento y cobro contrareembolso sin cargo extra.',
   url: `${baseUrl}/servicios/plan-emprendedores`,
   provider: {
     '@type': 'LocalBusiness',
@@ -51,26 +58,26 @@ const jsonLdSchema = {
   },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Planes 3PL y Fulfillment',
+    name: 'Planes 3PL y Paquetería E-Commerce',
     itemListElement: [
       {
         '@type': 'Offer',
-        name: 'Plan Emprendedor',
-        description: 'Hasta 100 órdenes/mes - almacenamiento + picking + packing',
+        name: 'E-Commerce Same Day',
+        description: 'Stock almacenado en Friuli 1972, despachado inmediatamente con picking QR y empaquetado',
         priceCurrency: 'ARS',
         availability: 'https://schema.org/InStock',
       },
       {
         '@type': 'Offer',
-        name: 'Plan PyME',
-        description: 'Hasta 500 órdenes/mes - almacenamiento + packing + gestión de cambios/devoluciones',
+        name: 'E-Commerce Next Day (24hs)',
+        description: 'Retiro programado para entrega al día siguiente. Recolección gratis para más de 10 envíos',
         priceCurrency: 'ARS',
         availability: 'https://schema.org/InStock',
       },
       {
         '@type': 'Offer',
-        name: 'Plan Enterprise',
-        description: 'Volumen ilimitado - integración ERP/API + ejecutiva de cuentas dedicada',
+        name: 'Opción DropOFF (-20% OFF)',
+        description: 'Despacho directo en Friuli 1972 con un 20% de descuento en la tarifa final',
         priceCurrency: 'ARS',
         availability: 'https://schema.org/InStock',
       },

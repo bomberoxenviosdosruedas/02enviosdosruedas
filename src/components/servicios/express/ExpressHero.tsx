@@ -17,13 +17,13 @@ export default function ExpressHero() {
       id="express-hero"
       className="relative w-full overflow-hidden bg-brand-blue-700 text-white min-h-[80vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-brand-blue-500/20"
     >
-      {/* Pure Vector & Dynamic Procedural Background (0 KB static images) */}
+      {/* Pure Vector & Dynamic Procedural Background */}
       <HeroProceduralBackground variant="express" />
 
       {/* Ghost Wordmark Monumental de Fondo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
         <span className="font-display uppercase text-[16vw] leading-none text-white/[0.03] tracking-tighter whitespace-nowrap">
-          ENVÍOS EXPRESS
+          MENSAJERÍA EN MOTO
         </span>
       </div>
 
@@ -39,23 +39,23 @@ export default function ExpressHero() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-brand-blue-900/80 backdrop-blur-md border border-brand-yellow-500/30 text-brand-yellow-500 shadow-md"
             >
               <Zap className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-              <span>ENTREGAS EN MENOS DE 2 HORAS · MDQ 2026</span>
+              <span>MENSAJERÍA EN MOTO Y ENTREGAS INMEDIATAS · MDQ 2026</span>
             </motion.div>
 
             {/* Monumental Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.75rem] font-display uppercase tracking-tight leading-[0.9] text-white">
-              <span className="block">ENVÍOS</span>
+            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.9] text-white">
+              <span className="block">MENSAJERÍA EN MOTO Y</span>
               <span className="block text-brand-yellow-500 drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">
-                EXPRESS
+                ENVÍOS EXPRESS
               </span>
               <span className="block text-2xl sm:text-4xl lg:text-5xl text-brand-blue-100 mt-1">
-                EN EL DÍA PUERTA A PUERTA
+                ENTREGAS INMEDIATAS EN MAR DEL PLATA
               </span>
             </h1>
 
             {/* Description */}
             <p className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-50 max-w-2xl mx-auto lg:mx-0 leading-relaxed pl-4 border-l-2 border-brand-yellow-500 font-light">
-              Retiramos en tu domicilio y entregamos en destino en tiempo récord. Flota motorizada propia, seguro de cumplimiento y seguimiento directo por WhatsApp.
+              Especialistas en mensajería en moto y envíos express prioritarios. Asignación de rango horario de entrega de 3 horas (solicitud con 2 hs de anticipación antes de las 15:00 hs). Todo lo que entre en moto (hasta 5 kg y 40x30 cm).
             </p>
 
             {/* CTAs */}
@@ -89,26 +89,26 @@ export default function ExpressHero() {
             <div className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
               <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                 <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
-                  &lt; 120 min
+                  3 Horas
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
-                  Tiempo Promedio
+                  Rango de Entrega
                 </span>
               </div>
               <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                 <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
-                  $3.700
+                  15:00 hs
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
-                  Base 0-3 km 2026
+                  Corte Solicitud
                 </span>
               </div>
               <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                 <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
-                  100%
+                  Hasta 5 kg
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
-                  Flota Propia
+                  40x30 cm Límite
                 </span>
               </div>
             </div>
@@ -198,14 +198,14 @@ export default function ExpressHero() {
                   {/* Kinetic ETA Counter Display */}
                   <div className="text-center mt-3">
                     <span className="text-xs font-subheading uppercase tracking-widest text-brand-blue-200 block">
-                      TIEMPO ESTIMADO DE TRASLADO
+                      RANGO HORARIO PROGRAMADO
                     </span>
                     <div className="flex items-baseline justify-center gap-2 mt-1">
-                      <span className="font-display text-5xl sm:text-6xl text-brand-yellow-500 tracking-tight leading-none drop-shadow-[0_0_20px_rgba(255,236,1,0.35)]">
-                        &lt; 35
+                      <span className="font-display text-4xl sm:text-5xl text-brand-yellow-500 tracking-tight leading-none drop-shadow-[0_0_20px_rgba(255,236,1,0.35)]">
+                        3 HS
                       </span>
-                      <span className="font-subheading text-2xl text-white tracking-wider uppercase font-bold">
-                        MINUTOS
+                      <span className="font-subheading text-xl text-white tracking-wider uppercase font-bold">
+                        RANGO
                       </span>
                     </div>
                   </div>
