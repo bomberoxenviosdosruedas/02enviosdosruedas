@@ -38,11 +38,23 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Envíos DosRuedas - Mensajería & Logística en Mar del Plata',
+    default: 'Envíos DosRuedas · Tu Partner Logístico en Mar del Plata',
     template: '%s | Envíos DosRuedas',
   },
-  description: 'La solución logística y última milla de mayor confianza en Mar del Plata. Envíos Express, MercadoLibre Flex, ruteo eficiente y cadetería inteligente.',
-  keywords: ['envíos mar del plata', 'mensajería mar del plata', 'logística e-commerce argentina', 'mercadolibre flex mar del plata', 'cadetería mar del plata', 'envíos express mar del plata', 'logística 3pl argentina', 'última milla mar del plata'],
+  description: 'Tu partner logístico de confianza en Mar del Plata. Envíos Express (rango 3hs), Envíos Flex MercadoLibre en el día, Paquetería LowCost y Fulfillment 3PL para E-Commerce.',
+  keywords: [
+    'envios flex',
+    'mensajeria en moto',
+    'paqueteria ecommerce',
+    'envios express',
+    'reparto mercadolibre',
+    'servicio de cadeteria',
+    'logistica flex',
+    'envios mar del plata',
+    'mensajeria mar del plata',
+    'cadeteria mar del plata',
+    'logistica 3pl mar del plata',
+  ],
   authors: [{ name: 'Envíos DosRuedas' }],
   creator: 'Envíos DosRuedas',
   publisher: 'Envíos DosRuedas',

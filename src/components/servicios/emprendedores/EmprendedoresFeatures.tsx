@@ -8,17 +8,17 @@ export default function EmprendedoresFeatures() {
   const features = [
     {
       title: 'Almacenamiento en Friuli 1972',
-      desc: 'Tercerizá tu logística integral con nosotros. Guardamos tu stock en nuestro depósito central de Friuli 1972.',
+      desc: 'Guardamos tu stock en nuestro depósito central de Friuli 1972 con picking por código QR y despacho el mismo día.',
       icon: Container,
     },
     {
-      title: 'Picking por código QR o de barras',
-      desc: 'Armado ágil y preciso con picking por código QR o de barras y packing seguro, ideal para tu tienda online.',
+      title: 'Opción DropOFF (-20% OFF)',
+      desc: 'Acercá tus paquetes directamente a nuestro depósito central y obtené un 20% de descuento en la tarifa final de envío.',
       icon: PackageCheck,
     },
     {
-      title: 'Cuentas Corrientes',
-      desc: 'Esquemas de facturación mensual flexible y cuentas corrientes centralizadas adaptadas al flujo de caja de tu empresa.',
+      title: 'Contrareembolso Sin Cargo Extra',
+      desc: 'Cobramos en destino el valor de tu venta sin comisiones adicionales ni recargos por gestión de cobranza.',
       icon: Receipt,
     },
   ];

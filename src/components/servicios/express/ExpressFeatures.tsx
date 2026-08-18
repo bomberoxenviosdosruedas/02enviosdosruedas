@@ -7,18 +7,18 @@ import { ShieldCheck, Clock, Compass, Users } from 'lucide-react';
 export default function ExpressFeatures() {
   const features = [
     {
-      title: 'Entrega puerta a puerta',
-      desc: 'Retiramos y entregamos en mano, garantizando comodidad y seguridad con firma digital.',
-      icon: ShieldCheck,
-    },
-    {
-      title: 'Horario de corte 15:00 hs',
-      desc: 'Los envíos solicitados antes de las 15:00 hs se entregan garantizados en la misma jornada.',
+      title: 'Rangos de Entrega de 3 Horas',
+      desc: 'Elegí franjas horarias precisas de 3 horas de espaciado (ej: 10 a 13 hs) para trámites y gestiones urgentes.',
       icon: Clock,
     },
     {
-      title: 'Notificaciones y control digital',
-      desc: 'Recibí avisos automáticos sobre el estado y la entrega de tu paquete al instante por WhatsApp.',
+      title: 'Corte 15:00 hs (2h anticipación)',
+      desc: 'Pedí con 2 horas de anticipación y antes de las 15:00 hs para entrega asegurada en el mismo día.',
+      icon: ShieldCheck,
+    },
+    {
+      title: 'Bultos en Moto (Hasta 5 kg)',
+      desc: 'Traslado seguro de paquetes de hasta 5 kg y 40x30 cm con control y avisos en tiempo real por WhatsApp.',
       icon: Compass,
     },
     {
