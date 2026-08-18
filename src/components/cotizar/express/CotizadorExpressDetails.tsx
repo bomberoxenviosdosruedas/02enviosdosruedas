@@ -97,7 +97,7 @@ export default function CotizadorExpressDetails() {
               Garantía DosRuedas MDQ
             </h4>
             <p className="text-xs text-brand-blue-900/80 font-sans leading-relaxed">
-              15+ años operando en las calles de Mar del Plata. Tu paquete viaja asegurado y con seguimiento directo de punta a punta.
+              Más de 7 años operando en las calles de Mar del Plata. Tu paquete viaja asegurado y con seguimiento directo de punta a punta.
             </p>
           </div>
         </div>

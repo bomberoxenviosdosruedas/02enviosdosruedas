@@ -110,7 +110,7 @@ export default function NetworksChannels() {
                     />
                   </div>
                   <span className="px-3 py-1 bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 rounded-full text-xs font-sans font-bold uppercase tracking-wider">
-                    3.2K+ SEGUIDORES
+                    +3.000 SEGUIDORES
                   </span>
                 </div>
                 <div>
@@ -162,7 +162,7 @@ export default function NetworksChannels() {
                     />
                   </div>
                   <span className="px-3 py-1 bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 rounded-full text-xs font-sans font-bold uppercase tracking-wider">
-                    2.5K+ SEGUIDORES
+                    +2.000 SEGUIDORES
                   </span>
                 </div>
                 <div>

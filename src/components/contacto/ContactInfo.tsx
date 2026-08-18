@@ -41,9 +41,8 @@ export default function ContactInfo() {
   ];
 
   const schedule = [
-    { days: 'Lunes a Viernes', hours: '08:00 - 20:00 hs', status: 'Operativo' },
-    { days: 'Sábados', hours: '08:00 - 16:00 hs', status: 'Operativo' },
-    { days: 'Domingos y Feriados', hours: 'Guardia Programada', status: 'Guardia' },
+    { days: 'Lunes a Viernes', hours: '09:00 - 18:00 hs', status: 'Operativo' },
+    { days: 'Sábados', hours: '10:00 - 15:00 hs', status: 'Operativo' },
   ];
 
   return (

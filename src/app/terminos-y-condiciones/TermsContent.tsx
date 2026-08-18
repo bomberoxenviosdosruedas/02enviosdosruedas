@@ -24,7 +24,7 @@ interface TermSection {
   id: string;
   title: string;
   shortTitle: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
   content: string;
   bullets?: string[];
 }
@@ -35,11 +35,11 @@ const SECTIONS: TermSection[] = [
     title: "1. Aceptación de los Términos",
     shortTitle: "Aceptación",
     icon: FileText,
-    content: "Al solicitar o utilizar cualquiera de los servicios de envío proporcionados por Envíos DosRuedas (\"nosotros\", \"nuestro\"), usted (\"el cliente\", \"usuario\") acepta y se compromete a cumplir con los siguientes términos y condiciones. Si no está de acuerdo con estos términos, no utilice nuestros servicios.",
+    content: "Al solicitar o utilizar cualquiera de los servicios de envío proporcionados por Envíos DosRuedas, vos (el cliente o comercio) aceptás y te comprometés a cumplir con los siguientes términos y condiciones.",
     bullets: [
-      "Consentimiento expreso al contratar servicios en la plataforma",
+      "Consentimiento expreso al solicitar servicios en la plataforma",
       "Aplicable a usuarios individuales, comercios y clientes corporativos",
-      "Vigencia legal plena en toda la República Argentina"
+      "Vigencia legal plena en toda la ciudad de Mar del Plata"
     ]
   },
   {
@@ -47,10 +47,10 @@ const SECTIONS: TermSection[] = [
     title: "2. Descripción del Servicio",
     shortTitle: "Descripción",
     icon: Truck,
-    content: "Envíos DosRuedas proporciona servicios de mensajería y paquetería local en Mar del Plata y áreas circundantes. Los detalles específicos de cada servicio (Express, Low-Cost, etc.) se describen en las secciones correspondientes de nuestro sitio web.",
+    content: "Envíos DosRuedas proporciona servicios de mensajería urbana y paquetería local en todo el ejido urbano de Mar del Plata (no cubrimos zonas aledañas no especificadas). Los detalles específicos de cada modalidad (Express inmediato, LowCost programado, MercadoLibre Flex y 3PL) se rigen según la tabla tarifaria oficial 2026.",
     bullets: [
       "Operación activa y cobertura integral en Mar del Plata",
-      "Diversas modalidades de envío (Express inmediato, LowCost programado y Flex)",
+      "Diversas modalidades de envío (Express, LowCost y Flex)",
       "Soporte logístico adaptado para eCommerce y PyMEs locales"
     ]
   },
@@ -59,11 +59,11 @@ const SECTIONS: TermSection[] = [
     title: "3. Obligaciones del Usuario",
     shortTitle: "Obligaciones",
     icon: UserCheck,
-    content: "El cliente es responsable de proporcionar información precisa y completa para la recogida y entrega, incluyendo nombres, direcciones y números de teléfono. Asimismo, el cliente debe asegurarse de que el contenido del paquete sea legal y cumpla con nuestras políticas. No transportamos artículos ilegales, peligrosos o prohibidos. El embalaje adecuado del paquete para su transporte seguro es responsabilidad del cliente.",
+    content: "Como cliente, sos responsable de proporcionar información precisa para la recolección y entrega (direcciones exactas, timbres, referencias y teléfono del destinatario). El embalaje adecuado para su transporte seguro en motocicleta es responsabilidad del remitente. No transportamos sustancias ilegales, peligrosas ni dinero en efectivo fuera de cobros contrareembolso autorizados.",
     bullets: [
       "Precisión total en datos de origen, destino y contactos directos",
-      "Prohibición estricta de sustancias peligrosas, dinero, valores o ilegales",
-      "Responsabilidad exclusiva del cliente sobre el embalaje y sellado"
+      "Prohibición estricta de sustancias peligrosas o ilícitas",
+      "Responsabilidad del cliente sobre el embalaje y sellado"
     ]
   },
   {
@@ -71,11 +71,11 @@ const SECTIONS: TermSection[] = [
     title: "4. Tarifas y Pago",
     shortTitle: "Tarifas y Pago",
     icon: CreditCard,
-    content: "Las tarifas se calculan en base a la distancia, el tipo de servicio y las características del paquete, según se indica en nuestro cotizador. Las tarifas son finales a menos que haya cambios significativos en el servicio solicitado. El pago debe realizarse en el momento de la solicitud o según los términos acordados para clientes corporativos.",
+    content: "Las tarifas se calculan en base a la distancia kilométrica real y el tipo de servicio seleccionado según la tabla 2026. Los viajes de más de 10 km aplican tarifa base más excedente por kilómetro adicional entero (Math.ceil). Los medios de pago incluyen efectivo, transferencia bancaria inmediata o cuenta corriente quincenal/mensual para clientes corporativos.",
     bullets: [
-      "Tarifas transparentes calculadas de forma automatizada por ruteo",
-      "Medios de pago disponibles: Transferencia, efectivo o cuenta corriente",
-      "Ajustes de tarifas únicamente por demoras ajenas o cambios de recorrido"
+      "Tarifas transparentes calculadas por rangos kilométricos 2026",
+      "Medios de pago: Transferencia, efectivo o cuenta corriente",
+      "Ajustes únicamente por demoras ajenas o cambios de recorrido"
     ]
   },
   {
@@ -83,11 +83,11 @@ const SECTIONS: TermSection[] = [
     title: "5. Limitación de Responsabilidad",
     shortTitle: "Responsabilidad",
     icon: ShieldAlert,
-    content: "No seremos responsables por retrasos causados por circunstancias fuera de nuestro control, como condiciones climáticas extremas, accidentes, cortes de tráfico, demoras en el punto de recogida/entrega o fuerza mayor de fuerza operativa en calle.",
+    content: "Garantizamos la máxima custodia y cuidado de cada paquete. No nos responsabilizamos por demoras extraordinarias ocasionadas por fuerza mayor, condiciones meteorológicas severas (temporal o inundaciones en la vía pública) o cortes de tránsito.",
     bullets: [
-      "Exclusión de responsabilidad por eventos fortuitos y de fuerza mayor",
-      "Tiempos estimados de entrega referenciales, no de carácter contractual absoluto",
-      "Límite de indemnización aplicable según el tipo de seguro y envío seleccionado"
+      "Exclusión de responsabilidad por eventos de fuerza mayor",
+      "Tiempos de entrega con SLA prioritario garantizado",
+      "Cobertura de reenvío en caso de incidencias de transporte"
     ]
   },
   {
@@ -95,11 +95,11 @@ const SECTIONS: TermSection[] = [
     title: "6. Modificaciones de los Términos",
     shortTitle: "Modificaciones",
     icon: RefreshCw,
-    content: "Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones serán efectivas inmediatamente después de su publicación en nuestro sitio web. El uso continuado de nuestros servicios constituirá la aceptación de los nuevos términos.",
+    content: "Nos reservamos el derecho de actualizar estos términos para adecuarlos a nuevas tecnologías y disposiciones operativas. Las modificaciones entrarán en vigencia tras su publicación online en este sitio web.",
     bullets: [
       "Actualización transparente en el sitio oficial en tiempo real",
       "Notificación directa de condiciones tarifarias a comercios adheridos",
-      "Aceptación tácita por la solicitud continua de nuevos servicios"
+      "Vigencia inmediata para nuevos despachos solicitados"
     ]
   }
 ];
@@ -169,10 +169,10 @@ export default function TermsContent() {
   };
 
   return (
-    <div className="bg-brand-white-50 min-h-screen relative font-sans">
+    <div className="bg-brand-white-50 min-h-screen relative font-sans text-brand-ink">
       {/* HERO HEADER */}
-      <section className="bg-brand-blue text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-yellow/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />
+      <section className="bg-brand-blue-700 text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-yellow-500/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />
         <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-white/5 blur-3xl -z-10 -translate-x-1/4 translate-y-1/4" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -180,7 +180,7 @@ export default function TermsContent() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue flex items-center gap-2 shadow-md w-fit mx-auto mb-6"
+            className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-900 flex items-center gap-2 shadow-md w-fit mx-auto mb-6 font-subheading"
           >
             <Scale className="h-4 w-4" />
             <span>Marco Legal del Servicio</span>
@@ -190,9 +190,9 @@ export default function TermsContent() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-white font-sans leading-tight max-w-4xl mx-auto"
+            className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white leading-tight max-w-4xl mx-auto"
           >
-            Términos y <span className="text-brand-yellow">Condiciones</span>
+            Términos y <span className="text-brand-yellow-500">Condiciones</span>
           </motion.h1>
 
           <motion.p
@@ -201,63 +201,65 @@ export default function TermsContent() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-brand-blue-50 max-w-2xl mx-auto text-base sm:text-lg lg:text-xl mt-4 leading-relaxed font-sans"
           >
-            Las reglas del juego. Al usar nuestros servicios, aceptas estos términos. Te recomendamos leerlos detenidamente.
+            Las reglas del juego claras y transparentes. Al solicitar nuestros servicios, aceptás estas pautas operativas diseñadas para proteger tu mercadería.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="inline-flex items-center gap-1.5 text-xs text-brand-yellow font-medium mt-6 bg-white/10 border border-white/10 px-4 py-2 rounded-full font-mono"
+            className="inline-flex items-center gap-1.5 text-xs text-brand-yellow-500 font-medium mt-6 bg-white/10 border border-white/10 px-4 py-2 rounded-full font-mono"
           >
             <Calendar className="h-3.5 w-3.5" />
-            <span>Última actualización: 1 de Agosto de 2024</span>
+            <span>Vigencia Operativa 2026</span>
           </motion.div>
         </div>
       </section>
 
       {/* NAVIGATION & LEGAL CONTENT */}
-      <section className="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
+      <section className="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* LEFT: Sticky Sidebar */}
           <aside className="w-full lg:w-1/4 lg:sticky lg:top-24 h-fit self-start">
-            <div className="bg-white rounded-3xl p-6 border border-brand-blue-50 shadow-sm">
-              <h3 className="text-xs uppercase tracking-widest text-brand-blue-300 font-bold mb-4 px-2">
-                Secciones del Contrato
-              </h3>
-              <nav className="flex flex-col gap-1.5">
-                {SECTIONS.map((section) => {
-                  const IconComponent = section.icon;
-                  const isActive = activeId === section.id;
-                  return (
-                    <button
-                      key={section.id}
-                      onClick={() => scrollToSection(section.id)}
-                      className={`w-full flex items-center justify-between text-left px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                        isActive
-                          ? "bg-brand-blue text-white shadow-md shadow-brand-blue-700/10 scale-[1.02]"
-                          : "text-brand-blue-500 hover:text-brand-blue hover:bg-brand-white-50"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3 truncate">
-                        <IconComponent className={`h-4.5 w-4.5 shrink-0 ${isActive ? "text-brand-yellow" : "text-brand-blue-300"}`} />
-                        <span className="truncate">{section.shortTitle}</span>
-                      </div>
-                      <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow translate-x-0.5" : "text-brand-blue-200"}`} />
-                    </button>
-                  );
-                })}
-              </nav>
+            <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-3xl shadow-sm">
+              <div className="double-bezel-inner bg-white rounded-2xl p-5 border border-brand-blue-50/50">
+                <h3 className="text-xs uppercase tracking-widest text-brand-blue-500 font-subheading font-bold mb-4 px-2">
+                  Secciones del Contrato
+                </h3>
+                <nav className="flex flex-col gap-1.5">
+                  {SECTIONS.map((section) => {
+                    const IconComponent = section.icon;
+                    const isActive = activeId === section.id;
+                    return (
+                      <button
+                        key={section.id}
+                        type="button"
+                        onClick={() => scrollToSection(section.id)}
+                        className={`w-full flex items-center justify-between text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                          isActive
+                            ? "bg-brand-blue-700 text-white shadow-sm scale-[1.02]"
+                            : "text-brand-ink hover:text-brand-blue-700 hover:bg-brand-blue-50"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5 truncate">
+                          <IconComponent className={`h-4 w-4 shrink-0 ${isActive ? "text-brand-yellow-500" : "text-brand-blue-500"}`} />
+                          <span className="truncate">{section.shortTitle}</span>
+                        </div>
+                        <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow-500 translate-x-0.5" : "text-brand-blue-300"}`} />
+                      </button>
+                    );
+                  })}
+                </nav>
 
-              {/* Security Sidebar Callout */}
-              <div className="mt-8 pt-6 border-t border-brand-blue-50 px-2 text-center">
-                <Shield className="h-8 w-8 text-brand-blue mx-auto mb-2" />
-                <p className="text-xs font-bold text-brand-ink uppercase tracking-wide">
-                  Operación Transparente
-                </p>
-                <p className="text-[11px] text-brand-blue-300 mt-1 leading-normal font-sans">
-                  Nuestras pautas operativas aseguran un servicio responsable y veloz.
-                </p>
+                <div className="mt-6 pt-5 border-t border-brand-blue-50 px-2 text-center">
+                  <Shield className="h-7 w-7 text-brand-blue-700 mx-auto mb-2" />
+                  <p className="text-xs font-bold text-brand-blue-700 uppercase font-subheading tracking-wide">
+                    Operación Transparente
+                  </p>
+                  <p className="text-[11px] text-brand-blue-500 mt-1 leading-normal font-sans">
+                    Nuestras pautas operativas aseguran un servicio responsable y veloz.
+                  </p>
+                </div>
               </div>
             </div>
           </aside>
@@ -278,66 +280,61 @@ export default function TermsContent() {
                     key={section.id}
                     id={section.id}
                     variants={cardVariants}
-                    className={`scroll-mt-28 bg-white rounded-3xl p-8 sm:p-10 border transition-all duration-300 relative overflow-hidden group ${
+                    className={`scroll-mt-28 double-bezel-outer p-2 rounded-3xl transition-all duration-300 ${
                       isActive
-                        ? "border-brand-blue/30 shadow-lg"
-                        : "border-brand-blue-50 shadow-sm hover:shadow-md hover:border-brand-blue-100"
+                        ? "bg-brand-blue-100/80 border border-brand-blue-300 shadow-md"
+                        : "bg-brand-blue-50/60 border border-brand-blue-100 shadow-sm"
                     }`}
                   >
-                    {/* Visual indicators */}
-                    <div
-                      className={`absolute top-0 left-0 right-0 h-1.5 transition-all duration-300 ${
-                        isActive ? "bg-brand-blue" : "bg-transparent group-hover:bg-brand-blue-100"
-                      }`}
-                    />
-
-                    {/* Section title & icon */}
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
-                      <div
-                        className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shrink-0 ${
-                          isActive
-                            ? "bg-brand-blue text-brand-yellow"
-                            : "bg-brand-white-50/50 text-brand-blue group-hover:bg-brand-blue/10"
-                        }`}
-                      >
-                        <IconComponent className="h-6 w-6" />
+                    <div className="double-bezel-inner bg-white rounded-2xl p-7 sm:p-9 border border-brand-blue-50/50">
+                      {/* Section title & icon */}
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-5">
+                        <div
+                          className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0 ${
+                            isActive
+                              ? "bg-brand-blue-700 text-brand-yellow-500 shadow-sm"
+                              : "bg-brand-blue-50 text-brand-blue-700"
+                          }`}
+                        >
+                          <IconComponent className="h-6 w-6" />
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-blue-400 block mb-0.5">
+                            Cláusula {index + 1} de {SECTIONS.length}
+                          </span>
+                          <h2 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-700">
+                            {section.title}
+                          </h2>
+                        </div>
                       </div>
+
+                      {/* Section textual body */}
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-brand-blue-300 block mb-1">
-                          Cláusula {index + 1} de {SECTIONS.length}
-                        </span>
-                        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-brand-ink font-sans">
-                          {section.title}
-                        </h2>
+                        <p className="text-brand-ink/90 text-sm sm:text-base leading-relaxed font-sans">
+                          {section.content}
+                        </p>
                       </div>
-                    </div>
 
-                    {/* Section textual body */}
-                    <div className="prose prose-slate max-w-none">
-                      <p className="text-brand-blue-500 text-sm sm:text-base leading-relaxed font-sans font-normal">
-                        {section.content}
-                      </p>
+                      {/* Section key points */}
+                      {section.bullets && (
+                        <div className="mt-5 pt-4 border-t border-brand-blue-50">
+                          <h4 className="text-xs font-subheading font-bold uppercase tracking-wider text-brand-blue-700 mb-2.5">
+                            Aspectos Clave:
+                          </h4>
+                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            {section.bullets.map((bullet, idx) => (
+                              <li
+                                key={idx}
+                                className="flex items-start gap-2 text-xs text-brand-ink/80 font-sans leading-relaxed"
+                              >
+                                <CheckCircle className="mt-0.5 h-3.5 w-3.5 text-brand-yellow-500 shrink-0" />
+                                <span>{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
-
-                    {/* Section key points */}
-                    {section.bullets && (
-                      <div className="mt-6 pt-5 border-t border-brand-blue-50">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-brand-ink mb-3">
-                          Aspectos Clave a Considerar:
-                        </h4>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                          {section.bullets.map((bullet, idx) => (
-                            <li
-                              key={idx}
-                              className="flex items-start gap-2.5 text-xs text-brand-blue-400 font-sans leading-relaxed"
-                            >
-                              <CheckCircle className="mt-0.5 h-4 w-4 text-brand-yellow shrink-0" />
-                              <span>{bullet}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
                   </motion.article>
                 );
               })}
@@ -345,38 +342,30 @@ export default function TermsContent() {
               {/* Contact Call to Action */}
               <motion.section
                 variants={cardVariants}
-                className="bg-brand-blue text-white rounded-3xl p-8 sm:p-12 border border-brand-blue-100/20 shadow-xl relative overflow-hidden"
+                className="double-bezel-outer bg-brand-blue-900/90 border border-brand-blue-700 p-2 rounded-3xl shadow-xl"
               >
-                <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-brand-yellow/5 blur-2xl -z-10 translate-x-1/4 -translate-y-1/4" />
-                <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 blur-xl -z-10 -translate-x-1/4 translate-y-1/4" />
-
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
-                  <div className="space-y-3 max-w-lg">
-                    <span className="px-3 py-1 bg-brand-yellow/10 text-brand-yellow rounded-full text-[10px] font-bold uppercase tracking-widest inline-block border border-brand-yellow/20">
-                      Contacto y Dudas Legales
-                    </span>
-                    <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-sans uppercase">
-                      ¿Tenés alguna consulta legal?
-                    </h3>
-                    <p className="text-brand-blue-50 text-sm leading-relaxed font-sans">
-                      Si tenés dudas operativas, preguntas de cobertura, seguros o inquietudes legales sobre nuestros términos de servicio, ponete en contacto con nuestro equipo directivo.
-                    </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-                    <Link
-                      href="/contacto"
-                      className="inline-flex items-center justify-center gap-2 bg-brand-yellow hover:bg-brand-yellow/90 text-brand-blue font-bold text-xs uppercase tracking-wider px-6 py-4 rounded-xl shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all"
-                    >
-                      <span>Formulario de Contacto</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                    <a
-                      href="mailto:matiascejas@enviosdosruedas.com"
-                      className="inline-flex items-center justify-center gap-2 border border-white/20 hover:bg-white/10 text-white font-semibold text-xs uppercase tracking-wider px-6 py-4 rounded-xl transition-all"
-                    >
-                      <Mail className="h-4 w-4" />
-                      <span>Soporte Directo</span>
-                    </a>
+                <div className="double-bezel-inner bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 text-white rounded-2xl p-8 sm:p-10 border border-brand-blue-700/60">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div className="space-y-2.5 max-w-lg">
+                      <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-[10px] font-subheading font-bold uppercase tracking-widest inline-block">
+                        Contacto y Dudas Legales
+                      </span>
+                      <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
+                        ¿Tenés alguna consulta legal?
+                      </h3>
+                      <p className="text-brand-blue-100 text-xs sm:text-sm leading-relaxed font-sans">
+                        Si tenés dudas operativas o inquietudes sobre nuestros términos, ponete en contacto con nuestro equipo directivo.
+                      </p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                      <Link
+                        href="/contacto"
+                        className="inline-flex items-center justify-center gap-2 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md transition-all"
+                      >
+                        <span>Formulario de Contacto</span>
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </motion.section>
@@ -387,15 +376,15 @@ export default function TermsContent() {
 
       {/* FLOATING TOP SCROLLER */}
       {showScrollTop && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+        <button
+          type="button"
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-brand-blue hover:bg-brand-blue/95 border border-white/10 text-brand-yellow rounded-full shadow-lg cursor-pointer hover:scale-110 active:scale-95 transition-all"
+          className="fixed bottom-8 right-8 z-50 p-3 bg-brand-blue-700 hover:bg-brand-blue-800 border border-white/10 text-brand-yellow-500 rounded-full shadow-lg cursor-pointer transition-all"
           title="Volver Arriba"
+          aria-label="Volver arriba"
         >
           <ChevronUp className="h-5 w-5" />
-        </motion.button>
+        </button>
       )}
     </div>
   );

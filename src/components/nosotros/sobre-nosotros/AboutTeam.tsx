@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Users2, ShieldCheck, HeartHandshake, MapPin } from 'lucide-react';
-
 import Image from 'next/image';
 
 export default function AboutTeam() {
@@ -30,7 +29,7 @@ export default function AboutTeam() {
       tag: 'Máxima Velocidad',
     },
     {
-      number: '15+',
+      number: '+7',
       role: 'Años de Trayectoria',
       desc: 'Compromiso ininterrumpido con comerciantes, emprendedores y empresas marplatenses.',
       icon: HeartHandshake,
@@ -41,17 +40,17 @@ export default function AboutTeam() {
   return (
     <section
       id="about-team"
-      className="py-20 sm:py-24 bg-brand-dark text-brand-white-50 relative z-10 overflow-hidden border-t border-brand-blue-500/20"
+      className="py-20 sm:py-24 bg-brand-blue-700 text-brand-white-50 relative z-10 overflow-hidden border-t border-brand-blue-500/20"
     >
       {/* Dynamic ambient glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,var(--color-brand-blue-700),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,var(--color-brand-yellow-500),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,var(--color-brand-yellow-500),transparent_50%)] pointer-events-none opacity-20" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="text-left max-w-3xl mb-16 space-y-3.5">
-          <span className="px-4 py-1.5 bg-brand-blue-700/70 border border-brand-yellow-500/40 text-brand-yellow-500 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block backdrop-blur-sm font-bold">
+          <span className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold">
             FUERZA OPERATIVA & EXPERIENCIA
           </span>
           <h2 className="text-brand-white-50 text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">

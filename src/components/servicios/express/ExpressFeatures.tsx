@@ -23,7 +23,7 @@ export default function ExpressFeatures() {
     },
     {
       title: 'Cadetería propia de confianza',
-      desc: 'Nuestros riders están identificados, con 15+ años de experiencia en las calles de Mar del Plata.',
+      desc: 'Nuestros riders están identificados, con más de 7 años de trayectoria en las calles de Mar del Plata.',
       icon: Users,
     },
   ];

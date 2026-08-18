@@ -38,7 +38,7 @@ export default function FlexBenefits() {
   return (
     <section 
       id="flex-benefits" 
-      className="py-24 bg-brand-blue relative z-10 overflow-hidden border-t-4 border-b-4 border-brand-yellow text-white"
+      className="py-24 bg-brand-blue-700 relative z-10 overflow-hidden border-t-4 border-b-4 border-brand-yellow-500 text-white"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -53,23 +53,22 @@ export default function FlexBenefits() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue shadow-[2px_2px_0px_rgba(255,204,0,0.3)] font-bold">
+          <span className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-blue-700 shadow-md font-bold">
             SOCIOS ESTRATÉGICOS
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white">
             BENEFICIOS PARA VENDEDORES
           </h2>
-          <p className="text-brand-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-brand-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             La solución definitiva para llevar tu tienda o e-commerce de MercadoLibre al siguiente nivel de competitividad.
           </p>
-          <div className="h-2 w-16 bg-brand-yellow mx-auto rounded-full" />
+          <div className="h-2 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
         </div>
 
         {/* Benefits Grid Bento layout with Double Bezel */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {benefits.map((benefit, idx) => {
             const Icon = benefit.icon;
-            // Asymmetric Bento Grid spans
             let spanClass = 'lg:col-span-4';
             if (idx === 0 || idx === 1) spanClass = 'lg:col-span-6';
 
@@ -83,16 +82,16 @@ export default function FlexBenefits() {
                 whileHover={{ y: -5, x: 2 }}
                 className={`${spanClass} double-bezel-outer flex flex-col justify-between text-left group`}
               >
-                <div className="double-bezel-inner p-8 h-full space-y-5">
-                  <div className="p-3 bg-brand-blue text-brand-yellow rounded-2xl w-fit border-2 border-brand-blue shadow-[2px_2px_0px_var(--color-brand-yellow)]">
+                <div className="double-bezel-inner p-8 h-full space-y-5 bg-white text-brand-blue-700">
+                  <div className="p-3 bg-brand-blue-700 text-brand-yellow-500 rounded-2xl w-fit border-2 border-brand-blue-700 shadow-sm">
                     <Icon className="h-6 w-6 shrink-0" />
                   </div>
                   
-                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue font-bold leading-tight">
+                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue-700 font-bold leading-tight">
                     {benefit.title}
                   </h3>
                   
-                  <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">
+                  <p className="text-sm text-brand-ink/80 font-sans leading-relaxed">
                     {benefit.desc}
                   </p>
                 </div>

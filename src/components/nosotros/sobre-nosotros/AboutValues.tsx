@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, Zap, Handshake, Heart } from 'lucide-react';
+import { ShieldCheck, Handshake, Heart } from 'lucide-react';
 
 export default function AboutValues() {
   const values = [
@@ -13,7 +13,7 @@ export default function AboutValues() {
     },
     {
       title: 'Cuidado del Paquete',
-      desc: 'Tratamos cada paquete como si fuera nuestro. Mochilas térmicas reforzadas, cajas seguras y manipulación profesional de mercadería frágil.',
+      desc: 'Tratamos cada paquete como si fuera nuestro. Mochilas reforzadas, cajas seguras y manipulación profesional de mercadería frágil.',
       icon: ShieldCheck,
       featured: true,
     },
@@ -27,17 +27,17 @@ export default function AboutValues() {
   return (
     <section 
       id="about-values" 
-      className="py-20 sm:py-24 bg-brand-dark text-brand-white-50 relative z-10 overflow-hidden border-t border-brand-blue-500/20"
+      className="py-20 sm:py-24 bg-brand-blue-700 text-brand-white-50 relative z-10 overflow-hidden border-t border-brand-blue-500/20"
     >
       {/* Background ambient radial glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-blue-700/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-blue-500/20 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="text-left max-w-2xl mb-16 space-y-3.5">
-          <span className="px-4 py-1.5 bg-brand-blue-700/70 border border-brand-yellow-500/40 text-brand-yellow-500 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block backdrop-blur-sm font-bold">
+          <span className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold">
             FILOSOFÍA OPERATIVA
           </span>
           <h2 className="text-brand-white-50 text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -72,7 +72,7 @@ export default function AboutValues() {
                   Cuidado del Paquete
                 </h3>
                 <p className="text-brand-ink font-sans leading-relaxed text-sm sm:text-base max-w-prose">
-                  Manipulación profesional de paquetería e-commerce, indumentaria, tecnología y alimentos no perecederos. Cada envío viaja seguro y protegido de las inclemencias del clima.
+                  Manipulación profesional de paquetería e-commerce, indumentaria, tecnología y repuestos. Cada envío viaja seguro y protegido de las inclemencias del clima marplatense.
                 </p>
               </div>
             </div>

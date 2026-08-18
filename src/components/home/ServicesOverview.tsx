@@ -69,7 +69,7 @@ export default function ServicesOverview() {
       icon: Zap,
       badge: 'URGENTE',
       city: 'Cobertura MDQ',
-      founded: '15+ Años en Calles',
+      founded: '+7 Años de Trayectoria',
       imageUrl: '/cards/fondo_express.webp',
       cardStyleCenter: 'border-brand-yellow bg-gradient-to-br from-brand-blue-700 to-brand-blue-900 shadow-cta-glow text-white',
       cardStyleSide: 'border-brand-blue-500/20 bg-brand-blue-800 text-white/90',

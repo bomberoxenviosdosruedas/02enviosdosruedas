@@ -1,0 +1,38 @@
+# Envíos DosRuedas
+
+> Plataforma digital líder en logística urbana de última milla, mensajería same-day, ruteo inteligente LowCost y soluciones para E-Commerce y MercadoLibre Flex en Mar del Plata, Argentina (año operativo 2026).
+
+Envíos DosRuedas es una plataforma web desarrollada con Next.js 16 (App Router, React 19), Tailwind CSS v4, TypeScript 5 (estricto) y Prisma ORM con PostgreSQL. Cuenta con cotizadores interactivos de envíos con cálculo de rutas vía OSRM y Leaflet, sistema de rastreo de pedidos, integración con Mercado Envíos Flex y gestión de servicios logísticos para particulares, PyMEs y emprendedores locales.
+
+El proyecto se rige por un sistema de diseño rígido y no negociable de tres colores exclusivos (Azul `#0636A5`, Amarillo `#FFEC01` y Blanco `#FFFFFF`), tipografía de impacto signalético (Anton, Bebas Neue, IBM Plex Sans y Geist Mono), tono de comunicación en voseo rioplatense y tarifas oficiales 2026 calculadas con exactitud matemática.
+
+## Core Documentation
+
+- [README](README.md): Documentación principal del proyecto, visión ejecutiva, características del stack y comandos de desarrollo.
+- [AGENTS Protocol](AGENTS.md): Protocolo obligatorio y vinculante para agentes de IA con reglas inquebrantables de código, arquitectura, tarifas y Definition of Done.
+- [Best Practices Guide](docs/MEJORES_PRACTICAS.md): Guía de ciclo de desarrollo en tiempo real, límites RSC/RCC, Server Actions, TypeScript estricto y optimización de despliegue en Vercel.
+- [Site Structure & Sitemap](docs/STRUCTURE.md): Arquitectura de navegación del sitio web, catálogo de URLs indexables y configuración SEO.
+
+## Design System & UI Architecture
+
+- [Design System Master](DESIGN.md): Sistema de diseño completo con la ley de los tres colores, jerarquía tipográfica, espaciados y contratos inmutables de componentes UI (Double Bezel, CTANestedPill, RadioCardGroup, Steppers).
+- [Global Styles & Theme Tokens](src/app/globals.css): Definición de tokens de color, variables CSS semánticas, sombras de marca y utilidades de Tailwind CSS v4.
+- [Tailwind Configuration](tailwind.config.ts): Configuración de fuentes corporativas, extensiones de colores y presets de Tailwind.
+- [Design Export Specs](docs/diseno/readme.md): Documentación técnica sobre la exportación y estructura de componentes visuales.
+
+## Business Logic & Database
+
+- [Pricing Engine](src/lib/pricing.ts): Motor de cálculo de tarifas vigente 2026 para servicios Express y LowCost con cálculo estricto de excedentes kilométricos (`Math.ceil`).
+- [Prisma Database Schema](prisma/schema.prisma): Modelo de datos relacional para servicios logísticos, rangos de precios (`PricingRange`), órdenes (`Order`) y zonas de cobertura (`Zone`).
+- [Database Seed](prisma/seed.ts): Datos iniciales con las tarifas oficiales y zonas del Partido de General Pueyrredón.
+
+## Configuration & Tooling
+
+- [Next.js Configuration](next.config.ts): Configuración del compilador Next.js 16, encabezados de seguridad, optimización de imágenes y bundle analyzer.
+- [Package Manifest](package.json): Dependencias del proyecto (Next.js 16, React 19, Tailwind v4, Prisma, Vitest, Playwright) gestionadas con pnpm.
+- [TypeScript Configuration](tsconfig.json): Configuración de TypeScript con modo estricto (`strict: true`) y resolución de alias de módulos (`@/*`).
+
+## Optional
+
+- [Validation Report](docs/VALIDATION-REPORT.md): Reporte de auditoría y validación de componentes y consistencia del sitio.
+- [Brand & Operations Reference](docs/reneasenvios.md): Notas complementarias de marca y referencias operativas locales.

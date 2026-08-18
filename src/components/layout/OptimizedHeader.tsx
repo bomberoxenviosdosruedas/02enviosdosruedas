@@ -66,7 +66,7 @@ export default function OptimizedHeader() {
       label: 'Nosotros',
       icon: Info,
       dropdownItems: [
-        { label: 'Sobre Nosotros', href: '/nosotros/sobre-nosotros', description: '15+ años recorriendo Mar del Plata', icon: Info },
+        { label: 'Sobre Nosotros', href: '/nosotros/sobre-nosotros', description: 'Más de 7 años recorriendo Mar del Plata', icon: Info },
         { label: 'Preguntas Frecuentes', href: '/nosotros/preguntas-frecuentes', description: 'Tarifas, zonas y consultas', icon: HelpCircle },
         { label: 'Nuestras Redes', href: '/nosotros/nuestras-redes', description: 'Comunidad activa en movimiento', icon: Share2 },
       ],

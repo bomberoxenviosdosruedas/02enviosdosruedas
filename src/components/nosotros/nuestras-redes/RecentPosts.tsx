@@ -38,7 +38,7 @@ export default function RecentPosts() {
       avatar: 'https://picsum.photos/seed/avatar1/100/100',
       image: '/redes/fac1.webp',
       alt: 'Publicación de Facebook - Confianza y responsabilidad',
-      text: 'Para vos, que vendés en Mar del Plata y hacés envíos... ¿Soles usar las apps para tus envíos? Pero no te generan confianza?',
+      text: 'Para vos, que vendés en Mar del Plata y hacés envíos... ¿Solés usar apps genéricas pero no te dan tranquilidad ni cara visible?',
       likes: 19,
       comments: 7,
       url: 'https://www.facebook.com/enviosdosruedas/posts/pfbid0a1i4tygsZQjwp9bsvS9xSHApJqMe5JkeoJbqx12Qvas18nSojtGhj6U9cFn3m5hDl',
@@ -76,20 +76,20 @@ export default function RecentPosts() {
     >
       {/* Ambient background glows */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,var(--color-brand-blue-700),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,var(--color-brand-yellow-500),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,var(--color-brand-yellow-500),transparent_50%)] pointer-events-none opacity-20" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="text-left max-w-2xl mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-blue-700/60 border border-brand-yellow-500/30 text-brand-yellow-500 rounded-full text-base font-subheading uppercase tracking-widest inline-block shadow-sm backdrop-blur-sm">
+          <span className="px-4 py-1.5 bg-brand-blue-700/60 border border-brand-yellow-500/30 text-brand-yellow-500 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block shadow-sm backdrop-blur-sm font-bold">
             EN VIVO
           </span>
-          <h2 className="text-white text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-[0.02em] leading-[1.1]">
+          <h2 className="text-white text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
             PUBLICACIONES RECIENTES
           </h2>
           <p className="text-brand-blue-100 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
-            Lo que está pasando ahora mismo en nuestras redes sociales oficiales. Seguinos para no perderte nada.
+            Lo que está pasando ahora mismo en nuestras redes sociales oficiales de Mar del Plata. Seguinos para no perderte nada.
           </p>
           <div className="h-1 w-16 bg-brand-yellow-500 rounded-full" />
         </div>
@@ -107,11 +107,11 @@ export default function RecentPosts() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl hover-float hover:float-tilt-card hover:glow-blue flex flex-col justify-between ${
+                className={`double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl shadow-xl flex flex-col justify-between ${
                   isFeatured ? 'md:col-span-12 lg:col-span-8' : 'md:col-span-6 lg:col-span-4'
                 }`}
               >
-                <div className={`double-bezel-inner bg-white rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue overflow-hidden flex flex-col justify-between h-full ${
+                <div className={`double-bezel-inner bg-white rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue-700 overflow-hidden flex flex-col justify-between h-full ${
                   isFeatured ? 'md:flex-row' : ''
                 }`}>
                   
@@ -123,13 +123,12 @@ export default function RecentPosts() {
                       src={post.image}
                       alt={post.alt || "Envíos DosRuedas Social Post"}
                       fill={true}
-                      referrerPolicy="no-referrer"
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                     {isFeatured && (
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-brand-yellow text-brand-blue text-xs font-subheading uppercase tracking-widest rounded-lg font-bold border border-brand-blue/30 shadow-md">
+                        <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-900 text-xs font-subheading uppercase tracking-widest rounded-lg font-bold shadow-md">
                           DESTACADO
                         </span>
                       </div>
@@ -147,15 +146,14 @@ export default function RecentPosts() {
                               src={post.avatar}
                               alt="Envíos DosRuedas Avatar"
                               fill={true}
-                              referrerPolicy="no-referrer"
                               sizes="40px"
                               className="object-cover"
                             />
                           </div>
                           <div>
-                            <h4 className="text-sm font-sans font-semibold uppercase tracking-wider text-brand-blue-700 leading-none">
+                            <h3 className="text-sm font-sans font-semibold uppercase tracking-wider text-brand-blue-700 leading-none">
                               Envíos DosRuedas
-                            </h4>
+                            </h3>
                             <span className="text-[10px] font-sans font-bold text-brand-blue-400 mt-1 block">
                               {post.date}
                             </span>
@@ -169,7 +167,7 @@ export default function RecentPosts() {
 
                       {/* Post Text Description */}
                       <div className={`p-5 ${isFeatured ? 'md:p-8' : ''}`}>
-                        <p className={`text-sm md:text-base font-sans leading-relaxed text-brand-blue-600/90 ${
+                        <p className={`text-sm md:text-base font-sans leading-relaxed text-brand-ink/90 ${
                           isFeatured ? 'line-clamp-6' : 'line-clamp-3'
                         }`}>
                           {post.text}
@@ -180,27 +178,25 @@ export default function RecentPosts() {
                     {/* Simulated Interactions Footer & Original Post Link */}
                     <div className={`p-5 pt-0 ${isFeatured ? 'md:px-8' : ''}`}>
                       <div className="pt-4 border-t border-brand-blue-100/50 flex items-center justify-between">
-                        {/* Likes & Comments mockup */}
                         <div className="flex items-center gap-4 text-xs font-sans font-bold text-brand-blue-400">
-                          <span className="flex items-center gap-1 hover:text-brand-yellow-600 transition-colors cursor-pointer">
+                          <span className="flex items-center gap-1 hover:text-brand-yellow-500 transition-colors cursor-pointer">
                             <Heart className="h-4.5 w-4.5" />
                             <span>{post.likes}</span>
                           </span>
-                          <span className="flex items-center gap-1 hover:text-brand-yellow-600 transition-colors cursor-pointer">
+                          <span className="flex items-center gap-1 hover:text-brand-yellow-500 transition-colors cursor-pointer">
                             <MessageCircle className="h-4.5 w-4.5" />
                             <span>{post.comments}</span>
                           </span>
                         </div>
 
-                        {/* Button link */}
                         <a
                           href={post.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue border border-brand-blue/50 font-subheading tracking-wider text-base uppercase py-2 px-4 shadow-sm"
+                          className="cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading tracking-wider text-sm uppercase py-2 px-4 shadow-sm"
                         >
                           <span>Ver original</span>
-                          <span className="cta-nested-icon bg-brand-blue/10 text-brand-blue shrink-0 w-6 h-6 ml-2">
+                          <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 shrink-0 w-6 h-6 ml-2">
                             <ExternalLink className="h-3.5 w-3.5" />
                           </span>
                         </a>

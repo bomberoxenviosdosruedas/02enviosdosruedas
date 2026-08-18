@@ -6,10 +6,7 @@ import Link from "next/link";
 import {
   Shield,
   Lock,
-  Eye,
   Database,
-  Truck,
-  UserCheck,
   Settings,
   Share2,
   Scale,
@@ -26,7 +23,7 @@ interface Section {
   id: string;
   title: string;
   shortTitle: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
   content: string;
   extraDetails?: string[];
 }
@@ -49,10 +46,10 @@ const SECTIONS: Section[] = [
     title: "1. Información que Recopilamos",
     shortTitle: "Recopilación",
     icon: Database,
-    content: "Recopilamos información que nos proporcionas directamente, como tu nombre, número de teléfono, dirección de correo electrónico y direcciones de recogida/entrega al utilizar nuestros servicios. También podemos recopilar información técnica sobre tu dispositivo y uso de nuestro sitio web a través de cookies y tecnologías similares.",
+    content: "Recopilamos información que nos proporcionás directamente, como tu nombre, número de teléfono, dirección de correo electrónico y direcciones de recogida/entrega al utilizar nuestros servicios. También podemos recopilar información técnica sobre tu dispositivo y uso de nuestro sitio web a través de cookies y tecnologías similares.",
     extraDetails: [
       "Datos de contacto (Nombre, teléfono, e-mail)",
-      "Datos logísticos (Dirección de recogida y entrega)",
+      "Datos logísticos (Dirección de recogida y entrega en MDQ)",
       "Datos de navegación (Cookies y telemetría técnica)"
     ]
   },
@@ -61,7 +58,7 @@ const SECTIONS: Section[] = [
     title: "2. Uso de la Información",
     shortTitle: "Uso de Datos",
     icon: Settings,
-    content: "Utilizamos tu información para proveer y gestionar nuestros servicios de envío, comunicar el estado de tus envíos, enviar ofertas y actualizaciones importantes, y mejorar y personalizar nuestro servicio.",
+    content: "Utilizamos tu información para proveer y gestionar nuestros servicios de envío, comunicar el estado de tus despachos, enviar ofertas y actualizaciones importantes, y optimizar y personalizar nuestro servicio.",
     extraDetails: [
       "Gestión y ruteo de envíos express y lowcost",
       "Notificaciones automáticas y alertas de entrega en tiempo real",
@@ -73,9 +70,9 @@ const SECTIONS: Section[] = [
     title: "3. Cómo Compartimos tu Información",
     shortTitle: "Compartir Datos",
     icon: Share2,
-    content: "No vendemos ni alquilamos tu información personal. La compartimos con nuestros repartidores y socios logísticos únicamente para completar el servicio de envío, o cuando es requerido por ley.",
+    content: "No vendemos ni alquilamos tu información personal. La compartimos con nuestros repartidores y socios logísticos únicamente para completar el servicio de entrega, o cuando es requerido por ley.",
     extraDetails: [
-      "Sin reventa ni alquiler de base de datos a terceros",
+      "Cero reventa ni alquiler de bases de datos a terceros",
       "Sincronización segura con cadetes asignados al despacho",
       "Requerimientos legales y auditorías obligatorias"
     ]
@@ -97,7 +94,7 @@ const SECTIONS: Section[] = [
     title: "5. Tus Derechos",
     shortTitle: "Tus Derechos",
     icon: Scale,
-    content: "Tienes derecho a acceder, rectificar o suprimir tus datos personales, u oponerte a su tratamiento.",
+    content: "Tenés derecho a acceder, rectificar o suprimir tus datos personales, u oponerte a su tratamiento en cualquier momento.",
     extraDetails: [
       "Acceso inmediato a la información personal almacenada",
       "Rectificación rápida de direcciones y números telefónicos erróneos",
@@ -121,9 +118,9 @@ const SECTIONS: Section[] = [
     title: "7. Contacto",
     shortTitle: "Contacto",
     icon: Mail,
-    content: "Si tienes preguntas sobre esta Política, contáctanos a través de nuestro formulario de contacto o en matiascejas@enviosdosruedas.com.",
+    content: "Si tenés preguntas sobre esta Política, contactanos a través de nuestro formulario de contacto o en matiascejas@enviosdosruedas.com.",
     extraDetails: [
-      "Atención directa del Oficial de Privacidad de Datos",
+      "Atención directa del responsable de privacidad",
       "Respuesta garantizada en menos de 48 horas hábiles",
       "Soporte especializado para PyMEs y eCommerce"
     ]
@@ -134,7 +131,6 @@ export default function PrivacyContent() {
   const [activeId, setActiveId] = useState<string>("introduccion");
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
 
-  // Intersection Observer for highlighting the active section in the sticky sidebar
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -152,7 +148,6 @@ export default function PrivacyContent() {
       if (el) observer.observe(el);
     });
 
-    // Scroll top visibility logic
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400);
     };
@@ -197,11 +192,10 @@ export default function PrivacyContent() {
   };
 
   return (
-    <div className="bg-brand-white-50 min-h-screen relative font-sans">
+    <div className="bg-brand-white-50 min-h-screen relative font-sans text-brand-ink">
       {/* HERO BANNER SECTION */}
-      <section className="bg-brand-blue text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
-        {/* Subtle background graphics */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-yellow/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />
+      <section className="bg-brand-blue-700 text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-yellow-500/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />
         <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-white/5 blur-3xl -z-10 -translate-x-1/4 translate-y-1/4" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -209,7 +203,7 @@ export default function PrivacyContent() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-yellow text-brand-blue flex items-center gap-2 shadow-md w-fit mx-auto mb-6"
+            className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-900 flex items-center gap-2 shadow-md w-fit mx-auto mb-6 font-subheading"
           >
             <Shield className="h-4 w-4" />
             <span>Navegación 100% Protegida</span>
@@ -219,9 +213,9 @@ export default function PrivacyContent() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-white font-sans leading-tight max-w-4xl mx-auto"
+            className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white leading-tight max-w-4xl mx-auto"
           >
-            Política de <span className="text-brand-yellow">Privacidad</span>
+            Política de <span className="text-brand-yellow-500">Privacidad</span>
           </motion.h1>
 
           <motion.p
@@ -230,17 +224,17 @@ export default function PrivacyContent() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-brand-blue-50 max-w-2xl mx-auto text-base sm:text-lg lg:text-xl mt-4 leading-relaxed font-sans"
           >
-            En Envíos DosRuedas, tu confianza es nuestra prioridad. Aquí te explicamos cómo protegemos y utilizamos tu información personal.
+            En Envíos DosRuedas, tu confianza es nuestra prioridad. Te explicamos cómo protegemos y utilizamos tu información personal.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="inline-flex items-center gap-1.5 text-xs text-brand-yellow font-medium mt-6 bg-white/10 border border-white/10 px-4 py-2 rounded-full font-mono"
+            className="inline-flex items-center gap-1.5 text-xs text-brand-yellow-500 font-medium mt-6 bg-white/10 border border-white/10 px-4 py-2 rounded-full font-mono"
           >
             <Calendar className="h-3.5 w-3.5" />
-            <span>Última actualización: 1 de Agosto de 2024</span>
+            <span>Vigencia Operativa 2026</span>
           </motion.div>
         </div>
       </section>
@@ -250,43 +244,45 @@ export default function PrivacyContent() {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* LEFT COLUMN: Sticky table of contents */}
           <aside className="w-full lg:w-1/4 lg:sticky lg:top-24 h-fit self-start">
-            <div className="bg-white rounded-3xl p-6 border border-brand-blue-50 shadow-sm">
-              <h3 className="text-xs uppercase tracking-widest text-brand-blue-300 font-bold mb-4 px-2">
-                Índice de Secciones
-              </h3>
-              <nav className="flex flex-col gap-1.5">
-                {SECTIONS.map((section) => {
-                  const IconComponent = section.icon;
-                  const isActive = activeId === section.id;
-                  return (
-                    <button
-                      key={section.id}
-                      onClick={() => scrollToSection(section.id)}
-                      className={`w-full flex items-center justify-between text-left px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                        isActive
-                          ? "bg-brand-blue text-white shadow-md shadow-brand-blue-700/10 scale-[1.02]"
-                          : "text-brand-blue-500 hover:text-brand-blue hover:bg-brand-white-50"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3 truncate">
-                        <IconComponent className={`h-4.5 w-4.5 shrink-0 ${isActive ? "text-brand-yellow" : "text-brand-blue-300"}`} />
-                        <span className="truncate">{section.shortTitle}</span>
-                      </div>
-                      <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow translate-x-0.5" : "text-brand-blue-200"}`} />
-                    </button>
-                  );
-                })}
-              </nav>
+            <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-3xl shadow-sm">
+              <div className="double-bezel-inner bg-white rounded-2xl p-5 border border-brand-blue-50/50">
+                <h3 className="text-xs uppercase tracking-widest text-brand-blue-500 font-subheading font-bold mb-4 px-2">
+                  Índice de Secciones
+                </h3>
+                <nav className="flex flex-col gap-1.5">
+                  {SECTIONS.map((section) => {
+                    const IconComponent = section.icon;
+                    const isActive = activeId === section.id;
+                    return (
+                      <button
+                        key={section.id}
+                        type="button"
+                        onClick={() => scrollToSection(section.id)}
+                        className={`w-full flex items-center justify-between text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                          isActive
+                            ? "bg-brand-blue-700 text-white shadow-sm scale-[1.02]"
+                            : "text-brand-ink hover:text-brand-blue-700 hover:bg-brand-blue-50"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5 truncate">
+                          <IconComponent className={`h-4 w-4 shrink-0 ${isActive ? "text-brand-yellow-500" : "text-brand-blue-500"}`} />
+                          <span className="truncate">{section.shortTitle}</span>
+                        </div>
+                        <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow-500 translate-x-0.5" : "text-brand-blue-300"}`} />
+                      </button>
+                    );
+                  })}
+                </nav>
 
-              {/* Quick Trust Banner inside Sidebar */}
-              <div className="mt-8 pt-6 border-t border-brand-blue-50 px-2 text-center">
-                <Shield className="h-8 w-8 text-brand-blue mx-auto mb-2" />
-                <p className="text-xs font-bold text-brand-ink uppercase tracking-wide">
-                  Seguridad Garantizada
-                </p>
-                <p className="text-[11px] text-brand-blue-300 mt-1 leading-normal font-sans">
-                  Tus datos logísticos se cifran con los más altos estándares.
-                </p>
+                <div className="mt-6 pt-5 border-t border-brand-blue-50 px-2 text-center">
+                  <Shield className="h-7 w-7 text-brand-blue-700 mx-auto mb-2" />
+                  <p className="text-xs font-bold text-brand-blue-700 uppercase font-subheading tracking-wide">
+                    Seguridad Garantizada
+                  </p>
+                  <p className="text-[11px] text-brand-blue-500 mt-1 leading-normal font-sans">
+                    Tus datos logísticos se cifran con los más altos estándares.
+                  </p>
+                </div>
               </div>
             </div>
           </aside>
@@ -307,106 +303,92 @@ export default function PrivacyContent() {
                     key={section.id}
                     id={section.id}
                     variants={cardVariants}
-                    className={`scroll-mt-28 bg-white rounded-3xl p-8 sm:p-10 border transition-all duration-300 relative overflow-hidden group ${
+                    className={`scroll-mt-28 double-bezel-outer p-2 rounded-3xl transition-all duration-300 ${
                       isActive
-                        ? "border-brand-blue/30 shadow-lg"
-                        : "border-brand-blue-50 shadow-sm hover:shadow-md hover:border-brand-blue-100"
+                        ? "bg-brand-blue-100/80 border border-brand-blue-300 shadow-md"
+                        : "bg-brand-blue-50/60 border border-brand-blue-100 shadow-sm"
                     }`}
                   >
-                    {/* Floating top bar highlighted state */}
-                    <div
-                      className={`absolute top-0 left-0 right-0 h-1.5 transition-all duration-300 ${
-                        isActive ? "bg-brand-blue" : "bg-transparent group-hover:bg-brand-blue-100"
-                      }`}
-                    />
-
-                    {/* Section Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
-                      <div
-                        className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shrink-0 ${
-                          isActive
-                            ? "bg-brand-blue text-brand-yellow"
-                            : "bg-brand-white-50/50 text-brand-blue group-hover:bg-brand-blue/10"
-                        }`}
-                      >
-                        <IconComponent className="h-6 w-6" />
+                    <div className="double-bezel-inner bg-white rounded-2xl p-7 sm:p-9 border border-brand-blue-50/50">
+                      {/* Section Header */}
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-5">
+                        <div
+                          className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0 ${
+                            isActive
+                              ? "bg-brand-blue-700 text-brand-yellow-500 shadow-sm"
+                              : "bg-brand-blue-50 text-brand-blue-700"
+                          }`}
+                        >
+                          <IconComponent className="h-6 w-6" />
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-blue-400 block mb-0.5">
+                            Sección {index + 1} de {SECTIONS.length}
+                          </span>
+                          <h2 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-700">
+                            {section.title}
+                          </h2>
+                        </div>
                       </div>
+
+                      {/* Section Content */}
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-brand-blue-300 block mb-1">
-                          Sección {index + 1} de {SECTIONS.length}
-                        </span>
-                        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-brand-ink font-sans">
-                          {section.title}
-                        </h2>
+                        <p className="text-brand-ink/90 text-sm sm:text-base leading-relaxed font-sans">
+                          {section.content}
+                        </p>
                       </div>
-                    </div>
 
-                    {/* Section Content */}
-                    <div className="prose prose-slate max-w-none">
-                      <p className="text-brand-blue-500 text-sm sm:text-base leading-relaxed font-sans font-normal">
-                        {section.content}
-                      </p>
+                      {/* Details Bullet Points */}
+                      {section.extraDetails && (
+                        <div className="mt-5 pt-4 border-t border-brand-blue-50">
+                          <h4 className="text-xs font-subheading font-bold uppercase tracking-wider text-brand-blue-700 mb-2.5">
+                            Puntos Clave:
+                          </h4>
+                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            {section.extraDetails.map((detail, idx) => (
+                              <li
+                                key={idx}
+                                className="flex items-start gap-2 text-xs text-brand-ink/80 font-sans leading-relaxed"
+                              >
+                                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-yellow-500 shrink-0" />
+                                <span>{detail}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
-
-                    {/* Details Bullet Points (if available) */}
-                    {section.extraDetails && (
-                      <div className="mt-6 pt-5 border-t border-brand-blue-50">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-brand-ink mb-3">
-                          Puntos Clave:
-                        </h4>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                          {section.extraDetails.map((detail, idx) => (
-                            <li
-                              key={idx}
-                              className="flex items-start gap-2.5 text-xs text-brand-blue-400 font-sans leading-relaxed"
-                            >
-                              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-yellow shrink-0" />
-                              <span>{detail}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
                   </motion.article>
                 );
               })}
 
-              {/* ADDITIONAL SUPPORT AND DIRECT ENQUIRY CARD */}
+              {/* ADDITIONAL SUPPORT CARD */}
               <motion.section
                 variants={cardVariants}
-                className="bg-brand-blue text-white rounded-3xl p-8 sm:p-12 border border-brand-blue-100/20 shadow-xl relative overflow-hidden"
+                className="double-bezel-outer bg-brand-blue-900/90 border border-brand-blue-700 p-2 rounded-3xl shadow-xl"
               >
-                {/* Graphics */}
-                <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-brand-yellow/5 blur-2xl -z-10 translate-x-1/4 -translate-y-1/4" />
-                <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 blur-xl -z-10 -translate-x-1/4 translate-y-1/4" />
-
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
-                  <div className="space-y-3 max-w-lg">
-                    <span className="px-3 py-1 bg-brand-yellow/10 text-brand-yellow rounded-full text-[10px] font-bold uppercase tracking-widest inline-block border border-brand-yellow/20">
-                      Soporte de Privacidad
-                    </span>
-                    <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-sans uppercase">
-                      ¿Tenés dudas de privacidad?
-                    </h3>
-                    <p className="text-brand-blue-50 text-sm leading-relaxed font-sans">
-                      Nuestro Oficial de Protección de Datos está disponible para guiarte. Escribinos directamente o completá nuestro formulario para que podamos ayudarte de inmediato.
-                    </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-                    <Link
-                      href="/contacto"
-                      className="inline-flex items-center justify-center gap-2 bg-brand-yellow hover:bg-brand-yellow/90 text-brand-blue font-bold text-xs uppercase tracking-wider px-6 py-4 rounded-xl shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all"
-                    >
-                      <span>Formulario de Contacto</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                    <a
-                      href="mailto:matiascejas@enviosdosruedas.com"
-                      className="inline-flex items-center justify-center gap-2 border border-white/20 hover:bg-white/10 text-white font-semibold text-xs uppercase tracking-wider px-6 py-4 rounded-xl transition-all"
-                    >
-                      <Mail className="h-4 w-4" />
-                      <span>Escribir E-mail</span>
-                    </a>
+                <div className="double-bezel-inner bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 text-white rounded-2xl p-8 sm:p-10 border border-brand-blue-700/60">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div className="space-y-2.5 max-w-lg">
+                      <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-[10px] font-subheading font-bold uppercase tracking-widest inline-block">
+                        Soporte de Privacidad
+                      </span>
+                      <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
+                        ¿Tenés dudas de privacidad?
+                      </h3>
+                      <p className="text-brand-blue-100 text-xs sm:text-sm leading-relaxed font-sans">
+                        Escribinos directamente o completá nuestro formulario para que podamos ayudarte de inmediato.
+                      </p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                      <Link
+                        href="/contacto"
+                        className="inline-flex items-center justify-center gap-2 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md transition-all"
+                      >
+                        <span>Formulario de Contacto</span>
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </motion.section>
@@ -417,15 +399,15 @@ export default function PrivacyContent() {
 
       {/* FLOAT TO TOP BUTTON */}
       {showScrollTop && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+        <button
+          type="button"
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-brand-blue hover:bg-brand-blue/95 border border-white/10 text-brand-yellow rounded-full shadow-lg cursor-pointer hover:scale-110 active:scale-95 transition-all"
+          className="fixed bottom-8 right-8 z-50 p-3 bg-brand-blue-700 hover:bg-brand-blue-800 border border-white/10 text-brand-yellow-500 rounded-full shadow-lg cursor-pointer transition-all"
           title="Volver Arriba"
+          aria-label="Volver arriba"
         >
           <ChevronUp className="h-5 w-5" />
-        </motion.button>
+        </button>
       )}
     </div>
   );

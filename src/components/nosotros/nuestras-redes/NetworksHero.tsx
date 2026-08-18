@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { motion } from 'motion/react';
-import { Share2, Users, ArrowRight, Sparkles, MessageCircle, Instagram, Video, ExternalLink } from 'lucide-react';
+import { Share2, Users, ArrowRight, Sparkles, MessageCircle, Instagram, Facebook, ExternalLink } from 'lucide-react';
 
 const SOCIAL_CHANNELS = [
   {
@@ -17,13 +17,13 @@ const SOCIAL_CHANNELS = [
     ctaText: 'Ver historias',
   },
   {
-    id: 'tiktok',
-    name: 'TikTok Comunidad',
-    handle: '@enviosdosruedasmdq',
+    id: 'facebook',
+    name: 'Facebook Comunidad',
+    handle: '@enviosdosruedas',
     desc: 'El día a día de nuestros cadetes recorriendo calles y barrios de Mar del Plata.',
-    icon: Video,
+    icon: Facebook,
     badge: 'Video nuevo hoy',
-    link: 'https://tiktok.com/@enviosdosruedasmdq',
+    link: 'https://facebook.com/enviosdosruedas',
     ctaText: 'Mirar videos',
   },
   {
@@ -39,11 +39,11 @@ const SOCIAL_CHANNELS = [
 ];
 
 export default function NetworksHero() {
-  const [followers, setFollowers] = useState(12000);
+  const [followers, setFollowers] = useState(4850);
 
   useEffect(() => {
-    const target = 12450;
-    const step = 15;
+    const target = 5200;
+    const step = 10;
     const interval = setInterval(() => {
       setFollowers((prev) => {
         if (prev + step >= target) {
@@ -52,7 +52,7 @@ export default function NetworksHero() {
         }
         return prev + step;
       });
-    }, 20);
+    }, 25);
     return () => clearInterval(interval);
   }, []);
 
@@ -161,7 +161,7 @@ export default function NetworksHero() {
                         +{followers.toLocaleString('es-AR')}
                       </div>
                       <p className="text-xs text-brand-blue-400 font-subheading uppercase tracking-wider font-bold mt-0.5">
-                        SEGUIDORES EN MAR DEL PLATA
+                        MÁS DE 5.000 SEGUIDORES EN REDES
                       </p>
                     </div>
                   </div>

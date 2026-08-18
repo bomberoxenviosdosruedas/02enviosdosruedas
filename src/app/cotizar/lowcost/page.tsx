@@ -4,6 +4,7 @@ import { prisma } from '@/src/lib/prisma';
 import { PriceRange } from '@/generated/prisma/client';
 import CotizadorLowCostHero from '@/src/components/cotizar/lowcost/CotizadorLowCostHero';
 import CotizadorLowCostForm from '@/src/components/cotizar/lowcost/CotizadorLowCostForm';
+import BatchGrid from '@/src/components/cotizar/lowcost/BatchGrid';
 import CotizadorLowCostDetails from '@/src/components/cotizar/lowcost/CotizadorLowCostDetails';
 import CotizadorLowCostHelp from '@/src/components/cotizar/lowcost/CotizadorLowCostHelp';
 
@@ -89,6 +90,9 @@ export default function Page() {
             <Suspense fallback={<FormSkeleton />}>
               <LowCostFormAsync />
             </Suspense>
+
+            {/* Batch / Multi-Destination Planilla */}
+            <BatchGrid />
           </main>
 
           {/* 2. Detail Guidelines */}
