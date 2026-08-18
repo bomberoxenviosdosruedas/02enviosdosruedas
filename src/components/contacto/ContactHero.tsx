@@ -1,207 +1,229 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, ArrowUpRight, Clock, ShieldCheck, Zap, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+
+const CHANNELS = [
+  {
+    title: "WhatsApp Comercial",
+    desc: "Respuestas y cotizaciones de envíos en tiempo real.",
+    icon: Mail,
+  },
+  {
+    title: "Llamada de Coordinación",
+    desc: "Para hablar directamente con un coordinador logístico.",
+    icon: Phone,
+  },
+  {
+    title: "Solicitar Cotización B2B",
+    desc: "Envianos tu base de envíos para un plan personalizado.",
+    icon: MapPin,
+  },
+];
 
 export default function ContactHero() {
   return (
-    <section className="relative w-full pt-32 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-brand-dark">
-      {/* Dynamic Ambient Glow Orbs */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-brand-blue-700/30 rounded-full blur-[120px] pointer-events-none z-0 animate-pulse" />
+    <section
+      className="relative w-full pt-20 pb-16 lg:pt-24 lg:pb-20 overflow-hidden"
+      style={{ background: 'var(--surface-tint-blue)' }}
+    >
+      {/* Glow orbs - matches design spec */}
       <div
-        className="absolute bottom-10 right-0 w-[500px] h-[500px] bg-brand-yellow-500/10 rounded-full blur-[150px] pointer-events-none z-0 animate-pulse"
-        style={{ animationDelay: '700ms' }}
+        className="absolute top-[-128px] left-[-128px] w-[384px] h-[384px] rounded-full pointer-events-none"
+        style={{
+          background: 'var(--brand-yellow)',
+          opacity: 0.4,
+          filter: 'blur(100px)',
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-[-160px] right-[-128px] w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background: 'var(--brand-blue)',
+          opacity: 0.3,
+          filter: 'blur(130px)',
+        }}
+        aria-hidden="true"
       />
 
-      {/* Background photography overlay */}
-      <div className="absolute inset-0 z-0 opacity-15 mix-blend-overlay pointer-events-none">
-        <Image
-          src="/delivery-background.jpg"
-          alt="Envíos DosRuedas Contacto y Logística Mar del Plata"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-      </div>
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-brand-dark/95 via-brand-blue-700/60 to-brand-dark backdrop-blur-[2px]" />
+      {/* Border accent */}
+      <div className="absolute inset-0 pointer-events-none" style={{ border: '1px solid rgba(6,54,165,0.05)' }} />
 
-      {/* Content Container */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
-          {/* Left Column: Headline, Subtitle & Value Props (7 cols) */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-12 lg:gap-16 items-center">
+          {/* Left Column: Headline & Channels */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-1 lg:col-span-7 flex flex-col justify-center text-left"
+            className="space-y-10"
           >
-            {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 border border-brand-yellow-500/40 bg-brand-dark/70 backdrop-blur-md rounded-full shadow-lg w-fit">
-              <Mail className="w-4 h-4 text-brand-yellow-500" />
-              <span className="font-subheading text-xs tracking-widest uppercase text-brand-white-50 font-bold">
-                CANAL COMERCIAL DIRECTO · MAR DEL PLATA
+            {/* Badge - matches design spec: "Conexión Directa Mar del Plata" */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full w-fit">
+              <span
+                className="w-10 h-10 rounded-full flex items-center justify-center"
+                style={{
+                  background: 'rgba(255,255,255,0.5)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(6,54,165,0.10)',
+                }}
+              >
+                <span
+                  className="w-2.5 h-2.5 rounded-full"
+                  style={{
+                    background: 'var(--brand-yellow)',
+                    boxShadow: '0 0 10px var(--brand-yellow), 0 0 20px var(--brand-yellow)',
+                  }}
+                />
+              </span>
+              <span
+                className="font-body text-xs font-bold uppercase tracking-[0.2em]"
+                style={{ color: 'var(--brand-blue)' }}
+              >
+                Conexión Directa Mar del Plata
               </span>
             </div>
 
-            {/* Monumental Title */}
-            <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-brand-white-50 uppercase tracking-tight mb-5 leading-[0.95] drop-shadow-sm">
-              HABLAMOS DE <span className="text-brand-yellow-500 italic drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">TU LOGÍSTICA</span>
-            </h1>
+            {/* Monumental Title - matches design spec: italic with text-stroke on "ahora?" */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="font-display uppercase tracking-tighter leading-[0.8]"
+              style={{ fontSize: '9rem', fontStyle: 'italic', color: 'var(--brand-blue)' }}
+            >
+              ¿Hablamos<br />
+              <span
+                style={{
+                  color: 'transparent',
+                  WebkitTextStroke: '2px #0636A5',
+                }}
+              >
+                ahora?
+              </span>
+            </motion.h1>
 
-            {/* Subtitle */}
-            <p className="font-sans text-brand-blue-50 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
-              ¿Buscás optimizar las entregas de tu e-commerce o negocio en Mar del Plata? Diseñamos acuerdos de tarifas por volumen, integración Flex y cadetería prioritaria con respuesta en menos de 2 horas.
-            </p>
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="max-w-xl font-body leading-tight"
+              style={{ fontSize: 'var(--text-xl)', color: 'rgba(6,54,165,0.7)' }}
+            >
+              Sin formularios complejos ni esperas. Elegí el canal que mejor se adapte al ritmo de tu e-commerce.
+            </motion.p>
 
-            {/* Quick Metrics / Value Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
-              <div className="p-3.5 rounded-xl border border-brand-blue-500/30 bg-brand-dark/60 backdrop-blur-md flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-brand-yellow-500/10 border border-brand-yellow-500/30 flex items-center justify-center shrink-0">
-                  <Clock className="w-4 h-4 text-brand-yellow-500" />
-                </div>
-                <div>
-                  <span className="block font-display text-sm text-brand-white-50 uppercase">Menos de 2h</span>
-                  <span className="block font-sans text-[11px] text-brand-blue-100">Respuesta comercial</span>
-                </div>
+            {/* Office Info - matches design spec */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="flex gap-8 pt-8 border-t"
+              style={{ borderColor: 'rgba(6,54,165,0.10)' }}
+            >
+              <div className="grid gap-1">
+                <span
+                  className="font-subheading text-[10px] uppercase tracking-[0.2em]"
+                  style={{ color: 'rgba(6,54,165,0.4)' }}
+                >
+                  Oficina Central
+                </span>
+                <span className="font-body text-sm font-bold" style={{ color: 'var(--brand-blue)' }}>
+                  Friuli 1972, Mar del Plata
+                </span>
               </div>
-
-              <div className="p-3.5 rounded-xl border border-brand-blue-500/30 bg-brand-dark/60 backdrop-blur-md flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-brand-yellow-500/10 border border-brand-yellow-500/30 flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-4 h-4 text-brand-yellow-500" />
-                </div>
-                <div>
-                  <span className="block font-display text-sm text-brand-white-50 uppercase">+15 Años</span>
-                  <span className="block font-sans text-[11px] text-brand-blue-100">En calles de MDQ</span>
-                </div>
+              <div className="grid gap-1">
+                <span
+                  className="font-subheading text-[10px] uppercase tracking-[0.2em]"
+                  style={{ color: 'rgba(6,54,165,0.4)' }}
+                >
+                  Operación
+                </span>
+                <span className="font-body text-sm font-bold" style={{ color: 'var(--brand-blue)' }}>
+                  Lunes a Sábado
+                </span>
               </div>
-
-              <div className="p-3.5 rounded-xl border border-brand-blue-500/30 bg-brand-dark/60 backdrop-blur-md flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-brand-yellow-500/10 border border-brand-yellow-500/30 flex items-center justify-center shrink-0">
-                  <Zap className="w-4 h-4 text-brand-yellow-500" />
-                </div>
-                <div>
-                  <span className="block font-display text-sm text-brand-white-50 uppercase">Planes a Medida</span>
-                  <span className="block font-sans text-[11px] text-brand-blue-100">PyMEs y Tiendas</span>
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Right Column: Interactive Card / Direct Contact Dock (5 cols) */}
+          {/* Right Column: Contact Channel Cards */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-1 lg:col-span-5 flex flex-col justify-center w-full"
+            className="space-y-5"
           >
-            <div className="rounded-2xl border border-brand-white-50/15 bg-brand-dark/80 backdrop-blur-xl overflow-hidden shadow-2xl flex flex-col w-full hover:border-brand-yellow-500/40 transition-all duration-500">
-              
-              {/* Header inside card */}
-              <div className="p-6 sm:p-7 border-b border-brand-white-50/10 bg-brand-white-50/[0.02]">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-brand-yellow-500/15 border border-brand-yellow-500/30">
-                      <MessageSquare className="w-5 h-5 text-brand-yellow-500" />
-                    </div>
-                    <div>
-                      <h2 className="font-display text-xl text-brand-white-50 uppercase m-0 tracking-wide">
-                        Atención Inmediata
-                      </h2>
-                      <p className="font-sans text-xs text-brand-blue-100">
-                        Equipo operativo y comercial en línea
-                      </p>
-                    </div>
-                  </div>
-
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-yellow-500/10 border border-brand-yellow-500/30 text-[11px] font-mono text-brand-yellow-500 uppercase font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-brand-yellow-500 animate-pulse" />
-                    Activo
+            {CHANNELS.map((channel) => (
+              <a
+                key={channel.title}
+                href={channel.title === 'WhatsApp Comercial' ? 'https://wa.me/542236602699' : channel.title === 'Llamada de Coordinación' ? 'tel:+542236602699' : 'mailto:matiascejas@enviosdosruedas.com'}
+                target={channel.title === 'Llamada de Coordinación' ? '_self' : '_blank'}
+                rel={channel.title === 'Llamada de Coordinación' ? undefined : 'noopener noreferrer'}
+                className="group flex items-center justify-between p-7 rounded-3xl cursor-pointer transition-all duration-300"
+                style={{
+                  border: '1px solid rgba(6,54,165,0.05)',
+                  background: 'rgba(255,255,255,0.6)',
+                  backdropFilter: 'blur(12px)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.03)';
+                  e.currentTarget.style.background = '#fff';
+                  e.currentTarget.style.boxShadow = 'var(--shadow-2xl)';
+                  e.currentTarget.style.borderColor = 'var(--brand-yellow)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'none';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.6)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'rgba(6,54,165,0.05)';
+                }}
+              >
+                <span className="flex items-center gap-6">
+                  <span
+                    className="inline-flex"
+                    style={{
+                      padding: 16,
+                      borderRadius: 'var(--radius-2xl)',
+                      background: 'rgba(6,54,165,0.05)',
+                    }}
+                  >
+                    <channel.icon className="h-6 w-6" style={{ color: 'var(--brand-blue)' }} />
                   </span>
-                </div>
-              </div>
-
-              {/* Direct Link Items */}
-              <div className="p-6 sm:p-7 space-y-3.5">
-                {/* Phone */}
-                <a
-                  href="tel:+542236602699"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-brand-white-50/[0.04] hover:bg-brand-white-50/[0.08] border border-brand-white-50/10 hover:border-brand-yellow-500/40 transition-all duration-300 group"
-                >
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-brand-blue-700/80 border border-brand-blue-500/40 flex items-center justify-center shrink-0 group-hover:bg-brand-yellow-500 transition-colors">
-                      <Phone className="w-4 h-4 text-brand-white-50 group-hover:text-brand-blue-950 transition-colors" />
-                    </div>
-                    <div>
-                      <span className="block font-sans text-[10px] uppercase tracking-wider text-brand-blue-200">
-                        Llamada Directa
-                      </span>
-                      <span className="block font-mono text-sm sm:text-base font-bold text-brand-white-50 group-hover:text-brand-yellow-500 transition-colors">
-                        +54 223 660-2699
-                      </span>
-                    </div>
-                  </div>
-                  <ArrowUpRight className="w-4 h-4 text-brand-blue-200 group-hover:text-brand-yellow-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                </a>
-
-                {/* Email */}
-                <a
-                  href="mailto:matiascejas@enviosdosruedas.com"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-brand-white-50/[0.04] hover:bg-brand-white-50/[0.08] border border-brand-white-50/10 hover:border-brand-yellow-500/40 transition-all duration-300 group"
-                >
-                  <div className="flex items-center gap-3.5 min-w-0">
-                    <div className="w-10 h-10 rounded-xl bg-brand-blue-700/80 border border-brand-blue-500/40 flex items-center justify-center shrink-0 group-hover:bg-brand-yellow-500 transition-colors">
-                      <Mail className="w-4 h-4 text-brand-white-50 group-hover:text-brand-blue-950 transition-colors" />
-                    </div>
-                    <div className="min-w-0">
-                      <span className="block font-sans text-[10px] uppercase tracking-wider text-brand-blue-200">
-                        Email Comercial
-                      </span>
-                      <span className="block font-sans text-xs sm:text-sm font-medium text-brand-white-50 group-hover:text-brand-yellow-500 transition-colors truncate">
-                        matiascejas@enviosdosruedas.com
-                      </span>
-                    </div>
-                  </div>
-                  <ArrowUpRight className="w-4 h-4 text-brand-blue-200 group-hover:text-brand-yellow-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
-                </a>
-
-                {/* Location */}
-                <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-brand-white-50/[0.04] border border-brand-white-50/10">
-                  <div className="w-10 h-10 rounded-xl bg-brand-blue-700/80 border border-brand-blue-500/40 flex items-center justify-center shrink-0">
-                    <MapPin className="w-4 h-4 text-brand-yellow-500" />
-                  </div>
-                  <div>
-                    <span className="block font-sans text-[10px] uppercase tracking-wider text-brand-blue-200">
-                      Hub de Distribución
+                  <span>
+                    <span
+                      className="block font-headline uppercase tracking-wide"
+                      style={{
+                        fontSize: 'var(--text-xl)',
+                        color: 'var(--brand-blue)',
+                        lineHeight: 1,
+                        marginBottom: 8,
+                      }}
+                    >
+                      {channel.title}
                     </span>
-                    <span className="block font-sans text-xs sm:text-sm font-bold text-brand-white-50">
-                      Chauvín, Mar del Plata
+                    <span
+                      className="block"
+                      style={{
+                        fontSize: 'var(--text-xs)',
+                        fontFamily: 'var(--font-body)',
+                        color: 'rgba(6,54,165,0.5)',
+                      }}
+                    >
+                      {channel.desc}
                     </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Fast Action WhatsApp CTA Bar */}
-              <div className="p-4 sm:p-5 bg-brand-yellow-500/10 border-t border-brand-yellow-500/20">
-                <a
-                  href="https://wa.me/542236602699?text=Hola%20Envíos%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20comercial%20para%20mi%20negocio."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 border-none shadow-accent font-subheading tracking-wider uppercase text-base cursor-pointer justify-center"
-                >
-                  <span>Chatear por WhatsApp</span>
-                  <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900">
-                    →
                   </span>
-                </a>
-              </div>
-
-            </div>
+                </span>
+                <span style={{ color: 'rgba(6,54,165,0.2)' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </span>
+              </a>
+            ))}
           </motion.div>
-
         </div>
       </div>
     </section>

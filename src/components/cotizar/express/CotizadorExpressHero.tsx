@@ -1,241 +1,489 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
-import { motion, useSpring, useMotionValue, useTransform } from 'motion/react';
-import { Calculator, Zap, ShieldCheck, Clock, Navigation } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
+import { Navigation, Clock, ShieldCheck, Zap } from 'lucide-react';
 
-const SIMULATED_TRIPS = [
-  { origen: "Centro de Distribución", destino: "Zona Güemes", distancia: 4.2 },
-  { origen: "Av. Constitución 5500", destino: "Plaza Mitre", distancia: 5.8 },
-  { origen: "Puerto Mar del Plata", destino: "Plaza Colón", distancia: 8.5 },
-  { origen: "Terminal Ferroautomotora", destino: "B° Stella Maris", distancia: 3.7 },
-  { origen: "La Perla (Av. Libertad)", destino: "Punta Mogotes", distancia: 11.2 },
-  { origen: "Paseo Aldrey", destino: "Zona San Juan", distancia: 2.8 },
-  { origen: "B° Constituyentes", destino: "Hospital Privado Comunidad", distancia: 4.9 },
+const ORIGINES = [
+  'Centro de Distribución (Av. Colón 1200)',
+  'Puerto Mar del Plata',
+  'Terminal Ferroautomotora',
+  'Paseo Aldrey',
+  'La Perla (Av. Independencia)',
+  'Av. Constitución 5500',
+  'B° Constituyentes',
 ];
 
+const DESTINOS_EXPRESS = [
+  { zona: 'Zona Güemes (Centro)', km: 4.2, barrio: 'Güemes' },
+  { zona: 'Plaza Mitre / Plaza Colón', km: 5.8, barrio: 'Centro' },
+  { zona: 'Plaza Colón', km: 8.5, barrio: 'Centro' },
+  { zona: 'B° Stella Maris', km: 3.7, barrio: 'Stella Maris' },
+  { zona: 'Punta Mogotes', km: 11.2, barrio: 'Punta Mogotes' },
+  { zona: 'Zona San Juan', km: 2.8, barrio: 'San Juan' },
+  { zona: 'Hospital Privado Comunidad', km: 4.9, barrio: 'Cerro Peralta' },
+  { zona: 'Zona Peralta Ramos', km: 6.7, barrio: 'Peralta Ramos' },
+  { zona: 'Zona Batán', km: 15.5, barrio: 'Batán' },
+  { zona: 'Camet', km: 18.3, barrio: 'Camet' },
+];
+
+const SIMULATED_TRIPS = [
+  { origen: 'Centro de Distribución', destino: 'Zona Güemes', distancia: 4.2 },
+  { origen: 'Av. Constitución 5500', destino: 'Plaza Mitre', distancia: 5.8 },
+  { origen: 'Puerto Mar del Plata', destino: 'Plaza Colón', distancia: 8.5 },
+  { origen: 'Terminal Ferroautomotora', destino: 'B° Stella Maris', distancia: 3.7 },
+  { origen: 'La Perla (Av. Libertad)', destino: 'Punta Mogotes', distancia: 11.2 },
+  { origen: 'Paseo Aldrey', destino: 'Zona San Juan', distancia: 2.8 },
+  { origen: 'B° Constituyentes', destino: 'Hospital Privado Comunidad', distancia: 4.9 },
+];
+
+function calcExpressPrice(d: number): number {
+  if (d <= 3) return 3700;
+  if (d <= 5) return 4600;
+  if (d <= 7) return 6100;
+  if (d <= 10) return 8200;
+  return 8200 + Math.ceil(d - 10) * 1000;
+}
+
 export default function CotizadorExpressHero() {
-  const cardRef = useRef<HTMLDivElement>(null);
-  
-  // Trip simulation state
-  const [trip, setTrip] = useState({ origen: "Centro de Distribución", destino: "Zona Güemes", distancia: 4.2 });
+  const [origen, setOrigen] = useState(ORIGINES[0]);
+  const [destino, setDestino] = useState(DESTINOS_EXPRESS[0]);
+  const [distanceKm] = useState(destino.km);
+  const [price] = useState(calcExpressPrice(destino.km));
 
+  // Simulación de viaje en vivo
+  const [trip, setTrip] = useState(SIMULATED_TRIPS[0]);
   useEffect(() => {
-    // Select a random trip on mount to avoid SSR hydration mismatch
-    const randomIndex = Math.floor(Math.random() * SIMULATED_TRIPS.length);
-    setTimeout(() => setTrip(SIMULATED_TRIPS[randomIndex]), 0);
+    let index = 0;
+    const interval = setInterval(() => {
+      index = (index + 1) % SIMULATED_TRIPS.length;
+      setTrip(SIMULATED_TRIPS[index]);
+    }, 3500);
+    return () => clearInterval(interval);
   }, []);
-
-  // Calcula la tarifa Express según rangos reales de la BD
-  // Rangos fijos hasta 10 km; por encima se cobra $1000 por km entero excedente (sin prorrateo)
-  const distanceKm = trip.distancia;
-  function calcExpressPrice(d: number): number {
-    if (d <= 3)  return 3700;
-    if (d <= 5)  return 4600;
-    if (d <= 7)  return 6100;
-    if (d <= 10) return 8200;
-    // Más de 10 km: base 8200 + $1000 por cada km entero que exceda los 10 km
-    return 8200 + Math.ceil(d - 10) * 1000;
-  }
-  const price = calcExpressPrice(distanceKm);
-
-  // Motion values for smooth 3D mouse tracking spring animations
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  
-  const springConfig = { damping: 25, stiffness: 120, mass: 0.5 };
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [15, -15]), springConfig);
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-15, 15]), springConfig);
-  
-  const [lightX, setLightX] = useState(50);
-  const [lightY, setLightY] = useState(50);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    // Normalized mouse position between -0.5 and 0.5
-    const relativeX = (e.clientX - rect.left) / width - 0.5;
-    const relativeY = (e.clientY - rect.top) / height - 0.5;
-    
-    x.set(relativeX);
-    y.set(relativeY);
-
-    // Dynamic reflection highlight positioning
-    const lightPercentX = ((e.clientX - rect.left) / width) * 100;
-    const lightPercentY = ((e.clientY - rect.top) / height) * 100;
-    setLightX(lightPercentX);
-    setLightY(lightPercentY);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-    setLightX(50);
-    setLightY(50);
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.05,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 25 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: 'spring' as const,
-        stiffness: 90,
-        damping: 18,
-      }
-    },
-  };
 
   return (
     <section
       id="cotizador-express-hero"
-      className="relative min-h-[65vh] flex items-center justify-center pt-32 pb-12 overflow-hidden bg-gradient-to-b from-brand-blue-700 via-brand-dark to-brand-dark text-white border-b border-white/10"
+      className="relative w-full pt-16 pb-12 lg:pt-20 lg:pb-16 overflow-hidden"
+      style={{
+        minHeight: '75dvh',
+        background: 'var(--surface-tint-blue)',
+      }}
     >
-      {/* Ambient background glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,var(--color-brand-blue-700),transparent_55%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_65%,var(--color-brand-yellow-500),transparent_45%)] pointer-events-none" />
+      {/* Glow orbs - matches design spec */}
+      <div
+        className="absolute top-[-128px] left-[-128px] w-[384px] h-[384px] rounded-full pointer-events-none"
+        style={{
+          background: 'var(--brand-yellow)',
+          opacity: 0.35,
+          filter: 'blur(100px)',
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-[-160px] right-[-128px] w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background: 'var(--brand-blue)',
+          opacity: 0.25,
+          filter: 'blur(130px)',
+        }}
+        aria-hidden="true"
+      />
 
-      {/* Decorative logistics illustration overlay */}
-      <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay pointer-events-none">
-        <Image
-          src="/delivery-background.jpg"
-          alt="Fondo de reparto"
-          fill={true}
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-      </div>
+      {/* Border accent */}
+      <div className="absolute inset-0 pointer-events-none" style={{ border: '1px solid rgba(6,54,165,0.05)' }} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col">
+        {/* Header with badges */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 lg:mb-10 py-4 border-b"
+          style={{ borderColor: 'rgba(6,54,165,0.08)' }}
         >
-          {/* Left Column: Title and Description */}
-          <div className="lg:col-span-7 text-center lg:text-left space-y-6">
-            
-            {/* Badge (Bebas Neue) */}
-            <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-4 py-1.5 rounded-full text-sm font-subheading uppercase tracking-widest bg-brand-blue border-2 border-brand-yellow text-brand-yellow flex items-center gap-1.5 shadow-[0_0_20px_var(--color-brand-yellow-500)] font-bold">
-                <Zap className="h-4 w-4 text-brand-yellow animate-pulse shrink-0" />
-                Servicio Express Prioritario
-              </span>
-            </motion.div>
-
-            {/* Title with display typography */}
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-none text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full w-fit">
+            <span
+              className="w-10 h-10 rounded-full flex items-center justify-center"
+              style={{
+                background: 'rgba(255,255,255,0.7)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(6,54,165,0.10)',
+              }}
             >
-              <span>COTIZÁ TU</span>
-              <span className="text-brand-yellow text-glow-yellow">ENVÍO</span>
-              <span>EXPRESS</span>
-            </motion.h1>
-
-            {/* Description */}
-            <motion.p
-              variants={itemVariants}
-              className="text-base sm:text-lg text-brand-blue-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans"
+              <Zap className="h-5 w-5" style={{ color: 'var(--brand-blue)' }} />
+            </span>
+            <span
+              className="font-body text-sm font-bold uppercase tracking-[0.15em]"
+              style={{ color: 'var(--brand-blue)' }}
             >
-              Calculá el costo de tu envío prioritario al instante. Obtené la tarifa de entrega según la distancia y coordiná en el acto con nosotros por WhatsApp.
-            </motion.p>
-
-            {/* Features Indicators */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 max-w-xl mx-auto lg:mx-0 text-left font-sans text-xs"
-            >
-              <div className="flex items-center gap-2 text-brand-blue-200 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm hover:border-white/20 transition-colors">
-                <Clock className="h-4 w-4 text-brand-yellow shrink-0" />
-                <span>Entrega en &lt; 2 Horas</span>
-              </div>
-              <div className="flex items-center gap-2 text-brand-blue-200 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm hover:border-white/20 transition-colors">
-                <Navigation className="h-4 w-4 text-brand-yellow shrink-0" />
-                <span>Ruta Optimizada</span>
-              </div>
-              <div className="flex items-center gap-2 text-brand-blue-200 bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm hover:border-white/20 transition-colors">
-                <ShieldCheck className="h-4 w-4 text-brand-yellow shrink-0" />
-                <span>Tarifa 100% Precisa</span>
-              </div>
-            </motion.div>
+              Cotizador Express · Mar del Plata
+            </span>
           </div>
-
-          {/* Right Column: Dynamic 3D Spring Floating Card */}
-          <div className="lg:col-span-5 relative hidden lg:block h-[380px] perspective-1000">
-            <motion.div
-              ref={cardRef}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              style={{ rotateX, rotateY }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] z-20 preserve-3d cursor-pointer"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1, transition: { duration: 0.8, delay: 0.3 } }}
+          <div className="flex items-center gap-3 text-xs font-subheading uppercase tracking-wider">
+            <span
+              className="px-3 py-1.5 rounded-full"
+              style={{
+                background: 'rgba(6,54,165,0.08)',
+                color: 'var(--brand-blue)',
+              }}
             >
-              {/* Double-Bezel Card wrapper */}
-              <div className="double-bezel-outer bg-brand-blue-50/80 shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300">
-                <div className="double-bezel-inner bg-white p-8 rounded-xl border border-brand-blue-50/50 text-brand-blue-700">
-                  <div className="space-y-6 relative z-10">
-                    <div className="flex items-center justify-between border-b border-brand-blue-100/60 pb-4">
-                      <div>
-                        <h4 className="text-xl font-subheading uppercase text-brand-blue-700 tracking-wider">
-                          CÁLCULO AUTOMÁTICO
-                        </h4>
-                        <p className="text-[10px] text-brand-blue-600 font-subheading tracking-wider uppercase mt-0.5">SISTEMA EXPRESS MAPS</p>
-                      </div>
-                      <Calculator className="h-6 w-6 text-brand-blue-700 shrink-0 animate-pulse" />
-                    </div>
+              <span className="inline-block w-2 h-2 rounded-full bg-brand-yellow mr-1.5" /> Live
+            </span>
+            <span
+              className="px-3 py-1.5 rounded-full"
+              style={{
+                background: 'rgba(6,54,165,0.08)',
+                color: 'var(--brand-blue)',
+              }}
+            >
+              Precisión 100%
+            </span>
+            <span
+              className="px-3 py-1.5 rounded-full"
+              style={{
+                background: 'rgba(6,54,165,0.08)',
+                color: 'var(--brand-blue)',
+              }}
+            >
+              Sin registro
+            </span>
+          </div>
+        </motion.div>
 
-                    {/* Calculator Simulation items */}
-                    <div className="space-y-3 text-xs text-brand-blue-900">
-                      <div className="flex justify-between items-center py-1 border-b border-brand-blue-100/60">
-                        <span className="font-subheading font-bold uppercase tracking-wider text-[10px] text-brand-blue-600">ORIGEN</span>
-                        <span className="text-brand-blue-700 font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.origen}</span>
-                      </div>
-                      <div className="flex justify-between items-center py-1 border-b border-brand-blue-100/60">
-                        <span className="font-subheading font-bold uppercase tracking-wider text-[10px] text-brand-blue-600">DESTINO</span>
-                        <span className="text-brand-blue-700 font-semibold font-sans truncate max-w-[150px] inline-block align-middle">{trip.destino}</span>
-                      </div>
-                      <div className="flex justify-between items-center py-1 border-b border-brand-blue-100/60">
-                        <span className="font-subheading font-bold uppercase tracking-wider text-[10px] text-brand-blue-600">DISTANCIA</span>
-                        <span className="text-brand-blue-700 font-bold font-mono">{trip.distancia} km</span>
-                      </div>
-                      <div className="flex justify-between items-center py-1 text-sm pt-2 border-t border-brand-blue-100/60">
-                        <span className="font-subheading font-bold text-brand-blue-700 tracking-wide">TARIFA FINAL</span>
-                        <span className="text-brand-blue-700 font-bold text-lg font-mono">${price.toLocaleString('es-AR')} ARS</span>
-                      </div>
-                    </div>
+        {/* Main Grid - Split Layout: Route Selector (7fr) | Calculator (5fr) */}
+        <div className="flex-1 grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-8 lg:gap-12 items-start">
+          {/* LEFT COLUMN: Route Selector */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-6 h-full"
+          >
+            {/* Section Label */}
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="font-subheading text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(6,54,165,0.4)' }}>
+                  Selector de Ruta
+                </span>
+                <motion.h2
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="font-display uppercase tracking-tighter leading-tight mt-1"
+                  style={{ fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)', color: 'var(--brand-blue)' }}
+                >
+                  Configurá tu<br />envío prioritario
+                </motion.h2>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl"
+                style={{
+                  background: 'rgba(6,54,165,0.05)',
+                  border: '1px solid rgba(6,54,165,0.08)',
+                }}
+              >
+                <Navigation className="h-4 w-4" style={{ color: 'var(--brand-blue)' }} />
+                <span className="font-body text-xs" style={{ color: 'var(--brand-blue)' }}>
+                  <span className="font-bold">Ruta optimizada</span> por OSRM
+                </span>
+              </motion.div>
+            </div>
 
-                    <div className="pt-2 flex justify-center">
-                      <span className="px-3 py-1 bg-brand-yellow-50 border border-brand-yellow text-brand-blue-700 rounded-xl text-[10px] font-subheading tracking-wider uppercase">
-                        SIN REGISTRO OBLIGATORIO
-                      </span>
-                    </div>
-                  </div>
+            {/* Origin Selector - Glassmorphism Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="relative overflow-hidden p-6 rounded-2xl border"
+              style={{
+                background: 'rgba(255,255,255,0.65)',
+                backdropFilter: 'blur(16px)',
+                borderColor: 'rgba(6,54,165,0.08)',
+                boxShadow: '0 2px 12px rgba(6,54,165,0.04), inset 0 1px 0 rgba(255,255,255,0.8)',
+              }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'rgba(6,54,165,0.1)', color: 'var(--brand-blue)' }}>
+                  <Navigation className="h-5 w-5" />
+                </span>
+                <div>
+                  <span className="font-subheading text-[10px] uppercase tracking-[0.2em] block mb-0.5" style={{ color: 'rgba(6,54,165,0.4)' }}>
+                    Origen de retiro
+                  </span>
+                  <span className="font-body text-sm font-medium" style={{ color: 'var(--brand-blue)' }}>¿Dónde retiramos tu envío?</span>
+                </div>
+              </div>
+              <select
+                value={origen}
+                onChange={(e) => setOrigen(e.target.value)}
+                className="w-full appearance-none bg-transparent border-0 focus:outline-none font-body text-base"
+                style={{ color: 'var(--brand-blue)', background: 'transparent' }}
+              >
+                {ORIGINES.map((o) => (
+                  <option key={o} value={o}>
+                    {o}
+                  </option>
+                ))}
+              </select>
+            </motion.div>
+
+            {/* Destination Selector - Glassmorphism Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative overflow-hidden p-6 rounded-2xl border"
+              style={{
+                background: 'rgba(255,255,255,0.65)',
+                backdropFilter: 'blur(16px)',
+                borderColor: 'rgba(6,54,165,0.08)',
+                boxShadow: '0 2px 12px rgba(6,54,165,0.04), inset 0 1px 0 rgba(255,255,255,0.8)',
+              }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'rgba(255,236,1,0.15)', color: 'var(--brand-yellow)' }}>
+                  <Zap className="h-5 w-5" />
+                </span>
+                <div>
+                  <span className="font-subheading text-[10px] uppercase tracking-[0.2em] block mb-0.5" style={{ color: 'rgba(6,54,165,0.4)' }}>
+                    Destino de entrega
+                  </span>
+                  <span className="font-body text-sm font-medium" style={{ color: 'var(--brand-blue)' }}>¿A qué zona de Mar del Plata va?</span>
+                </div>
+              </div>
+              <select
+                value={destino.zona}
+                onChange={(e) => {
+                  const selected = DESTINOS_EXPRESS.find((d) => d.zona === e.target.value);
+                  if (selected) setDestino(selected);
+                }}
+                className="w-full appearance-none bg-transparent border-0 focus:outline-none font-body text-base"
+                style={{ color: 'var(--brand-blue)', background: 'transparent' }}
+              >
+                {DESTINOS_EXPRESS.map((d) => (
+                  <option key={d.zona} value={d.zona}>
+                    {d.zona} · {d.km} km
+                  </option>
+                ))}
+              </select>
+              <div className="mt-4 pt-4 flex items-center justify-between border-t text-xs" style={{ borderColor: 'rgba(6,54,165,0.08)', color: 'rgba(6,54,165,0.5)' }}>
+                <span className="font-subheading uppercase tracking-wider"><Clock className="h-3.5 w-3.5 inline-block mr-1" /> <span className="font-bold">{destino.km} km</span></span>
+                <span className="font-subheading uppercase tracking-wider"><ShieldCheck className="h-3.5 w-3.5 inline-block mr-1" /> Zona: {destino.barrio}</span>
+              </div>
+            </motion.div>
+
+            {/* Live Trip Simulation Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="relative overflow-hidden p-6 rounded-2xl border"
+              style={{
+                background: 'rgba(6,54,165,0.05)',
+                backdropFilter: 'blur(16px)',
+                borderColor: 'rgba(6,54,165,0.10)',
+              }}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-subheading text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(6,54,165,0.4)' }}>
+                  Tráfico en vivo
+                </span>
+                <span className="flex items-center gap-1.5 text-xs font-subheading uppercase tracking-wider" style={{ color: 'var(--brand-yellow)' }}>
+                  <span className="w-2 h-2 rounded-full bg-brand-yellow animate-pulse" /> Simulación
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <span className="font-subheading text-[9px] uppercase tracking-[0.25em] block mb-1" style={{ color: 'rgba(6,54,165,0.5)' }}>Origen</span>
+                  <span className="font-body text-sm font-semibold truncate block" style={{ color: 'var(--brand-blue)' }}>{trip.origen}</span>
+                </div>
+                <div>
+                  <span className="font-subheading text-[9px] uppercase tracking-[0.25em] block mb-1" style={{ color: 'rgba(6,54,165,0.5)' }}>Destino</span>
+                  <span className="font-body text-sm font-semibold truncate block" style={{ color: 'var(--brand-blue)' }}>{trip.destino}</span>
+                </div>
+                <div>
+                  <span className="font-subheading text-[9px] uppercase tracking-[0.25em] block mb-1" style={{ color: 'rgba(6,54,165,0.5)' }}>Distancia</span>
+                  <span className="font-mono text-lg font-bold" style={{ color: 'var(--brand-blue)' }}>{trip.distancia} km</span>
+                </div>
+                <div>
+                  <span className="font-subheading text-[9px] uppercase tracking-[0.25em] block mb-1" style={{ color: 'rgba(6,54,165,0.5)' }}>Tarifa estimada</span>
+                  <span className="font-mono text-lg font-bold text-brand-yellow">${calcExpressPrice(trip.distancia).toLocaleString('es-AR')} ARS</span>
                 </div>
               </div>
             </motion.div>
-          </div>
 
-        </motion.div>
+            {/* Features Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="grid grid-cols-3 gap-3"
+            >
+              {[
+                { icon: Clock, label: 'Entrega < 2 hs', desc: 'Prioridad absoluta' },
+                { icon: Navigation, label: 'Ruta óptima', desc: 'OSRM + MDQ' },
+                { icon: ShieldCheck, label: 'Precisión 100%', desc: 'Tarifa real BD' },
+              ].map((item, i) => (
+                <div
+                  key={item.label}
+                  className="group p-4 rounded-2xl border transition-all duration-300 hover:scale-[1.02]"
+                  style={{
+                    background: 'rgba(255,255,255,0.6)',
+                    backdropFilter: 'blur(12px)',
+                    borderColor: 'rgba(6,54,165,0.08)',
+                  }}
+                >
+                  <item.icon className="h-5 w-5 mb-2 group-hover:scale-110 transition-transform" style={{ color: 'var(--brand-yellow)' }} />
+                  <span className="font-subheading text-[10px] uppercase tracking-wider block mb-0.5" style={{ color: 'var(--brand-blue)' }}>{item.label}</span>
+                  <span className="font-body text-[11px]" style={{ color: 'rgba(6,54,165,0.5)' }}>{item.desc}</span>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* RIGHT COLUMN: Calculator Card - Glassmorphism Double Bezel */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
+          >
+            {/* Calculator Card - Sticky */}
+            <div className="sticky top-20">
+              {/* Double Bezel Outer */}
+              <div
+                className="p-2 rounded-3xl relative overflow-hidden"
+                style={{
+                  background: 'rgba(255,255,255,0.15)',
+                  backdropFilter: 'blur(24px)',
+                  border: '1px solid rgba(6,54,165,0.12)',
+                  boxShadow: '0 20px 40px rgba(6,54,165,0.08), 0 0 0 1px rgba(255,255,255,0.1) inset',
+                }}
+              >
+                {/* Double Bezel Inner */}
+                <div className="relative p-8 rounded-2xl" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(20px)' }}>
+                  {/* Header */}
+                  <div className="flex items-center justify-between border-b mb-6 pb-5" style={{ borderColor: 'rgba(6,54,165,0.08)' }}>
+                    <div>
+                      <span className="font-subheading text-[10px] uppercase tracking-[0.2em] block mb-1" style={{ color: 'rgba(6,54,165,0.4)' }}>
+                        Cálculo Automático
+                      </span>
+                      <span className="font-headline uppercase tracking-wide text-lg" style={{ color: 'var(--brand-blue)' }}>EXPRESS MAPS</span>
+                    </div>
+                    <Zap className="h-7 w-7 shrink-0" style={{ color: 'var(--brand-yellow)' }} />
+                  </div>
+
+                  {/* Route Calculation */}
+                  <div className="space-y-4 mb-6">
+                    <div className="flex items-center justify-between py-2 border-b" style={{ borderColor: 'rgba(6,54,165,0.06)' }}>
+                      <span className="font-subheading text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(6,54,165,0.5)' }}>ORIGEN</span>
+                      <span className="font-body text-sm font-semibold truncate max-w-[160px] text-right" style={{ color: 'var(--brand-blue)' }}>{origen}</span>
+                    </div>
+                    <div className="flex items-center justify-between py-2 border-b" style={{ borderColor: 'rgba(6,54,165,0.06)' }}>
+                      <span className="font-subheading text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(6,54,165,0.5)' }}>DESTINO</span>
+                      <span className="font-body text-sm font-semibold truncate max-w-[160px] text-right" style={{ color: 'var(--brand-blue)' }}>{destino.zona}</span>
+                    </div>
+                    <div className="flex items-center justify-between py-2 border-b" style={{ borderColor: 'rgba(6,54,165,0.06)' }}>
+                      <span className="font-subheading text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(6,54,165,0.5)' }}>DISTANCIA</span>
+                      <span className="font-mono text-xl font-bold" style={{ color: 'var(--brand-blue)' }}>{destino.km} km</span>
+                    </div>
+
+                    {/* Price Display - Monumental */}
+                    <div className="pt-6 border-t relative" style={{ borderColor: 'rgba(6,54,165,0.08)' }}>
+                      <span className="font-subheading text-[10px] uppercase tracking-[0.2em] block mb-2" style={{ color: 'rgba(6,54,165,0.4)' }}>
+                        TARIFA FINAL EXPRESS
+                      </span>
+                      <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ type: 'spring', stiffness: 80, damping: 12, delay: 0.2 }}
+                        className="flex items-baseline justify-between"
+                      >
+                        <span className="font-display text-5xl sm:text-6xl font-bold tracking-tight" style={{ color: 'var(--brand-blue)' }}>
+                          ${price.toLocaleString('es-AR')}
+                        </span>
+                        <span className="font-subheading text-[10px] uppercase tracking-[0.2em] ml-4 self-end mb-2" style={{ color: 'var(--brand-yellow)' }}>
+                          ARS
+                        </span>
+                      </motion.div>
+                      <span className="font-body text-xs block mt-3" style={{ color: 'rgba(6,54,165,0.5)' }}>
+                        Incluye: Retiro + Entrega + Seguro + Rastreo
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Breakdown */}
+                  <div className="pt-4 border-t mb-6" style={{ borderColor: 'rgba(6,54,165,0.08)' }}>
+                    <span className="font-subheading text-[10px] uppercase tracking-[0.2em] block mb-3" style={{ color: 'rgba(6,54,165,0.4)' }}>
+                      Desglose de tarifa
+                    </span>
+                    <div className="space-y-2 text-sm font-body">
+                      <div className="flex justify-between" style={{ color: 'rgba(6,54,165,0.6)' }}>
+                        <span>Base 0-3 km</span>
+                        <span className="font-bold" style={{ color: 'var(--brand-blue)' }}>3.700 ARS</span>
+                      </div>
+                      {destino.km > 3 && <div className="flex justify-between" style={{ color: 'rgba(6,54,165,0.6)' }}>
+                        <span>Tramo 3-5 km</span>
+                        <span className="font-bold" style={{ color: 'var(--brand-blue)' }}>+900 ARS</span>
+                      </div>}
+                      {destino.km > 5 && <div className="flex justify-between" style={{ color: 'rgba(6,54,165,0.6)' }}>
+                        <span>Tramo 5-7 km</span>
+                        <span className="font-bold" style={{ color: 'var(--brand-blue)' }}>+1.500 ARS</span>
+                      </div>}
+                      {destino.km > 7 && <div className="flex justify-between" style={{ color: 'rgba(6,54,165,0.6)' }}>
+                        <span>Tramo 7-10 km</span>
+                        <span className="font-bold" style={{ color: 'var(--brand-blue)' }}>+2.100 ARS</span>
+                      </div>}
+                      {destino.km > 10 && (
+                        <div className="flex justify-between" style={{ color: 'rgba(6,54,165,0.6)' }}>
+                          <span>Excedente +10 km ({Math.ceil(destino.km - 10)} km × $1.000)</span>
+                          <span className="font-bold" style={{ color: 'var(--brand-blue)' }}>+${(Math.ceil(destino.km - 10) * 1000).toLocaleString('es-AR')} ARS</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* CTA Buttons */}
+                  <div className="space-y-3 pt-4 border-t" style={{ borderColor: 'rgba(6,54,165,0.08)' }}>
+                    <a
+                      href="https://wa.me/542236602699?text=Hola%20necesito%20cotizar%20un%20env%C3%ADo%20Express%20desde%20${encodeURIComponent(origen)}%20hacia%20${encodeURIComponent(destino.zona)}%20(${destino.km}%20km)%20%E2%80%93%20Tarifa%20$${price.toLocaleString('es-AR')}%20ARS"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 font-bold px-8 py-3.5 cursor-pointer transition-all flex items-center justify-center gap-3"
+                      style={{ height: 'var(--control-h-xl)' }}
+                    >
+                      <span>Confirmar por WhatsApp</span>
+                      <span className="cta-nested-icon bg-blue-900/10 text-brand-blue-900">
+                        <Zap className="h-5 w-5 shrink-0" />
+                      </span>
+                    </a>
+                    <button
+                      className="cta-nested-pill w-full border-2 text-brand-blue-700 hover:bg-brand-blue-50 font-bold px-8 py-3.5 cursor-pointer transition-all flex items-center justify-center gap-3"
+                      style={{ height: 'var(--control-h-xl)', borderColor: 'rgba(6,54,165,0.2)' }}
+                    >
+                      <span>Agendar retiro ahora</span>
+                      <span className="cta-nested-icon bg-brand-blue-50 text-brand-blue-700">
+                        <Clock className="h-5 w-5 shrink-0" />
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* Trust Badge */}
+                  <div className="mt-6 pt-4 border-t flex items-center justify-center gap-4 text-xs font-subheading uppercase tracking-wider" style={{ borderColor: 'rgba(6,54,165,0.08)', color: 'rgba(6,54,165,0.4)' }}>
+                    <span className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" style={{ color: 'var(--brand-yellow)' }} /> Sin registro obligatorio</span>
+                    <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" style={{ color: 'var(--brand-yellow)' }} /> Cotización instantánea</span>
+                    <span className="flex items-center gap-1.5"><Navigation className="h-3.5 w-3.5" style={{ color: 'var(--brand-yellow)' }} /> Ruta verificada OSRM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
