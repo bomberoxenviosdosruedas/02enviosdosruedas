@@ -15,44 +15,44 @@ export default function EmprendedoresPricing() {
     {
       name: 'E-Commerce Same Day',
       price: '$6.000',
-      period: 'Fijo a toda la ciudad',
-      description: 'Guardado de mercadería (stock de rotación, productos chicos o medianos).',
+      period: 'Fijo toda la ciudad',
+      description: 'Stock almacenado en Friuli 1972 (productos chicos/medianos). Sale empaquetado inmediatamente con picking QR.',
       bullets: [
-        'Cobranza contrarreembolso bonificada',
-        'Rechazos devueltos 100% sin cargo',
-        'Control y monitoreo de stock incluido',
-        'Despacho y logística en el acto'
+        'Picking por código QR y empaquetado',
+        'Despacho y logística en el día',
+        'Contrareembolso sin cargo extra',
+        'Rechazos devueltos 100% sin costo'
       ],
       highlight: true,
-      badge: 'EL MÁS COMPLETO'
+      badge: 'STOCK EN DEPÓSITO'
     },
     {
-      name: 'E-Commerce 24HS',
+      name: 'E-Commerce Next Day (24hs)',
       price: '$3.800',
       period: 'Desde $3.800',
-      description: 'A mayor cantidad de envíos, baja la tarifa (consultar).',
+      description: 'Retiro programado en tu local para entrega al día siguiente. A mayor cantidad de envíos, baja la tarifa.',
       bullets: [
-        'Entrega garantizada menor a 24hs',
-        'Retiro consolidado en local',
+        'Entrega garantizada en 24 horas',
+        'Recolección gratis para +10 envíos (sino $4.000)',
         'Ideal para volúmenes diarios constantes',
-        'Reporte de envíos mensuales'
+        'Resúmenes y reportes de envíos'
       ],
       highlight: false,
-      badge: 'MAYOR VOLUMEN'
+      badge: 'RETIRO EN TU LOCAL'
     },
     {
-      name: 'Plan Cuenta Corriente',
-      price: 'Flexible',
-      period: 'Liquidación Quincenal/Mensual',
-      description: 'Esquemas de facturación centralizada adaptados al flujo de tu PyME.',
+      name: 'Opción DropOFF (-20% OFF)',
+      price: '20% OFF',
+      period: 'Descuento directo en tarifa',
+      description: 'Traé tus paquetes terminados a nuestro depósito central de Friuli 1972 y obtené un 20% de descuento.',
       bullets: [
-        'Facturación mensual consolidada',
-        'Factura tipo C disponible de forma directa',
-        'Asesor y soporte dedicado por chat',
-        'Resúmenes periódicos de envíos realizados'
+        '20% de descuento sobre la tarifa final',
+        'Recepción directa en Friuli 1972',
+        'Ideal para emprendedores con vehículo',
+        'Cobro contrareembolso sin comisiones'
       ],
       highlight: false,
-      badge: 'CTA CTE FLEXIBLE'
+      badge: 'AHORRO MÁXIMO'
     },
   ];
 
@@ -101,7 +101,7 @@ export default function EmprendedoresPricing() {
             as="span"
             className="px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow-500 shadow-[2px_2px_0px_rgba(0,39,124,0.2)] font-bold"
           >
-            Planes a Medida
+            MODALIDADES E-COMMERCE Y 3PL 2026
           </TimelineContent>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-700 flex justify-center border-l-4 border-brand-yellow-500 pl-4">
@@ -111,7 +111,7 @@ export default function EmprendedoresPricing() {
               staggerFrom="first"
               containerClassName="justify-center"
             >
-              PLANES 3PL Y E-COMMERCE
+              PLANES PAQUETERÍA Y FULFILLMENT
             </VerticalCutReveal>
           </h2>
 
@@ -122,7 +122,7 @@ export default function EmprendedoresPricing() {
             as="p"
             className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
           >
-            Elegí el plan corporativo que mejor se adapte al volumen y necesidades operativas de tu negocio. Desde almacenamiento estratégico hasta ruteo masivo.
+            Elegí la modalidad e-commerce que mejor impulse tu marca. Desde almacenamiento con picking QR en Friuli 1972 hasta opción DropOFF con 20% OFF.
           </TimelineContent>
           <div className="h-2 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
         </div>
@@ -133,11 +133,7 @@ export default function EmprendedoresPricing() {
             const isNumericPrice = plan.price.startsWith('$');
             const numericValue = isNumericPrice ? parseInt(plan.price.replace('$', '').replace('.', '')) : null;
 
-            // Asymmetric layout
             let spanClass = 'lg:col-span-4';
-            if (plans.length === 3) {
-              spanClass = 'lg:col-span-4';
-            }
 
             return (
               <TimelineContent
@@ -209,11 +205,11 @@ export default function EmprendedoresPricing() {
                         href="https://wa.me/542236602699"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400"
+                        className="w-full cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 font-bold"
                       >
-                        <span>Seleccionar {plan.name.split(' ')[1]}</span>
-                        <span className="cta-nested-icon bg-brand-blue-100">
-                          <ArrowRight className="h-4 w-4 animate-pulse shrink-0" />
+                        <span>Elegir {plan.name.split(' ')[0]}</span>
+                        <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900">
+                          <ArrowRight className="h-4 w-4 shrink-0" />
                         </span>
                       </a>
                     </div>
@@ -240,14 +236,14 @@ export default function EmprendedoresPricing() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
 
               <div className="lg:col-span-8 space-y-4 text-left">
-                <span className="px-4 py-1 bg-brand-blue-100 text-brand-blue-700 rounded-full text-xs font-subheading uppercase tracking-widest inline-block border border-brand-blue-200">
-                  SOPORTE DE INTEGRACIÓN PyMEs
+                <span className="px-4 py-1 bg-brand-blue-100 text-brand-blue-700 rounded-full text-xs font-subheading uppercase tracking-widest inline-block border border-brand-blue-200 font-bold">
+                  CONTRAREEMBOLSO SIN COSTO EXTRA
                 </span>
                 <h3 className="text-3xl font-display uppercase tracking-tight text-brand-blue-700">
-                  ¿Tenés necesidades operativas especiales?
+                  ¿Cobrás tus ventas en puerta?
                 </h3>
                 <p className="text-sm text-brand-blue-500 leading-relaxed font-sans max-w-2xl">
-                  Diseñamos flujos logísticos a medida para grandes e-commerce o distribuidoras con despachos masivos, integraciones API, reportes personalizados y picking especializado.
+                  Realizamos cobros contrareembolso en Mar del Plata sin ningún costo adicional sobre el valor del producto. Además, podés llevar tus envíos a Friuli 1972 con un 20% de descuento en la tarifa final.
                 </p>
               </div>
 
@@ -257,10 +253,10 @@ export default function EmprendedoresPricing() {
                   target="_blank"
                   rel="noopener noreferrer"
                   id="emprendedores-pricing-cta-whatsapp"
-                  className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 w-full sm:w-auto"
+                  className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 font-bold w-full sm:w-auto"
                 >
                   <span>Agendar Asesoría 3PL</span>
-                  <span className="cta-nested-icon bg-brand-blue-100">
+                  <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900">
                     <MessageSquare className="h-5 w-5 fill-current" />
                   </span>
                 </a>

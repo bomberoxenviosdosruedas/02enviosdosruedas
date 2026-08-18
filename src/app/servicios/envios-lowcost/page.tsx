@@ -9,16 +9,23 @@ import LowCostHowItWorks from '@/src/components/servicios/lowcost/LowCostHowItWo
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Reparto LowCost en Moto | Envíos Económicos en el Día Mar del Plata | Envíos DosRuedas',
+  title: 'Paquetería E-Commerce, Servicio de Cadetería y Encomiendas LowCost | Envíos DosRuedas',
   description:
-    'Optimizá la logística de tu e-commerce o comercio en Mar del Plata. Envíos LowCost económicos con entrega en el día para pedidos antes de las 13 hs. Tarifas 2026.',
+    'Paquetería e-commerce, servicio de cadetería y servicio de encomiendas más rentable en Mar del Plata. Pedidos solicitados antes de las 13:00 hs se entregan en el día antes de las 19:00 hs. Tarifas 2026.',
+  keywords: [
+    'paqueteria ecommerce',
+    'servicio de cadeteria',
+    'servicio de encomiendas',
+    'envios lowcost mar del plata',
+    'cadeteria economica mar del plata',
+  ],
   alternates: {
     canonical: `${baseUrl}/servicios/envios-lowcost`,
   },
   openGraph: {
-    title: 'Reparto LowCost en Moto | Envíos Económicos en Mar del Plata',
+    title: 'Paquetería E-Commerce y Servicio de Encomiendas LowCost | Envíos DosRuedas',
     description:
-      'Distribución urbana económica y programada para comercios y tiendas online de Mar del Plata. Entrega en el día.',
+      'El servicio de cadetería y encomiendas más económico de Mar del Plata. Pedidos antes de las 13:00 hs se entregan antes de las 19:00 hs.',
     url: `${baseUrl}/servicios/envios-lowcost`,
     type: 'website',
     locale: 'es_AR',
@@ -28,9 +35,9 @@ export const metadata: Metadata = {
 const jsonLdSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Envíos LowCost y Reparto Económico en Mar del Plata',
+  name: 'Paquetería E-Commerce, Servicio de Cadetería y Encomiendas LowCost en Mar del Plata',
   description:
-    'Optimizá tus ruteos urbanos diarios en Mar del Plata. Envíos LowCost económicos, con entrega garantizada en el día y tarifas 2026 altamente competitivas para PyMEs.',
+    'Servicio de paquetería e-commerce, cadetería y encomiendas programadas de máxima rentabilidad en Mar del Plata. Pedidos ingresados antes de las 13:00 hs con entrega garantizada antes de las 19:00 hs.',
   url: `${baseUrl}/servicios/envios-lowcost`,
   provider: {
     '@type': 'LocalBusiness',

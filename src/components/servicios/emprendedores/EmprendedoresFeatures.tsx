@@ -2,31 +2,31 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Container, PackageCheck, Receipt, Landmark, BarChart3, Users, Clock } from 'lucide-react';
+import { Container, PackageCheck, Receipt, Landmark, BarChart3, Users, Clock, Tag } from 'lucide-react';
 
 export default function EmprendedoresFeatures() {
   const features = [
     {
-      title: 'Almacenamiento en Friuli 1972',
-      desc: 'Guardamos tu stock en nuestro depósito central de Friuli 1972 con picking por código QR y despacho el mismo día.',
+      title: 'E-Commerce Same Day (Friuli 1972)',
+      desc: 'Guardamos tu stock en nuestro depósito central de Friuli 1972. Al vender, tu producto sale inmediatamente empaquetado con picking por código QR.',
       icon: Container,
     },
     {
       title: 'Opción DropOFF (-20% OFF)',
-      desc: 'Acercá tus paquetes directamente a nuestro depósito central y obtené un 20% de descuento en la tarifa final de envío.',
-      icon: PackageCheck,
+      desc: 'Acercá tus paquetes directamente a nuestro depósito en Friuli 1972 y obtené un 20% de descuento automático en la tarifa final de envío.',
+      icon: Tag,
     },
     {
       title: 'Contrareembolso Sin Cargo Extra',
-      desc: 'Cobramos en destino el valor de tu venta sin comisiones adicionales ni recargos por gestión de cobranza.',
+      desc: 'Realizamos cobro contra entrega en destino sin ningún tipo de comisión ni recargo adicional por gestión de cobranza.',
       icon: Receipt,
     },
   ];
 
   const stats = [
-    { value: 'ALTA', label: 'Efectividad', icon: BarChart3 },
-    { value: 'CONFIABLE', label: 'Logística Local', icon: Users },
-    { value: 'CONTROL', label: 'Trazabilidad', icon: Clock },
+    { value: 'SAME DAY', label: 'Picking por QR', icon: BarChart3 },
+    { value: '-20% OFF', label: 'Opción DropOFF', icon: Tag },
+    { value: 'SIN CARGO', label: 'Contrareembolso', icon: Clock },
   ];
 
   return (
@@ -49,21 +49,21 @@ export default function EmprendedoresFeatures() {
           {/* Header column (Left) */}
           <div className="lg:col-span-5 space-y-6 text-left">
             <span className="px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow-500 shadow-[2px_2px_0px_rgba(0,39,124,0.2)]">
-              SOLUCIONES CORPORATIVAS
+              SOLUCIONES PAQUETERÍA E-COMMERCE
             </span>
 
             <h2 className="text-brand-blue-700 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-none border-l-4 border-brand-yellow-500 pl-4">
               LOGÍSTICA 3PL <br />
-              <span className="text-brand-yellow-500 font-bold">PARA EMPRENDEDORES</span>
+              <span className="text-brand-yellow-500 font-bold">Y PAQUETERÍA E-COMMERCE</span>
             </h2>
 
             <p className="text-brand-blue-500 text-base leading-relaxed font-sans">
-              Somos mucho más que una empresa de envíos tradicional; nos convertimos en el departamento de logística estratégico de tu negocio. Delegá el almacenamiento, empaquetado y distribución en manos de expertos y enfocate de lleno en hacer crecer tu marca.
+              Especialistas en paquetería e-commerce y logística 3PL en Mar del Plata. Almacenamos tus productos pequeños o medianos en Friuli 1972, realizamos picking por QR y despachamos en el día o 24hs con la tarifa más competitiva.
             </p>
 
             <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-blue-700 font-bold uppercase tracking-wider font-subheading">
               <Landmark className="h-5 w-5 text-brand-yellow-500 shrink-0 fill-current" />
-              <span>ALIANZA ESTRATÉGICA DE LARGO PLAZO</span>
+              <span>PAQUETERÍA Y LOGÍSTICA B2B MAR DEL PLATA</span>
             </div>
           </div>
 

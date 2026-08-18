@@ -24,13 +24,13 @@ export default function EmprendedoresHero() {
       id="emprendedores-hero"
       className="relative w-full overflow-hidden bg-brand-blue-700 text-white min-h-[80vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-brand-blue-500/20"
     >
-      {/* Pure Vector & Dynamic Procedural Background (0 KB static images) */}
+      {/* Pure Vector & Dynamic Procedural Background */}
       <HeroProceduralBackground variant="3pl" />
 
       {/* Ghost Wordmark Monumental de Fondo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
         <span className="font-display uppercase text-[16vw] leading-none text-white/[0.03] tracking-tighter whitespace-nowrap">
-          E-COMMERCE 3PL
+          LOGÍSTICA 3PL MDQ
         </span>
       </div>
 
@@ -46,23 +46,23 @@ export default function EmprendedoresHero() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-brand-blue-900/80 backdrop-blur-md border border-brand-yellow-500/30 text-brand-yellow-500 shadow-md"
             >
               <Warehouse className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-              <span>FULFILLMENT & PICKING 3PL · DEPÓSITO PROPIO MDQ</span>
+              <span>PAQUETERÍA E-COMMERCE Y LOGÍSTICA 3PL · FRIULI 1972 MDQ</span>
             </motion.div>
 
             {/* Monumental Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.75rem] font-display uppercase tracking-tight leading-[0.9] text-white">
-              <span className="block">LOGÍSTICA</span>
+            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.9] text-white">
+              <span className="block">PAQUETERÍA Y</span>
               <span className="block text-brand-yellow-500 drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">
-                3PL & STOCK
+                ENVÍOS E-COMMERCE
               </span>
               <span className="block text-2xl sm:text-4xl lg:text-5xl text-brand-blue-100 mt-1">
-                PARA PYMES Y TIENDAS ONLINE
+                LOGÍSTICA 3PL EN MAR DEL PLATA
               </span>
             </h1>
 
             {/* Description */}
             <p className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-50 max-w-2xl mx-auto lg:mx-0 leading-relaxed pl-4 border-l-2 border-brand-yellow-500 font-light">
-              Guardamos tu mercadería en nuestro centro de Friuli 1972, preparamos tus pedidos apenas entra la venta y despachamos en el día sin que tengas que ocuparte del empaque.
+              Solución en paquetería e-commerce, envíos e-commerce y logística 3PL en Mar del Plata. Ofrecemos E-Commerce Same Day desde nuestro depósito en Friuli 1972 con picking QR, E-Commerce Next Day (24hs), Opción DropOFF (-20% OFF) y Contrareembolso sin cargo extra.
             </p>
 
             {/* CTAs */}
@@ -96,26 +96,26 @@ export default function EmprendedoresHero() {
             <div className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
               <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                 <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
-                  0 Costo
+                  Same Day
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
-                  Infraestructura
+                  Stock Friuli 1972
                 </span>
               </div>
               <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                 <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
-                  Friuli 1972
+                  -20% OFF
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
-                  Hub Mar del Plata
+                  Opción DropOFF
                 </span>
               </div>
               <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
                 <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
-                  Tiendanube / MeLi
+                  $0 Comis.
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
-                  Integración Directa
+                  Contrareembolso Gratis
                 </span>
               </div>
             </div>
@@ -153,7 +153,7 @@ export default function EmprendedoresHero() {
                     }`}
                   >
                     <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                    <span>Ventajas 3PL</span>
+                    <span>Modalidades</span>
                   </button>
                   <button
                     type="button"
@@ -185,10 +185,10 @@ export default function EmprendedoresHero() {
                           <CheckCircle2 className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
                           <div>
                             <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
-                              Almacenamiento Seguro
+                              E-Commerce Same Day
                             </p>
                             <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              Racks dedicados y control de stock permanente con seguridad y monitoreo 24/7.
+                              Stock guardado en Friuli 1972; al vender, sale empaquetado inmediatamente con picking QR.
                             </p>
                           </div>
                         </div>
@@ -197,10 +197,10 @@ export default function EmprendedoresHero() {
                           <PackageCheck className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
                           <div>
                             <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
-                              Picking & Packing Automatizado
+                              Opción DropOFF (-20% OFF)
                             </p>
                             <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              Armado de cajas personalizadas con packaging propio y remito digital de entrega.
+                              Traé tus envíos a Friuli 1972 y obtené un 20% de descuento en la tarifa.
                             </p>
                           </div>
                         </div>
@@ -209,10 +209,10 @@ export default function EmprendedoresHero() {
                           <ShieldCheck className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
                           <div>
                             <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
-                              Facturación Simplificada
+                              Contrareembolso Sin Cargo Extra
                             </p>
                             <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              Consolidamos todos tus movimientos en una única factura mensual deducible de impuestos.
+                              Cobramos a tu cliente en destino sin comisiones extra sobre la venta.
                             </p>
                           </div>
                         </div>
@@ -232,27 +232,27 @@ export default function EmprendedoresHero() {
                             <span className="text-brand-blue-500 font-mono">Ingreso</span>
                           </div>
                           <p className="text-[11px] text-brand-ink/75 font-sans">
-                            Recibimos tu mercadería de fábrica o proveedores y la ingresamos al inventario.
+                            Recibimos tu stock en nuestro depósito central o via DropOFF con 20% OFF.
                           </p>
                         </div>
 
                         <div className="p-3 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-1">
                           <div className="flex justify-between items-center text-xs font-subheading uppercase font-bold text-brand-blue-700">
-                            <span>2. Integración de Ventas</span>
+                            <span>2. Picking por QR & Packing</span>
                             <span className="text-brand-blue-500 font-mono">Picking</span>
                           </div>
                           <p className="text-[11px] text-brand-ink/75 font-sans">
-                            Cuando vendés en Tiendanube/MeLi, empaquetamos el producto al instante.
+                            Armado y etiquetado inmediato al registrarse la venta en tu e-commerce.
                           </p>
                         </div>
 
                         <div className="p-3 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-1">
                           <div className="flex justify-between items-center text-xs font-subheading uppercase font-bold text-brand-blue-700">
-                            <span>3. Despacho Inmediato</span>
-                            <span className="text-brand-blue-500 font-mono">Entrega</span>
+                            <span>3. Entrega Same Day / 24hs</span>
+                            <span className="text-brand-blue-500 font-mono">Despacho</span>
                           </div>
                           <p className="text-[11px] text-brand-ink/75 font-sans">
-                            Sale en nuestras rutas Express o LowCost directo al cliente final en MDQ.
+                            Distribución en Mar del Plata con cobro contrareembolso opcional sin cargo.
                           </p>
                         </div>
                       </motion.div>
@@ -264,7 +264,7 @@ export default function EmprendedoresHero() {
                 <div className="pt-3 border-t border-brand-blue-100 flex items-center justify-between text-[11px] font-subheading uppercase tracking-wider text-brand-blue-600 font-bold">
                   <span className="flex items-center gap-1">
                     <MapPin className="w-3.5 h-3.5 text-brand-yellow-500" />
-                    Centro de Distribución MDQ
+                    Depósito Friuli 1972 MDQ
                   </span>
                   <span className="text-brand-blue-700 font-mono text-xs">Atención B2B</span>
                 </div>
