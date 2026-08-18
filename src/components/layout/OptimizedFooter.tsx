@@ -39,7 +39,7 @@ export default function OptimizedFooter() {
             <div className="flex items-center gap-2.5">
               <div className="relative w-10 h-10 group-hover:rotate-12 transition-transform duration-200 shrink-0">
                 <Image
-                  src="/logo-master.svg"
+                  src="/logo-envios-simplified.webp"
                   alt="Isotipo Envíos Dos Ruedas"
                   fill={true}
                   className="object-contain"
