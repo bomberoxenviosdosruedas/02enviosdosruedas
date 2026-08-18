@@ -1,15 +1,13 @@
 'use client';
 
-import React, { useState, useTransition } from 'react';
+import React, { useState, useTransition, useActionState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Bike, Calculator, CheckCircle2, AlertTriangle } from 'lucide-react';
+import { Calculator, CheckCircle2, AlertTriangle, ArrowRight, User, Phone, Package, MapPin } from 'lucide-react';
 import AddressAutocomplete from '../../ui/AddressAutocomplete';
 import DynamicRouteMap from '../../ui/DynamicRouteMap';
 import { useGoogleRoute, type Coordinate } from '@/src/hooks/useGoogleRoute';
 import { type PriceRangeProp } from '@/src/lib/pricing';
 import { calculateQuoteAction, type QuoteState } from '@/src/actions/quote';
-import { useActionState } from 'react';
-
 
 export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges?: PriceRangeProp[] }) {
   const [origen, setOrigen] = useState('');
@@ -22,7 +20,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
   const [routeCoords, setRouteCoords] = useState<[number, number][]>([]);
 
   const [isCalculating, setIsCalculating] = useState(false);
-  const [isTransitionPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
   const [calculated, setCalculated] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<{
@@ -32,93 +30,91 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
   } | null>(null);
 
   const { fetchRoute } = useGoogleRoute();
-
   const initialState: QuoteState = { success: false, price: null, error: null };
-  const [formState, formAction, isPending] = useActionState(calculateQuoteAction, initialState);
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
     startTransition(async () => {
-    if (!origenCoords || !destinoCoords) {
-      setError('Por favor, elegí direcciones válidas de la lista de sugerencias.');
-      return;
-    }
+      if (!origenCoords || !destinoCoords) {
+        setError('Por favor, elegí direcciones válidas de la lista desplegable de sugerencias.');
+        return;
+      }
 
-    setIsCalculating(true);
-    setCalculated(false);
-    setError(null);
+      setIsCalculating(true);
+      setCalculated(false);
+      setError(null);
 
-    const route = await fetchRoute(origenCoords, destinoCoords);
+      const route = await fetchRoute(origenCoords, destinoCoords);
 
-    if (!route) {
-      // El hook ya registró el error en su estado interno; lo propagamos
-      setError('No se pudo calcular la ruta. Por favor, intentá de nuevo más tarde.');
+      if (!route) {
+        setError('No se pudo calcular la ruta. Por favor, intentá de nuevo en unos momentos.');
+        setIsCalculating(false);
+        return;
+      }
+
+      setRouteCoords(route.routeCoords);
+
+      const formData = new FormData();
+      formData.append('distanceKm', route.distanceKm.toString());
+      formData.append('serviceType', 'EXPRESS');
+      formData.append('priceRanges', JSON.stringify(priceRanges));
+
+      const actionResult = await calculateQuoteAction(initialState, formData);
+
+      if (!actionResult.success) {
+        setError(actionResult.error || 'Error al calcular el valor del envío');
+        setIsCalculating(false);
+        return;
+      }
+
+      setResult({
+        distancia: route.distanceKm,
+        tiempo: route.durationMin,
+        precio: actionResult.price!,
+      });
+      setCalculated(true);
       setIsCalculating(false);
-      return;
-    }
-
-    setRouteCoords(route.routeCoords);
-
-    const formData = new FormData();
-    formData.append('distanceKm', route.distanceKm.toString());
-    formData.append('serviceType', 'EXPRESS');
-    formData.append('priceRanges', JSON.stringify(priceRanges));
-
-    // Instead of using formAction directly here (which expects native form submission),
-    // we'll call the server action directly for simplicity since it's a Server Action.
-    const actionResult = await calculateQuoteAction(initialState, formData);
-
-    if (!actionResult.success) {
-       setError(actionResult.error || 'Error al calcular precio');
-       setIsCalculating(false);
-       return;
-    }
-    const price = actionResult.price!;
-
-    setResult({
-      distancia: route.distanceKm,
-      tiempo: route.durationMin,
-      precio: price,
-    });
-    setCalculated(true);
-    setIsCalculating(false);
     });
   };
 
   const getWhatsAppLink = () => {
     if (!result) return '#';
-    const priceText = result.precio === 'consultar' ? 'A convenir (Excede rango estándar)' : `$${result.precio.toLocaleString('es-AR')}`;
-    const text = `¡Hola Envíos DosRuedas! Quiero coordinar un Envío Express calculado en la web:
-👤 *Nombre:* ${nombre}\n📞 *Teléfono:* ${telefono}\n📦 *Producto:* ${producto}\n📍 *Origen:* ${origen}
+    const priceText = result.precio === 'consultar' ? 'A convenir (Excede radio estándar)' : `$${result.precio.toLocaleString('es-AR')}`;
+    const text = `¡Hola Envíos DosRuedas! Quiero coordinar un Envío Express cotizado en la web:
+👤 *Nombre:* ${nombre}
+📞 *Teléfono:* ${telefono}
+📦 *Producto:* ${producto}
+📍 *Origen:* ${origen}
 🏁 *Destino:* ${destino}
 📏 *Distancia:* ${result.distancia} km
-💵 *Tarifa Express:* ${priceText}`;
+💵 *Tarifa Express 2026:* ${priceText}`;
     return `https://wa.me/542236602699?text=${encodeURIComponent(text)}`;
   };
 
   return (
     <div id="cotizador-express-form" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-      {/* Form Input & Results Panel */}
-      <div className="lg:col-span-7 flex flex-col justify-between double-bezel-outer bg-brand-blue-50/80 shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300">
+      {/* Form Input & Results Panel (7 cols) */}
+      <div className="lg:col-span-7 flex flex-col justify-between double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-elevated transition-all duration-300">
         <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 flex flex-col justify-between h-full">
           <div className="space-y-6">
             <div>
-              <span className="px-3 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-subheading tracking-wider uppercase">
-                Cotización Al Instante
+              <span className="px-3.5 py-1 bg-brand-blue-50 text-brand-blue-700 rounded-full text-xs font-subheading font-bold tracking-wider uppercase border border-brand-blue-100">
+                Cotización Al Instante · Mar del Plata
               </span>
-              <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-[0.02em] text-brand-blue mt-3">
+              <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 mt-3">
                 Calculá tu Envío Express
               </h2>
-              <p className="text-brand-blue-400 text-sm font-sans mt-1">
-                Ingresá las direcciones de origen y destino en Mar del Plata para obtener una estimación de costo y tiempo inmediato.
+              <p className="text-brand-ink/70 text-sm font-sans mt-1 leading-relaxed">
+                Ingresá las direcciones de origen y destino en Mar del Plata para obtener tarifa exacta y ruta OSRM en tiempo real.
               </p>
             </div>
 
             <form onSubmit={handleCalculate} className="space-y-4">
-              {/* Input Origen */}
+              {/* Origen */}
               <div className="space-y-1.5">
-                <label htmlFor="origen-input" className="text-xs font-bold text-brand-blue-600 uppercase tracking-wider block font-sans">
-                  Dirección de Origen
+                <label htmlFor="origen-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-brand-ink flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5 text-brand-blue-500" />
+                  Dirección de Origen (Retiro)
                 </label>
                 <AddressAutocomplete
                   id="origen-input"
@@ -127,14 +123,15 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                   onChange={setOrigen}
                   onSelectCoordinate={setOrigenCoords}
                   required
-                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-700 border-brand-blue-700/30 rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
+                  className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-blue-500/20 focus-visible:border-brand-blue-700 rounded-xl px-4 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
                 />
               </div>
 
-              {/* Input Destino */}
+              {/* Destino */}
               <div className="space-y-1.5">
-                <label htmlFor="destino-input" className="text-xs font-bold text-brand-blue-600 uppercase tracking-wider block font-sans">
-                  Dirección de Destino
+                <label htmlFor="destino-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-brand-ink flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5 text-brand-yellow-500" />
+                  Dirección de Destino (Entrega)
                 </label>
                 <AddressAutocomplete
                   id="destino-input"
@@ -143,85 +140,97 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                   onChange={setDestino}
                   onSelectCoordinate={setDestinoCoords}
                   required
-                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-700 border-brand-blue-700/30 rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
+                  className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-blue-500/20 focus-visible:border-brand-blue-700 rounded-xl px-4 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
                 />
               </div>
 
-              <div className="space-y-1.5">
-                <label htmlFor="nombre-input" className="text-xs font-bold text-brand-blue-600 uppercase tracking-wider block font-sans">
-                  Nombre
-                </label>
-                <input
-                  id="nombre-input"
-                  type="text"
-                  placeholder="Tu nombre completo"
-                  value={nombre}
-                  onChange={(e) => setNombre(e.target.value)}
-                  required
-                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-700 border-brand-blue-700/30 rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
-                />
+              {/* Nombre y Teléfono en Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label htmlFor="nombre-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-brand-ink flex items-center gap-1.5">
+                    <User className="h-3.5 w-3.5 text-brand-blue-500" />
+                    Nombre
+                  </label>
+                  <input
+                    id="nombre-input"
+                    type="text"
+                    aria-label="Nombre"
+                    placeholder="Tu nombre completo"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    required
+                    className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-blue-500/20 focus-visible:border-brand-blue-700 rounded-xl px-4 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label htmlFor="telefono-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-brand-ink flex items-center gap-1.5">
+                    <Phone className="h-3.5 w-3.5 text-brand-blue-500" />
+                    Teléfono
+                  </label>
+                  <input
+                    id="telefono-input"
+                    type="tel"
+                    aria-label="Teléfono"
+                    placeholder="Tu teléfono de contacto"
+                    value={telefono}
+                    onChange={(e) => setTelefono(e.target.value)}
+                    required
+                    className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-blue-500/20 focus-visible:border-brand-blue-700 rounded-xl px-4 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
+                  />
+                </div>
               </div>
+
+              {/* Producto */}
               <div className="space-y-1.5">
-                <label htmlFor="telefono-input" className="text-xs font-bold text-brand-blue-600 uppercase tracking-wider block font-sans">
-                  Teléfono
-                </label>
-                <input
-                  id="telefono-input"
-                  type="tel"
-                  placeholder="Tu teléfono de contacto"
-                  value={telefono}
-                  onChange={(e) => setTelefono(e.target.value)}
-                  required
-                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-700 border-brand-blue-700/30 rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <label htmlFor="producto-input" className="text-xs font-bold text-brand-blue-600 uppercase tracking-wider block font-sans">
+                <label htmlFor="producto-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-brand-ink flex items-center gap-1.5">
+                  <Package className="h-3.5 w-3.5 text-brand-blue-500" />
                   Tipo de producto a trasladar
                 </label>
                 <input
                   id="producto-input"
                   type="text"
+                  aria-label="Tipo de producto a trasladar"
                   placeholder="Ej: Documentos, Paquete pequeño..."
                   value={producto}
                   onChange={(e) => setProducto(e.target.value)}
                   required
-                  className="w-full bg-brand-white-50 border border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-700 border-brand-blue-700/30 rounded-2xl pl-4 pr-10 py-3.5 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
+                  className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:ring-2 focus-visible:ring-brand-blue-500/20 focus-visible:border-brand-blue-700 rounded-xl px-4 text-sm outline-none transition-all text-brand-ink placeholder:text-brand-blue-300 font-sans"
                 />
               </div>
 
               {error && (
-                <div className="bg-brand-white-50 text-brand-blue-500 text-xs px-4 py-3 rounded-xl flex items-center gap-2 font-sans">
-                  <AlertTriangle className="h-4.5 w-4.5 shrink-0" />
+                <div className="bg-red-50 text-red-600 border border-red-200 text-xs px-4 py-3 rounded-xl flex items-center gap-2 font-sans">
+                  <AlertTriangle className="h-4 w-4 shrink-0" />
                   <span>{error}</span>
                 </div>
               )}
 
               <motion.button
-                whileHover={{ scale: 1.02, y: -2 }}
-                transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.4 }}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isCalculating || !origen.trim() || !destino.trim() || !nombre.trim() || !telefono.trim() || !producto.trim()}
-                className="w-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-700 font-subheading tracking-wider uppercase text-base py-4 rounded-full shadow-md transition-all flex items-center justify-between cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed px-6"
+                className="w-full cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold tracking-wider uppercase text-base py-3.5 px-6 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-all flex items-center justify-between cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px]"
               >
                 {isCalculating ? (
                   <>
                     <div className="flex items-center gap-2">
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-brand-blue-700" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin h-5 w-5 text-brand-blue-900" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                       </svg>
-                      <span>Calculando Ruta...</span>
+                      <span>Calculando Ruta OSRM...</span>
                     </div>
-                    <span className="cta-nested-icon bg-brand-blue-700/10 text-brand-blue-700 h-7 w-7 rounded-full flex items-center justify-center shrink-0">
+                    <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 h-8 w-8 rounded-full flex items-center justify-center shrink-0">
                       <Calculator className="h-4 w-4" />
                     </span>
                   </>
                 ) : (
                   <>
-                    <span>Calcular Ruta y Precio Express</span>
-                    <span className="cta-nested-icon bg-brand-blue-700/10 text-brand-blue-700 h-7 w-7 rounded-full flex items-center justify-center shrink-0">
-                      <Calculator className="h-4 w-4" />
+                    <span>Calcular Ruta y Tarifa Express</span>
+                    <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 h-8 w-8 rounded-full flex items-center justify-center shrink-0">
+                      <ArrowRight className="h-4 w-4" />
                     </span>
                   </>
                 )}
@@ -230,51 +239,51 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
           </div>
 
           {/* Dynamic Results Display */}
-          <div className="mt-8">
+          <div className="mt-6">
             <AnimatePresence mode="wait">
               {calculated && result && (
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="double-bezel-outer bg-brand-blue-50/80 shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300 w-full glow-yellow"
+                  className="double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-200 p-2 rounded-2xl shadow-elevated w-full"
                 >
-                  <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 space-y-4 text-brand-blue-700">
-                    <div className="grid grid-cols-2 gap-4 text-center">
-                      <div className="bg-brand-blue-50/60 p-3 rounded-2xl border border-brand-blue-100/50">
+                  <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-100/50 space-y-4 text-brand-blue-700">
+                    <div className="grid grid-cols-2 gap-3 text-center">
+                      <div className="bg-brand-blue-50/80 p-3 rounded-xl border border-brand-blue-100">
                         <span className="block text-[10px] font-subheading font-bold text-brand-blue-600 uppercase tracking-wider">
-                          DISTANCIA
+                          DISTANCIA REAL
                         </span>
-                        <span className="text-xl font-mono text-brand-blue-700 font-bold">
+                        <span className="text-xl font-mono text-brand-blue-700 font-bold tabular-nums">
                           {result.distancia} km
                         </span>
                       </div>
-                      <div className="bg-brand-blue-50/60 p-3 rounded-2xl border border-brand-blue-100/50">
+                      <div className="bg-brand-blue-50/80 p-3 rounded-xl border border-brand-blue-100">
                         <span className="block text-[10px] font-subheading font-bold text-brand-blue-600 uppercase tracking-wider">
-                          DEMORA ESTIMADA
+                          TIEMPO ESTIMADO
                         </span>
-                        <span className="text-xl font-mono text-brand-blue-700 font-bold">
+                        <span className="text-xl font-mono text-brand-blue-700 font-bold tabular-nums">
                           {result.tiempo} min
                         </span>
                       </div>
                     </div>
 
-                    <div className="border-t border-brand-blue-100/60 pt-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+                    <div className="border-t border-brand-blue-100 pt-4 flex flex-col sm:flex-row justify-between items-center gap-4">
                       <div>
                         <span className="block text-[10px] font-subheading font-bold text-brand-blue-600 uppercase tracking-wider">
-                          TARIFA ESTIMADA EXPRESS
+                          TARIFA EXACTA EXPRESS 2026
                         </span>
                         <div className="flex items-baseline gap-1.5 mt-0.5">
                           {result.precio === 'consultar' ? (
                             <span className="text-lg font-subheading text-brand-blue-700 uppercase tracking-wider">
-                              A Consultar
+                              A Consultar (+15 km)
                             </span>
                           ) : (
                             <>
-                              <span className="font-mono font-bold tracking-tighter text-5xl text-brand-blue-700">
+                              <span className="font-mono font-bold tracking-tight text-4xl sm:text-5xl text-brand-blue-700 tabular-nums">
                                 ${result.precio.toLocaleString('es-AR')}
                               </span>
-                              <span className="text-[10px] text-brand-blue-400 font-mono">ARS</span>
+                              <span className="text-xs text-brand-blue-500 font-mono font-bold">ARS</span>
                             </>
                           )}
                         </div>
@@ -282,27 +291,27 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
 
                       {result.precio === 'consultar' ? (
                         <motion.a
-                          whileHover={{ scale: 1.02, y: -2 }}
-                          transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.4 }}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
                           href="/contacto"
-                          className="w-full sm:w-auto inline-flex items-center justify-between bg-brand-blue-700 hover:bg-brand-blue-600 text-white font-subheading text-sm tracking-wider uppercase px-5 py-3 rounded-full shadow transition-all"
+                          className="w-full sm:w-auto inline-flex items-center justify-between bg-brand-blue-700 hover:bg-brand-blue-800 text-white font-subheading text-sm tracking-wider uppercase px-5 py-3 rounded-full shadow transition-all min-h-[44px]"
                         >
                           <span>Pedir Cotización Especial</span>
                           <span className="cta-nested-icon bg-white/20 text-white h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3">
-                            <AlertTriangle className="h-4 w-4" />
+                            <ArrowRight className="h-4 w-4" />
                           </span>
                         </motion.a>
                       ) : (
                         <motion.a
-                          whileHover={{ scale: 1.02, y: -2 }}
-                          transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.4 }}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
                           href={getWhatsAppLink()}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full sm:w-auto inline-flex items-center justify-between bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-700 font-subheading text-sm tracking-wider uppercase px-5 py-3 rounded-full shadow-md transition-all"
+                          className="w-full sm:w-auto inline-flex items-center justify-between bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold text-sm tracking-wider uppercase px-5 py-3 rounded-full shadow-accent-sm transition-all min-h-[44px]"
                         >
                           <span>Pedir por WhatsApp</span>
-                          <span className="cta-nested-icon bg-brand-blue-700/10 text-brand-blue-700 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3">
+                          <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3">
                             <CheckCircle2 className="h-4 w-4" />
                           </span>
                         </motion.a>
@@ -316,27 +325,27 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
         </div>
       </div>
 
-      {/* Real Interactive Map Panel */}
-      <div className="lg:col-span-5 min-h-[350px] lg:min-h-full double-bezel-outer bg-brand-blue-50/80 shadow-brutalist border border-brand-blue-100 p-2 rounded-2xl transition-all duration-300">
-        <div className="double-bezel-inner gradient-blue p-6 rounded-xl border border-brand-blue-50/50 flex flex-col justify-between h-full relative overflow-hidden text-white">
-          {/* Map backgrounds grid overlay */}
-          <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+      {/* Real Interactive Map Panel (5 cols) */}
+      <div className="lg:col-span-5 min-h-[360px] lg:min-h-full double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-elevated transition-all duration-300">
+        <div className="double-bezel-inner bg-brand-blue-700 p-6 rounded-xl border border-brand-blue-600 flex flex-col justify-between h-full relative overflow-hidden text-white">
+          {/* Subtle grid pattern */}
+          <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
           {/* Header Map */}
-          <div className="relative z-10 flex justify-between items-center border-b border-white/10 pb-4 mb-4">
+          <div className="relative z-10 flex justify-between items-center border-b border-white/10 pb-3 mb-3">
             <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-brand-blue-300 animate-ping" />
-              <span className="text-xs font-mono text-brand-blue-300 uppercase tracking-widest font-semibold">
+              <div className="w-2.5 h-2.5 rounded-full bg-brand-yellow-500 animate-ping" />
+              <span className="text-xs font-mono text-brand-yellow-500 uppercase tracking-widest font-semibold">
                 Ruteador MDQ Activo
               </span>
             </div>
-            <span className="text-[10px] font-mono text-brand-blue-300">
-              Real-time Routing
+            <span className="text-[10px] font-mono text-brand-blue-100/70">
+              OpenStreetMap + OSRM
             </span>
           </div>
 
           {/* Leaflet Map Loader */}
-          <div className="relative flex-grow min-h-[260px] rounded-2xl overflow-hidden border border-white/5 shadow-inner z-10">
+          <div className="relative flex-grow min-h-[260px] rounded-xl overflow-hidden border border-white/10 shadow-inner z-10">
             <DynamicRouteMap
               origin={origenCoords}
               destination={destinoCoords}
@@ -345,14 +354,14 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
           </div>
 
           {/* Footer map details */}
-          <div className="relative z-10 text-[10px] font-mono text-brand-blue-300 space-y-1.5 border-t border-white/10 pt-4 mt-4">
+          <div className="relative z-10 text-[11px] font-mono text-brand-blue-100/90 space-y-1.5 border-t border-white/10 pt-3 mt-3">
             <div className="flex justify-between">
               <span>Servicio:</span>
-              <span className="text-brand-yellow font-bold uppercase">Envío Express 2H</span>
+              <span className="text-brand-yellow-500 font-bold uppercase">Envío Express &lt; 2H</span>
             </div>
             <div className="flex justify-between">
-              <span>Rango Operativo:</span>
-              <span className="text-white">Mar del Plata Urbano</span>
+              <span>Cobertura:</span>
+              <span className="text-white">Partido de General Pueyrredón</span>
             </div>
           </div>
         </div>

@@ -43,6 +43,12 @@
       "skillPath": "plugins/stitch-build/skills/remotion/SKILL.md",
       "computedHash": "86c72dff442c4f725107924f48298391e33eaf9788f0faefe360f3061b25fcec"
     },
+    "seo-audit": {
+      "source": "anthropics/knowledge-work-plugins",
+      "sourceType": "github",
+      "skillPath": "marketing/skills/seo-audit/SKILL.md",
+      "computedHash": "fc681c9ebb5a6e4bdaca74a1746c04eac7cd82e4b8a67298a3b1faf77a394e2e"
+    },
     "shadcn-ui": {
       "source": "google-labs-code/stitch-skills",
       "sourceType": "github",

@@ -1,104 +1,273 @@
 'use client';
 
-import React from 'react';
-import Image from 'next/image';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'motion/react';
-import { ArrowRight, Phone } from 'lucide-react';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import { motion, AnimatePresence } from 'motion/react';
+import {
+  ArrowRight,
+  Phone,
+  Zap,
+  Clock,
+  ShieldCheck,
+  CheckCircle2,
+  Sparkles,
+  QrCode,
+  Award,
+} from 'lucide-react';
 
 export default function FlexHero() {
+  const [activeTab, setActiveTab] = useState<'ventajas' | 'integracion'>('ventajas');
+
   return (
     <section
       id="flex-hero"
-      className="relative w-full overflow-hidden bg-brand-blue-700 text-white"
-      style={{ minHeight: '42dvh' }}
+      className="relative w-full overflow-hidden bg-brand-blue-700 text-white min-h-[80vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-brand-blue-500/20"
     >
-      {/* Background image - matches design spec: fondo_flex.webp at 35% opacity */}
-      <Image
-        src="/fondo_flex.webp"
-        alt=""
-        fill={true}
-        priority
-        sizes="100vw"
-        className="absolute inset-0 object-cover pointer-events-none"
-        style={{ opacity: 0.35 }}
-      />
-      {/* Gradient overlay - matches design spec */}
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to top,rgba(6,54,165,0.95),rgba(6,54,165,0.35))' }} />
+      {/* Pure Vector & Dynamic Procedural Background (0 KB static images) */}
+      <HeroProceduralBackground variant="flex" />
 
       {/* Ghost Wordmark Monumental de Fondo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-        <span className="font-display uppercase text-[15vw] leading-none text-white/[0.035] tracking-tighter whitespace-nowrap">
+        <span className="font-display uppercase text-[16vw] leading-none text-white/[0.03] tracking-tighter whitespace-nowrap">
           ENVÍOS FLEX
         </span>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 lg:py-16">
-        <div className="space-y-6">
-          {/* Badge - matches design spec */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-white/10 backdrop-blur-sm border border-white/20 text-white"
-          >
-            <span className="w-2 h-2 rounded-full bg-brand-yellow-500" />
-            Servicios · Mar del Plata
-          </motion.div>
-
-          {/* Title - matches design spec: "Envíos Flex para MercadoLibre" with yellow highlight */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-display uppercase tracking-tighter leading-[0.85]"
-          >
-            Envíos <span className="text-brand-yellow-500">Flex</span> para MercadoLibre
-          </motion.h1>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg sm:text-xl max-w-2xl font-sans leading-relaxed text-white/80 font-light"
-          >
-            Socios logísticos certificados para Mercado Envíos Flex. Entregas Same-Day, corte extendido a las 15:00 hs y reputación siempre en verde.
-          </motion.p>
-
-          {/* CTA Buttons - matches design spec: size="xl" variant secondary and ghost */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <Link
-              href="/cotizar/lowcost"
-              id="flex-hero-cta-activar"
-              className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 font-bold px-8 py-3.5 cursor-pointer transition-all flex items-center justify-center gap-3 w-full sm:w-auto"
-              style={{ height: 'var(--control-h-xl)' }}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Left Column: Kinetic Copy & CTAs (7 cols) */}
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-brand-blue-900/80 backdrop-blur-md border border-brand-yellow-500/30 text-brand-yellow-500 shadow-md"
             >
-              <span>Activar Envíos Flex</span>
-              <span className="cta-nested-icon bg-blue-900/10 text-brand-blue-900">
-                <ArrowRight className="h-5 w-5 shrink-0" />
-              </span>
-            </Link>
+              <Award className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+              <span>SOCIO CERTIFICADO MERCADO LIBRE FLEX · MDQ 2026</span>
+            </motion.div>
 
-            <a
-              href="https://wa.me/542236602699"
-              target="_blank"
-              rel="noopener noreferrer"
-              id="flex-hero-cta-whatsapp"
-              className="cta-nested-pill border-2 border-white/60 text-white hover:bg-white/10 font-bold px-8 py-3.5 cursor-pointer transition-all flex items-center justify-center gap-3 w-full sm:w-auto"
-              style={{ height: 'var(--control-h-xl)' }}
-            >
-              <span>Contactar Asesor Flex</span>
-              <span className="cta-nested-icon bg-white/10 text-white">
-                <Phone className="h-4 w-4 shrink-0" />
+            {/* Monumental Headline */}
+            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.75rem] font-display uppercase tracking-tight leading-[0.9] text-white">
+              <span className="block">ENVÍOS</span>
+              <span className="block text-brand-yellow-500 drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">
+                FLEX
               </span>
-            </a>
-          </motion.div>
+              <span className="block text-2xl sm:text-4xl lg:text-5xl text-brand-blue-100 mt-1">
+                ENTREGAS EN EL DÍA (SAME-DAY)
+              </span>
+            </h1>
+
+            {/* Description */}
+            <p className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-50 max-w-2xl mx-auto lg:mx-0 leading-relaxed pl-4 border-l-2 border-brand-yellow-500 font-light">
+              Mantené tu reputación en verde y aumentá tus ventas en MercadoLibre. Corte extendido a las 15:00 hs, escaneo de etiquetas QR por app oficial y despacho 100% garantizado.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+              <Link
+                href="/cotizar/lowcost"
+                id="flex-hero-cta-activar"
+                className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 font-bold px-8 py-3.5 cursor-pointer transition-all flex items-center justify-center gap-3 w-full sm:w-auto shadow-accent-sm hover:shadow-cta-glow rounded-full text-sm font-subheading uppercase tracking-wider min-h-[48px]"
+              >
+                <span>Activar Envíos Flex</span>
+                <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 rounded-full w-8 h-8 flex items-center justify-center">
+                  <ArrowRight className="h-4 w-4 shrink-0" />
+                </span>
+              </Link>
+
+              <a
+                href="https://wa.me/542236602699"
+                target="_blank"
+                rel="noopener noreferrer"
+                id="flex-hero-cta-whatsapp"
+                className="cta-nested-pill border-2 border-white/60 text-white hover:bg-white/10 font-bold px-8 py-3.5 cursor-pointer transition-all flex items-center justify-center gap-3 w-full sm:w-auto rounded-full text-sm font-subheading uppercase tracking-wider min-h-[48px]"
+              >
+                <span>Contactar Asesor Flex</span>
+                <span className="cta-nested-icon bg-white/10 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                  <Phone className="h-4 w-4 shrink-0" />
+                </span>
+              </a>
+            </div>
+
+            {/* Quick KPI Chips */}
+            <div className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
+                <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
+                  15:00 hs
+                </span>
+                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
+                  Horario de Corte
+                </span>
+              </div>
+              <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
+                <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
+                  100%
+                </span>
+                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
+                  Reputación Verde
+                </span>
+              </div>
+              <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
+                <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
+                  QR Flex
+                </span>
+                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
+                  Escaneo Oficial
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Interactive Double Bezel Mini-Comparador Card (5 cols) */}
+          <div className="lg:col-span-5 relative w-full">
+            <div className="double-bezel-outer bg-brand-blue-50/95 border border-brand-blue-100 p-2 rounded-2xl shadow-2xl">
+              <div className="double-bezel-inner bg-white p-5 sm:p-7 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue-700 space-y-5 relative overflow-hidden">
+                {/* Header with status badge */}
+                <div className="flex items-center justify-between border-b border-brand-blue-100/80 pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-yellow-500" />
+                    </span>
+                    <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-blue-700">
+                      INTEGRACIÓN MELI FLEX
+                    </span>
+                  </div>
+                  <span className="font-mono text-xs font-bold bg-brand-blue-50 text-brand-blue-700 px-2.5 py-1 rounded-lg border border-brand-blue-100">
+                    CERTIFICADO
+                  </span>
+                </div>
+
+                {/* Interactive Segmented Toggle */}
+                <div className="grid grid-cols-2 p-1 bg-brand-blue-50 rounded-xl border border-brand-blue-100">
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab('ventajas')}
+                    className={`py-2 px-3 rounded-lg text-xs font-subheading uppercase tracking-wider font-bold transition-all min-h-[44px] cursor-pointer flex items-center justify-center gap-1.5 ${
+                      activeTab === 'ventajas'
+                        ? 'bg-brand-blue-700 text-brand-yellow-500 shadow-sm'
+                        : 'text-brand-blue-700 hover:bg-white/60'
+                    }`}
+                  >
+                    <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                    <span>Ventajas MeLi</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab('integracion')}
+                    className={`py-2 px-3 rounded-lg text-xs font-subheading uppercase tracking-wider font-bold transition-all min-h-[44px] cursor-pointer flex items-center justify-center gap-1.5 ${
+                      activeTab === 'integracion'
+                        ? 'bg-brand-blue-700 text-brand-yellow-500 shadow-sm'
+                        : 'text-brand-blue-700 hover:bg-white/60'
+                    }`}
+                  >
+                    <QrCode className="w-3.5 h-3.5 shrink-0" />
+                    <span>Proceso QR</span>
+                  </button>
+                </div>
+
+                {/* Tab Content Display */}
+                <div className="min-h-[190px]">
+                  <AnimatePresence mode="wait">
+                    {activeTab === 'ventajas' ? (
+                      <motion.div
+                        key="ventajas"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.25 }}
+                        className="space-y-3"
+                      >
+                        <div className="flex items-start gap-3 p-2.5 rounded-xl bg-brand-blue-50/50 border border-brand-blue-100">
+                          <CheckCircle2 className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
+                          <div>
+                            <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
+                              Corte a las 15:00 hs
+                            </p>
+                            <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
+                              3 horas más de ventas diarias para tu cuenta en comparación con la competencia.
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3 p-2.5 rounded-xl bg-brand-blue-50/50 border border-brand-blue-100">
+                          <ShieldCheck className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
+                          <div>
+                            <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
+                              Cero Reclamos por Demora
+                            </p>
+                            <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
+                              Tus métricas de Mercado Envíos Flex se protegen con entregas puntuales y reintentos automáticos.
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3 p-2.5 rounded-xl bg-brand-blue-50/50 border border-brand-blue-100">
+                          <Zap className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
+                          <div>
+                            <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
+                              Retiro en tu Depósito o Local
+                            </p>
+                            <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
+                              Pasamos por tu dirección diariamente a las 15:00 hs sin que tengas que moverte.
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="integracion"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.25 }}
+                        className="space-y-3"
+                      >
+                        <div className="p-3 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-1">
+                          <div className="flex justify-between items-center text-xs font-subheading uppercase font-bold text-brand-blue-700">
+                            <span>1. Imprimís tus etiquetas MeLi</span>
+                            <span className="text-brand-blue-500 font-mono">Paso 1</span>
+                          </div>
+                          <p className="text-[11px] text-brand-ink/75 font-sans">
+                            Generás las etiquetas de MercadoLibre con código QR habitual.
+                          </p>
+                        </div>
+
+                        <div className="p-3 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-1">
+                          <div className="flex justify-between items-center text-xs font-subheading uppercase font-bold text-brand-blue-700">
+                            <span>2. Escaneo en mano</span>
+                            <span className="text-brand-blue-500 font-mono">Paso 2</span>
+                          </div>
+                          <p className="text-[11px] text-brand-ink/75 font-sans">
+                            Nuestro cadete escanea el paquete con la app de Mercado Envíos Flex al retirar.
+                          </p>
+                        </div>
+
+                        <div className="p-3 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-1">
+                          <div className="flex justify-between items-center text-xs font-subheading uppercase font-bold text-brand-blue-700">
+                            <span>3. Entrega Same-Day</span>
+                            <span className="text-brand-blue-500 font-mono">Paso 3</span>
+                          </div>
+                          <p className="text-[11px] text-brand-ink/75 font-sans">
+                            Se entrega antes de las 21:00 hs con confirmación digital en la plataforma.
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Footer trust strip */}
+                <div className="pt-3 border-t border-brand-blue-100 flex items-center justify-between text-[11px] font-subheading uppercase tracking-wider text-brand-blue-600 font-bold">
+                  <span>Plataforma MercadoLibre</span>
+                  <span className="text-brand-blue-700 font-mono text-xs">Liquidación Semanal</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

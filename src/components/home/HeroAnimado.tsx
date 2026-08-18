@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
-import { Package, MapPin, FastForward } from 'lucide-react';
+import { Package, MapPin, FastForward, Navigation, ShieldCheck, Zap } from 'lucide-react';
 import { CTANestedPill } from '@/components/ui';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 
 export default function HeroAnimado() {
   return (
@@ -12,16 +12,8 @@ export default function HeroAnimado() {
       className="relative w-full overflow-hidden bg-brand-blue-700 text-white"
       style={{ minHeight: '90dvh' }}
     >
-      {/* Background glow orb - optimized for desktop only to avoid mobile GPU paint penalty */}
-      <div
-        className="absolute top-[-400px] right-[-400px] w-[800px] h-[800px] rounded-full pointer-events-none hidden sm:block"
-        style={{
-          background: 'var(--brand-yellow)',
-          filter: 'blur(120px)',
-          opacity: 0.1,
-        }}
-        aria-hidden="true"
-      />
+      {/* Pure Vector & Dynamic Procedural Background (0 KB static images) */}
+      <HeroProceduralBackground variant="express" />
 
       {/* Ghost Wordmark Monumental de Fondo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
@@ -103,22 +95,71 @@ export default function HeroAnimado() {
             </div>
           </div>
 
-          {/* Right Column: Map Card with Badge */}
+          {/* Right Column: Interactive Vector Topology HUD Card (0 KB images) */}
           <div className="relative hidden lg:block">
-            <div className="relative h-[520px] rounded-3xl overflow-hidden shadow-2xl transform rotate-2">
-              <Image
-                src="/card_mapa.webp"
-                alt="Mapa de cobertura Mar del Plata"
-                fill={true}
-                priority={true}
-                fetchPriority="high"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-              {/* Blue multiply overlay */}
-              <div className="absolute inset-0" style={{ background: 'rgba(6,54,165,0.10)', mixBlendMode: 'multiply' }} />
+            <div className="relative h-[520px] rounded-3xl overflow-hidden shadow-2xl transform rotate-2 bg-gradient-to-br from-brand-blue-900 via-brand-blue-800 to-brand-blue-700 border-2 border-white/20 p-8 flex flex-col justify-between">
+              
+              {/* Radar Grid Graphic */}
+              <div className="absolute inset-0 opacity-20 pointer-events-none">
+                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50%" cy="50%" r="35%" fill="none" stroke="#FFEC01" strokeWidth="1" strokeDasharray="4 8" className="animate-spin" style={{ animationDuration: '60s' }} />
+                  <circle cx="50%" cy="50%" r="20%" fill="none" stroke="#628FF9" strokeWidth="1.5" />
+                  <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#FFEC01" strokeWidth="1" strokeDasharray="4 6" />
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#FFEC01" strokeWidth="1" strokeDasharray="4 6" />
+                </svg>
+              </div>
+
+              {/* Header Telemetry */}
+              <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-yellow-500" />
+                  </span>
+                  <span className="font-subheading text-xs uppercase tracking-widest text-brand-yellow-500 font-bold">
+                    GPS ACTIVO · MAR DEL PLATA
+                  </span>
+                </div>
+                <span className="font-mono text-xs font-bold text-white bg-white/10 px-3 py-1 rounded-full border border-white/20">
+                  HUB FRIULI 1972
+                </span>
+              </div>
+
+              {/* Node Network Map Simulation */}
+              <div className="relative z-10 my-auto py-6 space-y-4">
+                <div className="flex items-center justify-between p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-brand-yellow-500 text-brand-blue-900">
+                      <Zap className="h-5 w-5 shrink-0" />
+                    </div>
+                    <div>
+                      <p className="font-subheading text-sm uppercase font-bold text-white leading-none">
+                        Despacho Prioritario
+                      </p>
+                      <p className="font-sans text-xs text-brand-blue-100 mt-0.5">Centro · Güemes · Mogotes</p>
+                    </div>
+                  </div>
+                  <span className="font-mono text-xs font-bold text-brand-yellow-500">EN CURSO</span>
+                </div>
+
+                <div className="flex items-center justify-between p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-brand-blue-500 text-white">
+                      <Navigation className="h-5 w-5 shrink-0" />
+                    </div>
+                    <div>
+                      <p className="font-subheading text-sm uppercase font-bold text-white leading-none">
+                        Ruteo Inteligente
+                      </p>
+                      <p className="font-sans text-xs text-brand-blue-100 mt-0.5">Batán · Camet · Constitución</p>
+                    </div>
+                  </div>
+                  <span className="font-mono text-xs font-bold text-brand-blue-200">OPTIMIZADO</span>
+                </div>
+              </div>
+
               {/* Badge overlay - "Menos de 60m" */}
-              <div className="absolute bottom-8 left-8 z-10">
+              <div className="relative z-10">
                 <div
                   style={{
                     background: 'var(--brand-yellow)',
@@ -137,6 +178,7 @@ export default function HeroAnimado() {
                   </p>
                 </div>
               </div>
+
             </div>
           </div>
         </div>

@@ -166,11 +166,12 @@ export default function EmprendedoresHome() {
           <h2 className="text-white text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9] text-left max-w-5xl">
             Potenciamos tu{' '}
             <span
-              className="inline-block w-16 sm:w-20 md:w-24 h-8 sm:h-10 md:h-12 rounded-full align-middle bg-cover bg-center mx-2 border border-brand-yellow/30 shadow-md group-hover:scale-105 transition-transform duration-500"
-              style={{ backgroundImage: "url('/cards/fondo_express.webp')" }}
+              className="inline-flex items-center justify-center w-16 sm:w-20 md:w-24 h-8 sm:h-10 md:h-12 rounded-full align-middle bg-gradient-to-r from-brand-yellow-500 to-brand-yellow-400 mx-2 border border-brand-yellow-500 shadow-md text-brand-blue-900 font-display text-base sm:text-xl font-bold uppercase transition-transform duration-500 hover:scale-105"
               role="img"
-              aria-label="Delivery"
-            />{' '}
+              aria-label="Envíos DosRuedas"
+            >
+              MDQ
+            </span>{' '}
             Marca en Mar del Plata
           </h2>
 

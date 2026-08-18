@@ -1,10 +1,59 @@
-# Reglas explícitas para el bot de Google Ads
+# ==========================================
+# Robots.txt — Envíos DosRuedas (Mar del Plata)
+# https://www.enviosdosruedas.com
+# ==========================================
+
+# 1. Reglas para Motores de Búsqueda Tradicionales y Anuncios
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /revisar
+
 User-agent: AdsBot-Google
 Allow: /
 
-# Reglas generales para el resto de los rastreadores
-User-agent: *
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /revisar
+
+User-agent: Applebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /revisar
+
+# 2. Reglas para Asistentes y Rastreadores IA (GEO - Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /revisar
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /revisar
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /revisar
+
+User-agent: Google-Extended
 Allow: /
 
-# Mapa del sitio
+# 3. Reglas Generales para el resto de los rastreadores
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /revisar
+
+# 4. Referencias y Metadatos
+Host: https://www.enviosdosruedas.com
 Sitemap: https://www.enviosdosruedas.com/sitemap.xml

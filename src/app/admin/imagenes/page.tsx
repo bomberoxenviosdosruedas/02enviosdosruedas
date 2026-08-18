@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { getImageList, getPageFolders } from './actions';
 import AdminImagenesClient from './AdminImagenesClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Panel de Gestión de Imágenes | Envíos DosRuedas',
   description: 'Panel de administración para dar seguimiento a los metadatos de las imágenes del sitio y almacenar sugerencias de prompts para IA.',

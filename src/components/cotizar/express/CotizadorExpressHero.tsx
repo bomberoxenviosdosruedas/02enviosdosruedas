@@ -1,488 +1,202 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
-import { Navigation, Clock, ShieldCheck, Zap } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import {
+  Zap,
+  Clock,
+  Navigation,
+  ShieldCheck,
+  Calculator,
+} from 'lucide-react';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 
-const ORIGINES = [
-  'Centro de Distribución (Av. Colón 1200)',
-  'Puerto Mar del Plata',
-  'Terminal Ferroautomotora',
-  'Paseo Aldrey',
-  'La Perla (Av. Independencia)',
-  'Av. Constitución 5500',
-  'B° Constituyentes',
+const SIMULATED_EXPRESS_TRIPS = [
+  {
+    origen: 'Terminal Ferroautomotora',
+    destino: 'B° Stella Maris',
+    distancia: '3.7 km',
+    tarifa: '$4.600 ARS',
+  },
+  {
+    origen: 'Centro de Distribución (Av. Colón 1200)',
+    destino: 'Zona Güemes (Centro)',
+    distancia: '2.8 km',
+    tarifa: '$3.700 ARS',
+  },
+  {
+    origen: 'Av. Constitución 5500',
+    destino: 'Plaza Mitre',
+    distancia: '5.8 km',
+    tarifa: '$6.100 ARS',
+  },
+  {
+    origen: 'Puerto Mar del Plata',
+    destino: 'Punta Mogotes',
+    distancia: '7.4 km',
+    tarifa: '$8.200 ARS',
+  },
 ];
-
-const DESTINOS_EXPRESS = [
-  { zona: 'Zona Güemes (Centro)', km: 4.2, barrio: 'Güemes' },
-  { zona: 'Plaza Mitre / Plaza Colón', km: 5.8, barrio: 'Centro' },
-  { zona: 'Plaza Colón', km: 8.5, barrio: 'Centro' },
-  { zona: 'B° Stella Maris', km: 3.7, barrio: 'Stella Maris' },
-  { zona: 'Punta Mogotes', km: 11.2, barrio: 'Punta Mogotes' },
-  { zona: 'Zona San Juan', km: 2.8, barrio: 'San Juan' },
-  { zona: 'Hospital Privado Comunidad', km: 4.9, barrio: 'Cerro Peralta' },
-  { zona: 'Zona Peralta Ramos', km: 6.7, barrio: 'Peralta Ramos' },
-  { zona: 'Zona Batán', km: 15.5, barrio: 'Batán' },
-  { zona: 'Camet', km: 18.3, barrio: 'Camet' },
-];
-
-const SIMULATED_TRIPS = [
-  { origen: 'Centro de Distribución', destino: 'Zona Güemes', distancia: 4.2 },
-  { origen: 'Av. Constitución 5500', destino: 'Plaza Mitre', distancia: 5.8 },
-  { origen: 'Puerto Mar del Plata', destino: 'Plaza Colón', distancia: 8.5 },
-  { origen: 'Terminal Ferroautomotora', destino: 'B° Stella Maris', distancia: 3.7 },
-  { origen: 'La Perla (Av. Libertad)', destino: 'Punta Mogotes', distancia: 11.2 },
-  { origen: 'Paseo Aldrey', destino: 'Zona San Juan', distancia: 2.8 },
-  { origen: 'B° Constituyentes', destino: 'Hospital Privado Comunidad', distancia: 4.9 },
-];
-
-function calcExpressPrice(d: number): number {
-  if (d <= 3) return 3700;
-  if (d <= 5) return 4600;
-  if (d <= 7) return 6100;
-  if (d <= 10) return 8200;
-  return 8200 + Math.ceil(d - 10) * 1000;
-}
 
 export default function CotizadorExpressHero() {
-  const [origen, setOrigen] = useState(ORIGINES[0]);
-  const [destino, setDestino] = useState(DESTINOS_EXPRESS[0]);
-  const [distanceKm] = useState(destino.km);
-  const [price] = useState(calcExpressPrice(destino.km));
+  const [tripIndex, setTripIndex] = useState(0);
 
-  // Simulación de viaje en vivo
-  const [trip, setTrip] = useState(SIMULATED_TRIPS[0]);
   useEffect(() => {
-    let index = 0;
     const interval = setInterval(() => {
-      index = (index + 1) % SIMULATED_TRIPS.length;
-      setTrip(SIMULATED_TRIPS[index]);
-    }, 3500);
+      setTripIndex((prev) => (prev + 1) % SIMULATED_EXPRESS_TRIPS.length);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
+
+  const currentTrip = SIMULATED_EXPRESS_TRIPS[tripIndex];
 
   return (
     <section
       id="cotizador-express-hero"
-      className="relative w-full pt-16 pb-12 lg:pt-20 lg:pb-16 overflow-hidden"
-      style={{
-        minHeight: '75dvh',
-        background: 'var(--surface-tint-blue)',
-      }}
+      className="relative w-full overflow-hidden bg-brand-blue-700 text-white min-h-[72vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-brand-blue-500/20"
     >
-      {/* Glow orbs - matches design spec */}
-      <div
-        className="absolute top-[-128px] left-[-128px] w-[384px] h-[384px] rounded-full pointer-events-none"
-        style={{
-          background: 'var(--brand-yellow)',
-          opacity: 0.35,
-          filter: 'blur(100px)',
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-[-160px] right-[-128px] w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background: 'var(--brand-blue)',
-          opacity: 0.25,
-          filter: 'blur(130px)',
-        }}
-        aria-hidden="true"
-      />
+      {/* Pure Vector & Dynamic Procedural Background (0 KB static images) */}
+      <HeroProceduralBackground variant="express" />
 
-      {/* Border accent */}
-      <div className="absolute inset-0 pointer-events-none" style={{ border: '1px solid rgba(6,54,165,0.05)' }} />
-
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col">
-        {/* Header with badges */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 lg:mb-10 py-4 border-b"
-          style={{ borderColor: 'rgba(6,54,165,0.08)' }}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full w-fit">
-            <span
-              className="w-10 h-10 rounded-full flex items-center justify-center"
-              style={{
-                background: 'rgba(255,255,255,0.7)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(6,54,165,0.10)',
-              }}
-            >
-              <Zap className="h-5 w-5" style={{ color: 'var(--brand-blue)' }} />
-            </span>
-            <span
-              className="font-body text-sm font-bold uppercase tracking-[0.15em]"
-              style={{ color: 'var(--brand-blue)' }}
-            >
-              Cotizador Express · Mar del Plata
-            </span>
-          </div>
-          <div className="flex items-center gap-3 text-xs font-subheading uppercase tracking-wider">
-            <span
-              className="px-3 py-1.5 rounded-full"
-              style={{
-                background: 'rgba(6,54,165,0.08)',
-                color: 'var(--brand-blue)',
-              }}
-            >
-              <span className="inline-block w-2 h-2 rounded-full bg-brand-yellow mr-1.5" /> Live
-            </span>
-            <span
-              className="px-3 py-1.5 rounded-full"
-              style={{
-                background: 'rgba(6,54,165,0.08)',
-                color: 'var(--brand-blue)',
-              }}
-            >
-              Precisión 100%
-            </span>
-            <span
-              className="px-3 py-1.5 rounded-full"
-              style={{
-                background: 'rgba(6,54,165,0.08)',
-                color: 'var(--brand-blue)',
-              }}
-            >
-              Sin registro
-            </span>
-          </div>
-        </motion.div>
-
-        {/* Main Grid - Split Layout: Route Selector (7fr) | Calculator (5fr) */}
-        <div className="flex-1 grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-8 lg:gap-12 items-start">
-          {/* LEFT COLUMN: Route Selector */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          {/* LEFT COLUMN: Headline & Value Proposition (7 cols) */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-6 h-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
-            {/* Section Label */}
-            <div className="flex items-center justify-between">
-              <div>
-                <span className="font-subheading text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(6,54,165,0.4)' }}>
-                  Selector de Ruta
-                </span>
-                <motion.h2
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="font-display uppercase tracking-tighter leading-tight mt-1"
-                  style={{ fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)', color: 'var(--brand-blue)' }}
-                >
-                  Configurá tu<br />envío prioritario
-                </motion.h2>
-              </div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl"
-                style={{
-                  background: 'rgba(6,54,165,0.05)',
-                  border: '1px solid rgba(6,54,165,0.08)',
-                }}
-              >
-                <Navigation className="h-4 w-4" style={{ color: 'var(--brand-blue)' }} />
-                <span className="font-body text-xs" style={{ color: 'var(--brand-blue)' }}>
-                  <span className="font-bold">Ruta optimizada</span> por OSRM
-                </span>
-              </motion.div>
+            {/* Glowing Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-wider bg-brand-blue-900/90 text-brand-yellow-500 border-2 border-brand-yellow-500 shadow-[0_0_20px_rgba(255,236,1,0.45)] backdrop-blur-md">
+              <Zap className="h-4 w-4 text-brand-yellow-500 shrink-0 fill-brand-yellow-500" />
+              <span>SERVICIO EXPRESS PRIORITARIO</span>
             </div>
 
-            {/* Origin Selector - Glassmorphism Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="relative overflow-hidden p-6 rounded-2xl border"
-              style={{
-                background: 'rgba(255,255,255,0.65)',
-                backdropFilter: 'blur(16px)',
-                borderColor: 'rgba(6,54,165,0.08)',
-                boxShadow: '0 2px 12px rgba(6,54,165,0.04), inset 0 1px 0 rgba(255,255,255,0.8)',
-              }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'rgba(6,54,165,0.1)', color: 'var(--brand-blue)' }}>
-                  <Navigation className="h-5 w-5" />
-                </span>
-                <div>
-                  <span className="font-subheading text-[10px] uppercase tracking-[0.2em] block mb-0.5" style={{ color: 'rgba(6,54,165,0.4)' }}>
-                    Origen de retiro
-                  </span>
-                  <span className="font-body text-sm font-medium" style={{ color: 'var(--brand-blue)' }}>¿Dónde retiramos tu envío?</span>
-                </div>
-              </div>
-              <select
-                value={origen}
-                onChange={(e) => setOrigen(e.target.value)}
-                className="w-full appearance-none bg-transparent border-0 focus:outline-none font-body text-base"
-                style={{ color: 'var(--brand-blue)', background: 'transparent' }}
-              >
-                {ORIGINES.map((o) => (
-                  <option key={o} value={o}>
-                    {o}
-                  </option>
-                ))}
-              </select>
-            </motion.div>
+            {/* Monumental Headline */}
+            <h1 className="text-5xl sm:text-6xl lg:text-[4.75rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.92] text-white">
+              <span>COTIZÁ TU </span>
+              <span className="text-brand-yellow-500 drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">
+                ENVÍO{' '}
+              </span>
+              <span className="block sm:inline">EXPRESS</span>
+            </h1>
 
-            {/* Destination Selector - Glassmorphism Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative overflow-hidden p-6 rounded-2xl border"
-              style={{
-                background: 'rgba(255,255,255,0.65)',
-                backdropFilter: 'blur(16px)',
-                borderColor: 'rgba(6,54,165,0.08)',
-                boxShadow: '0 2px 12px rgba(6,54,165,0.04), inset 0 1px 0 rgba(255,255,255,0.8)',
-              }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'rgba(255,236,1,0.15)', color: 'var(--brand-yellow)' }}>
-                  <Zap className="h-5 w-5" />
-                </span>
-                <div>
-                  <span className="font-subheading text-[10px] uppercase tracking-[0.2em] block mb-0.5" style={{ color: 'rgba(6,54,165,0.4)' }}>
-                    Destino de entrega
-                  </span>
-                  <span className="font-body text-sm font-medium" style={{ color: 'var(--brand-blue)' }}>¿A qué zona de Mar del Plata va?</span>
-                </div>
-              </div>
-              <select
-                value={destino.zona}
-                onChange={(e) => {
-                  const selected = DESTINOS_EXPRESS.find((d) => d.zona === e.target.value);
-                  if (selected) setDestino(selected);
-                }}
-                className="w-full appearance-none bg-transparent border-0 focus:outline-none font-body text-base"
-                style={{ color: 'var(--brand-blue)', background: 'transparent' }}
-              >
-                {DESTINOS_EXPRESS.map((d) => (
-                  <option key={d.zona} value={d.zona}>
-                    {d.zona} · {d.km} km
-                  </option>
-                ))}
-              </select>
-              <div className="mt-4 pt-4 flex items-center justify-between border-t text-xs" style={{ borderColor: 'rgba(6,54,165,0.08)', color: 'rgba(6,54,165,0.5)' }}>
-                <span className="font-subheading uppercase tracking-wider"><Clock className="h-3.5 w-3.5 inline-block mr-1" /> <span className="font-bold">{destino.km} km</span></span>
-                <span className="font-subheading uppercase tracking-wider"><ShieldCheck className="h-3.5 w-3.5 inline-block mr-1" /> Zona: {destino.barrio}</span>
-              </div>
-            </motion.div>
+            {/* Description */}
+            <p className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-50/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+              Calculá el costo de tu envío prioritario al instante. Obtené la tarifa de entrega según la distancia y coordiná en el acto con nosotros por WhatsApp.
+            </p>
 
-            {/* Live Trip Simulation Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="relative overflow-hidden p-6 rounded-2xl border"
-              style={{
-                background: 'rgba(6,54,165,0.05)',
-                backdropFilter: 'blur(16px)',
-                borderColor: 'rgba(6,54,165,0.10)',
-              }}
-            >
-              <div className="flex items-center justify-between mb-3">
-                <span className="font-subheading text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(6,54,165,0.4)' }}>
-                  Tráfico en vivo
-                </span>
-                <span className="flex items-center gap-1.5 text-xs font-subheading uppercase tracking-wider" style={{ color: 'var(--brand-yellow)' }}>
-                  <span className="w-2 h-2 rounded-full bg-brand-yellow animate-pulse" /> Simulación
-                </span>
+            {/* Feature Pills Row */}
+            <div className="flex flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start pt-2">
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-900/60 border border-brand-blue-400/40 text-brand-blue-50 backdrop-blur-sm">
+                <Clock className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                <span>Entrega en &lt; 2 Horas</span>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <span className="font-subheading text-[9px] uppercase tracking-[0.25em] block mb-1" style={{ color: 'rgba(6,54,165,0.5)' }}>Origen</span>
-                  <span className="font-body text-sm font-semibold truncate block" style={{ color: 'var(--brand-blue)' }}>{trip.origen}</span>
-                </div>
-                <div>
-                  <span className="font-subheading text-[9px] uppercase tracking-[0.25em] block mb-1" style={{ color: 'rgba(6,54,165,0.5)' }}>Destino</span>
-                  <span className="font-body text-sm font-semibold truncate block" style={{ color: 'var(--brand-blue)' }}>{trip.destino}</span>
-                </div>
-                <div>
-                  <span className="font-subheading text-[9px] uppercase tracking-[0.25em] block mb-1" style={{ color: 'rgba(6,54,165,0.5)' }}>Distancia</span>
-                  <span className="font-mono text-lg font-bold" style={{ color: 'var(--brand-blue)' }}>{trip.distancia} km</span>
-                </div>
-                <div>
-                  <span className="font-subheading text-[9px] uppercase tracking-[0.25em] block mb-1" style={{ color: 'rgba(6,54,165,0.5)' }}>Tarifa estimada</span>
-                  <span className="font-mono text-lg font-bold text-brand-yellow">${calcExpressPrice(trip.distancia).toLocaleString('es-AR')} ARS</span>
-                </div>
-              </div>
-            </motion.div>
 
-            {/* Features Grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="grid grid-cols-3 gap-3"
-            >
-              {[
-                { icon: Clock, label: 'Entrega < 2 hs', desc: 'Prioridad absoluta' },
-                { icon: Navigation, label: 'Ruta óptima', desc: 'OSRM + MDQ' },
-                { icon: ShieldCheck, label: 'Precisión 100%', desc: 'Tarifa real BD' },
-              ].map((item, i) => (
-                <div
-                  key={item.label}
-                  className="group p-4 rounded-2xl border transition-all duration-300 hover:scale-[1.02]"
-                  style={{
-                    background: 'rgba(255,255,255,0.6)',
-                    backdropFilter: 'blur(12px)',
-                    borderColor: 'rgba(6,54,165,0.08)',
-                  }}
-                >
-                  <item.icon className="h-5 w-5 mb-2 group-hover:scale-110 transition-transform" style={{ color: 'var(--brand-yellow)' }} />
-                  <span className="font-subheading text-[10px] uppercase tracking-wider block mb-0.5" style={{ color: 'var(--brand-blue)' }}>{item.label}</span>
-                  <span className="font-body text-[11px]" style={{ color: 'rgba(6,54,165,0.5)' }}>{item.desc}</span>
-                </div>
-              ))}
-            </motion.div>
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-900/60 border border-brand-blue-400/40 text-brand-blue-50 backdrop-blur-sm">
+                <Navigation className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                <span>Ruta Optimizada</span>
+              </div>
+
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-900/60 border border-brand-blue-400/40 text-brand-blue-50 backdrop-blur-sm">
+                <ShieldCheck className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                <span>Tarifa 100% Precisa</span>
+              </div>
+            </div>
           </motion.div>
 
-          {/* RIGHT COLUMN: Calculator Card - Glassmorphism Double Bezel */}
+          {/* RIGHT COLUMN: Double Bezel Card (5 cols) */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
+            className="lg:col-span-5 relative w-full max-w-lg mx-auto"
           >
-            {/* Calculator Card - Sticky */}
-            <div className="sticky top-20">
-              {/* Double Bezel Outer */}
-              <div
-                className="p-2 rounded-3xl relative overflow-hidden"
-                style={{
-                  background: 'rgba(255,255,255,0.15)',
-                  backdropFilter: 'blur(24px)',
-                  border: '1px solid rgba(6,54,165,0.12)',
-                  boxShadow: '0 20px 40px rgba(6,54,165,0.08), 0 0 0 1px rgba(255,255,255,0.1) inset',
-                }}
-              >
-                {/* Double Bezel Inner */}
-                <div className="relative p-8 rounded-2xl" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(20px)' }}>
-                  {/* Header */}
-                  <div className="flex items-center justify-between border-b mb-6 pb-5" style={{ borderColor: 'rgba(6,54,165,0.08)' }}>
-                    <div>
-                      <span className="font-subheading text-[10px] uppercase tracking-[0.2em] block mb-1" style={{ color: 'rgba(6,54,165,0.4)' }}>
-                        Cálculo Automático
-                      </span>
-                      <span className="font-headline uppercase tracking-wide text-lg" style={{ color: 'var(--brand-blue)' }}>EXPRESS MAPS</span>
-                    </div>
-                    <Zap className="h-7 w-7 shrink-0" style={{ color: 'var(--brand-yellow)' }} />
+            {/* Double Bezel Outer Frame */}
+            <div className="p-2 sm:p-3 rounded-[28px] bg-white/20 border border-white/40 shadow-2xl backdrop-blur-md">
+              {/* Inner Pure White Card */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 text-brand-blue-700 shadow-sm space-y-6">
+                
+                {/* Header */}
+                <div className="flex items-start justify-between border-b border-brand-blue-100/80 pb-4">
+                  <div>
+                    <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-brand-blue-700 leading-none">
+                      CÁLCULO AUTOMÁTICO
+                    </h3>
+                    <p className="font-subheading text-[11px] sm:text-xs uppercase tracking-widest text-brand-blue-400 mt-1 font-bold">
+                      SISTEMA EXPRESS MAPS
+                    </p>
                   </div>
-
-                  {/* Route Calculation */}
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-center justify-between py-2 border-b" style={{ borderColor: 'rgba(6,54,165,0.06)' }}>
-                      <span className="font-subheading text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(6,54,165,0.5)' }}>ORIGEN</span>
-                      <span className="font-body text-sm font-semibold truncate max-w-[160px] text-right" style={{ color: 'var(--brand-blue)' }}>{origen}</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b" style={{ borderColor: 'rgba(6,54,165,0.06)' }}>
-                      <span className="font-subheading text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(6,54,165,0.5)' }}>DESTINO</span>
-                      <span className="font-body text-sm font-semibold truncate max-w-[160px] text-right" style={{ color: 'var(--brand-blue)' }}>{destino.zona}</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b" style={{ borderColor: 'rgba(6,54,165,0.06)' }}>
-                      <span className="font-subheading text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(6,54,165,0.5)' }}>DISTANCIA</span>
-                      <span className="font-mono text-xl font-bold" style={{ color: 'var(--brand-blue)' }}>{destino.km} km</span>
-                    </div>
-
-                    {/* Price Display - Monumental */}
-                    <div className="pt-6 border-t relative" style={{ borderColor: 'rgba(6,54,165,0.08)' }}>
-                      <span className="font-subheading text-[10px] uppercase tracking-[0.2em] block mb-2" style={{ color: 'rgba(6,54,165,0.4)' }}>
-                        TARIFA FINAL EXPRESS
-                      </span>
-                      <motion.div
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ type: 'spring', stiffness: 80, damping: 12, delay: 0.2 }}
-                        className="flex items-baseline justify-between"
-                      >
-                        <span className="font-display text-5xl sm:text-6xl font-bold tracking-tight" style={{ color: 'var(--brand-blue)' }}>
-                          ${price.toLocaleString('es-AR')}
-                        </span>
-                        <span className="font-subheading text-[10px] uppercase tracking-[0.2em] ml-4 self-end mb-2" style={{ color: 'var(--brand-yellow)' }}>
-                          ARS
-                        </span>
-                      </motion.div>
-                      <span className="font-body text-xs block mt-3" style={{ color: 'rgba(6,54,165,0.5)' }}>
-                        Incluye: Retiro + Entrega + Seguro + Rastreo
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Breakdown */}
-                  <div className="pt-4 border-t mb-6" style={{ borderColor: 'rgba(6,54,165,0.08)' }}>
-                    <span className="font-subheading text-[10px] uppercase tracking-[0.2em] block mb-3" style={{ color: 'rgba(6,54,165,0.4)' }}>
-                      Desglose de tarifa
-                    </span>
-                    <div className="space-y-2 text-sm font-body">
-                      <div className="flex justify-between" style={{ color: 'rgba(6,54,165,0.6)' }}>
-                        <span>Base 0-3 km</span>
-                        <span className="font-bold" style={{ color: 'var(--brand-blue)' }}>3.700 ARS</span>
-                      </div>
-                      {destino.km > 3 && <div className="flex justify-between" style={{ color: 'rgba(6,54,165,0.6)' }}>
-                        <span>Tramo 3-5 km</span>
-                        <span className="font-bold" style={{ color: 'var(--brand-blue)' }}>+900 ARS</span>
-                      </div>}
-                      {destino.km > 5 && <div className="flex justify-between" style={{ color: 'rgba(6,54,165,0.6)' }}>
-                        <span>Tramo 5-7 km</span>
-                        <span className="font-bold" style={{ color: 'var(--brand-blue)' }}>+1.500 ARS</span>
-                      </div>}
-                      {destino.km > 7 && <div className="flex justify-between" style={{ color: 'rgba(6,54,165,0.6)' }}>
-                        <span>Tramo 7-10 km</span>
-                        <span className="font-bold" style={{ color: 'var(--brand-blue)' }}>+2.100 ARS</span>
-                      </div>}
-                      {destino.km > 10 && (
-                        <div className="flex justify-between" style={{ color: 'rgba(6,54,165,0.6)' }}>
-                          <span>Excedente +10 km ({Math.ceil(destino.km - 10)} km × $1.000)</span>
-                          <span className="font-bold" style={{ color: 'var(--brand-blue)' }}>+${(Math.ceil(destino.km - 10) * 1000).toLocaleString('es-AR')} ARS</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* CTA Buttons */}
-                  <div className="space-y-3 pt-4 border-t" style={{ borderColor: 'rgba(6,54,165,0.08)' }}>
-                    <a
-                      href="https://wa.me/542236602699?text=Hola%20necesito%20cotizar%20un%20env%C3%ADo%20Express%20desde%20${encodeURIComponent(origen)}%20hacia%20${encodeURIComponent(destino.zona)}%20(${destino.km}%20km)%20%E2%80%93%20Tarifa%20$${price.toLocaleString('es-AR')}%20ARS"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 font-bold px-8 py-3.5 cursor-pointer transition-all flex items-center justify-center gap-3"
-                      style={{ height: 'var(--control-h-xl)' }}
-                    >
-                      <span>Confirmar por WhatsApp</span>
-                      <span className="cta-nested-icon bg-blue-900/10 text-brand-blue-900">
-                        <Zap className="h-5 w-5 shrink-0" />
-                      </span>
-                    </a>
-                    <button
-                      className="cta-nested-pill w-full border-2 text-brand-blue-700 hover:bg-brand-blue-50 font-bold px-8 py-3.5 cursor-pointer transition-all flex items-center justify-center gap-3"
-                      style={{ height: 'var(--control-h-xl)', borderColor: 'rgba(6,54,165,0.2)' }}
-                    >
-                      <span>Agendar retiro ahora</span>
-                      <span className="cta-nested-icon bg-brand-blue-50 text-brand-blue-700">
-                        <Clock className="h-5 w-5 shrink-0" />
-                      </span>
-                    </button>
-                  </div>
-
-                  {/* Trust Badge */}
-                  <div className="mt-6 pt-4 border-t flex items-center justify-center gap-4 text-xs font-subheading uppercase tracking-wider" style={{ borderColor: 'rgba(6,54,165,0.08)', color: 'rgba(6,54,165,0.4)' }}>
-                    <span className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" style={{ color: 'var(--brand-yellow)' }} /> Sin registro obligatorio</span>
-                    <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" style={{ color: 'var(--brand-yellow)' }} /> Cotización instantánea</span>
-                    <span className="flex items-center gap-1.5"><Navigation className="h-3.5 w-3.5" style={{ color: 'var(--brand-yellow)' }} /> Ruta verificada OSRM</span>
+                  <div className="p-2 rounded-xl bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-600 shrink-0">
+                    <Calculator className="h-5 w-5" />
                   </div>
                 </div>
+
+                {/* Simulated Values with Animated Transitions */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={tripIndex}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.25 }}
+                    className="space-y-4"
+                  >
+                    {/* ORIGEN */}
+                    <div className="flex items-center justify-between py-1.5 border-b border-brand-blue-50">
+                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-blue-700">
+                        ORIGEN
+                      </span>
+                      <span className="font-sans text-xs sm:text-sm font-semibold text-brand-blue-900 text-right truncate max-w-[210px]">
+                        {currentTrip.origen}
+                      </span>
+                    </div>
+
+                    {/* DESTINO */}
+                    <div className="flex items-center justify-between py-1.5 border-b border-brand-blue-50">
+                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-blue-700">
+                        DESTINO
+                      </span>
+                      <span className="font-sans text-xs sm:text-sm font-semibold text-brand-blue-900 text-right truncate max-w-[210px]">
+                        {currentTrip.destino}
+                      </span>
+                    </div>
+
+                    {/* DISTANCIA */}
+                    <div className="flex items-center justify-between py-1.5 border-b border-brand-blue-100/70">
+                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-blue-700">
+                        DISTANCIA
+                      </span>
+                      <span className="font-mono text-xs sm:text-sm font-bold text-brand-blue-700 tabular-nums">
+                        {currentTrip.distancia}
+                      </span>
+                    </div>
+
+                    {/* TARIFA FINAL */}
+                    <div className="flex items-center justify-between pt-2">
+                      <span className="font-subheading text-sm uppercase tracking-wider font-bold text-brand-blue-700">
+                        TARIFA FINAL
+                      </span>
+                      <span className="font-mono text-xl sm:text-2xl font-bold text-brand-blue-700 tabular-nums">
+                        {currentTrip.tarifa}
+                      </span>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Centered Yellow Badge */}
+                <div className="pt-3 flex justify-center">
+                  <span className="px-4 py-1.5 rounded-full border border-brand-yellow-500 bg-brand-yellow-50/80 text-brand-blue-700 font-subheading text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                    SIN REGISTRO OBLIGATORIO
+                  </span>
+                </div>
+
               </div>
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>

@@ -9,39 +9,47 @@ import CotizadorLowCostHelp from '@/src/components/cotizar/lowcost/CotizadorLowC
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
-  title: 'Cotizador de Envíos LowCost en Mar del Plata | Envíos DosRuedas',
-  description: 'Calculá tu envío con entrega garantizada en el dia si es solicitado antes de 13hs. Eficiencia y rentabilidad.',
+  title: 'Cotizador de Envíos LowCost en Moto | Mar del Plata | Envíos DosRuedas',
+  description:
+    'Calculá tu tarifa de envío económico programado con entrega en el día en Mar del Plata (pedidos antes de las 13 hs). Ruteo optimizado para comercios y PyMEs.',
   alternates: {
     canonical: `${baseUrl}/cotizar/lowcost`,
+  },
+  openGraph: {
+    title: 'Cotizá tu Envío LowCost en Moto | Mar del Plata | Envíos DosRuedas',
+    description:
+      'Calculá tu envío programado con entrega en el día en Mar del Plata. Máxima rentabilidad y eficiencia logística.',
+    url: `${baseUrl}/cotizar/lowcost`,
+    type: 'website',
+    locale: 'es_AR',
   },
 };
 
 const jsonLdSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Cotizador de Envíos LowCost',
-  description: 'Calculá tu envío con entrega garantizada en el dia si es solicitado antes de 13hs. Eficiencia y rentabilidad.',
+  '@type': 'WebApplication',
+  name: 'Cotizador de Envíos LowCost Envíos DosRuedas',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'All',
   url: `${baseUrl}/cotizar/lowcost`,
+  description:
+    'Herramienta de cálculo para envíos económicos consolidados y ruteos urbanos masivos en Mar del Plata.',
   provider: {
     '@type': 'LocalBusiness',
     '@id': `${baseUrl}#localbusiness`,
     name: 'Envíos DosRuedas',
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Mar del Plata',
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Tarifas LowCost por Distancia',
-    itemListElement: [
-      { '@type': 'Offer', name: 'LowCost 0-3 km', price: '3000', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'LowCost 3-5 km', price: '4000', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'LowCost 5-7 km', price: '5300', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'LowCost 7-10 km', price: '7000', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'LowCost +10 km', price: '7000', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-    ],
+    telephone: '+54-223-660-2699',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Friuli 1972',
+      addressLocality: 'Mar del Plata',
+      addressRegion: 'Buenos Aires',
+      postalCode: '7600',
+      addressCountry: 'AR',
+    },
   },
 };
 

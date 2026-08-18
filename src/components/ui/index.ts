@@ -9,6 +9,7 @@ export { LogosCarousel, type LogosCarouselProps, type LogoItem } from './LogosCa
 export { FloatTiltCard, type FloatTiltCardProps } from './FloatTiltCard';
 export { BentoGrid, BentoGridItem, type BentoGridProps, type BentoGridItemProps } from './BentoGrid';
 export { Badge, type BadgeProps, type BadgeVariant, type BadgeSize } from './Badge';
+export { default as HeroProceduralBackground } from './HeroProceduralBackground';
 
 // Helper components
 export { Button, buttonVariants } from './button';

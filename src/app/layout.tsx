@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Outfit, Anton, Bebas_Neue } from 'next/font/google';
+import { Outfit, Anton, Bebas_Neue, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import ClientLayout from '../components/ClientLayout';
@@ -23,6 +23,13 @@ const bebasNeue = Bebas_Neue({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-subheading',
+  display: 'swap',
+  preload: true,
+});
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
   display: 'swap',
   preload: true,
 });
@@ -80,11 +87,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${outfit.variable} ${anton.variable} ${bebasNeue.variable} scroll-smooth`} data-scroll-behavior="smooth">
+    <html
+      lang="es"
+      className={`${outfit.variable} ${anton.variable} ${bebasNeue.variable} ${geistMono.variable} scroll-smooth`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head>
-        {/* Preload para imagen LCP del Hero de inicio */}
-        <link rel="preload" as="image" href="/card_mapa.webp" type="image/webp" fetchPriority="high" />
-
         {/* DNS Prefetch & Preconnect para recursos externos */}
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
@@ -199,7 +208,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
-        {/* Google tag (gtag.js) - Google Ads & Analytics cargados con lazyOnload para no competir con LCP */}
+        {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17510443994"
           strategy="lazyOnload"

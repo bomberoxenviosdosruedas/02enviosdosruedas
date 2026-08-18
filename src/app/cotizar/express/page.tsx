@@ -9,39 +9,47 @@ import CotizadorExpressHelp from '@/src/components/cotizar/express/CotizadorExpr
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
-  title: 'Cotizador de Envíos Express en Mar del Plata | Envíos DosRuedas',
-  description: 'Calculá el costo y tiempo estimado de tu envío prioritario al instante. Alta precisión de tarifa y entrega en el día en Mar del Plata.',
+  title: 'Cotizador de Envíos Express en Moto | Mar del Plata | Envíos DosRuedas',
+  description:
+    'Calculá el costo exacto y tiempo estimado de tu envío prioritario en Mar del Plata. Tarifas transparentes por kilómetro, entrega en el día y coordinación en el acto.',
   alternates: {
     canonical: `${baseUrl}/cotizar/express`,
+  },
+  openGraph: {
+    title: 'Cotizá tu Envío Express en Moto | Mar del Plata | Envíos DosRuedas',
+    description:
+      'Calculá al instante el valor de tu envío express en Mar del Plata. Tarifas transparentes 2026.',
+    url: `${baseUrl}/cotizar/express`,
+    type: 'website',
+    locale: 'es_AR',
   },
 };
 
 const jsonLdSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Cotizador de Envíos Express',
-  description: 'Calculá el costo y tiempo estimado de tu envío prioritario al instante. Alta precisión de tarifa y entrega en el día en Mar del Plata.',
+  '@type': 'WebApplication',
+  name: 'Cotizador de Envíos Express Envíos DosRuedas',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'All',
   url: `${baseUrl}/cotizar/express`,
+  description:
+    'Herramienta interactiva para calcular tarifas y distancias de envíos express en moto en Mar del Plata.',
   provider: {
     '@type': 'LocalBusiness',
     '@id': `${baseUrl}#localbusiness`,
     name: 'Envíos DosRuedas',
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Mar del Plata',
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Tarifas Express por Distancia',
-    itemListElement: [
-      { '@type': 'Offer', name: 'Express 0-3 km', price: '3700', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'Express 3-5 km', price: '4600', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'Express 5-7 km', price: '6100', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'Express 7-10 km', price: '8200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'Express +10 km', price: '8200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-    ],
+    telephone: '+54-223-660-2699',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Friuli 1972',
+      addressLocality: 'Mar del Plata',
+      addressRegion: 'Buenos Aires',
+      postalCode: '7600',
+      addressCountry: 'AR',
+    },
   },
 };
 

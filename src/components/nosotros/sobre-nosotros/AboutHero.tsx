@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { motion, AnimatePresence } from 'motion/react';
 import { Award, Star, ShieldCheck, Sparkles, MapPin, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 
@@ -44,38 +44,8 @@ export default function AboutHero() {
       id="about-hero" 
       className="relative min-h-[85vh] flex items-center justify-center pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden bg-gradient-to-br from-brand-blue-700 to-brand-blue-600 text-brand-white-50 border-b border-brand-blue-500/20"
     >
-      {/* Ambient background glows */}
-      <div 
-        className="absolute top-1/4 -left-20 w-96 h-96 rounded-full pointer-events-none"
-        style={{
-          background: 'var(--brand-yellow)',
-          opacity: 0.15,
-          filter: 'blur(140px)',
-        }}
-        aria-hidden="true"
-      />
-      <div 
-        className="absolute bottom-10 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background: 'var(--brand-blue)',
-          opacity: 0.35,
-          filter: 'blur(160px)',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Background illustration overlay */}
-      <div className="absolute inset-0 opacity-15 mix-blend-overlay pointer-events-none">
-        <Image
-          src="/delivery-background.jpg"
-          alt="Envíos DosRuedas Historia y Logística Mar del Plata"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-blue-900/90 via-brand-blue-700/60 to-brand-blue-900/95 backdrop-blur-[2px]" />
+      {/* Pure Vector & Dynamic Procedural Background (0 KB static images) */}
+      <HeroProceduralBackground variant="default" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">

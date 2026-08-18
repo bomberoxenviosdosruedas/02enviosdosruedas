@@ -25,7 +25,7 @@ export default function OptimizedFooter() {
 
       {/* Background depth highlights */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(6,54,165,0.4),transparent_40%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(4,35,107,0.6),transparent_40%)] pointer-events-none" />
 
       {/* Main Footer Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
@@ -35,65 +35,74 @@ export default function OptimizedFooter() {
 
           {/* COLUMN 1: Brand details & Socials (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <Link href="/" className="flex items-center gap-3 group w-fit">
-            <div className="flex items-center gap-2.5">
-              <div className="relative w-10 h-10 group-hover:rotate-12 transition-transform duration-200 shrink-0">
-                <Image
-                  src="/logo-envios-simplified.webp"
-                  alt="Isotipo Envíos Dos Ruedas"
-                  fill={true}
-                  className="object-contain"
-                  priority
-                />
+            <Link href="/" className="flex items-center gap-3 group w-fit focus:outline-none">
+              <div className="flex items-center gap-2.5">
+                <div className="relative w-10 h-10 group-hover:rotate-12 transition-transform duration-200 shrink-0">
+                  <Image
+                    src="/logo-envios-simplified.webp"
+                    alt="Isotipo Envíos Dos Ruedas"
+                    fill={true}
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+                <span className="font-display text-2xl sm:text-3xl tracking-tight leading-none uppercase select-none flex flex-col sm:flex-row sm:gap-1 items-start sm:items-center">
+                  <span className="text-white">Envíos</span>
+                  <span className="text-brand-yellow-500">DosRuedas</span>
+                </span>
               </div>
-              <span className="font-display text-2xl tracking-tight leading-none uppercase select-none flex flex-col sm:flex-row sm:gap-1 items-start sm:items-center">
-                <span className="text-white">Envíos</span>
-                <span className="text-brand-yellow-500">DosRuedas</span>
-              </span>
-            </div>
             </Link>
 
-            <p className="text-brand-blue-50 text-sm leading-relaxed max-w-sm">
+            <p className="text-brand-blue-50 text-sm leading-relaxed max-w-sm font-light">
               Logística urbana inteligente de última milla en Mar del Plata. Conectamos tu negocio con entregas express en el día, soluciones Flex para MercadoLibre y distribución 3PL eficiente.
             </p>
-            <div className="space-y-3.5 pt-2">
+
+            <div className="space-y-3 pt-2">
               <span className="block text-xs font-bold text-brand-yellow-500 uppercase tracking-widest font-subheading">
-                Seguinos en redes
+                Comunidad y Canales Directos
               </span>
               <div className="flex flex-wrap items-center gap-3">
+                {/* Instagram */}
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
                   <Link
                     href="/nosotros/nuestras-redes"
-                    className="h-10 w-10 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center transition-all duration-200 border border-[#dc2743] hover:border-white shadow-sm p-2.5 group cursor-pointer"
-                    title="Instagram"
+                    className="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-900 flex items-center justify-center transition-all duration-200 border border-white/15 hover:border-brand-yellow-500 shadow-sm p-2.5 group cursor-pointer"
+                    title="Instagram @enviosdosruedas"
+                    aria-label="Instagram Oficial"
                   >
-                    <FaInstagram className="h-5 w-5 text-white" />
+                    <FaInstagram className="h-5 w-5" />
                   </Link>
                 </motion.div>
+
+                {/* Facebook */}
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
                   <Link
                     href="/nosotros/nuestras-redes"
-                    className="h-10 w-10 rounded-xl bg-[#1877F2] text-white flex items-center justify-center transition-all duration-200 border border-[#1877F2] hover:border-white shadow-sm p-2.5 group cursor-pointer"
-                    title="Facebook"
+                    className="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-900 flex items-center justify-center transition-all duration-200 border border-white/15 hover:border-brand-yellow-500 shadow-sm p-2.5 group cursor-pointer"
+                    title="Facebook Envíos DosRuedas"
+                    aria-label="Facebook Oficial"
                   >
-                    <FaFacebook className="h-5 w-5 text-white" />
+                    <FaFacebook className="h-5 w-5" />
                   </Link>
                 </motion.div>
+
+                {/* WhatsApp */}
                 <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
                   <a
                     href="https://wa.me/542236602699"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-xl bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center transition-all duration-200 border border-brand-yellow-500 hover:border-white shadow-sm p-2.5 group cursor-pointer"
-                    title="WhatsApp"
+                    className="h-10 w-10 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 flex items-center justify-center transition-all duration-200 border border-brand-yellow-500 hover:border-brand-yellow-400 shadow-accent-sm hover:shadow-cta-glow p-2.5 group cursor-pointer"
+                    title="WhatsApp Directo"
+                    aria-label="WhatsApp Directo"
                   >
-                    <FaWhatsapp className="h-5 w-5 text-brand-blue-900" />
+                    <FaWhatsapp className="h-5 w-5" />
                   </a>
                 </motion.div>
 
                 <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-brand-blue-100 font-mono shadow-inner ml-2">
                   <Award className="h-4 w-4 text-brand-yellow-500 animate-pulse shrink-0" />
-                  <span>3PL Certificado</span>
+                  <span>3PL Certificado MDQ</span>
                 </div>
               </div>
             </div>
@@ -104,7 +113,7 @@ export default function OptimizedFooter() {
             <h4 className="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2 font-bold">
               Soluciones
             </h4>
-            <ul className="space-y-3.5 text-sm">
+            <ul className="space-y-3.5 text-sm font-sans">
               <li>
                 <Link
                   href="/servicios/envios-express"
@@ -154,14 +163,13 @@ export default function OptimizedFooter() {
               Contacto
             </h4>
 
-            <div className="space-y-4 text-xs text-brand-blue-50">
-
+            <div className="space-y-4 text-xs text-brand-blue-50 font-sans">
               <div className="flex gap-3.5 items-start">
                 <div className="p-2 bg-white/5 rounded-lg border border-white/10 shrink-0 text-brand-yellow-500">
                   <MapPin className="h-[18px] w-[18px]" />
                 </div>
                 <div>
-                  <p className="font-bold text-white uppercase font-subheading tracking-wide">Ubicación Hub MDQ</p>
+                  <p className="font-bold text-white uppercase font-subheading tracking-wide">Hub Central MDQ</p>
                   <p className="font-sans text-[13px] mt-0.5">Friuli 1972, Mar del Plata</p>
                 </div>
               </div>
@@ -172,7 +180,7 @@ export default function OptimizedFooter() {
                 </div>
                 <div>
                   <p className="font-bold text-white uppercase font-subheading tracking-wide">Teléfono Directo</p>
-                  <p className="font-mono text-[13px] mt-0.5">+54 223 660-2699</p>
+                  <p className="font-mono text-[13px] mt-0.5 font-bold text-brand-yellow-500">+54 223 660-2699</p>
                 </div>
               </div>
 
@@ -193,11 +201,10 @@ export default function OptimizedFooter() {
                   <Clock className="h-[18px] w-[18px]" />
                 </div>
                 <div>
-                  <p className="font-bold text-white uppercase font-subheading tracking-wide">Horarios de Operación</p>
+                  <p className="font-bold text-white uppercase font-subheading tracking-wide">Horarios de Operación 2026</p>
                   <p className="font-sans text-[13px] mt-0.5">Lunes a Sábado: 08:00 a 20:00 hs</p>
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -208,10 +215,11 @@ export default function OptimizedFooter() {
           {/* Scroll to Top Floating Button */}
           <motion.button
             onClick={scrollToTop}
-            className="absolute -top-6 right-4 sm:right-8 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 p-3 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer"
+            className="absolute -top-6 right-4 sm:right-8 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 p-3 rounded-full shadow-accent-md hover:shadow-cta-glow transition-all flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer"
             title="Volver arriba"
             aria-label="Volver arriba"
             whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.95 }}
           >
             <ArrowUp className="h-5 w-5 font-bold" />
           </motion.button>

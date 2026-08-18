@@ -81,6 +81,7 @@ export default function CarruselRedes() {
     <section
       ref={sectionRef}
       id="carrusel-redes"
+      suppressHydrationWarning
       className="py-24 md:py-36 bg-brand-blue-700 border-y border-white/10 relative overflow-hidden font-sans"
     >
       {/* Background Decorative Mesh Overlay */}

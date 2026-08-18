@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, ArrowRight, ShieldCheck, Zap, Sparkles } from 'lucide-react';
 
@@ -287,23 +287,29 @@ export default function ContactHero() {
                 </div>
               </div>
 
-              {/* Moto Image Card */}
-              <div className="relative w-full h-[220px] rounded-3xl overflow-hidden shadow-xl border border-brand-blue-100 group">
-                <Image
-                  src="/img/generales/card_moto01.webp"
-                  alt="Flota de reparto urbano Envíos DosRuedas Mar del Plata"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-900/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-5 right-5 flex justify-between items-center text-white">
+              {/* Interactive Vector Dispatch HUD Card (0 KB images) */}
+              <div className="relative w-full h-[220px] rounded-3xl overflow-hidden shadow-xl border border-brand-blue-700/20 bg-gradient-to-br from-brand-blue-900 via-brand-blue-800 to-brand-blue-700 p-6 flex flex-col justify-between group">
+                <HeroProceduralBackground variant="contact" />
+                <div className="relative z-10 flex justify-between items-start">
                   <div>
-                    <span className="font-display uppercase text-sm sm:text-base tracking-wider block">
-                      Flota activa en calles de MDQ
+                    <span className="font-subheading text-xs uppercase tracking-widest text-brand-yellow-500 font-bold block">
+                      CENTRAL DE DESPACHO MDQ
+                    </span>
+                    <span className="font-display text-2xl uppercase tracking-tight text-white mt-1 block">
+                      COBERTURA GENERAL PUEYRREDÓN
+                    </span>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full bg-brand-yellow-500/20 border border-brand-yellow-500 text-brand-yellow-500 font-mono text-xs font-bold">
+                    GPS ACTIVO
+                  </span>
+                </div>
+                <div className="relative z-10 flex justify-between items-end text-white border-t border-white/10 pt-3">
+                  <div>
+                    <span className="font-subheading uppercase text-xs tracking-wider block text-brand-blue-100">
+                      Hub Operativo Friuli 1972
                     </span>
                     <span className="font-sans text-xs text-brand-yellow-500 font-medium">
-                      Friuli 1972 · Salidas cada 30 minutos
+                      Salidas cada 30 min · Soporte en directo
                     </span>
                   </div>
                   <span className="w-3 h-3 rounded-full bg-brand-yellow-500 animate-pulse shadow-[0_0_8px_#FFEC01]" />

@@ -24,8 +24,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      // Mapeo de los paths de tsconfig.json
-      '@': resolve(__dirname, '.'),
+      '@/src': resolve(__dirname, './src'),
+      '@': resolve(__dirname, './src'),
     },
   },
 });

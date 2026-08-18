@@ -8,31 +8,42 @@ import ExpressUseCases from '@/src/components/servicios/express/ExpressUseCases'
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Envíos Express Inmediatos en Mar del Plata | Envíos DosRuedas',
-  description: 'Servicio de mensajería urbana inmediata y entrega en menos de 2 horas en Mar del Plata. Tarifas transparentes 2026 y seguimiento digital en tiempo real.',
+  title: 'Envíos Express en Moto en Mar del Plata | Entrega en 2 Horas | Envíos DosRuedas',
+  description:
+    'Servicio de motomensajería y envíos express prioritarios en Mar del Plata. Retiro y entrega puerta a puerta en menos de 2 horas con flota propia. Cotizá en el acto.',
   alternates: {
     canonical: `${baseUrl}/servicios/envios-express`,
+  },
+  openGraph: {
+    title: 'Envíos Express en Moto en Mar del Plata | Envíos DosRuedas',
+    description:
+      'Cadetería inmediata y mensajería urgente en Mar del Plata. Seguimiento directo por WhatsApp y entregas en menos de 2 hs.',
+    url: `${baseUrl}/servicios/envios-express`,
+    type: 'website',
+    locale: 'es_AR',
   },
 };
 
 const jsonLdSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Envíos Express Inmediatos',
-  description: 'Servicio de mensajería urbana inmediata y entrega en menos de 2 horas en Mar del Plata. Vos elegís el rango exacto de entrega con certeza absoluta.',
+  name: 'Envíos Express Inmediatos en Mar del Plata',
+  description:
+    'Servicio de mensajería urbana inmediata y entrega en menos de 2 horas en todo el ejido urbano de Mar del Plata con flota propia.',
   url: `${baseUrl}/servicios/envios-express`,
   provider: {
     '@type': 'LocalBusiness',
     '@id': `${baseUrl}#localbusiness`,
     name: 'Envíos DosRuedas',
+    telephone: '+54-223-660-2699',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Friuli 1972',
       addressLocality: 'Mar del Plata',
       addressRegion: 'Buenos Aires',
+      postalCode: '7600',
       addressCountry: 'AR',
     },
-    telephone: '+54 223 660-2699',
   },
   areaServed: {
     '@type': 'City',
@@ -42,11 +53,42 @@ const jsonLdSchema = {
     '@type': 'OfferCatalog',
     name: 'Tarifas Express Vigentes 2026',
     itemListElement: [
-      { '@type': 'Offer', name: 'Express Zona 1 (0 a 3 km)', price: '3700', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'Express Zona 2 (3 a 5 km)', price: '4600', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'Express Zona 3 (5 a 7 km)', price: '6100', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'Express Zona 4 (7 a 10 km)', price: '8200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: 'Express Zona 5 (+10 km)', price: '8200', priceCurrency: 'ARS', availability: 'https://schema.org/InStock', description: '$8.200 base más $1.000 por kilómetro adicional entero' },
+      {
+        '@type': 'Offer',
+        name: 'Express Zona 1 (0 a 3 km)',
+        price: '3700',
+        priceCurrency: 'ARS',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Express Zona 2 (3 a 5 km)',
+        price: '4600',
+        priceCurrency: 'ARS',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Express Zona 3 (5 a 7 km)',
+        price: '6100',
+        priceCurrency: 'ARS',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Express Zona 4 (7 a 10 km)',
+        price: '8200',
+        priceCurrency: 'ARS',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Express Zona 5 (+10 km)',
+        price: '8200',
+        priceCurrency: 'ARS',
+        availability: 'https://schema.org/InStock',
+        description: '$8.200 base más $1.000 por kilómetro adicional entero',
+      },
     ],
   },
 };

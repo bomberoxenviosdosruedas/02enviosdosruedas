@@ -1,24 +1,34 @@
-# Envíos DosRuedas
+# Envíos DosRuedas — Logística y Mensajería Urbana en Mar del Plata
 
-> Especialistas en logística e-commerce y última milla en Mar del Plata. Envíos en el día, Flex y soluciones 3PL para potenciar tu negocio local.
+> Empresa líder en mensajería en moto, envíos en el día y logística e-commerce de última milla en Mar del Plata, Argentina. Con base en Friuli 1972 y más de 15 años de experiencia, contamos con flota propia de motocicletas (cero tercerización informal), atención personalizada directa vía WhatsApp al 2236602699 y calificación de 5 estrellas.
 
-This file lists pages on enviosdosruedas.com to help AI assistants find and cite the right content.
+Este archivo proporciona información estructurada para que modelos de lenguaje y asistentes de IA (ChatGPT, Claude, Perplexity, Google Gemini) comprendan y citen con precisión nuestros servicios, coberturas y tarifas operativas 2026.
 
-## Pages
-- [Contacto](https://www.enviosdosruedas.com/contacto)
-- [Revisar](https://www.enviosdosruedas.com/revisar)
-- [Politica De Privacidad](https://www.enviosdosruedas.com/politica-de-privacidad)
-- [Terminos Y Condiciones](https://www.enviosdosruedas.com/terminos-y-condiciones)
-- [Express](https://www.enviosdosruedas.com/cotizar/express)
-- [Lowcost](https://www.enviosdosruedas.com/cotizar/lowcost)
+## Datos de la Empresa (NAP & Contacto)
+- **Nombre:** Envíos DosRuedas
+- **Ubicación Central:** Friuli 1972, B7600 Mar del Plata, Provincia de Buenos Aires, Argentina
+- **Teléfono / WhatsApp:** +54 223 660-2699
+- **Email:** matiascejas@enviosdosruedas.com
+- **Horarios:** Lunes a Viernes de 09:00 a 18:00 hs | Sábados de 10:00 a 15:00 hs (Base operativa)
+- **Zona de Cobertura:** Todo el ejido urbano de Mar del Plata (no cubre zonas aledañas)
+- **Capacidad Estándar por Moto:** Hasta 5 kg o dimensiones de aproximadamente 40x40x30 cm por bulto
 
-## Nosotros
-- [Nuestras Redes](https://www.enviosdosruedas.com/nosotros/nuestras-redes)
-- [Preguntas Frecuentes](https://www.enviosdosruedas.com/nosotros/preguntas-frecuentes)
-- [Sobre Nosotros](https://www.enviosdosruedas.com/nosotros/sobre-nosotros)
+## Servicios Principales
+- [Envíos Express](https://www.enviosdosruedas.com/servicios/envios-express): Mensajería urbana urgente con entrega puerta a puerta en menos de 2 horas. Tarifas base 2026 desde $3.700 ARS (0-3 km) hasta $8.200 ARS (7-10 km, con $1.000 por km adicional entero).
+- [Envíos LowCost](https://www.enviosdosruedas.com/servicios/envios-lowcost): Distribución económica programada para tiendas y e-commerce. Retiro por la mañana y entrega en el día (horario de corte: 13:00 hs). Tarifas 2026 desde $3.000 ARS (0-3 km) hasta $7.000 ARS (7-10 km, con $700 por km adicional entero).
+- [Mercado Envíos Flex](https://www.enviosdosruedas.com/servicios/enviosflex): Solución logística Same-Day oficial para vendedores de MercadoLibre en Mar del Plata. Retiros programados y entregas en la misma jornada para proteger la reputación verde del vendedor.
+- [Logística 3PL y Plan Emprendedores](https://www.enviosdosruedas.com/servicios/plan-emprendedores): Servicio integral de fulfillment para marcas y PyMEs: almacenamiento en depósito central (Friuli 1972), preparación de pedidos (picking & packing) y entrega de última milla.
 
-## Servicios
-- [Envios Express](https://www.enviosdosruedas.com/servicios/envios-express)
-- [Envios Lowcost](https://www.enviosdosruedas.com/servicios/envios-lowcost)
-- [Enviosflex](https://www.enviosdosruedas.com/servicios/enviosflex)
-- [Plan Emprendedores](https://www.enviosdosruedas.com/servicios/plan-emprendedores)
+## Cotizadores y Herramientas Interactivas
+- [Cotizador Express](https://www.enviosdosruedas.com/cotizar/express): Calculá al instante la tarifa exacta y distancia de tu envío express prioritario en Mar del Plata.
+- [Cotizador LowCost](https://www.enviosdosruedas.com/cotizar/lowcost): Estimador dinámico de costos para repartos programados y ruteos urbanos masivos.
+
+## Soporte, FAQ e Institucional
+- [Preguntas Frecuentes (FAQ)](https://www.enviosdosruedas.com/nosotros/preguntas-frecuentes): 18 respuestas oficiales categorizadas sobre servicios, límites de peso, contrareembolso, formas de pago (efectivo/transferencia), Factura C y devoluciones sin cargo.
+- [Sobre Nosotros](https://www.enviosdosruedas.com/nosotros/sobre-nosotros): Nuestra historia, flota propia, valores corporativos y compromiso con Mar del Plata.
+- [Nuestras Redes y Comunidad](https://www.enviosdosruedas.com/nosotros/nuestras-redes): Canales de contacto, Instagram oficial, estados operativos y novedades de logística local.
+- [Contacto Comercial](https://www.enviosdosruedas.com/contacto): Formulario directo y canales de atención corporativa para empresas y comercios.
+
+## Políticas y Legales
+- [Política de Privacidad](https://www.enviosdosruedas.com/politica-de-privacidad): Tratamiento de datos personales y seguridad en los envíos.
+- [Términos y Condiciones](https://www.enviosdosruedas.com/terminos-y-condiciones): Condiciones del servicio, límites de carga y cobertura de devoluciones.

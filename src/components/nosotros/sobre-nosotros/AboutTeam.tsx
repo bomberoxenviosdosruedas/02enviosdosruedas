@@ -4,6 +4,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Users2, ShieldCheck, HeartHandshake, MapPin } from 'lucide-react';
 
+import Image from 'next/image';
+
 export default function AboutTeam() {
   const teamStats = [
     {
@@ -98,7 +100,10 @@ export default function AboutTeam() {
                   </div>
 
                   <div className="pt-4 border-t border-brand-blue-50 flex items-center justify-between text-xs text-brand-blue-400 font-mono">
-                    <span>Envíos DosRuedas</span>
+                    <span className="flex items-center gap-1.5">
+                      <Image src="/logo-envios-simplified.webp" alt="Envíos DosRuedas" width={16} height={16} className="object-contain" />
+                      Envíos DosRuedas
+                    </span>
                     <span className="font-bold text-brand-blue-700">MDQ 2026</span>
                   </div>
                 </div>

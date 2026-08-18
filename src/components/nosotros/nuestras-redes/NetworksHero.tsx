@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { motion } from 'motion/react';
 import { Share2, Users, ArrowRight, Sparkles, MessageCircle, Instagram, Video, ExternalLink } from 'lucide-react';
 
@@ -61,39 +61,8 @@ export default function NetworksHero() {
       id="networks-hero" 
       className="relative min-h-[85vh] flex items-center justify-center pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden bg-gradient-to-br from-brand-blue-700 via-brand-blue-600 to-brand-blue-700 text-brand-white-50 border-b border-brand-blue-500/20"
     >
-      {/* Ambient background glows with slow pulse animation */}
-      <motion.div 
-        animate={{ scale: [1, 1.12, 1], opacity: [0.18, 0.28, 0.18] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-10 left-[-100px] w-[450px] h-[450px] rounded-full pointer-events-none"
-        style={{
-          background: 'var(--brand-yellow)',
-          filter: 'blur(130px)',
-        }}
-        aria-hidden="true"
-      />
-      <motion.div 
-        animate={{ scale: [1, 1.08, 1], opacity: [0.25, 0.38, 0.25] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-[-100px] right-[-80px] w-[550px] h-[550px] rounded-full pointer-events-none"
-        style={{
-          background: 'var(--brand-blue)',
-          filter: 'blur(150px)',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Background illustration overlay */}
-      <div className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none">
-        <Image
-          src="/delivery-background.jpg"
-          alt="Fondo de comunidad urbana Mar del Plata"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-      </div>
+      {/* Pure Vector & Dynamic Procedural Background (0 KB static images) */}
+      <HeroProceduralBackground variant="community" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -204,35 +173,35 @@ export default function NetworksHero() {
                   Sumate a la red más activa de la ciudad. Compartimos historias del asfalto marplatense, consejos de embalaje para e-commerce y promociones sorpresa todos los meses.
                 </p>
 
-                {/* Visual Preview Grid */}
+                {/* Dynamic Status Badges Grid (0 KB images) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  <div className="relative h-24 rounded-xl overflow-hidden border border-brand-blue-100 group">
-                    <Image
-                      src="/img/generales/repartidor.webp"
-                      alt="Cadete Envíos DosRuedas Mar del Plata"
-                      fill
-                      sizes="200px"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-900/80 via-transparent to-transparent flex items-end p-2">
-                      <span className="text-[11px] font-subheading uppercase font-bold text-white tracking-wider">
+                  <div className="p-3 rounded-xl bg-brand-blue-50 border border-brand-blue-100 flex flex-col justify-between h-24 text-left group hover:border-brand-yellow-500 transition-colors">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-subheading uppercase font-bold text-brand-blue-700 tracking-wider">
+                        RUTAS EN VIVO
+                      </span>
+                      <span className="w-2 h-2 rounded-full bg-brand-yellow-500 animate-pulse" />
+                    </div>
+                    <div>
+                      <span className="block font-display text-lg text-brand-blue-700 leading-none">
                         #RutasMDQ
                       </span>
+                      <span className="text-[10px] text-brand-blue-400 font-sans">Cadetes en calle</span>
                     </div>
                   </div>
 
-                  <div className="relative h-24 rounded-xl overflow-hidden border border-brand-blue-100 group">
-                    <Image
-                      src="/img/generales/card_express.png"
-                      alt="Operaciones de despacho Envíos DosRuedas"
-                      fill
-                      sizes="200px"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-900/80 via-transparent to-transparent flex items-end p-2">
-                      <span className="text-[11px] font-subheading uppercase font-bold text-white tracking-wider">
+                  <div className="p-3 rounded-xl bg-brand-blue-50 border border-brand-blue-100 flex flex-col justify-between h-24 text-left group hover:border-brand-yellow-500 transition-colors">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-subheading uppercase font-bold text-brand-blue-700 tracking-wider">
+                        SAME-DAY SLA
+                      </span>
+                      <span className="w-2 h-2 rounded-full bg-brand-yellow-500 animate-pulse" />
+                    </div>
+                    <div>
+                      <span className="block font-display text-lg text-brand-blue-700 leading-none">
                         #SameDayMDQ
                       </span>
+                      <span className="text-[10px] text-brand-blue-400 font-sans">100% efectividad</span>
                     </div>
                   </div>
                 </div>
