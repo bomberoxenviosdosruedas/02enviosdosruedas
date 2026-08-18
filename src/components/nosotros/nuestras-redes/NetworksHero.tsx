@@ -1,50 +1,94 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Share2, Users, ArrowRight, Sparkles } from 'lucide-react';
+import { Share2, Users, ArrowRight, Sparkles, MessageCircle, Instagram, Video, ExternalLink } from 'lucide-react';
+
+const SOCIAL_CHANNELS = [
+  {
+    id: 'instagram',
+    name: 'Instagram Oficial',
+    handle: '@enviosdosruedas',
+    desc: 'Rutas en vivo, fotos de la flota en MDQ y novedades de horarios.',
+    icon: Instagram,
+    badge: 'Último post: hace 18 min',
+    link: 'https://instagram.com/enviosdosruedas',
+    ctaText: 'Ver historias',
+  },
+  {
+    id: 'tiktok',
+    name: 'TikTok Comunidad',
+    handle: '@enviosdosruedasmdq',
+    desc: 'El día a día de nuestros cadetes recorriendo calles y barrios de Mar del Plata.',
+    icon: Video,
+    badge: 'Video nuevo hoy',
+    link: 'https://tiktok.com/@enviosdosruedasmdq',
+    ctaText: 'Mirar videos',
+  },
+  {
+    id: 'whatsapp',
+    name: 'Canal de WhatsApp',
+    handle: 'Alertas & Promos MDQ',
+    desc: 'Avisos de cortes de tránsito, clima y códigos de descuento relámpago.',
+    icon: MessageCircle,
+    badge: 'Canal activo 24/7',
+    link: 'https://wa.me/542236602699',
+    ctaText: 'Unirme al canal',
+  },
+];
 
 export default function NetworksHero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  };
+  const [followers, setFollowers] = useState(12000);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        type: 'spring' as const, 
-        stiffness: 100, 
-        damping: 20,
-      } 
-    },
-  };
+  useEffect(() => {
+    const target = 12450;
+    const step = 15;
+    const interval = setInterval(() => {
+      setFollowers((prev) => {
+        if (prev + step >= target) {
+          clearInterval(interval);
+          return target;
+        }
+        return prev + step;
+      });
+    }, 20);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section 
       id="networks-hero" 
-      className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-brand-blue-700 to-brand-blue-600 text-white border-b border-brand-blue-100/10"
+      className="relative min-h-[85vh] flex items-center justify-center pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden bg-gradient-to-br from-brand-blue-700 via-brand-blue-600 to-brand-blue-700 text-brand-white-50 border-b border-brand-blue-500/20"
     >
-      {/* Ambient background glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(6,54,165,0.45),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
+      {/* Ambient background glows with slow pulse animation */}
+      <motion.div 
+        animate={{ scale: [1, 1.12, 1], opacity: [0.18, 0.28, 0.18] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-10 left-[-100px] w-[450px] h-[450px] rounded-full pointer-events-none"
+        style={{
+          background: 'var(--brand-yellow)',
+          filter: 'blur(130px)',
+        }}
+        aria-hidden="true"
+      />
+      <motion.div 
+        animate={{ scale: [1, 1.08, 1], opacity: [0.25, 0.38, 0.25] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute bottom-[-100px] right-[-80px] w-[550px] h-[550px] rounded-full pointer-events-none"
+        style={{
+          background: 'var(--brand-blue)',
+          filter: 'blur(150px)',
+        }}
+        aria-hidden="true"
+      />
 
       {/* Background illustration overlay */}
-      <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none">
+      <div className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none">
         <Image
           src="/delivery-background.jpg"
-          alt="Fondo de reparto urbano"
-          fill={true}
+          alt="Fondo de comunidad urbana Mar del Plata"
+          fill
           priority
           sizes="100vw"
           className="object-cover"
@@ -52,116 +96,169 @@ export default function NetworksHero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* Main Copy Content */}
-          <div className="lg:col-span-7 text-center lg:text-left space-y-6">
-            
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          
+          {/* Left Column: Headline & Channel Cards (7 cols) */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left"
+          >
             {/* Badge in Bebas Neue */}
-            <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <span className="px-4 py-1.5 rounded-full text-base font-subheading uppercase tracking-widest bg-brand-blue-700/60 border border-brand-yellow-500/30 text-brand-yellow-500 flex items-center gap-1.5 shadow-sm backdrop-blur-sm">
-                <Share2 className="h-4.5 w-4.5 text-brand-yellow-500 animate-pulse shrink-0" />
-                SOCIAL MEDIA
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-brand-blue-900/80 text-brand-yellow-500 text-xs sm:text-sm font-subheading uppercase tracking-widest shadow-md backdrop-blur-md">
+              <Share2 className="h-4 w-4 text-brand-yellow-500 animate-pulse shrink-0" />
+              <span>COMUNIDAD EN MOVIMIENTO · SOCIAL MEDIA</span>
+            </div>
+
+            {/* Monumental Headline */}
+            <h1 className="text-5xl sm:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-display uppercase tracking-tight leading-[0.92] text-brand-white-50">
+              <span className="block">COMUNIDAD EN</span>
+              <span className="block text-brand-yellow-500 italic drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">
+                LÍNEA
               </span>
-            </motion.div>
- 
-            {/* Title with Inline Image Typography */}
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-[0.02em] leading-[1.1] text-white flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2"
-            >
-              <span>COMUNIDAD EN</span>
-              <span className="relative inline-block w-16 h-10 sm:w-20 sm:h-12 rounded-full overflow-hidden border-2 border-brand-yellow-500 align-middle shrink-0 shadow-md">
-                <Image
-                  src="/img/generales/repartidor.webp"
-                  alt="Comunidad en movimiento"
-                  fill={true}
-                  sizes="(max-width: 768px) 64px, 80px"
-                  className="object-cover"
-                />
-              </span>
-              <span className="text-brand-yellow-500 drop-shadow-[0_2px_10px_rgba(255,236,1,0.25)]">LÍNEA</span>
-            </motion.h1>
- 
+            </h1>
+
             {/* Description */}
-            <motion.p 
-              variants={itemVariants}
-              className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
-            >
-              Seguinos en nuestras redes y enterate de todas las innovaciones!
-            </motion.p>
- 
-            {/* Special Callout Panel (Double-Bezel on Blue Background) */}
-            <motion.div 
-              variants={itemVariants}
-              className="double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl max-w-xl mx-auto lg:mx-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
-            >
-              <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue-700 space-y-2">
-                <div className="flex items-center gap-2 justify-center lg:justify-start">
-                  <Sparkles className="h-4.5 w-4.5 text-brand-yellow-500 animate-spin-slow shrink-0" />
-                  <h3 className="text-xs font-sans font-bold uppercase tracking-wider text-brand-blue-700 leading-none">
-                    ¡SEGUÍ EL MOVIMIENTO!
-                  </h3>
-                </div>
-                <p className="text-xs sm:text-sm text-brand-blue-600/90 leading-relaxed font-sans text-center lg:text-left">
-                  Unite a nuestra comunidad local para acceder a sorteos, códigos de descuento relámpago y estar al tanto de toda la logística de la ciudad.
-                </p>
-              </div>
-            </motion.div>
- 
-          </div>
- 
-          {/* Graphical/Illustrative Column (Double-Bezel on Blue Background) */}
-          <div className="lg:col-span-5 relative hidden lg:block h-[400px]">
-            {/* Floating community widget */}
-            <motion.div 
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] z-20"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1, transition: { duration: 0.8, delay: 0.3 } }}
-              whileHover={{ scale: 1.02, y: -6 }}
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            >
-              <div className="double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100 p-2 rounded-2xl shadow-[0_20px_50px_rgba(0,39,124,0.15)] group transition-all duration-300">
-                <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue space-y-6">
-                  {/* Visual Accent Top Bar */}
-                  <div className="absolute top-0 inset-x-0 h-1.5 bg-brand-blue" />
-                  
+            <p className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-50 max-w-2xl mx-auto lg:mx-0 leading-relaxed pl-4 border-l-2 border-brand-yellow-500">
+              La logística también se vive en redes. Rutas en vivo, promos relámpago y la comunidad de repartidores más grande de Mar del Plata.
+            </p>
+
+            {/* 3 Horizontal Channel Cards */}
+            <div className="space-y-3.5 pt-2 max-w-xl mx-auto lg:mx-0">
+              {SOCIAL_CHANNELS.map((ch) => {
+                const IconComp = ch.icon;
+                return (
+                  <a
+                    key={ch.id}
+                    href={ch.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-100/70 p-1.5 rounded-2xl shadow-md transition-all duration-300 hover:scale-[1.02] hover:border-brand-yellow-500 hover:shadow-xl cursor-pointer"
+                  >
+                    <div className="double-bezel-inner bg-white rounded-xl p-4 sm:p-4.5 border border-brand-blue-50/50 flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
+                        <div className="w-11 h-11 rounded-xl bg-brand-blue-50 border border-brand-blue-100 flex items-center justify-center shrink-0 text-brand-blue-700 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 group-hover:border-brand-yellow-500 transition-colors">
+                          <IconComp className="w-5 h-5" />
+                        </div>
+                        <div className="text-left min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="font-display text-base sm:text-lg uppercase tracking-wide text-brand-blue-700 leading-none">
+                              {ch.name}
+                            </span>
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-brand-yellow-50 text-[10px] font-subheading font-bold uppercase text-brand-blue-900 border border-brand-yellow-200">
+                              <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow-500 animate-pulse" />
+                              {ch.badge}
+                            </span>
+                          </div>
+                          <p className="font-sans text-xs text-brand-ink/75 truncate mt-0.5">
+                            {ch.desc}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="shrink-0 flex items-center gap-1 text-xs font-subheading uppercase font-bold text-brand-blue-700 group-hover:text-brand-blue-900 group-hover:translate-x-0.5 transition-all">
+                        <span className="hidden sm:inline">{ch.ctaText}</span>
+                        <ArrowRight className="w-4 h-4 text-brand-yellow-500" />
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* Right Column: Floating Social Proof & Live Follower Widget (5 cols) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative"
+          >
+            <div className="double-bezel-outer bg-brand-blue-50/95 border border-brand-blue-100 p-2 rounded-3xl shadow-2xl">
+              <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-2xl border border-brand-blue-50/50 shadow-sm text-brand-blue-700 space-y-6 relative overflow-hidden">
+                {/* Visual Accent Top Bar */}
+                <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-brand-blue-700 via-brand-blue-500 to-brand-yellow-500" />
+
+                {/* Follower Counter Block */}
+                <div className="flex items-center justify-between pt-1">
                   <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100 rounded-xl flex items-center justify-center shrink-0">
-                      <Users className="h-5.5 w-5.5" />
+                    <div className="w-12 h-12 rounded-2xl bg-brand-blue-50 border border-brand-blue-100 flex items-center justify-center text-brand-blue-700">
+                      <Users className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-sans font-bold uppercase tracking-wider text-brand-blue-700 leading-none">
-                        CANALES OFICIALES
-                      </h4>
-                      <p className="text-xs text-brand-blue-400 font-sans font-bold tracking-wider uppercase mt-1">CONEXIÓN INMEDIATA</p>
+                      <div className="font-display text-3xl sm:text-4xl uppercase tracking-tight text-brand-blue-700 leading-none tabular-nums">
+                        +{followers.toLocaleString('es-AR')}
+                      </div>
+                      <p className="text-xs text-brand-blue-400 font-subheading uppercase tracking-wider font-bold mt-0.5">
+                        SEGUIDORES EN MAR DEL PLATA
+                      </p>
                     </div>
                   </div>
- 
-                  <p className="text-sm text-brand-blue-600 font-sans leading-relaxed">
-                    Nuestras redes sociales son el canal directo para resolver dudas rápidas, ver el recorrido de los envíos en Mar del Plata y sumarte a la red más ágil.
-                  </p>
- 
-                  <div className="pt-4 border-t border-brand-blue-100 flex justify-between items-center text-xs">
-                    <span className="font-sans font-semibold text-brand-blue-500">@enviosdosruedas</span>
-                    <a 
-                      href="#networks-channels" 
-                      className="font-subheading text-brand-blue hover:text-brand-blue-600 flex items-center gap-1 text-base tracking-wider transition-colors duration-200"
-                    >
-                      <span>VER CANALES</span>
-                      <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
-                    </a>
+                  <span className="w-3 h-3 rounded-full bg-brand-yellow-500 animate-pulse shadow-[0_0_8px_#FFEC01]" />
+                </div>
+
+                {/* Content description */}
+                <p className="text-sm text-brand-ink leading-relaxed font-sans">
+                  Sumate a la red más activa de la ciudad. Compartimos historias del asfalto marplatense, consejos de embalaje para e-commerce y promociones sorpresa todos los meses.
+                </p>
+
+                {/* Visual Preview Grid */}
+                <div className="grid grid-cols-2 gap-2.5">
+                  <div className="relative h-24 rounded-xl overflow-hidden border border-brand-blue-100 group">
+                    <Image
+                      src="/img/generales/repartidor.webp"
+                      alt="Cadete Envíos DosRuedas Mar del Plata"
+                      fill
+                      sizes="200px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-900/80 via-transparent to-transparent flex items-end p-2">
+                      <span className="text-[11px] font-subheading uppercase font-bold text-white tracking-wider">
+                        #RutasMDQ
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="relative h-24 rounded-xl overflow-hidden border border-brand-blue-100 group">
+                    <Image
+                      src="/img/generales/card_express.png"
+                      alt="Operaciones de despacho Envíos DosRuedas"
+                      fill
+                      sizes="200px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-900/80 via-transparent to-transparent flex items-end p-2">
+                      <span className="text-[11px] font-subheading uppercase font-bold text-white tracking-wider">
+                        #SameDayMDQ
+                      </span>
+                    </div>
                   </div>
                 </div>
+
+                {/* CTA Button */}
+                <a
+                  href="https://instagram.com/enviosdosruedas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 border-none shadow-accent font-subheading tracking-wider uppercase text-base py-3 justify-center transition-all duration-300 active:scale-[0.99] cursor-pointer flex"
+                >
+                  <span>Seguinos en Instagram</span>
+                  <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 shrink-0">
+                    <ExternalLink className="h-4 w-4" />
+                  </span>
+                </a>
+
+                {/* Trust Footer */}
+                <div className="pt-3 border-t border-brand-blue-50 flex items-center justify-between text-xs text-brand-blue-400 font-sans">
+                  <span>Oficina: Friuli 1972</span>
+                  <span className="font-mono font-bold text-brand-blue-700">MDQ 2026</span>
+                </div>
               </div>
-            </motion.div>
-          </div>
- 
-        </motion.div>
+            </div>
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );
