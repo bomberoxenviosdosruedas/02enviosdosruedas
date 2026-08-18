@@ -69,7 +69,7 @@ export default function SliderServicios() {
   // Sync currentMotion with current state
   useEffect(() => {
     currentMotion.set(current);
-  }, [current]);
+  }, [current, currentMotion]);
 
   // Auto-rotation with deterministic timing
   useEffect(() => {
