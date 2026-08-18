@@ -47,7 +47,7 @@ export default function VisionSection() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "0px" }}
         variants={containerVariants}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

@@ -3,14 +3,19 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import {
   Menu, X, ChevronDown, Bike, ChevronRight, Phone,
   Home, Zap, TrendingDown, Clock, ShoppingBag, Info, HelpCircle, Share2, Mail
 } from 'lucide-react';
 import { CTANestedPill } from '@/components/ui';
-import MobileNav from './MobileNav';
+
+// Dynamically import MobileNav so mobile drawer logic is loaded only on demand
+const MobileNav = dynamic(() => import('./MobileNav'), {
+  ssr: false,
+});
 
 interface NavItem {
   label: string;
@@ -85,7 +90,7 @@ export default function OptimizedHeader() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
 
-          {/* Logo (Vector SVG >= 120px) */}
+          {/* Logo (Vector WebP >= 120px) */}
           <Link
             href="/"
             id="nav-logo-opt"
@@ -219,7 +224,7 @@ export default function OptimizedHeader() {
           <div className="lg:hidden flex items-center gap-3">
             <a
               href="tel:+542236602699"
-              className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none transition-all"
+              className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
               title="Llamar"
             >
               <Phone className="h-5 w-5" />
@@ -227,7 +232,7 @@ export default function OptimizedHeader() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               id="mobile-menu-toggle-opt"
-              className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none transition-all cursor-pointer"
+              className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none transition-all cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Toggle Navigation Menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -237,14 +242,16 @@ export default function OptimizedHeader() {
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer */}
-      <MobileNav
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        navItems={navItems}
-        activeDropdown={activeDropdown}
-        onDropdownToggle={handleDropdownToggle}
-      />
+      {/* Mobile Navigation Drawer - Dynamic On Demand */}
+      {isOpen && (
+        <MobileNav
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          navItems={navItems}
+          activeDropdown={activeDropdown}
+          onDropdownToggle={handleDropdownToggle}
+        />
+      )}
     </header>
   );
 }

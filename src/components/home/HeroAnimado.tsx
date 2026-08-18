@@ -12,9 +12,9 @@ export default function HeroAnimado() {
       className="relative w-full overflow-hidden bg-brand-blue-700 text-white"
       style={{ minHeight: '90dvh' }}
     >
-      {/* Background glow orb */}
+      {/* Background glow orb - optimized for desktop only to avoid mobile GPU paint penalty */}
       <div
-        className="absolute top-[-400px] right-[-400px] w-[800px] h-[800px] rounded-full pointer-events-none"
+        className="absolute top-[-400px] right-[-400px] w-[800px] h-[800px] rounded-full pointer-events-none hidden sm:block"
         style={{
           background: 'var(--brand-yellow)',
           filter: 'blur(120px)',
