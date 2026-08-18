@@ -7,28 +7,22 @@ import { Compass, TrendingUp, Award, CheckCircle, Truck, MapPin } from 'lucide-r
 export default function AboutTimeline() {
   const milestones = [
     {
-      year: '2011',
-      title: 'Pioneros en Mensajería Local',
-      desc: 'Iniciamos operaciones en las calles céntricas de Mar del Plata con cadetería ágil y atención de confianza para comercios.',
-      icon: Compass,
-    },
-    {
-      year: '2017',
-      title: 'Flota Motorizada Propia',
-      desc: 'Incorporamos estructura propia de repartidores uniformados y coordinados para garantizar entregas en franjas horarias estrictas.',
-      icon: Truck,
-    },
-    {
       year: '2019',
-      title: 'Lanzamiento Inicial',
-      desc: 'Expandimos la red operativa con centro de operaciones dedicado a comercios y emprendedores locales.',
-      icon: Award,
+      title: 'Lanzamiento Inicial en MDQ',
+      desc: 'Iniciamos operaciones con flota propia de motocicletas en las calles céntricas de Mar del Plata, apostando a un servicio ágil y de confianza.',
+      icon: Compass,
     },
     {
       year: '2021',
       title: 'Soluciones PyME y LowCost',
-      desc: 'Lanzamos la modalidad LowCost agrupada y el Plan Emprendedores para impulsar las ventas online durante la expansión del e-commerce.',
+      desc: 'Lanzamos la modalidad LowCost agrupada y el Plan Emprendedores para impulsar las ventas online durante la expansión del e-commerce local.',
       icon: TrendingUp,
+    },
+    {
+      year: '2023',
+      title: 'Consolidación de Flota Propia',
+      desc: 'Estructura propia de repartidores uniformados y coordinados por WhatsApp para garantizar entregas puntuales sin tercerización.',
+      icon: Truck,
     },
     {
       year: '2024',
@@ -45,7 +39,7 @@ export default function AboutTimeline() {
     {
       year: '2026',
       title: 'Infraestructura 3PL y Cobertura Total',
-      desc: 'Red consolidada de última milla con flota ampliada de +20 repartidores, cotización en tiempo real y fulfillment para tiendas online.',
+      desc: 'Más de 7 años de trayectoria consolidada con flota propia, cotizadores en tiempo real y fulfillment integral para tiendas online.',
       icon: Award,
     },
   ];
@@ -67,7 +61,7 @@ export default function AboutTimeline() {
             NUESTRA HISTORIA
           </h2>
           <p className="text-brand-ink/80 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-            Más de 15 años transformando la última milla y la mensajería urbana en la ciudad de Mar del Plata.
+            Más de 7 años transformando la última milla y la mensajería urbana en la ciudad de Mar del Plata.
           </p>
         </div>
 

@@ -11,9 +11,18 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
   title: 'Sobre Nosotros & Historia | Envíos DosRuedas Mar del Plata',
-  description: 'Conocé la historia, valores y equipo detrás de Envíos DosRuedas. Más de 15 años liderando la logística urbana, cadetería y última milla e-commerce en Mar del Plata.',
+  description:
+    'Conocé la historia, valores y equipo detrás de Envíos DosRuedas. Más de 7 años de trayectoria liderando la logística urbana, cadetería y última milla e-commerce en Mar del Plata.',
   alternates: {
     canonical: `${baseUrl}/nosotros/sobre-nosotros`,
+  },
+  openGraph: {
+    title: 'Sobre Nosotros & Historia | Envíos DosRuedas Mar del Plata',
+    description:
+      'Más de 7 años de trayectoria transformando la logística urbana y la última milla en Mar del Plata con flota propia.',
+    url: `${baseUrl}/nosotros/sobre-nosotros`,
+    type: 'website',
+    locale: 'es_AR',
   },
 };
 
@@ -21,13 +30,15 @@ const jsonLdSchema = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
   name: 'Sobre Nosotros - Envíos DosRuedas',
-  description: 'Historia, valores y equipo de Envíos DosRuedas en Mar del Plata. Más de 15 años de experiencia en logística urbana y última milla.',
+  description:
+    'Historia, valores y equipo de Envíos DosRuedas en Mar del Plata. Más de 7 años de trayectoria en logística urbana y última milla.',
   url: `${baseUrl}/nosotros/sobre-nosotros`,
   mainEntity: {
     '@type': 'LocalBusiness',
     '@id': `${baseUrl}#localbusiness`,
     name: 'Envíos DosRuedas',
-    description: 'Empresa líder de mensajería y logística última milla en Mar del Plata.',
+    description:
+      'Somos tu aliado estratégico en logística urbana y mensajería de última milla. Con más de 7 años de trayectoria en Mar del Plata, transformamos el despacho de tus productos en un motor de crecimiento para emprendedores, PyMEs y comercios locales.',
     telephone: '+54-223-660-2699',
     email: 'matiascejas@enviosdosruedas.com',
     address: {

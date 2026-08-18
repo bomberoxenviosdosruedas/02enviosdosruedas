@@ -7,25 +7,25 @@ import { Award, Star, ShieldCheck, Sparkles, MapPin, ChevronLeft, ChevronRight, 
 
 const REVIEWS = [
   {
-    author: "Luciana M.",
-    role: "E-Commerce Indumentaria · Güemes",
-    text: "Excelente servicio en Mar del Plata. Despachamos todos los días desde nuestro local y llegan siempre en horario pactado.",
+    author: "Sol R.",
+    role: "Google Local Guide · Mar del Plata",
+    text: "Matías de Envíos DosRuedas se convirtió en mi héroe logístico por segundo año consecutivo. Rapidez, comunicación clara y un embalaje impecable.",
     rating: 5,
-    date: "Hace 2 días",
+    date: "Hace 26 semanas",
   },
   {
-    author: "Martín G.",
-    role: "Tienda de Tecnología · Centro",
-    text: "La mejor logística de MDQ. Desde que coordinamos por WhatsApp con Friuli 1972 no tuvimos nunca un paquete demorado.",
+    author: "Karen H.",
+    role: "Comercio Local · Mar del Plata",
+    text: "Excelente servicio, rápidos, muy atentos, resolvieron mi problema con la mejor predisposición. Los recomiendo ampliamente.",
     rating: 5,
-    date: "Hace 5 días",
+    date: "Hace 13 semanas",
   },
   {
-    author: "Sofía R.",
-    role: "Emprendimiento Gastronómico · Chauvín",
-    text: "Flota propia impecable y repartidores con la mejor onda. Cuidan los paquetes y atienden al cliente de diez.",
+    author: "Agustín T.",
+    role: "Tienda Online · Centro",
+    text: "Lo usé varias veces para llevar pedidos a nuestros clientes. Impecable el servicio y la confianza de su flota propia.",
     rating: 5,
-    date: "Hace 1 semana",
+    date: "Hace 48 semanas",
   },
 ];
 
@@ -72,9 +72,9 @@ export default function AboutHero() {
               </span>
             </h1>
 
-            {/* Description */}
+            {/* Description matching official profile */}
             <p className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-50 max-w-2xl mx-auto lg:mx-0 leading-relaxed pl-4 border-l-2 border-brand-yellow-500">
-              Nacimos en las calles de Mar del Plata con una convicción clara: construir un servicio de mensajería y distribución veloz, humano y sin excusas para cada negocio local.
+              Con más de 7 años de trayectoria en Mar del Plata, transformamos el despacho de tus productos en un motor de crecimiento para emprendedores, PyMEs y comercios locales con flota propia y compromiso humano.
             </p>
 
             {/* Mission Callout Card (Double Bezel Dark Variant) */}
@@ -96,7 +96,7 @@ export default function AboutHero() {
             <div className="grid grid-cols-3 gap-3 pt-2 max-w-xl mx-auto lg:mx-0">
               <div className="p-3 rounded-xl bg-white/10 border border-white/10 backdrop-blur-sm text-center">
                 <span className="block font-display text-2xl sm:text-3xl text-brand-yellow-500 tabular-nums">
-                  +15
+                  +7
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100 mt-0.5">
                   Años en MDQ
@@ -152,7 +152,7 @@ export default function AboutHero() {
                     CONFIANZA LOCAL
                   </h4>
                   <p className="text-xs text-brand-blue-400 font-subheading uppercase tracking-wider mt-1 font-bold">
-                    +15 AÑOS DE EXPERIENCIA EN CALLES DE MDQ
+                    +7 AÑOS DE TRAYECTORIA EN CALLES DE MDQ
                   </p>
                 </div>
 

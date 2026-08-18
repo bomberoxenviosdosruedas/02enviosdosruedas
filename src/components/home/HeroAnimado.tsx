@@ -1,9 +1,11 @@
 'use client';
 
 import React from 'react';
-import { Package, MapPin, FastForward, Navigation, ShieldCheck, Zap } from 'lucide-react';
-import { CTANestedPill } from '@/components/ui';
-import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import Image from 'next/image';
+import { motion } from 'motion/react';
+import { Package, MapPin, FastForward, ShieldCheck, Zap, Sparkles, MessageCircle } from 'lucide-react';
+import { CTANestedPill } from '@/src/components/ui';
+import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
 
 export default function HeroAnimado() {
   return (
@@ -12,7 +14,7 @@ export default function HeroAnimado() {
       className="relative w-full overflow-hidden bg-brand-blue-700 text-white"
       style={{ minHeight: '90dvh' }}
     >
-      {/* Pure Vector & Dynamic Procedural Background (0 KB static images) */}
+      {/* Pure Vector & Dynamic Procedural Background */}
       <HeroProceduralBackground variant="express" />
 
       {/* Ghost Wordmark Monumental de Fondo */}
@@ -22,45 +24,47 @@ export default function HeroAnimado() {
         </span>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Copy */}
-          <div className="space-y-8 lg:space-y-10 text-center lg:text-left">
-            {/* Badge */}
-            <div>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-900 border border-brand-yellow-500 shadow-[0_0_20px_rgba(255,236,1,0.3)]">
-                Tu Solución Confiable
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          {/* Left Column: Copy & Actions (7 Cols on desktop) */}
+          <div className="lg:col-span-7 space-y-7 lg:space-y-9 text-center lg:text-left">
+            {/* Top Badge */}
+            <div className="flex justify-center lg:justify-start">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-900 shadow-[0_0_24px_rgba(255,236,1,0.35)] border border-brand-yellow-400">
+                <Sparkles className="w-3.5 h-3.5 fill-brand-blue-900" />
+                Tu Solución Confiable en Mar del Plata
               </span>
             </div>
 
-            {/* Title with Signature Knockout Treatment - Rendered immediately for optimal LCP */}
+            {/* Title with Signature Kinetic Typography */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-tight leading-[1.0] sm:leading-[0.95] flex flex-col items-center lg:items-start gap-2 select-none">
               <span className="kinetic-font-stretch">
                 Mensajería y Logística
               </span>
-              <span className="relative inline-block bg-brand-blue-700 px-3 py-1 my-1.5 transform -rotate-1 rounded-sm shadow-sm">
-                <span className="relative z-10 bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 inline-block">
+              <span className="relative inline-block bg-brand-blue-900/60 px-3 py-1 my-1 transform -rotate-1 rounded-lg border border-brand-yellow-500/40 shadow-md">
+                <span className="relative z-10 bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 inline-block font-display font-black rounded">
                   E-Commerce
                 </span>
               </span>
-              <span className="kinetic-font-stretch">
+              <span className="kinetic-font-stretch text-brand-blue-50">
                 en Mar del Plata
               </span>
             </h1>
 
-            {/* Body Text */}
-            <p className="text-lg sm:text-xl max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-blue-50 font-light">
-              Somos tu partner estratégico en mensajería, envíos en el día y delivery de última milla. Soluciones ágiles, seguras y competitivas para potenciar tu marca.
+            {/* Body Text in Rioplatense voice */}
+            <p className="text-base sm:text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-blue-100/90 font-light">
+              Somos tu partner estratégico en mensajería urbana, envíos en el día y delivery de última milla. Flota propia de motos, cero tercerización y respuesta inmediata.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-1">
               <CTANestedPill
                 href="/cotizar/express"
                 variant="primary"
                 size="large"
                 id="hero-cta-solicitar"
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto text-base"
               >
                 Cotizá Express
               </CTANestedPill>
@@ -69,123 +73,118 @@ export default function HeroAnimado() {
                 variant="elevated"
                 size="large"
                 id="hero-cta-servicios"
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto text-base"
               >
                 Mirá los Servicios
               </CTANestedPill>
             </div>
 
-            {/* Features list */}
-            <div
-              className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-8 opacity-70"
-              style={{ filter: 'grayscale(1)' }}
+            {/* Features / Trust Badges list */}
+            <div className="pt-2 flex flex-wrap justify-center lg:justify-start gap-5 sm:gap-8 text-brand-blue-100/80">
+              <div className="flex items-center gap-2.5 font-subheading text-sm uppercase tracking-wider">
+                <div className="w-8 h-8 rounded-lg bg-brand-yellow-500/15 border border-brand-yellow-500/30 flex items-center justify-center text-brand-yellow-500">
+                  <Package className="h-4 w-4" />
+                </div>
+                <span>+50k Envíos</span>
+              </div>
+              <div className="flex items-center gap-2.5 font-subheading text-sm uppercase tracking-wider">
+                <div className="w-8 h-8 rounded-lg bg-brand-yellow-500/15 border border-brand-yellow-500/30 flex items-center justify-center text-brand-yellow-500">
+                  <MapPin className="h-4 w-4" />
+                </div>
+                <span>Cobertura Total MDQ</span>
+              </div>
+              <div className="flex items-center gap-2.5 font-subheading text-sm uppercase tracking-wider">
+                <div className="w-8 h-8 rounded-lg bg-brand-yellow-500/15 border border-brand-yellow-500/30 flex items-center justify-center text-brand-yellow-500">
+                  <FastForward className="h-4 w-4" />
+                </div>
+                <span>Entregas en el Día</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Hero Visual Card with card_mapa.webp (5 Cols on desktop) */}
+          <div className="lg:col-span-5 relative flex justify-center items-center mt-4 lg:mt-0">
+            {/* Ambient Backlight Glow behind 3D image */}
+            <div className="absolute w-72 sm:w-96 h-72 sm:h-96 bg-brand-yellow-500/20 rounded-full blur-[100px] pointer-events-none -z-10" />
+            <div className="absolute w-60 sm:w-80 h-60 sm:h-80 bg-brand-blue-500/30 rounded-full blur-[90px] pointer-events-none -z-10" />
+
+            {/* Interactive Floating 3D Graphic Container */}
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="relative w-full max-w-[460px]"
             >
-              <span className="flex items-center gap-3 font-subheading text-sm uppercase tracking-wide">
-                <Package className="h-5 w-5 shrink-0" />
-                +1M Envíos
-              </span>
-              <span className="flex items-center gap-3 font-subheading text-sm uppercase tracking-wide">
-                <MapPin className="h-5 w-5 shrink-0" />
-                Cobertura Total
-              </span>
-              <span className="flex items-center gap-3 font-subheading text-sm uppercase tracking-wide">
-                <FastForward className="h-5 w-5 shrink-0" />
-                Express 24h
-              </span>
-            </div>
-          </div>
-
-          {/* Right Column: Interactive Vector Topology HUD Card (0 KB images) */}
-          <div className="relative hidden lg:block">
-            <div className="relative h-[520px] rounded-3xl overflow-hidden shadow-2xl transform rotate-2 bg-gradient-to-br from-brand-blue-900 via-brand-blue-800 to-brand-blue-700 border-2 border-white/20 p-8 flex flex-col justify-between">
-              
-              {/* Radar Grid Graphic */}
-              <div className="absolute inset-0 opacity-20 pointer-events-none">
-                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50%" cy="50%" r="35%" fill="none" stroke="#FFEC01" strokeWidth="1" strokeDasharray="4 8" className="animate-spin" style={{ animationDuration: '60s' }} />
-                  <circle cx="50%" cy="50%" r="20%" fill="none" stroke="#628FF9" strokeWidth="1.5" />
-                  <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#FFEC01" strokeWidth="1" strokeDasharray="4 6" />
-                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#FFEC01" strokeWidth="1" strokeDasharray="4 6" />
-                </svg>
-              </div>
-
-              {/* Header Telemetry */}
-              <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4">
-                <div className="flex items-center gap-2">
-                  <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-yellow-500" />
-                  </span>
-                  <span className="font-subheading text-xs uppercase tracking-widest text-brand-yellow-500 font-bold">
-                    GPS ACTIVO · MAR DEL PLATA
-                  </span>
-                </div>
-                <span className="font-mono text-xs font-bold text-white bg-white/10 px-3 py-1 rounded-full border border-white/20">
-                  HUB FRIULI 1972
-                </span>
-              </div>
-
-              {/* Node Network Map Simulation */}
-              <div className="relative z-10 my-auto py-6 space-y-4">
-                <div className="flex items-center justify-between p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-xl bg-brand-yellow-500 text-brand-blue-900">
-                      <Zap className="h-5 w-5 shrink-0" />
+              {/* Outer Double Bezel Frame for Hero Asset */}
+              <div className="double-bezel-outer bg-brand-blue-900/50 backdrop-blur-md border border-white/20 p-3 sm:p-4 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+                <div className="double-bezel-inner relative rounded-2xl overflow-hidden bg-gradient-to-b from-brand-blue-800/80 to-brand-blue-950/90 border border-white/10 p-4 sm:p-6 flex flex-col items-center">
+                  
+                  {/* Top HUD Telemetry Pill */}
+                  <div className="w-full flex items-center justify-between gap-2 mb-4 bg-brand-blue-900/70 border border-white/15 px-3.5 py-1.5 rounded-full backdrop-blur-sm">
+                    <div className="flex items-center gap-2">
+                      <span className="relative flex h-2.5 w-2.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow-500" />
+                      </span>
+                      <span className="font-subheading text-[11px] sm:text-xs uppercase tracking-widest text-brand-yellow-500 font-bold">
+                        Ruteo Activo · MDQ
+                      </span>
                     </div>
-                    <div>
-                      <p className="font-subheading text-sm uppercase font-bold text-white leading-none">
-                        Despacho Prioritario
-                      </p>
-                      <p className="font-sans text-xs text-brand-blue-100 mt-0.5">Centro · Güemes · Mogotes</p>
-                    </div>
-                  </div>
-                  <span className="font-mono text-xs font-bold text-brand-yellow-500">EN CURSO</span>
-                </div>
-
-                <div className="flex items-center justify-between p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-xl bg-brand-blue-500 text-white">
-                      <Navigation className="h-5 w-5 shrink-0" />
-                    </div>
-                    <div>
-                      <p className="font-subheading text-sm uppercase font-bold text-white leading-none">
-                        Ruteo Inteligente
-                      </p>
-                      <p className="font-sans text-xs text-brand-blue-100 mt-0.5">Batán · Camet · Constitución</p>
-                    </div>
-                  </div>
-                  <span className="font-mono text-xs font-bold text-brand-blue-200">OPTIMIZADO</span>
-                </div>
-              </div>
-
-              {/* Badge overlay - "Menos de 60m" */}
-              <div className="relative z-10">
-                <div
-                  style={{
-                    background: 'var(--brand-yellow)',
-                    color: 'var(--brand-blue)',
-                    padding: 'var(--space-4) var(--space-6)',
-                    borderRadius: 'var(--radius-xl)',
-                    boxShadow: 'var(--shadow-xl)',
-                    borderLeft: '8px solid var(--brand-blue)',
-                  }}
-                >
-                  <p style={{ margin: 0, fontFamily: 'var(--font-headline)', fontSize: 'var(--text-3xl)', lineHeight: 1, textTransform: 'uppercase' }}>
-                    Entregas en<br />
-                    <span style={{ background: 'var(--brand-blue)', color: '#fff', padding: '0 4px' }}>
-                      Menos de 60m
+                    <span className="font-mono text-[10px] sm:text-[11px] font-bold text-white/90 bg-white/10 px-2 py-0.5 rounded-md border border-white/15">
+                      Friuli 1972
                     </span>
-                  </p>
+                  </div>
+
+                  {/* Main 3D Card Image Asset */}
+                  <div className="relative w-full aspect-square max-w-[340px] flex items-center justify-center my-1 drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)]">
+                    <Image
+                      src="/card_mapa.webp"
+                      alt="Envíos DosRuedas - Mapa y Cobertura Logística en Mar del Plata"
+                      width={500}
+                      height={500}
+                      priority
+                      className="object-contain w-full h-full transform transition-transform duration-500 hover:scale-105"
+                    />
+                  </div>
+
+                  {/* Bottom Feature Badges Overlay */}
+                  <div className="w-full grid grid-cols-2 gap-2.5 mt-3">
+                    <div className="bg-brand-blue-900/80 border border-white/15 p-2.5 rounded-xl flex items-center gap-2.5">
+                      <div className="p-1.5 rounded-lg bg-brand-yellow-500 text-brand-blue-900 shrink-0">
+                        <Zap className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className="font-subheading text-xs font-bold uppercase text-white leading-tight">
+                          Envíos Same-Day
+                        </p>
+                        <p className="font-sans text-[10px] text-brand-blue-200">Entrega en el Día</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-brand-blue-900/80 border border-white/15 p-2.5 rounded-xl flex items-center gap-2.5">
+                      <div className="p-1.5 rounded-lg bg-brand-blue-500 text-white shrink-0">
+                        <ShieldCheck className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className="font-subheading text-xs font-bold uppercase text-white leading-tight">
+                          Flota Propia
+                        </p>
+                        <p className="font-sans text-[10px] text-brand-blue-200">Cero Tercerización</p>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-
-            </div>
+            </motion.div>
           </div>
+
         </div>
       </div>
 
-      {/* Bottom gradient fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-2 bg-brand-white-50 pointer-events-none" />
+      {/* Bottom gradient border fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-brand-yellow-500 pointer-events-none" />
     </section>
   );
 }

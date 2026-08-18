@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useReducedMotion, useMotionValue, useSpring } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import Link from 'next/link';
 import {
   ShoppingBag,
   Wrench,
@@ -10,74 +11,125 @@ import {
   ClipboardCheck,
   Package,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  ArrowRight,
+  Sparkles,
+  ShieldCheck,
+  Zap,
+  Clock,
+  MapPin,
+  Flame,
 } from 'lucide-react';
+import { cn } from '@/src/lib/utils';
+
+interface IndustrySlide {
+  id: string;
+  title: string;
+  badge: string;
+  subtitle: string;
+  desc: string;
+  icon: React.ElementType;
+  sla: string;
+  keyBenefits: string[];
+  ctaUrl: string;
+  ctaText: string;
+  variant: 'dark-blue' | 'yellow-accent' | 'frost-blue' | 'clean-white';
+}
+
+const INDUSTRY_SLIDES: IndustrySlide[] = [
+  {
+    id: 'ecommerce',
+    title: 'E-Commerce & Tiendas Online',
+    badge: 'MÁXIMA VELOCIDAD',
+    subtitle: 'Envíos Flex Same-Day & Next-Day',
+    desc: 'Retiramos tus ventas online y las entregamos en la misma jornada en todo Mar del Plata. Integración directa para Mercado Libre Flex y tiendas independientes con reputación garantizada.',
+    icon: ShoppingBag,
+    sla: 'Entregas en el día',
+    keyBenefits: ['Rendición de dinero en el acto', 'Seguimiento por WhatsApp', 'Cero suspensiones de Flex'],
+    ctaUrl: '/servicios/enviosflex',
+    ctaText: 'Ver Solución Flex',
+    variant: 'yellow-accent',
+  },
+  {
+    id: 'repuestos',
+    title: 'Repuestos & Talleres Mecánicos',
+    badge: 'ENTREGA CRÍTICA',
+    subtitle: 'Cadetería Urgente para el Sector Automotor',
+    desc: 'Despacho prioritario de autopartes, repuestos y herramientas hacia talleres, concesionarios y lubricentros de la ciudad sin demoras que frenen tus reparaciones.',
+    icon: Wrench,
+    sla: 'Prioridad Express',
+    keyBenefits: ['Hasta 5 kg por moto', 'Entregas puerta a puerta', 'Cobro contrareembolso'],
+    ctaUrl: '/cotizar/express',
+    ctaText: 'Cotizar Envío Urgente',
+    variant: 'dark-blue',
+  },
+  {
+    id: 'indumentaria',
+    title: 'Moda, Calzado & Indumentaria',
+    badge: 'LOGÍSTICA INVERSA',
+    subtitle: 'Showrooms, Locales & E-Shops',
+    desc: 'Distribución ágil con servicio de logística inversa para cambios de talle y devoluciones sin fricción para tus clientas. Cuidado riguroso del empaque.',
+    icon: Shirt,
+    sla: 'LowCost o Express',
+    keyBenefits: ['Gestión de cambios en puerta', 'Tarifas agrupadas LowCost', 'Bolsas y cajas protegidas'],
+    ctaUrl: '/servicios/envios-lowcost',
+    ctaText: 'Ver Tarifas LowCost',
+    variant: 'frost-blue',
+  },
+  {
+    id: 'tramites',
+    title: 'Trámites & Gestiones Corporativas',
+    badge: 'MÁXIMA SEGURIDAD',
+    subtitle: 'Cadetería Administrativa y Cobranzas',
+    desc: 'Gestión segura de contratos, facturas, firmas de documentos y depósitos bancarios o cobros en efectivo con rendición inmediata y comprobante digital.',
+    icon: FileText,
+    sla: 'Custodia Certificada',
+    keyBenefits: ['Firma en conformidad', 'Depósitos bancarios', 'Mensajeros de confianza'],
+    ctaUrl: '/cotizar/express',
+    ctaText: 'Solicitar Cadetería',
+    variant: 'clean-white',
+  },
+  {
+    id: 'insumos',
+    title: 'Insumos Médicos & Gastronómicos',
+    badge: 'PUNTUALIDAD RIGUROSA',
+    subtitle: 'Envíos Programados para Comercios',
+    desc: 'Abastecimiento de insumos descartables, ópticas, laboratorios, cafeterías y locales gastronómicos que requieren cumplimiento horario riguroso.',
+    icon: ClipboardCheck,
+    sla: 'Horarios Programados',
+    keyBenefits: ['Franjas pactadas de entrega', 'Depósito central Friuli 1972', 'Atención personalizada'],
+    ctaUrl: '/servicios/plan-emprendedores',
+    ctaText: 'Conocer Plan Comercios',
+    variant: 'dark-blue',
+  },
+  {
+    id: 'encomiendas',
+    title: 'Encomiendas & Distribución 3PL',
+    badge: 'LOGÍSTICA INTEGRAL',
+    subtitle: 'Almacenamiento, Picking y Despacho',
+    desc: 'Guardamos tu stock en nuestro centro logístico de Chauvín, preparamos tus pedidos apenas entra la venta y despachamos sin que tengas que ocuparte del empaque.',
+    icon: Package,
+    sla: 'Fulfillment Total',
+    keyBenefits: ['Depósito seguro en MDQ', 'Picking & Packing profesional', 'Control de stock diario'],
+    ctaUrl: '/servicios/plan-emprendedores',
+    ctaText: 'Ver Servicio 3PL',
+    variant: 'yellow-accent',
+  },
+];
 
 export default function SliderServicios() {
   const reduceMotion = useReducedMotion();
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const autoRotateIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const slides = [
-    {
-      title: 'E-Commerce',
-      subtitle: 'Entregas same day y next day',
-      desc: 'Envíos a domicilio de tus ventas online. Entregas misma jornada o a partir del día siguiente.',
-      icon: ShoppingBag,
-    },
-    {
-      title: 'Repuestos automotores',
-      subtitle: 'Partes críticas al instante',
-      desc: 'Envío rápido de repuestos y partes críticas a talleres y concesionarios de toda la ciudad.',
-      icon: Wrench,
-    },
-    {
-      title: 'Indumentaria y calzado',
-      subtitle: 'Moda y logística inversa',
-      desc: 'Logística inversa y entregas rápidas de moda local. Gestionamos cambios y devoluciones sin fricción.',
-      icon: Shirt,
-    },
-    {
-      title: 'Trámites',
-      subtitle: 'Cadería administrativa',
-      desc: 'Todo tipo de trámites, cobranzas, despacho de encomiendas.',
-      icon: FileText,
-    },
-    {
-      title: 'Insumos varios',
-      subtitle: 'Entregas en tiempo y forma',
-      desc: 'Entrega de todo tipo de insumos: médicos, tecnológicos, gastronómicos y más.',
-      icon: ClipboardCheck,
-    },
-    {
-      title: 'Encomiendas',
-      subtitle: 'Retiro y despacho',
-      desc: 'Retiro a domicilio y despacho de encomiendas con confirmación de entrega.',
-      icon: Package,
-    },
-  ];
-
-  // Spring configurations
-  const springConfig = { stiffness: 100, damping: 20 };
-  const springConfigSnappy = { stiffness: 300, damping: 25 };
-  const springConfigSlide = { stiffness: 120, damping: 22 };
-
-  // Spring-based current index for smooth transitions
-  const currentMotion = useMotionValue(0);
-  const currentSpring = useSpring(currentMotion, springConfigSlide);
-
-  // Sync currentMotion with current state
+  // Auto-rotation with pause on hover
   useEffect(() => {
-    currentMotion.set(current);
-  }, [current, currentMotion]);
-
-  // Auto-rotation with deterministic timing
-  useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion || isPaused) return;
 
     autoRotateIntervalRef.current = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 6000);
+      setCurrent((prev) => (prev + 1) % INDUSTRY_SLIDES.length);
+    }, 6500);
 
     return () => {
       if (autoRotateIntervalRef.current) {
@@ -85,170 +137,289 @@ export default function SliderServicios() {
         autoRotateIntervalRef.current = null;
       }
     };
-  }, [slides.length, reduceMotion]);
+  }, [reduceMotion, isPaused]);
 
   const handlePrev = () => {
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrent((prev) => (prev - 1 + INDUSTRY_SLIDES.length) % INDUSTRY_SLIDES.length);
   };
 
   const handleNext = () => {
-    setCurrent((prev) => (prev + 1) % slides.length);
+    setCurrent((prev) => (prev + 1) % INDUSTRY_SLIDES.length);
   };
 
-  // Indicator animation using spring
-  const indicatorSpring = useSpring(currentMotion, { stiffness: 300, damping: 25 });
+  const activeSlide = INDUSTRY_SLIDES[current];
+  const IconComponent = activeSlide.icon;
+
+  // Background variants
+  const isDarkBlue = activeSlide.variant === 'dark-blue';
+  const isYellowAccent = activeSlide.variant === 'yellow-accent';
+  const isFrostBlue = activeSlide.variant === 'frost-blue';
 
   return (
     <section
       id="slider-servicios"
-      className="py-24 bg-white text-brand-ink relative z-10 overflow-hidden"
+      className="py-24 bg-gradient-to-b from-brand-white-50 via-brand-blue-50/30 to-brand-white-50 text-brand-ink relative z-10 overflow-hidden border-t border-brand-blue-100/60"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Background patterns */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(6,54,165,0.02),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(255,236,1,0.03),transparent_50%)]" />
+      {/* Decorative ambient backgrounds */}
+      <div className="absolute top-1/3 left-10 w-96 h-96 bg-brand-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      <motion.div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
-        initial={{ opacity: 0, y: 45 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-      >
-        {/* Header Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12">
           <div className="lg:col-span-8 space-y-4">
-            <span className="px-4 py-1.5 bg-brand-yellow/20 text-brand-blue rounded-full text-xs font-subheading tracking-widest inline-block border border-brand-yellow uppercase">
-              Innovación en Distribución
-            </span>
-            <h2 className="text-brand-blue text-display uppercase">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading tracking-widest font-bold border border-brand-yellow-400 uppercase shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 fill-brand-blue-900" />
+              <span>Logística a Medida de tu Rubro · MDQ 2026</span>
+            </div>
+
+            <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[0.95]">
               Soluciones Especiales para Industrias
             </h2>
-            <p className="text-brand-blue-500 text-lg leading-relaxed font-sans max-w-2xl">
-              Hemos redefinido los estándares de la logística urbana para ofrecerte una ventaja competitiva real en un mercado en constante evolución en Mar del Plata.
+
+            <p className="text-brand-blue-600/90 font-sans text-base sm:text-lg max-w-2xl leading-relaxed">
+              Adaptamos nuestra flota propia de motos a la dinámica de tu negocio. Elegí tu sector y descubrí cómo optimizamos tus entregas urbanas.
             </p>
           </div>
 
-          <div className="lg:col-span-4 flex justify-start lg:justify-end gap-3">
-            <motion.button
+          {/* Navigation Controls & Counter */}
+          <div className="lg:col-span-4 flex items-center justify-start lg:justify-end gap-3">
+            <div className="font-mono text-xs font-bold text-brand-blue-500 bg-brand-blue-50 px-3 py-1.5 rounded-full border border-brand-blue-100 mr-2">
+              <span className="text-brand-blue-700 text-sm font-extrabold">{current + 1}</span> / {INDUSTRY_SLIDES.length}
+            </div>
+
+            <button
+              type="button"
               onClick={handlePrev}
-              whileHover={{ scale: 1.05, x: -2, transition: springConfigSnappy }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Slide anterior"
-              className="h-12 w-12 rounded-xl border-2 border-brand-yellow bg-brand-yellow hover:bg-brand-blue hover:text-brand-yellow hover:border-brand-blue text-brand-blue flex items-center justify-center cursor-pointer"
+              aria-label="Industria anterior"
+              className="h-11 w-11 rounded-xl border-2 border-brand-blue-200 bg-white text-brand-blue-700 hover:bg-brand-blue-700 hover:text-white hover:border-brand-blue-700 flex items-center justify-center transition-all cursor-pointer shadow-xs active:scale-95"
             >
               <ChevronLeft className="h-5 w-5" />
-            </motion.button>
-            <motion.button
+            </button>
+
+            <button
+              type="button"
               onClick={handleNext}
-              whileHover={{ scale: 1.05, x: 2, transition: springConfigSnappy }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Siguiente slide"
-              className="h-12 w-12 rounded-xl border-2 border-brand-yellow bg-brand-yellow hover:bg-brand-blue hover:text-brand-yellow hover:border-brand-blue text-brand-blue flex items-center justify-center cursor-pointer"
+              aria-label="Siguiente industria"
+              className="h-11 w-11 rounded-xl border-2 border-brand-yellow-500 bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 flex items-center justify-center transition-all cursor-pointer shadow-xs active:scale-95 font-bold"
             >
               <ChevronRight className="h-5 w-5" />
-            </motion.button>
+            </button>
           </div>
         </div>
 
-        {/* Dynamic Interactive Slide Showcase (Double-Bezel) */}
-        <div className="p-2 bg-brand-blue-50 border border-brand-blue-100 rounded-[2rem] w-full min-h-[320px] flex items-center relative overflow-hidden shadow-minimal">
-          <div className="bg-white rounded-[calc(2rem-0.5rem)] p-8 sm:p-12 w-full h-full border border-brand-blue-50 flex items-center justify-center">
+        {/* Quick Industry Navigation Pills */}
+        <div
+          role="tablist"
+          aria-label="Seleccionar rubro industrial"
+          className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar"
+        >
+          {INDUSTRY_SLIDES.map((slide, idx) => {
+            const isSelected = idx === current;
+            const MiniIcon = slide.icon;
+
+            return (
+              <button
+                key={slide.id}
+                type="button"
+                role="tab"
+                aria-selected={isSelected}
+                onClick={() => setCurrent(idx)}
+                className={cn(
+                  'px-4 py-2 rounded-full font-subheading text-xs sm:text-sm uppercase tracking-wider font-bold whitespace-nowrap transition-all duration-200 flex items-center gap-2 cursor-pointer border shrink-0',
+                  isSelected
+                    ? 'bg-brand-blue-700 text-white border-brand-blue-700 shadow-sm scale-105'
+                    : 'bg-white text-brand-blue-700 border-brand-blue-100 hover:bg-brand-blue-50 hover:border-brand-blue-300'
+                )}
+              >
+                <MiniIcon className={cn('w-4 h-4', isSelected ? 'text-brand-yellow-500' : 'text-brand-blue-500')} />
+                <span>{slide.title.split('&')[0].trim()}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Dynamic Showcase Hero Card (Double Bezel with Fluid Transitions) */}
+        <div
+          className={cn(
+            'double-bezel-outer p-2 sm:p-3 rounded-3xl transition-all duration-500 shadow-md',
+            isDarkBlue && 'bg-brand-blue-950/90 border-brand-blue-700',
+            isYellowAccent && 'bg-brand-yellow-100/80 border-brand-yellow-300',
+            isFrostBlue && 'bg-brand-blue-100/70 border-brand-blue-200',
+            !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-brand-blue-50/90 border-brand-blue-100'
+          )}
+        >
+          <div
+            className={cn(
+              'double-bezel-inner p-6 sm:p-10 lg:p-12 rounded-2xl border relative overflow-hidden transition-colors duration-500',
+              isDarkBlue && 'bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 text-white border-brand-blue-700/60',
+              isYellowAccent && 'bg-gradient-to-br from-white via-brand-yellow-50/60 to-white text-brand-ink border-brand-yellow-200',
+              isFrostBlue && 'bg-gradient-to-br from-white via-brand-blue-50/60 to-white text-brand-ink border-brand-blue-100',
+              !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white text-brand-ink border-brand-blue-50'
+            )}
+          >
             <AnimatePresence mode="wait">
               <motion.div
-                key={current}
-                initial={{ opacity: 0, x: 25 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -25 }}
-                transition={{ type: 'spring', stiffness: 100, damping: 20, duration: 0.45 }}
-                className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center w-full"
+                key={activeSlide.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
               >
-                <div className="md:col-span-4 flex justify-center">
-                  <motion.div
-                    className="h-28 w-28 rounded-3xl bg-brand-blue text-brand-yellow flex items-center justify-center shadow-[4px_4px_0px_#FFEC00] relative group overflow-hidden border border-brand-yellow cursor-pointer"
-                    whileHover={{ scale: 1.05, rotate: 2, transition: springConfigSnappy }}
-                    animate={reduceMotion
-                      ? {}
-                      : {
-                          y: [0, -8, 0],
-                          rotate: [0, 1, -1, 0],
-                        }}
-                    transition={reduceMotion
-                      ? {}
-                      : {
-                          y: { duration: 3, ease: 'easeInOut', repeat: Infinity },
-                          rotate: { duration: 4, ease: 'easeInOut', repeat: Infinity },
-                        }}
+                {/* Left Visual Column: Icon Box & SLA Callout */}
+                <div className="lg:col-span-4 flex flex-col items-center justify-center text-center space-y-5">
+                  <div
+                    className={cn(
+                      'w-28 h-28 sm:w-32 sm:h-32 rounded-3xl flex items-center justify-center shadow-lg border-2 relative transition-transform hover:scale-105',
+                      isDarkBlue
+                        ? 'bg-brand-blue-900/80 border-brand-yellow-500 text-brand-yellow-500 shadow-brand-yellow-500/10'
+                        : 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-400 shadow-brand-yellow-500/30'
+                    )}
                   >
-                    <motion.div
-                      className="absolute inset-0 bg-brand-yellow opacity-0"
-                      animate={{ opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeOut' }}
-                    />
-                    {React.createElement(slides[current].icon, { className: "h-14 w-14 shrink-0" })}
-                  </motion.div>
+                    <IconComponent className="h-14 w-14 sm:h-16 sm:w-16" />
+                  </div>
+
+                  {/* Operational Tag */}
+                  <div
+                    className={cn(
+                      'px-4 py-1.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider border flex items-center gap-1.5',
+                      isDarkBlue
+                        ? 'bg-white/10 text-brand-yellow-400 border-white/15'
+                        : 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-200'
+                    )}
+                  >
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>SLA: {activeSlide.sla}</span>
+                  </div>
                 </div>
 
-                <div className="md:col-span-8 space-y-4 text-center md:text-left">
-                  <motion.span
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.1 }}
-                    className="text-xs font-subheading tracking-widest text-brand-blue uppercase"
+                {/* Right Info Column: Title, Description, Benefits & CTA */}
+                <div className="lg:col-span-8 space-y-6 text-left">
+                  <div className="space-y-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span
+                        className={cn(
+                          'px-3 py-0.5 rounded-md text-[11px] font-mono font-bold uppercase tracking-wider',
+                          isDarkBlue
+                            ? 'bg-brand-yellow-500 text-brand-blue-900'
+                            : 'bg-brand-blue-700 text-white'
+                        )}
+                      >
+                        {activeSlide.badge}
+                      </span>
+                      <span
+                        className={cn(
+                          'text-xs font-subheading uppercase tracking-wider font-bold',
+                          isDarkBlue ? 'text-brand-blue-200' : 'text-brand-blue-500'
+                        )}
+                      >
+                        {activeSlide.subtitle}
+                      </span>
+                    </div>
+
+                    <h3
+                      className={cn(
+                        'text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-none',
+                        isDarkBlue ? 'text-white' : 'text-brand-blue-700'
+                      )}
+                    >
+                      {activeSlide.title}
+                    </h3>
+                  </div>
+
+                  <p
+                    className={cn(
+                      'font-sans text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl',
+                      isDarkBlue ? 'text-brand-blue-100/90' : 'text-brand-ink/85'
+                    )}
                   >
-                    {slides[current].subtitle}
-                  </motion.span>
-                  <motion.h3
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.15 }}
-                    className="text-3xl font-display text-brand-blue uppercase leading-none"
-                  >
-                    {slides[current].title}
-                  </motion.h3>
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
-                    className="text-brand-blue-500 font-sans text-sm sm:text-base leading-relaxed max-w-xl"
-                  >
-                    {slides[current].desc}
-                  </motion.p>
+                    {activeSlide.desc}
+                  </p>
+
+                  {/* Bullet Benefits Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                    {activeSlide.keyBenefits.map((benefit, bIdx) => (
+                      <div
+                        key={bIdx}
+                        className={cn(
+                          'p-3 rounded-xl border flex items-center gap-2.5 text-xs font-sans font-medium',
+                          isDarkBlue
+                            ? 'bg-white/5 border-white/10 text-brand-blue-50'
+                            : 'bg-brand-blue-50/70 border-brand-blue-100 text-brand-blue-900'
+                        )}
+                      >
+                        <ShieldCheck
+                          className={cn(
+                            'w-4 h-4 shrink-0',
+                            isDarkBlue ? 'text-brand-yellow-400' : 'text-brand-blue-600'
+                          )}
+                        />
+                        <span>{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Action CTA Button (Nested Pill) */}
+                  <div className="pt-3 flex flex-wrap items-center gap-4">
+                    <Link
+                      href={activeSlide.ctaUrl}
+                      className={cn(
+                        'inline-flex items-center gap-3 px-7 py-3.5 rounded-full font-subheading text-sm sm:text-base uppercase tracking-wider font-bold transition-all shadow-md group active:scale-98 cursor-pointer',
+                        isDarkBlue
+                          ? 'bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400'
+                          : 'bg-brand-blue-700 text-white hover:bg-brand-blue-800'
+                      )}
+                    >
+                      <span>{activeSlide.ctaText}</span>
+                      <span
+                        className={cn(
+                          'w-6 h-6 rounded-full flex items-center justify-center transition-transform group-hover:translate-x-1',
+                          isDarkBlue ? 'bg-brand-blue-900/15 text-brand-blue-900' : 'bg-white/20 text-white'
+                        )}
+                      >
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    </Link>
+
+                    <Link
+                      href="/contacto"
+                      className={cn(
+                        'font-subheading text-xs sm:text-sm uppercase tracking-wider font-bold transition-colors underline-offset-4 hover:underline py-2',
+                        isDarkBlue ? 'text-brand-blue-200 hover:text-white' : 'text-brand-blue-600 hover:text-brand-blue-800'
+                      )}
+                    >
+                      Consultar Cuenta Corriente Comercial →
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
 
-        {/* Indicators with spring animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.6 }}
-          className="flex justify-center gap-2 mt-8"
-          role="tablist"
-          aria-label="Navegación de slides"
-        >
-          {slides.map((slide, idx) => (
-            <motion.button
+        {/* Progress Bar & Indicators */}
+        <div className="flex justify-center items-center gap-2 mt-8">
+          {INDUSTRY_SLIDES.map((_, idx) => (
+            <button
               key={idx}
+              type="button"
               onClick={() => setCurrent(idx)}
-              role="tab"
-              aria-selected={idx === current}
-              aria-label={`Ir a: ${slide.title}`}
-              className={`min-w-[44px] min-h-[44px] flex items-center justify-center h-2.5 rounded-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow focus-visible:ring-offset-2 border ${
+              aria-label={`Ir al rubro ${idx + 1}`}
+              className={cn(
+                'h-2 rounded-full transition-all duration-300 cursor-pointer border',
                 idx === current
-                  ? 'bg-brand-yellow border-brand-yellow/50'
-                  : 'bg-brand-blue-100 hover:bg-brand-blue-300 border-brand-blue-200'
-              }`}
-              whileHover={idx !== current ? { scale: 1.3, transition: springConfigSnappy } : undefined}
-              whileTap={{ scale: 0.9 }}
-              animate={{ width: idx === current ? '2.5rem' : '0.625rem' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+                  ? 'w-10 bg-brand-yellow-500 border-brand-yellow-400'
+                  : 'w-2 bg-brand-blue-200 border-brand-blue-200 hover:bg-brand-blue-400'
+              )}
             />
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+
+      </div>
     </section>
   );
 }
