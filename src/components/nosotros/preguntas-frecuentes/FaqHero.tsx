@@ -43,7 +43,7 @@ const CATEGORY_CHIPS = [
 
 export default function FaqHero() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [openFaq, setOpenFaq] = useState<string | null>(TOP_FAQS[0].id);
+  const [openFaq, setOpenFaq] = useState<string | null>(null);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   const filteredSuggestions = searchQuery.trim()

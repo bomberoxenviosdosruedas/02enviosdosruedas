@@ -2,8 +2,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'motion/react';
 import { Package, MapPin, FastForward } from 'lucide-react';
 import { CTANestedPill } from '@/components/ui';
 
@@ -14,7 +12,7 @@ export default function HeroAnimado() {
       className="relative w-full overflow-hidden bg-brand-blue-700 text-white"
       style={{ minHeight: '90dvh' }}
     >
-      {/* Background glow orb - matches design spec */}
+      {/* Background glow orb */}
       <div
         className="absolute top-[-400px] right-[-400px] w-[800px] h-[800px] rounded-full pointer-events-none"
         style={{
@@ -37,23 +35,14 @@ export default function HeroAnimado() {
           {/* Left Column: Copy */}
           <div className="space-y-8 lg:space-y-10 text-center lg:text-left">
             {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
+            <div>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-900 border border-brand-yellow-500 shadow-[0_0_20px_rgba(255,236,1,0.3)]">
                 Tu Solución Confiable
               </span>
-            </motion.div>
+            </div>
 
-            {/* Title with Signature Knockout Treatment - matches design spec */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-tight leading-[1.0] sm:leading-[0.95] flex flex-col items-center lg:items-start gap-2 select-none"
-            >
+            {/* Title with Signature Knockout Treatment - Rendered immediately for optimal LCP */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-tight leading-[1.0] sm:leading-[0.95] flex flex-col items-center lg:items-start gap-2 select-none">
               <span className="kinetic-font-stretch">
                 Mensajería y Logística
               </span>
@@ -65,25 +54,15 @@ export default function HeroAnimado() {
               <span className="kinetic-font-stretch">
                 en Mar del Plata
               </span>
-            </motion.h1>
+            </h1>
 
             {/* Body Text */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-lg sm:text-xl max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-blue-50 font-light"
-            >
+            <p className="text-lg sm:text-xl max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed text-brand-blue-50 font-light">
               Somos tu partner estratégico en mensajería, envíos en el día y delivery de última milla. Soluciones ágiles, seguras y competitivas para potenciar tu marca.
-            </motion.p>
+            </p>
 
-            {/* CTA Buttons - matches design spec: size="large" */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4"
-            >
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               <CTANestedPill
                 href="/cotizar/express"
                 variant="primary"
@@ -102,13 +81,10 @@ export default function HeroAnimado() {
               >
                 Mirá los Servicios
               </CTANestedPill>
-            </motion.div>
+            </div>
 
-            {/* Features list - matches design spec */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            {/* Features list */}
+            <div
               className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-8 opacity-70"
               style={{ filter: 'grayscale(1)' }}
             >
@@ -124,22 +100,18 @@ export default function HeroAnimado() {
                 <FastForward className="h-5 w-5 shrink-0" />
                 Express 24h
               </span>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Right Column: Map Card with Badge - matches design spec */}
+          {/* Right Column: Map Card with Badge */}
           <div className="relative hidden lg:block">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, rotate: 2 }}
-              animate={{ opacity: 1, scale: 1, rotate: 2 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="relative h-[520px] rounded-3xl overflow-hidden shadow-2xl"
-            >
+            <div className="relative h-[520px] rounded-3xl overflow-hidden shadow-2xl transform rotate-2">
               <Image
                 src="/card_mapa.webp"
                 alt="Mapa de cobertura Mar del Plata"
                 fill={true}
-                priority
+                priority={true}
+                fetchPriority="high"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
@@ -165,7 +137,7 @@ export default function HeroAnimado() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

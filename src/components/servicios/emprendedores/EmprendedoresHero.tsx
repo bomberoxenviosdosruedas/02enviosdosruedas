@@ -15,7 +15,7 @@ export default function EmprendedoresHero() {
     >
       {/* Background image - matches design spec: fondo_emprendedores.webp at 35% opacity */}
       <Image
-        src="/fondo_emprendedores.webp"
+        src="/cards/fondo_emprendedores.webp"
         alt=""
         fill={true}
         priority

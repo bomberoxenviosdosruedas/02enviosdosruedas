@@ -108,7 +108,8 @@ export default function NetworksHero() {
             {/* Badge in Bebas Neue */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-brand-blue-900/80 text-brand-yellow-500 text-xs sm:text-sm font-subheading uppercase tracking-widest shadow-md backdrop-blur-md">
               <Share2 className="h-4 w-4 text-brand-yellow-500 animate-pulse shrink-0" />
-              <span>COMUNIDAD EN MOVIMIENTO · SOCIAL MEDIA</span>
+              <span>COMUNIDAD EN MOVIMIENTO · </span>
+              <span>SOCIAL MEDIA</span>
             </div>
 
             {/* Monumental Headline */}
@@ -204,7 +205,7 @@ export default function NetworksHero() {
                 </p>
 
                 {/* Visual Preview Grid */}
-                <div className="grid grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <div className="relative h-24 rounded-xl overflow-hidden border border-brand-blue-100 group">
                     <Image
                       src="/img/generales/repartidor.webp"

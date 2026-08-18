@@ -13,7 +13,7 @@ describe('ContactoPage — Tier 1 & 2', () => {
 
   it('T1.2: muestra la información institucional correcta (Friuli 1972, Mar del Plata)', () => {
     render(<ContactoPage />);
-    expect(screen.getByText(/Friuli 1972/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Friuli 1972/)[0]).toBeInTheDocument();
     expect(screen.getAllByText(/Mar del Plata/)[0]).toBeInTheDocument();
   });
 
@@ -60,7 +60,8 @@ describe('ContactoPage — Tier 1 & 2', () => {
 
   it('T2.1: muestra mensaje de error si se intenta enviar vacío', () => {
     const { container } = render(<ContactoPage />);
-    const form = container.querySelector('form')!;
+    const forms = container.querySelectorAll('form');
+    const form = forms[forms.length - 1]; // Select main ContactForm
     
     // Submit empty form directly to bypass HTML5 validation in JSDOM click handler
     fireEvent.submit(form);

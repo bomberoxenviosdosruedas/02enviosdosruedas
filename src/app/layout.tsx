@@ -8,6 +8,7 @@ const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
+  preload: true,
 });
 
 const anton = Anton({
@@ -15,6 +16,7 @@ const anton = Anton({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
+  preload: true,
 });
 
 const bebasNeue = Bebas_Neue({
@@ -22,6 +24,7 @@ const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
   variable: '--font-subheading',
   display: 'swap',
+  preload: true,
 });
 
 const baseUrl = 'https://www.enviosdosruedas.com';
@@ -79,28 +82,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${outfit.variable} ${anton.variable} ${bebasNeue.variable} scroll-smooth`} data-scroll-behavior="smooth">
       <head>
-        {/* Preload para imagen LCP del Hero */}
-        <link rel="preload" as="image" href="/hero-background.jpeg" fetchPriority="high" />
+        {/* Preload para imagen LCP del Hero de inicio */}
+        <link rel="preload" as="image" href="/card_mapa.webp" type="image/webp" fetchPriority="high" />
 
-        {/* DNS Prefetch para dominios externos */}
+        {/* DNS Prefetch & Preconnect para recursos externos */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://wa.me" />
-
-        {/* Google tag (gtag.js) - Google Ads & Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17510443994"
-          strategy="afterInteractive"
-        />
-        <Script id="google-tag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'AW-17510443994');
-            gtag('config', 'G-LSLQ3RJ8WT');
-          `}
-        </Script>
 
         {/* Schema Markup: Organization + LocalBusiness */}
         <script
@@ -113,7 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   '@type': 'Organization',
                   name: 'Envíos DosRuedas',
                   url: baseUrl,
-                  logo: `${baseUrl}/LogoEnviosDosRuedas.png`,
+                  logo: `${baseUrl}/logo-envios-simplified.webp`,
                   sameAs: [
                     'https://www.instagram.com/enviosdosruedas',
                     'https://www.facebook.com/enviosdosruedas',
@@ -211,7 +199,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
+        {/* Google tag (gtag.js) - Google Ads & Analytics cargados con lazyOnload para no competir con LCP */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17510443994"
+          strategy="lazyOnload"
+        />
+        <Script id="google-tag-init" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
+            gtag('config', 'AW-17510443994');
+            gtag('config', 'G-LSLQ3RJ8WT');
+          `}
+        </Script>
       </head>
       <body className="bg-white text-brand-ink font-sans antialiased selection:bg-brand-yellow selection:text-brand-blue min-h-screen flex flex-col" suppressHydrationWarning>
         <ClientLayout>

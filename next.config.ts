@@ -4,13 +4,11 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   devIndicators: false,
 
-  // SE ELIMINÓ: La propiedad 'eslint' que causaba el error de compilación.
-
   typescript: {
     ignoreBuildErrors: false,
   },
 
-  // Configuración de imágenes remotas permitidas
+  // Configuración de imágenes remotas y formatos modernos
   images: {
     remotePatterns: [
       {
@@ -24,7 +22,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-    // Optimización de formatos modernos
+    // Optimización de formatos modernos prioritarios
     formats: ['image/avif', 'image/webp'],
     // Caché extendido de 30 días para optimización de imágenes en Vercel Edge
     minimumCacheTTL: 2592000,
@@ -37,11 +35,13 @@ const nextConfig: NextConfig = {
   compress: true,
   transpilePackages: ['motion'],
 
-  // Optimización de importación de paquetes para reducir tamaño de bundle en Vercel
+  // Optimización de importación de paquetes para reducir drásticamente el tamaño del bundle
   experimental: {
     optimizePackageImports: [
       'lucide-react',
       'react-icons',
+      'gsap',
+      'leaflet',
       '@radix-ui/react-icons',
       '@radix-ui/react-accordion',
       '@radix-ui/react-dialog',
@@ -87,7 +87,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/(images|icons|fonts)/:path*',
+        source: '/(.*)\\.(webp|jpg|jpeg|png|svg|ico|woff2)$',
         headers: [
           {
             key: 'Cache-Control',
