@@ -1,13 +1,10 @@
-# Directiva específica para el bot de publicidad de Google
+# Reglas explícitas para el bot de Google Ads
 User-agent: AdsBot-Google
 Allow: /
 
 # Reglas generales para el resto de los rastreadores
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /admin/
-Disallow: /ordenes
-Disallow: /ordenes/
 
+# Mapa del sitio
 Sitemap: https://www.enviosdosruedas.com/sitemap.xml
