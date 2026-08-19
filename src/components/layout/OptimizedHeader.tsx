@@ -21,7 +21,7 @@ interface NavItem {
   label: string;
   href?: string;
   icon?: React.ComponentType<{ className?: string }>;
-  dropdownItems?: { label: string; href: string; description?: string; icon?: React.ComponentType<{ className?: string }> }[];
+  dropdownItems?: { label: string; href: string; icon?: React.ComponentType<{ className?: string }> }[];
 }
 
 export default function OptimizedHeader() {
@@ -56,19 +56,19 @@ export default function OptimizedHeader() {
       label: 'Servicios',
       icon: Bike,
       dropdownItems: [
-        { label: 'Envíos Express', href: '/servicios/envios-express', description: 'En el día en menos de 2 horas', icon: Zap },
-        { label: 'Envíos LowCost', href: '/servicios/envios-lowcost', description: 'Económico y programado Same-Day', icon: TrendingDown },
-        { label: 'Envíos Flex (MeLi)', href: '/servicios/enviosflex', description: 'Socio oficial Mercado Envíos Flex', icon: Clock },
-        { label: 'E-Commerce & 3PL', href: '/servicios/plan-emprendedores', description: 'Fulfillment y cadetería para PyMEs', icon: ShoppingBag },
+        { label: 'Envíos Express', href: '/servicios/envios-express', icon: Zap },
+        { label: 'Envíos LowCost', href: '/servicios/envios-lowcost', icon: TrendingDown },
+        { label: 'Envíos Flex (MeLi)', href: '/servicios/enviosflex', icon: Clock },
+        { label: 'E-Commerce & 3PL', href: '/servicios/plan-emprendedores', icon: ShoppingBag },
       ],
     },
     {
       label: 'Nosotros',
       icon: Info,
       dropdownItems: [
-        { label: 'Sobre Nosotros', href: '/nosotros/sobre-nosotros', description: 'Más de 7 años recorriendo Mar del Plata', icon: Info },
-        { label: 'Preguntas Frecuentes', href: '/nosotros/preguntas-frecuentes', description: 'Tarifas, zonas y consultas', icon: HelpCircle },
-        { label: 'Nuestras Redes', href: '/nosotros/nuestras-redes', description: 'Comunidad activa en movimiento', icon: Share2 },
+        { label: 'Sobre Nosotros', href: '/nosotros/sobre-nosotros', icon: Info },
+        { label: 'Preguntas Frecuentes', href: '/nosotros/preguntas-frecuentes', icon: HelpCircle },
+        { label: 'Nuestras Redes', href: '/nosotros/nuestras-redes', icon: Share2 },
       ],
     },
     { label: 'Contacto', href: '/contacto', icon: Mail },
@@ -114,7 +114,7 @@ export default function OptimizedHeader() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav id="desktop-nav-opt" className="hidden lg:flex items-center gap-1.5">
+          <nav id="desktop-nav-opt" className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -125,13 +125,13 @@ export default function OptimizedHeader() {
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`px-4 py-2 text-sm font-subheading font-bold tracking-wider uppercase rounded-xl transition-all flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
+                    className={`px-4 py-2 text-base xl:text-lg font-subheading font-bold tracking-wider uppercase rounded-xl transition-all flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
                       pathname === item.href
-                        ? 'text-brand-yellow-500 bg-white/10'
+                        ? 'text-brand-yellow-500 bg-white/10 shadow-sm'
                         : 'text-white hover:text-brand-yellow-500 hover:bg-white/5'
                     }`}
                   >
-                    {item.icon && <item.icon className="h-4 w-4 shrink-0 text-brand-yellow-500" />}
+                    {item.icon && <item.icon className="h-4.5 w-4.5 shrink-0 text-brand-yellow-500" />}
                     <span>{item.label}</span>
                   </Link>
                 ) : (
@@ -145,12 +145,12 @@ export default function OptimizedHeader() {
                     }}
                     aria-haspopup="true"
                     aria-expanded={activeDropdown === item.label}
-                    className="px-4 py-2 text-sm font-subheading font-bold tracking-wider uppercase rounded-xl transition-all flex items-center gap-1.5 text-white hover:text-brand-yellow-500 hover:bg-white/5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
+                    className="px-4 py-2 text-base xl:text-lg font-subheading font-bold tracking-wider uppercase rounded-xl transition-all flex items-center gap-1.5 text-white hover:text-brand-yellow-500 hover:bg-white/5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                   >
-                    {item.icon && <item.icon className="h-4 w-4 shrink-0 text-brand-yellow-500" />}
+                    {item.icon && <item.icon className="h-4.5 w-4.5 shrink-0 text-brand-yellow-500" />}
                     <span>{item.label}</span>
                     <ChevronDown
-                      className={`h-4 w-4 transition-transform duration-200 ${
+                      className={`h-4.5 w-4.5 transition-transform duration-200 ${
                         activeDropdown === item.label ? 'rotate-180 text-brand-yellow-500' : 'text-brand-blue-200'
                       }`}
                     />
@@ -165,35 +165,28 @@ export default function OptimizedHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute left-0 mt-2 w-76 bg-brand-blue-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/15 py-3 text-white overflow-hidden z-50"
+                      className="absolute left-0 mt-2 w-64 bg-brand-blue-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden z-50"
                       onBlur={(e) => {
                         if (!e.currentTarget.contains(e.relatedTarget)) {
                           setActiveDropdown(null);
                         }
                       }}
                     >
-                      <div className="grid gap-1 px-2">
+                      <div className="flex flex-col gap-1 px-2">
                         {item.dropdownItems.map((subItem) => {
                           const SubIcon = subItem.icon || ChevronRight;
                           return (
                             <Link
                               key={subItem.href}
                               href={subItem.href}
-                              className="flex items-start gap-3 p-2.5 rounded-xl transition-all hover:bg-white/10 text-white hover:text-brand-yellow-500 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-white/10 text-white hover:text-brand-yellow-500 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                             >
-                              <div className="p-1.5 rounded-lg bg-white/10 text-brand-blue-100 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors">
-                                <SubIcon className="h-4 w-4 shrink-0" />
+                              <div className="p-1.5 rounded-lg bg-white/10 text-brand-blue-100 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors shrink-0">
+                                <SubIcon className="h-4 w-4" />
                               </div>
-                              <div>
-                                <p className="text-xs font-bold uppercase font-subheading tracking-wide leading-tight text-white group-hover:text-brand-yellow-500 transition-colors">
-                                  {subItem.label}
-                                </p>
-                                {subItem.description && (
-                                  <p className="text-[11px] text-brand-blue-100/70 font-sans mt-0.5 group-hover:text-brand-blue-50 transition-colors">
-                                    {subItem.description}
-                                  </p>
-                                )}
-                              </div>
+                              <span className="text-sm sm:text-base font-bold uppercase font-subheading tracking-wider leading-none text-white group-hover:text-brand-yellow-500 transition-colors">
+                                {subItem.label}
+                              </span>
                             </Link>
                           );
                         })}

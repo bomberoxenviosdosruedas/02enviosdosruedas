@@ -15,7 +15,6 @@ export interface MobileNavItem {
   dropdownItems?: {
     label: string;
     href: string;
-    description?: string;
     icon?: React.ComponentType<{ className?: string }>;
   }[];
 }
@@ -88,14 +87,14 @@ export const MobileNav: React.FC<MobileNavProps> = ({
 
             {/* Nav Items List - Scrollable */}
             <div className="flex-1 overflow-y-auto px-5 py-6 space-y-6">
-              <nav className="space-y-3">
+              <nav className="space-y-2">
                 {navItems.map((item) => (
-                  <div key={item.label} className="border-b border-white/5 pb-3 last:border-b-0 last:pb-0">
+                  <div key={item.label} className="border-b border-white/10 pb-2.5 last:border-b-0 last:pb-0">
                     {item.href ? (
                       <Link
                         href={item.href}
                         onClick={onClose}
-                        className="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5 transition-all font-bold min-h-[44px] focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"
+                        className="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5 transition-all font-bold min-h-[48px] focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"
                       >
                         {item.icon && <item.icon className="h-5 w-5 text-brand-yellow-500 shrink-0" />}
                         <span>{item.label}</span>
@@ -104,9 +103,9 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                       <div>
                         <button
                           onClick={() => onDropdownToggle(item.label)}
-                          className="w-full text-left py-2 px-3 rounded-xl text-base font-subheading tracking-wider uppercase flex items-center justify-between text-white hover:bg-white/5 font-bold cursor-pointer transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"
+                          className="w-full text-left py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase flex items-center justify-between text-white hover:bg-white/5 font-bold cursor-pointer transition-all min-h-[48px] focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"
                         >
-                          <span className="flex items-center gap-3">
+                          <span className="flex items-center gap-3.5">
                             {item.icon && <item.icon className="h-5 w-5 text-brand-yellow-500 shrink-0" />}
                             <span>{item.label}</span>
                           </span>
@@ -124,7 +123,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="pl-6 pr-2 py-2 grid gap-2 overflow-hidden"
+                              className="pl-4 pr-1 py-2 flex flex-col gap-1 overflow-hidden"
                             >
                               {item.dropdownItems.map((subItem) => {
                                 const SubIcon = subItem.icon || ChevronRight;
@@ -133,9 +132,11 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                                     key={subItem.href}
                                     href={subItem.href}
                                     onClick={onClose}
-                                    className="flex items-center gap-2.5 py-2 px-3 rounded-lg text-xs font-subheading uppercase tracking-widest text-brand-blue-50/90 hover:text-brand-yellow-500 hover:bg-white/10 transition-all min-h-[40px] focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"
+                                    className="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider font-bold text-brand-blue-50/90 hover:text-brand-yellow-500 hover:bg-white/10 transition-all min-h-[42px] focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"
                                   >
-                                    <SubIcon className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                                    <div className="p-1 rounded-lg bg-white/10 text-brand-yellow-500 shrink-0">
+                                      <SubIcon className="h-4 w-4" />
+                                    </div>
                                     <span>{subItem.label}</span>
                                   </Link>
                                 );
