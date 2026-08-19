@@ -312,12 +312,12 @@ export default function ServicesOverview() {
           className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-white/10 pb-8"
         >
           <div>
-            <div className="px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading tracking-widest inline-block uppercase shadow-sm mb-3">
+            <div className="px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold tracking-widest inline-block uppercase shadow-sm mb-3 border border-brand-yellow-500/30">
               NUESTROS SERVICIOS
             </div>
             <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-tight leading-none text-balance">
               SOLUCIONES LOGÍSTICAS <br />
-              <span className="text-brand-yellow drop-shadow-[0_2px_10px_rgba(255,236,1,0.25)] underline decoration-brand-blue-500 underline-offset-8">
+              <span className="text-brand-yellow-500 drop-shadow-[0_2px_10px_rgba(255,236,1,0.25)] underline decoration-brand-blue-500 underline-offset-8">
                 A TU MEDIDA
               </span>
             </h2>
@@ -331,7 +331,7 @@ export default function ServicesOverview() {
               className={`px-4 py-2 rounded-full text-xs font-bold font-subheading tracking-wider border transition-colors cursor-pointer ${
                 isAutoRotate
                   ? 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-500 shadow-cta-glow'
-                  : 'bg-brand-blue-50/80 text-brand-blue-400 border-brand-blue-100 hover:bg-brand-blue-100 hover:text-brand-blue-700'
+                  : 'bg-brand-blue-50/80 text-brand-blue-700 border-brand-blue-100 hover:bg-brand-blue-100 hover:text-brand-blue-900'
               }`}
             >
               {isAutoRotate ? '⚡ ROTACIÓN AUTOMÁTICA' : 'ROTACIÓN PAUSADA'}
@@ -342,7 +342,7 @@ export default function ServicesOverview() {
                 onClick={handlePrev}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-3 rounded-full bg-white/10 hover:bg-brand-yellow hover:text-brand-blue border border-white/20 cursor-pointer"
+                className="p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-900 border border-white/20 cursor-pointer transition-colors"
                 aria-label="Anterior Servicio"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -351,7 +351,7 @@ export default function ServicesOverview() {
                 onClick={handleNext}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-3 rounded-full bg-white/10 hover:bg-brand-yellow hover:text-brand-blue border border-white/20 cursor-pointer"
+                className="p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-900 border border-white/20 cursor-pointer transition-colors"
                 aria-label="Siguiente Servicio"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -447,7 +447,7 @@ export default function ServicesOverview() {
                       className="flex items-center gap-2.5"
                       whileHover={{ scale: 1.05, transition: springConfigSnappy }}
                     >
-                      <div className="p-3 bg-brand-yellow text-brand-blue rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-700)]">
+                      <div className="p-3 bg-brand-yellow-500 text-brand-blue-900 rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-700)]">
                         <Icon className="h-5 w-5" />
                       </div>
                       <span className={`text-[10px] font-bold font-subheading px-2.5 py-1 rounded-full border shadow-sm ${service.badgeStyle}`}>
@@ -527,7 +527,7 @@ export default function ServicesOverview() {
               aria-label={`Ir al servicio ${service.title}${i === activeIndex ? ', servicio actual' : ''}`}
               aria-current={i === activeIndex ? 'true' : 'false'}
               className={`min-w-[44px] min-h-[44px] flex items-center justify-center h-2.5 rounded-full cursor-pointer ${
-                i === activeIndex ? 'w-10 bg-brand-yellow' : 'w-2.5 bg-white/30 hover:bg-white/60 border border-brand-blue-200'
+                i === activeIndex ? 'w-10 bg-brand-yellow-500' : 'w-2.5 bg-white/30 hover:bg-white/60 border border-brand-blue-200'
               }`}
               whileHover={i !== activeIndex ? { scale: 1.2, transition: springConfigSnappy } : undefined}
               whileTap={{ scale: 0.9 }}
@@ -561,18 +561,18 @@ export default function ServicesOverview() {
                   onClick={() => setSelectedService(null)}
                   whileHover={{ scale: 1.1, rotate: 90, transition: springConfigSnappy }}
                   whileTap={{ scale: 0.9 }}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-brand-yellow hover:text-brand-blue transition-colors cursor-pointer z-20"
+                  className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-900 transition-colors cursor-pointer z-20"
                 >
                   <X className="w-5 h-5" />
                 </motion.button>
 
                 {/* Modal Header */}
                 <div className="flex items-center gap-4 text-left">
-                  <div className="p-4 bg-brand-yellow text-brand-blue rounded-2xl shadow-[3px_3px_0px_var(--color-brand-blue-900)]">
+                  <div className="p-4 bg-brand-yellow-500 text-brand-blue-900 rounded-2xl shadow-[3px_3px_0px_var(--color-brand-blue-900)]">
                     {React.createElement(selectedService.icon, { className: "w-8 h-8" })}
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-brand-yellow font-subheading tracking-widest uppercase">
+                    <span className="text-[10px] font-bold text-brand-yellow-500 font-subheading tracking-widest uppercase">
                       {selectedService.founded} • {selectedService.city}
                     </span>
                     <h3 className="font-display text-3xl sm:text-4xl font-extrabold uppercase text-balance mt-0.5">
@@ -588,7 +588,7 @@ export default function ServicesOverview() {
                   </p>
 
                   <div className="space-y-2 pt-2 border-t border-brand-blue-500/10">
-                    <span className="text-xs font-subheading text-brand-yellow font-bold uppercase tracking-wider block">Beneficios Clave:</span>
+                    <span className="text-xs font-subheading text-brand-yellow-500 font-bold uppercase tracking-wider block">Beneficios Clave:</span>
                     {selectedService.details.features.map((feat: string, fIdx: number) => (
                       <motion.div
                         key={fIdx}
@@ -597,7 +597,7 @@ export default function ServicesOverview() {
                         transition={{ type: 'spring', stiffness: 100, damping: 20, delay: fIdx * 0.08 }}
                         className="flex items-start gap-2 text-xs sm:text-sm text-white"
                       >
-                        <ShieldCheck className="w-4 h-4 text-brand-yellow shrink-0 mt-0.5" />
+                        <ShieldCheck className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </motion.div>
                     ))}
@@ -612,7 +612,7 @@ export default function ServicesOverview() {
                   className="grid grid-cols-3 gap-3 text-center"
                 >
                   <div className="bg-brand-ink/60 border border-brand-blue-500/20 p-3 rounded-xl">
-                    <span className="text-xl font-bold font-subheading text-brand-yellow block truncate">
+                    <span className="text-xl font-bold font-subheading text-brand-yellow-500 block truncate">
                       {selectedService.stats.time}
                     </span>
                     <span className="text-[10px] text-brand-blue-200 font-bold uppercase tracking-wider">Tiempos</span>
@@ -624,7 +624,7 @@ export default function ServicesOverview() {
                     <span className="text-[10px] text-brand-blue-200 font-bold uppercase tracking-wider">Precio Base</span>
                   </div>
                   <div className="bg-brand-ink/60 border border-brand-blue-500/20 p-3 rounded-xl">
-                    <span className="text-xl font-bold font-subheading text-brand-yellow block truncate">
+                    <span className="text-xl font-bold font-subheading text-brand-yellow-500 block truncate">
                       {selectedService.stats.weight}
                     </span>
                     <span className="text-[10px] text-brand-blue-200 font-bold uppercase tracking-wider">Capacidad</span>
@@ -643,10 +643,10 @@ export default function ServicesOverview() {
                   </motion.button>
                   <a
                     href={selectedService.details.ctaHref}
-                    className="cta-nested-pill bg-brand-yellow text-brand-blue px-6 py-2.5 text-sm"
+                    className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 px-6 py-2.5 text-sm font-subheading font-bold uppercase"
                   >
                     <span>{selectedService.details.ctaText}</span>
-                    <span className="cta-nested-icon bg-brand-blue/10">→</span>
+                    <span className="cta-nested-icon bg-brand-blue-900/10">→</span>
                   </a>
                 </div>
               </div>

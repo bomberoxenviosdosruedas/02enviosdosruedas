@@ -1,302 +1,183 @@
 # Design System: Envíos DosRuedas (Sovereign Infrastructure & Heritage Logistics)
 
-> **Documento Maestro de Arquitectura Visual y Sistema de Diseño (2026)**  
-> Integra las especificaciones de marca de `AGENTS.md`, las fichas de diseño de `docs/diseno/`, tokens de `src/app/globals.css` y las directrices operativas para Mar del Plata.
+> **Documento Maestro de Arquitectura Visual, Sistema de Diseño Semántico y Directrices de Generación (2026)**  
+> Integra las especificaciones de marca de `AGENTS.md`, tokens de `src/app/globals.css`, fichas de diseño de `docs/diseno/` y los estándares de diseño semántico sin clichés de IA.
 
 ---
 
-## 0. Principios de Marca Inmutables (NO NEGOCIABLES)
+## 1. Visual Theme & Atmosphere
 
-> **Estas reglas son ley de cumplimiento estricto. Cualquier excepción requiere ADR documentado y aprobación de Brand + Product.**
+### 1.1 Metas de Calibración Sensorial (Taste Spectrum)
+- **Creativity:** **9/10** — Personalidad urbana costera marplatense, tipografía de signalética vial y tarjetas de profundidad gravitacional.
+- **Variance:** **8/10** — Grillas asimétricas Bento (7/5/12 columnas), titulares con acento tipográfico rotado (-1°) y composición offset.
+- **Motion:** **7/10** — Coreografía cinemática con física de resortes (`stiffness: 100, damping: 20`), micro-interacciones perpetuas y tilt 3D flotante.
+- **Density:** **6/10** — Balance óptimo entre la precisión de un panel de logística en tiempo real y la respiración visual de un servicio premium.
 
-### 0.1 Logotipo — INALTERABLE
-| Regla | Especificación |
-|---|---|
-| **Archivo maestro** | `/public/logo-master.svg` (vectorial, sin fondo, safe-area 20% perimetral) |
-| **Colores permitidos** | Solo: **Azul #0636A5** (primary), **Blanco #FFFFFF** (reverso), **Amarillo #FFEC01** (en marca compuesta oficial) |
-| **PROHIBIDO ABSOLUTO** | Recolorear, estirar (aspect-ratio fijo 1:0.45), añadir sombras/glows externos, colocar sobre fondos ruidosos sin safe-area, usar versiones rasterizadas (`.webp`, `.png`, `.jpg`) salvo fallback técnico documentado |
-| **Tamaño mínimo** | **120px ancho** (web), **30mm** (print) |
-| **Clear space** | 0.25× altura del logotipo en todos los 4 lados |
-| **Lockup tipográfico** | Logomarca + Wordmark en **Anton SC / Anton** uppercase: *"Envios"* en blanco y *"Dosruedas"* en amarillo (sobre azul), o ambos en azul (sobre fondo blanco) |
+### 1.2 Narrativa de Atmósfera
+La experiencia visual de **Envíos DosRuedas** proyecta la solidez y agilidad de una infraestructura logística soberana con 15+ años de trayectoria en las calles de Mar del Plata. El ambiente combina el rigor funcional de la señalética vial con la sofisticación de una plataforma tecnológica moderna. Fondos ultra limpios en Blanco Puro contrastan con bloques monumentales en Azul Egipcio Institucional (`#0636A5`) y acentos de alta energía en Amarillo Vial Eléctrico (`#FFEC01`). La interacción es táctil, responsiva y tangible: cada botón ofrece resistencia física al click y las tarjetas flotan con elevación gravitacional auténtica.
 
 ---
 
-### 0.2 Paleta — LEY DE TRES COLORES
-El sistema cromático usa **SOLO TRES COLORES CORPORATIVOS**: **Azul, Amarillo y Blanco** (y sus escalas oficiales remapeadas).
+## 2. Color Palette & Roles (Ley de Tres Colores)
 
-| Rol de Marca | Token CSS | Token Tailwind | Hex | Uso Principal |
+> ⚠️ **REGLA FUNDAMENTAL DE MARCA:** El sistema cromático utiliza **ÚNICAMENTE TRES COLORES CORPORATIVOS**: Azul Egipcio, Amarillo Vial Eléctrico y Blanco Puro. Quedan terminantemente prohibidas las escalas genéricas de Tailwind (`slate-*`, `gray-*`, `zinc-*`, `neutral-*`) y colores ajenos a la identidad oficial.
+
+### 2.1 Tabla Maestra de Tokens Cromáticos
+
+| Rol Semántico | Nombre Descriptivo | Token CSS / Tailwind | Valor Hex | Función en la Interfaz |
 |---|---|---|---|---|
-| **Principal / Confianza** | `--brand-blue` / `--color-primary` | `brand-blue-700` | `#0636A5` | Headers, footers, navegación, secciones invertidas oscuras, títulos principales, bordes institucionales |
-| **Acento / CTA / Señalética** | `--brand-yellow` / `--color-accent` | `brand-yellow-500` | `#FFEC01` | Botones primarios (CTAs), badges destacados, status dots activos, ribbons de plan recomendado, focus rings |
-| **Lienzo / Superficie / Claridad** | `--brand-white` / `--color-surface` | `brand-white-50` | `#FFFFFF` | Fondo base de páginas, tarjetas blancas (inner core), inputs, modales, tablas de tarifas |
-
-**Escalas Oficiales Aprobadas (`globals.css` / `tailwind.config.ts`):**
-- **Azul:** `brand-blue-50` (`#E6EEFE`) → `brand-blue-700` (`#0636A5`) → `brand-blue-950` (`#021440`)
-- **Amarillo:** `brand-yellow-50` (`#FFFDE6`) → `brand-yellow-500` (`#FFEC01`) → `brand-yellow-600` (`#E6D400`) — *(Alternativa de acento: `#FFF12E` / `#FFE200`)*
-- **Blanco:** `brand-white-50` (`#FFFFFF`)
-
-**🚫 PROHIBICIONES ESTRICTAS (CERO TOLERANCIA):**
-```css
-/* PROHIBIDO: Paletas genéricas de Tailwind */
-slate-*, gray-*, zinc-*, neutral-*, stone-*
-/* PROHIBIDO: Hex inline arbitrarios sin token */
-#333, #f5f5f5, #666, #999, #ccc, #eee, #111
-/* PROHIBIDO: Fondos oscuros de slate (ej. bg-slate-900) */
-/* PROHIBIDO: Degradados decorativos no autorizados */
-```
+| **Primary Canvas / Trust** | **Egyptian Brand Blue** | `--brand-blue` / `brand-blue-700` | `#0636A5` | Headers, footers, navegación, secciones invertidas oscuras, títulos H1/H2, bordes institucionales. |
+| **Accent / Action / CTA** | **Electric Signal Yellow** | `--brand-yellow` / `brand-yellow-500` | `#FFEC01` | Botones de acción primaria (CTAs), badges destacados, status dots activos, anillos de stepper, focus rings. |
+| **Surface Base / Canvas** | **Pure Canvas White** | `--brand-white` / `brand-white-50` | `#FFFFFF` | Fondo base de páginas, núcleo interno de tarjetas (inner bezel), campos de formulario, modales y tablas. |
+| **Outer Bezel / Soft Canvas** | **Ice Blue Soft Tint** | `--brand-blue-50` / `brand-blue-50` | `#E6EEFE` | Contenedores exteriores de tarjetas Double Bezel, fondos alternados suaves, overlays sutiles. |
+| **Structural Border** | **Deep Blueprint Border** | `--brand-blue-100` / `brand-blue-100` | `#BACEFD` | Bordes perimetrales de tarjetas, divisores estructurales de 1px, líneas inactivas de steppers. |
+| **Interactive Blue Hover** | **Ultramarine Action** | `--brand-blue-500` / `brand-blue-500` | `#0950F6` | Botones interactivos secundarios, estado activo de navegación, anillos de foco primario. |
+| **High-Contrast Text** | **Deep Blue Ink** | `--brand-ink` / `brand-blue-ink` | `#00277C` | Texto de cuerpo de alta legibilidad, párrafos descriptivos, inputs. |
+| **Ultra Deep Void** | **Midnight Blue Abyss** | `--brand-blue-950` / `brand-blue-950` | `#021440` | Footer profundo, fondo de modales críticos, contraste extremo. |
+| **Pressed Yellow Accent** | **Amber Flare Active** | `--brand-yellow-600` / `brand-yellow-600` | `#E6D400` | Estado presionado (`:active`) de botones CTA y badges de alta prioridad. |
 
 ---
 
-### 0.3 Voz y Tono — Voseo Rioplatense Obligatorio
-| Acción | ✅ Forma Correcta | ❌ Prohibido |
-|---|---|---|
-| Cotizar | **Cotizá** | Cotice, Calcule |
-| Enviar | **Enviá** | Envíe, Envie |
-| Rastrear | **Rastreá** | Rastree, Siga |
-| Contactar | **Contactanos / Escribinos** | Contáctenos, Contacte |
-| Ingresar | **Ingresá** | Ingrese |
-| Elegir | **Elegí** | Elija |
-| Ver | **Mirá / Conocé** | Vea, Conozca |
+## 3. Typography Rules & Architecture
 
-- **Persona:** *"Nosotros"* para la empresa, *"Vos / Tu"* para el usuario.
-- **Tono:** Rápido, contundente, orientado a pruebas y garantías: *"Sin formularios complejos ni esperas"*, *"Diseñado para la velocidad"*, *"Sin excusas"*.
-- **Geolocalización MDQ:** Friuli 1972 (Hub central), Zona Güemes, Playa Grande, Punta Mogotes, Chauvín, Puerto, Constitución, Batán, Camet.
-- **Año Operativo:** **2026** siempre en tarifas, vigencias y textos.
+### 3.1 Familias Tipográficas Oficiales
+
+- **Display / Titulares de Impacto:** `Anton` / `Anton SC` (700-800)
+  - *Rol:* Titulares H1 y H2 monumentales, signalética vial de impacto, números de estadísticas clave.
+  - *Tratamiento:* Uppercase obligatorio, interlineado ultra compacto (`leading-[0.85-1.0]`), tracking negativo (`-0.05em` a `-0.025em`).
+- **Subtitulares / UI Labels / Badges:** `Bebas Neue` (600-700)
+  - *Rol:* Subtítulos, botones CTA, etiquetas de navegación, headers de tabla, badges de servicio.
+  - *Tratamiento:* Uppercase obligatorio, tracking expandido (`tracking-wider` a `tracking-widest`), presencia bold.
+- **Cuerpo / Textos de Lectura:** `Outfit` + `IBM Plex Sans` (400-600)
+  - *Rol:* Párrafos, descripciones de servicio, inputs de formulario, textos legales y tooltips.
+  - *Tratamiento:* Sentence case natural, interlineado relajado (`leading-relaxed` / 1.625), ancho máximo de lectura de 65 caracteres (`max-w-prose`).
+- **Métricas / Tarifas / Rastreo:** `Geist Mono` (500-700)
+  - *Rol:* Tarifas en pesos argentinos (`$4.600 ARS`), códigos de tracking, coordenadas, distancias (`tabular-nums`).
+  - *Tratamiento:* Monospace estricto, alineación tabular.
+
+### 3.2 Escala Jerárquica
+
+```css
+--text-9xl: 9rem;     /* 144px — Hero display monumental */
+--text-7xl: 4.5rem;   /* 72px  — H1 principal */
+--text-5xl: 3rem;     /* 48px  — H2 de secciones clave */
+--text-3xl: 1.875rem; /* 30px  — H3 de tarjetas y bento cards */
+--text-xl:  1.25rem;  /* 20px  — Subtítulos y navegación */
+--text-base: 1rem;    /* 16px  — Párrafos y descripciones */
+--text-sm:  0.875rem; /* 14px  — Textos secundarios y controles */
+--text-xs:  0.75rem;  /* 12px  — Badges y micro-copy */
+```
+
+### 3.3 Tratamientos de Firma Tipográfica
+1. **Knockout Rotado (-1°):** Bloque de texto con fondo Azul 700 y letras en Amarillo 500 con leve inclinación `transform: rotate(-1deg)`.
+2. **Titular Outline Transparente:** Texto itálico display con relleno transparente y trazo perimetral `-webkit-text-stroke: 2px #0636A5`.
+3. **Kinetic Font Stretch:** Micro-interacción en elementos clave que expande `scaleX(1.08)` y `letter-spacing: 0.04em` en hover.
 
 ---
 
-## 1. Tokens de Color & Variables Semánticas
+## 4. Component Stylings & Interaction Behaviors
 
-### 🔵 Azul EnviosDosruedas
-```css
---color-blue-50:  #E6EEFE; /* Outer bezel, fondos suaves, overlays */
---color-blue-100: #BACEFD; /* Bordes estructurales, divisores, líneas inactivas */
---color-blue-200: #8EAFFB; /* Bordes hover, enlaces secundarios */
---color-blue-300: #628FF9; /* Texto secundario sobre fondo oscuro, iconos suaves */
---color-blue-400: #3570F8; /* Acciones intermedias */
---color-blue-500: #0950F6; /* Botones interactivos activos, focus ring */
---color-blue-600: #0742CA; /* Hover intermedio */
---color-blue-700: #0636A5; /* PRIMARY OFICIAL — Marca, fondos oscuros, cabeceras */
---color-blue-800: #052D8C; /* Hover sobre primary */
---color-blue-900: #04236B; /* Texto de máximo contraste sobre blanco */
---color-blue-950: #021440; /* Fondo ultra profundo (footer, modales) */
---color-blue-ink: #00277C; /* Texto de cuerpo de alta legibilidad */
-```
-
-### 🟡 Amarillo EnviosDosruedas
-```css
---color-yellow-50:  #FFFDE6; /* Fondos de alerta y badges suaves */
---color-yellow-100: #FFFAB8; /* Bordes de atención, anillos de stepper */
---color-yellow-200: #FFF78A; /* Badges de estado e indicadores de ruteo */
---color-yellow-300: #FFF45C; /* Hover sobre fondo azul 700 */
---color-yellow-400: #FFF12E; /* Hover sobre fondo blanco */
---color-yellow-500: #FFEC01; /* ACCENT / CTA OFICIAL — Botones de acción, status glow */
---color-yellow-600: #E6D400; /* Active / Pressed state */
-```
-
-### ⚪ Blanco & Superficies
-```css
---color-white-50:   #FFFFFF; /* Superficie base, cards inner, inputs, modales */
---surface-page:     #FFFFFF; /* Lienzo de página */
---surface-card:     #FFFFFF; /* Núcleo de tarjetas */
---surface-muted:    #E6EEFE; /* Secciones alternadas suaves */
---surface-invert:   #0636A5; /* Secciones oscuras de marca */
---surface-glass:    rgba(255, 255, 255, 0.06); /* Tarjetas glassmorphism sobre azul */
---surface-tint-blue:#F0F4FF; /* Fondo panel tintado */
-```
-
-### 🎯 Alias Semánticos de Componentes
-```css
---action-primary:       var(--color-blue-700);
---action-primary-fg:    #FFFFFF;
---action-primary-hover: #052D8C;
-
---action-accent:        var(--color-yellow-500);
---action-accent-fg:     var(--color-blue-900);
---action-accent-hover:  #FFF12E;
-
---text-heading:         var(--color-blue-700);
---text-body:            var(--color-blue-ink);
---text-muted:           var(--color-blue-400);
---text-on-invert:       #FFFFFF;
---text-on-accent:       var(--color-blue-900);
-
---border-subtle:        var(--color-blue-100);
---border-strong:        var(--color-blue-200);
---border-on-invert:     rgba(255, 255, 255, 0.12);
---focus-ring:           var(--color-blue-500);
-```
-
----
-
-## 2. Tipografía & Tratamientos Display
-
-### 2.1 Fuentes Oficiales
-| Rol | Familia | Fallback | Peso | Uso |
-|---|---|---|---|---|
-| **Display / Titulares** | `Anton` / `Anton SC` | `Bebas Neue`, sans-serif | 700-800 | H1, H2, cifras de impacto monumental (signalética vial) |
-| **Subtitulares / UI Badges** | `Bebas Neue` | `IBM Plex Sans`, sans-serif | 600-700 | Subtítulos, badges, botones CTA, etiquetas, headers de tabla |
-| **Cuerpo / Textos UI** | `Outfit` + `IBM Plex Sans` | `Inter`, system-ui, sans-serif | 400-600 | Párrafos, inputs, descripciones, tooltips |
-| **Mono / Métricas / Tarifas** | `Geist Mono` | `JetBrains Mono`, monospace | 500-700 | Tarifas (`$4.600 ARS`), tracking IDs, distancias (`tabular-nums`) |
-
-### 2.2 Escala Tipográfica (Fluid Clamp & Interlineado)
-| Token | Tamaño | Line-Height | Tracking | Uso |
-|---|---|---|---|---|
-| `--text-9xl` | `9rem` (144px) | `0.8` (`--leading-hero`) | `-0.05em` | Hero display monumental |
-| `--text-8xl` | `6rem` (96px) | `0.85` | `-0.05em` | Impact display |
-| `--text-7xl` | `4.5rem` (72px) | `1.0` | `-0.05em` | H1 principal |
-| `--text-5xl` | `3rem` (48px) | `1.0` | `-0.025em` | H2 de sección |
-| `--text-3xl` | `1.875rem` (30px) | `1.1` | `-0.025em` | H3 de tarjeta |
-| `--text-xl` | `1.25rem` (20px) | `1.25` (`--leading-tight`)| `0.05em` | Subheadings (`font-subheading`) |
-| `--text-base` | `1rem` (16px) | `1.625` (`--leading-relaxed`)| `0` | Párrafos base |
-| `--text-sm` | `0.875rem` (14px) | `1.5` | `0` | Textos secundarios y controles |
-| `--text-xs` | `0.75rem` (12px) | `1.2` | `0.05em` | Badges, micro-copy |
-| `--text-2xs` | `0.625rem` (10px) | `1.0` | `0.2em` (`--tracking-mega`)| Eyebrows en mayúsculas |
-
-### 2.3 Tratamientos Tipográficos de Firma
-1. **Knockout Amarillo sobre Azul con Rotación (-1°):**  
-   Texto con `background: var(--brand-blue); color: var(--brand-yellow); padding: 0 8px; display: inline-block; transform: rotate(-1deg)`.
-2. **Titular Outline Transparente con Trazo Azul:**  
-   Texto itálico display con `color: transparent; -webkit-text-stroke: 2px #0636A5`.
-3. **Ghost Wordmark Gigante de Fondo:**  
-   `"ENVÍOS DOS RUEDAS"` en Anton uppercase con `font-size: 15vw`, `opacity: 0.045`, centrado detrás del contenido hero.
-4. **Kinetic Font Stretch en Hover:**  
-   Elementos interactivos destacados aplican `transform: scaleX(1.08)` y `letter-spacing: 0.04em` en estado hover con transición suave.
-
----
-
-## 3. Escala de Controles, Radios y Espaciado
-
-### 3.1 Altura de Controles (Control Heights Ladder)
-| Nivel | Token | Altura | Padding X | Uso |
-|---|---|---|---|---|
-| **Micro / Small** | `--control-h-sm` | `36px` (2.25rem) | `12px` (`px-3`) | Botones compactos, filtros, pills de tabla |
-| **Default UI** | `--control-h` | `40px` (2.5rem) | `16px` (`px-4`) | Botones estándar, selectores secundarios |
-| **Touch Target Standard** | `--control-h-lg` | `44px` (2.75rem) | `20px` (`px-5`) | Inputs de formulario, botones estándar mobile |
-| **Marketing CTA** | `--control-h-xl` | `56px` (3.5rem) | `32px` (`px-8`) | CTAs principales de navegación y cotizador |
-| **Hero CTA** | `--control-h-2xl` | `64px` (4.0rem) | `40px` (`px-10`) | Botón principal de conversión en Hero |
-
-### 3.2 Escala de Bordes Redondeados (Border Radii)
-| Token | Valor | Uso |
-|---|---|---|
-| `--radius-none` | `0px` | Botones sharp de navbar, terminales |
-| `--radius-sm` | `6px` / `0.375rem` | Badges pequeños, switches |
-| `--radius-md` | `8px` / `0.5rem` | Botones estándar, inputs base |
-| `--radius-lg` | `12px` / `0.75rem` | **Inner Bezel** de tarjetas, dropdowns |
-| `--radius-xl` | `16px` / `1rem` | **Outer Bezel** de tarjetas, modales |
-| `--radius-2xl` | `20px` / `1.25rem` | Contenedores bento estándar, photo cards |
-| `--radius-3xl` | `24px` / `1.5rem` | Paneles glassmorphism, hero containers |
-| `--radius-4xl` | `40px` / `2.5rem` | Grandes paneles de servicio y feature cards |
-| `--radius-full` | `9999px` | **CTA Nested Pills**, chips, status dots |
-
-### 3.3 Sistema de Sombras & Glows
-```css
-/* Elevaciones Neutras */
---shadow-sm:       0 1px 2px 0 rgba(6, 54, 165, 0.05);
---shadow-md:       0 4px 8px rgba(6, 54, 165, 0.08), 0 2px 4px rgba(6, 54, 165, 0.04);
---shadow-lg:       0 10px 15px -3px rgba(6, 54, 165, 0.10), 0 4px 6px -4px rgba(6, 54, 165, 0.06);
---shadow-xl:       0 20px 25px -5px rgba(6, 54, 165, 0.12), 0 8px 10px -6px rgba(6, 54, 165, 0.08);
---shadow-2xl:      0 25px 50px -12px rgba(6, 54, 165, 0.25);
-
-/* Sombras de Firma Envíos DosRuedas */
---shadow-float:    0 25px 50px -12px rgba(6, 54, 165, 0.15); /* Double Bezel outer */
---shadow-panel:    0 32px 120px -20px rgba(6, 54, 165, 0.15); /* Grandes paneles claros */
---shadow-elevated: 0 20px 40px -8px rgba(6, 54, 165, 0.20), 0 8px 16px -4px rgba(6, 54, 165, 0.12); /* CTA White sobre azul */
---shadow-hover-lift: 0 32px 64px -12px rgba(6, 54, 165, 0.25);
---shadow-antigravity-deep: 0 30px 60px -15px rgba(6, 54, 165, 0.30), 0 0 50px -10px rgba(255, 236, 1, 0.15);
-
-/* Acentos y Glows Amarillos */
---shadow-accent-sm:    0 2px 4px rgba(255, 236, 1, 0.15);
---shadow-accent-md:    0 12px 40px -6px rgba(255, 236, 1, 0.30);
---shadow-accent-hover: 0 6px 25px rgba(255, 236, 1, 0.40);
---shadow-cta-glow:     0 0 40px rgba(255, 236, 1, 0.40), 0 0 80px rgba(255, 236, 1, 0.15);
---glow-yellow:         0 0 10px rgba(255, 236, 1, 0.80); /* Live status dots */
-```
-
----
-
-## 4. Arquitectura de Componentes de Firma
-
-### 4.1 Double Bezel Card (Obligatorio en Secciones Blancas)
+### 4.1 Double Bezel Card (Núcleo de Diseño)
+Estructura arquitectónica de doble marco aplicada a todas las tarjetas sobre fondo claro:
 ```html
 <div class="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-float transition-all duration-300 hover:shadow-antigravity-deep hover:border-brand-blue-300">
   <div class="double-bezel-inner bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-sm overflow-hidden">
-    <!-- Contenido real del bloque -->
+    <!-- Contenido -->
   </div>
 </div>
 ```
+- **Marco Exterior (Outer):** `bg-brand-blue-50/80`, borde `border-brand-blue-100`, radio `rounded-2xl` (16px), padding `p-2` (8px).
+- **Marco Interior (Inner):** `bg-white`, radio `rounded-xl` (12px), sombra interna suave `shadow-sm`.
+- **Comportamiento Hover:** Elevación de sombra `shadow-antigravity-deep` y transición fluida del borde a `brand-blue-300`.
 
-### 4.2 CTA Nested Pill (Botón Pastilla con Icono Anidado)
+### 4.2 CTA Nested Pill (Botón de Conversión Primario)
+Botón con forma de pastilla redondeada completa (`rounded-full`) que aloja un glifo de acción autónomo:
 ```html
-<a class="cta-nested-pill cta-nested-pill--primary" href="/cotizar/express">
-  <span>Cotizar Envío</span>
-  <span class="cta-nested-icon"><svg>→</svg></span>
+<a class="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 font-subheading font-bold uppercase tracking-wider px-8 py-3 rounded-full flex items-center justify-between shadow-accent-sm hover:shadow-cta-glow transition-all active:scale-[0.98]" href="/cotizar/express">
+  <span>Cotizá tu envío</span>
+  <span class="w-8 h-8 rounded-full bg-brand-blue-700/10 flex items-center justify-center transition-transform duration-200 group-hover:translate-x-1">→</span>
 </a>
 ```
-- **Primary:** Fondo `brand-yellow-500`, texto `brand-blue-900`, icono con transition `translateX(4px)` y fondo `bg-brand-blue-700/10` → hover `shadow-cta-glow`.
-- **Elevated (Sobre fondo azul):** Fondo `white`, texto `brand-blue-700`, borde `brand-blue-100`, icono azul que invierte a blanco en hover.
-- **WhatsApp CTA:** **Fondo SIEMPRE `brand-yellow-500`**, hover `brand-yellow-400`. El verde solo reside en el glifo SVG del icono.
+- **Primary:** Fondo `brand-yellow-500`, texto `brand-blue-900`, icono con traslación `translateX(4px)` en hover.
+- **Elevated (sobre fondo azul):** Fondo `white`, texto `brand-blue-700`, borde `brand-blue-100`, icono azul que invierte color en hover.
+- **WhatsApp CTA Especial:** Fondo **SIEMPRE** `brand-yellow-500` con hover `brand-yellow-400`. El verde solo se permite en el glifo SVG interior.
 
-### 4.3 Selector de Servicios (Radio Card Group)
-- Grid 3 columnas (desktop) / 1 columna (mobile).
-- **Express seleccionado:** `bg-brand-blue-700 text-white border-brand-blue-700`.
-- **LowCost seleccionado:** `bg-brand-blue-50 text-brand-blue-700 border-brand-blue-200`.
-- **Flex seleccionado:** `bg-brand-yellow-50 text-brand-blue-700 border-brand-yellow-200`.
-- Icon Box de 48×48px con inversión de contraste según servicio.
+### 4.3 Campos de Formulario e Inputs
+- **Altura estándar:** `44px` (`h-11`) para garantizar touch targets accesibles.
+- **Borde base:** `border-2 border-brand-blue-100`, esquinas `rounded-xl` (12px).
+- **Focus State:** `border-brand-blue-700 ring-2 ring-brand-blue-500/20` con fondo blanco inmaculado.
+- **Etiquetas:** Superiores, en `font-subheading uppercase text-xs tracking-wider text-brand-blue-700 font-bold`.
 
-### 4.4 Inputs de Formulario
-- Altura obligatoria `44px` (`h-11`), `border-2 border-brand-blue-100`, `rounded-xl`, `pl-10` con icono prefix.
-- **Focus:** `border-brand-blue-700 ring-2 ring-brand-blue-500/20`.
-- **Etiqueta:** `font-subheading uppercase text-xs tracking-wider text-brand-blue-700`.
+### 4.4 Steppers & Estados de Progreso
+- **Horizontal (Cotizadores):** Círculos de 40px. Paso completado: `brand-yellow-500` con glifo Check y línea conectora en `brand-yellow-500`. **Prohibido el verde**.
+- **Vertical (How It Works):** Línea vertical `brand-blue-100`. Dots de 24px: completado=`brand-yellow-500` + anillo `brand-yellow-100`; activo=`brand-yellow-500` + pulso suave (`pulse-subtle`).
 
-### 4.5 Steppers de Proceso
-- **Horizontal (Cotizador):** Círculos de 40px. Pasos completados en `brand-yellow-500` (línea y dot). **PROHIBIDO verde**.
-- **Vertical (How It Works & Tracking):** Línea vertical `brand-blue-100`. Dot de 24px: completado=`brand-yellow-500` + anillo `brand-yellow-100`; activo=`brand-yellow-500` + pulsación sutil.
-
-### 4.6 Glassmorphism & Iluminación sobre Fondo Azul
-- Paneles glass: `background: rgba(255, 255, 255, 0.06)`, `border: 1px solid rgba(255, 255, 255, 0.12)`, `backdrop-filter: blur(12px)`.
-- Bloom decorativo: Esfera difuminada `background: rgba(255, 236, 1, 0.18)`, `filter: blur(80px)`.
-- Status Dot: `8×8px` circular en `brand-yellow-500` con `box-shadow: 0 0 10px rgba(255,236,1,0.8)`.
-
-### 4.7 Tratamiento de Fotografía e Imágenes
-- Fotografía en luz natural cálida, sin grano digital ni duotono falso.
-- Capa de mezcla en azul institucional: `bg-brand-blue-700/10` con `mix-blend-multiply` o degradado inferior `rgba(6,54,165,0.95) → rgba(6,54,165,0.35)` para legibilidad.
-- Marcos en `rounded-3xl` (24px) o `rounded-[2.5rem]` (40px) con `shadow-xl`.
-
-### 4.8 Iconografía
-- **Lucide Icons exclusivamente** (`w-4 h-4` en nav, `w-5 h-5` en listas, `w-6 h-6` a `w-8 h-8` en tarjetas).
-- Stroke: `2px`, sin relleno (never filled).
-- Color: **Amarillo `#FFEC01` sobre fondos azules**, **Azul `#0636A5` sobre fondos blancos**.
+### 4.5 Loaders y Estados Vacíos
+- **Skeleton Loaders:** Bloques con efecto shimmer en gradiente `brand-blue-50 → brand-blue-100 → brand-blue-50` con animación continua a 2.5s.
+- **Empty States:** Composiciones ilustradas con iconografía técnica en azul y llamados a la acción concretos.
 
 ---
 
-## 5. Alternancia de Secciones en Homepage
+## 5. Layout Principles & Responsive Architecture
 
-| Orden | Sección | Fondo | Texto Principal | Componentes / Tarjetas | Acentos |
-|---|---|---|---|---|---|
-| 1 | **Hero** | `brand-blue-700` | Blanco | 3D Tilt Cards flotantes + Glass | `brand-yellow-500` |
-| 2 | **Trust Bar** | `brand-blue-50` | Azul 700 | 4 Métricas animadas + ISO Badge | Yellow 500 / Blue |
-| 3 | **Servicios** | `white` | Azul 700 | Bento Grid 12-col + Double Bezel | Yellow 500 |
-| 4 | **Cómo Funciona** | `brand-blue-700` | Blanco | Stepper Vertical numerado | Dots Yellow 500 |
-| 5 | **Prueba Social** | `white` | Azul 700 | Logos Carousel + Testimonios | Yellow 500 |
-| 6 | **CTA Final** | `brand-blue-700` | Azul 700 | Tarjeta Blanca `rounded-3xl` | Dual CTA Yellow |
-| 7 | **Footer** | `brand-blue-700` + gradients | Blanco | Columnas con borde sutil | Yellow 6px bar |
+### 5.1 Grilla Asimétrica Bento (12 Columnas)
+- **Estructura Desktop:** Grilla de 12 columnas con `gap-6 lg:gap-8` y `auto-rows-[380px]`.
+  - Tarjetas Hero de Servicio (Express, E-Commerce 3PL): `lg:col-span-7`.
+  - Tarjetas Estándar (LowCost, Flex): `lg:col-span-5`.
+  - Paneles Anchos de Cotizador / CTA: `col-span-12`.
+- **Colapso Responsive (< 768px):** Todas las grillas colapsan obligatoriamente a columna única (`grid-cols-1`). Cero desbordamiento horizontal.
+
+### 5.2 Alternancia de Secciones
+1. **Hero:** Fondo Azul 700 (`brand-blue-700`), tipografía monumental blanca, Tilt Cards 3D y acentos amarillos.
+2. **Trust Bar:** Fondo Azul Suave (`brand-blue-50`), 4 métricas en Geist Mono animadas, insignias de certificación.
+3. **Servicios:** Fondo Blanco Puro (`#FFFFFF`), Bento Grid con tarjetas Double Bezel.
+4. **Cómo Funciona:** Fondo Azul 700, Stepper Vertical en Amarillo 500.
+5. **Prueba Social:** Fondo Blanco Puro, carrusel infinito de logos con máscara lineal y tarjetas de clientes.
+6. **CTA Final:** Panel contenedor en Azul 700 con tarjeta central blanca `rounded-3xl` y botón de alta conversión.
+7. **Footer:** Fondo Azul Profundo con barra superior de 6px en Amarillo 500.
 
 ---
 
-## 6. Bloque de Sistema de Diseño para Stitch Loops
+## 6. Motion Philosophy & Spring Physics
 
-> **Copia íntegra este bloque dentro de `.stitch/next-prompt.md` en cada iteración del `/stitch-loop`:**
+### 6.1 Especificaciones de Animación (Framer Motion / Tailwind)
+- **Física de Resortes (Spring):** `stiffness: 100, damping: 20` para aperturas de menú, dropdowns y modales. Sensación de peso mecánico sin rebotes plásticos.
+- **Micro-Interacciones Perpetuas:**
+  - `float-slow`: Traslación sinusoidal vertical `translateY(-5px)` a 4s infinito.
+  - `pulse-subtle`: Escalado sutil `scale(1.03)` con opacidad a 3s infinito en status dots.
+  - `logos-scroll`: Desplazamiento horizontal continuo lineal a 30s con pausa automática en hover y focus.
+- **Hardware Acceleration:** Animaciones restringidas exclusivamente a `transform` y `opacity` con `will-change`.
+
+---
+
+## 7. Anti-Patterns (Banned AI Clichés — CERO TOLERANCIA)
+
+> ❌ **LISTA EXPRESA DE ELEMENTOS PROHIBIDOS:**
+
+1. **PROHIBIDO el uso de Emojis** en cualquier parte de la interfaz o copywriting (usar exclusivamente iconos Lucide SVG oficiales).
+2. **PROHIBIDO el uso de la fuente `Inter`** o serifs genéricas (`Times New Roman`, `Georgia`, `Garamond`) en contextos de impacto.
+3. **PROHIBIDO el Negro Puro (`#000000`)**: utilizar únicamente Deep Ink (`#00277C`) o Midnight Abyss (`#021440`).
+4. **PROHIBIDO el "AI Purple/Blue Neon"**: sombras o brillos violetas, púrpuras, degradados de neón cibernéticos o bordes fluorescentes.
+5. **PROHIBIDO el Verde en steppers o CTAs de WhatsApp**: el fondo de los botones siempre usa Amarillo Marca (`#FFEC01`).
+6. **PROHIBIDO el diseño de 3 tarjetas idénticas horizontales**: usar Grillas Asimétricas Bento (7/5) o composición de eje vertical.
+7. **PROHIBIDO inventar métricas falsas o estadísticas ficticias** ("99.99% Uptime", "18.5k Deploys", "124ms Response").
+8. **PROHIBIDO el formato cliché `SISTEMA // 2026`**: usar jerarquía tipográfica limpia sin barras dobles decorativas vacías.
+9. **PROHIBIDO el copywriting genérico de IA**: palabras como *"Seamless"*, *"Unleash"*, *"Elevate"*, *"Next-Gen"*. Usar voseo rioplatense concreto y orientado a garantías operativas.
+10. **PROHIBIDO el texto de relleno para scroll**: *"Scroll to explore"*, *"Deslizá hacia abajo"*, flechas parpadeantes o chevrons rebotando en el Hero.
+
+---
+
+## 8. Bloque de Sistema de Diseño para Stitch & Subagentes
 
 ```markdown
 **DESIGN SYSTEM SPECIFICATION — ENVIOS DOSRUEDAS (2026):**
 - **Brand Colors (STRICT 3-COLOR RULE):**
-  - Primary: Egyptian Blue `#0636A5` (`brand-blue-700`) — headers, dark section canvas, nav, footer, borders.
-  - Accent / CTA: Electric Yellow `#FFEC01` (`brand-yellow-500`) — all primary CTA buttons, badges, completed stepper dots, status glow.
-  - Surface: Pure White `#FFFFFF` (`brand-white-50`) — page background, card inner cores, form inputs.
-  - Soft Canvas / Overlay: Ice Blue `#E6EEFE` (`brand-blue-50`) — outer card bezel, alert backgrounds.
-  - Ink Body Text: Deep Ink `#00277C` (`brand-ink`) or `#0636A5`.
-  - FORBIDDEN: Generic grays (slate, zinc, gray, neutral), unbranded green/red CTAs, ad-hoc inline hex.
+  - Primary: Egyptian Blue `#0636A5` (`brand-blue-700`) — dark section canvas, nav, footer, borders, H1/H2 titles.
+  - Accent / CTA: Electric Signal Yellow `#FFEC01` (`brand-yellow-500`) — all primary CTA buttons, badges, completed stepper dots, live status glow.
+  - Surface Base: Pure White `#FFFFFF` (`brand-white-50`) — page background, card inner cores, form inputs, modal bodies.
+  - Soft Outer Tint: Ice Blue `#E6EEFE` (`brand-blue-50`) — outer card bezel, section tint, info panels.
+  - Ink Body Text: Deep Ink `#00277C` (`brand-ink`).
+  - FORBIDDEN: Generic grays (slate, zinc, gray, neutral), unbranded green CTAs, ad-hoc inline hex.
 - **Typography:**
   - Headlines (H1/H2): `Anton` / `Anton SC`, uppercase, tight line-height `0.85-1.0`, letter-spacing `-0.05em`.
   - Subtitles, Badges, Labels, Button Text: `Bebas Neue`, uppercase, tracking `0.05em-0.1em`.
@@ -313,16 +194,3 @@ slate-*, gray-*, zinc-*, neutral-*, stone-*
   - Mar del Plata local geographic anchors: "Friuli 1972", "Zona Güemes", "Playa Grande", "Punta Mogotes".
   - Reference Year: 2026.
 ```
-
----
-
-## 7. Checklist de Accesibilidad & DoD
-
-- [x] **Paleta 3 Colores:** Cero tokens genéricos `slate-*`, `gray-*`, `zinc-*`.
-- [x] **Double Bezel:** Aplicado en tarjetas principales sobre secciones claras.
-- [x] **Tipografía Jerárquica:** Display (Anton) / Subheading (Bebas Neue) / Body (Outfit) / Mono (Geist Mono).
-- [x] **Touch Targets:** Mínimo `44×44px` en todos los controles interactivos.
-- [x] **Voseo Rioplatense:** Textos en español argentino con referencias locales de Mar del Plata.
-- [x] **Contraste AA:** Cumple estándares WCAG 2.1 AA en todas las combinaciones de texto y superficie.
-- [x] **Focus-Visible:** `ring-2 ring-brand-blue-500 ring-offset-2 ring-offset-white` (o `ring-offset-brand-blue-700` sobre azul).
-- [x] **Logo Maestro:** `/public/logo-master.svg` con ancho mínimo de 120px.

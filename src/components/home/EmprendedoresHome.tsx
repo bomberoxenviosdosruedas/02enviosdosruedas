@@ -159,7 +159,7 @@ export default function EmprendedoresHome() {
           transition={{ type: 'spring', stiffness: 100, damping: 20 }}
           className="max-w-6xl mb-24 space-y-6 text-left"
         >
-          <span className="px-4 py-1.5 bg-brand-blue-50/5 text-brand-yellow border border-brand-yellow/20 rounded-full text-xs font-bold tracking-widest inline-block uppercase shadow-sm font-subheading">
+          <span className="px-4 py-1.5 bg-brand-blue-50/5 text-brand-yellow-500 border border-brand-yellow-500/20 rounded-full text-xs font-bold tracking-widest inline-block uppercase shadow-sm font-subheading">
             Socio Estratégico Local
           </span>
 
@@ -188,7 +188,7 @@ export default function EmprendedoresHome() {
             </p>
           </div>
 
-          <div className="h-[2px] w-24 bg-brand-yellow rounded-full pt-1" />
+          <div className="h-[2px] w-24 bg-brand-yellow-500 rounded-full pt-1" />
         </motion.div>
 
         {/* Solutions Cards Grid: Asymmetric Bento Layout with Double-Bezel Cards */}
@@ -201,7 +201,7 @@ export default function EmprendedoresHome() {
         >
           {/* Card 1: PyMEs (E-Commerce) - lg:col-span-7 lg:row-span-2 (Dark Navy Card) */}
           <motion.div
-            className="lg:col-span-7 lg:row-span-2 double-bezel-outer p-2 rounded-2xl bg-brand-blue-50/5 border border-brand-blue-500/20 hover:border-brand-yellow/30 hover:bg-brand-blue-50/10 hover:shadow-antigravity-deep group overflow-hidden flex flex-col"
+            className="lg:col-span-7 lg:row-span-2 double-bezel-outer p-2 rounded-2xl bg-brand-blue-50/5 border border-brand-blue-500/20 hover:border-brand-yellow-500/30 hover:bg-brand-blue-50/10 hover:shadow-antigravity-deep group overflow-hidden flex flex-col"
             whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300, damping: 25 } }}
           >
             <div className="double-bezel-inner bg-brand-blue-700/60 p-6 sm:p-8 rounded-xl border border-brand-blue-500/20 shadow-inner flex flex-col justify-between h-full relative overflow-hidden text-left flex-1">
@@ -224,12 +224,12 @@ export default function EmprendedoresHome() {
               <div className="space-y-6 relative z-10">
                 <div className="flex justify-between items-start">
                   <motion.div
-                    className="p-3 bg-brand-yellow text-brand-blue rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-700)]"
+                    className="p-3 bg-brand-yellow-500 text-brand-blue-900 rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-700)]"
                     whileHover={{ scale: 1.05, transition: { type: 'spring', stiffness: 300, damping: 25 } }}
                   >
                     <Landmark className="h-5 w-5" />
                   </motion.div>
-                  <span className="text-[10px] font-bold tracking-widest bg-brand-ink text-brand-yellow px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-yellow/30">
+                  <span className="text-[10px] font-bold tracking-widest bg-brand-ink text-brand-yellow-500 px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-yellow-500/30">
                     EMPRENDEDORES
                   </span>
                 </div>
@@ -255,7 +255,7 @@ export default function EmprendedoresHome() {
                       transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.1 }}
                       className="flex items-start gap-2 text-xs sm:text-sm text-white font-sans"
                     >
-                      <ShieldCheck className="h-4.5 w-4.5 text-brand-yellow shrink-0 mt-0.5" />
+                      <ShieldCheck className="h-4.5 w-4.5 text-brand-yellow-500 shrink-0 mt-0.5" />
                       <span>{feat}</span>
                     </motion.li>
                   ))}
@@ -265,11 +265,11 @@ export default function EmprendedoresHome() {
               <div className="pt-6 mt-6 border-t border-brand-blue-500/20 relative z-10 flex justify-end">
                 <Link
                   href="/servicios/plan-emprendedores"
-                  className="cta-nested-pill bg-brand-yellow text-brand-blue px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2"
+                  className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2"
                 >
                   <span>Conocer más</span>
                   <motion.span
-                    className="cta-nested-icon bg-brand-blue/10 w-6 h-6 rounded-full flex items-center justify-center"
+                    className="cta-nested-icon bg-brand-blue-900/10 w-6 h-6 rounded-full flex items-center justify-center"
                     whileHover={{ x: 4, transition: { type: 'spring', stiffness: 300, damping: 25 } }}
                   >
                     →
@@ -281,7 +281,7 @@ export default function EmprendedoresHome() {
 
           {/* Card 2: MercadoLibre Flex - lg:col-span-5 lg:row-span-1 (Yellow Card) */}
           <motion.div
-            className="lg:col-span-5 lg:row-span-1 double-bezel-outer p-2 rounded-2xl bg-brand-yellow-500/10 border border-brand-yellow-500/20 hover:border-brand-blue/30 hover:bg-brand-yellow-500/15 hover:shadow-[0_20px_40px_-15px_rgba(255,236,1,0.15)] group overflow-hidden flex flex-col"
+            className="lg:col-span-5 lg:row-span-1 double-bezel-outer p-2 rounded-2xl bg-brand-yellow-500/10 border border-brand-yellow-500/20 hover:border-brand-blue-700/30 hover:bg-brand-yellow-500/15 hover:shadow-[0_20px_40px_-15px_rgba(255,236,1,0.15)] group overflow-hidden flex flex-col"
             whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300, damping: 25 } }}
           >
             <div className="double-bezel-inner bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 p-6 sm:p-8 rounded-xl border border-brand-yellow-500/20 shadow-sm flex flex-col justify-between h-full relative overflow-hidden text-left text-brand-blue-900 flex-1">
@@ -294,7 +294,7 @@ export default function EmprendedoresHome() {
 
               {/* Watermark Background Icon with spring float */}
               <motion.div
-                className="absolute right-4 bottom-4 text-brand-blue opacity-[0.04] pointer-events-none select-none"
+                className="absolute right-4 bottom-4 text-brand-blue-900 opacity-[0.04] pointer-events-none select-none"
                 animate={reduceMotion ? {} : { rotate: [0, -2, 2, 0], scale: [1, 1.03, 1] }}
                 transition={{ duration: 5, ease: 'easeInOut', repeat: reduceMotion ? 0 : Infinity }}
               >
@@ -304,12 +304,12 @@ export default function EmprendedoresHome() {
               <div className="space-y-4 relative z-10">
                 <div className="flex justify-between items-start">
                   <motion.div
-                    className="p-3 bg-brand-blue text-white rounded-xl shadow-[2px_2px_0px_rgba(0,39,124,0.4)]"
+                    className="p-3 bg-brand-blue-700 text-white rounded-xl shadow-[2px_2px_0px_rgba(0,39,124,0.4)]"
                     whileHover={{ scale: 1.05, transition: { type: 'spring', stiffness: 300, damping: 25 } }}
                   >
                     <ShoppingBag className="h-5 w-5" />
                   </motion.div>
-                  <span className="text-[10px] font-bold tracking-widest bg-brand-blue text-white px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-blue/20">
+                  <span className="text-[10px] font-bold tracking-widest bg-brand-blue-900 text-white px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-blue-700/30">
                     MERCADOLIBRE
                   </span>
                 </div>
@@ -327,10 +327,10 @@ export default function EmprendedoresHome() {
                 </div>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-brand-blue/10 relative z-10 flex justify-end">
+              <div className="pt-4 mt-4 border-t border-brand-blue-900/10 relative z-10 flex justify-end">
                 <Link
                   href="/servicios/enviosflex"
-                  className="cta-nested-pill bg-brand-blue text-white px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-md hover:bg-brand-blue-800"
+                  className="cta-nested-pill bg-brand-blue-700 text-white px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-md hover:bg-brand-blue-800"
                 >
                   <span>Configurar Flex</span>
                   <motion.span
@@ -359,7 +359,7 @@ export default function EmprendedoresHome() {
 
               {/* Watermark Background Icon with spring float */}
               <motion.div
-                className="absolute right-4 bottom-4 text-brand-blue opacity-[0.02] pointer-events-none select-none"
+                className="absolute right-4 bottom-4 text-brand-blue-700 opacity-[0.02] pointer-events-none select-none"
                 animate={reduceMotion ? {} : { rotate: [0, 2, -2, 0], scale: [1, 1.03, 1] }}
                 transition={{ duration: 5, ease: 'easeInOut', repeat: reduceMotion ? 0 : Infinity }}
               >
@@ -369,24 +369,24 @@ export default function EmprendedoresHome() {
               <div className="space-y-4 relative z-10">
                 <div className="flex justify-between items-start">
                   <motion.div
-                    className="p-3 bg-brand-yellow text-brand-blue rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-700)]"
+                    className="p-3 bg-brand-yellow-500 text-brand-blue-900 rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-700)]"
                     whileHover={{ scale: 1.05, transition: { type: 'spring', stiffness: 300, damping: 25 } }}
                   >
                     <Building2 className="h-5 w-5" />
                   </motion.div>
-                  <span className="text-[10px] font-bold tracking-widest bg-brand-blue-50 text-brand-blue-600 px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-blue-100">
+                  <span className="text-[10px] font-bold tracking-widest bg-brand-blue-50 text-brand-blue-700 px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-blue-100">
                     CORPORATIVO
                   </span>
                 </div>
 
                 <div className="space-y-1">
                   <motion.h3
-                    className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue"
+                    className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-700"
                     whileHover={{ x: 4, color: 'var(--color-brand-blue-900)', transition: { type: 'spring', stiffness: 300, damping: 25 } }}
                   >
                     Soluciones Corporativas
                   </motion.h3>
-                  <p className="text-brand-blue-200 text-xs sm:text-sm leading-relaxed font-sans">
+                  <p className="text-brand-ink/75 text-xs sm:text-sm leading-relaxed font-sans">
                     Soporte a gran escala con facturación mensual, ruteos especiales para grandes volúmenes y entregas express coordinadas en Mar del Plata.
                   </p>
                 </div>
@@ -395,11 +395,11 @@ export default function EmprendedoresHome() {
               <div className="pt-4 mt-4 border-t border-brand-blue-100 relative z-10 flex justify-end">
                 <Link
                   href="/contacto"
-                  className="cta-nested-pill bg-brand-yellow text-brand-blue px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-sm"
+                  className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-sm"
                 >
                   <span>Abrir Cuenta Corriente</span>
                   <motion.span
-                    className="cta-nested-icon bg-brand-blue/10 w-6 h-6 rounded-full flex items-center justify-center"
+                    className="cta-nested-icon bg-brand-blue-900/10 w-6 h-6 rounded-full flex items-center justify-center"
                     whileHover={{ x: 4, transition: { type: 'spring', stiffness: 300, damping: 25 } }}
                   >
                     →
