@@ -1,4 +1,6 @@
 {
+  "skillListingMaxDescChars": 220,
+  "skillListingBudgetFraction": 0.006,
   "permissions": {
     "allow": [
       "Bash(pnpm *)",
@@ -14,27 +16,6 @@
       "Grep"
     ]
   },
-
-  "claudeMdExcludes": [
-    "C:/Users/prest/proyectos/CLAUDE.md"
-  ],
-
-  "skillListingMaxDescChars": 220,
-  "skillListingBudgetFraction": 0.006,
-  "precomputeCompactionEnabled": true,
-
-  "enabledPlugins": {
-    "stitch-build@google-labs-code-stitch-skills": false,
-    "stitch-design@google-labs-code-stitch-skills": false,
-    "stitch-utilities@google-labs-code-stitch-skills": false,
-    "document-skills@anthropic-agent-skills": false,
-    "playwright@claude-plugins-official": false,
-    "claude-seo@agricidaniel-claude-seo": false,
-    "ui-ux-pro-max@ui-ux-pro-max-skill": false,
-    "firecrawl@claude-plugins-official": false,
-    "skill-creator@claude-plugins-official": false
-  },
-
   "skillOverrides": {
     "create-llms": "user-invocable-only",
     "design-md": "user-invocable-only",
@@ -53,7 +34,6 @@
     "stitch-upload-to-stitch": "user-invocable-only",
     "taste-design": "user-invocable-only",
     "vercel-react-native-skills": "user-invocable-only",
-
     "hyperframes": "user-invocable-only",
     "hyperframes-animation": "user-invocable-only",
     "hyperframes-cli": "user-invocable-only",
@@ -73,7 +53,6 @@
     "remotion-render": "user-invocable-only",
     "remotion-saas": "user-invocable-only",
     "remotion-upgrade": "user-invocable-only",
-
     "firecrawl": "user-invocable-only",
     "firecrawl-agent": "user-invocable-only",
     "firecrawl-build": "user-invocable-only",
@@ -107,7 +86,6 @@
     "firecrawl-shop": "user-invocable-only",
     "firecrawl-website-design-clone": "user-invocable-only",
     "firecrawl-workflows": "user-invocable-only",
-
     "superpowers:dispatching-parallel-agents": "user-invocable-only",
     "superpowers:executing-plans": "user-invocable-only",
     "superpowers:finishing-a-development-branch": "user-invocable-only",
@@ -116,5 +94,20 @@
     "superpowers:subagent-driven-development": "user-invocable-only",
     "superpowers:using-git-worktrees": "user-invocable-only",
     "superpowers:writing-skills": "user-invocable-only"
-  }
+  },
+  "enabledPlugins": {
+    "stitch-build@google-labs-code-stitch-skills": true,
+    "stitch-design@google-labs-code-stitch-skills": false,
+    "stitch-utilities@google-labs-code-stitch-skills": false,
+    "document-skills@anthropic-agent-skills": false,
+    "playwright@claude-plugins-official": false,
+    "claude-seo@agricidaniel-claude-seo": false,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true,
+    "firecrawl@claude-plugins-official": false,
+    "skill-creator@claude-plugins-official": false
+  },
+  "claudeMdExcludes": [
+    "C:/Users/prest/proyectos/CLAUDE.md"
+  ],
+  "precomputeCompactionEnabled": true
 }
