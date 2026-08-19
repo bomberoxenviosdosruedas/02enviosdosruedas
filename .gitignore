@@ -10,6 +10,7 @@ docs/datos/*
 .agents/*
 .hermes/*
 .claude/*
+!.claude/settings.json
 .prisma/
 generated/*
 .vercel
