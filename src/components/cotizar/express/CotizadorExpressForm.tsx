@@ -25,7 +25,6 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<{
     distancia: number;
-    tiempo: number;
     precio: number | 'consultar';
   } | null>(null);
 
@@ -69,7 +68,6 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
 
       setResult({
         distancia: route.distanceKm,
-        tiempo: route.durationMin,
         precio: actionResult.price!,
       });
       setCalculated(true);
@@ -249,23 +247,13 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                   className="double-bezel-outer bg-brand-blue-50/90 border border-brand-blue-200 p-2 rounded-2xl shadow-elevated w-full"
                 >
                   <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-100/50 space-y-4 text-brand-blue-700">
-                    <div className="grid grid-cols-2 gap-3 text-center">
-                      <div className="bg-brand-blue-50/80 p-3 rounded-xl border border-brand-blue-100">
-                        <span className="block text-[10px] font-subheading font-bold text-brand-blue-600 uppercase tracking-wider">
-                          DISTANCIA REAL
-                        </span>
-                        <span className="text-xl font-mono text-brand-blue-700 font-bold tabular-nums">
-                          {result.distancia} km
-                        </span>
-                      </div>
-                      <div className="bg-brand-blue-50/80 p-3 rounded-xl border border-brand-blue-100">
-                        <span className="block text-[10px] font-subheading font-bold text-brand-blue-600 uppercase tracking-wider">
-                          TIEMPO ESTIMADO
-                        </span>
-                        <span className="text-xl font-mono text-brand-blue-700 font-bold tabular-nums">
-                          {result.tiempo} min
-                        </span>
-                      </div>
+                    <div className="bg-brand-blue-50/80 p-3.5 rounded-xl border border-brand-blue-100 flex items-center justify-between">
+                      <span className="text-xs font-subheading font-bold text-brand-blue-600 uppercase tracking-wider">
+                        DISTANCIA REAL
+                      </span>
+                      <span className="text-xl font-mono text-brand-blue-700 font-bold tabular-nums">
+                        {result.distancia} km
+                      </span>
                     </div>
 
                     <div className="border-t border-brand-blue-100 pt-4 flex flex-col sm:flex-row justify-between items-center gap-4">

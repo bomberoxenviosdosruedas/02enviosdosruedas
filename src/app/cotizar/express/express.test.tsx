@@ -94,7 +94,6 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
 
     await waitFor(() => {
       expect(screen.getByText('5.2 km')).toBeInTheDocument();
-      expect(screen.getByText('12 min')).toBeInTheDocument();
       expect(screen.getByText('$6.100')).toBeInTheDocument();
     });
   });

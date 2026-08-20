@@ -25,7 +25,6 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<{
     distancia: number;
-    tiempo: number;
     precio: number | 'consultar';
   } | null>(null);
 
@@ -69,7 +68,6 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
 
       setResult({
         distancia: route.distanceKm,
-        tiempo: route.durationMin,
         precio: actionResult.price!,
       });
       setCalculated(true);

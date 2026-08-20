@@ -14,7 +14,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'Cotizador de Envíos Express en Moto | Mar del Plata | Envíos DosRuedas',
   description:
-    'Calculá el costo exacto y tiempo estimado de tu envío prioritario en Mar del Plata. Tarifas transparentes por kilómetro, entrega en el día y coordinación en el acto.',
+    'Calculá el costo exacto de tu envío prioritario en Mar del Plata. Tarifas transparentes por kilómetro, entrega en el día y coordinación en el acto.',
   alternates: {
     canonical: `${baseUrl}/cotizar/express`,
   },
