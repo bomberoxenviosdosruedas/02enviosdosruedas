@@ -200,8 +200,8 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
               </div>
 
               {error && (
-                <div className="bg-red-50 text-red-600 border border-red-200 text-xs px-4 py-3 rounded-xl flex items-center gap-2 font-sans">
-                  <AlertTriangle className="h-4 w-4 shrink-0" />
+                <div className="bg-brand-blue-50 text-brand-blue-700 border-2 border-brand-blue-200 text-xs px-4 py-3 rounded-xl flex items-center gap-2 font-sans font-medium">
+                  <AlertTriangle className="h-4 w-4 text-brand-blue-700 shrink-0" />
                   <span>{error}</span>
                 </div>
               )}

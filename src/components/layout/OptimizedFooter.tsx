@@ -35,7 +35,7 @@ export default function OptimizedFooter() {
 
           {/* COLUMN 1: Brand details & Socials (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <Link href="/" className="flex items-center gap-3 group w-fit focus:outline-none">
+            <Link href="/" className="flex items-center gap-3 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
               <div className="flex items-center gap-2.5">
                 <div className="relative w-10 h-10 group-hover:rotate-12 transition-transform duration-200 shrink-0">
                   <Image

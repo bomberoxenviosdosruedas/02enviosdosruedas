@@ -12,5 +12,4 @@ export { Badge, type BadgeProps, type BadgeVariant, type BadgeSize } from './Bad
 export { default as HeroProceduralBackground } from './HeroProceduralBackground';
 
 // Helper components
-export { Button, buttonVariants } from './button';
 export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from './card';

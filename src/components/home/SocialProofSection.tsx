@@ -621,20 +621,21 @@ export default function SocialProofSection() {
         </div>
 
         {/* Scroll Snap Pagination Dots */}
-        <div className="flex justify-center items-center gap-2 mb-10">
+        <div className="flex justify-center items-center gap-1 mb-10">
           {filteredReviews.map((_, idx) => (
-            <button
-              key={idx}
-              type="button"
-              onClick={() => scrollToIndex(idx)}
-              aria-label={`Ir a la reseña ${idx + 1}`}
-              className={cn(
-                'h-2 rounded-full transition-all duration-300 cursor-pointer border',
-                idx === activeSnapIndex
-                  ? 'w-10 bg-brand-yellow-500 border-brand-yellow-400'
-                  : 'w-2 bg-brand-blue-200 border-brand-blue-200 hover:bg-brand-blue-400'
-              )}
-            />
+            <div key={idx} className="min-w-[44px] min-h-[44px] flex items-center justify-center">
+              <button
+                type="button"
+                onClick={() => scrollToIndex(idx)}
+                aria-label={`Ir a la reseña ${idx + 1}`}
+                className={cn(
+                  'h-2 rounded-full transition-all duration-300 cursor-pointer border',
+                  idx === activeSnapIndex
+                    ? 'w-10 bg-brand-yellow-500 border-brand-yellow-400'
+                    : 'w-2 bg-brand-blue-200 border-brand-blue-200 hover:bg-brand-blue-400'
+                )}
+              />
+            </div>
           ))}
         </div>
 

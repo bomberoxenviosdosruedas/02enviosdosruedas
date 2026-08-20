@@ -546,7 +546,7 @@ export default function ServicesOverview() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-brand-blue-950/80 backdrop-blur-md flex items-center justify-center p-4"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
