@@ -177,7 +177,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
 
       {/* Notification Toast */}
       {statusMessage && (
-        <div className="mb-8 bg-brand-white-50 border-2 border-brand-blue-400 text-brand-blue-700 p-4 rounded-2xl flex items-start gap-3 shadow-[4px_4px_0px_#10B981] animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="mb-8 bg-brand-white-50 border-2 border-brand-blue-400 text-brand-blue-700 p-4 rounded-2xl flex items-start gap-3 shadow-[4px_4px_0px_var(--color-brand-blue-500)] animate-in fade-in slide-in-from-top-4 duration-300">
           <CheckCircle2 className="h-6 w-6 text-brand-blue-500 shrink-0 mt-0.5" />
           <div>
             <p className="font-sans font-bold text-sm">Cambio Guardado con Éxito</p>
@@ -247,7 +247,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                           key={item.id}
                           className={`rounded-2xl p-5 border-2 transition-all duration-200 flex flex-col justify-between ${
                             isReviewed 
-                              ? 'border-brand-blue-400 bg-brand-white-50/10 shadow-[3px_3px_0px_#10B981]'
+                              ? 'border-brand-blue-400 bg-brand-white-50/10 shadow-[3px_3px_0px_var(--color-brand-blue-500)]'
                               : 'border-brand-blue-100 bg-white hover:border-brand-blue shadow-sm'
                           }`}
                         >

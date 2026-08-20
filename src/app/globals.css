@@ -545,6 +545,21 @@
   border: 1px solid rgba(6, 54, 165, 0.2);
 }
 
+/* Focus Ring Utility */
+@utility focus-ring-brand {
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: none;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--color-brand-blue-500);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    --tw-ring-offset-width: 2px;
+    --tw-ring-offset-color: #ffffff;
+  }
+}
+
 /* Double-Bezel Card & CTA Nested Button Utilities */
 @utility double-bezel-outer {
   background-color: var(--color-brand-blue-50);

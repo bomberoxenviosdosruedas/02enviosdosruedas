@@ -217,7 +217,7 @@ export default function OptimizedHeader() {
           <div className="lg:hidden flex items-center gap-3">
             <a
               href="tel:+542236602699"
-              className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
               title="Llamar"
               aria-label="Llamar por teléfono"
             >
@@ -226,7 +226,7 @@ export default function OptimizedHeader() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               id="mobile-menu-toggle-opt"
-              className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none transition-all cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 transition-all cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Toggle Navigation Menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
