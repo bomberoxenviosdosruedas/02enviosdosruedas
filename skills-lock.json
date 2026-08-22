@@ -61,6 +61,12 @@
       "skillPath": "plugins/stitch-build/skills/shadcn-ui/SKILL.md",
       "computedHash": "57e2cc881eb395418d28f1529e2d453b85f1d77a8de000c8af59512fab7b318d"
     },
+    "site-md": {
+      "source": "google-labs-code/stitch-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/stitch-utilities/skills/site-md/SKILL.md",
+      "computedHash": "8661ca3a2a43795296cc66091a2ed16a087521e47ca9b8aa6a2f5e10e609d586"
+    },
     "stitch-loop": {
       "source": "google-labs-code/stitch-skills",
       "sourceType": "github",
