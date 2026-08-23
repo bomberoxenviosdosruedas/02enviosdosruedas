@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion } from 'motion/react';
 import {
   Phone, MapPin, Mail, Clock, ShieldCheck, ArrowUpRight,
-  Zap, TrendingDown, ShoppingBag, ArrowUp, Send, CheckCircle2
+  Zap, TrendingDown, ShoppingBag, ArrowUp
 } from 'lucide-react';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
@@ -18,23 +18,23 @@ export default function OptimizedFooter() {
   return (
     <footer
       id="optimized-footer"
-      className="bg-brand-blue-950 text-white border-t border-white/10 relative overflow-hidden font-sans select-none"
+      className="bg-brand-blue-700 text-white border-t border-white/10 relative overflow-hidden font-sans select-none"
     >
       {/* Decorative top yellow accent bar with continuous glow */}
       <div className="h-1.5 bg-brand-yellow-500 w-full shadow-md shadow-brand-yellow-500/30" />
 
-      {/* Atmospheric Background & Blueprint Grid Details */}
+      {/* Atmospheric Background & Subtle Blueprint Grid Details */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(6,54,165,0.4),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(4,35,107,0.5),transparent_40%)] pointer-events-none" />
       <div className="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
 
-        {/* TOP CTA BANNER / BRAND PROMISE */}
-        <div className="mb-14 rounded-2xl bg-brand-blue-900/80 border border-white/10 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* TOP CTA BANNER / BRAND PROMISE — Harmonics with Header tone */}
+        <div className="mb-14 rounded-2xl bg-brand-blue-800/90 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500/10 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading font-bold uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-brand-yellow-500 animate-ping" />
               Operaciones Activas Mar del Plata 2026
             </div>
@@ -88,14 +88,14 @@ export default function OptimizedFooter() {
                 <span className="font-display text-2xl sm:text-3xl tracking-tight uppercase select-none text-white">
                   Envíos <span className="text-brand-yellow-500">DosRuedas</span>
                 </span>
-                <span className="text-[10px] font-mono text-brand-blue-200 tracking-widest uppercase mt-0.5">
-                  Logística Urbana · Mar del Plata
+                <span className="text-[10px] font-mono text-brand-blue-100 tracking-widest uppercase mt-0.5 opacity-90">
+                  Tu solución confiable · Mar del Plata
                 </span>
               </div>
             </Link>
 
-            <p className="text-brand-blue-100 text-sm leading-relaxed max-w-sm font-light">
-              Más de 15 años conectando comercios, emprendedores y clientes en Mar del Plata. Envíos express en &lt; 2 horas, logística Flex certificada para MercadoLibre y distribución 3PL eficiente.
+            <p className="text-brand-blue-50 text-sm leading-relaxed max-w-sm font-light">
+              Con más de 7 años de trayectoria en Mar del Plata, transformamos el despacho de tus productos en un motor de crecimiento para emprendedores, PyMEs y comercios locales con flota propia y compromiso humano.
             </p>
 
             <div className="space-y-3 pt-2">
@@ -141,7 +141,7 @@ export default function OptimizedFooter() {
                   </a>
                 </motion.div>
 
-                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-brand-blue-100 font-mono shadow-inner">
+                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/10 border border-white/15 text-xs text-white font-mono shadow-inner">
                   <ShieldCheck className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                   <span>Partner 3PL Verificado</span>
                 </div>
@@ -158,7 +158,7 @@ export default function OptimizedFooter() {
               <li>
                 <Link
                   href="/cotizar/express"
-                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200"
+                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
                 >
                   <div className="flex items-center gap-2.5">
                     <Zap className="h-4 w-4 text-brand-yellow-500 shrink-0" />
@@ -170,7 +170,7 @@ export default function OptimizedFooter() {
               <li>
                 <Link
                   href="/cotizar/lowcost"
-                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200"
+                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
                 >
                   <div className="flex items-center gap-2.5">
                     <TrendingDown className="h-4 w-4 text-brand-yellow-500 shrink-0" />
@@ -182,7 +182,7 @@ export default function OptimizedFooter() {
               <li>
                 <Link
                   href="/servicios/enviosflex"
-                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200"
+                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
                 >
                   <div className="flex items-center gap-2.5">
                     <Clock className="h-4 w-4 text-brand-yellow-500 shrink-0" />
@@ -194,7 +194,7 @@ export default function OptimizedFooter() {
               <li>
                 <Link
                   href="/servicios/plan-emprendedores"
-                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200"
+                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
                 >
                   <div className="flex items-center gap-2.5">
                     <ShoppingBag className="h-4 w-4 text-brand-yellow-500 shrink-0" />
@@ -213,8 +213,8 @@ export default function OptimizedFooter() {
             </h4>
 
             <div className="space-y-3.5 text-xs text-brand-blue-50 font-sans">
-              <div className="flex gap-3 items-start bg-white/5 p-3 rounded-xl border border-white/10">
-                <div className="p-2 bg-brand-blue-700/80 rounded-lg shrink-0 text-brand-yellow-500">
+              <div className="flex gap-3 items-start bg-brand-blue-800/80 p-3 rounded-xl border border-white/15">
+                <div className="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
                   <MapPin className="h-4 w-4" />
                 </div>
                 <div>
@@ -223,8 +223,8 @@ export default function OptimizedFooter() {
                 </div>
               </div>
 
-              <div className="flex gap-3 items-start bg-white/5 p-3 rounded-xl border border-white/10">
-                <div className="p-2 bg-brand-blue-700/80 rounded-lg shrink-0 text-brand-yellow-500">
+              <div className="flex gap-3 items-start bg-brand-blue-800/80 p-3 rounded-xl border border-white/15">
+                <div className="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
                   <Phone className="h-4 w-4" />
                 </div>
                 <div>
@@ -235,8 +235,8 @@ export default function OptimizedFooter() {
                 </div>
               </div>
 
-              <div className="flex gap-3 items-start bg-white/5 p-3 rounded-xl border border-white/10">
-                <div className="p-2 bg-brand-blue-700/80 rounded-lg shrink-0 text-brand-yellow-500">
+              <div className="flex gap-3 items-start bg-brand-blue-800/80 p-3 rounded-xl border border-white/15">
+                <div className="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
                   <Mail className="h-4 w-4" />
                 </div>
                 <div>
@@ -247,13 +247,22 @@ export default function OptimizedFooter() {
                 </div>
               </div>
 
-              <div className="flex gap-3 items-start bg-white/5 p-3 rounded-xl border border-white/10">
-                <div className="p-2 bg-brand-blue-700/80 rounded-lg shrink-0 text-brand-yellow-500">
+              <div className="flex gap-3 items-start bg-brand-blue-800/80 p-3 rounded-xl border border-white/15">
+                <div className="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
                   <Clock className="h-4 w-4" />
                 </div>
-                <div>
-                  <p className="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Cobertura 2026</p>
-                  <p className="font-sans text-[12px] text-brand-blue-100 mt-0.5">Lunes a Sábados de 08:00 a 20:00 hs</p>
+                <div className="space-y-1">
+                  <p className="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Despacho (Base Central)</p>
+                  <div className="text-[12px] font-sans text-brand-blue-100 space-y-0.5">
+                    <div className="flex justify-between items-center gap-4">
+                      <span>Lunes a Viernes:</span>
+                      <span className="font-mono font-bold text-brand-yellow-500">09:00 - 18:00 hs</span>
+                    </div>
+                    <div className="flex justify-between items-center gap-4">
+                      <span>Sábados:</span>
+                      <span className="font-mono font-bold text-brand-yellow-500">10:00 - 15:00 hs</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -266,7 +275,7 @@ export default function OptimizedFooter() {
           {/* Scroll to Top Floating Button */}
           <motion.button
             onClick={scrollToTop}
-            className="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-950 p-2.5 rounded-full shadow-accent-md hover:shadow-cta-glow transition-all flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer"
+            className="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 p-2.5 rounded-full shadow-accent-md hover:shadow-cta-glow transition-all flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer"
             title="Volver al inicio"
             aria-label="Volver arriba"
             whileHover={{ y: -2 }}
@@ -277,20 +286,20 @@ export default function OptimizedFooter() {
         </div>
 
         {/* BOTTOM SECTION: Legal & Copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-blue-200 font-sans">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-blue-100 font-sans">
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6">
             <p className="font-medium text-white">© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</p>
-            <Link href="/nosotros/sobre-nosotros" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-200">
+            <Link href="/nosotros/sobre-nosotros" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-100">
               Sobre Nosotros
             </Link>
-            <Link href="/nosotros/preguntas-frecuentes" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-200">
+            <Link href="/nosotros/preguntas-frecuentes" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-100">
               Preguntas Frecuentes
             </Link>
-            <Link href="/nosotros/nuestras-redes" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-200">
+            <Link href="/nosotros/nuestras-redes" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-100">
               Nuestras Redes
             </Link>
           </div>
-          <div className="flex flex-wrap justify-center gap-6 shrink-0 text-brand-blue-200">
+          <div className="flex flex-wrap justify-center gap-6 shrink-0 text-brand-blue-100">
             <Link href="/terminos-y-condiciones" className="hover:text-brand-yellow-500 transition-colors">
               Términos y Condiciones
             </Link>
@@ -304,4 +313,3 @@ export default function OptimizedFooter() {
     </footer>
   );
 }
-
