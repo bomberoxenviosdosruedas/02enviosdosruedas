@@ -27,6 +27,8 @@ interface DynamicRouteMapProps {
   origin: Coordinate | null;
   destination: Coordinate | null;
   routeCoords: [number, number][];
+  distanceKm?: number;
+  serviceType?: 'EXPRESS' | 'LOW_COST';
 }
 
 export default function DynamicRouteMap(props: DynamicRouteMapProps) {

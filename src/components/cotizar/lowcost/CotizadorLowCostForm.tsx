@@ -348,6 +348,8 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
               origin={origenCoords}
               destination={destinoCoords}
               routeCoords={routeCoords}
+              distanceKm={result?.distancia}
+              serviceType="LOW_COST"
             />
           </div>
 

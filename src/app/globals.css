@@ -640,3 +640,49 @@
   transform: scaleX(1.1);
   letter-spacing: 0.02em;
 }
+
+/* Map Animations & Custom Marker Pin Styles */
+@keyframes route-dash-flow {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+.leaflet-route-animated {
+  stroke-dasharray: 8 12;
+  animation: route-dash-flow 1.2s linear infinite;
+}
+
+@keyframes map-pin-pop {
+  0% {
+    transform: scale(0) translateY(-20px);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15) translateY(-2px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.map-marker-animate {
+  animation: map-pin-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes radar-ripple {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.radar-pulse-ring {
+  animation: radar-ripple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}

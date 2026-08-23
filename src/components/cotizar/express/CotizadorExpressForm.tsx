@@ -338,6 +338,8 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
               origin={origenCoords}
               destination={destinoCoords}
               routeCoords={routeCoords}
+              distanceKm={result?.distancia}
+              serviceType="EXPRESS"
             />
           </div>
 
