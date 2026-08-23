@@ -40,8 +40,8 @@ describe('calculateExpressPrice', () => {
   });
 
   it('aplica recargo por km para distancias extendidas (> 10 km, <= 20 km)', () => {
-    // basePrice = 7500, extraKm = 13 - 10 = 3, rate = 500 → 7500 + 3*500 = 9000
-    expect(calculateExpressPrice(13, expressRanges)).toBe(9000);
+    // 13 km * 500 = 6500
+    expect(calculateExpressPrice(13, expressRanges)).toBe(6500);
   });
 
   it('retorna "consultar" para distancias > 20 km', () => {
@@ -54,8 +54,14 @@ describe('calculateExpressPrice', () => {
   });
 
   it('usa fallback cuando priceRanges está vacío — tramo largo (> 3 km)', () => {
-    // fallback: 3700 + (5 - 3) * 450 = 3700 + 900 = 4600
     expect(calculateExpressPrice(5, [])).toBe(4600);
+  });
+
+  it('usa fallback cuando priceRanges está vacío — tramo extendido (> 10 km)', () => {
+    // 12 km * 1000 = 12000
+    expect(calculateExpressPrice(12, [])).toBe(12000);
+    // 10.3 km -> Math.ceil(10.3) = 11 km * 1000 = 11000
+    expect(calculateExpressPrice(10.3, [])).toBe(11000);
   });
 
   it('retorna "consultar" con fallback para distancias > 20 km', () => {
@@ -79,8 +85,8 @@ describe('calculateLowCostPrice', () => {
   });
 
   it('aplica recargo por km para distancias extendidas (> 10 km, <= 20 km)', () => {
-    // basePrice = 6000, extraKm = 15 - 10 = 5, rate = 400 → 6000 + 5*400 = 8000
-    expect(calculateLowCostPrice(15, lowCostRanges)).toBe(8000);
+    // 15 km * 400 = 6000
+    expect(calculateLowCostPrice(15, lowCostRanges)).toBe(6000);
   });
 
   it('retorna "consultar" para distancias > 20 km', () => {
@@ -93,9 +99,14 @@ describe('calculateLowCostPrice', () => {
   });
 
   it('usa fallback cuando priceRanges está vacío — tramo largo (> 3 km)', () => {
-    // fallback: 3000 + (6 - 3) * 400 = 3000 + 1200 = 4200
-    // fallback: 3000 + (6 - 3) * 400 = 3000 + 1200 = 4200
     expect(calculateLowCostPrice(6, [])).toBe(5300);
+  });
+
+  it('usa fallback cuando priceRanges está vacío — tramo extendido (> 10 km)', () => {
+    // 12 km * 700 = 8400
+    expect(calculateLowCostPrice(12, [])).toBe(8400);
+    // 10.3 km -> Math.ceil(10.3) = 11 km * 700 = 7700
+    expect(calculateLowCostPrice(10.3, [])).toBe(7700);
   });
 
   it('retorna "consultar" con fallback para distancias > 20 km', () => {

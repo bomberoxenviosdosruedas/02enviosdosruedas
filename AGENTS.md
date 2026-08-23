@@ -110,15 +110,16 @@ graph LR
 | **EXPRESS** | 3–5 km | $4.600 |
 | **EXPRESS** | 5–7 km | $6.100 |
 | **EXPRESS** | 7–10 km | $8.200 |
-| **EXPRESS** | +10 km | $8.200 + `Math.ceil(km − 10) × $1.000` |
+| **EXPRESS** | +10 km | `Math.ceil(km) × $1.000` |
 | **LOW_COST** | 0–3 km | $3.000 |
 | **LOW_COST** | 3–5 km | $4.000 |
 | **LOW_COST** | 5–7 km | $5.300 |
 | **LOW_COST** | 7–10 km | $7.000 |
-| **LOW_COST** | +10 km | $7.000 + `Math.ceil(km − 10) × $700` |
+| **LOW_COST** | +10 km | `Math.ceil(km) × $700` |
 
-> ⚠️ **`Math.ceil` OBLIGATORIO para excedente +10 km.** Un viaje de 10.3 km cobra 1 km adicional entero, no 0.3.
-> Test unitario: `calculateExpressPrice(10.3) === 9200` (8200 + 1000)
+> ⚠️ **`Math.ceil` OBLIGATORIO para tramos +10 km.** Se multiplican los kilómetros totales redondeados al entero superior por la tarifa unitaria por km (hasta el límite de 20 km).
+> Ejemplo: `calculateExpressPrice(10.3) === 11000` (Math.ceil(10.3) = 11 km × $1.000)
+> Ejemplo: `calculateExpressPrice(12) === 12000` (12 km × $1.000)
 
 **Error de recuperación:** Si cotizador devuelve precio distinto a tabla → Verificar `src/lib/pricing.ts` → Verificar entidad `PricingRange` en BD → Verificar `docs/contexto/precios.md`.
 

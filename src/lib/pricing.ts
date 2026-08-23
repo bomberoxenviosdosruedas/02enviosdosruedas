@@ -20,7 +20,7 @@ export interface PriceRangeProp {
  *   3–5 km  → $4.600
  *   5–7 km  → $6.100
  *   7–10 km → $8.200
- *   +10 km  → $8.200 + Math.ceil(km_excedente) × $1.000  (km entero, sin prorrateo)
+ *   +10 km  → Math.ceil(km) × $1.000  (km total entero × precio por km)
  *
  * @param distanceKm  Distancia en kilómetros (puede tener decimales).
  * @param priceRanges Rangos de precios obtenidos desde la base de datos.
@@ -41,14 +41,8 @@ export function calculateExpressPrice(
 
     if (matchingRange) {
       if (matchingRange.distanciaMaxKm === 9999) {
-        // Rango extendido (+10 km): precio base del tramo 7–10 km
-        // + $precioRango por cada km entero excedente (sin prorrateo → Math.ceil)
-        const baseRange = expressRanges.find(
-          (r) => r.distanciaMinKm === 7 && r.distanciaMaxKm === 10
-        );
-        const basePrice = baseRange ? baseRange.precioRango : 8200;
-        const extraKm = distanceKm - 10;
-        return basePrice + Math.ceil(extraKm) * matchingRange.precioRango;
+        // Rango extendido (+10 km): cantidad total de km redondeados hacia arriba × precio unitario por km
+        return Math.ceil(distanceKm) * matchingRange.precioRango;
       }
       return matchingRange.precioRango;
     }
@@ -58,7 +52,7 @@ export function calculateExpressPrice(
     if (distanceKm <= 5)  return 4600;
     if (distanceKm <= 7)  return 6100;
     if (distanceKm <= 10) return 8200;
-    return 8200 + Math.ceil(distanceKm - 10) * 1000;
+    return Math.ceil(distanceKm) * 1000;
   }
 
   return 'consultar';
@@ -72,7 +66,7 @@ export function calculateExpressPrice(
  *   3–5 km  → $4.000
  *   5–7 km  → $5.300
  *   7–10 km → $7.000
- *   +10 km  → $7.000 + Math.ceil(km_excedente) × $700  (km entero, sin prorrateo)
+ *   +10 km  → Math.ceil(km) × $700  (km total entero × precio por km)
  *
  * @param distanceKm  Distancia en kilómetros (puede tener decimales).
  * @param priceRanges Rangos de precios obtenidos desde la base de datos.
@@ -93,14 +87,8 @@ export function calculateLowCostPrice(
 
     if (matchingRange) {
       if (matchingRange.distanciaMaxKm === 9999) {
-        // Rango extendido (+10 km): precio base del tramo 7–10 km
-        // + $precioRango por cada km entero excedente (sin prorrateo → Math.ceil)
-        const baseRange = lowCostRanges.find(
-          (r) => r.distanciaMinKm === 7 && r.distanciaMaxKm === 10
-        );
-        const basePrice = baseRange ? baseRange.precioRango : 7000;
-        const extraKm = distanceKm - 10;
-        return basePrice + Math.ceil(extraKm) * matchingRange.precioRango;
+        // Rango extendido (+10 km): cantidad total de km redondeados hacia arriba × precio unitario por km
+        return Math.ceil(distanceKm) * matchingRange.precioRango;
       }
       return matchingRange.precioRango;
     }
@@ -110,7 +98,7 @@ export function calculateLowCostPrice(
     if (distanceKm <= 5)  return 4000;
     if (distanceKm <= 7)  return 5300;
     if (distanceKm <= 10) return 7000;
-    return 7000 + Math.ceil(distanceKm - 10) * 700;
+    return Math.ceil(distanceKm) * 700;
   }
 
   return 'consultar';
