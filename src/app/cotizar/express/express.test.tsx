@@ -106,8 +106,8 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
     expect(submitBtn).toBeDisabled();
   });
 
-  it('T2.2: calcula correctamente el excedente para distancias mayores a 10 km usando Math.ceil (ej: 10.3 km -> $9.200)', async () => {
-    // 10.3 km -> 10 km es $8.200 + Math.ceil(0.3) * 1.000 = $9.200
+  it('T2.2: calcula correctamente el excedente para distancias mayores a 10 km usando Math.ceil (ej: 10.3 km -> $11.000)', async () => {
+    // 10.3 km -> Math.ceil(10.3) = 11 km * $1.000 = $11.000
     mockFetchRoute.mockResolvedValueOnce({
       distanceKm: 10.3,
       durationMin: 22,
@@ -129,7 +129,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
 
     await waitFor(() => {
       expect(screen.getByText('10.3 km')).toBeInTheDocument();
-      expect(screen.getByText('$9.200')).toBeInTheDocument();
+      expect(screen.getByText('$11.000')).toBeInTheDocument();
     });
   });
 
