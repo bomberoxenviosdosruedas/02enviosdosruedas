@@ -7,9 +7,9 @@ coverage/
 .env*
 !.env.example
 docs/prompts/*
-docs/datos/*
 .agents/*
-.hermes/*
+!.agents/skills/
+!.agents/skills.json
 .claude/*
 !.claude/settings.json
 .prisma/
