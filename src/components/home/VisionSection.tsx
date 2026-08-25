@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { motion, useReducedMotion, type Variants } from 'motion/react';
+import React from 'react';
+import { motion, useReducedMotion, useMotionValue, useTransform, animate, type Variants } from 'motion/react';
 import { Clock, ShieldCheck, Users, Truck } from 'lucide-react';
 
 function CounterMetric({
@@ -14,47 +14,22 @@ function CounterMetric({
   suffix?: string;
 }) {
   const reduceMotion = useReducedMotion();
-  const [count, setCount] = useState(reduceMotion ? value : 0);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    if (reduceMotion || !isInView) {
-      if (isInView) setCount(value);
-      return;
-    }
-
-    const duration = 1200; // ms
-    const startTime = performance.now();
-
-    const animateCount = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(easeProgress * value);
-
-      setCount(current);
-
-      if (progress < 1) {
-        requestAnimationFrame(animateCount);
-      } else {
-        setCount(value);
-      }
-    };
-
-    const frameId = requestAnimationFrame(animateCount);
-    return () => cancelAnimationFrame(frameId);
-  }, [isInView, value, reduceMotion]);
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => `${prefix}${Math.round(latest)}${suffix}`);
 
   return (
     <motion.span
-      onViewportEnter={() => setIsInView(true)}
+      onViewportEnter={() => {
+        if (reduceMotion) {
+          count.set(value);
+        } else {
+          animate(count, value, { duration: 1.2, ease: [0.16, 1, 0.3, 1] });
+        }
+      }}
       viewport={{ once: true, margin: '-50px' }}
       className="tabular-nums font-mono"
     >
-      {prefix}
-      {count}
-      {suffix}
+      {rounded}
     </motion.span>
   );
 }
