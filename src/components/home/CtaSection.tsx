@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { motion, useReducedMotion, type Variants, type Transition } from 'motion/react';
-import { MessageSquare, FileText, User, Store, PackageSearch } from 'lucide-react';
+import { motion, useReducedMotion, type Variants } from 'motion/react';
+import { MessageSquare, User, Store, PackageSearch } from 'lucide-react';
 
 export default function CtaSection() {
   const reduceMotion = useReducedMotion();
@@ -18,8 +17,8 @@ export default function CtaSection() {
   };
 
   // HyperFrames standard spring config
-  const springConfig: Transition = { type: 'spring', stiffness: 100, damping: 20 };
-  const springConfigSnappy: Transition = { type: 'spring', stiffness: 300, damping: 25 };
+  const springConfig = { type: 'spring' as const, stiffness: 100, damping: 20 };
+  const springConfigSnappy = { type: 'spring' as const, stiffness: 300, damping: 25 };
 
   // Container variants with orchestrated stagger
   const containerVariants: Variants = {
@@ -27,18 +26,18 @@ export default function CtaSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.15,
+        staggerChildren: 0.1,
+        delayChildren: 0.05,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: 'spring', stiffness: 100, damping: 20 },
+      transition: reduceMotion ? { duration: 0.01 } : springConfig,
     },
   };
 
@@ -51,7 +50,7 @@ export default function CtaSection() {
         className="max-w-6xl mx-auto double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 sm:p-3 rounded-3xl shadow-antigravity-deep"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: '-50px' }}
         variants={containerVariants}
       >
         <motion.div
@@ -64,8 +63,11 @@ export default function CtaSection() {
 
           {/* Left Text Block */}
           <motion.div className="lg:w-1/2 space-y-8 relative z-10 text-center lg:text-left" variants={itemVariants}>
-            <motion.div className="inline-flex" whileHover={{ scale: 1.02, transition: springConfigSnappy }}>
-              <span className="px-4 py-2 rounded-full text-xs font-subheading tracking-widest bg-brand-yellow-500/15 text-brand-blue-700 border border-brand-yellow-500 uppercase font-bold">
+            <motion.div
+              className="inline-flex"
+              whileHover={reduceMotion ? undefined : { scale: 1.03, transition: springConfigSnappy }}
+            >
+              <span className="px-4 py-2 rounded-full text-xs font-subheading tracking-widest bg-brand-yellow-500/15 text-brand-blue-700 border border-brand-yellow-500 uppercase font-bold cursor-default shadow-xs">
                 Cotización Inmediata
               </span>
             </motion.div>
@@ -78,7 +80,10 @@ export default function CtaSection() {
               Olvidate de la gestión de paquetes en Mar del Plata. Completá tus datos y te respondemos por WhatsApp al instante.
             </motion.p>
 
-            <motion.div className="pt-2 hidden lg:block" whileHover={{ x: 4, transition: springConfigSnappy }}>
+            <motion.div
+              className="pt-2 hidden lg:block cursor-default"
+              whileHover={reduceMotion ? undefined : { x: 4, transition: springConfigSnappy }}
+            >
               <p className="text-xs font-mono tracking-widest text-brand-blue-600 font-bold uppercase leading-none">
                 Atención comercial <span className="text-brand-yellow-500 bg-brand-blue-700 px-2 py-0.5 rounded font-mono">{'<'} 2 MIN</span>
               </p>
@@ -91,16 +96,13 @@ export default function CtaSection() {
 
               <motion.div
                 className="space-y-1.5"
-                whileHover={{ x: 4, transition: springConfigSnappy }}
+                whileHover={reduceMotion ? undefined : { x: 3, transition: springConfigSnappy }}
               >
                 <label className="text-xs font-subheading tracking-widest text-brand-blue-700 uppercase font-bold">Tu Nombre</label>
                 <div className="relative">
-                  <motion.div
-                    className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-400"
-                    whileHover={{ scale: 1.2, transition: springConfigSnappy }}
-                  >
-                    <User />
-                  </motion.div>
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-400 pointer-events-none">
+                    <User className="w-5 h-5" />
+                  </div>
                   <input
                     required
                     value={formData.name}
@@ -114,16 +116,13 @@ export default function CtaSection() {
 
               <motion.div
                 className="space-y-1.5"
-                whileHover={{ x: 4, transition: springConfigSnappy }}
+                whileHover={reduceMotion ? undefined : { x: 3, transition: springConfigSnappy }}
               >
                 <label className="text-xs font-subheading tracking-widest text-brand-blue-700 uppercase font-bold">Empresa / Negocio</label>
                 <div className="relative">
-                  <motion.div
-                    className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-400"
-                    whileHover={{ scale: 1.2, transition: springConfigSnappy }}
-                  >
-                    <Store />
-                  </motion.div>
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-400 pointer-events-none">
+                    <Store className="w-5 h-5" />
+                  </div>
                   <input
                     required
                     value={formData.business}
@@ -137,16 +136,13 @@ export default function CtaSection() {
 
               <motion.div
                 className="space-y-1.5"
-                whileHover={{ x: 4, transition: springConfigSnappy }}
+                whileHover={reduceMotion ? undefined : { x: 3, transition: springConfigSnappy }}
               >
                 <label htmlFor="volume-select" className="text-xs font-subheading tracking-widest text-brand-blue-700 uppercase font-bold">Volumen Estimado Mensual</label>
                 <div className="relative">
-                  <motion.div
-                    className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-400"
-                    whileHover={{ scale: 1.2, transition: springConfigSnappy }}
-                  >
-                    <PackageSearch />
-                  </motion.div>
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-400 pointer-events-none">
+                    <PackageSearch className="w-5 h-5" />
+                  </div>
                   <select
                     required
                     id="volume-select"
@@ -162,19 +158,23 @@ export default function CtaSection() {
                 </div>
               </motion.div>
 
-              <motion.div className="pt-4" whileHover={{ y: -2, transition: springConfigSnappy }}>
+              <motion.div className="pt-4">
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02, boxShadow: '0 8px 20px -8px rgba(255, 236, 1, 0.5)', transition: springConfigSnappy }}
-                  whileTap={{ scale: 0.98, y: 2, transition: springConfigSnappy }}
-                  className="w-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading tracking-wider text-xl uppercase py-4 rounded-xl border-2 border-brand-yellow-400 shadow-cta-glow flex items-center justify-center gap-3 cursor-pointer font-bold transition-all"
+                  whileHover={
+                    reduceMotion
+                      ? undefined
+                      : { scale: 1.02, transition: springConfigSnappy }
+                  }
+                  whileTap={reduceMotion ? undefined : { scale: 0.98, transition: springConfigSnappy }}
+                  className="w-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading tracking-wider text-xl uppercase py-4 rounded-xl border-2 border-brand-yellow-400 shadow-cta-glow flex items-center justify-center gap-3 cursor-pointer font-bold transition-colors"
                 >
                   <span>Hablar por WhatsApp</span>
                   <motion.span
                     className="h-5 w-5"
-                    whileHover={{ scale: 1.1, rotate: 12, transition: springConfigSnappy }}
+                    whileHover={reduceMotion ? undefined : { scale: 1.15, rotate: 10, transition: springConfigSnappy }}
                   >
-                    <MessageSquare />
+                    <MessageSquare className="w-5 h-5" />
                   </motion.span>
                 </motion.button>
               </motion.div>

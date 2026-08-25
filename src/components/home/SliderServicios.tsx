@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { motion, AnimatePresence, useReducedMotion, type Variants } from 'motion/react';
 import Link from 'next/link';
 import {
   ShoppingBag,
@@ -15,10 +15,7 @@ import {
   ArrowRight,
   Sparkles,
   ShieldCheck,
-  Zap,
   Clock,
-  MapPin,
-  Flame,
 } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
@@ -123,6 +120,29 @@ export default function SliderServicios() {
   const [isPaused, setIsPaused] = useState(false);
   const autoRotateIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  const snappySpring = { type: 'spring' as const, stiffness: 300, damping: 25 };
+
+  // Section entrance variants
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: reduceMotion ? { duration: 0.01 } : { type: 'spring', stiffness: 100, damping: 20 },
+    },
+  };
+
   // Auto-rotation with pause on hover
   useEffect(() => {
     if (reduceMotion || isPaused) return;
@@ -139,13 +159,13 @@ export default function SliderServicios() {
     };
   }, [reduceMotion, isPaused]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setCurrent((prev) => (prev - 1 + INDUSTRY_SLIDES.length) % INDUSTRY_SLIDES.length);
-  };
+  }, []);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrent((prev) => (prev + 1) % INDUSTRY_SLIDES.length);
-  };
+  }, []);
 
   const activeSlide = INDUSTRY_SLIDES[current];
   const IconComponent = activeSlide.icon;
@@ -166,11 +186,17 @@ export default function SliderServicios() {
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-brand-blue-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <motion.div
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-50px' }}
+        variants={containerVariants}
+      >
         
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12">
-          <div className="lg:col-span-8 space-y-4">
+          <motion.div className="lg:col-span-8 space-y-4" variants={itemVariants}>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading tracking-widest font-bold border border-brand-yellow-400 uppercase shadow-xs">
               <Sparkles className="w-3.5 h-3.5 fill-brand-blue-900" />
               <span>Logística a Medida de tu Rubro · MDQ 2026</span>
@@ -183,51 +209,58 @@ export default function SliderServicios() {
             <p className="text-brand-blue-600/90 font-sans text-base sm:text-lg max-w-2xl leading-relaxed">
               Adaptamos nuestra flota propia de motos a la dinámica de tu negocio. Elegí tu sector y descubrí cómo optimizamos tus entregas urbanas.
             </p>
-          </div>
+          </motion.div>
 
           {/* Navigation Controls & Counter */}
-          <div className="lg:col-span-4 flex items-center justify-start lg:justify-end gap-3">
+          <motion.div className="lg:col-span-4 flex items-center justify-start lg:justify-end gap-3" variants={itemVariants}>
             <div className="font-mono text-xs font-bold text-brand-blue-500 bg-brand-blue-50 px-3 py-1.5 rounded-full border border-brand-blue-100 mr-2">
               <span className="text-brand-blue-700 text-sm font-extrabold">{current + 1}</span> / {INDUSTRY_SLIDES.length}
             </div>
 
-            <button
+            <motion.button
               type="button"
               onClick={handlePrev}
+              whileHover={reduceMotion ? undefined : { scale: 1.05 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.95 }}
               aria-label="Industria anterior"
-              className="h-11 w-11 rounded-xl border-2 border-brand-blue-200 bg-white text-brand-blue-700 hover:bg-brand-blue-700 hover:text-white hover:border-brand-blue-700 flex items-center justify-center transition-all cursor-pointer shadow-xs active:scale-95"
+              className="h-11 w-11 rounded-xl border-2 border-brand-blue-200 bg-white text-brand-blue-700 hover:bg-brand-blue-700 hover:text-white hover:border-brand-blue-700 flex items-center justify-center transition-colors cursor-pointer shadow-xs"
             >
               <ChevronLeft className="h-5 w-5" />
-            </button>
+            </motion.button>
 
-            <button
+            <motion.button
               type="button"
               onClick={handleNext}
+              whileHover={reduceMotion ? undefined : { scale: 1.05 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.95 }}
               aria-label="Siguiente industria"
-              className="h-11 w-11 rounded-xl border-2 border-brand-yellow-500 bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 flex items-center justify-center transition-all cursor-pointer shadow-xs active:scale-95 font-bold"
+              className="h-11 w-11 rounded-xl border-2 border-brand-yellow-500 bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 flex items-center justify-center transition-colors cursor-pointer shadow-xs font-bold"
             >
               <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
 
         {/* Quick Industry Navigation Pills */}
-        <div
+        <motion.div
           role="tablist"
           aria-label="Seleccionar rubro industrial"
           className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar"
+          variants={itemVariants}
         >
           {INDUSTRY_SLIDES.map((slide, idx) => {
             const isSelected = idx === current;
             const MiniIcon = slide.icon;
 
             return (
-              <button
+              <motion.button
                 key={slide.id}
                 type="button"
                 role="tab"
                 aria-selected={isSelected}
                 onClick={() => setCurrent(idx)}
+                whileHover={reduceMotion ? undefined : { scale: isSelected ? 1.05 : 1.02 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                 className={cn(
                   'px-4 py-2 rounded-full font-subheading text-xs sm:text-sm uppercase tracking-wider font-bold whitespace-nowrap transition-all duration-200 flex items-center gap-2 cursor-pointer border shrink-0',
                   isSelected
@@ -237,13 +270,14 @@ export default function SliderServicios() {
               >
                 <MiniIcon className={cn('w-4 h-4', isSelected ? 'text-brand-yellow-500' : 'text-brand-blue-500')} />
                 <span>{slide.title.split('&')[0].trim()}</span>
-              </button>
+              </motion.button>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Dynamic Showcase Hero Card (Double Bezel with Fluid Transitions) */}
-        <div
+        <motion.div
+          variants={itemVariants}
           className={cn(
             'double-bezel-outer p-2 sm:p-3 rounded-3xl transition-all duration-500 shadow-md',
             isDarkBlue && 'bg-brand-blue-950/90 border-brand-blue-700',
@@ -264,24 +298,25 @@ export default function SliderServicios() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeSlide.id}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.35, ease: 'easeOut' }}
+                initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -15, scale: 0.98 }}
+                transition={reduceMotion ? { duration: 0.01 } : { duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
               >
                 {/* Left Visual Column: Icon Box & SLA Callout */}
                 <div className="lg:col-span-4 flex flex-col items-center justify-center text-center space-y-5">
-                  <div
+                  <motion.div
+                    whileHover={reduceMotion ? undefined : { scale: 1.06, rotate: 3, transition: snappySpring }}
                     className={cn(
-                      'w-28 h-28 sm:w-32 sm:h-32 rounded-3xl flex items-center justify-center shadow-lg border-2 relative transition-transform hover:scale-105',
+                      'w-28 h-28 sm:w-32 sm:h-32 rounded-3xl flex items-center justify-center shadow-lg border-2 relative cursor-pointer',
                       isDarkBlue
                         ? 'bg-brand-blue-900/80 border-brand-yellow-500 text-brand-yellow-500 shadow-brand-yellow-500/10'
                         : 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-400 shadow-brand-yellow-500/30'
                     )}
                   >
                     <IconComponent className="h-14 w-14 sm:h-16 sm:w-16" />
-                  </div>
+                  </motion.div>
 
                   {/* Operational Tag */}
                   <div
@@ -343,10 +378,11 @@ export default function SliderServicios() {
                   {/* Bullet Benefits Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                     {activeSlide.keyBenefits.map((benefit, bIdx) => (
-                      <div
+                      <motion.div
                         key={bIdx}
+                        whileHover={reduceMotion ? undefined : { x: 3, transition: snappySpring }}
                         className={cn(
-                          'p-3 rounded-xl border flex items-center gap-2.5 text-xs font-sans font-medium',
+                          'p-3 rounded-xl border flex items-center gap-2.5 text-xs font-sans font-medium cursor-default',
                           isDarkBlue
                             ? 'bg-white/5 border-white/10 text-brand-blue-50'
                             : 'bg-brand-blue-50/70 border-brand-blue-100 text-brand-blue-900'
@@ -359,7 +395,7 @@ export default function SliderServicios() {
                           )}
                         />
                         <span>{benefit}</span>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
 
@@ -370,7 +406,7 @@ export default function SliderServicios() {
                       className={cn(
                         'inline-flex items-center gap-3 px-7 py-3.5 rounded-full font-subheading text-sm sm:text-base uppercase tracking-wider font-bold transition-all shadow-md group active:scale-98 cursor-pointer',
                         isDarkBlue
-                          ? 'bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400'
+                          ? 'bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 shadow-cta-glow'
                           : 'bg-brand-blue-700 text-white hover:bg-brand-blue-800'
                       )}
                     >
@@ -399,10 +435,10 @@ export default function SliderServicios() {
               </motion.div>
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
 
         {/* Progress Bar & Indicators */}
-        <div className="flex justify-center items-center gap-1 mt-8">
+        <motion.div className="flex justify-center items-center gap-1 mt-8" variants={itemVariants}>
           {INDUSTRY_SLIDES.map((_, idx) => (
             <div key={idx} className="min-w-[44px] min-h-[44px] flex items-center justify-center">
               <button
@@ -410,17 +446,17 @@ export default function SliderServicios() {
                 onClick={() => setCurrent(idx)}
                 aria-label={`Ir al rubro ${idx + 1}`}
                 className={cn(
-                  'h-2 rounded-full transition-all duration-300 cursor-pointer border',
+                  'h-2.5 rounded-full transition-all duration-300 cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500',
                   idx === current
-                    ? 'w-10 bg-brand-yellow-500 border-brand-yellow-400'
-                    : 'w-2 bg-brand-blue-200 border-brand-blue-200 hover:bg-brand-blue-400'
+                    ? 'w-10 bg-brand-yellow-500 border-brand-yellow-400 shadow-cta-glow'
+                    : 'w-2.5 bg-brand-blue-200 border-brand-blue-200 hover:bg-brand-blue-400'
                 )}
               />
             </div>
           ))}
-        </div>
+        </motion.div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

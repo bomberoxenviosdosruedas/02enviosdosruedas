@@ -1,14 +1,12 @@
 'use client';
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion, type Variants } from 'motion/react';
 import {
   Star,
   TrendingUp,
-  Users,
   HeartHandshake,
   ExternalLink,
-  CheckCircle2,
   MessageSquareQuote,
   Sparkles,
   ChevronDown,
@@ -184,6 +182,7 @@ const CATEGORIES = [
 ];
 
 export default function SocialProofSection() {
+  const reduceMotion = useReducedMotion();
   const [activeCategory, setActiveCategory] = useState<string>('todas');
   const [expandedReviewId, setExpandedReviewId] = useState<string | null>(null);
   const [activeSnapIndex, setActiveSnapIndex] = useState<number>(0);
@@ -191,6 +190,27 @@ export default function SocialProofSection() {
   const [canScrollRight, setCanScrollRight] = useState<boolean>(true);
 
   const carouselRef = useRef<HTMLDivElement | null>(null);
+  const snappySpring = { type: 'spring' as const, stiffness: 300, damping: 25 };
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: reduceMotion ? { duration: 0.01 } : { type: 'spring', stiffness: 100, damping: 20 },
+    },
+  };
 
   const filteredReviews =
     activeCategory === 'todas'
@@ -210,7 +230,6 @@ export default function SocialProofSection() {
     setCanScrollLeft(scrollLeft > 10);
     setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
 
-    // Calculate approximate active slide index
     const childWidth = el.firstElementChild?.clientWidth || 360;
     const gap = 24;
     const index = Math.round(scrollLeft / (childWidth + gap));
@@ -269,11 +288,17 @@ export default function SocialProofSection() {
       <div className="absolute top-0 right-10 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-10 w-96 h-96 bg-brand-blue-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <motion.div
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-50px' }}
+        variants={containerVariants}
+      >
         
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12">
-          <div className="lg:col-span-8 space-y-4">
+          <motion.div className="lg:col-span-8 space-y-4" variants={itemVariants}>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold tracking-widest uppercase shadow-sm border border-brand-yellow-400">
               <Star className="w-3.5 h-3.5 fill-brand-blue-900" />
               <span>5.0 / 5.0 en Google Maps · Calificación Perfecta</span>
@@ -286,49 +311,56 @@ export default function SocialProofSection() {
             <p className="text-brand-blue-600/90 font-sans text-base sm:text-lg max-w-2xl">
               Deslizá el carrusel para conocer la experiencia de vecinos, tiendas online y emprendedores que confían a diario en nuestra flota propia.
             </p>
-          </div>
+          </motion.div>
 
           {/* Carousel Controls */}
-          <div className="lg:col-span-4 flex items-center justify-start lg:justify-end gap-3">
+          <motion.div className="lg:col-span-4 flex items-center justify-start lg:justify-end gap-3" variants={itemVariants}>
             <div className="font-mono text-xs font-bold text-brand-blue-500 bg-brand-blue-50 px-3.5 py-1.5 rounded-full border border-brand-blue-100 mr-2">
               <span className="text-brand-blue-700 text-sm font-extrabold">{activeSnapIndex + 1}</span> / {filteredReviews.length}
             </div>
 
-            <button
+            <motion.button
               type="button"
               onClick={handlePrev}
               disabled={!canScrollLeft}
+              whileHover={canScrollLeft && !reduceMotion ? { scale: 1.05 } : undefined}
+              whileTap={canScrollLeft && !reduceMotion ? { scale: 0.95 } : undefined}
               aria-label="Reseña anterior"
               className={cn(
-                'h-11 w-11 rounded-xl border-2 flex items-center justify-center transition-all cursor-pointer shadow-xs active:scale-95',
+                'h-11 w-11 rounded-xl border-2 flex items-center justify-center transition-colors cursor-pointer shadow-xs',
                 canScrollLeft
                   ? 'border-brand-blue-200 bg-white text-brand-blue-700 hover:bg-brand-blue-700 hover:text-white hover:border-brand-blue-700'
                   : 'border-brand-blue-100 bg-brand-blue-50/50 text-brand-blue-300 cursor-not-allowed opacity-50'
               )}
             >
               <ChevronLeft className="h-5 w-5" />
-            </button>
+            </motion.button>
 
-            <button
+            <motion.button
               type="button"
               onClick={handleNext}
               disabled={!canScrollRight}
+              whileHover={canScrollRight && !reduceMotion ? { scale: 1.05 } : undefined}
+              whileTap={canScrollRight && !reduceMotion ? { scale: 0.95 } : undefined}
               aria-label="Siguiente reseña"
               className={cn(
-                'h-11 w-11 rounded-xl border-2 flex items-center justify-center transition-all cursor-pointer shadow-xs active:scale-95 font-bold',
+                'h-11 w-11 rounded-xl border-2 flex items-center justify-center transition-colors cursor-pointer shadow-xs font-bold',
                 canScrollRight
                   ? 'border-brand-yellow-500 bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400'
                   : 'border-brand-blue-100 bg-brand-blue-50/50 text-brand-blue-300 cursor-not-allowed opacity-50'
               )}
             >
               <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
 
         {/* 3 Interactive Trust Metrics Strips */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-          <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-all">
+        <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10" variants={itemVariants}>
+          <motion.div
+            whileHover={reduceMotion ? undefined : { y: -4, transition: snappySpring }}
+            className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-shadow cursor-default"
+          >
             <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center shrink-0 shadow-xs">
                 <Star className="w-6 h-6 fill-brand-blue-900" />
@@ -349,9 +381,12 @@ export default function SocialProofSection() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-all">
+          <motion.div
+            whileHover={reduceMotion ? undefined : { y: -4, transition: snappySpring }}
+            className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-shadow cursor-default"
+          >
             <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-brand-blue-700 text-brand-yellow-500 flex items-center justify-center shrink-0 shadow-xs">
                 <HeartHandshake className="w-6 h-6" />
@@ -365,9 +400,12 @@ export default function SocialProofSection() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-all">
+          <motion.div
+            whileHover={reduceMotion ? undefined : { y: -4, transition: snappySpring }}
+            className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-shadow cursor-default"
+          >
             <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-brand-yellow-500/20 text-brand-blue-700 flex items-center justify-center shrink-0 border border-brand-yellow-500/40">
                 <TrendingUp className="w-6 h-6" />
@@ -381,23 +419,25 @@ export default function SocialProofSection() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Dynamic Category Filter Bar */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar">
+        <motion.div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar" variants={itemVariants}>
           {CATEGORIES.map((cat) => {
             const Icon = cat.icon;
             const isActive = activeCategory === cat.id;
 
             return (
-              <button
+              <motion.button
                 key={cat.id}
                 type="button"
                 onClick={() => {
                   setActiveCategory(cat.id);
                   scrollToIndex(0);
                 }}
+                whileHover={reduceMotion ? undefined : { scale: isActive ? 1.05 : 1.02 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                 className={cn(
                   'px-4 py-2 rounded-full font-subheading text-xs sm:text-sm uppercase tracking-wider font-bold whitespace-nowrap transition-all duration-200 flex items-center gap-2 cursor-pointer border shrink-0',
                   isActive
@@ -412,16 +452,17 @@ export default function SocialProofSection() {
                     {REVIEWS_DATA.length}
                   </span>
                 )}
-              </button>
+              </motion.button>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Blossom-Style Scroll-Snap Carousel Container */}
-        <div
+        <motion.div
           ref={carouselRef}
           tabIndex={0}
           aria-label="Carrusel de testimonios"
+          variants={itemVariants}
           className="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[420px] lg:auto-cols-[460px] gap-6 overflow-x-auto pb-8 pt-2 scroll-smooth no-scrollbar focus:outline-none"
           style={{
             scrollSnapType: 'x mandatory',
@@ -438,11 +479,12 @@ export default function SocialProofSection() {
             const isFrostBlue = review.variant === 'frost-blue';
 
             return (
-              <div
+              <motion.div
                 key={review.id}
                 style={{ scrollSnapAlign: 'center' }}
+                whileHover={reduceMotion ? undefined : { y: -6, transition: snappySpring }}
                 className={cn(
-                  'double-bezel-outer p-2 sm:p-2.5 rounded-3xl transition-all duration-300 flex flex-col h-full select-none',
+                  'double-bezel-outer p-2 sm:p-2.5 rounded-3xl transition-all duration-300 flex flex-col h-full select-none cursor-pointer',
                   isDarkBlue && 'bg-brand-blue-900/90 border-brand-blue-700 shadow-md',
                   isYellowAccent && 'bg-brand-yellow-100/80 border-brand-yellow-300 shadow-md',
                   isFrostBlue && 'bg-brand-blue-100/70 border-brand-blue-200 shadow-sm',
@@ -565,9 +607,11 @@ export default function SocialProofSection() {
 
                       {/* Owner response toggle */}
                       {review.ownerResponse && (
-                        <button
+                        <motion.button
                           type="button"
                           onClick={() => toggleExpand(review.id)}
+                          whileHover={reduceMotion ? undefined : { scale: 1.08 }}
+                          whileTap={reduceMotion ? undefined : { scale: 0.95 }}
                           className={cn(
                             'p-1.5 rounded-lg text-xs font-mono flex items-center gap-1 transition-colors cursor-pointer border',
                             isDarkBlue
@@ -583,18 +627,18 @@ export default function SocialProofSection() {
                               isExpanded && 'rotate-180'
                             )}
                           />
-                        </button>
+                        </motion.button>
                       )}
                     </div>
 
-                    {/* Expandable Owner Response */}
+                    {/* Expandable Owner Response with spring animation */}
                     <AnimatePresence>
                       {isExpanded && review.ownerResponse && (
                         <motion.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
+                          transition={{ duration: 0.25, ease: 'easeOut' }}
                           className="overflow-hidden"
                         >
                           <div
@@ -615,13 +659,13 @@ export default function SocialProofSection() {
                     </AnimatePresence>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Scroll Snap Pagination Dots */}
-        <div className="flex justify-center items-center gap-1 mb-10">
+        <motion.div className="flex justify-center items-center gap-1 mb-10" variants={itemVariants}>
           {filteredReviews.map((_, idx) => (
             <div key={idx} className="min-w-[44px] min-h-[44px] flex items-center justify-center">
               <button
@@ -629,30 +673,30 @@ export default function SocialProofSection() {
                 onClick={() => scrollToIndex(idx)}
                 aria-label={`Ir a la reseña ${idx + 1}`}
                 className={cn(
-                  'h-2 rounded-full transition-all duration-300 cursor-pointer border',
+                  'h-2.5 rounded-full transition-all duration-300 cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500',
                   idx === activeSnapIndex
-                    ? 'w-10 bg-brand-yellow-500 border-brand-yellow-400'
-                    : 'w-2 bg-brand-blue-200 border-brand-blue-200 hover:bg-brand-blue-400'
+                    ? 'w-10 bg-brand-yellow-500 border-brand-yellow-400 shadow-cta-glow'
+                    : 'w-2.5 bg-brand-blue-200 border-brand-blue-200 hover:bg-brand-blue-400'
                 )}
               />
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Verification Link to Google Maps */}
-        <div className="text-center">
+        <motion.div className="text-center" variants={itemVariants}>
           <a
             href="https://share.google/ofw5wAQt3Fc1dArom"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-sm sm:text-base uppercase tracking-wider font-bold hover:bg-brand-yellow-400 transition-all shadow-md group hover:scale-[1.02] cursor-pointer"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-sm sm:text-base uppercase tracking-wider font-bold hover:bg-brand-yellow-400 transition-all shadow-cta-glow group hover:scale-[1.02] cursor-pointer"
           >
             <span>Ver Ficha y Opiniones en Google Maps</span>
             <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
-        </div>
+        </motion.div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

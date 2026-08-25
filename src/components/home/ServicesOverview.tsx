@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useReducedMotion, useSpring, useMotionValue } from 'motion/react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Zap, Package, Truck, Warehouse, Info, X, MapPin, ShieldCheck } from 'lucide-react';
 
@@ -51,16 +51,11 @@ export default function ServicesOverview() {
   const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  // Spring configurations following HyperFrames standard
-  const springConfig = { stiffness: 100, damping: 20 };
-  const springConfigSnappy = { stiffness: 300, damping: 25 };
-  const springConfigCarousel = { stiffness: 120, damping: 22 };
+  // Snappy spring configs
+  const springConfigSnappy = { type: 'spring' as const, stiffness: 300, damping: 25 };
+  const springConfigCarousel = { type: 'spring' as const, stiffness: 140, damping: 22 };
 
-  // Track active index for spring animations
-  const activeIndexMotion = useMotionValue(0);
-  const activeIndexSpring = useSpring(activeIndexMotion, springConfigCarousel);
-
-  const services = [
+  const services: ServiceItem[] = [
     {
       id: 'express',
       title: 'Envíos Express',
@@ -71,17 +66,17 @@ export default function ServicesOverview() {
       city: 'Cobertura MDQ',
       founded: '+7 Años de Trayectoria',
       imageUrl: '/cards/fondo_express.webp',
-      cardStyleCenter: 'border-brand-yellow bg-gradient-to-br from-brand-blue-700 to-brand-blue-900 shadow-cta-glow text-white',
+      cardStyleCenter: 'border-brand-yellow-500 bg-gradient-to-br from-brand-blue-700 to-brand-blue-900 shadow-cta-glow text-white',
       cardStyleSide: 'border-brand-blue-500/20 bg-brand-blue-800 text-white/90',
       textColor: 'text-white',
-      titleColor: 'text-white group-hover:text-brand-yellow',
+      titleColor: 'text-white group-hover:text-brand-yellow-500',
       descColor: 'text-brand-blue-100',
       imgBlend: 'opacity-25 mix-blend-overlay',
-      badgeStyle: 'bg-brand-yellow text-brand-blue border-brand-yellow/30',
+      badgeStyle: 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-400',
       statBoxStyle: 'bg-white/10 border border-white/10 text-white',
-      statValStyle: 'text-brand-yellow',
+      statValStyle: 'text-brand-yellow-500',
       statLabelStyle: 'text-brand-blue-200',
-      hintColor: 'text-brand-yellow',
+      hintColor: 'text-brand-yellow-500',
       stats: {
         time: '30-90 min',
         price: '$3.700 Base',
@@ -114,7 +109,7 @@ export default function ServicesOverview() {
       titleColor: 'text-brand-ink group-hover:text-brand-blue-700',
       descColor: 'text-brand-blue-600',
       imgBlend: 'opacity-[0.15] grayscale mix-blend-multiply',
-      badgeStyle: 'bg-brand-blue-700 text-brand-yellow border-brand-blue-600/30',
+      badgeStyle: 'bg-brand-blue-700 text-brand-yellow-500 border-brand-blue-600/30',
       statBoxStyle: 'bg-brand-blue-50/80 border border-brand-blue-100 text-brand-ink',
       statValStyle: 'text-brand-blue-700',
       statLabelStyle: 'text-brand-blue-600',
@@ -145,7 +140,7 @@ export default function ServicesOverview() {
       city: 'Mar del Plata y Batán',
       founded: 'Corte extendido 15hs',
       imageUrl: '/cards/fondo_flex.webp',
-      cardStyleCenter: 'border-brand-blue bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-[8px_8px_0px_rgba(255,236,1,0.25)] text-brand-ink',
+      cardStyleCenter: 'border-brand-blue-700 bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-[8px_8px_0px_rgba(255,236,1,0.25)] text-brand-ink',
       cardStyleSide: 'border-brand-yellow-500/30 bg-brand-yellow-500 text-brand-ink',
       textColor: 'text-brand-ink',
       titleColor: 'text-brand-ink group-hover:text-brand-blue-900',
@@ -182,17 +177,17 @@ export default function ServicesOverview() {
       city: 'Depósito Friuli 1972',
       founded: 'Depósito Inteligente',
       imageUrl: '/cards/fondo_emprendedores.webp',
-      cardStyleCenter: 'border-brand-blue bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 shadow-2xl text-white',
+      cardStyleCenter: 'border-brand-blue-500 bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 shadow-2xl text-white',
       cardStyleSide: 'border-brand-blue-800/20 bg-brand-blue-900 text-white/90',
       textColor: 'text-white',
-      titleColor: 'text-white group-hover:text-brand-yellow',
+      titleColor: 'text-white group-hover:text-brand-yellow-500',
       descColor: 'text-brand-blue-100',
       imgBlend: 'opacity-25 mix-blend-overlay',
       badgeStyle: 'bg-brand-blue-900 text-white border-brand-blue-700/30',
       statBoxStyle: 'bg-white/10 border border-white/10 text-white',
-      statValStyle: 'text-brand-yellow',
+      statValStyle: 'text-brand-yellow-500',
       statLabelStyle: 'text-brand-blue-200',
-      hintColor: 'text-brand-yellow',
+      hintColor: 'text-brand-yellow-500',
       stats: {
         time: '24 hs / Stock',
         price: 'Planes a Medida',
@@ -214,7 +209,6 @@ export default function ServicesOverview() {
   const totalServices = services.length;
   const autoRotateIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-
   // Handle resize
   useEffect(() => {
     const handleResize = () => {
@@ -225,14 +219,9 @@ export default function ServicesOverview() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Sync activeIndexMotion with activeIndex (with spring)
-  useEffect(() => {
-    activeIndexMotion.set(activeIndex);
-  }, [activeIndex, activeIndexMotion]);
-
   // Auto-rotation with deterministic timing
   useEffect(() => {
-    if (!isAutoRotate || reduceMotion) {
+    if (!isAutoRotate || reduceMotion || selectedService) {
       if (autoRotateIntervalRef.current) {
         clearInterval(autoRotateIntervalRef.current);
         autoRotateIntervalRef.current = null;
@@ -240,7 +229,6 @@ export default function ServicesOverview() {
       return;
     }
 
-    // Deterministic interval - 4500ms exactly
     autoRotateIntervalRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % totalServices);
     }, 4500);
@@ -251,17 +239,35 @@ export default function ServicesOverview() {
         autoRotateIntervalRef.current = null;
       }
     };
-  }, [isAutoRotate, totalServices, reduceMotion]);
+  }, [isAutoRotate, totalServices, reduceMotion, selectedService]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setIsAutoRotate(false);
     setActiveIndex((prev) => (prev - 1 + totalServices) % totalServices);
-  };
+  }, [totalServices]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setIsAutoRotate(false);
     setActiveIndex((prev) => (prev + 1) % totalServices);
-  };
+  }, [totalServices]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedService) {
+        if (e.key === 'Escape') setSelectedService(null);
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
+        handlePrev();
+      } else if (e.key === 'ArrowRight') {
+        handleNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handlePrev, handleNext, selectedService]);
 
   // Calculate card transforms using spring-based derived values
   const getCardTransform = (index: number) => {
@@ -294,20 +300,23 @@ export default function ServicesOverview() {
       id="services-overview"
       className="py-24 bg-brand-ink text-white relative overflow-hidden"
       style={{ perspective: '2000px' }}
+      onMouseEnter={() => setIsAutoRotate(false)}
+      onMouseLeave={() => !selectedService && setIsAutoRotate(true)}
     >
-      {/* Background Decorative Asymmetric Glows - no animate-pulse */}
+      {/* Background Decorative Asymmetric Glows */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-brand-blue-500/10 rounded-full blur-3xl pointer-events-none" />
       <motion.div
         className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-yellow-500/5 rounded-full blur-3xl pointer-events-none"
-        animate={reduceMotion ? {} : { scale: [1, 1.02, 1] }}
-        transition={{ duration: 4, ease: 'easeInOut', repeat: reduceMotion ? 0 : Infinity }}
+        animate={reduceMotion ? {} : { scale: [1, 1.05, 1] }}
+        transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Editorial Section Header */}
+        {/* Editorial Section Header with Viewport Entry */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
           transition={{ type: 'spring', stiffness: 100, damping: 20 }}
           className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-white/10 pb-8"
         >
@@ -325,9 +334,10 @@ export default function ServicesOverview() {
 
           <div className="flex items-center gap-4">
             <motion.button
+              type="button"
               onClick={() => setIsAutoRotate(!isAutoRotate)}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
               className={`px-4 py-2 rounded-full text-xs font-bold font-subheading tracking-wider border transition-colors cursor-pointer ${
                 isAutoRotate
                   ? 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-500 shadow-cta-glow'
@@ -339,18 +349,20 @@ export default function ServicesOverview() {
 
             <div className="flex items-center gap-2">
               <motion.button
+                type="button"
                 onClick={handlePrev}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={reduceMotion ? undefined : { scale: 1.05 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.95 }}
                 className="p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-900 border border-white/20 cursor-pointer transition-colors"
                 aria-label="Anterior Servicio"
               >
                 <ChevronLeft className="w-5 h-5" />
               </motion.button>
               <motion.button
+                type="button"
                 onClick={handleNext}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={reduceMotion ? undefined : { scale: 1.05 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.95 }}
                 className="p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-900 border border-white/20 cursor-pointer transition-colors"
                 aria-label="Siguiente Servicio"
               >
@@ -383,12 +395,12 @@ export default function ServicesOverview() {
                     setIsAutoRotate(false);
                   }
                 }}
-                className="absolute w-[290px] sm:w-[350px] h-[440px] sm:h-[490px] rounded-3xl cursor-pointer select-none group text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink"
+                className="absolute w-[290px] sm:w-[350px] h-[440px] sm:h-[490px] rounded-3xl cursor-pointer select-none group text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink"
                 style={{
                   transformStyle: 'preserve-3d',
                   zIndex: transform.zIndex,
+                  willChange: 'transform, opacity',
                 }}
-                // Use spring-based animate for all transform properties
                 animate={{
                   rotateY: transform.rotateY,
                   translateZ: transform.translateZ,
@@ -396,10 +408,12 @@ export default function ServicesOverview() {
                   opacity: transform.opacity,
                   scale: transform.scale,
                 }}
-                transition={reduceMotion
-                  ? { duration: 0.01 }
-                  : { type: 'spring', stiffness: 120, damping: 22 }}
-                whileHover={isCenter ? { scale: 1.02, transition: springConfigSnappy } : undefined}
+                transition={
+                  reduceMotion
+                    ? { duration: 0.01 }
+                    : springConfigCarousel
+                }
+                whileHover={isCenter && !reduceMotion ? { scale: 1.02, transition: springConfigSnappy } : undefined}
               >
                 {/* Card Structure with Color Block Themes */}
                 <div
@@ -407,36 +421,36 @@ export default function ServicesOverview() {
                     isCenter ? service.cardStyleCenter : service.cardStyleSide
                   }`}
                 >
-                  {/* Imagen de fondo premium con mezcla de capa */}
+                  {/* Background Image with Layer Blend */}
                   <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0">
                     <Image
                       src={service.imageUrl}
                       alt={service.title}
                       fill={true}
-                      sizes="(max-w-7xl) 350px, 290px"
+                      sizes="(max-width: 768px) 290px, 350px"
                       className={`object-cover ${service.imgBlend}`}
                       priority={index === 0}
                     />
-                    {/* Gradiente de overlay para garantizar legibilidad de textos */}
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-brand-ink/20 to-transparent opacity-60" />
                   </div>
-                  {/* Subtle Glow Overlay - only on center card with subtle animation */}
+
+                  {/* Center Card Ambient Glow Overlay */}
                   {isCenter && (
                     <motion.div
                       className="absolute bottom-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none opacity-20 -mr-12 -mb-12"
                       style={{
                         backgroundColor: index === 3 ? 'var(--color-brand-blue-500)' : 'var(--color-brand-yellow-500)',
                       }}
-                      animate={{ scale: [1, 1.05, 1], opacity: [0.15, 0.25, 0.15] }}
-                      transition={{ duration: 3, ease: 'easeInOut', repeat: reduceMotion ? 0 : Infinity }}
+                      animate={reduceMotion ? {} : { scale: [1, 1.08, 1], opacity: [0.15, 0.25, 0.15] }}
+                      transition={{ duration: 3, ease: 'easeInOut', repeat: Infinity }}
                     />
                   )}
 
-                  {/* Huge Watermark Background Icon with subtle float */}
+                  {/* Watermark Background Icon */}
                   <motion.div
                     className="absolute right-4 bottom-4 opacity-[0.06] pointer-events-none select-none"
                     animate={isCenter && !reduceMotion ? { rotate: [0, 2, -2, 0], scale: [1, 1.02, 1] } : {}}
-                    transition={{ duration: 4, ease: 'easeInOut', repeat: reduceMotion ? 0 : Infinity }}
+                    transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
                   >
                     <Icon className="w-48 h-48" />
                   </motion.div>
@@ -445,7 +459,7 @@ export default function ServicesOverview() {
                   <div className="relative z-10 flex items-center justify-between">
                     <motion.div
                       className="flex items-center gap-2.5"
-                      whileHover={{ scale: 1.05, transition: springConfigSnappy }}
+                      whileHover={reduceMotion ? undefined : { scale: 1.05, transition: springConfigSnappy }}
                     >
                       <div className="p-3 bg-brand-yellow-500 text-brand-blue-900 rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-700)]">
                         <Icon className="h-5 w-5" />
@@ -464,7 +478,7 @@ export default function ServicesOverview() {
                     </div>
                     <motion.h3
                       className={`font-display text-2xl sm:text-3xl font-extrabold uppercase leading-none text-balance ${service.titleColor}`}
-                      whileHover={{ x: 4, transition: springConfigSnappy }}
+                      whileHover={reduceMotion ? undefined : { x: 4, transition: springConfigSnappy }}
                     >
                       {service.title}
                     </motion.h3>
@@ -489,12 +503,12 @@ export default function ServicesOverview() {
                     </div>
                   </div>
 
-                  {/* Center Card Click Hint - spring-based pulse instead of animate-pulse */}
+                  {/* Center Card Click Hint */}
                   {isCenter && (
                     <motion.div
                       className="relative z-10 mt-3 text-center"
-                      animate={{ opacity: [1, 0.6, 1] }}
-                      transition={{ duration: 2, ease: 'easeInOut', repeat: reduceMotion ? 0 : Infinity }}
+                      animate={reduceMotion ? {} : { opacity: [1, 0.6, 1] }}
+                      transition={{ duration: 2, ease: 'easeInOut', repeat: Infinity }}
                     >
                       <span className={`inline-flex items-center gap-1.5 text-xs font-bold font-subheading tracking-wider underline uppercase ${service.hintColor}`}>
                         <Info className="w-3.5 h-3.5" />
@@ -511,8 +525,9 @@ export default function ServicesOverview() {
         {/* Carousel Indicators */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
           className="flex items-center justify-center gap-2 mt-8"
           role="group"
           aria-label="Navegación de servicios"
@@ -520,20 +535,25 @@ export default function ServicesOverview() {
           {services.map((service, i) => (
             <motion.button
               key={service.id}
+              type="button"
               onClick={() => {
                 setActiveIndex(i);
                 setIsAutoRotate(false);
               }}
               aria-label={`Ir al servicio ${service.title}${i === activeIndex ? ', servicio actual' : ''}`}
               aria-current={i === activeIndex ? 'true' : 'false'}
-              className={`min-w-[44px] min-h-[44px] flex items-center justify-center h-2.5 rounded-full cursor-pointer ${
-                i === activeIndex ? 'w-10 bg-brand-yellow-500' : 'w-2.5 bg-white/30 hover:bg-white/60 border border-brand-blue-200'
-              }`}
-              whileHover={i !== activeIndex ? { scale: 1.2, transition: springConfigSnappy } : undefined}
-              whileTap={{ scale: 0.9 }}
-              animate={i === activeIndex ? { width: '2.5rem' } : { width: '0.625rem' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            />
+              className={`min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500`}
+              whileHover={i !== activeIndex && !reduceMotion ? { scale: 1.2, transition: springConfigSnappy } : undefined}
+              whileTap={reduceMotion ? undefined : { scale: 0.9 }}
+            >
+              <motion.span
+                className={`h-2.5 rounded-full block ${
+                  i === activeIndex ? 'bg-brand-yellow-500 shadow-cta-glow' : 'bg-white/30 hover:bg-white/60 border border-brand-blue-200'
+                }`}
+                animate={{ width: i === activeIndex ? '2.5rem' : '0.625rem' }}
+                transition={springConfigSnappy}
+              />
+            </motion.button>
           ))}
         </motion.div>
       </div>
@@ -547,21 +567,26 @@ export default function ServicesOverview() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
             className="fixed inset-0 z-50 bg-brand-blue-950/80 backdrop-blur-md flex items-center justify-center p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="service-modal-title"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: 'spring', stiffness: 100, damping: 20, duration: 0.3 }}
+              transition={{ type: 'spring', stiffness: 120, damping: 20 }}
               className="double-bezel-outer p-2 rounded-3xl bg-brand-blue-50/10 border border-brand-blue-100/20 max-w-2xl w-full"
             >
               <div className="double-bezel-inner bg-brand-blue-700 border border-brand-blue-500/20 rounded-2xl p-6 sm:p-8 text-white relative shadow-2xl space-y-6">
                 {/* Close Modal Button */}
                 <motion.button
+                  type="button"
                   onClick={() => setSelectedService(null)}
-                  whileHover={{ scale: 1.1, rotate: 90, transition: springConfigSnappy }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover={reduceMotion ? undefined : { scale: 1.1, rotate: 90, transition: springConfigSnappy }}
+                  whileTap={reduceMotion ? undefined : { scale: 0.9 }}
                   className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-900 transition-colors cursor-pointer z-20"
+                  aria-label="Cerrar ficha técnica"
                 >
                   <X className="w-5 h-5" />
                 </motion.button>
@@ -575,7 +600,7 @@ export default function ServicesOverview() {
                     <span className="text-[10px] font-bold text-brand-yellow-500 font-subheading tracking-widest uppercase">
                       {selectedService.founded} • {selectedService.city}
                     </span>
-                    <h3 className="font-display text-3xl sm:text-4xl font-extrabold uppercase text-balance mt-0.5">
+                    <h3 id="service-modal-title" className="font-display text-3xl sm:text-4xl font-extrabold uppercase text-balance mt-0.5">
                       {selectedService.title}
                     </h3>
                   </div>
@@ -634,16 +659,17 @@ export default function ServicesOverview() {
                 {/* Action Footer */}
                 <div className="pt-2 flex justify-between items-center gap-4">
                   <motion.button
+                    type="button"
                     onClick={() => setSelectedService(null)}
-                    whileHover={{ x: -4, transition: springConfigSnappy }}
-                    whileTap={{ scale: 0.98 }}
+                    whileHover={reduceMotion ? undefined : { x: -4, transition: springConfigSnappy }}
+                    whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                     className="text-xs text-brand-blue-300 hover:text-white underline uppercase font-bold tracking-wider cursor-pointer"
                   >
                     Volver Atrás
                   </motion.button>
                   <a
                     href={selectedService.details.ctaHref}
-                    className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 px-6 py-2.5 text-sm font-subheading font-bold uppercase"
+                    className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 px-6 py-2.5 text-sm font-subheading font-bold uppercase hover:bg-brand-yellow-400"
                   >
                     <span>{selectedService.details.ctaText}</span>
                     <span className="cta-nested-icon bg-brand-blue-900/10">→</span>
