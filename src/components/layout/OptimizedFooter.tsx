@@ -3,14 +3,50 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import {
   Phone, MapPin, Mail, Clock, ShieldCheck, ArrowUpRight,
   Zap, TrendingDown, ShoppingBag, ArrowUp
 } from 'lucide-react';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
+// ─── Animation Variants ───────────────────────────────────────────────────────
+
+/** Fade-up stagger container for footer columns */
+const FOOTER_CONTAINER = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
+} as const;
+
+/** Each column fades up */
+const FOOTER_COL = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 280, damping: 24 },
+  },
+} as const;
+
+/** CTA Banner slides up from below */
+const BANNER_VARIANT = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 260, damping: 22, delay: 0.08 },
+  },
+} as const;
+
+/** Social icon spring bounce on hover */
+const SOCIAL_HOVER = { y: -4, scale: 1.12 } as const;
+const SOCIAL_SPRING = { type: 'spring', stiffness: 480, damping: 18 } as const;
+
 export default function OptimizedFooter() {
+  const prefersReducedMotion = useReducedMotion();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -31,8 +67,14 @@ export default function OptimizedFooter() {
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
 
-        {/* TOP CTA BANNER / BRAND PROMISE — Harmonics with Header tone */}
-        <div className="mb-14 rounded-2xl bg-brand-blue-800/90 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* TOP CTA BANNER — slides up from below on scroll reveal */}
+        <motion.div
+          variants={prefersReducedMotion ? {} : BANNER_VARIANT}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="mb-14 rounded-2xl bg-brand-blue-800/90 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6"
+        >
           <div className="space-y-2 text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading font-bold uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-brand-yellow-500 animate-ping" />
@@ -67,13 +109,22 @@ export default function OptimizedFooter() {
               <span>Chateá con Nosotros</span>
             </a>
           </div>
-        </div>
+        </motion.div>
 
-        {/* MID SECTION: Links & Info Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        {/* MID SECTION: fade-up stagger per column on scroll reveal */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start"
+          variants={prefersReducedMotion ? {} : FOOTER_CONTAINER}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+        >
 
           {/* COLUMN 1: Brand details & Socials (5 Cols) */}
-          <div className="lg:col-span-5 space-y-6">
+          <motion.div
+            variants={prefersReducedMotion ? {} : FOOTER_COL}
+            className="lg:col-span-5 space-y-6"
+          >
             <Link href="/" className="flex items-center gap-3.5 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
               <div className="relative w-11 h-11 bg-white/10 p-1.5 rounded-xl border border-white/15 group-hover:scale-105 transition-all duration-300 shrink-0 flex items-center justify-center">
                 <Image
@@ -103,11 +154,15 @@ export default function OptimizedFooter() {
                 Canales Oficiales
               </span>
               <div className="flex flex-wrap items-center gap-3">
-                {/* Instagram */}
-                <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
+                {/* Instagram — spring bounce */}
+                <motion.div
+                  whileHover={prefersReducedMotion ? {} : SOCIAL_HOVER}
+                  transition={SOCIAL_SPRING}
+                  className="inline-block"
+                >
                   <Link
                     href="/nosotros/nuestras-redes"
-                    className="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-900 flex items-center justify-center transition-all duration-200 border border-white/15 hover:border-brand-yellow-500 shadow-sm p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-900 flex items-center justify-center transition-colors duration-200 border border-white/15 hover:border-brand-yellow-500 shadow-sm p-2.5 group cursor-pointer"
                     title="Instagram @enviosdosruedas"
                     aria-label="Instagram Oficial"
                   >
@@ -115,11 +170,15 @@ export default function OptimizedFooter() {
                   </Link>
                 </motion.div>
 
-                {/* Facebook */}
-                <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
+                {/* Facebook — spring bounce */}
+                <motion.div
+                  whileHover={prefersReducedMotion ? {} : SOCIAL_HOVER}
+                  transition={SOCIAL_SPRING}
+                  className="inline-block"
+                >
                   <Link
                     href="/nosotros/nuestras-redes"
-                    className="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-900 flex items-center justify-center transition-all duration-200 border border-white/15 hover:border-brand-yellow-500 shadow-sm p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-900 flex items-center justify-center transition-colors duration-200 border border-white/15 hover:border-brand-yellow-500 shadow-sm p-2.5 group cursor-pointer"
                     title="Facebook Envíos DosRuedas"
                     aria-label="Facebook Oficial"
                   >
@@ -127,13 +186,17 @@ export default function OptimizedFooter() {
                   </Link>
                 </motion.div>
 
-                {/* WhatsApp */}
-                <motion.div whileHover={{ y: -3, scale: 1.05 }} className="inline-block">
+                {/* WhatsApp — spring bounce */}
+                <motion.div
+                  whileHover={prefersReducedMotion ? {} : SOCIAL_HOVER}
+                  transition={SOCIAL_SPRING}
+                  className="inline-block"
+                >
                   <a
                     href="https://wa.me/542236602699"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 flex items-center justify-center transition-all duration-200 border border-brand-yellow-500 hover:border-brand-yellow-400 shadow-accent-sm hover:shadow-cta-glow p-2.5 group cursor-pointer"
+                    className="h-10 w-10 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 flex items-center justify-center transition-colors duration-200 border border-brand-yellow-500 hover:border-brand-yellow-400 shadow-accent-sm hover:shadow-cta-glow p-2.5 group cursor-pointer"
                     title="WhatsApp Directo"
                     aria-label="WhatsApp Directo"
                   >
@@ -147,10 +210,13 @@ export default function OptimizedFooter() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* COLUMN 2: Services & Tools (3 Cols) */}
-          <div className="lg:col-span-3 space-y-5">
+          <motion.div
+            variants={prefersReducedMotion ? {} : FOOTER_COL}
+            className="lg:col-span-3 space-y-5"
+          >
             <h4 className="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2 font-bold flex items-center gap-2">
               <span>Servicios y Cotizadores</span>
             </h4>
@@ -204,10 +270,13 @@ export default function OptimizedFooter() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* COLUMN 3: Contact & Hub Operations Info (4 Cols) */}
-          <div className="lg:col-span-4 space-y-5">
+          <motion.div
+            variants={prefersReducedMotion ? {} : FOOTER_COL}
+            className="lg:col-span-4 space-y-5"
+          >
             <h4 className="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2 font-bold">
               Base de Operaciones MDQ
             </h4>
@@ -266,20 +335,28 @@ export default function OptimizedFooter() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
 
         {/* Separator */}
         <div className="border-t border-white/10 my-10 relative">
-          {/* Scroll to Top Floating Button */}
+          {/* Scroll to Top — continuous float loop */}
           <motion.button
             onClick={scrollToTop}
-            className="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 p-2.5 rounded-full shadow-accent-md hover:shadow-cta-glow transition-all flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer"
+            className="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 p-2.5 rounded-full shadow-accent-md hover:shadow-cta-glow transition-colors flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer"
             title="Volver al inicio"
             aria-label="Volver arriba"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.95 }}
+            /* Idle float loop */
+            animate={prefersReducedMotion ? {} : { y: [0, -5, 0] }}
+            transition={
+              prefersReducedMotion
+                ? {}
+                : { duration: 2, ease: 'easeInOut', repeat: Infinity, repeatType: 'loop' }
+            }
+            /* Tap feedback */
+            whileTap={{ scale: 0.92 }}
+            whileHover={prefersReducedMotion ? {} : { scale: 1.1, y: -7 }}
           >
             <ArrowUp className="h-4 w-4 font-bold" />
           </motion.button>
