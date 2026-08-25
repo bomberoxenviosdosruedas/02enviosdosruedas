@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, ArrowRight, ShieldCheck, Zap, Sparkles } from 'lucide-react';
 
@@ -10,16 +10,19 @@ const CHANNELS = [
     title: "WhatsApp Comercial",
     desc: "Respuestas y cotizaciones de envíos en tiempo real.",
     icon: Mail,
+    href: "https://wa.me/542236602699?text=Hola!%20Quiero%20solicitar%20una%20cotizaci%C3%B3n%20para%20mis%20env%C3%ADos.",
   },
   {
     title: "Llamada de Coordinación",
     desc: "Para hablar directamente con un coordinador logístico.",
     icon: Phone,
+    href: "tel:+542236602699",
   },
   {
     title: "Solicitar Cotización B2B",
     desc: "Envianos tu base de envíos para un plan personalizado.",
     icon: MapPin,
+    href: "mailto:matiascejas@enviosdosruedas.com",
   },
 ];
 
@@ -38,84 +41,47 @@ export default function ContactHero() {
   };
 
   return (
-    <section
-      className="relative w-full pt-20 pb-16 lg:pt-24 lg:pb-24 overflow-hidden"
-      style={{ background: 'var(--surface-tint-blue)' }}
-    >
-      {/* Glow orbs - matches design spec */}
+    <section className="relative w-full pt-20 pb-16 lg:pt-24 lg:pb-24 bg-brand-blue-50 overflow-hidden">
+      {/* Glow orbs - brand colors */}
       <div
-        className="absolute top-[-128px] left-[-128px] w-[384px] h-[384px] rounded-full pointer-events-none"
-        style={{
-          background: 'var(--brand-yellow)',
-          opacity: 0.4,
-          filter: 'blur(100px)',
-        }}
+        className="absolute top-[-128px] left-[-128px] w-[384px] h-[384px] rounded-full pointer-events-none bg-brand-yellow-500/30 blur-[100px]"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-[-160px] right-[-128px] w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background: 'var(--brand-blue)',
-          opacity: 0.3,
-          filter: 'blur(130px)',
-        }}
+        className="absolute bottom-[-160px] right-[-128px] w-[500px] h-[500px] rounded-full pointer-events-none bg-brand-blue-700/20 blur-[130px]"
         aria-hidden="true"
       />
 
       {/* Border accent */}
-      <div className="absolute inset-0 pointer-events-none" style={{ border: '1px solid rgba(6,54,165,0.05)' }} />
+      <div className="absolute inset-0 pointer-events-none border border-brand-blue-100/50" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 lg:space-y-24">
         {/* Top Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-12 lg:gap-16 items-center">
-          {/* Left Column: Headline & Channels */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Headline & Channels (7 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-8"
+            className="lg:col-span-7 space-y-8"
           >
-            {/* Badge - matches design spec: "Conexión Directa Mar del Plata" */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full w-fit">
-              <span
-                className="w-10 h-10 rounded-full flex items-center justify-center"
-                style={{
-                  background: 'rgba(255,255,255,0.5)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(6,54,165,0.10)',
-                }}
-              >
-                <span
-                  className="w-2.5 h-2.5 rounded-full"
-                  style={{
-                    background: 'var(--brand-yellow)',
-                    boxShadow: '0 0 10px var(--brand-yellow), 0 0 20px var(--brand-yellow)',
-                  }}
-                />
-              </span>
-              <span
-                className="font-body text-xs font-bold uppercase tracking-[0.2em]"
-                style={{ color: 'var(--brand-blue)' }}
-              >
+            {/* Badge - "Conexión Directa Mar del Plata" */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full w-fit bg-white/80 border border-brand-blue-100 shadow-xs">
+              <span className="w-2.5 h-2.5 rounded-full bg-brand-yellow-500 shadow-[0_0_10px_#FFEC01]" />
+              <span className="font-subheading text-xs font-bold uppercase tracking-wider text-brand-blue-700">
                 Conexión Directa Mar del Plata
               </span>
             </div>
 
-            {/* Monumental Title - matches design spec: italic with text-stroke on "ahora?" */}
+            {/* Monumental Title */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display uppercase tracking-tighter leading-[0.85] text-6xl sm:text-7xl lg:text-[9rem]"
-              style={{ fontStyle: 'italic', color: 'var(--brand-blue)' }}
+              className="font-display uppercase tracking-tight leading-[0.88] text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-brand-blue-700"
             >
               ¿Hablamos<br />
-              <span
-                style={{
-                  color: 'transparent',
-                  WebkitTextStroke: '2px #0636A5',
-                }}
-              >
+              <span className="italic text-transparent [-webkit-text-stroke:2px_#0636A5]">
                 ahora?
               </span>
             </motion.h1>
@@ -125,116 +91,66 @@ export default function ContactHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-xl font-sans leading-tight text-lg sm:text-xl"
-              style={{ color: 'rgba(6,54,165,0.85)' }}
+              className="max-w-xl font-sans leading-relaxed text-lg sm:text-xl text-brand-ink/90"
             >
               Sin formularios complejos ni esperas. Elegí el canal que mejor se adapte al ritmo de tu e-commerce.
             </motion.p>
 
-            {/* Office Info - matches design spec */}
+            {/* Office Info */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-wrap gap-8 pt-6 border-t"
-              style={{ borderColor: 'rgba(6,54,165,0.10)' }}
+              className="flex flex-wrap gap-8 pt-6 border-t border-brand-blue-100"
             >
               <div className="grid gap-1">
-                <span
-                  className="font-subheading text-[11px] uppercase tracking-[0.2em]"
-                  style={{ color: 'rgba(6,54,165,0.5)' }}
-                >
+                <span className="font-subheading text-xs uppercase tracking-wider text-brand-blue-400 font-bold">
                   Oficina Central
                 </span>
-                <span className="font-sans text-sm font-bold" style={{ color: 'var(--brand-blue)' }}>
+                <span className="font-sans text-sm font-bold text-brand-blue-700">
                   Friuli 1972, Mar del Plata
                 </span>
               </div>
               <div className="grid gap-1">
-                <span
-                  className="font-subheading text-[11px] uppercase tracking-[0.2em]"
-                  style={{ color: 'rgba(6,54,165,0.5)' }}
-                >
+                <span className="font-subheading text-xs uppercase tracking-wider text-brand-blue-400 font-bold">
                   Operación
                 </span>
-                <span className="font-sans text-sm font-bold" style={{ color: 'var(--brand-blue)' }}>
+                <span className="font-sans text-sm font-bold text-brand-blue-700">
                   Lunes a Sábado · Turnos 2026
                 </span>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Contact Channel Cards */}
+          {/* Right Column: Contact Channel Cards (5 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-4 sm:space-y-5"
+            className="lg:col-span-5 space-y-4 sm:space-y-5"
           >
             {CHANNELS.map((channel) => (
               <a
                 key={channel.title}
-                href={
-                  channel.title === 'WhatsApp Comercial'
-                    ? 'https://wa.me/542236602699'
-                    : channel.title === 'Llamada de Coordinación'
-                    ? 'tel:+542236602699'
-                    : 'mailto:matiascejas@enviosdosruedas.com'
-                }
+                href={channel.href}
                 target={channel.title === 'Llamada de Coordinación' ? '_self' : '_blank'}
                 rel={channel.title === 'Llamada de Coordinación' ? undefined : 'noopener noreferrer'}
-                className="group flex items-center justify-between p-6 sm:p-7 rounded-3xl cursor-pointer transition-all duration-300"
-                style={{
-                  border: '1px solid rgba(6,54,165,0.08)',
-                  background: 'rgba(255,255,255,0.7)',
-                  backdropFilter: 'blur(12px)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.02)';
-                  e.currentTarget.style.background = '#ffffff';
-                  e.currentTarget.style.boxShadow = 'var(--shadow-2xl)';
-                  e.currentTarget.style.borderColor = 'var(--brand-yellow)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'none';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.7)';
-                  e.currentTarget.style.boxShadow = 'none';
-                  e.currentTarget.style.borderColor = 'rgba(6,54,165,0.08)';
-                }}
+                className="group flex items-center justify-between p-6 rounded-2xl bg-white border border-brand-blue-100 shadow-sm hover:shadow-lg hover:border-brand-blue-300 transition-all duration-300 cursor-pointer"
               >
-                <span className="flex items-center gap-5 sm:gap-6">
-                  <span
-                    className="inline-flex"
-                    style={{
-                      padding: 14,
-                      borderRadius: 'var(--radius-2xl)',
-                      background: 'rgba(6,54,165,0.06)',
-                    }}
-                  >
-                    <channel.icon className="h-6 w-6" style={{ color: 'var(--brand-blue)' }} />
+                <span className="flex items-center gap-4 sm:gap-5">
+                  <span className="inline-flex p-3 rounded-xl bg-brand-blue-50 text-brand-blue-700 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors duration-300">
+                    <channel.icon className="h-6 w-6 shrink-0" />
                   </span>
                   <span>
-                    <span
-                      className="block font-display uppercase tracking-wide text-lg sm:text-xl"
-                      style={{
-                        color: 'var(--brand-blue)',
-                        lineHeight: 1.1,
-                        marginBottom: 6,
-                      }}
-                    >
+                    <span className="block font-display uppercase tracking-wide text-lg sm:text-xl text-brand-blue-700 leading-tight mb-1">
                       {channel.title}
                     </span>
-                    <span
-                      className="block font-sans text-xs"
-                      style={{
-                        color: 'rgba(6,54,165,0.65)',
-                      }}
-                    >
+                    <span className="block font-sans text-xs text-brand-ink/70">
                       {channel.desc}
                     </span>
                   </span>
                 </span>
-                <span className="text-brand-blue-700/40 group-hover:text-brand-blue-700 group-hover:translate-x-1 transition-all">
+                <span className="text-brand-blue-400 group-hover:text-brand-blue-700 group-hover:translate-x-1 transition-all">
                   <ArrowRight className="w-5 h-5" />
                 </span>
               </a>
@@ -242,18 +158,18 @@ export default function ContactHero() {
           </motion.div>
         </div>
 
-        {/* Bottom Section: "Pedí un plan a medida" (Matches ContactoScreen.jsx lines 57-76) */}
+        {/* Bottom Section: "Pedí un plan a medida" */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="pt-12 sm:pt-16 border-t border-brand-blue-700/10"
+          className="pt-12 sm:pt-16 border-t border-brand-blue-100"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left Column: Heading, Description & Moto Image */}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 text-xs font-subheading uppercase tracking-widest font-bold">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-brand-blue-100 text-brand-blue-700 text-xs font-subheading uppercase tracking-wider font-bold">
                 <Sparkles className="w-3.5 h-3.5 text-brand-yellow-500" />
                 <span>PROPUESTA B2B · GENERAL PUEYRREDÓN</span>
               </div>
@@ -267,19 +183,19 @@ export default function ContactHero() {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                <div className="p-3.5 rounded-2xl bg-white/70 border border-brand-blue-100/60 shadow-xs flex items-center gap-2.5">
+                <div className="p-3.5 rounded-xl bg-white border border-brand-blue-100 shadow-xs flex items-center gap-2.5">
                   <Zap className="w-4 h-4 text-brand-yellow-500 shrink-0" />
                   <span className="font-subheading text-xs uppercase tracking-wider text-brand-blue-700 font-bold">
                     Tarifas por volumen
                   </span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white/70 border border-brand-blue-100/60 shadow-xs flex items-center gap-2.5">
+                <div className="p-3.5 rounded-xl bg-white border border-brand-blue-100 shadow-xs flex items-center gap-2.5">
                   <ShieldCheck className="w-4 h-4 text-brand-yellow-500 shrink-0" />
                   <span className="font-subheading text-xs uppercase tracking-wider text-brand-blue-700 font-bold">
                     Retiros en tu local
                   </span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white/70 border border-brand-blue-100/60 shadow-xs flex items-center gap-2.5">
+                <div className="p-3.5 rounded-xl bg-white border border-brand-blue-100 shadow-xs flex items-center gap-2.5">
                   <MapPin className="w-4 h-4 text-brand-yellow-500 shrink-0" />
                   <span className="font-subheading text-xs uppercase tracking-wider text-brand-blue-700 font-bold">
                     Todo MDQ y Batán
@@ -287,8 +203,8 @@ export default function ContactHero() {
                 </div>
               </div>
 
-              {/* Interactive Vector Dispatch HUD Card (0 KB images) */}
-              <div className="relative w-full h-[220px] rounded-3xl overflow-hidden shadow-xl border border-brand-blue-700/20 bg-gradient-to-br from-brand-blue-900 via-brand-blue-800 to-brand-blue-700 p-6 flex flex-col justify-between group">
+              {/* Vector Dispatch HUD Card */}
+              <div className="relative w-full h-[220px] rounded-2xl overflow-hidden shadow-lg border border-brand-blue-700/20 bg-gradient-to-br from-brand-blue-900 via-brand-blue-800 to-brand-blue-700 p-6 flex flex-col justify-between">
                 <HeroProceduralBackground variant="contact" />
                 <div className="relative z-10 flex justify-between items-start">
                   <div>
@@ -317,9 +233,9 @@ export default function ContactHero() {
               </div>
             </div>
 
-            {/* Right Column: Glassmorphism / Double-Bezel Quick Request Card */}
-            <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-3xl shadow-xl">
-              <div className="double-bezel-inner bg-white/95 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-brand-blue-50/50 shadow-sm relative overflow-hidden">
+            {/* Right Column: Double-Bezel Quick Request Card */}
+            <div className="double-bezel-outer bg-brand-blue-50 border border-brand-blue-100 p-2 rounded-2xl shadow-lg">
+              <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-xs relative overflow-hidden">
                 {/* Accent line top */}
                 <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-brand-blue-700 via-brand-blue-500 to-brand-yellow-500" />
 
@@ -353,15 +269,15 @@ export default function ContactHero() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4 pt-2">
                     <div>
-                      <span className="font-subheading text-[11px] uppercase tracking-wider text-brand-blue-400 font-bold block">
+                      <span className="font-subheading text-xs uppercase tracking-wider text-brand-blue-400 font-bold block">
                         COTIZACIÓN INMEDIATA
                       </span>
-                      <h3 className="font-display text-2xl uppercase tracking-tight text-brand-blue-700 leading-none mt-0.5">
+                      <h3 className="font-display text-2xl uppercase tracking-tight text-brand-blue-700 leading-none mt-1">
                         Cotizá tu cuenta comercial
                       </h3>
                     </div>
 
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       <label className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
                         Nombre o Comercio <span className="text-brand-yellow-500">*</span>
                       </label>
@@ -371,11 +287,11 @@ export default function ContactHero() {
                         value={formData.nombre}
                         onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
                         placeholder="Ej: Tienda Güemes / Juan Pérez"
-                        className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-brand-white-50 transition-all placeholder:text-brand-blue-300"
+                        className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-white transition-all placeholder:text-brand-blue-300"
                       />
                     </div>
 
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       <label className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
                         WhatsApp / Teléfono <span className="text-brand-yellow-500">*</span>
                       </label>
@@ -385,19 +301,19 @@ export default function ContactHero() {
                         value={formData.telefono}
                         onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
                         placeholder="Ej: 223 660-2699"
-                        className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-brand-white-50 transition-all placeholder:text-brand-blue-300"
+                        className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 bg-white transition-all placeholder:text-brand-blue-300"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div className="space-y-1">
+                      <div className="space-y-1.5">
                         <label className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
                           Volumen Mensual
                         </label>
                         <select
                           value={formData.volumen}
                           onChange={(e) => setFormData({ ...formData, volumen: e.target.value })}
-                          className="w-full h-11 px-3 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 bg-brand-white-50 cursor-pointer"
+                          className="w-full h-11 px-3 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 bg-white cursor-pointer"
                         >
                           <option value="20-50">20 a 50 envíos</option>
                           <option value="50-200">50 a 200 envíos</option>
@@ -406,14 +322,14 @@ export default function ContactHero() {
                         </select>
                       </div>
 
-                      <div className="space-y-1">
+                      <div className="space-y-1.5">
                         <label className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold">
                           Modalidad
                         </label>
                         <select
                           value={formData.servicio}
                           onChange={(e) => setFormData({ ...formData, servicio: e.target.value })}
-                          className="w-full h-11 px-3 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 bg-brand-white-50 cursor-pointer"
+                          className="w-full h-11 px-3 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm focus:outline-none focus:border-brand-blue-700 bg-white cursor-pointer"
                         >
                           <option value="express">Express (2 horas)</option>
                           <option value="lowcost">LowCost (Mismo día)</option>
@@ -433,7 +349,7 @@ export default function ContactHero() {
                       </span>
                     </button>
 
-                    <p className="text-center font-sans text-[11px] text-brand-blue-400 pt-1">
+                    <p className="text-center font-sans text-xs text-brand-blue-400 pt-1">
                       Atención comercial directa en Mar del Plata · Sin costos de apertura de cuenta
                     </p>
                   </form>

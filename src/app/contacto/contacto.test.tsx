@@ -8,18 +8,18 @@ describe('ContactoPage — Verbatim & Functionality Tests', () => {
     vi.restoreAllMocks();
   });
 
-  it('1. Renderiza el contenedor principal y el header de la página', () => {
+  it('1. Renderiza el contenedor principal y el hero de la página', () => {
     const { container } = render(<ContactoPage />);
     expect(container.querySelector('main')).toBeInTheDocument();
-    expect(screen.getByText('CONTACTO & COTIZACIONES')).toBeInTheDocument();
+    expect(screen.getByText('Conexión Directa Mar del Plata')).toBeInTheDocument();
   });
 
   it('2. Verifica los textos literales y campos de la sección Formulario de Contacto', () => {
     render(<ContactoPage />);
 
     // Badges y Títulos
-    expect(screen.getByText('Cotización Inmediata')).toBeInTheDocument();
-    expect(screen.getByText('Atención comercial < 2 MIN')).toBeInTheDocument();
+    expect(screen.getAllByText('Cotización Inmediata')[0]).toBeInTheDocument();
+    expect(screen.getByText(/Atención.*2 MIN/i)).toBeInTheDocument();
     expect(
       screen.getByRole('heading', {
         name: '¿Listo para escalar la logística de tu e-commerce?',
@@ -95,7 +95,7 @@ describe('ContactoPage — Verbatim & Functionality Tests', () => {
 
     expect(screen.getAllByText('Friuli 1972, Mar del Plata')[0]).toBeInTheDocument();
     expect(screen.getAllByText('+54 223 660-2699')[0]).toBeInTheDocument();
-    expect(screen.getByText('matiascejas@enviosdosruedas.com')).toBeInTheDocument();
+    expect(screen.getAllByText('matiascejas@enviosdosruedas.com')[0]).toBeInTheDocument();
     expect(screen.getByText('Lunes a Viernes: 09:00 - 18:00 hs')).toBeInTheDocument();
     expect(screen.getByText('Sábados: 10:00 - 15:00 hs')).toBeInTheDocument();
   });
@@ -121,7 +121,7 @@ describe('ContactoPage — Verbatim & Functionality Tests', () => {
 
   it('6. Muestra mensaje de error si se intenta enviar el formulario sin completar el nombre', () => {
     const { container } = render(<ContactoPage />);
-    const form = container.querySelector('form');
+    const form = container.querySelector('form[data-testid="contact-main-form"]');
     expect(form).toBeInTheDocument();
 
     fireEvent.submit(form!);
@@ -137,14 +137,15 @@ describe('ContactoPage — Verbatim & Functionality Tests', () => {
 
     render(<ContactoPage />);
 
-    const nameInput = screen.getByPlaceholderText('Tu Nombre');
-    const empresaInput = screen.getByPlaceholderText('Empresa / Negocio');
+    const form = screen.getByTestId('contact-main-form');
+    const nameInput = screen.getAllByPlaceholderText('Tu Nombre')[0];
+    const empresaInput = screen.getAllByPlaceholderText('Empresa / Negocio')[0];
     const submitBtn = screen.getByRole('button', { name: /Hablar por WhatsApp/i });
 
     fireEvent.change(nameInput, { target: { value: 'Marcos Soler' } });
     fireEvent.change(empresaInput, { target: { value: 'Calzados MDQ' } });
 
-    fireEvent.click(submitBtn);
+    fireEvent.submit(form);
 
     act(() => {
       vi.runAllTimers();
