@@ -1,15 +1,15 @@
 import React from 'react';
 import { Metadata } from 'next';
-import ContactHero from '@/src/components/contacto/ContactHero';
 import ContactForm from '@/src/components/contacto/ContactForm';
 import ContactInfo from '@/src/components/contacto/ContactInfo';
-import { ShieldCheck, Truck, Clock, Headphones } from 'lucide-react';
+import ConversionBanner from '@/src/components/contacto/ConversionBanner';
+import { Sparkles, MapPin, Phone } from 'lucide-react';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Contacto Comercial & Cotizaciones | Envíos DosRuedas Mar del Plata',
-  description: '¿Buscás escalar la logística de tu e-commerce o empresa? Hablá con el equipo comercial de Envíos DosRuedas en Mar del Plata y diseñemos un esquema de tarifas a medida.',
+  title: 'Contacto | Envíos DosRuedas Mar del Plata',
+  description: 'Contacto con el equipo comercial y logística urbana de Envíos DosRuedas en Mar del Plata. Cotizaciones inmediatas por WhatsApp y atención personalizada.',
   alternates: {
     canonical: `${baseUrl}/contacto`,
   },
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 const jsonLdSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Contacto Comercial & Cotizaciones - Envíos DosRuedas',
-  description: 'Contacto con asesores comerciales de Envíos DosRuedas en Mar del Plata para planes de logística urbana, cadetería y distribución e-commerce.',
+  name: 'Contacto - Envíos DosRuedas',
+  description: 'Contacto oficial y cotización inmediata de Envíos DosRuedas en Mar del Plata.',
   url: `${baseUrl}/contacto`,
   mainEntity: {
     '@type': 'LocalBusiness',
@@ -38,85 +38,65 @@ const jsonLdSchema = {
   },
 };
 
-const trustFeatures = [
-  {
-    icon: Truck,
-    title: 'Flota Propia en MDQ',
-    desc: 'Motos y utilitarios patrullando todos los cuadrantes de la ciudad.',
-  },
-  {
-    icon: Clock,
-    title: 'Entregas Express 2h',
-    desc: 'Prioridad máxima para urgencias y compras inmediatas de e-commerce.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Garantía Sin Excusas',
-    desc: 'Si no llegamos a la hora acordada, el envío corre por nuestra cuenta.',
-  },
-  {
-    icon: Headphones,
-    title: 'Soporte Directo',
-    desc: 'Sin bots impersonales: hablás directo con operadores en Mar del Plata.',
-  },
-];
-
 export default function ContactoPage() {
   return (
-    <main className="min-h-screen bg-brand-white-50 text-brand-ink relative overflow-hidden">
+    <main className="min-h-screen bg-[#090D16] text-white relative overflow-hidden font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
 
-      {/* Ambient background glows */}
-      <div className="absolute top-[20%] left-[-10%] w-[40vw] h-[40vw] bg-brand-blue-500/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-[60%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow-500/5 rounded-full blur-[130px] pointer-events-none" />
+      {/* Ambient background glow orbs */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#6366F1]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-[#22C55E]/5 rounded-full blur-[130px] pointer-events-none" />
 
-      {/* Hero Section */}
-      <ContactHero />
-
-      {/* Trust Highlights Bar */}
-      <section className="bg-brand-blue-50/60 border-y border-brand-blue-100/70 py-8 relative z-10">
+      {/* Hero Intro Header Section */}
+      <section className="pt-12 pb-8 border-b border-white/10 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {trustFeatures.map((feat) => {
-              const IconComp = feat.icon;
-              return (
-                <div key={feat.title} className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-brand-blue-200 flex items-center justify-center shrink-0 shadow-xs text-brand-blue-700">
-                    <IconComp className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-sm uppercase text-brand-blue-700 tracking-wide">
-                      {feat.title}
-                    </h3>
-                    <p className="font-sans text-xs text-brand-ink/75 leading-relaxed mt-0.5">
-                      {feat.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10">
+                <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
+                <span className="text-xs font-mono uppercase tracking-wider text-[#94A3B8]">
+                  Envíos DosRuedas · Tu Solución Confiable en Mar del Plata
+                </span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white">
+                CONTACTO & COTIZACIONES
+              </h1>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#94A3B8]">
+              <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#111827] border border-white/10">
+                <MapPin className="w-4 h-4 text-[#6366F1]" />
+                <span>Friuli 1972, Mar del Plata</span>
+              </div>
+              <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#111827] border border-white/10">
+                <Phone className="w-4 h-4 text-[#22C55E]" />
+                <span>+54 223 660-2699</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Main Interactive Form & Info Grid */}
-      <section id="contacto-main" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          
-          {/* Column 1: Inquiry & Commercial Request Form (5 Cols on desktop) */}
+      {/* Main Interactive Contact Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10 space-y-16">
+        {/* Upper Grid: Contact Form & Main Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Column 1: Formulario de Cotización Inmediata (5 Cols on desktop) */}
           <div className="lg:col-span-5 h-full">
             <ContactForm />
           </div>
 
-          {/* Column 2: Contact Details, Hours & Coverage Map (7 Cols on desktop) */}
+          {/* Column 2: Bento Grid Redes, Canales y Base (7 Cols on desktop) */}
           <div className="lg:col-span-7 h-full">
             <ContactInfo />
           </div>
-
         </div>
+
+        {/* Bottom Banner de Conversión / Cierre */}
+        <ConversionBanner />
       </section>
     </main>
   );

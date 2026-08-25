@@ -1,123 +1,162 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { render, screen, fireEvent, act } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import ContactoPage from './page';
 
-describe('ContactoPage — Tier 1 & 2', () => {
-  // ─── TIER 1: HAPPY PATHS (5 tests) ──────────────────────────────────────────
+describe('ContactoPage — Verbatim & Functionality Tests', () => {
+  beforeEach(() => {
+    vi.restoreAllMocks();
+  });
 
-  it('T1.1: renderiza la sección principal de contacto', () => {
+  it('1. Renderiza el contenedor principal y el header de la página', () => {
     const { container } = render(<ContactoPage />);
     expect(container.querySelector('main')).toBeInTheDocument();
+    expect(screen.getByText('CONTACTO & COTIZACIONES')).toBeInTheDocument();
   });
 
-  it('T1.2: muestra la información institucional correcta (Friuli 1972, Mar del Plata)', () => {
+  it('2. Verifica los textos literales y campos de la sección Formulario de Contacto', () => {
     render(<ContactoPage />);
-    expect(screen.getAllByText(/Friuli 1972/)[0]).toBeInTheDocument();
-    expect(screen.getAllByText(/Mar del Plata/)[0]).toBeInTheDocument();
+
+    // Badges y Títulos
+    expect(screen.getByText('Cotización Inmediata')).toBeInTheDocument();
+    expect(screen.getByText('Atención comercial < 2 MIN')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {
+        name: '¿Listo para escalar la logística de tu e-commerce?',
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Olvidate de la gestión de paquetes en Mar del Plata. Completá tus datos y te respondemos por WhatsApp al instante.'
+      )
+    ).toBeInTheDocument();
+
+    // Campos
+    expect(screen.getByLabelText(/Tu Nombre/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Empresa \/ Negocio/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Volumen Estimado Mensual/i)).toBeInTheDocument();
+
+    // Opciones del selector
+    expect(screen.getByText('Seleccioná una opción')).toBeInTheDocument();
+    expect(screen.getByText('1 a 50 envíos')).toBeInTheDocument();
+    expect(screen.getByText('51 a 200 envíos')).toBeInTheDocument();
+    expect(screen.getByText('Más de 200 envíos')).toBeInTheDocument();
+
+    // CTA
+    expect(
+      screen.getByRole('button', { name: /Hablar por WhatsApp/i })
+    ).toBeInTheDocument();
   });
 
-  it('T1.3: renderiza todos los campos obligatorios del formulario (*)', () => {
+  it('3. Verifica los textos literales de la sección Redes y Canales Digitales', () => {
     render(<ContactoPage />);
-    expect(screen.getByLabelText(/Nombre completo/)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Correo electrónico/)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Tu mensaje o consulta/)).toBeInTheDocument();
+
+    expect(screen.getByText('Nuestra Comunidad Digital')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'SEGUÍ NUESTRO MOVIMIENTO' })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Sumate a nuestros canales digitales y enterate al toque de todas las novedades operativas en Mar del Plata.'
+      )
+    ).toBeInTheDocument();
+
+    // Tarjeta 1 - Facebook
+    expect(screen.getByText('FACEBOOK OFICIAL')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.'
+      )
+    ).toBeInTheDocument();
+    expect(screen.getByText('SEGUIR COMUNIDAD')).toBeInTheDocument();
+
+    // Tarjeta 2 - Instagram
+    expect(screen.getByText('INSTAGRAM MDQ')).toBeInTheDocument();
+    expect(screen.getByText('@enviosdosruedas')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Mirá el detrás de escena de nuestros riders y la flota recorriendo las calles de MDQ.'
+      )
+    ).toBeInTheDocument();
+    expect(screen.getByText('VER CONTENIDO')).toBeInTheDocument();
+
+    // Tarjeta 3 - WhatsApp Directo
+    expect(screen.getByText('WHATSAPP DIRECTO')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Escribinos directamente para consultas, contrataciones o soporte express al toque.'
+      )
+    ).toBeInTheDocument();
+    expect(screen.getByText('INICIAR CHAT')).toBeInTheDocument();
   });
 
-  it('T1.4: permite ingresar datos en los campos de texto', () => {
+  it('4. Muestra la información exacta de Base de Operaciones MDQ (Friuli 1972, teléfono, email, horarios)', () => {
     render(<ContactoPage />);
-    const nameInput = screen.getByPlaceholderText('Ej: Juan Pérez') as HTMLInputElement;
-    fireEvent.change(nameInput, { target: { value: 'Carlos Gómez' } });
-    expect(nameInput.value).toBe('Carlos Gómez');
+
+    expect(screen.getAllByText('Friuli 1972, Mar del Plata')[0]).toBeInTheDocument();
+    expect(screen.getAllByText('+54 223 660-2699')[0]).toBeInTheDocument();
+    expect(screen.getByText('matiascejas@enviosdosruedas.com')).toBeInTheDocument();
+    expect(screen.getByText('Lunes a Viernes: 09:00 - 18:00 hs')).toBeInTheDocument();
+    expect(screen.getByText('Sábados: 10:00 - 15:00 hs')).toBeInTheDocument();
   });
 
-  it('T1.5: completa la simulación de envío del formulario exitosamente', () => {
+  it('5. Verifica el Banner de Conversión / Cierre con sus textos e interacciones', () => {
+    render(<ContactoPage />);
+
+    expect(screen.getByText('Operaciones Activas Mar del Plata 2026')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {
+        name: '¿Tenés envíos para hoy? Los entregamos a tiempo.',
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Cotizá online en segundos o coordiná directo con nuestro equipo logístico por WhatsApp.'
+      )
+    ).toBeInTheDocument();
+
+    expect(screen.getByRole('link', { name: /Cotizá tu Envío/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Chateá con Nosotros/i })).toBeInTheDocument();
+  });
+
+  it('6. Muestra mensaje de error si se intenta enviar el formulario sin completar el nombre', () => {
+    const { container } = render(<ContactoPage />);
+    const form = container.querySelector('form');
+    expect(form).toBeInTheDocument();
+
+    fireEvent.submit(form!);
+
+    expect(
+      screen.getByText(/Por favor, ingresá tu nombre para iniciar el contacto./i)
+    ).toBeInTheDocument();
+  });
+
+  it('7. Completa la simulación de envío del formulario y abre WhatsApp', () => {
     vi.useFakeTimers();
+    const openSpy = vi.spyOn(window, 'open').mockImplementation(() => null);
+
     render(<ContactoPage />);
-    
-    const nameInput = screen.getByPlaceholderText('Ej: Juan Pérez');
-    const emailInput = screen.getByPlaceholderText('Ej: juan.perez@email.com');
-    const msgInput = screen.getByPlaceholderText('Escribí acá tu consulta. Decinos en qué podemos ayudarte...');
-    const submitButton = screen.getByRole('button', { name: /Enviar Mensaje/ });
 
-    fireEvent.change(nameInput, { target: { value: 'Carlos Gómez' } });
-    fireEvent.change(emailInput, { target: { value: 'carlos@email.com' } });
-    fireEvent.change(msgInput, { target: { value: 'Hola, me gustaría cotizar un envío.' } });
-    fireEvent.click(submitButton);
+    const nameInput = screen.getByPlaceholderText('Tu Nombre');
+    const empresaInput = screen.getByPlaceholderText('Empresa / Negocio');
+    const submitBtn = screen.getByRole('button', { name: /Hablar por WhatsApp/i });
 
-    expect(screen.getByText('Enviando...')).toBeInTheDocument();
-    
-    // Fast-forward simulated timer
+    fireEvent.change(nameInput, { target: { value: 'Marcos Soler' } });
+    fireEvent.change(empresaInput, { target: { value: 'Calzados MDQ' } });
+
+    fireEvent.click(submitBtn);
+
     act(() => {
       vi.runAllTimers();
     });
 
-    expect(screen.getByText('¡MENSAJE ENVIADO!')).toBeInTheDocument();
+    expect(openSpy).toHaveBeenCalledWith(
+      expect.stringContaining('https://wa.me/542236602699'),
+      '_blank',
+      'noopener,noreferrer'
+    );
+    expect(screen.getByText('¡SOLICITUD ENVIADA!')).toBeInTheDocument();
+
     vi.useRealTimers();
-  });
-
-  // ─── TIER 2: BOUNDARY & CORNER CASES (5 tests) ─────────────────────────────
-
-  it('T2.1: muestra mensaje de error si se intenta enviar vacío', () => {
-    const { container } = render(<ContactoPage />);
-    const forms = container.querySelectorAll('form');
-    const form = forms[forms.length - 1]; // Select main ContactForm
-    
-    // Submit empty form directly to bypass HTML5 validation in JSDOM click handler
-    fireEvent.submit(form);
-
-    expect(screen.getByText(/Por favor, completá todos los campos obligatorios/)).toBeInTheDocument();
-  });
-
-  it('T2.2: comprueba que se deshabiliten los inputs durante el estado de carga (submitting)', () => {
-    render(<ContactoPage />);
-    const nameInput = screen.getByPlaceholderText('Ej: Juan Pérez') as HTMLInputElement;
-    const emailInput = screen.getByPlaceholderText('Ej: juan.perez@email.com') as HTMLInputElement;
-    const submitButton = screen.getByRole('button', { name: /Enviar Mensaje/ });
-
-    fireEvent.change(nameInput, { target: { value: 'Carlos Gómez' } });
-    fireEvent.change(emailInput, { target: { value: 'carlos@email.com' } });
-    fireEvent.change(screen.getByPlaceholderText('Escribí acá tu consulta. Decinos en qué podemos ayudarte...'), { target: { value: 'Consulta' } });
-    
-    fireEvent.click(submitButton);
-    
-    expect(nameInput.disabled).toBe(true);
-    expect(emailInput.disabled).toBe(true);
-  });
-
-  it('T2.3: verifica la asimetría de columnas en pantallas grandes (5 para formulario y 7 para información)', () => {
-    const { container } = render(<ContactoPage />);
-    const colForm = container.querySelector('.lg\\:col-span-5');
-    const colInfo = container.querySelector('.lg\\:col-span-7');
-    expect(colForm).toBeInTheDocument();
-    expect(colInfo).toBeInTheDocument();
-  });
-
-  it('T2.4: permite restablecer el estado al hacer clic en "Enviar otro mensaje" tras envío exitoso', () => {
-    vi.useFakeTimers();
-    render(<ContactoPage />);
-    
-    fireEvent.change(screen.getByPlaceholderText('Ej: Juan Pérez'), { target: { value: 'Carlos Gómez' } });
-    fireEvent.change(screen.getByPlaceholderText('Ej: juan.perez@email.com'), { target: { value: 'carlos@email.com' } });
-    fireEvent.change(screen.getByPlaceholderText('Escribí acá tu consulta. Decinos en qué podemos ayudarte...'), { target: { value: 'Consulta' } });
-    fireEvent.click(screen.getByRole('button', { name: /Enviar Mensaje/ }));
-
-    act(() => {
-      vi.runAllTimers();
-    });
-
-    const resetButton = screen.getByRole('button', { name: /Enviar otro mensaje/ });
-    fireEvent.click(resetButton);
-
-    expect(screen.getByPlaceholderText('Ej: Juan Pérez')).toBeInTheDocument();
-    vi.useRealTimers();
-  });
-
-  it('T2.5: verifica que los campos del formulario utilicen la clase de fondo blanca plano (#FFFFFF)', () => {
-    const { container } = render(<ContactoPage />);
-    const inputs = container.querySelectorAll('input');
-    inputs.forEach(input => {
-      expect(input.className).toContain('bg-brand-white-50'); // or slate-50 depending on classes
-    });
   });
 });
