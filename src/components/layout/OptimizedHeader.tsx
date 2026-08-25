@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { AnimatePresence, motion, useReducedMotion, type Variants } from 'motion/react';
 import {
   Menu, X, ChevronDown, Bike, ChevronRight, Phone,
   Home, Zap, TrendingDown, Clock, ShoppingBag, Info, HelpCircle, Share2, Mail
@@ -33,14 +33,8 @@ export default function OptimizedHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const prefersReducedMotion = useReducedMotion();
-
-  // Mount flag — prevents SSR hydration flicker on animate
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,14 +81,16 @@ export default function OptimizedHeader() {
   };
 
   // Stagger container for dropdown items
-  const dropdownContainer = {
+  const dropdownContainer: Variants = {
     hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 8, scale: prefersReducedMotion ? 1 : 0.97 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        ...SPRING_DROPDOWN,
+        type: 'spring',
+        stiffness: 320,
+        damping: 24,
         staggerChildren: prefersReducedMotion ? 0 : 0.06,
         delayChildren: 0.02,
       },
@@ -103,13 +99,13 @@ export default function OptimizedHeader() {
       opacity: 0,
       y: prefersReducedMotion ? 0 : 6,
       scale: prefersReducedMotion ? 1 : 0.97,
-      transition: { duration: 0.15, ease: 'easeIn' },
+      transition: { duration: 0.15, ease: 'easeIn' as const },
     },
   };
 
-  const dropdownItem = {
+  const dropdownItem: Variants = {
     hidden: { opacity: 0, x: prefersReducedMotion ? 0 : -8 },
-    visible: { opacity: 1, x: 0, transition: SPRING_NAV },
+    visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 400, damping: 28 } },
   };
 
   return (
@@ -117,7 +113,7 @@ export default function OptimizedHeader() {
     <motion.header
       id="optimized-header"
       initial={prefersReducedMotion ? false : { opacity: 0, y: -8 }}
-      animate={mounted ? { opacity: 1, y: 0 } : {}}
+      animate={{ opacity: 1, y: 0 }}
       transition={EASE_MOUNT}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
