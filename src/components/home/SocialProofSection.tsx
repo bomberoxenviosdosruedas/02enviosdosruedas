@@ -282,7 +282,7 @@ export default function SocialProofSection() {
   return (
     <section
       id="social-proof"
-      className="py-24 bg-gradient-to-b from-brand-white-50 via-brand-blue-50/40 to-brand-white-50 relative z-10 border-y border-brand-blue-100 overflow-hidden"
+      className="py-24 bg-[#F8FAFC] relative z-10 border-y border-blue-100/60 overflow-hidden"
     >
       {/* Ambient background glows */}
       <div className="absolute top-0 right-10 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -299,12 +299,12 @@ export default function SocialProofSection() {
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12">
           <motion.div className="lg:col-span-8 space-y-4" variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold tracking-widest uppercase shadow-sm border border-brand-yellow-400">
-              <Star className="w-3.5 h-3.5 fill-brand-blue-900" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#FFF12E] text-[#0950F6] rounded-full text-xs font-subheading font-bold tracking-widest uppercase shadow-glow-yellow border border-[#FFF12E]">
+              <Star className="w-3.5 h-3.5 fill-[#0950F6]" />
               <span>5.0 / 5.0 en Google Maps · Calificación Perfecta</span>
             </div>
 
-            <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[0.95]">
+            <h2 className="text-[#0950F6] text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[0.98]">
               Reseñas Reales de Mar del Plata
             </h2>
 
@@ -355,28 +355,28 @@ export default function SocialProofSection() {
           </motion.div>
         </div>
 
-        {/* 3 Interactive Trust Metrics Strips */}
+        {/* 3 Interactive Trust Metrics Strips (Double-Layered Glass Shells) */}
         <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10" variants={itemVariants}>
           <motion.div
             whileHover={reduceMotion ? undefined : { y: -4, transition: snappySpring }}
-            className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-shadow cursor-default"
+            className="p-2.5 rounded-[28px] bg-white/40 backdrop-blur-md border border-white/60 group shadow-xl hover:shadow-glow-yellow transition-shadow cursor-default"
           >
-            <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center shrink-0 shadow-xs">
-                <Star className="w-6 h-6 fill-brand-blue-900" />
+            <div className="bg-white p-5 rounded-[20px] border border-blue-100 flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#FFF12E] text-[#0950F6] flex items-center justify-center shrink-0 shadow-glow-yellow">
+                <Star className="w-6 h-6 fill-[#0950F6]" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="font-mono text-2xl sm:text-3xl font-bold text-brand-blue-700 tabular-nums">
+                  <span className="font-mono text-2xl sm:text-3xl font-bold text-[#0950F6] tabular-nums">
                     5.0
                   </span>
-                  <div className="flex text-brand-yellow-500">
+                  <div className="flex text-[#FFF12E]">
                     {[1, 2, 3, 4, 5].map((s) => (
                       <Star key={s} className="w-3 h-3 fill-current" />
                     ))}
                   </div>
                 </div>
-                <p className="font-subheading text-[11px] uppercase tracking-wider text-brand-blue-500 font-bold">
+                <p className="font-subheading text-[11px] uppercase tracking-wider text-blue-600 font-bold">
                   15 Opiniones en Google Maps
                 </p>
               </div>
@@ -385,17 +385,17 @@ export default function SocialProofSection() {
 
           <motion.div
             whileHover={reduceMotion ? undefined : { y: -4, transition: snappySpring }}
-            className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-shadow cursor-default"
+            className="p-2.5 rounded-[28px] bg-white/40 backdrop-blur-md border border-white/60 group shadow-xl hover:shadow-glow-blue transition-shadow cursor-default"
           >
-            <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-brand-blue-700 text-brand-yellow-500 flex items-center justify-center shrink-0 shadow-xs">
+            <div className="bg-white p-5 rounded-[20px] border border-blue-100 flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#0950F6] text-[#FFF12E] flex items-center justify-center shrink-0 shadow-glow-blue">
                 <HeartHandshake className="w-6 h-6" />
               </div>
               <div>
-                <span className="font-mono text-2xl sm:text-3xl font-bold text-brand-blue-700 tabular-nums">
+                <span className="font-mono text-2xl sm:text-3xl font-bold text-[#0950F6] tabular-nums">
                   100%
                 </span>
-                <p className="font-subheading text-[11px] uppercase tracking-wider text-brand-blue-500 font-bold">
+                <p className="font-subheading text-[11px] uppercase tracking-wider text-blue-600 font-bold">
                   Flota Propia Sin Tercerizar
                 </p>
               </div>
@@ -404,17 +404,17 @@ export default function SocialProofSection() {
 
           <motion.div
             whileHover={reduceMotion ? undefined : { y: -4, transition: snappySpring }}
-            className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl group shadow-sm hover:shadow-antigravity-deep transition-shadow cursor-default"
+            className="p-2.5 rounded-[28px] bg-white/40 backdrop-blur-md border border-white/60 group shadow-xl hover:shadow-glow-yellow transition-shadow cursor-default"
           >
-            <div className="double-bezel-inner bg-white p-5 rounded-xl border border-brand-blue-50/50 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-brand-yellow-500/20 text-brand-blue-700 flex items-center justify-center shrink-0 border border-brand-yellow-500/40">
+            <div className="bg-white p-5 rounded-[20px] border border-blue-100 flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#FFF12E]/20 text-[#0950F6] flex items-center justify-center shrink-0 border border-[#FFF12E]">
                 <TrendingUp className="w-6 h-6" />
               </div>
               <div>
-                <span className="font-mono text-2xl sm:text-3xl font-bold text-brand-blue-700 tabular-nums">
+                <span className="font-mono text-2xl sm:text-3xl font-bold text-[#0950F6] tabular-nums">
                   +7
                 </span>
-                <p className="font-subheading text-[11px] uppercase tracking-wider text-brand-blue-500 font-bold">
+                <p className="font-subheading text-[11px] uppercase tracking-wider text-blue-600 font-bold">
                   Años de Trayectoria en MDQ
                 </p>
               </div>
@@ -484,21 +484,21 @@ export default function SocialProofSection() {
                 style={{ scrollSnapAlign: 'center' }}
                 whileHover={reduceMotion ? undefined : { y: -6, transition: snappySpring }}
                 className={cn(
-                  'double-bezel-outer p-2 sm:p-2.5 rounded-3xl transition-all duration-300 flex flex-col h-full select-none cursor-pointer',
-                  isDarkBlue && 'bg-brand-blue-900/90 border-brand-blue-700 shadow-md',
-                  isYellowAccent && 'bg-brand-yellow-100/80 border-brand-yellow-300 shadow-md',
-                  isFrostBlue && 'bg-brand-blue-100/70 border-brand-blue-200 shadow-sm',
-                  !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-brand-blue-50/80 border-brand-blue-100 shadow-sm',
-                  isCurrentSnap ? 'scale-[1.02] shadow-antigravity-deep' : 'opacity-95'
+                  'p-2.5 sm:p-3.5 rounded-[28px] backdrop-blur-md transition-all duration-300 flex flex-col h-full select-none cursor-pointer border',
+                  isDarkBlue && 'bg-[#052C87]/90 border-white/20 shadow-2xl',
+                  isYellowAccent && 'bg-[#FFF12E]/20 border-[#FFF12E]/40 shadow-xl',
+                  isFrostBlue && 'bg-white/50 border-white/60 shadow-lg',
+                  !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white/60 border-white/80 shadow-lg',
+                  isCurrentSnap ? 'scale-[1.02] shadow-glow-yellow' : 'opacity-95'
                 )}
               >
                 <div
                   className={cn(
-                    'double-bezel-inner p-6 sm:p-7 rounded-2xl border relative flex flex-col justify-between h-full transition-colors',
-                    isDarkBlue && 'bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 text-white border-brand-blue-700/60',
-                    isYellowAccent && 'bg-gradient-to-br from-white via-brand-yellow-50/60 to-white text-brand-ink border-brand-yellow-200/80',
-                    isFrostBlue && 'bg-gradient-to-br from-white via-brand-blue-50/60 to-white text-brand-ink border-brand-blue-100',
-                    !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white text-brand-ink border-brand-blue-50'
+                    'p-6 sm:p-7 rounded-[20px] border relative flex flex-col justify-between h-full transition-colors',
+                    isDarkBlue && 'bg-[#052C87] text-white border-white/15',
+                    isYellowAccent && 'bg-white text-[#00277C] border-yellow-200/80',
+                    isFrostBlue && 'bg-white text-[#00277C] border-blue-100',
+                    !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white text-[#00277C] border-blue-50'
                   )}
                 >
                   {/* Top Watermark Icon */}

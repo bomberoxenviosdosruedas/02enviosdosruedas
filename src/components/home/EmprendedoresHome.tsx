@@ -64,7 +64,7 @@ export default function EmprendedoresHome() {
   return (
     <section
       id="emprendedores-home"
-      className="py-32 md:py-48 bg-brand-ink relative overflow-hidden text-white border-y border-white/10"
+      className="py-32 md:py-48 bg-[#052C87] relative overflow-hidden text-white border-y border-white/10"
     >
       {/* Background Decorative Asymmetric Glows */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
@@ -120,13 +120,13 @@ export default function EmprendedoresHome() {
         {/* Solutions Cards Grid: Asymmetric Bento Layout with Double-Bezel Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 auto-rows-auto lg:auto-rows-[340px] grid-flow-row-dense">
           
-          {/* Card 1: PyMEs (E-Commerce) - lg:col-span-7 lg:row-span-2 (Dark Navy Card) */}
+          {/* Card 1: PyMEs (E-Commerce) - lg:col-span-7 lg:row-span-2 (Dark Navy Card with Double-Layered Glass Shell) */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-7 lg:row-span-2 double-bezel-outer p-2 rounded-2xl bg-brand-blue-50/5 border border-brand-blue-500/20 hover:border-brand-yellow-500/30 hover:bg-brand-blue-50/10 hover:shadow-antigravity-deep group overflow-hidden flex flex-col cursor-pointer"
+            className="lg:col-span-7 lg:row-span-2 p-3 sm:p-4 rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#FFF12E]/40 hover:shadow-glow-yellow transition-all duration-300 group overflow-hidden flex flex-col cursor-pointer"
             whileHover={reduceMotion ? undefined : { y: -6, transition: snappySpring }}
           >
-            <div className="double-bezel-inner bg-brand-blue-700/60 p-6 sm:p-8 rounded-xl border border-brand-blue-500/20 shadow-inner flex flex-col justify-between h-full relative overflow-hidden text-left flex-1">
+            <div className="rounded-[20px] bg-[#052C87] p-6 sm:p-8 border border-white/10 flex flex-col justify-between h-full relative overflow-hidden text-left flex-1">
               {/* Subtle Radial Glow */}
               <motion.div
                 className="absolute bottom-0 right-0 w-48 h-48 rounded-full bg-brand-yellow-500/10 blur-3xl pointer-events-none"
@@ -181,13 +181,13 @@ export default function EmprendedoresHome() {
                 </ul>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-brand-blue-500/20 relative z-10 flex justify-end">
+              <div className="pt-6 mt-6 border-t border-white/10 relative z-10 flex justify-end">
                 <Link
                   href="/servicios/plan-emprendedores"
-                  className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-cta-glow hover:bg-brand-yellow-400"
+                  className="inline-flex items-center justify-between rounded-full min-h-[52px] px-8 py-3.5 bg-[#FFF12E] hover:bg-[#FFF44A] text-[#0950F6] font-subheading text-base font-bold uppercase tracking-wider shadow-glow-yellow transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
                 >
                   <span>Conocer más</span>
-                  <span className="cta-nested-icon bg-brand-blue-900/10 w-6 h-6 rounded-full flex items-center justify-center">
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#0950F6]/15 text-[#0950F6] ml-3 transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
                 </Link>
