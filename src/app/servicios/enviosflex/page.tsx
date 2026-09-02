@@ -82,47 +82,41 @@ const jsonLdSchema = {
 
 export default function EnviosFlexPage() {
   return (
-    <main className="min-h-screen gradient-surface text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-screen bg-[#F8FAFC] text-brand-blue-700 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-      {/* Ambient floating glow-orbs */}
-      <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue/5 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
-      <div
-        className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow/3 rounded-full blur-[110px] pointer-events-none"
-        style={{ animationDelay: '-3s' }}
-      />
 
-      {/* Hero Header Block */}
-      <div className="relative z-10">
+      {/* Hero Header Block — Electric Speed Blue (#0950F6) */}
+      <section className="relative z-10 bg-[#0950F6]">
         <FlexHero />
-      </div>
+      </section>
 
-      {/* MercadoLibre expert key features */}
-      <div className="relative z-10 font-sans">
+      {/* MercadoLibre expert key features — Slate Canvas (#F8FAFC) */}
+      <section className="relative z-10 bg-[#F8FAFC] font-sans">
         <FlexFeatures />
-      </div>
+      </section>
 
-      {/* Seller value-added benefits grid */}
-      <div className="relative z-10 font-sans">
+      {/* Seller value-added benefits grid — Deep Midnight Navy (#052C87) */}
+      <section className="relative z-10 bg-[#052C87] font-sans">
         <FlexBenefits />
-      </div>
+      </section>
 
-      {/* Pricing levels and weather discounts */}
-      <div className="relative z-10">
+      {/* Pricing levels and weather discounts — Electric Speed Blue (#0950F6) */}
+      <section className="relative z-10 bg-[#0950F6]">
         <FlexPricing />
-      </div>
+      </section>
 
-      {/* Step by step streamlined workflow */}
-      <div className="relative z-10 font-sans">
+      {/* Step by step streamlined workflow — Slate Canvas (#F8FAFC) */}
+      <section className="relative z-10 bg-[#F8FAFC] font-sans">
         <FlexHowItWorks />
-      </div>
+      </section>
 
-      {/* Active prerequisites for starting */}
-      <div className="relative z-10 font-sans">
+      {/* Active prerequisites for starting — Slate Canvas (#F8FAFC) */}
+      <section className="relative z-10 bg-[#F8FAFC] font-sans">
         <FlexRequirements />
-      </div>
+      </section>
     </main>
   );
 }

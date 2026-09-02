@@ -87,37 +87,31 @@ const jsonLdSchema = {
 
 export default function PlanEmprendedoresPage() {
   return (
-    <main className="min-h-screen gradient-surface text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-screen bg-[#F8FAFC] text-brand-blue-700 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-      {/* Ambient floating glow-orbs */}
-      <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue/5 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
-      <div
-        className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow/3 rounded-full blur-[110px] pointer-events-none"
-        style={{ animationDelay: '-3s' }}
-      />
 
-      {/* Hero Header block */}
-      <div className="relative z-10">
+      {/* Hero Header block — Electric Speed Blue (#0950F6) */}
+      <section className="relative z-10 bg-[#0950F6]">
         <EmprendedoresHero />
-      </div>
+      </section>
 
-      {/* Corporate 3PL logistics features */}
-      <div className="relative z-10 font-sans">
+      {/* Corporate 3PL logistics features — Slate Canvas (#F8FAFC) */}
+      <section className="relative z-10 bg-[#F8FAFC] font-sans">
         <EmprendedoresFeatures />
-      </div>
+      </section>
 
-      {/* Strategic business benefits grid */}
-      <div className="relative z-10 font-sans">
+      {/* Strategic business benefits grid — Deep Midnight Navy (#052C87) */}
+      <section className="relative z-10 bg-[#052C87] font-sans">
         <EmprendedoresBenefits />
-      </div>
+      </section>
 
-      {/* Premium custom e-commerce plans and 3PL warehousing prices */}
-      <div className="relative z-10">
+      {/* Premium custom e-commerce plans and 3PL warehousing prices — Electric Speed Blue (#0950F6) */}
+      <section className="relative z-10 bg-[#0950F6]">
         <EmprendedoresPricing />
-      </div>
+      </section>
     </main>
   );
 }

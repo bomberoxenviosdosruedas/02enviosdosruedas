@@ -71,7 +71,7 @@ export default function ExpressPricing() {
   return (
     <section
       id="express-pricing"
-      className="py-24 bg-brand-blue-700 relative overflow-hidden text-white border-t-2 border-b-2 border-brand-yellow-500"
+      className="py-24 bg-[#0950F6] relative overflow-hidden text-white border-t border-b border-white/10"
       ref={pricingRef}
     >
       {/* Background Sparkles overlay */}
@@ -94,12 +94,12 @@ export default function ExpressPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="span"
-            className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold uppercase tracking-widest inline-block border border-brand-yellow-500 shadow-accent-sm"
+            className="-rotate-1 px-4 py-1.5 bg-[#FFF12E] text-[#052C87] rounded-full text-xs font-subheading font-bold uppercase tracking-widest inline-block shadow-glow-yellow"
           >
-            Tarifario Vigente 2026
+            TARIFARIO VIGENTE 2026
           </TimelineContent>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white flex justify-center leading-none">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white flex justify-center leading-[0.98]">
             <VerticalCutReveal
               splitBy="words"
               staggerDuration={0.1}
@@ -115,7 +115,7 @@ export default function ExpressPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="p"
-            className="text-brand-blue-100 font-sans text-base sm:text-lg max-w-lg mx-auto leading-relaxed"
+            className="text-blue-100 font-sans text-base sm:text-lg max-w-lg mx-auto leading-relaxed"
           >
             Precios oficiales calculados por rango kilométrico para envíos inmediatos en Mar del Plata.
           </TimelineContent>
@@ -134,25 +134,25 @@ export default function ExpressPricing() {
                 timelineRef={pricingRef}
                 customVariants={revealVariants}
                 as="div"
-                className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col"
+                className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col"
               >
                 <Card
-                  className={`double-bezel-inner border-0 bg-white text-brand-blue-700 rounded-xl p-6 flex flex-col justify-between h-full group text-left shadow-sm relative ${
-                    zone.highlight ? 'ring-2 ring-brand-yellow-500' : ''
+                  className={`border-0 bg-white text-[#052C87] rounded-[20px] p-6 flex flex-col justify-between h-full group text-left shadow-sm relative overflow-hidden ${
+                    zone.highlight ? 'ring-2 ring-[#FFF12E]' : ''
                   }`}
                 >
-                  <CardHeader className="p-0 pb-4 text-left relative">
+                  <CardHeader className="p-0 pb-4 text-left relative z-10">
                     {zone.highlight && (
-                      <span className="inline-block self-start mb-3 bg-brand-yellow-500 text-brand-blue-900 font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-accent-sm">
+                      <span className="-rotate-1 inline-block self-start mb-3 bg-[#FFF12E] text-[#052C87] font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-glow-yellow">
                         MÁS ELEGIDO
                       </span>
                     )}
 
                     <div>
-                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-700 font-bold">
+                      <span className="text-xs font-subheading tracking-wider uppercase text-[#0950F6] font-bold">
                         {zone.name}
                       </span>
-                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 leading-tight text-brand-blue-700 font-bold">
+                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 leading-tight text-[#052C87] font-bold">
                         {zone.scope}
                       </h3>
                     </div>
@@ -160,34 +160,34 @@ export default function ExpressPricing() {
                     <div className="py-3">
                       {isNumericPrice && numericValue ? (
                         <div className="flex items-baseline">
-                          <span className="text-4xl sm:text-5xl font-mono uppercase font-bold tracking-tight text-brand-blue-700">
+                          <span className="text-4xl sm:text-5xl font-mono tabular-nums font-bold tracking-tight text-[#052C87]">
                             $
                             <NumberFlow
                               value={numericValue}
                               format={{ minimumFractionDigits: 0 }}
-                              className="inline-block"
+                              className="inline-block font-mono tabular-nums"
                             />
                           </span>
                         </div>
                       ) : (
-                        <span className="text-4xl sm:text-5xl font-mono uppercase font-bold tracking-tight text-brand-blue-700">
+                        <span className="text-4xl sm:text-5xl font-mono tabular-nums font-bold tracking-tight text-[#052C87]">
                           {zone.price}
                         </span>
                       )}
-                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-400">/ despacho final</span>
+                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-[#3570F8]">/ despacho final</span>
                     </div>
 
-                    <p className="text-sm leading-relaxed font-sans text-brand-blue-ink/80">
+                    <p className="text-sm leading-relaxed font-sans text-[#00277C]/80">
                       {zone.description}
                     </p>
                   </CardHeader>
 
-                  <CardContent className="p-0 pt-0 flex flex-col justify-between flex-grow">
+                  <CardContent className="p-0 pt-0 flex flex-col justify-between flex-grow relative z-10">
                     {/* Bullets */}
                     <ul className="space-y-2.5 pt-4 border-t border-brand-blue-100 mb-6">
                       {zone.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-center gap-2 text-xs text-brand-blue-ink">
-                          <Check className="h-4 w-4 shrink-0 text-brand-blue-700" />
+                        <li key={bullet} className="flex items-center gap-2 text-xs text-[#00277C]">
+                          <Check className="h-4 w-4 shrink-0 text-[#0950F6]" />
                           <span className="font-sans text-xs">{bullet}</span>
                         </li>
                       ))}
@@ -196,14 +196,14 @@ export default function ExpressPricing() {
                     <div>
                       <Link
                         href="/cotizar/express"
-                        className={`w-full cta-nested-pill font-bold ${
+                        className={`group w-full inline-flex items-center justify-between gap-2 px-6 py-3 rounded-full text-sm font-subheading font-bold uppercase tracking-wider min-h-[48px] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0950F6] ${
                           zone.highlight
-                            ? 'bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 shadow-accent-sm'
-                            : 'bg-brand-blue-700 text-white hover:bg-brand-blue-800'
+                            ? 'bg-[#FFF12E] text-[#052C87] hover:bg-[#FFF44A] shadow-glow-yellow'
+                            : 'bg-[#0950F6] text-white hover:bg-[#0742CA]'
                         }`}
                       >
                         <span>{zone.ctaText}</span>
-                        <span className="cta-nested-icon bg-brand-blue-900/10">
+                        <span className="w-7 h-7 rounded-full bg-current/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
                           <ArrowRight className="h-4 w-4 shrink-0" />
                         </span>
                       </Link>
@@ -221,25 +221,23 @@ export default function ExpressPricing() {
           timelineRef={pricingRef}
           customVariants={revealVariants}
           as="div"
-          className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-float"
+          className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float"
         >
-          <div className="double-bezel-inner bg-white text-brand-blue-700 rounded-xl p-8 relative overflow-hidden text-left border border-brand-blue-50/50 shadow-sm">
+          <div className="bg-[#052C87] text-white rounded-[20px] p-8 relative overflow-hidden text-left border border-white/10 shadow-sm">
             {/* Background icon watermark */}
-            <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-brand-blue-100/30 pointer-events-none -z-10">
-              <Calculator className="h-64 w-64 text-brand-blue-100" />
-            </div>
+            <Calculator className="absolute -bottom-8 -right-8 h-64 w-64 text-white/[0.04] pointer-events-none select-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
 
               <div className="lg:col-span-8 space-y-3 text-left">
-                <span className="px-3.5 py-1 bg-brand-blue-50 text-brand-blue-700 rounded-full text-xs font-subheading font-bold uppercase tracking-widest inline-block border border-brand-blue-200">
-                  Trayectos de más de 10 km
+                <span className="-rotate-1 inline-block px-3.5 py-1 bg-[#FFF12E] text-[#052C87] rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-glow-yellow">
+                  TRAYECTOS DE MÁS DE 10 KM
                 </span>
-                <h3 className="text-3xl font-display uppercase tracking-tight text-brand-blue-700">
-                  $8.200 Base + $1.000 x km adicional
+                <h3 className="text-3xl font-display uppercase tracking-tight text-white">
+                  <span className="font-mono tabular-nums">$8.200</span> Base + <span className="font-mono tabular-nums">$1.000</span> x km adicional
                 </h3>
-                <p className="text-sm text-brand-blue-ink leading-relaxed font-sans max-w-2xl">
-                  Para envíos que exceden los 10 km (Batán, Sierra de los Padres, Camet o periferia de General Pueyrredón), el cálculo aplica tarifa base de 7 a 10 km más $1.000 por kilómetro adicional exacto.
+                <p className="text-sm text-blue-100 leading-relaxed font-sans max-w-2xl">
+                  Para envíos que exceden los 10 km (Batán, Sierra de los Padres, Camet o periferia de General Pueyrredón), el cálculo aplica tarifa base de 7 a 10 km (<span className="font-mono tabular-nums">$8.200</span>) más <span className="font-mono tabular-nums">$1.000</span> por kilómetro adicional entero.
                 </p>
               </div>
 
@@ -247,11 +245,11 @@ export default function ExpressPricing() {
                 <Link
                   href="/cotizar/express"
                   id="express-pricing-cta-cotizador"
-                  className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 font-bold shadow-accent-sm w-full sm:w-auto flex items-center justify-between gap-3 px-6 py-3"
+                  className="group inline-flex items-center justify-between gap-3 bg-[#FFF12E] hover:bg-[#FFF44A] text-[#052C87] font-subheading font-bold uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-[48px] shadow-glow-yellow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E] w-full sm:w-auto"
                 >
                   <span>Calcular con Mapa</span>
-                  <span className="cta-nested-icon bg-brand-blue-900/10">
-                    <Calculator className="h-4 w-4 shrink-0" />
+                  <span className="w-8 h-8 rounded-full bg-[#052C87]/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+                    <Calculator className="h-4 w-4 shrink-0 text-[#052C87]" />
                   </span>
                 </Link>
               </div>

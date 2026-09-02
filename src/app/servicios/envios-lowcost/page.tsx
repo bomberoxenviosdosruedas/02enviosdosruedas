@@ -103,42 +103,36 @@ const jsonLdSchema = {
 
 export default function EnviosLowCostPage() {
   return (
-    <main className="min-h-screen gradient-surface text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-screen bg-[#F8FAFC] text-brand-blue-700 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-      {/* Ambient floating glow-orbs */}
-      <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue/5 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
-      <div
-        className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow/3 rounded-full blur-[110px] pointer-events-none"
-        style={{ animationDelay: '-3s' }}
-      />
 
-      {/* Hero Header Block */}
-      <div className="relative z-10">
+      {/* Hero Header Block — Electric Speed Blue (#0950F6) */}
+      <section className="relative z-10 bg-[#0950F6]">
         <LowCostHero />
-      </div>
+      </section>
 
-      {/* Ruteo masivo features */}
-      <div className="relative z-10 font-sans">
+      {/* Ruteo masivo features — Slate Canvas (#F8FAFC) */}
+      <section className="relative z-10 bg-[#F8FAFC] font-sans">
         <LowCostFeatures />
-      </div>
+      </section>
 
-      {/* 2026 Zone Pricing rates table */}
-      <div className="relative z-10">
+      {/* 2026 Zone Pricing rates table — Electric Speed Blue (#0950F6) */}
+      <section className="relative z-10 bg-[#0950F6]">
         <LowCostPricing />
-      </div>
+      </section>
 
-      {/* Structured logistics benefits grid */}
-      <div className="relative z-10 font-sans">
+      {/* Structured logistics benefits grid — Deep Midnight Navy (#052C87) */}
+      <section className="relative z-10 bg-[#052C87] font-sans">
         <LowCostBenefits />
-      </div>
+      </section>
 
-      {/* Step by step operation diagram */}
-      <div className="relative z-10 font-sans">
+      {/* Step by step operation diagram — Slate Canvas (#F8FAFC) */}
+      <section className="relative z-10 bg-[#F8FAFC] font-sans">
         <LowCostHowItWorks />
-      </div>
+      </section>
     </main>
   );
 }

@@ -102,28 +102,28 @@ const jsonLdSchema = {
 
 export default function EnviosExpressPage() {
   return (
-    <main className="min-h-screen bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-screen bg-[#F8FAFC] text-brand-blue-700 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-      {/* 1. Hero Presentation — Dark Brand Blue */}
-      <section className="relative z-10">
+      {/* 1. Hero Presentation — Electric Speed Blue (#0950F6) */}
+      <section className="relative z-10 bg-[#0950F6]">
         <ExpressHero />
       </section>
 
-      {/* 2. Value Propositions & Key Features — Pure White Surface */}
-      <section className="relative z-10 font-sans">
+      {/* 2. Value Propositions & Key Features — Slate Canvas (#F8FAFC) */}
+      <section className="relative z-10 bg-[#F8FAFC] font-sans">
         <ExpressFeatures />
       </section>
 
-      {/* 3. 2026 Zone Pricing Rates & Dynamic Quote Hook — Dark Blue 700 with Double Bezel */}
-      <section className="relative z-10">
+      {/* 3. 2026 Zone Pricing Rates & Dynamic Quote Hook — Electric Speed Blue (#0950F6) */}
+      <section className="relative z-10 bg-[#0950F6]">
         <ExpressPricing />
       </section>
 
-      {/* 4. Common Use Cases & Scenarios — Alternating Light Surface */}
-      <section className="relative z-10 font-sans">
+      {/* 4. Common Use Cases & Scenarios — Slate Canvas (#F8FAFC) */}
+      <section className="relative z-10 bg-[#F8FAFC] font-sans">
         <ExpressUseCases />
       </section>
     </main>
