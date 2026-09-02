@@ -52,16 +52,15 @@ export default function NetworksBenefits() {
 
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1 bg-brand-yellow-500 text-brand-blue-700 rounded-full text-base font-subheading uppercase tracking-widest inline-block border border-brand-blue-200/50">
+          <span className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
             VALORES DE COMUNIDAD
           </span>
-          <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-[0.02em] leading-[1.1]">
+          <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
             BENEFICIOS DE FORMAR PARTE
           </h2>
-          <p className="text-brand-blue-600/90 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-brand-ink/80 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Descubrí por qué cientos de marplatenses y PyMEs locales ya nos siguen activamente en nuestros canales de difusión oficiales.
           </p>
-          <div className="h-1 w-16 bg-brand-blue-700 mx-auto rounded-full" />
         </div>
 
         {/* Benefits Bento Grid (Asymmetrical Grid) */}
@@ -75,26 +74,29 @@ export default function NetworksBenefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`${benefit.colSpan} double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default`}
+                className={`${benefit.colSpan} rounded-[28px] bg-brand-blue-50/80 border border-brand-blue-100 p-2 shadow-minimal hover:shadow-lg transition-all`}
               >
-                <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue min-h-[220px]">
+                <div className="rounded-[20px] bg-white p-6 sm:p-8 border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue min-h-[220px]">
                   <div className="space-y-5">
-                    <div className="p-3 bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100 rounded-2xl w-fit">
-                      <Icon className="h-5 w-5 shrink-0" />
+                    <div className="p-3 bg-brand-blue-50 text-[#0950F6] border border-brand-blue-100 rounded-2xl w-fit">
+                      <Icon className="h-5 w-5 shrink-0 text-[#0950F6]" />
                     </div>
 
-                    <h3 className="text-2xl sm:text-3xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold leading-tight">
+                    <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
                       {benefit.title}
                     </h3>
 
-                    <p className="text-sm text-brand-blue-600/90 font-sans leading-relaxed">
+                    <p className="text-sm text-brand-ink leading-relaxed font-sans">
                       {benefit.desc}
                     </p>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-brand-blue-100/60 flex items-center gap-1.5 text-xs font-sans font-bold uppercase text-brand-blue-400">
-                    <CheckCircle className="h-4.5 w-4.5 text-brand-blue shrink-0 fill-brand-yellow-500/25" />
-                    <span>Beneficio Oficial</span>
+                  <div className="pt-6 mt-6 border-t border-brand-blue-100/60 flex items-center justify-between text-xs font-mono font-bold uppercase text-brand-blue-500 tabular-nums">
+                    <span className="flex items-center gap-1.5">
+                      <CheckCircle className="h-4.5 w-4.5 text-brand-yellow-500 shrink-0" />
+                      <span>Beneficio Oficial</span>
+                    </span>
+                    <span>0{idx + 1}</span>
                   </div>
                 </div>
               </motion.div>

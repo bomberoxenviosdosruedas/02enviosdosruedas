@@ -47,14 +47,14 @@ export default function AboutTimeline() {
   return (
     <section
       id="about-timeline"
-      className="py-20 sm:py-24 bg-brand-white-50 relative overflow-hidden border-t border-brand-blue-100/50"
+      className="py-20 sm:py-24 bg-[#F8FAFC] relative overflow-hidden border-t border-brand-blue-100/50"
     >
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#0950F6]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3.5">
-          <span className="px-4 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold">
+          <span className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
             TRAYECTORIA & EVOLUCIÓN
           </span>
           <h2 className="text-brand-blue-700 text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -83,7 +83,7 @@ export default function AboutTimeline() {
                   }`}
                 >
                   {/* Circle Pin on Line */}
-                  <div className="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow-500 border-2 border-brand-white-50 shadow-md items-center justify-center z-10 text-brand-blue-900">
+                  <div className="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow-500 border-2 border-white shadow-md items-center justify-center z-10 text-brand-blue-900 shadow-glow-yellow">
                     <Icon className="h-4.5 w-4.5" />
                   </div>
 
@@ -96,14 +96,14 @@ export default function AboutTimeline() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.45 }}
-                    className="w-full sm:w-[45%] double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-minimal"
+                    className="w-full sm:w-[45%] rounded-[28px] bg-brand-blue-50/80 border border-brand-blue-100 p-2 shadow-minimal"
                   >
-                    <div className="double-bezel-inner bg-white p-5 sm:p-6 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue-700 flex flex-col space-y-2">
+                    <div className="rounded-[20px] bg-white p-5 sm:p-6 border border-brand-blue-50/50 shadow-sm text-brand-blue-700 flex flex-col space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="font-subheading text-3xl sm:text-4xl text-brand-yellow-500 font-bold leading-none">
+                        <span className="font-mono text-3xl sm:text-4xl text-[#0950F6] font-bold leading-none tabular-nums">
                           {milestone.year}
                         </span>
-                        <span className="px-2.5 py-0.5 rounded-md bg-brand-blue-50 text-[10px] font-mono text-brand-blue-700 font-bold uppercase">
+                        <span className="px-2.5 py-0.5 rounded-md bg-brand-yellow-50 text-[10px] font-mono text-[#052C87] font-bold uppercase border border-brand-yellow-200 transform -rotate-1">
                           Hito MDQ
                         </span>
                       </div>

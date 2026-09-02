@@ -56,10 +56,10 @@ export function FaqCategories() {
                 onClick={() => handleCategorySelect(category.id)}
                 aria-pressed={isActive}
                 className={cn(
-                  'group relative text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2',
+                  'group relative text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 min-h-[52px] cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-[#0950F6]/50',
                   isActive
-                    ? 'bg-brand-blue-700 border-brand-blue-700 text-white shadow-md scale-[1.02]'
-                    : 'bg-white border-brand-blue-100 text-brand-blue-700 hover:border-brand-blue-300 hover:bg-brand-blue-50/50'
+                    ? 'bg-[#052C87] border-[#052C87] text-white shadow-lg scale-[1.02] transform -rotate-1'
+                    : 'bg-white border-brand-blue-100 text-brand-blue-700 hover:border-[#0950F6] hover:bg-brand-blue-50/50'
                 )}
               >
                 <div className="flex items-center justify-between mb-3">
@@ -67,18 +67,18 @@ export function FaqCategories() {
                     className={cn(
                       'w-10 h-10 rounded-xl flex items-center justify-center transition-colors',
                       isActive
-                        ? 'bg-brand-yellow-500 text-brand-blue-700'
-                        : 'bg-brand-blue-50 text-brand-blue-600 group-hover:bg-brand-blue-100'
+                        ? 'bg-brand-yellow-500 text-brand-blue-900 shadow-glow-yellow'
+                        : 'bg-brand-blue-50 text-[#0950F6] group-hover:bg-brand-blue-100'
                     )}
                   >
                     <Icon className="w-5 h-5" />
                   </div>
                   <span
                     className={cn(
-                      'text-xs font-mono font-bold px-2 py-0.5 rounded-full',
+                      'text-xs font-mono font-bold px-2.5 py-0.5 rounded-full tabular-nums',
                       isActive
-                        ? 'bg-white/20 text-white'
-                        : 'bg-brand-blue-50 text-brand-blue-600'
+                        ? 'bg-white/20 text-brand-yellow-500'
+                        : 'bg-brand-blue-50 text-[#0950F6]'
                     )}
                   >
                     {category.questions.length} Qs
@@ -96,7 +96,7 @@ export function FaqCategories() {
                 <p
                   className={cn(
                     'text-xs line-clamp-2 leading-relaxed font-sans',
-                    isActive ? 'text-brand-blue-100' : 'text-brand-blue-500/80'
+                    isActive ? 'text-white/80' : 'text-brand-blue-500/80'
                   )}
                 >
                   {category.description}
@@ -107,8 +107,8 @@ export function FaqCategories() {
         </div>
 
         {/* Double bezel container for category questions */}
-        <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 sm:p-3 rounded-2xl shadow-sm">
-          <div className="double-bezel-inner bg-white p-5 sm:p-8 rounded-xl border border-brand-blue-50 shadow-inner">
+        <div className="rounded-[28px] bg-brand-blue-50/80 border border-brand-blue-100 p-2 sm:p-3 shadow-sm">
+          <div className="rounded-[20px] bg-white p-5 sm:p-8 border border-brand-blue-50 shadow-inner">
             {/* Header info of active category */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 mb-6 border-b border-brand-blue-100">
               <div className="flex items-center gap-3">
