@@ -70,19 +70,17 @@ const mockUseMotionValue = (init: any) => ({
 vi.mock('motion/react', () => ({
   motion: mockMotion,
   AnimatePresence: ({ children }: any) => children,
+  useReducedMotion: () => false,
   useMotionValue: mockUseMotionValue,
-  useSpring: (v: any) => ({
-    get: () => (v && typeof v === 'object' && typeof v.get === 'function') ? v.get() : v,
-    set: () => {},
-    on: () => () => {},
-    onChange: () => () => {},
-  }),
-  useTransform: (v: any, r: any, o: any) => ({
-    get: () => (v && typeof v === 'object' && typeof v.get === 'function') ? v.get() : v,
-    set: () => {},
-    on: () => () => {},
-    onChange: () => () => {},
-  }),
+  animate: vi.fn(),
+  useSpring: (v: any) => v,
+  useTransform: (v: any, transformer: any) => {
+    const val = v && typeof v === 'object' && typeof v.get === 'function' ? v.get() : v;
+    if (typeof transformer === 'function') {
+      return transformer(val);
+    }
+    return val;
+  },
 }));
 
 // Mock Leaflet / Maps to prevent rendering failures under JSDOM

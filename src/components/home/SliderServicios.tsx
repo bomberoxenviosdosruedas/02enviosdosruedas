@@ -275,24 +275,24 @@ export default function SliderServicios() {
           })}
         </motion.div>
 
-        {/* Dynamic Showcase Hero Card (Double Bezel with Fluid Transitions) */}
+        {/* Dynamic Showcase Hero Card (Double-Layered Glass Container) */}
         <motion.div
           variants={itemVariants}
           className={cn(
-            'double-bezel-outer p-2 sm:p-3 rounded-3xl transition-all duration-500 shadow-md',
-            isDarkBlue && 'bg-brand-blue-950/90 border-brand-blue-700',
-            isYellowAccent && 'bg-brand-yellow-100/80 border-brand-yellow-300',
-            isFrostBlue && 'bg-brand-blue-100/70 border-brand-blue-200',
-            !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-brand-blue-50/90 border-brand-blue-100'
+            'p-2.5 sm:p-3.5 rounded-[30px] backdrop-blur-md transition-all duration-500 shadow-2xl border',
+            isDarkBlue && 'bg-[#052C87]/80 border-white/20',
+            isYellowAccent && 'bg-[#FFF12E]/20 border-[#FFF12E]/40',
+            isFrostBlue && 'bg-white/40 border-white/60',
+            !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white/50 border-white/60'
           )}
         >
           <div
             className={cn(
-              'double-bezel-inner p-6 sm:p-10 lg:p-12 rounded-2xl border relative overflow-hidden transition-colors duration-500',
-              isDarkBlue && 'bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 text-white border-brand-blue-700/60',
-              isYellowAccent && 'bg-gradient-to-br from-white via-brand-yellow-50/60 to-white text-brand-ink border-brand-yellow-200',
-              isFrostBlue && 'bg-gradient-to-br from-white via-brand-blue-50/60 to-white text-brand-ink border-brand-blue-100',
-              !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white text-brand-ink border-brand-blue-50'
+              'p-6 sm:p-10 lg:p-12 rounded-[20px] border relative overflow-hidden transition-colors duration-500',
+              isDarkBlue && 'bg-[#052C87] text-white border-white/15',
+              isYellowAccent && 'bg-white text-[#00277C] border-yellow-200',
+              isFrostBlue && 'bg-white text-[#00277C] border-blue-100',
+              !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white text-[#00277C] border-blue-50'
             )}
           >
             <AnimatePresence mode="wait">
@@ -399,25 +399,25 @@ export default function SliderServicios() {
                     ))}
                   </div>
 
-                  {/* Action CTA Button (Nested Pill) */}
+                  {/* Action CTA Button (Primary Conversion Pill) */}
                   <div className="pt-3 flex flex-wrap items-center gap-4">
                     <Link
                       href={activeSlide.ctaUrl}
                       className={cn(
-                        'inline-flex items-center gap-3 px-7 py-3.5 rounded-full font-subheading text-sm sm:text-base uppercase tracking-wider font-bold transition-all shadow-md group active:scale-98 cursor-pointer',
+                        'inline-flex items-center justify-between rounded-full min-h-[52px] px-8 py-3.5 font-subheading text-base font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] cursor-pointer group',
                         isDarkBlue
-                          ? 'bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 shadow-cta-glow'
-                          : 'bg-brand-blue-700 text-white hover:bg-brand-blue-800'
+                          ? 'bg-[#FFF12E] hover:bg-[#FFF44A] text-[#0950F6] shadow-glow-yellow'
+                          : 'bg-[#0950F6] hover:bg-[#0742CA] text-white shadow-glow-blue'
                       )}
                     >
                       <span>{activeSlide.ctaText}</span>
                       <span
                         className={cn(
-                          'w-6 h-6 rounded-full flex items-center justify-center transition-transform group-hover:translate-x-1',
-                          isDarkBlue ? 'bg-brand-blue-900/15 text-brand-blue-900' : 'bg-white/20 text-white'
+                          'inline-flex items-center justify-center w-8 h-8 rounded-full ml-3 transition-transform duration-300 group-hover:translate-x-1',
+                          isDarkBlue ? 'bg-[#0950F6]/15 text-[#0950F6]' : 'bg-white/20 text-white'
                         )}
                       >
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <ArrowRight className="w-4 h-4" />
                       </span>
                     </Link>
 

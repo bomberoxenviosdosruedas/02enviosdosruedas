@@ -56,7 +56,7 @@ export default function HeroAnimado() {
   return (
     <section
       id="hero-animado"
-      className="relative w-full overflow-hidden bg-brand-blue-700 text-white"
+      className="relative w-full overflow-hidden bg-[#0950F6] text-white shadow-ambient-elevation"
       style={{ minHeight: '90dvh' }}
     >
       {/* Pure Vector & Dynamic Procedural Background */}
@@ -82,28 +82,28 @@ export default function HeroAnimado() {
             {/* Top Badge */}
             <motion.div className="flex justify-center lg:justify-start" variants={itemVariants}>
               <motion.span
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-900 shadow-[0_0_24px_rgba(255,236,1,0.35)] border border-brand-yellow-400 cursor-default"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-[#FFF12E] text-[#0950F6] shadow-glow-yellow border border-[#FFF12E] cursor-default"
                 whileHover={reduceMotion ? undefined : { scale: 1.03, transition: snappySpring }}
               >
-                <Sparkles className="w-3.5 h-3.5 fill-brand-blue-900" />
+                <Sparkles className="w-3.5 h-3.5 fill-[#0950F6]" />
                 Tu Solución Confiable en Mar del Plata
               </motion.span>
             </motion.div>
 
             {/* Title with Signature Kinetic Typography */}
             <motion.h1
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-tight leading-[1.0] sm:leading-[0.95] flex flex-col items-center lg:items-start gap-2 select-none"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-tight leading-[0.98] flex flex-col items-center lg:items-start gap-2 select-none"
               variants={itemVariants}
             >
               <span className="kinetic-font-stretch">
                 Mensajería y Logística
               </span>
-              <span className="relative inline-block bg-brand-blue-900/60 px-3 py-1 my-1 transform -rotate-1 rounded-lg border border-brand-yellow-500/40 shadow-md">
-                <span className="relative z-10 bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 inline-block font-display font-black rounded">
+              <span className="relative inline-block bg-[#052C87]/80 px-3.5 py-1 my-1 transform -rotate-1 rounded-xl border border-[#FFF12E]/40 shadow-xl">
+                <span className="relative z-10 bg-[#FFF12E] text-[#0950F6] px-3 py-1 inline-block font-display font-black rounded-lg">
                   E-Commerce
                 </span>
               </span>
-              <span className="kinetic-font-stretch text-brand-blue-50">
+              <span className="kinetic-font-stretch text-white">
                 en Mar del Plata
               </span>
             </motion.h1>
@@ -121,24 +121,27 @@ export default function HeroAnimado() {
               className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-1"
               variants={itemVariants}
             >
-              <CTANestedPill
+              <a
                 href="/cotizar/express"
-                variant="primary"
-                size="large"
                 id="hero-cta-solicitar"
-                className="w-full sm:w-auto text-base shadow-cta-glow hover:shadow-[0_0_50px_rgba(255,236,1,0.5)] transition-shadow duration-300"
+                className="group inline-flex items-center justify-between rounded-full min-h-[52px] px-8 py-3.5 bg-[#FFF12E] hover:bg-[#FFF44A] text-[#0950F6] font-subheading text-lg font-bold uppercase tracking-wider shadow-glow-yellow transition-all duration-300 hover:scale-[1.02] cursor-pointer"
               >
-                Cotizá Express
-              </CTANestedPill>
-              <CTANestedPill
+                <span>Cotizá Express</span>
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#0950F6]/15 text-[#0950F6] ml-3 transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+
+              <a
                 href="/servicios/envios-express"
-                variant="elevated"
-                size="large"
                 id="hero-cta-servicios"
-                className="w-full sm:w-auto text-base"
+                className="group inline-flex items-center justify-between rounded-full min-h-[52px] px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/30 hover:border-white font-subheading text-lg font-bold uppercase tracking-wider backdrop-blur-md transition-all duration-300 hover:scale-[1.02] cursor-pointer"
               >
-                Mirá los Servicios
-              </CTANestedPill>
+                <span>Mirá los Servicios</span>
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/15 text-white ml-3 transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
             </motion.div>
 
             {/* Features / Trust Badges list */}
@@ -216,21 +219,21 @@ export default function HeroAnimado() {
               className="relative w-full max-w-[460px] transform-style-3d cursor-pointer"
             >
               {/* Outer Double Bezel Frame for Hero Asset */}
-              <div className="double-bezel-outer bg-brand-blue-900/60 backdrop-blur-md border border-white/20 p-3 sm:p-4 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] hover:shadow-antigravity-deep transition-shadow duration-300">
-                <div className="double-bezel-inner relative rounded-2xl overflow-hidden bg-gradient-to-b from-brand-blue-800/85 to-brand-blue-950/95 border border-white/10 p-4 sm:p-6 flex flex-col items-center">
+              <div className="p-3 sm:p-4 rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl hover:shadow-glow-yellow transition-shadow duration-300">
+                <div className="relative rounded-[20px] overflow-hidden bg-[#052C87] border border-white/15 p-4 sm:p-6 flex flex-col items-center">
                   
                   {/* Top HUD Telemetry Pill */}
-                  <div className="w-full flex items-center justify-between gap-2 mb-4 bg-brand-blue-900/70 border border-white/15 px-3.5 py-1.5 rounded-full backdrop-blur-sm shadow-xs">
+                  <div className="w-full flex items-center justify-between gap-2 mb-4 bg-white/10 border border-white/20 px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-xs">
                     <div className="flex items-center gap-2">
                       <span className="relative flex h-2.5 w-2.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow-500" />
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFF12E] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFF12E]" />
                       </span>
-                      <span className="font-subheading text-[11px] sm:text-xs uppercase tracking-widest text-brand-yellow-500 font-bold">
+                      <span className="font-subheading text-[11px] sm:text-xs uppercase tracking-widest text-[#FFF12E] font-bold">
                         Ruteo Activo · MDQ
                       </span>
                     </div>
-                    <span className="font-mono text-[10px] sm:text-[11px] font-bold text-white/90 bg-white/10 px-2 py-0.5 rounded-md border border-white/15">
+                    <span className="font-mono text-[10px] sm:text-[11px] font-bold text-white bg-white/15 px-2 py-0.5 rounded-md border border-white/20">
                       Friuli 1972
                     </span>
                   </div>

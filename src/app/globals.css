@@ -165,10 +165,11 @@
   --shadow-accent-md: 0 4px 8px rgba(255, 236, 1, 0.2), 0 2px 4px rgba(255, 236, 1, 0.1);
   --shadow-accent-lg: 0 8px 16px rgba(255, 236, 1, 0.3), 0 4px 8px rgba(255, 236, 1, 0.2);
 
-  --shadow-glow-blue: 0 0 25px rgba(0, 39, 124, 0.25);
-  --shadow-glow-yellow: 0 0 25px rgba(255, 236, 1, 0.35);
-  --shadow-glow-blue-lg: 0 0 50px rgba(0, 39, 124, 0.35);
-  --shadow-glow-yellow-lg: 0 0 50px rgba(255, 236, 1, 0.5);
+  --shadow-glow-blue: 0 0 25px rgba(9, 80, 246, 0.25);
+  --shadow-glow-yellow: 0 0 25px rgba(255, 241, 46, 0.45);
+  --shadow-glow-blue-lg: 0 0 50px rgba(9, 80, 246, 0.35);
+  --shadow-glow-yellow-lg: 0 0 50px rgba(255, 241, 46, 0.65);
+  --shadow-ambient-elevation: 0 30px 60px -15px rgba(9, 80, 246, 0.35);
 
   --shadow-float: 0 25px 50px -12px rgba(0, 39, 124, 0.15);
   --shadow-minimal: 0 4px 20px -2px rgba(6, 54, 165, 0.04), 0 2px 6px -1px rgba(6, 54, 165, 0.02);

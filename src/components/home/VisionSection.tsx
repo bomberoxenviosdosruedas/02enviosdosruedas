@@ -65,7 +65,7 @@ export default function VisionSection() {
   return (
     <section
       id="vision-section"
-      className="py-24 bg-white relative z-10 overflow-hidden"
+      className="py-24 bg-[#F8FAFC] relative z-10 overflow-hidden"
     >
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -79,14 +79,14 @@ export default function VisionSection() {
           {/* Left Column: Information Block */}
           <motion.div className="lg:col-span-6 space-y-8" variants={itemVariants}>
             <motion.span
-              className="px-4 py-1.5 bg-brand-yellow-500/15 text-brand-blue-700 rounded-full text-xs font-subheading font-bold tracking-widest inline-block border border-brand-yellow-500 uppercase cursor-default shadow-xs"
+              className="px-4 py-1.5 bg-[#FFF12E]/20 text-[#0950F6] rounded-full text-xs font-subheading font-bold tracking-widest inline-block border border-[#FFF12E] uppercase cursor-default shadow-glow-yellow"
               whileHover={reduceMotion ? undefined : { scale: 1.03, transition: springConfigCard }}
             >
               Partner Logístico Especializado
             </motion.span>
 
             <motion.h2
-              className="kinetic-font-stretch text-brand-blue-700 text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9] text-left inline-block"
+              className="kinetic-font-stretch text-[#0950F6] text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.98] text-left inline-block"
             >
               CONECTAMOS MAR DEL PLATA DE PUNTA A PUNTA
             </motion.h2>
@@ -148,17 +148,17 @@ export default function VisionSection() {
             {/* Main Bento Card: Envíos Realizados */}
             <motion.div
               whileHover={reduceMotion ? undefined : { y: -6, transition: springConfigCard }}
-              className="sm:col-span-2 p-8 bg-brand-blue-700 border-2 border-brand-blue-600 rounded-2xl shadow-elevated hover:shadow-antigravity-deep transition-shadow group cursor-default"
+              className="sm:col-span-2 p-3 sm:p-4 rounded-[28px] bg-white/20 backdrop-blur-md border border-white/40 shadow-2xl hover:shadow-glow-yellow transition-shadow group cursor-default"
             >
-              <div className="text-white relative overflow-hidden h-full flex flex-col justify-between">
+              <div className="bg-[#0950F6] rounded-[20px] p-6 sm:p-8 text-white relative overflow-hidden h-full flex flex-col justify-between border border-white/20">
                 <div className="flex justify-between items-start mb-12">
                   <motion.div
-                    className="p-3 bg-brand-yellow-500 text-brand-blue-900 border border-brand-yellow-400 rounded-xl shadow-xs"
+                    className="p-3 bg-[#FFF12E] text-[#0950F6] border border-[#FFF12E] rounded-xl shadow-glow-yellow"
                     whileHover={reduceMotion ? undefined : { scale: 1.05, x: 4, transition: springConfigCard }}
                   >
                     <Truck className="h-6 w-6" />
                   </motion.div>
-                  <span className="text-[10px] font-subheading tracking-widest uppercase px-3 py-1.5 rounded-lg bg-brand-blue-950 text-brand-yellow-500 font-bold border border-brand-yellow-500/30">
+                  <span className="text-[10px] font-subheading tracking-widest uppercase px-3 py-1.5 rounded-lg bg-[#052C87] text-[#FFF12E] font-bold border border-[#FFF12E]/30">
                     MAR DEL PLATA 2026
                   </span>
                 </div>
@@ -166,57 +166,57 @@ export default function VisionSection() {
                   <h3 className="text-7xl lg:text-8xl font-mono tracking-tighter font-bold uppercase leading-none mb-3 tabular-nums text-white">
                     <CounterMetric value={50} prefix="+" suffix="K" />
                   </h3>
-                  <p className="text-sm text-brand-blue-100 font-sans uppercase tracking-wider leading-relaxed font-medium">
+                  <p className="text-sm text-white/90 font-sans uppercase tracking-wider leading-relaxed font-medium">
                     Envíos y entregas realizadas con éxito en toda la región
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Bento Card 2: Paquetes Extraviados (Double Bezel - Light Style) */}
+            {/* Bento Card 2: Paquetes Extraviados (Double Bezel Glass Container) */}
             <motion.div
               whileHover={reduceMotion ? undefined : { y: -6, transition: springConfigCard }}
-              className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover:shadow-antigravity-deep group transition-shadow cursor-default"
+              className="p-2 sm:p-2.5 rounded-[28px] bg-white/40 backdrop-blur-md border border-white/50 shadow-xl hover:shadow-glow-blue transition-shadow group cursor-default"
             >
-              <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full">
+              <div className="bg-white p-6 sm:p-8 rounded-[20px] border border-blue-100 shadow-sm flex flex-col justify-between h-full">
                 <div className="flex justify-between items-start mb-6">
                   <motion.div
-                    className="p-3 rounded-xl bg-brand-blue-50 text-brand-blue-700 group-hover:bg-brand-blue-700 group-hover:text-brand-yellow-500 border border-brand-blue-100 transition-colors shadow-xs"
+                    className="p-3 rounded-xl bg-blue-50 text-[#0950F6] group-hover:bg-[#0950F6] group-hover:text-[#FFF12E] border border-blue-100 transition-colors shadow-xs"
                     whileHover={reduceMotion ? undefined : { scale: 1.08, transition: springConfigCard }}
                   >
                     <ShieldCheck className="h-5 w-5" />
                   </motion.div>
                 </div>
                 <div>
-                  <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue-700 leading-none mb-2 tabular-nums">
+                  <h3 className="text-6xl font-mono font-bold tracking-tighter text-[#0950F6] leading-none mb-2 tabular-nums">
                     0
                   </h3>
-                  <p className="text-[11px] text-brand-blue-700/80 font-sans uppercase tracking-widest font-bold">
+                  <p className="text-[11px] text-[#0950F6]/80 font-sans uppercase tracking-widest font-bold">
                     Paquetes extraviados
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Bento Card 3: Emprendedores Confían (Double Bezel - Light Style) */}
+            {/* Bento Card 3: Emprendedores Confían (Double Bezel Glass Container) */}
             <motion.div
               whileHover={reduceMotion ? undefined : { y: -6, transition: springConfigCard }}
-              className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover:shadow-antigravity-deep group transition-shadow cursor-default"
+              className="p-2 sm:p-2.5 rounded-[28px] bg-white/40 backdrop-blur-md border border-white/50 shadow-xl hover:shadow-glow-blue transition-shadow group cursor-default"
             >
-              <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full">
+              <div className="bg-white p-6 sm:p-8 rounded-[20px] border border-blue-100 shadow-sm flex flex-col justify-between h-full">
                 <div className="flex justify-between items-start mb-6">
                   <motion.div
-                    className="p-3 rounded-xl bg-brand-blue-50 text-brand-blue-700 group-hover:bg-brand-blue-700 group-hover:text-brand-yellow-500 border border-brand-blue-100 transition-colors shadow-xs"
+                    className="p-3 rounded-xl bg-blue-50 text-[#0950F6] group-hover:bg-[#0950F6] group-hover:text-[#FFF12E] border border-blue-100 transition-colors shadow-xs"
                     whileHover={reduceMotion ? undefined : { scale: 1.08, transition: springConfigCard }}
                   >
                     <Users className="h-5 w-5" />
                   </motion.div>
                 </div>
                 <div>
-                  <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue-700 leading-none mb-2 tabular-nums">
+                  <h3 className="text-6xl font-mono font-bold tracking-tighter text-[#0950F6] leading-none mb-2 tabular-nums">
                     <CounterMetric value={50} prefix="+" />
                   </h3>
-                  <p className="text-[11px] text-brand-blue-700/80 font-sans uppercase tracking-widest font-bold">
+                  <p className="text-[11px] text-[#0950F6]/80 font-sans uppercase tracking-widest font-bold">
                     Emprendedores confían
                   </p>
                 </div>

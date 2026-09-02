@@ -298,7 +298,7 @@ export default function ServicesOverview() {
   return (
     <section
       id="services-overview"
-      className="py-24 bg-brand-ink text-white relative overflow-hidden"
+      className="py-24 bg-[#052C87] text-white relative overflow-hidden"
       style={{ perspective: '2000px' }}
       onMouseEnter={() => setIsAutoRotate(false)}
       onMouseLeave={() => !selectedService && setIsAutoRotate(true)}
@@ -321,12 +321,12 @@ export default function ServicesOverview() {
           className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-white/10 pb-8"
         >
           <div>
-            <div className="px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold tracking-widest inline-block uppercase shadow-sm mb-3 border border-brand-yellow-500/30">
+            <div className="px-4 py-1.5 bg-[#0950F6] text-[#FFF12E] rounded-full text-xs font-subheading font-bold tracking-widest inline-block uppercase shadow-glow-yellow mb-3 border border-[#FFF12E]/40">
               NUESTROS SERVICIOS
             </div>
             <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-tight leading-none text-balance">
               SOLUCIONES LOGÍSTICAS <br />
-              <span className="text-brand-yellow-500 drop-shadow-[0_2px_10px_rgba(255,236,1,0.25)] underline decoration-brand-blue-500 underline-offset-8">
+              <span className="text-[#FFF12E] drop-shadow-[0_2px_10px_rgba(255,241,46,0.35)] underline decoration-[#0950F6] underline-offset-8">
                 A TU MEDIDA
               </span>
             </h2>
@@ -340,8 +340,8 @@ export default function ServicesOverview() {
               whileTap={reduceMotion ? undefined : { scale: 0.98 }}
               className={`px-4 py-2 rounded-full text-xs font-bold font-subheading tracking-wider border transition-colors cursor-pointer ${
                 isAutoRotate
-                  ? 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-500 shadow-cta-glow'
-                  : 'bg-brand-blue-50/80 text-brand-blue-700 border-brand-blue-100 hover:bg-brand-blue-100 hover:text-brand-blue-900'
+                  ? 'bg-[#FFF12E] text-[#0950F6] border-[#FFF12E] shadow-glow-yellow'
+                  : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
               }`}
             >
               {isAutoRotate ? '⚡ ROTACIÓN AUTOMÁTICA' : 'ROTACIÓN PAUSADA'}
