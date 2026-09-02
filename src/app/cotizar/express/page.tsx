@@ -66,8 +66,8 @@ async function ExpressFormAsync() {
 function FormSkeleton() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch animate-pulse">
-      <div className="lg:col-span-7 h-[540px] bg-brand-blue-50/40 rounded-2xl border border-brand-blue-100/50" />
-      <div className="lg:col-span-5 h-[540px] bg-brand-blue-700/40 rounded-2xl border border-white/10" />
+      <div className="lg:col-span-7 h-[540px] bg-white/10 rounded-[28px] border border-white/20" />
+      <div className="lg:col-span-5 h-[540px] bg-[#052C87] rounded-[28px] border border-white/10" />
     </div>
   );
 }
@@ -79,7 +79,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-      <div id="cotizar-express-page" className="w-full gradient-dark text-white min-h-screen relative overflow-hidden">
+      <div id="cotizar-express-page" className="w-full bg-[#0950F6] text-white min-h-screen relative overflow-hidden font-sans">
         {/* Hero Section — Rendered and Streamed Immediately */}
         <CotizadorExpressHero />
 

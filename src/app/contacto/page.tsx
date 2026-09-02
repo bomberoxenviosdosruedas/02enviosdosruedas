@@ -40,7 +40,7 @@ const jsonLdSchema = {
 
 export default function ContactoPage() {
   return (
-    <main className="min-h-[100dvh] bg-white text-brand-ink relative overflow-hidden font-sans">
+    <main className="min-h-[100dvh] bg-[#0950F6] text-white relative overflow-hidden font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
