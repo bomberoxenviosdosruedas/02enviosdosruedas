@@ -20,11 +20,16 @@
 ### 1.2 Narrativa de Atmósfera
 Envíos DosRuedas proyecta la solidez, velocidad y confiabilidad de una infraestructura logística propia con 15+ años ininterrumpidos en las calles de Mar del Plata. La interfaz fusiona el rigor de la señalética vial y portuaria con la claridad de una plataforma de última milla contemporánea. Lienzos limpios en **Blanco Puro (`#FFFFFF`)** contrastan con bloques monumentales en **Azul Egipcio (`#0636A5`)** y una única señal de alta energía en **Amarillo Vial (`#FFEC01`)**. Todo suena a que ya está en movimiento: la tipografía empuja, los botones ofrecen resistencia táctil al click y las tarjetas flotan con elevación gravitacional real (sombras teñidas al tono del fondo, nunca grises).
 
-**Vibe en una línea:** *afiche deportivo + señalética de ruta + panel de despacho, hablando en voseo.*
+**Vibe en una línea:** *logística urbana de precisión, industrial-moderno de alta velocidad, hablando en voseo.*
+
+### 1.3 Firma Geométrica & Elevación
+- **Contenedores de Doble Capa (`double-bezel`):** Capa exterior esmerilada (`rounded-[28px]` / `rounded-[30px]`, `bg-white/10 backdrop-blur-md`, `border-white/20`) y núcleo interior (`rounded-[20px]`, `bg-white` o `bg-[#052C87]`).
+- **Insignias de Velocidad:** Etiquetas y badges inclinados suavemente (`-rotate-1` / `rotate-1`).
+- **Resplandores Neón:** Luces y efectos `shadow-glow-yellow` / `shadow-cta-glow`.
 
 ---
 
-## 2. Color Palette & Roles (Ley de Tres Colores)
+## 2. Color Palette & Roles (Ley de Tres Colores & Paleta Oficial)
 
 > **REGLA FUNDAMENTAL DE MARCA:** el sistema cromático utiliza **únicamente tres colores corporativos** —Azul Egipcio, Amarillo Vial y Blanco Puro— más sus escalas oficiales. Prohibidas las escalas genéricas de Tailwind (`slate-*`, `gray-*`, `zinc-*`, `neutral-*` —están remapeadas a azul y **no deben invocarse**), colores externos (`green-*`, `red-*` salvo el estado destructivo semántico) y hex inline arbitrarios.
 >
@@ -34,8 +39,16 @@ Envíos DosRuedas proyecta la solidez, velocidad y confiabilidad de una infraest
 
 | Rol Semántico | Nombre Descriptivo | Token Tailwind / CSS | Hex | Función en la Interfaz |
 |---|---|---|---|---|
-| **Primary / Trust** | Egyptian Brand Blue | `brand-blue-700` / `--color-brand-blue` | `#0636A5` | Header, footer, navegación, secciones invertidas, títulos H1/H2, bordes institucionales, texto de CTA elevated. |
-| **Accent / CTA** | Electric Signal Yellow | `brand-yellow-500` / `--color-brand-yellow` | `#FFEC01` | Botones primarios, badges destacados, status dots activos, steppers completados/activos, subrayados animados, franja superior del footer. |
+| **Electric Speed Blue** | Primary / Hero Canvas | `brand-blue-500` / `brand-blue-700` | `#0950F6` | Lienzo principal, hero, bordes activos y destaques interactivos. |
+| **Deep Midnight Navy** | Dark Cards & Surfaces | `brand-blue-900` / `brand-blue-950` | `#052C87` | Fondo para tarjetas oscuras, superficies de contenedores y contraste profundo. |
+| **High-Voltage Neon Yellow** | High Conversion CTA | `brand-yellow-500` | `#FFF12E` | CTAs primarios de alta conversión, badges activos y contenedores de iconos. |
+| **Electric Sun Gold Hover** | Accent Hover | `brand-yellow-400` | `#FFF44A` | Estado hover de botones amarillos y resplandores neón. |
+| **Pure Optical White** | Text & Inner Core | `brand-white-50` | `#FFFFFF` | Texto principal sobre fondos oscuros y núcleo interno de tarjetas claras. |
+| **Slate Surface Light Canvas** | Light Surface Canvas | `slate-50` / `--surface-light` | `#F8FAFC` | Fondo secundario para secciones alternas y cronologías. |
+| **Frosted Glass White** | Glass Overlay / Borders | `--glass-white` | `rgba(255, 255, 255, 0.10)` - `0.25` | Marcos esmerilados, botones secundarios y divisores translúcidos. |
+| **Social WhatsApp Green** | Direct Support | `--social-whatsapp` | `#25D366` | Exclusivo para soporte directo y floating widgets de chat. |
+| **Social Facebook Blue** | Social Badges | `--social-facebook` | `#1877F2` | Badges de redes y canales sociales. |
+| **Primary / Trust** | Egyptian Brand Blue | `brand-blue-700` / `--color-brand-blue` | `#0636A5` | Header, footer, navegación, secciones invertidas, títulos H1/H2. |
 | **Surface Base** | Pure Canvas White | `brand-white-50` / `--surface-page` | `#FFFFFF` | Fondo de página, núcleo de tarjetas (`double-bezel-inner`), inputs, modales, tablas. |
 | **Soft Canvas / Outer Bezel** | Ice Blue Tint | `brand-blue-50` / `--surface-muted` | `#E6EEFE` | Marco exterior de tarjetas, secciones alternas suaves, fondo de skeleton. |
 | **Structural Border** | Blueprint Border | `brand-blue-100` / `--border-subtle` | `#BACEFD` | Bordes de tarjetas e inputs (2px), divisores 1px, líneas inactivas de steppers. |

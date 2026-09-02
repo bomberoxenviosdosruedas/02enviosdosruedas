@@ -41,17 +41,17 @@ export default function NetworksChannels() {
         {/* Asymmetric Bento Grid (Replaces banned 3 equal card layout) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-          {/* WhatsApp: Full width 12 columns (Main Call Channel) */}
+          {/* WhatsApp: Full width 12 columns (Main Call Channel con #25D366 exclusivo para soporte directo) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="lg:col-span-12 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
+            className="lg:col-span-12 rounded-[28px] bg-brand-blue-50/80 border border-brand-blue-100 p-2 shadow-minimal hover:shadow-lg transition-all"
           >
-            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-brand-blue">
+            <div className="rounded-[20px] bg-white p-6 sm:p-8 border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-brand-blue">
               <div className="space-y-4 max-w-3xl">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 bg-brand-yellow-50 text-brand-blue-700 border border-brand-yellow-100 rounded-2xl relative w-12 h-12 flex items-center justify-center shrink-0">
+                  <div className="p-3 bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 rounded-2xl relative w-12 h-12 flex items-center justify-center shrink-0">
                     <Image
                       src="/iconos/whatapps.svg"
                       alt="WhatsApp"
@@ -64,7 +64,7 @@ export default function NetworksChannels() {
                     <h3 className="text-3xl font-subheading uppercase tracking-wider text-brand-blue-700 font-bold leading-none">
                       WHATSAPP DIRECTO
                     </h3>
-                    <span className="text-xs text-brand-blue-400 font-sans font-bold mt-1 block">
+                    <span className="text-xs text-brand-blue-400 font-mono font-bold mt-1 block tabular-nums">
                       +54 223 660-2699 | ATENCIÓN INMEDIATA
                     </span>
                   </div>
@@ -78,11 +78,11 @@ export default function NetworksChannels() {
                   href="https://wa.me/5492236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full md:w-auto cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 border border-brand-blue-200 font-subheading tracking-wider text-lg uppercase shadow-sm justify-center"
+                  className="group min-h-[52px] w-full md:w-auto px-8 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-subheading tracking-wider text-lg uppercase font-bold rounded-full flex items-center justify-center gap-3 shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50"
                 >
                   <span>CHATEÁ AHORA</span>
-                  <span className="cta-nested-icon bg-brand-blue-100 text-brand-blue-700 shrink-0">
-                    <ArrowRight className="h-5 w-5" />
+                  <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 shrink-0">
+                    <ArrowRight className="h-5 w-5 text-white" />
                   </span>
                 </a>
               </div>
@@ -95,9 +95,9 @@ export default function NetworksChannels() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-6 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
+            className="lg:col-span-6 rounded-[28px] bg-brand-blue-50/80 border border-brand-blue-100 p-2 shadow-minimal hover:shadow-lg transition-all"
           >
-            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue min-h-[340px]">
+            <div className="rounded-[20px] bg-white p-6 sm:p-8 border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue min-h-[340px]">
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="p-3 bg-brand-blue-50 border border-brand-blue-100 rounded-2xl relative w-12 h-12 flex items-center justify-center">
@@ -109,7 +109,7 @@ export default function NetworksChannels() {
                       className="object-contain"
                     />
                   </div>
-                  <span className="px-3 py-1 bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 rounded-full text-xs font-sans font-bold uppercase tracking-wider">
+                  <span className="px-3 py-1 bg-brand-yellow-50 text-[#052C87] border border-brand-yellow-200 rounded-full text-xs font-mono font-bold uppercase tracking-wider transform -rotate-1 shadow-glow-yellow tabular-nums">
                     +3.000 SEGUIDORES
                   </span>
                 </div>
@@ -130,29 +130,29 @@ export default function NetworksChannels() {
                   href="https://instagram.com/enviosdosruedas"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full cta-nested-pill bg-brand-blue-700 hover:bg-brand-blue-600 text-brand-white-50 font-subheading tracking-wider text-base uppercase shadow-sm justify-center"
+                  className="group min-h-[52px] w-full px-8 py-3.5 bg-[#0950F6] hover:bg-[#052C87] text-white font-subheading tracking-wider text-base uppercase font-bold rounded-full flex items-center justify-center gap-3 transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0950F6]/50"
                 >
                   <span>SEGUINOS EN INSTAGRAM</span>
-                  <span className="cta-nested-icon bg-brand-blue-50 text-brand-blue-700 shrink-0">
-                    <ArrowRight className="h-4.5 w-4.5" />
+                  <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 shrink-0">
+                    <ArrowRight className="h-4.5 w-4.5 text-white" />
                   </span>
                 </a>
               </div>
             </div>
           </motion.div>
 
-          {/* Facebook: 6 columns */}
+          {/* Facebook: 6 columns (Utilizando Social Facebook Blue #1877F2 para badge/acento) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-6 double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl hover-float cursor-default"
+            className="lg:col-span-6 rounded-[28px] bg-brand-blue-50/80 border border-brand-blue-100 p-2 shadow-minimal hover:shadow-lg transition-all"
           >
-            <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue min-h-[340px]">
+            <div className="rounded-[20px] bg-white p-6 sm:p-8 border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full text-brand-blue min-h-[340px]">
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <div className="p-3 bg-brand-blue-50 border border-brand-blue-100 rounded-2xl relative w-12 h-12 flex items-center justify-center">
+                  <div className="p-3 bg-[#1877F2]/10 border border-[#1877F2]/20 rounded-2xl relative w-12 h-12 flex items-center justify-center">
                     <Image
                       src="/iconos/facebook.svg"
                       alt="Facebook"
@@ -161,7 +161,7 @@ export default function NetworksChannels() {
                       className="object-contain"
                     />
                   </div>
-                  <span className="px-3 py-1 bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 rounded-full text-xs font-sans font-bold uppercase tracking-wider">
+                  <span className="px-3 py-1 bg-[#1877F2]/10 text-[#1877F2] border border-[#1877F2]/20 rounded-full text-xs font-mono font-bold uppercase tracking-wider transform -rotate-1 tabular-nums">
                     +2.000 SEGUIDORES
                   </span>
                 </div>
@@ -182,11 +182,11 @@ export default function NetworksChannels() {
                   href="https://facebook.com/enviosdosruedas"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full cta-nested-pill bg-brand-blue-700 hover:bg-brand-blue-600 text-brand-white-50 font-subheading tracking-wider text-base uppercase shadow-sm justify-center"
+                  className="group min-h-[52px] w-full px-8 py-3.5 bg-[#1877F2] hover:bg-[#1565cb] text-white font-subheading tracking-wider text-base uppercase font-bold rounded-full flex items-center justify-center gap-3 transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#1877F2]/50"
                 >
                   <span>SEGUINOS EN FACEBOOK</span>
-                  <span className="cta-nested-icon bg-brand-blue-50 text-brand-blue-700 shrink-0">
-                    <ArrowRight className="h-4.5 w-4.5" />
+                  <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 shrink-0">
+                    <ArrowRight className="h-4.5 w-4.5 text-white" />
                   </span>
                 </a>
               </div>

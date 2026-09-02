@@ -20,8 +20,8 @@ describe('SobreNosotrosPage — Tier 1 & 2', () => {
 
   it('T1.3: renderiza las tarjetas con la arquitectura Double-Bezel del sistema de diseño', () => {
     const { container } = render(<SobreNosotrosPage />);
-    const outerBezels = container.getElementsByClassName('double-bezel-outer');
-    const innerBezels = container.getElementsByClassName('double-bezel-inner');
+    const outerBezels = container.querySelectorAll('.rounded-\\[28px\\], .rounded-\\[30px\\], .double-bezel-outer');
+    const innerBezels = container.querySelectorAll('.rounded-\\[20px\\], .double-bezel-inner');
     expect(outerBezels.length).toBeGreaterThanOrEqual(1);
     expect(innerBezels.length).toBeGreaterThanOrEqual(1);
   });
@@ -60,8 +60,7 @@ describe('SobreNosotrosPage — Tier 1 & 2', () => {
   it('T2.3: aplica las variables de color institucionales correctas (Azul #0636A5 / Amarillo #FFEC01)', () => {
     const { container } = render(<SobreNosotrosPage />);
     const heroSection = container.querySelector('#about-hero');
-    expect(heroSection?.className).toContain('from-brand-blue-700');
-    expect(heroSection?.className).toContain('to-brand-blue-600');
+    expect(heroSection?.className).toContain('bg-brand-blue-500');
   });
 
   it('T2.4: renderiza las descripciones de valores corporativos sin truncamientos de maquetación', () => {
