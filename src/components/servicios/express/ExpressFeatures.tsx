@@ -31,7 +31,7 @@ export default function ExpressFeatures() {
   return (
     <section
       id="express-features"
-      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t-2 border-brand-blue-100"
+      className="py-24 bg-[#F8FAFC] relative z-10 overflow-hidden border-t border-brand-blue-100"
     >
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -47,21 +47,21 @@ export default function ExpressFeatures() {
 
           {/* Header Segment */}
           <div className="lg:col-span-5 space-y-6 text-left">
-            <span className="px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold uppercase tracking-widest inline-block border border-brand-blue-700 shadow-sm">
-              Soluciones Premium MDQ
+            <span className="-rotate-1 inline-block px-4 py-1.5 bg-[#0950F6] text-[#FFF12E] rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-sm">
+              SOLUCIONES PREMIUM MDQ
             </span>
 
-            <h2 className="text-brand-blue-700 text-4xl sm:text-5xl font-display uppercase tracking-tight leading-[0.95] border-l-4 border-brand-yellow-500 pl-4">
+            <h2 className="text-[#0950F6] text-4xl sm:text-5xl font-display uppercase tracking-tight leading-[0.98] border-l-4 border-[#FFF12E] pl-4">
               ENTREGAS RÁPIDAS <br />
-              <span className="text-brand-yellow-500 bg-brand-blue-700 px-2 py-0.5 inline-block mt-1">Y EFICIENTES</span>
+              <span className="text-[#052C87] bg-[#FFF12E] px-2 py-0.5 inline-block mt-1">Y EFICIENTES</span>
             </h2>
 
-            <p className="text-brand-blue-ink text-base leading-relaxed font-sans font-normal">
-              Nuestro servicio Express ofrece cobertura total en el Partido de General Pueyrredón. Llegamos a todos los barrios con franjas horarias prioritarias: Centro, Chauvín, Los Troncos, Güemes, Puerto, Playa Grande, Punta Mogotes, Constitución, Camet y Batán.
+            <p className="text-[#00277C] text-base leading-relaxed font-sans font-normal">
+              Nuestro servicio Express ofrece cobertura total en el Partido de General Pueyrredón. Llegamos a todos los barrios con franjas horarias prioritarias: Centro, Chauvín, Los Troncos, Güemes, Puerto, Playa Grande, Punta Mogotes, Batán.
             </p>
 
-            <div className="pt-2 flex items-center gap-3 text-sm text-brand-blue-700 font-bold uppercase tracking-wider font-subheading">
-              <Compass className="h-5 w-5 text-brand-yellow-500 shrink-0" />
+            <div className="pt-2 flex items-center gap-3 text-sm text-[#0950F6] font-bold uppercase tracking-wider font-subheading">
+              <Compass className="h-5 w-5 text-[#FFF12E] shrink-0 fill-current" />
               <span>LOGÍSTICA URBANA INTEGRAL 2026</span>
             </div>
           </div>
@@ -79,17 +79,20 @@ export default function ExpressFeatures() {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.5, ease: "easeOut" }}
                   whileHover={{ y: -4 }}
-                  className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-float hover:shadow-antigravity-deep hover:border-brand-blue-300 transition-all duration-300 flex flex-col group cursor-default"
+                  className="bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-[28px] shadow-float hover:shadow-antigravity-deep hover:border-brand-blue-300 transition-all duration-300 flex flex-col group cursor-default relative overflow-hidden"
                 >
-                  <div className="double-bezel-inner bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full space-y-4">
-                    <div className="h-12 w-12 rounded-xl bg-brand-blue-700 text-brand-yellow-500 flex items-center justify-center shrink-0 border border-brand-blue-700 shadow-sm group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors duration-200">
+                  <div className="bg-white p-6 rounded-[20px] border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full space-y-4 relative overflow-hidden">
+                    {/* Giant Watermark Icon */}
+                    <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-[#0950F6]/[0.05] pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
+
+                    <div className="h-12 w-12 rounded-xl bg-[#0950F6] text-[#FFF12E] flex items-center justify-center shrink-0 border border-[#0950F6] shadow-sm group-hover:bg-[#FFF12E] group-hover:text-[#052C87] transition-colors duration-200 relative z-10">
                       <Icon className="h-6 w-6 shrink-0" />
                     </div>
-                    <div className="space-y-1.5">
-                      <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue-700 leading-tight">
+                    <div className="space-y-1.5 relative z-10">
+                      <h4 className="text-xl font-display uppercase tracking-wider text-[#0950F6] leading-tight">
                         {feat.title}
                       </h4>
-                      <p className="text-sm text-brand-blue-ink/80 font-sans leading-relaxed">
+                      <p className="text-sm text-[#00277C]/80 font-sans leading-relaxed">
                         {feat.desc}
                       </p>
                     </div>

@@ -76,7 +76,7 @@ export default function EmprendedoresPricing() {
   return (
     <section
       id="emprendedores-pricing"
-      className="py-24 bg-brand-white-50 relative overflow-hidden border-t-4 border-b-4 border-brand-yellow-500"
+      className="py-24 bg-[#0950F6] relative overflow-hidden text-white border-t border-b border-white/10"
       ref={pricingRef}
     >
       {/* Background Sparkles overlay */}
@@ -85,7 +85,7 @@ export default function EmprendedoresPricing() {
           density={1200}
           direction="bottom"
           speed={0.8}
-          color="#00277C"
+          color="#FFFFFF"
           className="absolute inset-0 h-full w-full"
         />
       </div>
@@ -99,12 +99,12 @@ export default function EmprendedoresPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="span"
-            className="px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow-500 shadow-[2px_2px_0px_rgba(0,39,124,0.2)] font-bold"
+            className="-rotate-1 px-4 py-1.5 bg-[#FFF12E] text-[#052C87] rounded-full text-xs font-subheading uppercase tracking-widest inline-block font-bold shadow-glow-yellow"
           >
             MODALIDADES E-COMMERCE Y 3PL 2026
           </TimelineContent>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-700 flex justify-center border-l-4 border-brand-yellow-500 pl-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white flex justify-center leading-[0.98]">
             <VerticalCutReveal
               splitBy="words"
               staggerDuration={0.1}
@@ -120,11 +120,11 @@ export default function EmprendedoresPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="p"
-            className="text-brand-blue-500 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
+            className="text-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
           >
             Elegí la modalidad e-commerce que mejor impulse tu marca. Desde almacenamiento con picking QR en Friuli 1972 hasta opción DropOFF con 20% OFF.
           </TimelineContent>
-          <div className="h-2 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
+          <div className="h-1.5 w-16 bg-[#FFF12E] mx-auto rounded-full" />
         </div>
 
         {/* Pricing Cards Grid Bento layout with Double Bezel */}
@@ -133,7 +133,7 @@ export default function EmprendedoresPricing() {
             const isNumericPrice = plan.price.startsWith('$');
             const numericValue = isNumericPrice ? parseInt(plan.price.replace('$', '').replace('.', '')) : null;
 
-            let spanClass = 'lg:col-span-4';
+            const spanClass = 'lg:col-span-4';
 
             return (
               <TimelineContent
@@ -142,24 +142,25 @@ export default function EmprendedoresPricing() {
                 timelineRef={pricingRef}
                 customVariants={revealVariants}
                 as="div"
-                className={`${spanClass} double-bezel-outer flex flex-col`}
+                className={`${spanClass} bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col`}
               >
                 <Card
-                  className={`double-bezel-inner border-0 bg-brand-white-50 text-brand-blue-700 flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-none ${plan.highlight ? 'lg:scale-[1.03] relative z-20 shadow-xl' : ''
-                    }`}
+                  className={`border-0 bg-white text-[#052C87] rounded-[20px] flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-none relative overflow-hidden ${
+                    plan.highlight ? 'ring-2 ring-[#FFF12E]' : ''
+                  }`}
                 >
-                  <CardHeader className="p-8 pb-2 text-left relative">
+                  <CardHeader className="p-8 pb-2 text-left relative z-10">
                     {plan.highlight && (
-                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-yellow-500 text-brand-blue-900 border-2 border-brand-blue-700 font-bold font-subheading text-xs tracking-wider px-4 py-1 rounded-full shadow-md">
+                      <span className="-rotate-1 absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#FFF12E] text-[#052C87] font-bold font-subheading text-xs tracking-wider px-4 py-1 rounded-full shadow-glow-yellow">
                         {plan.badge}
                       </span>
                     )}
 
                     <div>
-                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-700 font-bold">
+                      <span className="text-xs font-subheading tracking-wider uppercase text-[#0950F6] font-bold">
                         {plan.badge}
                       </span>
-                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight text-brand-blue-700 font-bold">
+                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight text-[#052C87] font-bold">
                         {plan.name}
                       </h3>
                     </div>
@@ -167,35 +168,35 @@ export default function EmprendedoresPricing() {
                     <div className="py-2">
                       {isNumericPrice && numericValue ? (
                         <div className="flex items-baseline">
-                          <span className="text-5xl font-display uppercase font-bold tracking-tight text-brand-blue-700">
+                          <span className="text-4xl sm:text-5xl font-mono tabular-nums uppercase font-bold tracking-tight text-[#052C87]">
                             $
                             <NumberFlow
                               value={numericValue}
                               format={{ minimumFractionDigits: 0 }}
-                              className="inline-block"
+                              className="inline-block font-mono tabular-nums"
                             />
                           </span>
                         </div>
                       ) : (
-                        <span className="text-5xl font-display uppercase font-bold tracking-tight text-brand-blue-700">
+                        <span className="text-4xl sm:text-5xl font-mono tabular-nums uppercase font-bold tracking-tight text-[#052C87]">
                           {plan.price}
                         </span>
                       )}
-                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-400">{plan.period}</span>
+                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-[#3570F8]">{plan.period}</span>
                     </div>
 
-                    <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-brand-blue-500">
+                    <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-[#00277C]/80">
                       {plan.description}
                     </p>
                   </CardHeader>
 
-                  <CardContent className="p-8 pt-0 flex flex-col justify-between flex-grow">
+                  <CardContent className="p-8 pt-0 flex flex-col justify-between flex-grow relative z-10">
                     {/* Bullets */}
-                    <ul className="space-y-2.5 pt-4 border-t-2 border-brand-blue-100 mb-6">
+                    <ul className="space-y-2.5 pt-4 border-t border-brand-blue-100 mb-6">
                       {plan.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-center gap-2 text-xs text-brand-blue-600">
-                          <Check className="h-4.5 w-4.5 shrink-0 text-brand-blue-700" />
-                          <span className="font-sans text-sm opacity-90">{bullet}</span>
+                        <li key={bullet} className="flex items-center gap-2 text-xs text-[#00277C]">
+                          <Check className="h-4 w-4 shrink-0 text-[#0950F6]" />
+                          <span className="font-sans text-xs">{bullet}</span>
                         </li>
                       ))}
                     </ul>
@@ -205,11 +206,11 @@ export default function EmprendedoresPricing() {
                         href="https://wa.me/542236602699"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 font-bold"
+                        className="group w-full inline-flex items-center justify-between gap-2 bg-[#FFF12E] hover:bg-[#FFF44A] text-[#052C87] font-subheading font-bold uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-[48px] shadow-glow-yellow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E]"
                       >
                         <span>Elegir {plan.name.split(' ')[0]}</span>
-                        <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900">
-                          <ArrowRight className="h-4 w-4 shrink-0" />
+                        <span className="w-7 h-7 rounded-full bg-[#052C87]/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+                          <ArrowRight className="h-4 w-4 shrink-0 text-[#052C87]" />
                         </span>
                       </a>
                     </div>
@@ -226,24 +227,23 @@ export default function EmprendedoresPricing() {
           timelineRef={pricingRef}
           customVariants={revealVariants}
           as="div"
-          className="double-bezel-outer p-2 relative overflow-hidden"
+          className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float"
         >
-          <div className="double-bezel-inner bg-brand-white-50 text-brand-blue-700 rounded-3xl p-8 relative overflow-hidden">
-            <div className="absolute right-0 bottom-0 translate-y-6 translate-x-6 text-brand-blue-100/50 pointer-events-none -z-10">
-              <Briefcase className="h-64 w-64 text-brand-blue-100" />
-            </div>
+          <div className="bg-[#052C87] text-white rounded-[20px] p-8 relative overflow-hidden text-left border border-white/10 shadow-sm">
+            {/* Background icon watermark */}
+            <Briefcase className="absolute -bottom-8 -right-8 h-64 w-64 text-white/[0.04] pointer-events-none select-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
 
               <div className="lg:col-span-8 space-y-4 text-left">
-                <span className="px-4 py-1 bg-brand-blue-100 text-brand-blue-700 rounded-full text-xs font-subheading uppercase tracking-widest inline-block border border-brand-blue-200 font-bold">
+                <span className="-rotate-1 inline-block px-4 py-1 bg-[#FFF12E] text-[#052C87] rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-glow-yellow">
                   CONTRAREEMBOLSO SIN COSTO EXTRA
                 </span>
-                <h3 className="text-3xl font-display uppercase tracking-tight text-brand-blue-700">
+                <h3 className="text-3xl font-display uppercase tracking-tight text-white">
                   ¿Cobrás tus ventas en puerta?
                 </h3>
-                <p className="text-sm text-brand-blue-500 leading-relaxed font-sans max-w-2xl">
-                  Realizamos cobros contrareembolso en Mar del Plata sin ningún costo adicional sobre el valor del producto. Además, podés llevar tus envíos a Friuli 1972 con un 20% de descuento en la tarifa final.
+                <p className="text-sm text-blue-100 leading-relaxed font-sans max-w-2xl">
+                  Realizamos cobros contrareembolso en Mar del Plata sin ningún costo adicional sobre el valor del producto. Además, podés llevar tus envíos a Friuli 1972 con un <span className="font-mono tabular-nums">20%</span> de descuento en la tarifa final.
                 </p>
               </div>
 
@@ -253,11 +253,11 @@ export default function EmprendedoresPricing() {
                   target="_blank"
                   rel="noopener noreferrer"
                   id="emprendedores-pricing-cta-whatsapp"
-                  className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 font-bold w-full sm:w-auto"
+                  className="group inline-flex items-center justify-between gap-3 bg-[#FFF12E] hover:bg-[#FFF44A] text-[#052C87] font-subheading font-bold uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-[48px] shadow-glow-yellow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E] w-full sm:w-auto"
                 >
                   <span>Agendar Asesoría 3PL</span>
-                  <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900">
-                    <MessageSquare className="h-5 w-5 fill-current" />
+                  <span className="w-8 h-8 rounded-full bg-[#052C87]/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+                    <MessageSquare className="h-4 w-4 shrink-0 text-[#052C87]" />
                   </span>
                 </a>
               </div>

@@ -22,14 +22,14 @@ export default function FlexHero() {
   return (
     <section
       id="flex-hero"
-      className="relative w-full overflow-hidden bg-brand-blue-700 text-white min-h-[80vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-brand-blue-500/20"
+      className="relative w-full overflow-hidden bg-[#0950F6] text-white min-h-[85vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-white/10"
     >
       {/* Pure Vector & Dynamic Procedural Background */}
       <HeroProceduralBackground variant="flex" />
 
       {/* Ghost Wordmark Monumental de Fondo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-        <span className="font-display uppercase text-[16vw] leading-none text-white/[0.03] tracking-tighter whitespace-nowrap">
+        <span className="font-display uppercase text-[16vw] leading-none text-white/[0.035] tracking-tighter whitespace-nowrap">
           LOGÍSTICA FLEX
         </span>
       </div>
@@ -38,30 +38,30 @@ export default function FlexHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Kinetic Copy & CTAs (7 cols) */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-            {/* Badge */}
+            {/* Speed Badge */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-brand-blue-900/80 backdrop-blur-md border border-brand-yellow-500/30 text-brand-yellow-500 shadow-md"
+              className="-rotate-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-[#052C87] border border-[#FFF12E]/30 text-[#FFF12E] shadow-glow-yellow"
             >
-              <Award className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+              <Award className="h-4 w-4 text-[#FFF12E] shrink-0" />
               <span>ENVÍOS FLEX Y REPARTO MERCADOLIBRE · MDQ 2026</span>
             </motion.div>
 
             {/* Monumental Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.9] text-white">
+            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.98] text-white">
               <span className="block">ENVÍOS FLEX Y</span>
-              <span className="block text-brand-yellow-500 drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">
+              <span className="block text-[#FFF12E] drop-shadow-[0_2px_16px_rgba(255,241,46,0.35)]">
                 REPARTO MERCADOLIBRE
               </span>
-              <span className="block text-2xl sm:text-4xl lg:text-5xl text-brand-blue-100 mt-1">
+              <span className="block text-2xl sm:text-4xl lg:text-5xl text-blue-100 mt-1">
                 LOGÍSTICA FLEX CON 100% CUMPLIMIENTO
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-base sm:text-lg lg:text-xl font-sans text-brand-blue-50 max-w-2xl mx-auto lg:mx-0 leading-relaxed pl-4 border-l-2 border-brand-yellow-500 font-light">
+            <p className="text-base sm:text-lg lg:text-xl font-sans text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed pl-4 border-l-2 border-[#FFF12E] font-light">
               Líderes en envíos flex, reparto MercadoLibre y logística flex en Mar del Plata. SLA real con 100% de entregas en el día antes de las 20:00 hs para proteger la reputación de MercadoLíder. Horario de corte 15:00 hs y múltiples retiros diarios sin mínimos de paquetes.
             </p>
 
@@ -70,11 +70,11 @@ export default function FlexHero() {
               <Link
                 href="/cotizar/lowcost"
                 id="flex-hero-cta-activar"
-                className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 font-bold px-8 py-3.5 cursor-pointer transition-all flex items-center justify-center gap-3 w-full sm:w-auto shadow-accent-sm hover:shadow-cta-glow rounded-full text-sm font-subheading uppercase tracking-wider min-h-[48px]"
+                className="group inline-flex items-center justify-between gap-4 bg-[#FFF12E] hover:bg-[#FFF44A] text-[#052C87] font-subheading font-bold uppercase tracking-wider px-8 py-3.5 rounded-full text-sm sm:text-base min-h-[52px] shadow-glow-yellow hover:scale-[1.02] active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0950F6]"
               >
                 <span>Activar Envíos Flex</span>
-                <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 rounded-full w-8 h-8 flex items-center justify-center">
-                  <ArrowRight className="h-4 w-4 shrink-0" />
+                <span className="w-8 h-8 rounded-full bg-[#052C87]/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+                  <ArrowRight className="h-4 w-4 text-[#052C87]" />
                 </span>
               </Link>
 
@@ -83,38 +83,38 @@ export default function FlexHero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="flex-hero-cta-whatsapp"
-                className="cta-nested-pill border-2 border-white/60 text-white hover:bg-white/10 font-bold px-8 py-3.5 cursor-pointer transition-all flex items-center justify-center gap-3 w-full sm:w-auto rounded-full text-sm font-subheading uppercase tracking-wider min-h-[48px]"
+                className="group inline-flex items-center justify-between gap-4 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-subheading font-bold uppercase tracking-wider px-8 py-3.5 rounded-full text-sm sm:text-base min-h-[52px] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0950F6]"
               >
                 <span>Contactar Asesor Flex</span>
-                <span className="cta-nested-icon bg-white/10 text-white rounded-full w-8 h-8 flex items-center justify-center">
-                  <Phone className="h-4 w-4 shrink-0" />
+                <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+                  <Phone className="h-4 w-4 text-white" />
                 </span>
               </a>
             </div>
 
             {/* Quick KPI Chips */}
             <div className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
-              <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
-                <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
+                <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFF12E] tabular-nums">
                   15:00 hs
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
+                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
                   Horario de Corte
                 </span>
               </div>
-              <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
-                <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
+                <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFF12E] tabular-nums">
                   100%
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
+                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
                   Entregas en el Día
                 </span>
               </div>
-              <div className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm text-center">
-                <span className="block font-display text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
+                <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFF12E] tabular-nums">
                   Sin Mínimos
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-brand-blue-100">
+                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
                   Retiros Múltiples
                 </span>
               </div>
@@ -123,8 +123,10 @@ export default function FlexHero() {
 
           {/* Right Column: Interactive Double Bezel Mini-Comparador Card (5 cols) */}
           <div className="lg:col-span-5 relative w-full">
-            <div className="double-bezel-outer bg-brand-blue-50/95 border border-brand-blue-100 p-2 rounded-2xl shadow-2xl">
-              <div className="double-bezel-inner bg-white p-5 sm:p-7 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue-700 space-y-5 relative overflow-hidden">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-[28px] shadow-2xl">
+              <div className="bg-white p-5 sm:p-7 rounded-[20px] border border-brand-blue-50/50 shadow-sm text-[#0950F6] space-y-5 relative overflow-hidden">
+                {/* Giant Watermark Icon */}
+                <Award className="absolute -bottom-6 -right-6 h-48 w-48 text-[#0950F6]/[0.04] pointer-events-none select-none" />
                 {/* Header with status badge */}
                 <div className="flex items-center justify-between border-b border-brand-blue-100/80 pb-3">
                   <div className="flex items-center gap-2">

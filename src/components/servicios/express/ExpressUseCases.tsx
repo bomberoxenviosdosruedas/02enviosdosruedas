@@ -38,12 +38,8 @@ export default function ExpressUseCases() {
   return (
     <section
       id="express-use-cases"
-      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t-2 border-brand-blue-100"
+      className="py-24 bg-[#F8FAFC] relative z-10 overflow-hidden border-t border-brand-blue-100"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-brand-blue-50/50 blur-3xl -z-10 -translate-y-1/2 pointer-events-none" />
-      <div className="absolute top-1/2 right-0 w-80 h-80 rounded-full bg-brand-yellow-50/40 blur-3xl -z-10 -translate-y-1/2 pointer-events-none" />
-
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
@@ -57,16 +53,16 @@ export default function ExpressUseCases() {
 
         {/* Header segment */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold uppercase tracking-widest inline-block border border-brand-blue-700 shadow-sm">
-            Casos de Uso Reales
+          <span className="-rotate-1 inline-block px-4 py-1.5 bg-[#0950F6] text-[#FFF12E] rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-sm">
+            CASOS DE USO REALES
           </span>
-          <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none">
+          <h2 className="text-[#0950F6] text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none">
             ¿CUÁNDO NECESITÁS EXPRESS?
           </h2>
-          <p className="text-brand-blue-ink text-base sm:text-lg font-sans max-w-lg mx-auto leading-relaxed">
+          <p className="text-[#00277C] text-base sm:text-lg font-sans max-w-lg mx-auto leading-relaxed">
             Situaciones cotidianas y corporativas donde cada minuto cuenta y la puntualidad es innegociable.
           </p>
-          <div className="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
+          <div className="h-1.5 w-16 bg-[#FFF12E] mx-auto rounded-full" />
         </div>
 
         {/* Interactive Case Columns with Double Bezel */}
@@ -83,40 +79,45 @@ export default function ExpressUseCases() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
                 whileHover={{ y: -4 }}
-                className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-float hover:shadow-antigravity-deep hover:border-brand-blue-300 transition-all duration-300 flex flex-col group cursor-default"
+                className="bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col group cursor-default relative overflow-hidden"
               >
-                <div className={`double-bezel-inner p-6 sm:p-7 space-y-6 h-full flex flex-col justify-between text-left rounded-xl transition-colors duration-300 ${
+                <div className={`p-6 sm:p-7 space-y-6 h-full flex flex-col justify-between text-left rounded-[20px] transition-colors duration-300 relative overflow-hidden ${
                   isOpen
-                    ? 'bg-brand-blue-700 text-white border border-brand-blue-600 shadow-md'
-                    : 'bg-white text-brand-blue-700 border border-brand-blue-50/50 shadow-sm'
+                    ? 'bg-[#052C87] text-white border border-white/10 shadow-md'
+                    : 'bg-white text-[#0950F6] border border-brand-blue-50/50 shadow-sm'
                 }`}>
+                  {/* Giant Watermark Icon */}
+                  <Icon className={`absolute -bottom-6 -right-6 h-32 w-32 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110 ${
+                    isOpen ? 'text-white/[0.04]' : 'text-[#0950F6]/[0.05]'
+                  }`} />
+
                   {/* Icon & Badge Header */}
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center relative z-10">
                     <div className={`p-3 rounded-xl border flex items-center justify-center shrink-0 ${
                       isOpen
-                        ? 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-500 shadow-sm'
-                        : 'bg-brand-blue-700 text-brand-yellow-500 border-brand-blue-700 shadow-sm'
+                        ? 'bg-[#FFF12E] text-[#052C87] border-[#FFF12E] shadow-glow-yellow'
+                        : 'bg-[#0950F6] text-[#FFF12E] border-[#0950F6] shadow-sm'
                     }`}>
                       <Icon className="h-6 w-6 shrink-0" />
                     </div>
                     <span className={`text-[10px] font-subheading font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${
                       isOpen
-                        ? 'bg-white/10 text-brand-yellow-500 border-white/20'
-                        : 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-200'
+                        ? 'bg-white/10 text-[#FFF12E] border-white/20'
+                        : 'bg-brand-blue-50 text-[#0950F6] border-brand-blue-200'
                     }`}>
                       {useCase.badge}
                     </span>
                   </div>
 
                   {/* Title & Description */}
-                  <div className="space-y-2">
+                  <div className="space-y-2 relative z-10">
                     <h3 className={`text-2xl font-display uppercase tracking-wide leading-tight ${
-                      isOpen ? 'text-white' : 'text-brand-blue-700'
+                      isOpen ? 'text-white' : 'text-[#0950F6]'
                     }`}>
                       {useCase.title}
                     </h3>
                     <p className={`text-sm font-sans leading-relaxed ${
-                      isOpen ? 'text-brand-blue-100' : 'text-brand-blue-ink/80'
+                      isOpen ? 'text-blue-100' : 'text-[#00277C]/80'
                     }`}>
                       {useCase.desc}
                     </p>
@@ -125,15 +126,15 @@ export default function ExpressUseCases() {
                   {/* Toggle button for examples */}
                   <button
                     onClick={() => toggleTab(idx)}
-                    className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold tracking-wider uppercase font-subheading flex items-center justify-between border transition-all cursor-pointer ${
+                    className={`w-full py-3 px-4 rounded-xl text-xs font-bold tracking-wider uppercase font-subheading flex items-center justify-between border transition-all cursor-pointer min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E] relative z-10 ${
                       isOpen
-                        ? 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-500 hover:bg-brand-yellow-400'
-                        : 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-200 hover:bg-brand-blue-100'
+                        ? 'bg-[#FFF12E] text-[#052C87] border-[#FFF12E] hover:bg-[#FFF44A] shadow-glow-yellow'
+                        : 'bg-brand-blue-50 text-[#0950F6] border-brand-blue-200 hover:bg-brand-blue-100'
                     }`}
                   >
                     <span>Ver Ejemplos</span>
                     <ChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 text-brand-blue-900' : 'text-brand-blue-700'
+                      isOpen ? 'rotate-180 text-[#052C87]' : 'text-[#0950F6]'
                     }`} />
                   </button>
 
@@ -145,11 +146,11 @@ export default function ExpressUseCases() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="overflow-hidden"
+                        className="overflow-hidden relative z-10"
                       >
                         <div className="space-y-3 pt-4 border-t border-white/15">
-                          <p className="text-[10px] font-bold tracking-widest text-brand-yellow-500 uppercase font-mono">
-                            Despachos Habituales
+                          <p className="text-[10px] font-bold tracking-widest text-[#FFF12E] uppercase font-mono">
+                            DESPACHOS HABITUALES
                           </p>
                           <ul className="space-y-2">
                             {useCase.examples.map((ex, exIdx) => (
@@ -158,9 +159,9 @@ export default function ExpressUseCases() {
                                 initial={{ opacity: 0, x: -8 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: exIdx * 0.06 }}
-                                className="flex items-start gap-2 text-xs text-brand-blue-50 font-sans"
+                                className="flex items-start gap-2 text-xs text-blue-50 font-sans"
                               >
-                                <CheckCircle2 className="h-4 w-4 text-brand-yellow-500 shrink-0 mt-0.5" />
+                                <CheckCircle2 className="h-4 w-4 text-[#FFF12E] shrink-0 mt-0.5" />
                                 <span className="leading-tight">{ex}</span>
                               </motion.li>
                             ))}

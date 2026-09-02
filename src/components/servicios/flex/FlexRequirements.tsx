@@ -26,7 +26,7 @@ export default function FlexRequirements() {
   return (
     <section 
       id="flex-requirements" 
-      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t-4 border-brand-blue-700"
+      className="py-24 bg-[#F8FAFC] relative z-10 overflow-hidden border-t border-brand-blue-100"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -41,16 +41,16 @@ export default function FlexRequirements() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest inline-block border-2 border-brand-yellow-500 shadow-sm">
+          <span className="-rotate-1 inline-block px-4 py-1.5 bg-[#0950F6] text-[#FFF12E] rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
             PUESTA EN MARCHA
           </span>
-          <h2 className="text-brand-blue-700 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight border-l-4 border-brand-yellow-500 pl-4 inline-block">
+          <h2 className="text-[#0950F6] text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight border-l-4 border-[#FFF12E] pl-4 inline-block leading-[0.98]">
             ¿QUÉ NECESITÁS?
           </h2>
-          <p className="text-brand-ink/80 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-[#00277C]/80 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Requisitos mínimos e indispensables para empezar a ofrecer envíos Same-Day y potenciar tu e-commerce hoy mismo.
           </p>
-          <div className="h-2 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
+          <div className="h-1.5 w-16 bg-[#FFF12E] mx-auto rounded-full" />
         </div>
 
         {/* Requirements Grid Bento Grid layout with Double Bezel */}
@@ -65,18 +65,21 @@ export default function FlexRequirements() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -5, x: 2 }}
-                className="lg:col-span-4 double-bezel-outer flex flex-col group"
+                className="lg:col-span-4 bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col group cursor-pointer relative overflow-hidden"
               >
-                <div className="double-bezel-inner p-6 h-full flex flex-col gap-5 text-left bg-white">
-                  <div className="p-3 bg-brand-yellow-500 text-brand-blue-900 rounded-2xl w-fit shrink-0 border-2 border-brand-blue-700 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                    <Icon className="h-5.5 w-5.5 shrink-0" />
+                <div className="bg-white p-6 rounded-[20px] border border-brand-blue-50/50 shadow-sm h-full flex flex-col gap-5 text-left relative overflow-hidden">
+                  {/* Giant Watermark Icon */}
+                  <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-[#0950F6]/[0.05] pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
+
+                  <div className="p-3 bg-[#FFF12E] text-[#052C87] rounded-xl w-fit shrink-0 border border-[#FFF12E] shadow-glow-yellow relative z-10">
+                    <Icon className="h-6 w-6 shrink-0" />
                   </div>
                   
-                  <div className="space-y-1.5">
-                    <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue-700 font-bold leading-tight">
+                  <div className="space-y-1.5 relative z-10">
+                    <h3 className="text-xl font-display uppercase tracking-wide text-[#0950F6] font-bold leading-tight">
                       {req.title}
                     </h3>
-                    <p className="text-sm text-brand-ink/80 font-sans leading-relaxed">
+                    <p className="text-sm text-[#00277C]/80 font-sans leading-relaxed">
                       {req.desc}
                     </p>
                   </div>
