@@ -8,34 +8,40 @@ export default function CotizadorLowCostHelp() {
   return (
     <div
       id="cotizador-lowcost-help"
-      className="relative overflow-hidden rounded-3xl p-6 sm:p-10 mt-12 bg-gradient-to-r from-brand-blue-800 via-brand-blue-700 to-brand-blue-900 text-white border border-white/10 shadow-elevated"
+      className="relative overflow-hidden rounded-[28px] sm:rounded-[30px] p-6 sm:p-10 mt-12 bg-[#052C87] text-white border border-white/20 shadow-2xl"
     >
       {/* Background ambient lighting */}
       <div
         className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(255,236,1,0.18) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(255,241,46,0.18) 0%, transparent 70%)',
         }}
         aria-hidden="true"
       />
       <div
         className="absolute bottom-0 left-0 w-80 h-80 rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(9,80,246,0.3) 0%, transparent 70%)',
         }}
+        aria-hidden="true"
+      />
+
+      {/* Visual Watermark */}
+      <HelpCircle
+        className="absolute -bottom-10 -right-10 w-72 h-72 text-white/[0.04] pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="relative z-10 flex flex-col lg:flex-row justify-between items-center gap-8">
         <div className="space-y-3 max-w-2xl text-center lg:text-left">
-          <span className="px-3.5 py-1 bg-white/10 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold tracking-wider uppercase inline-flex items-center gap-1.5 border border-white/10">
-            <HelpCircle className="h-4 w-4 shrink-0 text-brand-yellow-500" />
+          <span className="px-3.5 py-1 bg-white/10 text-[#FFF12E] rounded-full text-xs font-subheading font-bold tracking-wider uppercase inline-flex items-center gap-1.5 border border-white/20 -rotate-1 shadow-glow-yellow">
+            <HelpCircle className="h-4 w-4 shrink-0 text-[#FFF12E]" />
             Cuentas Corrientes y PyMEs
           </span>
           <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white leading-tight">
             ¿Tenés envíos recurrentes o tienda E-Commerce?
           </h3>
-          <p className="text-brand-blue-100/90 text-sm sm:text-base leading-relaxed font-sans font-light">
+          <p className="text-white/85 text-sm sm:text-base leading-relaxed font-sans font-light">
             Accedé a facturación quincenal o mensual consolidada, retiro programado en tu depósito o local y tarifas diferenciales por volumen en Mar del Plata.
           </p>
         </div>
@@ -45,10 +51,10 @@ export default function CotizadorLowCostHelp() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             href="/contacto"
-            className="cta-nested-pill inline-flex items-center justify-between bg-white hover:bg-brand-blue-50 text-brand-blue-700 font-subheading font-bold tracking-wider text-sm uppercase px-6 py-3.5 rounded-full shadow-md transition-all min-h-[44px]"
+            className="group min-h-[52px] inline-flex items-center justify-between bg-white hover:bg-white/90 text-[#0950F6] font-subheading font-bold tracking-wider text-sm uppercase px-6 py-3.5 rounded-full shadow-lg transition-all"
           >
             <span>Formulario de Contacto</span>
-            <span className="cta-nested-icon bg-brand-blue-50 text-brand-blue-700 h-8 w-8 rounded-full flex items-center justify-center shrink-0 ml-3">
+            <span className="w-8 h-8 rounded-full bg-[#0950F6]/10 text-[#0950F6] flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
               <Mail className="h-4 w-4" />
             </span>
           </motion.a>
@@ -57,10 +63,10 @@ export default function CotizadorLowCostHelp() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             href="tel:+542236602699"
-            className="cta-nested-pill inline-flex items-center justify-between bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold tracking-wider text-sm uppercase px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-all min-h-[44px]"
+            className="group min-h-[52px] inline-flex items-center justify-between bg-[#25D366] hover:bg-[#20bd5a] text-white font-subheading font-bold tracking-wider text-sm uppercase px-6 py-3.5 rounded-full shadow-lg transition-all"
           >
-            <span>Llamanos: <span className="font-mono text-brand-blue-900">223-660-2699</span></span>
-            <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 h-8 w-8 rounded-full flex items-center justify-center shrink-0 ml-3">
+            <span>Llamanos: <span className="font-mono text-white tabular-nums">223 660-2699</span></span>
+            <span className="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
               <PhoneCall className="h-4 w-4" />
             </span>
           </motion.a>

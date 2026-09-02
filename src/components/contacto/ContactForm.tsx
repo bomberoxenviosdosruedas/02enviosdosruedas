@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageCircle, CheckCircle2, AlertCircle, Sparkles, Clock } from 'lucide-react';
+import { MessageCircle, CheckCircle2, AlertCircle, Sparkles, Clock, Send } from 'lucide-react';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -53,31 +53,37 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="double-bezel-outer bg-brand-blue-50 border border-brand-blue-100 p-2 rounded-2xl shadow-md h-full flex flex-col justify-between">
-      <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-xs relative overflow-hidden h-full flex flex-col justify-between">
-        {/* Accent top gradient bar */}
-        <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-brand-blue-700 via-brand-blue-500 to-brand-yellow-500" />
+    <div className="rounded-[28px] sm:rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl h-full flex flex-col justify-between">
+      <div className="bg-[#052C87] p-6 sm:p-8 rounded-[20px] border border-white/10 shadow-lg relative overflow-hidden h-full flex flex-col justify-between text-white">
+        {/* Visual Watermark in bottom right */}
+        <MessageCircle
+          className="absolute -bottom-10 -right-10 w-64 h-64 text-white/[0.04] pointer-events-none"
+          aria-hidden="true"
+        />
 
-        <div>
+        {/* Accent top gradient bar */}
+        <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#0950F6] via-[#FFF12E] to-[#25D366]" />
+
+        <div className="relative z-10">
           {/* Header & Badges */}
-          <div className="mb-6 pb-6 border-b border-brand-blue-100">
+          <div className="mb-6 pb-6 border-b border-white/15">
             <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 text-xs font-subheading uppercase tracking-wider font-bold">
-                <Sparkles className="w-3.5 h-3.5 text-brand-yellow-500" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[#FFF12E] text-xs font-subheading uppercase tracking-wider font-bold -rotate-1 shadow-glow-yellow">
+                <Sparkles className="w-3.5 h-3.5 text-[#FFF12E]" />
                 Cotización Inmediata
               </span>
 
               {/* SLA Badge */}
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-yellow-50 border border-brand-yellow-200 text-brand-blue-900 text-xs font-mono font-bold uppercase tracking-wider">
-                <Clock className="w-3.5 h-3.5 text-brand-blue-700 animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF12E]/15 border border-[#FFF12E]/40 text-[#FFF12E] text-xs font-mono font-bold uppercase tracking-wider tabular-nums">
+                <Clock className="w-3.5 h-3.5 text-[#FFF12E] animate-pulse" />
                 Atención comercial &lt; 2 MIN
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 mb-2 leading-tight">
+            <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white mb-2 leading-tight">
               ¿Listo para escalar la logística de tu e-commerce?
             </h2>
-            <p className="text-brand-ink/80 font-sans text-sm sm:text-base leading-relaxed">
+            <p className="text-white/80 font-sans text-sm sm:text-base leading-relaxed">
               Olvidate de la gestión de paquetes en Mar del Plata. Completá tus datos y te respondemos por WhatsApp al instante.
             </p>
           </div>
@@ -92,21 +98,21 @@ export default function ContactForm() {
                 transition={{ duration: 0.3 }}
                 className="py-8 text-center space-y-5"
               >
-                <div className="w-16 h-16 rounded-full bg-brand-yellow-500 text-brand-blue-900 mx-auto flex items-center justify-center shadow-accent">
+                <div className="w-16 h-16 rounded-full bg-[#FFF12E] text-[#0950F6] mx-auto flex items-center justify-center shadow-glow-yellow">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-display text-2xl uppercase tracking-tight text-brand-blue-700">
+                  <h3 className="font-display text-2xl uppercase tracking-tight text-white">
                     ¡SOLICITUD ENVIADA!
                   </h3>
-                  <p className="font-sans text-sm text-brand-ink/80 max-w-sm mx-auto leading-relaxed">
+                  <p className="font-sans text-sm text-white/80 max-w-sm mx-auto leading-relaxed">
                     Se abrió WhatsApp para conectar directamente con nuestro equipo comercial en Mar del Plata.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-6 py-2.5 rounded-xl border-2 border-brand-blue-100 text-brand-blue-700 hover:bg-brand-blue-50 font-subheading uppercase text-xs tracking-wider font-bold transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500"
+                  className="px-6 py-2.5 rounded-xl border-2 border-white/20 text-white hover:bg-white/10 font-subheading uppercase text-xs tracking-wider font-bold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E]"
                 >
                   Completar otro formulario
                 </button>
@@ -122,8 +128,8 @@ export default function ContactForm() {
                 className="space-y-5"
               >
                 {status === 'error' && (
-                  <div className="p-3.5 bg-red-500/10 border border-red-500/30 rounded-xl flex items-center gap-3 text-red-600 text-xs font-sans">
-                    <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
+                  <div className="p-3.5 bg-red-500/20 border border-red-500/40 rounded-xl flex items-center gap-3 text-red-200 text-xs font-sans">
+                    <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
                     <span>Por favor, ingresá tu nombre para iniciar el contacto.</span>
                   </div>
                 )}
@@ -132,9 +138,9 @@ export default function ContactForm() {
                 <div className="space-y-1.5">
                   <label
                     htmlFor="nombre"
-                    className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold"
+                    className="block text-xs font-subheading uppercase tracking-wider text-white/90 font-bold"
                   >
-                    Tu Nombre <span className="text-brand-yellow-500">*</span>
+                    Tu Nombre <span className="text-[#FFF12E]">*</span>
                   </label>
                   <input
                     type="text"
@@ -145,7 +151,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     disabled={status === 'submitting'}
                     placeholder="Tu Nombre"
-                    className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm bg-white focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 transition-all placeholder:text-brand-blue-300 disabled:opacity-50"
+                    className="w-full h-11 px-4 rounded-xl border-2 border-[#0950F6]/30 bg-white/5 text-white font-sans text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E] transition-all placeholder:text-white/40 disabled:opacity-50"
                   />
                 </div>
 
@@ -153,7 +159,7 @@ export default function ContactForm() {
                 <div className="space-y-1.5">
                   <label
                     htmlFor="empresa"
-                    className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold"
+                    className="block text-xs font-subheading uppercase tracking-wider text-white/90 font-bold"
                   >
                     Empresa / Negocio
                   </label>
@@ -165,7 +171,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     disabled={status === 'submitting'}
                     placeholder="Empresa / Negocio"
-                    className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm bg-white focus:outline-none focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20 transition-all placeholder:text-brand-blue-300 disabled:opacity-50"
+                    className="w-full h-11 px-4 rounded-xl border-2 border-[#0950F6]/30 bg-white/5 text-white font-sans text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E] transition-all placeholder:text-white/40 disabled:opacity-50"
                   />
                 </div>
 
@@ -173,7 +179,7 @@ export default function ContactForm() {
                 <div className="space-y-1.5">
                   <label
                     htmlFor="volumen"
-                    className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold"
+                    className="block text-xs font-subheading uppercase tracking-wider text-white/90 font-bold"
                   >
                     Volumen Estimado Mensual
                   </label>
@@ -183,9 +189,9 @@ export default function ContactForm() {
                     value={formData.volumen}
                     onChange={handleChange}
                     disabled={status === 'submitting'}
-                    className="w-full h-11 px-4 rounded-xl border-2 border-brand-blue-100 text-brand-ink font-sans text-sm bg-white focus:outline-none focus:border-brand-blue-700 transition-all cursor-pointer disabled:opacity-50"
+                    className="w-full h-11 px-4 rounded-xl border-2 border-[#0950F6]/30 bg-[#052C87] text-white font-sans text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E] transition-all cursor-pointer disabled:opacity-50"
                   >
-                    <option value="" disabled className="text-brand-blue-300">
+                    <option value="" disabled className="text-white/40">
                       Seleccioná una opción
                     </option>
                     <option value="1 a 50 envíos">1 a 50 envíos</option>
@@ -198,10 +204,10 @@ export default function ContactForm() {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="w-full cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading tracking-wider uppercase text-base font-bold flex items-center justify-center gap-2 py-3.5 transition-all duration-300 shadow-accent active:scale-[0.99] cursor-pointer border-none disabled:opacity-50"
+                  className="group w-full min-h-[52px] rounded-full bg-[#FFF12E] hover:bg-[#FFF44A] text-[#0950F6] font-subheading tracking-wider uppercase text-base font-bold flex items-center justify-between px-6 py-3.5 transition-all duration-300 shadow-glow-yellow active:scale-[0.99] cursor-pointer border-none disabled:opacity-50"
                 >
                   <span>Hablar por WhatsApp</span>
-                  <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 shrink-0">
+                  <span className="w-8 h-8 rounded-full bg-[#0950F6]/10 text-[#0950F6] flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
                     <MessageCircle className="w-4 h-4" />
                   </span>
                 </button>
@@ -211,9 +217,9 @@ export default function ContactForm() {
         </div>
 
         {/* Footer Guarantee */}
-        <div className="pt-4 mt-6 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-blue-400 font-sans">
+        <div className="pt-4 mt-6 border-t border-white/15 flex items-center justify-between text-xs text-white/60 font-sans relative z-10">
           <span>Respuesta garantizada</span>
-          <span className="font-mono font-bold text-brand-blue-700">Mar del Plata 2026</span>
+          <span className="font-mono font-bold text-[#FFF12E] tabular-nums">Mar del Plata 2026</span>
         </div>
       </div>
     </div>
