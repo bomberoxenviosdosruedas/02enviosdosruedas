@@ -71,7 +71,7 @@ export default function EmprendedoresHero() {
                 href="/contacto"
                 id="emprendedores-hero-cta-plan"
                 variant="primary"
-                size="lg"
+                size="large"
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Solicitar Plan Corporativo
@@ -81,7 +81,7 @@ export default function EmprendedoresHero() {
                 href="https://wa.me/542236602699"
                 id="emprendedores-hero-cta-whatsapp"
                 variant="elevated"
-                size="lg"
+                size="large"
                 icon={<Phone className="h-4 w-4" />}
                 target="_blank"
                 rel="noopener noreferrer"

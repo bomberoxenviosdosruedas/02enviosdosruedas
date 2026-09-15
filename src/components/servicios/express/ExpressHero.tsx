@@ -64,7 +64,7 @@ export default function ExpressHero() {
                 href="/cotizar/express"
                 id="express-hero-cta-cotizar"
                 variant="primary"
-                size="lg"
+                size="large"
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Cotizá tu envío Express
@@ -74,7 +74,7 @@ export default function ExpressHero() {
                 href="https://wa.me/542236602699"
                 id="express-hero-cta-whatsapp"
                 variant="elevated"
-                size="lg"
+                size="large"
                 icon={<Phone className="h-4 w-4" />}
               >
                 Hablar por WhatsApp

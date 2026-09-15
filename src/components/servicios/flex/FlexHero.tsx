@@ -70,7 +70,7 @@ export default function FlexHero() {
                 href="/cotizar/lowcost"
                 id="flex-hero-cta-activar"
                 variant="primary"
-                size="lg"
+                size="large"
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Activar Envíos Flex
@@ -80,7 +80,7 @@ export default function FlexHero() {
                 href="https://wa.me/542236602699"
                 id="flex-hero-cta-whatsapp"
                 variant="elevated"
-                size="lg"
+                size="large"
                 icon={<Phone className="h-4 w-4" />}
                 target="_blank"
                 rel="noopener noreferrer"

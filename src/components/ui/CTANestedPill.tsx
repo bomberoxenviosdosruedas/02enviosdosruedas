@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export type CTANestedPillVariant = 'primary' | 'elevated' | 'outline' | 'ghost';
-export type CTANestedPillSize = 'compact' | 'default' | 'large';
+export type CTANestedPillSize = 'compact' | 'default' | 'large' | 'lg';
 
 export interface CTANestedPillProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -55,11 +55,13 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
     const baseStyles =
       'cta-nested-pill group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-[.05em] font-bold transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 select-none border';
 
+    const normalizedSize = size === 'lg' ? 'large' : size;
+
     const sizeStyles = {
       compact: 'px-4 py-1.5 text-xs min-h-[36px]',
       default: 'px-5 py-2 text-sm min-h-[44px]',
       large: 'px-8 py-3 text-base min-h-[52px]',
-    }[size];
+    }[normalizedSize];
 
     const variantStyles = {
       primary:
