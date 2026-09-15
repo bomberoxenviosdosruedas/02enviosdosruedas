@@ -56,7 +56,7 @@ export default function HeroAnimado() {
   return (
     <section
       id="hero-animado"
-      className="relative w-full overflow-hidden bg-[#0950F6] text-white shadow-ambient-elevation"
+      className="relative w-full overflow-hidden bg-brand-blue-700 text-white shadow-ambient-elevation"
       style={{ minHeight: '90dvh' }}
     >
       {/* Pure Vector & Dynamic Procedural Background */}
@@ -82,10 +82,10 @@ export default function HeroAnimado() {
             {/* Top Badge */}
             <motion.div className="flex justify-center lg:justify-start" variants={itemVariants}>
               <motion.span
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-[#FFF12E] text-[#0950F6] shadow-glow-yellow border border-[#FFF12E] cursor-default"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-subheading font-bold uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-900 shadow-cta-glow border border-brand-yellow-500 cursor-default"
                 whileHover={reduceMotion ? undefined : { scale: 1.03, transition: snappySpring }}
               >
-                <Sparkles className="w-3.5 h-3.5 fill-[#0950F6]" />
+                <Sparkles className="w-3.5 h-3.5 fill-brand-blue-900 text-brand-blue-900" />
                 Tu Solución Confiable en Mar del Plata
               </motion.span>
             </motion.div>
@@ -98,8 +98,8 @@ export default function HeroAnimado() {
               <span className="kinetic-font-stretch">
                 Mensajería y Logística
               </span>
-              <span className="relative inline-block bg-[#052C87]/80 px-3.5 py-1 my-1 transform -rotate-1 rounded-xl border border-[#FFF12E]/40 shadow-xl">
-                <span className="relative z-10 bg-[#FFF12E] text-[#0950F6] px-3 py-1 inline-block font-display font-black rounded-lg">
+              <span className="relative inline-block bg-brand-blue-950/80 px-3.5 py-1 my-1 transform -rotate-1 rounded-xl border border-brand-yellow-500/40 shadow-xl">
+                <span className="relative z-10 bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 inline-block font-display font-black rounded-lg">
                   E-Commerce
                 </span>
               </span>
@@ -116,32 +116,28 @@ export default function HeroAnimado() {
               Somos tu partner estratégico en mensajería urbana, envíos en el día y delivery de última milla. Flota propia de motos, cero tercerización y respuesta inmediata.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons con la primitiva oficial CTANestedPill */}
             <motion.div
               className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-1"
               variants={itemVariants}
             >
-              <a
+              <CTANestedPill
                 href="/cotizar/express"
                 id="hero-cta-solicitar"
-                className="group inline-flex items-center justify-between rounded-full min-h-[52px] px-8 py-3.5 bg-[#FFF12E] hover:bg-[#FFF44A] text-[#0950F6] font-subheading text-lg font-bold uppercase tracking-wider shadow-glow-yellow transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+                variant="primary"
+                size="large"
               >
-                <span>Cotizá Express</span>
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#0950F6]/15 text-[#0950F6] ml-3 transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
+                Cotizá Express
+              </CTANestedPill>
 
-              <a
+              <CTANestedPill
                 href="/servicios/envios-express"
                 id="hero-cta-servicios"
-                className="group inline-flex items-center justify-between rounded-full min-h-[52px] px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/30 hover:border-white font-subheading text-lg font-bold uppercase tracking-wider backdrop-blur-md transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+                variant="elevated"
+                size="large"
               >
-                <span>Mirá los Servicios</span>
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/15 text-white ml-3 transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
+                Mirá los Servicios
+              </CTANestedPill>
             </motion.div>
 
             {/* Features / Trust Badges list */}
@@ -219,17 +215,17 @@ export default function HeroAnimado() {
               className="relative w-full max-w-[460px] transform-style-3d cursor-pointer"
             >
               {/* Outer Double Bezel Frame for Hero Asset */}
-              <div className="p-3 sm:p-4 rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl hover:shadow-glow-yellow transition-shadow duration-300">
-                <div className="relative rounded-[20px] overflow-hidden bg-[#052C87] border border-white/15 p-4 sm:p-6 flex flex-col items-center">
+              <div className="p-3 sm:p-4 rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl hover:shadow-cta-glow transition-shadow duration-300">
+                <div className="relative rounded-[20px] overflow-hidden bg-brand-blue-950 border border-white/15 p-4 sm:p-6 flex flex-col items-center">
                   
                   {/* Top HUD Telemetry Pill */}
                   <div className="w-full flex items-center justify-between gap-2 mb-4 bg-white/10 border border-white/20 px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-xs">
                     <div className="flex items-center gap-2">
                       <span className="relative flex h-2.5 w-2.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFF12E] opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFF12E]" />
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow-500" />
                       </span>
-                      <span className="font-subheading text-[11px] sm:text-xs uppercase tracking-widest text-[#FFF12E] font-bold">
+                      <span className="font-subheading text-[11px] sm:text-xs uppercase tracking-widest text-brand-yellow-500 font-bold">
                         Ruteo Activo · MDQ
                       </span>
                     </div>
