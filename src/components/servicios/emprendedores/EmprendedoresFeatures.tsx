@@ -32,7 +32,7 @@ export default function EmprendedoresFeatures() {
   return (
     <section
       id="emprendedores-features"
-      className="py-24 bg-[#F8FAFC] relative z-10 overflow-hidden border-t border-brand-blue-100"
+      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t border-brand-blue-100"
     >
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -93,16 +93,16 @@ export default function EmprendedoresFeatures() {
                 >
                   <div className="bg-white p-6 rounded-[20px] border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row gap-5 items-start h-full relative overflow-hidden">
                     {/* Giant Watermark Icon */}
-                    <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-[#0950F6]/[0.05] pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
+                    <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/[0.05] pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
 
-                    <div className="p-3 bg-[#0950F6] text-[#FFF12E] rounded-xl shrink-0 border border-[#0950F6] shadow-md group-hover:bg-[#FFF12E] group-hover:text-[#052C87] transition-colors duration-300 relative z-10">
+                    <div className="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl shrink-0 border border-brand-blue-500 shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors duration-300 relative z-10">
                       <Icon className="h-6 w-6 shrink-0" />
                     </div>
                     <div className="space-y-1.5 relative z-10">
-                      <h4 className="text-xl font-display uppercase tracking-wider text-[#0950F6] leading-tight group-hover:text-[#052C87] transition-colors duration-300">
+                      <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight group-hover:text-brand-blue-900 transition-colors duration-300">
                         {feat.title}
                       </h4>
-                      <p className="text-sm text-[#00277C]/80 font-sans leading-relaxed">
+                      <p className="text-sm text-brand-ink/80 font-sans leading-relaxed">
                         {feat.desc}
                       </p>
                     </div>
@@ -129,14 +129,14 @@ export default function EmprendedoresFeatures() {
                   className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float transition-all duration-300 flex items-center justify-center sm:justify-start"
                 >
                   <div className="bg-white p-6 rounded-[20px] border border-brand-blue-50/50 shadow-sm flex items-center gap-5 w-full">
-                    <div className="p-3.5 bg-[#FFF12E] text-[#052C87] rounded-xl shrink-0 border border-[#FFF12E] shadow-glow-yellow">
+                    <div className="p-3.5 bg-brand-yellow-500 text-brand-blue-900 rounded-xl shrink-0 border border-brand-yellow-500 shadow-glow-yellow">
                       <Icon className="h-6 w-6 shrink-0" />
                     </div>
                     <div className="text-left">
-                      <span className="block text-2xl font-mono tabular-nums font-bold uppercase tracking-tight text-[#052C87] leading-none mb-1">
+                      <span className="block text-2xl font-mono tabular-nums font-bold uppercase tracking-tight text-brand-blue-900 leading-none mb-1">
                         {stat.value}
                       </span>
-                      <span className="block text-xs uppercase tracking-wider font-subheading text-[#0950F6] font-bold">
+                      <span className="block text-xs uppercase tracking-wider font-subheading text-brand-blue-500 font-bold">
                         {stat.label}
                       </span>
                     </div>

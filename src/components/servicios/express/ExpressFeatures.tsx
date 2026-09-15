@@ -31,7 +31,7 @@ export default function ExpressFeatures() {
   return (
     <section
       id="express-features"
-      className="py-24 bg-[#F8FAFC] relative z-10 overflow-hidden border-t border-brand-blue-100"
+      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t border-brand-blue-100"
     >
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -83,16 +83,16 @@ export default function ExpressFeatures() {
                 >
                   <div className="bg-white p-6 rounded-[20px] border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full space-y-4 relative overflow-hidden">
                     {/* Giant Watermark Icon */}
-                    <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-[#0950F6]/[0.05] pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
+                    <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/[0.05] pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
 
-                    <div className="h-12 w-12 rounded-xl bg-[#0950F6] text-[#FFF12E] flex items-center justify-center shrink-0 border border-[#0950F6] shadow-sm group-hover:bg-[#FFF12E] group-hover:text-[#052C87] transition-colors duration-200 relative z-10">
+                    <div className="h-12 w-12 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center shrink-0 border border-brand-blue-500 shadow-sm group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors duration-200 relative z-10">
                       <Icon className="h-6 w-6 shrink-0" />
                     </div>
                     <div className="space-y-1.5 relative z-10">
-                      <h4 className="text-xl font-display uppercase tracking-wider text-[#0950F6] leading-tight">
+                      <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight">
                         {feat.title}
                       </h4>
-                      <p className="text-sm text-[#00277C]/80 font-sans leading-relaxed">
+                      <p className="text-sm text-brand-ink/80 font-sans leading-relaxed">
                         {feat.desc}
                       </p>
                     </div>

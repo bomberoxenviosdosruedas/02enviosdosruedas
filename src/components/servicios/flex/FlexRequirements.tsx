@@ -26,7 +26,7 @@ export default function FlexRequirements() {
   return (
     <section 
       id="flex-requirements" 
-      className="py-24 bg-[#F8FAFC] relative z-10 overflow-hidden border-t border-brand-blue-100"
+      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t border-brand-blue-100"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -69,17 +69,17 @@ export default function FlexRequirements() {
               >
                 <div className="bg-white p-6 rounded-[20px] border border-brand-blue-50/50 shadow-sm h-full flex flex-col gap-5 text-left relative overflow-hidden">
                   {/* Giant Watermark Icon */}
-                  <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-[#0950F6]/[0.05] pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
+                  <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/[0.05] pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
 
-                  <div className="p-3 bg-[#FFF12E] text-[#052C87] rounded-xl w-fit shrink-0 border border-[#FFF12E] shadow-glow-yellow relative z-10">
+                  <div className="p-3 bg-brand-yellow-500 text-brand-blue-900 rounded-xl w-fit shrink-0 border border-brand-yellow-500 shadow-glow-yellow relative z-10">
                     <Icon className="h-6 w-6 shrink-0" />
                   </div>
                   
                   <div className="space-y-1.5 relative z-10">
-                    <h3 className="text-xl font-display uppercase tracking-wide text-[#0950F6] font-bold leading-tight">
+                    <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue-500 font-bold leading-tight">
                       {req.title}
                     </h3>
-                    <p className="text-sm text-[#00277C]/80 font-sans leading-relaxed">
+                    <p className="text-sm text-brand-ink/80 font-sans leading-relaxed">
                       {req.desc}
                     </p>
                   </div>

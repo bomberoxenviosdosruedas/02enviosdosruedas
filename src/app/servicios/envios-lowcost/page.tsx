@@ -103,34 +103,34 @@ const jsonLdSchema = {
 
 export default function EnviosLowCostPage() {
   return (
-    <main className="min-h-screen bg-[#F8FAFC] text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-screen bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
 
-      {/* Hero Header Block — Electric Speed Blue (#0950F6) */}
-      <section className="relative z-10 bg-[#0950F6]">
+      {/* Hero Header Block — Electric Speed Blue (brand-blue-500) */}
+      <section className="relative z-10 bg-brand-blue-500">
         <LowCostHero />
       </section>
 
-      {/* Ruteo masivo features — Slate Canvas (#F8FAFC) */}
-      <section className="relative z-10 bg-[#F8FAFC] font-sans">
+      {/* Ruteo masivo features — White Canvas (brand-white-50) */}
+      <section className="relative z-10 bg-brand-white-50 font-sans">
         <LowCostFeatures />
       </section>
 
-      {/* 2026 Zone Pricing rates table — Electric Speed Blue (#0950F6) */}
-      <section className="relative z-10 bg-[#0950F6]">
+      {/* 2026 Zone Pricing rates table — Electric Speed Blue (brand-blue-500) */}
+      <section className="relative z-10 bg-brand-blue-500">
         <LowCostPricing />
       </section>
 
-      {/* Structured logistics benefits grid — Deep Midnight Navy (#052C87) */}
-      <section className="relative z-10 bg-[#052C87] font-sans">
+      {/* Structured logistics benefits grid — Deep Midnight Navy (brand-blue-900) */}
+      <section className="relative z-10 bg-brand-blue-900 font-sans">
         <LowCostBenefits />
       </section>
 
-      {/* Step by step operation diagram — Slate Canvas (#F8FAFC) */}
-      <section className="relative z-10 bg-[#F8FAFC] font-sans">
+      {/* Step by step operation diagram — White Canvas (brand-white-50) */}
+      <section className="relative z-10 bg-brand-white-50 font-sans">
         <LowCostHowItWorks />
       </section>
     </main>

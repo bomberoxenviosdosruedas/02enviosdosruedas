@@ -82,39 +82,39 @@ const jsonLdSchema = {
 
 export default function EnviosFlexPage() {
   return (
-    <main className="min-h-screen bg-[#F8FAFC] text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-screen bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
 
-      {/* Hero Header Block — Electric Speed Blue (#0950F6) */}
-      <section className="relative z-10 bg-[#0950F6]">
+      {/* Hero Header Block — Electric Speed Blue (brand-blue-500) */}
+      <section className="relative z-10 bg-brand-blue-500">
         <FlexHero />
       </section>
 
-      {/* MercadoLibre expert key features — Slate Canvas (#F8FAFC) */}
-      <section className="relative z-10 bg-[#F8FAFC] font-sans">
+      {/* MercadoLibre expert key features — White Canvas (brand-white-50) */}
+      <section className="relative z-10 bg-brand-white-50 font-sans">
         <FlexFeatures />
       </section>
 
-      {/* Seller value-added benefits grid — Deep Midnight Navy (#052C87) */}
-      <section className="relative z-10 bg-[#052C87] font-sans">
+      {/* Seller value-added benefits grid — Deep Midnight Navy (brand-blue-900) */}
+      <section className="relative z-10 bg-brand-blue-900 font-sans">
         <FlexBenefits />
       </section>
 
-      {/* Pricing levels and weather discounts — Electric Speed Blue (#0950F6) */}
-      <section className="relative z-10 bg-[#0950F6]">
+      {/* Pricing levels and weather discounts — Electric Speed Blue (brand-blue-500) */}
+      <section className="relative z-10 bg-brand-blue-500">
         <FlexPricing />
       </section>
 
-      {/* Step by step streamlined workflow — Slate Canvas (#F8FAFC) */}
-      <section className="relative z-10 bg-[#F8FAFC] font-sans">
+      {/* Step by step streamlined workflow — White Canvas (brand-white-50) */}
+      <section className="relative z-10 bg-brand-white-50 font-sans">
         <FlexHowItWorks />
       </section>
 
-      {/* Active prerequisites for starting — Slate Canvas (#F8FAFC) */}
-      <section className="relative z-10 bg-[#F8FAFC] font-sans">
+      {/* Active prerequisites for starting — White Canvas (brand-white-50) */}
+      <section className="relative z-10 bg-brand-white-50 font-sans">
         <FlexRequirements />
       </section>
     </main>

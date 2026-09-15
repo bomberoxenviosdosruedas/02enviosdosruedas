@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import CTANestedPill from '@/components/ui/CTANestedPill';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   ArrowRight,
@@ -22,7 +22,7 @@ export default function LowCostHero() {
   return (
     <section
       id="lowcost-hero"
-      className="relative w-full overflow-hidden bg-[#0950F6] text-white min-h-[85vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-white/10"
+      className="relative w-full overflow-hidden bg-brand-blue-500 text-white min-h-[85vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-white/10"
     >
       {/* Pure Vector & Dynamic Procedural Background */}
       <HeroProceduralBackground variant="lowcost" />
@@ -43,16 +43,16 @@ export default function LowCostHero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="rotate-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-[#052C87] border border-[#FFF12E]/30 text-[#FFF12E] shadow-glow-yellow"
+              className="rotate-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-brand-blue-900 border border-brand-yellow-500/30 text-brand-yellow-500 shadow-glow-yellow"
             >
-              <TrendingDown className="h-4 w-4 text-[#FFF12E] shrink-0" />
+              <TrendingDown className="h-4 w-4 text-brand-yellow-500 shrink-0" />
               <span>PAQUETERÍA E-COMMERCE Y CADETERÍA ECONÓMICA · MDQ 2026</span>
             </motion.div>
 
             {/* Monumental Headline */}
             <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.98] text-white">
               <span className="block">PAQUETERÍA E-COMMERCE Y</span>
-              <span className="block text-[#FFF12E] drop-shadow-[0_2px_16px_rgba(255,241,46,0.35)]">
+              <span className="block text-brand-yellow-500 drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">
                 ENCOMIENDAS LOWCOST
               </span>
               <span className="block text-2xl sm:text-4xl lg:text-5xl text-blue-100 mt-1">
@@ -60,42 +60,38 @@ export default function LowCostHero() {
               </span>
             </h1>
 
-            {/* Description */}
-            <p className="text-base sm:text-lg lg:text-xl font-sans text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed pl-4 border-l-2 border-[#FFF12E] font-light">
+            {/* Description — without side-tab anti-pattern */}
+            <p className="text-base sm:text-lg lg:text-xl font-sans text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
               Solución en paquetería e-commerce, servicio de cadetería y servicio de encomiendas programadas en Mar del Plata. Pedidos solicitados antes de las 13:00 hs se entregan en el día antes de las 19:00 hs.
             </p>
 
-            {/* CTAs */}
+            {/* CTAs using canonical CTANestedPill */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-              <Link
+              <CTANestedPill
                 href="/cotizar/lowcost"
                 id="lowcost-hero-cta-cotizar"
-                className="group inline-flex items-center justify-between gap-4 bg-[#FFF12E] hover:bg-[#FFF44A] text-[#052C87] font-subheading font-bold uppercase tracking-wider px-8 py-3.5 rounded-full text-sm sm:text-base min-h-[52px] shadow-glow-yellow hover:scale-[1.02] active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0950F6]"
+                variant="primary"
+                size="lg"
+                icon={<ArrowRight className="h-4 w-4" />}
               >
-                <span>Cotizá tu lote LowCost</span>
-                <span className="w-8 h-8 rounded-full bg-[#052C87]/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
-                  <ArrowRight className="h-4 w-4 text-[#052C87]" />
-                </span>
-              </Link>
+                Cotizá tu lote LowCost
+              </CTANestedPill>
 
-              <a
+              <CTANestedPill
                 href="https://wa.me/542236602699"
-                target="_blank"
-                rel="noopener noreferrer"
                 id="lowcost-hero-cta-whatsapp"
-                className="group inline-flex items-center justify-between gap-4 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-subheading font-bold uppercase tracking-wider px-8 py-3.5 rounded-full text-sm sm:text-base min-h-[52px] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0950F6]"
+                variant="elevated"
+                size="lg"
+                icon={<Phone className="h-4 w-4" />}
               >
-                <span>Hablar por WhatsApp</span>
-                <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
-                  <Phone className="h-4 w-4 text-white" />
-                </span>
-              </a>
+                Hablar por WhatsApp
+              </CTANestedPill>
             </div>
 
             {/* Quick KPI Chips */}
             <div className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
               <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
-                <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFF12E] tabular-nums">
+                <span className="block font-mono font-bold text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
                   $3.000
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
@@ -103,7 +99,7 @@ export default function LowCostHero() {
                 </span>
               </div>
               <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
-                <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFF12E] tabular-nums">
+                <span className="block font-mono font-bold text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
                   13:00 hs
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
@@ -111,7 +107,7 @@ export default function LowCostHero() {
                 </span>
               </div>
               <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
-                <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFF12E] tabular-nums">
+                <span className="block font-mono font-bold text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
                   Antes 19:00 hs
                 </span>
                 <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
@@ -124,9 +120,9 @@ export default function LowCostHero() {
           {/* Right Column: Interactive Double Bezel Mini-Comparador Card (5 cols) */}
           <div className="lg:col-span-5 relative w-full">
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-[28px] shadow-2xl">
-              <div className="bg-white p-5 sm:p-7 rounded-[20px] border border-brand-blue-50/50 shadow-sm text-[#0950F6] space-y-5 relative overflow-hidden">
+              <div className="bg-white p-5 sm:p-7 rounded-[20px] border border-brand-blue-50/50 shadow-sm text-brand-blue-700 space-y-5 relative overflow-hidden">
                 {/* Giant Watermark Icon */}
-                <TrendingDown className="absolute -bottom-6 -right-6 h-48 w-48 text-[#0950F6]/[0.04] pointer-events-none select-none" />
+                <TrendingDown className="absolute -bottom-6 -right-6 h-48 w-48 text-brand-blue-700/[0.04] pointer-events-none select-none" />
                 {/* Header with status badge */}
                 <div className="flex items-center justify-between border-b border-brand-blue-100/80 pb-3">
                   <div className="flex items-center gap-2">

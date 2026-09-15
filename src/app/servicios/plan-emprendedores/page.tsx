@@ -87,29 +87,29 @@ const jsonLdSchema = {
 
 export default function PlanEmprendedoresPage() {
   return (
-    <main className="min-h-screen bg-[#F8FAFC] text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-screen bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
 
-      {/* Hero Header block — Electric Speed Blue (#0950F6) */}
-      <section className="relative z-10 bg-[#0950F6]">
+      {/* Hero Header block — Electric Speed Blue (brand-blue-500) */}
+      <section className="relative z-10 bg-brand-blue-500">
         <EmprendedoresHero />
       </section>
 
-      {/* Corporate 3PL logistics features — Slate Canvas (#F8FAFC) */}
-      <section className="relative z-10 bg-[#F8FAFC] font-sans">
+      {/* Corporate 3PL logistics features — White Canvas (brand-white-50) */}
+      <section className="relative z-10 bg-brand-white-50 font-sans">
         <EmprendedoresFeatures />
       </section>
 
-      {/* Strategic business benefits grid — Deep Midnight Navy (#052C87) */}
-      <section className="relative z-10 bg-[#052C87] font-sans">
+      {/* Strategic business benefits grid — Deep Midnight Navy (brand-blue-900) */}
+      <section className="relative z-10 bg-brand-blue-900 font-sans">
         <EmprendedoresBenefits />
       </section>
 
-      {/* Premium custom e-commerce plans and 3PL warehousing prices — Electric Speed Blue (#0950F6) */}
-      <section className="relative z-10 bg-[#0950F6]">
+      {/* Premium custom e-commerce plans and 3PL warehousing prices — Electric Speed Blue (brand-blue-500) */}
+      <section className="relative z-10 bg-brand-blue-500">
         <EmprendedoresPricing />
       </section>
     </main>
