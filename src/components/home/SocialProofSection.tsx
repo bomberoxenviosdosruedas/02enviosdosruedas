@@ -643,10 +643,10 @@ export default function SocialProofSection() {
                         >
                           <div
                             className={cn(
-                              'mt-3 p-3 rounded-lg text-xs font-sans italic border-l-2 leading-relaxed',
+                              'mt-3 p-3 rounded-xl text-xs font-sans italic border leading-relaxed',
                               isDarkBlue
-                                ? 'bg-white/5 border-brand-yellow-500 text-brand-blue-100'
-                                : 'bg-brand-blue-50/80 border-brand-blue-700 text-brand-ink'
+                                ? 'bg-white/5 border-white/10 text-brand-blue-100'
+                                : 'bg-brand-blue-50/80 border-brand-blue-100 text-brand-ink'
                             )}
                           >
                             <span className="font-bold not-italic block text-[10px] uppercase font-mono mb-1 text-brand-yellow-500">

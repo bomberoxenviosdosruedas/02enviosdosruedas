@@ -7,7 +7,7 @@
 
 ---
 
-## 1. Visual Theme & Atmosphere
+## 1. Overview: Visual Theme & Atmosphere
 
 ### 1.1 Calibración Sensorial (Taste Spectrum)
 | Eje | Valor | Lectura |
@@ -23,13 +23,13 @@ Envíos DosRuedas proyecta la solidez, velocidad y confiabilidad de una infraest
 **Vibe en una línea:** *logística urbana de precisión, industrial-moderno de alta velocidad, hablando en voseo.*
 
 ### 1.3 Firma Geométrica & Elevación
-- **Contenedores de Doble Capa (`double-bezel`):** Capa exterior esmerilada (`rounded-[28px]` / `rounded-[30px]`, `bg-white/10 backdrop-blur-md`, `border-white/20`) y núcleo interior (`rounded-[20px]`, `bg-white` o `bg-[#052C87]`).
+- **Contenedores de Doble Capa (`double-bezel`):** Capa exterior en azul hielo suave (`rounded-2xl` / 16px, `bg-brand-blue-50/80`, `border border-brand-blue-100`, `p-2`, `shadow-float`) y núcleo interior (`rounded-xl` / 12px, `bg-white`, `p-6`, `border border-brand-blue-50/50`, `shadow-inner`).
 - **Insignias de Velocidad:** Etiquetas y badges inclinados suavemente (`-rotate-1` / `rotate-1`).
-- **Resplandores Neón:** Luces y efectos `shadow-glow-yellow` / `shadow-cta-glow`.
+- **Resplandor de Señal Vial:** Halos cálidos ámbar/amarillo (`shadow-accent-*`, `shadow-cta-glow`) y azul ultramar (`shadow-glow-blue`), nunca luces neón cibernéticas desvinculadas de la identidad.
 
 ---
 
-## 2. Color Palette & Roles (Ley de Tres Colores & Paleta Oficial)
+## 2. Colors & Color Palette (Ley de Tres Colores & Paleta Oficial)
 
 > **REGLA FUNDAMENTAL DE MARCA:** el sistema cromático utiliza **únicamente tres colores corporativos** —Azul Egipcio, Amarillo Vial y Blanco Puro— más sus escalas oficiales. Prohibidas las escalas genéricas de Tailwind (`slate-*`, `gray-*`, `zinc-*`, `neutral-*` —están remapeadas a azul y **no deben invocarse**), colores externos (`green-*`, `red-*` salvo el estado destructivo semántico) y hex inline arbitrarios.
 >
@@ -39,16 +39,7 @@ Envíos DosRuedas proyecta la solidez, velocidad y confiabilidad de una infraest
 
 | Rol Semántico | Nombre Descriptivo | Token Tailwind / CSS | Hex | Función en la Interfaz |
 |---|---|---|---|---|
-| **Electric Speed Blue** | Primary / Hero Canvas | `brand-blue-500` / `brand-blue-700` | `#0950F6` | Lienzo principal, hero, bordes activos y destaques interactivos. |
-| **Deep Midnight Navy** | Dark Cards & Surfaces | `brand-blue-900` / `brand-blue-950` | `#052C87` | Fondo para tarjetas oscuras, superficies de contenedores y contraste profundo. |
-| **High-Voltage Neon Yellow** | High Conversion CTA | `brand-yellow-500` | `#FFF12E` | CTAs primarios de alta conversión, badges activos y contenedores de iconos. |
-| **Electric Sun Gold Hover** | Accent Hover | `brand-yellow-400` | `#FFF44A` | Estado hover de botones amarillos y resplandores neón. |
-| **Pure Optical White** | Text & Inner Core | `brand-white-50` | `#FFFFFF` | Texto principal sobre fondos oscuros y núcleo interno de tarjetas claras. |
-| **Slate Surface Light Canvas** | Light Surface Canvas | `slate-50` / `--surface-light` | `#F8FAFC` | Fondo secundario para secciones alternas y cronologías. |
-| **Frosted Glass White** | Glass Overlay / Borders | `--glass-white` | `rgba(255, 255, 255, 0.10)` - `0.25` | Marcos esmerilados, botones secundarios y divisores translúcidos. |
-| **Social WhatsApp Green** | Direct Support | `--social-whatsapp` | `#25D366` | Exclusivo para soporte directo y floating widgets de chat. |
-| **Social Facebook Blue** | Social Badges | `--social-facebook` | `#1877F2` | Badges de redes y canales sociales. |
-| **Primary / Trust** | Egyptian Brand Blue | `brand-blue-700` / `--color-brand-blue` | `#0636A5` | Header, footer, navegación, secciones invertidas, títulos H1/H2. |
+| **Primary / Trust** | Egyptian Brand Blue | `brand-blue-700` / `--color-brand-blue` | `#0636A5` | Header, footer, navegación, secciones invertidas, títulos H1/H2, marcos institucionales. |
 | **Surface Base** | Pure Canvas White | `brand-white-50` / `--surface-page` | `#FFFFFF` | Fondo de página, núcleo de tarjetas (`double-bezel-inner`), inputs, modales, tablas. |
 | **Soft Canvas / Outer Bezel** | Ice Blue Tint | `brand-blue-50` / `--surface-muted` | `#E6EEFE` | Marco exterior de tarjetas, secciones alternas suaves, fondo de skeleton. |
 | **Structural Border** | Blueprint Border | `brand-blue-100` / `--border-subtle` | `#BACEFD` | Bordes de tarjetas e inputs (2px), divisores 1px, líneas inactivas de steppers. |
@@ -56,12 +47,13 @@ Envíos DosRuedas proyecta la solidez, velocidad y confiabilidad de una infraest
 | **Muted Text** | Steel Blue Muted | `brand-blue-400` / `--text-muted` | `#3570F8` | Help text, metadatos, placeholders, eyebrows secundarios. Nunca para párrafos completos. |
 | **Interactive Blue** | Ultramarine Action | `brand-blue-500` / `--focus-ring` | `#0950F6` | Botones secundarios, estado activo de navegación, **anillo de foco universal**. |
 | **Primary Hover** | Royal Pressed | `brand-blue-800` / `--action-primary-hover` | `#052D8C` | Hover de botones azules sólidos, dropdowns sobre header. |
+| **Accent / CTA Oficial** | Electric Signal Yellow | `brand-yellow-500` / `--color-brand-yellow` | `#FFEC01` | **CTA primario oficial**, badges de alta prioridad, stepper dots activos/completos, franja footer 6px. |
+| **Accent Hover** | Signal Yellow Bright | `brand-yellow-400` / `--action-accent-hover` | `#FFF12E` | Hover de CTA primario y botón WhatsApp. |
+| **Accent Pressed** | Amber Flare | `brand-yellow-600` | `#E6D400` | Estado `:active` de CTA y badges de alta prioridad. |
+| **Accent Halo** | Pale Signal | `brand-yellow-100` | `#FFFAB8` | Anillo de stepper completado, fondo de badge "Flex". |
 | **Text on Accent** | Deep Navy | `brand-blue-900` / `--text-on-accent` | `#04236B` | Texto sobre amarillo (CTA primary, badges). |
 | **Body Ink** | Deep Blue Ink | `brand-ink` / `--text-body` | `#00277C` | Texto de cuerpo, párrafos, valores de inputs. Reemplaza al negro. |
 | **Ultra Deep Void** | Midnight Abyss | `brand-blue-950` | `#021440` | Footer profundo, overlays de modales críticos. |
-| **Accent Hover** | Signal Yellow Bright | `brand-yellow-400` / `--action-accent-hover` | `#FFF12E` | Hover de CTA primary y WhatsApp. |
-| **Accent Pressed** | Amber Flare | `brand-yellow-600` | `#E6D400` | Estado `:active` de CTA y badges de alta prioridad. |
-| **Accent Halo** | Pale Signal | `brand-yellow-100` | `#FFFAB8` | Anillo de stepper completado, fondo de badge "Flex". |
 | **Glass on Blue** | Atmospheric Mist | `--surface-glass` | `rgba(255,255,255,0.06)` | Paneles flotantes sobre azul + `border: 1px solid rgba(255,255,255,0.12)` + `backdrop-blur-md`. |
 | **Destructive (único externo)** | Alert Red | `--action-danger` | `#EF4444` | **Solo** bordes/anillos de error de formulario y acciones destructivas confirmadas. Jamás decorativo. |
 
@@ -128,7 +120,7 @@ La home y cada landing de servicio abren con un hero que debe ser **asimétrico,
 
 ---
 
-## 5. Component Stylings & Interaction Behaviors
+## 5. Components & Component Stylings (Componentes & Primitivas UI)
 
 Las primitivas viven en `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`, `InputField`, `RadioCardGroup`, `StepperHorizontal`, `StepperVertical`, `LogosCarousel`, `FloatTiltCard`, `BentoGrid`, `Badge`). **Las páginas deben consumirlas, no reimplementar el markup a mano.**
 
@@ -269,7 +261,7 @@ Las primitivas viven en `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`
 
 ---
 
-## 10. Anti-Patterns (Banned AI Clichés — Cero Tolerancia)
+## 10. Anti-Patterns & Guidelines (Do's and Don'ts — Cero Tolerancia)
 
 **Color y superficie**
 1. Emojis en UI o copy (solo iconos Lucide).
@@ -292,25 +284,31 @@ Las primitivas viven en `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`
 14. Cursores personalizados; spinners circulares genéricos; "No data" como empty state.
 15. Más de un CTA primario por pantalla; botones "Saber más" sin destino concreto.
 16. Logo rasterizado (`.webp/.png`), menor a 120px o recoloreado.
+17. Borde lateral grueso en tarjetas (`side-tab` / `border-l-4` o similar): cliché visual de IA que rompe la limpieza de superficie. Usar el sistema canónico `double-bezel` o separadores tonales limpios.
+18. Animaciones de rebote (`bounce-easing` / `animate-bounce` / curvas elásticas): transmiten desprolijidad e inestabilidad; usar resortes físicos (`stiffness: 100, damping: 20`) o curvas exponenciales controladas.
+19. Animación de propiedades de layout (`layout-transition`): animar `width`, `height`, `padding` o `margin` provoca layout thrash; animar únicamente `transform` y `opacity`.
 
 ---
 
-## 11. Deuda de Adherencia Conocida (auditoría 2026-08-19)
+## 11. Deuda de Adherencia Conocida (Auditoría Técnica Impeccable 2026-09-15)
 
 Para que los agentes no "corrijan" el spec hacia el bug, se registra lo que el código aún no cumple:
 
 | Área | Estado real | Acción esperada |
 |---|---|---|
+| Borde lateral AI (`side-tab`) | Detectado `border-l-4` en 12 componentes (`LowCostFeatures`, `FlexFeatures`, `ExpressFeatures`, `AboutHero`, etc.). | Reemplazar por tarjetas limpias con `double-bezel` o espaciado tonal sin bordes asimétricos gruesos. |
+| Curvas de rebote (`bounce-easing`) | `animate-bounce` en `NewsletterSubscribe` y `LeafletRouteMap`; `cubic-bezier(0.34, 1.56, 0.64, 1)` en `globals.css`. | Migrar a resortes de Framer Motion o easing exponencial suave (`cubic-bezier(0.25, 1, 0.5, 1)`). |
+| Animación de ancho (`layout-transition`) | `transition: width` en barra de progreso de `globals.css` (línea 508). | Animar `transform: scaleX()` con `transform-origin: left`. |
 | Primitivas UI | 8 de 11 primitivas de `src/components/ui/` son código muerto; las páginas reimplementan el markup. | Migrar páginas a las primitivas, no borrar las primitivas. |
-| `@utility cta-nested-icon` | Define `w/h 1.75rem` (28px); el contrato dice 32px. | Alinear la utility a `2rem` y `bg-brand-blue/10`. |
-| Fuentes | `Inter` sigue como fallback en `--font-sans`; `IBM Plex Sans` no se carga vía `next/font`. | Quitar `Inter`; cargar IBM Plex Sans o retirarla del stack documentado. |
+| `@utility cta-nested-icon` | Define `w/h 1.75rem` (28px); el contrato dice 32px (`2rem`). | Alinear la utility en `globals.css` a `w-8 h-8` (`2rem`) y `bg-brand-blue/10`. |
+| Fuentes | `Inter` figura como fallback residual en `--font-sans`; `IBM Plex Sans` no se carga vía `next/font`. | Quitar `Inter`; cargar IBM Plex Sans o consolidar exclusivamente `Outfit` como primaria. |
 | `h-screen` | 18 usos en `src/`. | Reemplazar por `min-h-[100dvh]`. |
-| Logo en header | `/logo-envios-simplified.webp` rasterizado a 40px. | Usar `/logo-master.svg` ≥ 120px. |
-| Reduced motion | Soporte parcial en 8 componentes; sin kill-switch global en `globals.css`. | Agregar el bloque de §8 y `useReducedMotion` en el resto. |
-| Focus-visible | Cobertura ~20%; el header usa `ring-brand-yellow-500` sobre azul (contraste superior al contrato). | Extender cobertura; evaluar formalizar anillo amarillo sobre superficies azules en `AGENTS.md`. |
-| Colores off-brand | `#10B981` en `RevisarClient.tsx`; `#FFCC00` ×10 en `LogisticaNetworkCanvas.tsx`. | Reemplazar por `brand-yellow-500` / tokens. |
+| Logo en header | `/logo-envios-simplified.webp` rasterizado a 40px en algunos componentes legacy. | Usar exclusivamente `/logo-master.svg` ≥ 120px. |
+| Reduced motion | Cobertura parcial en componentes motion; falta formalizar el kill-switch global en `globals.css`. | Incorporar el media query estricto de §8 en `globals.css` y `useReducedMotion()`. |
+| Focus-visible | Cobertura ~20%; header con anillo amarillo sobre azul. | Extender cobertura con `focus-ring-brand` y formalizar anillo amarillo (`ring-brand-yellow-500`) sobre azul. |
+| Colores off-brand | `#10B981` en `RevisarClient.tsx`; `#FFCC00` ×10 en `LogisticaNetworkCanvas.tsx`. | Reemplazar por `brand-yellow-500` / tokens oficiales. |
 | Home vs canon §6 | Falta "Cómo Funciona"; alternancia de fondos invertida. | Reordenar secciones según el ritmo canónico. |
-| Archivos huérfanos | ~14 componentes sin uso con métricas falsas/copy en inglés (`HeroSection.tsx`, `shadcnblocks-navbar1`, `cinematic-hero`, `demo.tsx`). | Eliminar, no corregir. |
+| Archivos huérfanos | ~14 componentes sin uso con métricas falsas/copy en inglés (`HeroSection.tsx`, `cinematic-hero`, `demo.tsx`). | Eliminar, no corregir. |
 | Tarifas B2B | Flex y Emprendedores muestran precios sin fila en `PricingRange`. | Decisión de negocio pendiente; no inventar valores. |
 
 ---

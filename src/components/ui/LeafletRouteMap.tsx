@@ -215,7 +215,7 @@ export default function LeafletRouteMap({
       {/* Top Right: Live Distance Pill Overlay (if distance available) */}
       {distanceKm !== undefined && distanceKm > 0 && (
         <div className="absolute top-3 right-3 z-[400] pointer-events-none">
-          <div className="bg-brand-yellow-500 text-brand-blue-900 px-3 py-1.5 rounded-xl border-2 border-brand-blue-700 shadow-xl flex items-center gap-2 animate-bounce-short">
+          <div className="bg-brand-yellow-500 text-brand-blue-900 px-3 py-1.5 rounded-xl border-2 border-brand-blue-700 shadow-xl flex items-center gap-2 animate-pulse-subtle">
             <span className="text-[10px] font-subheading font-bold uppercase tracking-wider">
               Distancia
             </span>

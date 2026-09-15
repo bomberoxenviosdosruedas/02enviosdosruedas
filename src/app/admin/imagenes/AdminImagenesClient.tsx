@@ -465,14 +465,14 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
       {/* Notifications */}
       <div className="space-y-3" role="status" aria-live="polite">
         {error && (
-          <div className="p-4 bg-brand-blue-50 border-l-4 border-brand-blue-400 rounded-r-xl flex items-center gap-3 text-brand-blue-700 animate-slide-in">
-            <AlertCircle className="h-5 w-5 shrink-0" />
+          <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700 animate-slide-in">
+            <AlertCircle className="h-5 w-5 shrink-0 text-red-500" />
             <p className="text-sm font-semibold">{error}</p>
           </div>
         )}
         {success && (
-          <div className="p-4 bg-brand-blue-50 border-l-4 border-brand-blue-400 rounded-r-xl flex items-center gap-3 text-brand-blue-700 animate-slide-in">
-            <Check className="h-5 w-5 shrink-0" />
+          <div className="p-4 bg-brand-blue-50 border border-brand-blue-200 rounded-xl flex items-center gap-3 text-brand-blue-700 animate-slide-in">
+            <Check className="h-5 w-5 shrink-0 text-brand-blue-500" />
             <p className="text-sm font-semibold">{success}</p>
           </div>
         )}

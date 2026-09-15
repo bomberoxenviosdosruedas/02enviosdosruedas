@@ -42,21 +42,21 @@ export default function LowCostFeatures() {
 
           {/* Header column (Left) */}
           <div className="lg:col-span-5 space-y-6 text-left">
-            <span className="-rotate-1 inline-block px-4 py-1.5 bg-[#0950F6] text-[#FFF12E] rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
+            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
               MÁXIMA RENTABILIDAD
             </span>
 
-            <h2 className="text-[#0950F6] text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98] border-l-4 border-[#FFF12E] pl-4">
+            <h2 className="text-brand-blue-700 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
               ENVÍOS LOWCOST: <br />
-              <span className="text-[#052C87] bg-[#FFF12E] px-2 py-0.5 inline-block mt-1 font-bold">MÁXIMA EFICIENCIA</span>
+              <span className="text-brand-blue-900 bg-brand-yellow-500 px-2 py-0.5 inline-block mt-1 font-bold -rotate-1">MÁXIMA EFICIENCIA</span>
             </h2>
 
-            <p className="text-[#00277C] text-base leading-relaxed font-sans">
+            <p className="text-brand-ink text-base leading-relaxed font-sans">
               Nuestro servicio LowCost está diseñado para el ruteo diario masivo. Optimizamos nuestras rutas agrupando despachos para ofrecer la tarifa más competitiva, garantizando la entrega en el día para pedidos ingresados antes del horario de corte.
             </p>
 
-            <div className="pt-4 flex items-center gap-3.5 text-sm text-[#0950F6] font-bold uppercase tracking-wider font-subheading">
-              <Landmark className="h-5 w-5 text-[#FFF12E] shrink-0 fill-current" />
+            <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-blue-700 font-bold uppercase tracking-wider font-subheading">
+              <Landmark className="h-5 w-5 text-brand-yellow-500 shrink-0 fill-current" />
               <span>LOGÍSTICA PREDECIBLE PARA NEGOCIOS</span>
             </div>
           </div>

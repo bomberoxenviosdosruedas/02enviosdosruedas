@@ -47,21 +47,21 @@ export default function ExpressFeatures() {
 
           {/* Header Segment */}
           <div className="lg:col-span-5 space-y-6 text-left">
-            <span className="-rotate-1 inline-block px-4 py-1.5 bg-[#0950F6] text-[#FFF12E] rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-sm">
+            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-sm">
               SOLUCIONES PREMIUM MDQ
             </span>
 
-            <h2 className="text-[#0950F6] text-4xl sm:text-5xl font-display uppercase tracking-tight leading-[0.98] border-l-4 border-[#FFF12E] pl-4">
+            <h2 className="text-brand-blue-700 text-4xl sm:text-5xl font-display uppercase tracking-tight leading-[0.98]">
               ENTREGAS RÁPIDAS <br />
-              <span className="text-[#052C87] bg-[#FFF12E] px-2 py-0.5 inline-block mt-1">Y EFICIENTES</span>
+              <span className="text-brand-blue-900 bg-brand-yellow-500 px-2 py-0.5 inline-block mt-1 -rotate-1">Y EFICIENTES</span>
             </h2>
 
-            <p className="text-[#00277C] text-base leading-relaxed font-sans font-normal">
+            <p className="text-brand-ink text-base leading-relaxed font-sans font-normal">
               Nuestro servicio Express ofrece cobertura total en el Partido de General Pueyrredón. Llegamos a todos los barrios con franjas horarias prioritarias: Centro, Chauvín, Los Troncos, Güemes, Puerto, Playa Grande, Punta Mogotes, Batán.
             </p>
 
-            <div className="pt-2 flex items-center gap-3 text-sm text-[#0950F6] font-bold uppercase tracking-wider font-subheading">
-              <Compass className="h-5 w-5 text-[#FFF12E] shrink-0 fill-current" />
+            <div className="pt-2 flex items-center gap-3 text-sm text-brand-blue-700 font-bold uppercase tracking-wider font-subheading">
+              <Compass className="h-5 w-5 text-brand-yellow-500 shrink-0 fill-current" />
               <span>LOGÍSTICA URBANA INTEGRAL 2026</span>
             </div>
           </div>

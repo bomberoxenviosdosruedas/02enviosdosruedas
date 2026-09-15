@@ -41,16 +41,16 @@ export default function FlexRequirements() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="-rotate-1 inline-block px-4 py-1.5 bg-[#0950F6] text-[#FFF12E] rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
+          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
             PUESTA EN MARCHA
           </span>
-          <h2 className="text-[#0950F6] text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight border-l-4 border-[#FFF12E] pl-4 inline-block leading-[0.98]">
+          <h2 className="text-brand-blue-700 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight inline-block leading-[0.98]">
             ¿QUÉ NECESITÁS?
           </h2>
-          <p className="text-[#00277C]/80 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-ink/80 font-sans text-sm sm:text-base max-w-lg mx-auto">
             Requisitos mínimos e indispensables para empezar a ofrecer envíos Same-Day y potenciar tu e-commerce hoy mismo.
           </p>
-          <div className="h-1.5 w-16 bg-[#FFF12E] mx-auto rounded-full" />
+          <div className="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
         </div>
 
         {/* Requirements Grid Bento Grid layout with Double Bezel */}

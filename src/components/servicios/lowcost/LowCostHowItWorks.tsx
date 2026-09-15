@@ -44,16 +44,16 @@ export default function LowCostHowItWorks() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
-          <span className="-rotate-1 inline-block px-4 py-1.5 bg-[#0950F6] text-[#FFF12E] rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
+          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
             PASO A PASO
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-[#0950F6] border-l-4 border-[#FFF12E] pl-4 inline-block leading-[0.98]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-700 leading-[0.98]">
             ¿CÓMO FUNCIONA?
           </h2>
-          <p className="text-[#00277C] font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-ink font-sans text-sm sm:text-base max-w-lg mx-auto">
             Un proceso simple, transparente y diseñado milimétricamente para maximizar tu productividad logística.
           </p>
-          <div className="h-1.5 w-16 bg-[#FFF12E] mx-auto rounded-full" />
+          <div className="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
         </div>
 
         {/* Steps Grid Bento Layout with Double Bezel */}

@@ -87,7 +87,7 @@ export default function FaqHero() {
             </h1>
 
             {/* Description */}
-            <p className="max-w-xl font-sans text-base sm:text-lg lg:text-xl text-white/90 leading-relaxed pl-4 border-l-4 border-brand-yellow-500">
+            <p className="max-w-xl font-sans text-base sm:text-lg lg:text-xl text-white/90 leading-relaxed">
               Buscá por palabra clave o elegí una categoría. Si no está, te respondemos por WhatsApp en minutos.
             </p>
 

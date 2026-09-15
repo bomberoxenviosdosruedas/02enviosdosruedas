@@ -48,21 +48,21 @@ export default function EmprendedoresFeatures() {
 
           {/* Header column (Left) */}
           <div className="lg:col-span-5 space-y-6 text-left">
-            <span className="-rotate-1 inline-block px-4 py-1.5 bg-[#0950F6] text-[#FFF12E] rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
+            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
               SOLUCIONES PAQUETERÍA E-COMMERCE
             </span>
 
-            <h2 className="text-[#0950F6] text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98] border-l-4 border-[#FFF12E] pl-4">
+            <h2 className="text-brand-blue-700 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
               LOGÍSTICA 3PL <br />
-              <span className="text-[#052C87] bg-[#FFF12E] px-2 py-0.5 inline-block mt-1 font-bold">Y PAQUETERÍA E-COMMERCE</span>
+              <span className="text-brand-blue-900 bg-brand-yellow-500 px-2 py-0.5 inline-block mt-1 font-bold -rotate-1">Y PAQUETERÍA E-COMMERCE</span>
             </h2>
 
-            <p className="text-[#00277C] text-base leading-relaxed font-sans">
+            <p className="text-brand-ink text-base leading-relaxed font-sans">
               Especialistas en paquetería e-commerce y logística 3PL en Mar del Plata. Almacenamos tus productos pequeños o medianos en Friuli 1972, realizamos picking por QR y despachamos en el día o 24hs con la tarifa más competitiva.
             </p>
 
-            <div className="pt-4 flex items-center gap-3.5 text-sm text-[#0950F6] font-bold uppercase tracking-wider font-subheading">
-              <Landmark className="h-5 w-5 text-[#FFF12E] shrink-0 fill-current" />
+            <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-blue-700 font-bold uppercase tracking-wider font-subheading">
+              <Landmark className="h-5 w-5 text-brand-yellow-500 shrink-0 fill-current" />
               <span>PAQUETERÍA Y LOGÍSTICA B2B MAR DEL PLATA</span>
             </div>
           </div>

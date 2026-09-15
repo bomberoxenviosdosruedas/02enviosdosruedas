@@ -84,7 +84,7 @@ export default function NewsletterSubscribe() {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="p-2.5 bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 rounded-full w-fit">
-                      <CheckCircle2 className="h-6 w-6 text-[#0950F6] animate-bounce" />
+                      <CheckCircle2 className="h-6 w-6 text-brand-blue-500 animate-pulse-subtle" />
                     </div>
                     <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue-700 leading-none">
                       ¡Suscripción Exitosa!

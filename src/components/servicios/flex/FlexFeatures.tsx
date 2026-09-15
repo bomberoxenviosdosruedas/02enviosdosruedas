@@ -47,21 +47,21 @@ export default function FlexFeatures() {
 
           {/* Header column (Left) */}
           <div className="lg:col-span-5 space-y-6 text-left">
-            <span className="-rotate-1 inline-block px-4 py-1.5 bg-[#0950F6] text-[#FFF12E] rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-sm">
+            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-sm">
               MERCADOLIBRE EXPERTS
             </span>
 
-            <h2 className="text-[#0950F6] text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98] border-l-4 border-[#FFF12E] pl-4">
+            <h2 className="text-brand-blue-700 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
               DOMINÁ TUS VENTAS <br />
-              <span className="text-[#052C87] bg-[#FFF12E] px-2 py-0.5 inline-block mt-1 font-bold">CON ENVÍOS FLEX</span>
+              <span className="text-brand-blue-900 bg-brand-yellow-500 px-2 py-0.5 inline-block mt-1 font-bold -rotate-1">CON ENVÍOS FLEX</span>
             </h2>
 
-            <p className="text-[#00277C] text-base leading-relaxed font-sans">
+            <p className="text-brand-ink text-base leading-relaxed font-sans">
               Somos el aliado estratégico definitivo para vendedores de MercadoLibre en Mar del Plata. Optimizamos tus Envíos Same-Day Mar del Plata para que vos solo te preocupes por publicar, atender clientes y vender más de lo que imaginás.
             </p>
 
-            <div className="pt-4 flex items-center gap-3.5 text-sm text-[#0950F6] font-bold uppercase tracking-wider font-subheading">
-              <Truck className="h-5 w-5 text-[#FFF12E] shrink-0 fill-current" />
+            <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-blue-700 font-bold uppercase tracking-wider font-subheading">
+              <Truck className="h-5 w-5 text-brand-yellow-500 shrink-0 fill-current" />
               <span>COBERTURA TOTAL EN MAR DEL PLATA</span>
             </div>
           </div>
