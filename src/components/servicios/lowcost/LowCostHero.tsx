@@ -71,7 +71,7 @@ export default function LowCostHero() {
                 href="/cotizar/lowcost"
                 id="lowcost-hero-cta-cotizar"
                 variant="primary"
-                size="lg"
+                size="large"
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Cotizá tu lote LowCost
@@ -81,7 +81,7 @@ export default function LowCostHero() {
                 href="https://wa.me/542236602699"
                 id="lowcost-hero-cta-whatsapp"
                 variant="elevated"
-                size="lg"
+                size="large"
                 icon={<Phone className="h-4 w-4" />}
               >
                 Hablar por WhatsApp
