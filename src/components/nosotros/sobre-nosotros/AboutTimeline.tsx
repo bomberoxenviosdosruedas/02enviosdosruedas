@@ -47,9 +47,9 @@ export default function AboutTimeline() {
   return (
     <section
       id="about-timeline"
-      className="py-20 sm:py-24 bg-[#F8FAFC] relative overflow-hidden border-t border-brand-blue-100/50"
+      className="py-20 sm:py-24 bg-brand-white-50 relative overflow-hidden border-t border-brand-blue-100/50"
     >
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#0950F6]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Block */}
@@ -100,10 +100,10 @@ export default function AboutTimeline() {
                   >
                     <div className="rounded-[20px] bg-white p-5 sm:p-6 border border-brand-blue-50/50 shadow-sm text-brand-blue-700 flex flex-col space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="font-mono text-3xl sm:text-4xl text-[#0950F6] font-bold leading-none tabular-nums">
+                        <span className="font-mono text-3xl sm:text-4xl text-brand-blue-500 font-bold leading-none tabular-nums">
                           {milestone.year}
                         </span>
-                        <span className="px-2.5 py-0.5 rounded-md bg-brand-yellow-50 text-[10px] font-mono text-[#052C87] font-bold uppercase border border-brand-yellow-200 transform -rotate-1">
+                        <span className="px-2.5 py-0.5 rounded-md bg-brand-yellow-50 text-[10px] font-mono text-brand-blue-900 font-bold uppercase border border-brand-yellow-200 transform -rotate-1">
                           Hito MDQ
                         </span>
                       </div>

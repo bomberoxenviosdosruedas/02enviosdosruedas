@@ -27,10 +27,10 @@ export default function AboutValues() {
   return (
     <section 
       id="about-values" 
-      className="py-20 sm:py-24 bg-[#052C87] text-white relative z-10 overflow-hidden border-t border-white/10"
+      className="py-20 sm:py-24 bg-brand-blue-900 text-white relative z-10 overflow-hidden border-t border-white/10"
     >
       {/* Background ambient radial glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0950F6]/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-blue-500/20 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -61,11 +61,11 @@ export default function AboutValues() {
           >
             <div className="rounded-[20px] bg-white p-7 sm:p-10 border border-brand-blue-50/50 shadow-sm flex flex-col gap-6 text-brand-blue-700 h-full justify-between">
               <div className="w-14 h-14 bg-brand-blue-50 text-brand-blue-700 rounded-2xl flex items-center justify-center border border-brand-blue-100">
-                <ShieldCheck className="h-7 w-7 text-[#0950F6]" />
+                <ShieldCheck className="h-7 w-7 text-brand-blue-500" />
               </div>
 
               <div className="space-y-3">
-                <span className="text-xs font-subheading uppercase tracking-wider text-[#052C87] font-bold bg-brand-yellow-500 px-3 py-1 rounded-full w-fit transform -rotate-1 inline-block">
+                <span className="text-xs font-subheading uppercase tracking-wider text-brand-blue-900 font-bold bg-brand-yellow-500 px-3 py-1 rounded-full w-fit transform -rotate-1 inline-block">
                   Pilar de Confianza
                 </span>
                 <h3 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
@@ -95,7 +95,7 @@ export default function AboutValues() {
                   >
                     <div className="rounded-[20px] bg-white p-6 sm:p-7 border border-brand-blue-50/50 shadow-sm flex flex-col gap-4 text-brand-blue-700 h-full justify-between">
                       <div className="w-11 h-11 bg-brand-blue-50 text-brand-blue-700 rounded-xl flex items-center justify-center border border-brand-blue-100 shrink-0">
-                        <Icon className="h-5 w-5 text-[#0950F6]" />
+                        <Icon className="h-5 w-5 text-brand-blue-500" />
                       </div>
 
                       <div className="space-y-1.5">

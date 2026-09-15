@@ -53,7 +53,7 @@ export default function CotizadorLowCostHero() {
   return (
     <section
       id="cotizador-lowcost-hero"
-      className="relative w-full overflow-hidden bg-[#0950F6] text-white min-h-[72vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-white/10"
+      className="relative w-full overflow-hidden bg-brand-blue-500 text-white min-h-[72vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-white/10"
     >
       {/* Dynamic Procedural Background */}
       <HeroProceduralBackground variant="lowcost" />
@@ -69,15 +69,15 @@ export default function CotizadorLowCostHero() {
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
             {/* Glowing Pill Badge with velocity tilt */}
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-wider bg-[#052C87]/90 text-[#FFF12E] border-2 border-[#FFF12E]/50 -rotate-1 shadow-glow-yellow backdrop-blur-md">
-              <ShoppingBag className="h-4 w-4 text-[#FFF12E] shrink-0" />
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-wider bg-brand-blue-900/90 text-brand-yellow-500 border-2 border-brand-yellow-500/50 -rotate-1 shadow-glow-yellow backdrop-blur-md">
+              <ShoppingBag className="h-4 w-4 text-brand-yellow-500 shrink-0" />
               <span>SERVICIO ECONÓMICO Y PROGRAMADO</span>
             </div>
 
             {/* Monumental Headline */}
             <h1 className="text-5xl sm:text-6xl lg:text-[4.75rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.92] text-white">
               <span>COTIZÁ TU </span>
-              <span className="text-[#FFF12E] drop-shadow-[0_2px_16px_rgba(255,241,46,0.4)]">
+              <span className="text-brand-yellow-500 drop-shadow-[0_2px_16px_rgba(255,236,1,0.4)]">
                 ENVÍO{' '}
               </span>
               <span className="block sm:inline">LOWCOST</span>
@@ -90,18 +90,18 @@ export default function CotizadorLowCostHero() {
 
             {/* Feature Pills Row */}
             <div className="flex flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start pt-2">
-              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-[#052C87]/80 border border-white/20 text-white backdrop-blur-sm">
-                <Percent className="h-4 w-4 text-[#FFF12E] shrink-0" />
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-900/80 border border-white/20 text-white backdrop-blur-sm">
+                <Percent className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                 <span>Hasta 40% de Ahorro</span>
               </div>
 
-              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-[#052C87]/80 border border-white/20 text-white backdrop-blur-sm">
-                <Truck className="h-4 w-4 text-[#FFF12E] shrink-0" />
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-900/80 border border-white/20 text-white backdrop-blur-sm">
+                <Truck className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                 <span>Entrega Same-Day</span>
               </div>
 
-              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-[#052C87]/80 border border-white/20 text-white backdrop-blur-sm">
-                <ShieldCheck className="h-4 w-4 text-[#FFF12E] shrink-0" />
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-900/80 border border-white/20 text-white backdrop-blur-sm">
+                <ShieldCheck className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                 <span>Tarifa Plana PyME</span>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function CotizadorLowCostHero() {
             {/* Double Bezel Outer Frame */}
             <div className="p-2.5 sm:p-3 rounded-[28px] sm:rounded-[30px] bg-white/10 border border-white/20 shadow-2xl backdrop-blur-md">
               {/* Inner Midnight Card */}
-              <div className="bg-[#052C87] rounded-[20px] p-6 sm:p-8 text-white border border-white/10 shadow-lg space-y-6">
+              <div className="bg-brand-blue-900 rounded-[20px] p-6 sm:p-8 text-white border border-white/10 shadow-lg space-y-6">
                 
                 {/* Header */}
                 <div className="flex items-start justify-between border-b border-white/15 pb-4">
@@ -125,11 +125,11 @@ export default function CotizadorLowCostHero() {
                     <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white leading-none">
                       CÁLCULO AUTOMÁTICO
                     </h3>
-                    <p className="font-subheading text-[11px] sm:text-xs uppercase tracking-widest text-[#FFF12E] mt-1 font-bold">
+                    <p className="font-subheading text-[11px] sm:text-xs uppercase tracking-widest text-brand-yellow-500 mt-1 font-bold">
                       SISTEMA LOWCOST BATCH
                     </p>
                   </div>
-                  <div className="p-2 rounded-xl bg-white/10 border border-white/20 text-[#FFF12E] shrink-0">
+                  <div className="p-2 rounded-xl bg-white/10 border border-white/20 text-brand-yellow-500 shrink-0">
                     <Calculator className="h-5 w-5" />
                   </div>
                 </div>
@@ -141,12 +141,12 @@ export default function CotizadorLowCostHero() {
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.25 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                     className="space-y-4"
                   >
                     {/* ORIGEN */}
                     <div className="flex items-center justify-between py-1.5 border-b border-white/10">
-                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-[#FFF12E]">
+                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-yellow-500">
                         ORIGEN
                       </span>
                       <span className="font-sans text-xs sm:text-sm font-semibold text-white text-right truncate max-w-[210px]">
@@ -156,7 +156,7 @@ export default function CotizadorLowCostHero() {
 
                     {/* DESTINO */}
                     <div className="flex items-center justify-between py-1.5 border-b border-white/10">
-                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-[#FFF12E]">
+                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-yellow-500">
                         DESTINO
                       </span>
                       <span className="font-sans text-xs sm:text-sm font-semibold text-white text-right truncate max-w-[210px]">
@@ -166,7 +166,7 @@ export default function CotizadorLowCostHero() {
 
                     {/* DISTANCIA */}
                     <div className="flex items-center justify-between py-1.5 border-b border-white/15">
-                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-[#FFF12E]">
+                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-yellow-500">
                         DISTANCIA
                       </span>
                       <span className="font-mono text-xs sm:text-sm font-bold text-white tabular-nums">
@@ -179,7 +179,7 @@ export default function CotizadorLowCostHero() {
                       <span className="font-subheading text-sm uppercase tracking-wider font-bold text-white">
                         TARIFA FINAL
                       </span>
-                      <span className="font-mono text-xl sm:text-2xl font-bold text-[#FFF12E] tabular-nums">
+                      <span className="font-mono text-xl sm:text-2xl font-bold text-brand-yellow-500 tabular-nums">
                         {currentTrip.tarifa}
                       </span>
                     </div>
@@ -188,7 +188,7 @@ export default function CotizadorLowCostHero() {
 
                 {/* Centered Yellow Badge */}
                 <div className="pt-3 flex justify-center">
-                  <span className="px-4 py-1.5 rounded-full border border-[#FFF12E]/40 bg-[#FFF12E]/10 text-[#FFF12E] font-subheading text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                  <span className="px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-brand-yellow-500/10 text-brand-yellow-500 font-subheading text-[11px] font-bold uppercase tracking-wider shadow-sm">
                     ENTREGA INCLUIDA EN EL DÍA
                   </span>
                 </div>
