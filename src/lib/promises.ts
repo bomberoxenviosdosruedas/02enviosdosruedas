@@ -31,5 +31,4 @@ export const OPERATING_HOURS = {
 
 // Canales de contacto oficiales unificados (BL-19)
 export const CONTACT_EMAIL = 'matiascejas@enviosdosruedas.com';
-export const DEV_EMAIL = 'dev@enviosdosruedas.com.ar';
 export const SUPPORT_PHONE = '+54 223 660-2699';

@@ -6,7 +6,7 @@ import RevisarClient from './RevisarClient';
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Panel de Revisión de Contenidos | Envíos DosRuedas',
+  title: 'Panel de Revisión de Contenidos',
   description: 'Panel exclusivo para que el dueño de la empresa revise, proponga modificaciones de textos, imágenes y guarde los ajustes en tiempo real.',
   alternates: {
     canonical: `${baseUrl}/revisar`,

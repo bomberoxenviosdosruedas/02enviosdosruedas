@@ -15,10 +15,10 @@ Leyenda de estado: `Pendiente` (nada hecho todavía) · `Specs listos` (tiene ha
 | Tarea | BL | Estado | IDs de origen | Bloqueado por |
 |---|---|---|---|---|
 | Redirecciones 301 + bloqueo del duplicado en Vercel | BL-01 | Completado | DC (D-3), CAMP-04 | — |
-| Metadata global, horarios reales en JSON-LD | BL-02 | En curso | D-9, CAMP-04, MARCA-01, GEO-02 | — (Resuelto 2026-09-18) |
-| Constantes únicas de promesa de tiempo/umbral | BL-03 | Specs listos | DC-03, DC-13, CAMP-06 | — (Resuelto 2026-09-18) |
-| Contadores con valor final en SSR | BL-04 | Specs listos | DC-07/08/09, A11Y-09/10, CAMP-07 | — |
-| Unificar email de contacto público | BL-19 | Specs listos | MARCA-02 | — (Resuelto 2026-09-18) |
+| Metadata global, horarios reales en JSON-LD | BL-02 | Completado | D-9, CAMP-04, MARCA-01, GEO-02 | — (Resuelto 2026-09-18) |
+| Constantes únicas de promesa de tiempo/umbral | BL-03 | Completado | DC-03, DC-13, CAMP-06 | — (Resuelto 2026-09-18) |
+| Contadores con valor final en SSR | BL-04 | Completado | DC-07/08/09, A11Y-09/10, CAMP-07 | — |
+| Unificar email de contacto público | BL-19 | Completado | MARCA-02 | — (Resuelto 2026-09-18) |
 
 ### Sprint 2 — SEO técnico + accesibilidad crítica del flujo de conversión
 
