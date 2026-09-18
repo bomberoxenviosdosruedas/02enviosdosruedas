@@ -13,3 +13,18 @@ Protocolo obligatorio del proyecto — leer y respetar en toda tarea:
 - `pnpm test` — Vitest
 
 Gestor de paquetes: **pnpm únicamente** (nunca npm ni yarn).
+
+## Agent skills
+
+### Issue tracker
+
+Local markdown tracker integrado con el backlog de `docs/marketing/` y `.scratch/`. Ver `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Etiquetas canónicas de triage (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`) mapeadas al estado de `docs/marketing/TASKS.md`. Ver `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context repo con `CONTEXT.md` en la raíz (vinculado con `docs/marketing/glosario.md` y `docs/marketing/decisiones.md`) y `docs/adr/`. Ver `docs/agents/domain.md`.
+
