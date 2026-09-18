@@ -61,7 +61,7 @@ export default function OptimizedHeader() {
         { label: 'Envíos Express', href: '/servicios/envios-express', icon: Zap },
         { label: 'Envíos LowCost', href: '/servicios/envios-lowcost', icon: TrendingDown },
         { label: 'Envíos Flex (MeLi)', href: '/servicios/enviosflex', icon: Clock },
-        { label: 'E-Commerce & 3PL', href: '/servicios/plan-emprendedores', icon: ShoppingBag },
+        { label: 'Depósito & Fulfillment', href: '/servicios/deposito-fulfillment', icon: ShoppingBag },
       ],
     },
     {
@@ -139,8 +139,8 @@ export default function OptimizedHeader() {
                 transition={{ type: 'spring', stiffness: 500, damping: 18 }}
               >
                 <Image
-                  src="/logo-envios-simplified.webp"
-                  alt="Isotipo Envíos Dos Ruedas"
+                  src="/logo-master.svg"
+                  alt="Logo Envíos Dos Ruedas"
                   fill={true}
                   className="object-contain"
                   priority

@@ -15,7 +15,7 @@ export default function FlexBenefits() {
     },
     {
       title: 'Reputación Intacta',
-      desc: 'Cumplimos con rigor tus acuerdos de nivel de servicio (SLAs) para que mantengas tu estatus de MercadoLíder sin sobresaltos.',
+      desc: 'Cumplimos rigurosamente los tiempos de entrega pactados para que mantengas tu estatus de MercadoLíder sin sobresaltos.',
       icon: Award,
     },
     {

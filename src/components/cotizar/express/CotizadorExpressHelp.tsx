@@ -63,10 +63,11 @@ export default function CotizadorExpressHelp() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             href="tel:+542236602699"
-            className="group min-h-[52px] inline-flex items-center justify-between bg-[#25D366] hover:bg-[#20bd5a] text-white font-subheading font-bold tracking-wider text-sm uppercase px-6 py-3.5 rounded-full shadow-lg transition-all"
+            aria-label="Llamanos al teléfono 223 660-2699"
+            className="group min-h-[52px] inline-flex items-center justify-between bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold tracking-wider text-sm uppercase px-6 py-3.5 rounded-full shadow-cta-glow transition-all"
           >
-            <span>Llamanos: <span className="font-mono text-white tabular-nums">223 660-2699</span></span>
-            <span className="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
+            <span>Llamanos: <span className="font-mono text-brand-blue-900 font-black tabular-nums">223 660-2699</span></span>
+            <span className="w-8 h-8 rounded-full bg-brand-blue-900/10 text-brand-blue-900 flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
               <PhoneCall className="h-4 w-4" />
             </span>
           </motion.a>

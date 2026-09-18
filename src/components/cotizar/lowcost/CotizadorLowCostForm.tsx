@@ -8,6 +8,8 @@ import DynamicRouteMap from '../../ui/DynamicRouteMap';
 import { useGoogleRoute, type Coordinate } from '@/src/hooks/useGoogleRoute';
 import { type PriceRangeProp } from '@/src/lib/pricing';
 import { calculateQuoteAction, type QuoteState } from '@/src/actions/quote';
+import { trackAnalytics } from '@/src/lib/analytics';
+import { buildWhatsAppUrl } from '@/src/lib/whatsapp';
 
 export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges?: PriceRangeProp[] }) {
   const [origen, setOrigen] = useState('');
@@ -27,10 +29,19 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
     distancia: number;
     precio: number | 'consultar';
   } | null>(null);
+  const [quoteId, setQuoteId] = useState<string | null>(null);
 
   const { fetchRoute } = useGoogleRoute();
   const shouldReduceMotion = useReducedMotion();
   const initialState: QuoteState = { success: false, price: null, error: null };
+  const hasTrackedStart = React.useRef(false);
+
+  const handleInputFocus = () => {
+    if (!hasTrackedStart.current) {
+      hasTrackedStart.current = true;
+      trackAnalytics.quoteStart('lowcost');
+    }
+  };
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,12 +78,42 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
         return;
       }
 
+      const newQuoteId = `DR-${Math.floor(1000 + Math.random() * 9000)}`;
+      setQuoteId(newQuoteId);
+
       setResult({
         distancia: route.distanceKm,
         precio: actionResult.price!,
       });
       setCalculated(true);
       setIsCalculating(false);
+
+      if (typeof window !== 'undefined') {
+        try {
+          sessionStorage.setItem('last_quote_id', newQuoteId);
+          sessionStorage.setItem('last_quote_data', JSON.stringify({
+            id: newQuoteId,
+            service: 'LOW_COST',
+            distancia: route.distanceKm,
+            precio: actionResult.price,
+            origen,
+            destino,
+            nombre,
+            telefono,
+            producto,
+            timestamp: new Date().toISOString(),
+          }));
+        } catch {
+          // Session storage fallback
+        }
+      }
+
+      trackAnalytics.quoteComplete({
+        service: 'lowcost',
+        distanceKm: route.distanceKm,
+        priceArs: actionResult.price!,
+        result: actionResult.price === 'consultar' ? 'consultar' : 'price',
+      });
     });
   };
 
@@ -80,6 +121,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
     if (!result) return '#';
     const priceText = result.precio === 'consultar' ? 'A convenir (Excede radio estándar)' : `$${result.precio.toLocaleString('es-AR')}`;
     const text = `¡Hola Envíos DosRuedas! Quiero coordinar un Envío LowCost cotizado en la web:
+🆔 *Cotización N°:* #${quoteId || 'WEB'}
 👤 *Nombre:* ${nombre}
 📞 *Teléfono:* ${telefono}
 📦 *Producto:* ${producto}
@@ -87,7 +129,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
 🏁 *Destino:* ${destino}
 📏 *Distancia:* ${result.distancia} km
 💵 *Tarifa LowCost 2026:* ${priceText}`;
-    return `https://wa.me/542236602699?text=${encodeURIComponent(text)}`;
+    return buildWhatsAppUrl({ message: text, source: 'cotizador_lowcost' });
   };
 
   return (
@@ -114,7 +156,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
               </p>
             </div>
 
-            <form onSubmit={handleCalculate} className="space-y-4">
+            <form onSubmit={handleCalculate} onFocus={handleInputFocus} className="space-y-4">
               {/* Origen */}
               <div className="space-y-1.5">
                 <label htmlFor="origen-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-white/90 flex items-center gap-1.5">
@@ -243,16 +285,50 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
 
           {/* Dynamic Results Display */}
           <div className="mt-6 relative z-10">
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
+              {/* Error Message with role alert (BL-07) */}
+              {error && (
+                <motion.div
+                  role="alert"
+                  aria-live="assertive"
+                  initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  className="p-3 bg-red-500/20 border border-red-500/40 rounded-xl flex items-center gap-2 text-red-200 text-xs font-sans"
+                >
+                  <AlertTriangle className="h-4 w-4 shrink-0 text-red-400" />
+                  <span>{error}</span>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Price Result with Accessible Live Region (BL-07) */}
+            <AnimatePresence>
               {calculated && result && (
                 <motion.div
-                  initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
+                  role="region"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 10 }}
                   animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
                   exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
                   transition={shouldReduceMotion ? { duration: 0.15 } : { type: 'spring', stiffness: 100, damping: 20 }}
                   className="rounded-[20px] bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-xl w-full"
                 >
+                  <span className="sr-only">
+                    {result.precio === 'consultar'
+                      ? `Distancia calculada: ${result.distancia} km. Excede el radio estándar de 20 km, solicitar cotización personalizada.`
+                      : `Tarifa calculada: ${result.precio} pesos para una distancia de ${result.distancia} kilómetros.`}
+                  </span>
                   <div className="bg-brand-blue-900 p-5 rounded-xl border border-white/10 space-y-4 text-white">
+                    {quoteId && (
+                      <div className="flex items-center justify-between text-xs pb-2 border-b border-white/10">
+                        <span className="font-mono text-[11px] text-white/70">ID de Seguimiento:</span>
+                        <span className="font-mono text-xs px-2.5 py-0.5 rounded-full bg-brand-yellow-500/20 text-brand-yellow-400 font-bold border border-brand-yellow-500/30 tabular-nums">
+                          #{quoteId}
+                        </span>
+                      </div>
+                    )}
                     <div className="grid grid-cols-2 gap-3 text-center">
                       <div className="bg-white/5 p-3 rounded-xl border border-white/15">
                         <span className="block text-[10px] font-subheading font-bold text-brand-yellow-500 uppercase tracking-wider">
@@ -280,7 +356,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                         <div className="flex items-baseline gap-1.5 mt-0.5">
                           {result.precio === 'consultar' ? (
                             <span className="text-lg font-subheading text-white uppercase tracking-wider">
-                              A Consultar (+15 km)
+                              A Consultar (&gt; 20 km)
                             </span>
                           ) : (
                             <>
@@ -306,9 +382,10 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
                           href={getWhatsAppLink()}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => trackAnalytics.whatsappClick('cotizador_lowcost_resultado')}
                           className="group w-full sm:w-auto min-h-[52px] inline-flex items-center justify-between bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold text-sm tracking-wider uppercase px-5 py-3 rounded-full shadow-cta-glow transition-all active:scale-[0.98]"
                         >
-                          <span>Pedir por WhatsApp</span>
+                          <span>Pedí por WhatsApp</span>
                           <span className="w-7 h-7 rounded-full bg-brand-blue-900/10 text-brand-blue-900 flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
                             <CheckCircle2 className="h-4 w-4" />
                           </span>

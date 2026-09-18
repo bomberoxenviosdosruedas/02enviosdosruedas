@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 
 export default function FlexHero() {
-  const [activeTab, setActiveTab] = useState<'ventajas' | 'integracion'>('ventajas');
+  const [activeTab, setActiveTab] = useState<'ventajas' | 'integracion' | 'tarifas'>('ventajas');
 
   return (
     <section
@@ -61,8 +61,18 @@ export default function FlexHero() {
 
             {/* Description - Distilled without border-l-2 */}
             <p className="text-base sm:text-lg lg:text-xl font-sans text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-              Líderes en envíos flex, reparto MercadoLibre y logística flex en Mar del Plata. SLA real con 100% de entregas en el día antes de las 20:00 hs para proteger la reputación de MercadoLíder. Horario de corte 15:00 hs y múltiples retiros diarios sin mínimos de paquetes.
+              Líderes en envíos flex, reparto MercadoLibre y logística flex en Mar del Plata. Compromiso real con 100% de entregas en el día antes de las 20:00 hs para proteger tu reputación de MercadoLíder. Horario de corte 15:00 hs y múltiples retiros diarios sin mínimos de paquetes.
             </p>
+
+            {/* Rates Highlight Above The Fold */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-brand-blue-900/80 border border-brand-yellow-500/40 text-xs font-mono text-brand-yellow-500">
+              <span className="font-bold uppercase text-white">Tarifas Flex 2026:</span>
+              <span>desde $3.000 (Z1)</span>
+              <span className="text-white/40">|</span>
+              <a href="#flex-pricing" className="underline hover:text-white transition-colors">
+                Ver todos los niveles ↓
+              </a>
+            </div>
 
             {/* CTAs Unified with CTANestedPill */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
@@ -73,7 +83,7 @@ export default function FlexHero() {
                 size="large"
                 icon={<ArrowRight className="h-4 w-4" />}
               >
-                Activar Envíos Flex
+                Activá Envíos Flex
               </CTANestedPill>
 
               <CTANestedPill
@@ -85,7 +95,7 @@ export default function FlexHero() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Contactar Asesor Flex
+                Contactá un asesor
               </CTANestedPill>
             </div>
 
@@ -136,35 +146,47 @@ export default function FlexHero() {
                     </span>
                   </div>
                   <span className="font-mono text-xs font-bold bg-brand-blue-50 text-brand-blue-700 px-2.5 py-1 rounded-lg border border-brand-blue-100">
-                    SLA 100%
+                    PUNTUALIDAD 100%
                   </span>
                 </div>
 
-                {/* Interactive Segmented Toggle */}
-                <div className="grid grid-cols-2 p-1 bg-brand-blue-50 rounded-xl border border-brand-blue-100">
+                {/* Interactive Segmented Toggle (3 tabs: Ventajas | Proceso | Tarifas 2026) */}
+                <div className="grid grid-cols-3 p-1 bg-brand-blue-50 rounded-xl border border-brand-blue-100">
                   <button
                     type="button"
                     onClick={() => setActiveTab('ventajas')}
-                    className={`py-2 px-3 rounded-lg text-xs font-subheading uppercase tracking-wider font-bold transition-all min-h-[44px] cursor-pointer flex items-center justify-center gap-1.5 ${
+                    className={`py-2 px-2 rounded-lg text-[11px] font-subheading uppercase tracking-wider font-bold transition-all min-h-[44px] cursor-pointer flex items-center justify-center gap-1 ${
                       activeTab === 'ventajas'
                         ? 'bg-brand-blue-700 text-brand-yellow-500 shadow-sm'
                         : 'text-brand-blue-700 hover:bg-white/60'
                     }`}
                   >
                     <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                    <span>Ventajas MercadoLíder</span>
+                    <span>Ventajas</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setActiveTab('integracion')}
-                    className={`py-2 px-3 rounded-lg text-xs font-subheading uppercase tracking-wider font-bold transition-all min-h-[44px] cursor-pointer flex items-center justify-center gap-1.5 ${
+                    className={`py-2 px-2 rounded-lg text-[11px] font-subheading uppercase tracking-wider font-bold transition-all min-h-[44px] cursor-pointer flex items-center justify-center gap-1 ${
                       activeTab === 'integracion'
                         ? 'bg-brand-blue-700 text-brand-yellow-500 shadow-sm'
                         : 'text-brand-blue-700 hover:bg-white/60'
                     }`}
                   >
                     <QrCode className="w-3.5 h-3.5 shrink-0" />
-                    <span>Proceso QR</span>
+                    <span>Proceso</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab('tarifas')}
+                    className={`py-2 px-2 rounded-lg text-[11px] font-subheading uppercase tracking-wider font-bold transition-all min-h-[44px] cursor-pointer flex items-center justify-center gap-1 ${
+                      activeTab === 'tarifas'
+                        ? 'bg-brand-blue-700 text-brand-yellow-500 shadow-sm'
+                        : 'text-brand-blue-700 hover:bg-white/60'
+                    }`}
+                  >
+                    <Zap className="w-3.5 h-3.5 shrink-0" />
+                    <span>Tarifas</span>
                   </button>
                 </div>
 
@@ -252,6 +274,51 @@ export default function FlexHero() {
                           </div>
                           <p className="text-[11px] text-brand-ink/75 font-sans">
                             Entrega final antes de las 20:00 hs asegurando tu reputación.
+                          </p>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="tarifas"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.25 }}
+                        className="space-y-2.5"
+                      >
+                        <div className="p-2.5 rounded-xl bg-brand-blue-50/70 border border-brand-blue-100">
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs font-bold font-subheading uppercase text-brand-blue-900">
+                              Nivel 1 (1 a 4 envíos)
+                            </span>
+                            <span className="font-mono text-xs font-bold text-brand-blue-700">Desde $3.000</span>
+                          </div>
+                          <p className="text-[11px] font-sans text-brand-ink/80 mt-0.5">
+                            Z1 (0-3km) $3.000 · Z2 (3-5km) $4.000 · Z3 $5.300 · Z4 $7.000
+                          </p>
+                        </div>
+
+                        <div className="p-2.5 rounded-xl bg-brand-blue-50/70 border border-brand-blue-100">
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs font-bold font-subheading uppercase text-brand-blue-900">
+                              Nivel 2 Pro (5 a 10 envíos)
+                            </span>
+                            <span className="font-mono text-xs font-bold text-brand-blue-700">Tope $6.500</span>
+                          </div>
+                          <p className="text-[11px] font-sans text-brand-ink/80 mt-0.5">
+                            Z4 y Z5 con tope fijo a $6.500 y retiro bonificado sin cargo.
+                          </p>
+                        </div>
+
+                        <div className="p-2.5 rounded-xl bg-brand-yellow-500/15 border border-brand-yellow-400">
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs font-bold font-subheading uppercase text-brand-blue-900">
+                              Nivel 3 Elite (+10 envíos)
+                            </span>
+                            <span className="font-mono text-xs font-bold text-brand-blue-900">$4.500 Plana</span>
+                          </div>
+                          <p className="text-[11px] font-sans text-brand-blue-900 mt-0.5">
+                            Tarifa plana de $4.500 a toda la ciudad de Mar del Plata.
                           </p>
                         </div>
                       </motion.div>

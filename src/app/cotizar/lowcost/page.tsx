@@ -80,11 +80,12 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-      <div id="cotizar-lowcost-page" className="w-full bg-brand-blue-500 text-white min-h-screen relative overflow-hidden font-sans">
+      {/* Main outer container */}
+      <div id="cotizar-lowcost-page" className="w-full bg-brand-blue-500 text-white min-h-[100dvh] relative overflow-hidden font-sans">
         {/* Hero Section — Rendered and Streamed Immediately */}
         <CotizadorLowCostHero />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-24 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 sm:mt-0 pt-2 lg:pt-8 space-y-12 lg:space-y-16 pb-16 relative z-10">
           {/* 1. Main Quote Form Streamed with Suspense */}
           <main className="w-full font-sans">
             <Suspense fallback={<FormSkeleton />}>

@@ -20,7 +20,7 @@ export default function LowCostPricing() {
       scope: 'Hasta 3 km',
       price: '$3.000',
       description: 'La mejor tarifa para ruteo diario de cercanía.',
-      bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'SLA de entrega garantizada'],
+      bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'Entrega puntual garantizada en el día'],
       highlight: false,
     },
     {
@@ -28,7 +28,7 @@ export default function LowCostPricing() {
       scope: '3 a 5 km',
       price: '$4.000',
       description: 'Cobertura intermedia económica para PyMEs.',
-      bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'SLA de entrega garantizada'],
+      bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'Entrega puntual garantizada en el día'],
       highlight: true,
     },
     {
@@ -36,7 +36,7 @@ export default function LowCostPricing() {
       scope: '5 a 7 km',
       price: '$5.300',
       description: 'Llegamos a distancias medias al mejor costo.',
-      bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'SLA de entrega garantizada'],
+      bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'Entrega puntual garantizada en el día'],
       highlight: false,
     },
     {
@@ -44,7 +44,7 @@ export default function LowCostPricing() {
       scope: '7 a 10 km',
       price: '$7.000',
       description: 'Máximo ahorro en distancias urbanas largas.',
-      bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'SLA de entrega garantizada'],
+      bullets: ['Eficiencia en ruteo masivo', 'Corte de carga 13:00 hs', 'Entrega antes de las 19:00 hs', 'Entrega puntual garantizada en el día'],
       highlight: false,
     },
   ];

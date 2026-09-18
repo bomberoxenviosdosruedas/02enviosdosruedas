@@ -46,18 +46,19 @@ export default function FaqCta() {
                 No te preocupes. Nuestro equipo de soporte está listo para ayudarte de inmediato con cualquier consulta específica que tengas sobre nuestros servicios de mensajería y delivery.
               </p>
 
-              {/* CTA Buttons (WhatsApp en #25D366 exclusivo para soporte directo) */}
+              {/* CTA Buttons (WhatsApp con amarillo de marca oficial) */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full">
                 <a
                   href="https://wa.me/5492236602699?text=Hola,%20tengo%20una%20consulta%20que%20no%20encontr%C3%A9%20en%20las%20FAQ"
                   target="_blank"
                   rel="noopener noreferrer"
                   id="faq-cta-whatsapp"
-                  className="group min-h-[52px] px-8 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-subheading tracking-wider text-lg uppercase font-bold rounded-full flex items-center justify-center gap-3 shadow-lg transition-all duration-300 w-full sm:w-auto focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50"
+                  aria-label="Hablá por WhatsApp con soporte de Envíos DosRuedas"
+                  className="group min-h-[52px] px-8 py-3.5 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading tracking-wider text-lg uppercase font-bold rounded-full flex items-center justify-center gap-3 shadow-cta-glow transition-all duration-300 w-full sm:w-auto focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500/50"
                 >
                   <span>Hablá por WhatsApp</span>
-                  <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 shrink-0">
-                    <MessageSquare className="h-4.5 w-4.5 text-white fill-current" />
+                  <span className="w-8 h-8 rounded-full bg-brand-blue-900/10 text-brand-blue-900 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 shrink-0">
+                    <MessageSquare className="h-4.5 w-4.5 text-brand-blue-900 fill-current" />
                   </span>
                 </a>
 

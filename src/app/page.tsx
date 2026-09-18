@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import HeroAnimado from '@/src/components/home/HeroAnimado';
-import VisionSection from '@/src/components/home/VisionSection';
+import SegmentosHome from '@/src/components/home/SegmentosHome';
 import ServicesOverview from '@/src/components/home/ServicesOverview';
+import VisionSection from '@/src/components/home/VisionSection';
+import { LogosCarousel } from '@/src/components/ui/LogosCarousel';
 
 // Below-the-fold sections are dynamically loaded to minimize initial JS execution
 const SliderServicios = dynamic(() => import('@/src/components/home/SliderServicios'), {
@@ -50,7 +52,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div id="home-page-container" className="w-full bg-brand-white-50 text-brand-blue-700 min-h-screen relative overflow-hidden">
+    <div id="home-page-container" className="w-full bg-brand-white-50 text-brand-blue-700 min-h-[100dvh] relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
@@ -60,9 +62,9 @@ export default function Home() {
         <HeroAnimado />
       </section>
 
-      {/* 2. Brand Vision & Trust Metrics — Light Surface */}
+      {/* 2. Intent-Based Segments Grid (BL-26) */}
       <section className="relative z-10">
-        <VisionSection />
+        <SegmentosHome />
       </section>
 
       {/* 3. Logistics Services Overview — White Bento Grid Canvas */}
@@ -70,7 +72,17 @@ export default function Home() {
         <ServicesOverview />
       </section>
 
-      {/* 4. Tailored Solutions for Industries — Lazy Loaded Below-the-fold */}
+      {/* 4. Brand Vision & Trust Metrics — Light Surface */}
+      <section className="relative z-10">
+        <VisionSection />
+      </section>
+
+      {/* Partner & Logistics Hubs Carousel — Infinite Marquee (DESIGN.md signature component) */}
+      <section className="relative z-10 py-6 bg-brand-blue-50/60 border-y border-brand-blue-100/70">
+        <LogosCarousel />
+      </section>
+
+      {/* 5. Tailored Solutions for Industries — Lazy Loaded Below-the-fold */}
       <section className="relative z-10">
         <SliderServicios />
       </section>

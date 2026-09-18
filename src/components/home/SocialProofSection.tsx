@@ -299,10 +299,17 @@ export default function SocialProofSection() {
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12">
           <motion.div className="lg:col-span-8 space-y-4" variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#FFF12E] text-[#0950F6] rounded-full text-xs font-subheading font-bold tracking-widest uppercase shadow-glow-yellow border border-[#FFF12E]">
+            <a
+              href="https://share.google/ofw5wAQt3Fc1dArom"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#FFF12E] hover:bg-brand-yellow-400 text-[#0950F6] rounded-full text-xs font-subheading font-bold tracking-widest uppercase shadow-glow-yellow border border-[#FFF12E] transition-all cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0950F6]"
+              aria-label="Ver ficha y opiniones verificadas en Google Maps (se abre en nueva pestaña)"
+            >
               <Star className="w-3.5 h-3.5 fill-[#0950F6]" />
-              <span>5.0 / 5.0 en Google Maps · Calificación Perfecta</span>
-            </div>
+              <span>5.0 / 5.0 en Google Maps · Ver Reseñas</span>
+              <ExternalLink className="w-3 h-3 ml-0.5 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+            </a>
 
             <h2 className="text-[#0950F6] text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[0.98]">
               Reseñas Reales de Mar del Plata
@@ -357,31 +364,38 @@ export default function SocialProofSection() {
 
         {/* 3 Interactive Trust Metrics Strips (Double-Layered Glass Shells) */}
         <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10" variants={itemVariants}>
-          <motion.div
+          <motion.a
+            href="https://share.google/ofw5wAQt3Fc1dArom"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ver todas las opiniones verificadas en Google Maps (se abre en nueva pestaña)"
             whileHover={reduceMotion ? undefined : { y: -4, transition: snappySpring }}
-            className="p-2.5 rounded-[28px] bg-white/40 backdrop-blur-md border border-white/60 group shadow-xl hover:shadow-glow-yellow transition-shadow cursor-default"
+            className="p-2.5 rounded-[28px] bg-white/40 backdrop-blur-md border border-white/60 group shadow-xl hover:shadow-glow-yellow transition-all cursor-pointer block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0950F6]"
           >
-            <div className="bg-white p-5 rounded-[20px] border border-blue-100 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-[#FFF12E] text-[#0950F6] flex items-center justify-center shrink-0 shadow-glow-yellow">
-                <Star className="w-6 h-6 fill-[#0950F6]" />
-              </div>
-              <div>
-                <div className="flex items-center gap-1.5">
-                  <span className="font-mono text-2xl sm:text-3xl font-bold text-[#0950F6] tabular-nums">
-                    5.0
-                  </span>
-                  <div className="flex text-[#FFF12E]">
-                    {[1, 2, 3, 4, 5].map((s) => (
-                      <Star key={s} className="w-3 h-3 fill-current" />
-                    ))}
-                  </div>
+            <div className="bg-white p-5 rounded-[20px] border border-blue-100 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#FFF12E] text-[#0950F6] flex items-center justify-center shrink-0 shadow-glow-yellow">
+                  <Star className="w-6 h-6 fill-[#0950F6]" />
                 </div>
-                <p className="font-subheading text-[11px] uppercase tracking-wider text-blue-600 font-bold">
-                  15 Opiniones en Google Maps
-                </p>
+                <div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-mono text-2xl sm:text-3xl font-bold text-[#0950F6] tabular-nums">
+                      5.0
+                    </span>
+                    <div className="flex text-[#FFF12E]">
+                      {[1, 2, 3, 4, 5].map((s) => (
+                        <Star key={s} className="w-3 h-3 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="font-subheading text-[11px] uppercase tracking-wider text-blue-600 font-bold">
+                    Opiniones en Google Maps
+                  </p>
+                </div>
               </div>
+              <ExternalLink className="w-4 h-4 text-blue-400 group-hover:text-[#0950F6] group-hover:translate-x-0.5 transition-all shrink-0" />
             </div>
-          </motion.div>
+          </motion.a>
 
           <motion.div
             whileHover={reduceMotion ? undefined : { y: -4, transition: snappySpring }}
@@ -665,7 +679,7 @@ export default function SocialProofSection() {
         </motion.div>
 
         {/* Scroll Snap Pagination Dots */}
-        <motion.div className="flex justify-center items-center gap-1 mb-10" variants={itemVariants}>
+        <motion.div className="flex justify-center items-center gap-1 mb-12" variants={itemVariants}>
           {filteredReviews.map((_, idx) => (
             <div key={idx} className="min-w-[44px] min-h-[44px] flex items-center justify-center">
               <button
@@ -681,6 +695,104 @@ export default function SocialProofSection() {
               />
             </div>
           ))}
+        </motion.div>
+
+        {/* 3 Verified Local Customer Case Studies (Double Bezel Layout) */}
+        <motion.div className="mb-14" variants={itemVariants}>
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="font-mono text-xs font-bold text-brand-blue-700 uppercase bg-brand-blue-50 px-3 py-1 rounded-full border border-brand-blue-100">
+              CASOS DE ÉXITO REALES · MAR DEL PLATA
+            </span>
+            <h3 className="font-display text-2xl sm:text-3xl uppercase text-brand-blue-900 mt-2">
+              CÓMO IMPULSAMOS COMERCIOS Y EMPRENDIMIENTOS LOCALES
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Caso 1: Indumentaria Güemes */}
+            <div className="bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl">
+              <div className="bg-white p-5 rounded-xl border border-brand-blue-50/50 shadow-sm h-full flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="font-mono text-[11px] font-bold px-2 py-0.5 rounded bg-brand-yellow-500 text-brand-blue-900">
+                      ZONA GÜEMES
+                    </span>
+                    <span className="font-mono text-xs text-brand-blue-600">E-Commerce & Flex</span>
+                  </div>
+                  <h4 className="font-subheading text-lg font-bold uppercase text-brand-blue-900">
+                    Marca de Indumentaria & Calzado
+                  </h4>
+                  <p className="text-xs font-sans text-brand-ink/80 mt-2 leading-relaxed">
+                    <strong>Desafío:</strong> Sufrían demoras de 48 hs con correos tradicionales y reclamos de compradores en MercadoLibre.
+                  </p>
+                  <p className="text-xs font-sans text-brand-ink/80 mt-2 leading-relaxed">
+                    <strong>Solución:</strong> Integración de Mercado Envíos Flex y LowCost con retiros diarios a las 15:00 hs desde su local comercial.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-brand-blue-50">
+                  <span className="font-mono text-xs font-bold text-brand-blue-700 block">
+                    ✓ 100% entregas Same-Day y 0 reclamos en ML
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Caso 2: Autopartes Juan B. Justo */}
+            <div className="bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl">
+              <div className="bg-white p-5 rounded-xl border border-brand-blue-50/50 shadow-sm h-full flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="font-mono text-[11px] font-bold px-2 py-0.5 rounded bg-brand-blue-700 text-white">
+                      AV. JUAN B. JUSTO
+                    </span>
+                    <span className="font-mono text-xs text-brand-blue-600">Autopartes & Express</span>
+                  </div>
+                  <h4 className="font-subheading text-lg font-bold uppercase text-brand-blue-900">
+                    Distribuidora de Repuestos
+                  </h4>
+                  <p className="text-xs font-sans text-brand-ink/80 mt-2 leading-relaxed">
+                    <strong>Desafío:</strong> Talleres mecánicos con autos desarmados esperando repuestos urgentes y necesidad de cobro en efectivo.
+                  </p>
+                  <p className="text-xs font-sans text-brand-ink/80 mt-2 leading-relaxed">
+                    <strong>Solución:</strong> Envíos Express prioritarios en 60 a 90 min con servicio de contrarreembolso sin costo extra y rendición inmediata.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-brand-blue-50">
+                  <span className="font-mono text-xs font-bold text-brand-blue-700 block">
+                    ✓ +20 talleres con cuenta corriente quincenal
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Caso 3: Delicatesen Playa Grande / Alem */}
+            <div className="bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl">
+              <div className="bg-white p-5 rounded-xl border border-brand-blue-50/50 shadow-sm h-full flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="font-mono text-[11px] font-bold px-2 py-0.5 rounded bg-brand-yellow-500 text-brand-blue-900">
+                      PLAYA GRANDE / ALEM
+                    </span>
+                    <span className="font-mono text-xs text-brand-blue-600">Fulfillment 3PL</span>
+                  </div>
+                  <h4 className="font-subheading text-lg font-bold uppercase text-brand-blue-900">
+                    Alfajores & Delicatesen Artesanales
+                  </h4>
+                  <p className="text-xs font-sans text-brand-ink/80 mt-2 leading-relaxed">
+                    <strong>Desafío:</strong> Local saturado en temporada y envíos delicados a hoteles, casas de té y turistas.
+                  </p>
+                  <p className="text-xs font-sans text-brand-ink/80 mt-2 leading-relaxed">
+                    <strong>Solución:</strong> Almacenamiento en base Friuli 1972 con picking cuidadoso, empaquetado y despacho directo en el día.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-brand-blue-50">
+                  <span className="font-mono text-xs font-bold text-brand-blue-700 block">
+                    ✓ Despacho ágil sin congestión y 0 roturas
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Verification Link to Google Maps */}

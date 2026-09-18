@@ -93,16 +93,16 @@ export default function CarruselRedes() {
       url: 'https://wa.me/542236602699',
       icon: FaWhatsapp,
       badgeText: 'WHATSAPP DIRECTO',
-      // Estética propia WhatsApp (Emerald Green)
-      cardBg: 'bg-[#25D366]/10 hover:bg-[#25D366]/15',
-      cardBorder: 'border-[#25D366]/30 hover:border-[#25D366]/70',
-      badgeBg: 'bg-[#25D366]/20 text-[#25D366] border-[#25D366]/40',
-      iconBoxBg: 'bg-[#25D366] text-white shadow-lg shadow-[#25D366]/40',
-      handleColor: 'text-[#25D366]',
-      watermarkColor: 'text-[#25D366]/10 group-hover:text-[#25D366]/20',
-      btnBg: 'bg-[#25D366] hover:bg-[#20bd5a] text-brand-blue-950 font-bold shadow-md shadow-[#25D366]/30',
-      btnIconBg: 'bg-brand-blue-950/15 text-brand-blue-950',
-      glow: 'from-[#25D366]/20 to-transparent',
+      // Estética oficial Envíos DosRuedas (Brand Yellow & Navy Blue)
+      cardBg: 'bg-brand-yellow-500/10 hover:bg-brand-yellow-500/15',
+      cardBorder: 'border-brand-yellow-500/30 hover:border-brand-yellow-500/70',
+      badgeBg: 'bg-brand-yellow-500/20 text-brand-yellow-500 border-brand-yellow-500/40',
+      iconBoxBg: 'bg-brand-yellow-500 text-brand-blue-900 shadow-lg shadow-brand-yellow-500/30',
+      handleColor: 'text-brand-yellow-400',
+      watermarkColor: 'text-brand-yellow-500/10 group-hover:text-brand-yellow-500/20',
+      btnBg: 'bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-bold shadow-md shadow-brand-yellow-500/30',
+      btnIconBg: 'bg-brand-blue-900/15 text-brand-blue-900',
+      glow: 'from-brand-yellow-500/20 to-transparent',
     },
   ];
 

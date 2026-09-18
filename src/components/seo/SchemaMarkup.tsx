@@ -14,7 +14,7 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'Envíos DosRuedas',
   url: baseUrl,
-  logo: `${baseUrl}/LogoEnviosDosRuedas.png`,
+  logo: `${baseUrl}/logo-master.svg`,
   sameAs: [
     'https://www.instagram.com/enviosdosruedas',
     'https://www.facebook.com/enviosdosruedas',
@@ -34,7 +34,7 @@ const localBusinessSchema = {
   '@type': 'LocalBusiness',
   '@id': `${baseUrl}#localbusiness`,
   name: 'Envíos DosRuedas',
-  description: 'Mensajería y logística e-commerce en Mar del Plata. Envíos Express, LowCost, MercadoLibre Flex y soluciones 3PL para PyMEs.',
+  description: 'Mensajería y logística e-commerce en Mar del Plata. Envíos Express, LowCost, MercadoLibre Flex y soluciones de fulfillment para PyMEs.',
   url: baseUrl,
   telephone: '+54-223-660-2699',
   email: 'matiascejas@enviosdosruedas.com',
@@ -48,15 +48,21 @@ const localBusinessSchema = {
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: -38.0055,
-    longitude: -57.5426,
+    latitude: -38.0175,
+    longitude: -57.5683,
   },
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '08:00',
-      closes: '20:00',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday'],
+      opens: '10:00',
+      closes: '15:00',
     },
   ],
   areaServed: {
@@ -65,7 +71,7 @@ const localBusinessSchema = {
   },
   priceRange: '$$',
   currenciesAccepted: 'ARS',
-  paymentAccepted: 'Cash, Credit Card, Transfer, MercadoPago',
+  paymentAccepted: 'Cash, Transfer, MercadoPago',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Servicios de Logística y Mensajería',
@@ -75,7 +81,7 @@ const localBusinessSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Envíos Express',
-          description: 'Entregas prioritarias en menos de 2 horas en Mar del Plata.',
+          description: 'Entregas prioritarias en 60 a 90 minutos en Mar del Plata.',
           url: `${baseUrl}/servicios/envios-express`,
         },
       },
@@ -84,7 +90,7 @@ const localBusinessSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Envíos LowCost',
-          description: 'Envíos económicos con entrega garantizada en el día para PyMEs.',
+          description: 'Envíos económicos con entrega garantizada en el día antes de las 19:00 hs.',
           url: `${baseUrl}/servicios/envios-lowcost`,
         },
       },
@@ -93,7 +99,7 @@ const localBusinessSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Envíos Flex (MercadoLibre)',
-          description: 'Socio logístico certificado para Mercado Envíos Flex. Same-Day delivery.',
+          description: 'Servicio logístico adaptado a Mercado Envíos Flex con 100% cumplimiento en el día.',
           url: `${baseUrl}/servicios/enviosflex`,
         },
       },
@@ -101,9 +107,18 @@ const localBusinessSchema = {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Logística 3PL y Plan Emprendedores',
-          description: 'Almacenamiento, picking, packing y fulfillment para e-commerce.',
-          url: `${baseUrl}/servicios/plan-emprendedores`,
+          name: 'Depósito, Fulfillment y Logística E-Commerce',
+          description: 'Almacenamiento, picking, packing y despacho para e-commerce en Friuli 1972.',
+          url: `${baseUrl}/servicios/deposito-fulfillment`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Envíos a Contrareembolso',
+          description: 'Cobro en mano en destino sin comisión extra y rendición inmediata en el día.',
+          url: `${baseUrl}/servicios/envios-contrareembolso`,
         },
       },
     ],
@@ -139,7 +154,7 @@ export function SchemaMarkup({ type, data }: SchemaMarkupProps) {
           },
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
-            itemListElement: data.offers as unknown[] || [],
+            itemListElement: (data.offers as unknown[]) || [],
           },
         };
       }

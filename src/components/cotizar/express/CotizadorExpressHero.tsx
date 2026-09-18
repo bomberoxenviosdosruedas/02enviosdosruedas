@@ -53,7 +53,7 @@ export default function CotizadorExpressHero() {
   return (
     <section
       id="cotizador-express-hero"
-      className="relative w-full overflow-hidden bg-brand-blue-700 text-white min-h-[72vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-white/10"
+      className="relative w-full overflow-hidden bg-brand-blue-700 text-white min-h-auto lg:min-h-[58vh] flex items-center pt-20 pb-6 sm:pt-24 sm:pb-10 lg:pt-28 lg:pb-14 border-b border-white/10"
     >
       {/* Dynamic Procedural Background */}
       <HeroProceduralBackground variant="express" />

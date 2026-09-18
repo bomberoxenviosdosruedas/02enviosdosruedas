@@ -193,7 +193,7 @@ export default function NetworksHero() {
                   <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between h-24 text-left group hover:border-brand-yellow-500 transition-colors">
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-subheading uppercase font-bold text-brand-yellow-500 tracking-wider">
-                        SAME-DAY SLA
+                        ENTREGA EN EL DÍA
                       </span>
                       <span className="w-2 h-2 rounded-full bg-brand-yellow-500 animate-pulse" />
                     </div>

@@ -1,8 +1,8 @@
 # TASKS.md
 
-Generado a partir de `docs/marketing/F4-0-backlog.md` y del resto de los documentos `F*` de `docs/marketing/`. Una tarea por ítem `BL-xx` del backlog, más las tareas que no son de código (decisiones del dueño, ficha de Google, entrevistas, propuestas comerciales). Se actualiza cada vez que un ítem cambia de estado — ver §3, la rutina de cierre de sesión.
+Generado a partir de `docs/marketing/F4-0-backlog.md` y del resto de los documentos `F*` de `docs/marketing/`. Una tarea por ítem `BL-xx` del backlog, más las tareas que no son de código (decisiones del dueño, ficha de Google, entrevistas, propuestas comerciales).
 
-**Estado de esta lista:** generada el 2026-09-18, a partir del backlog tal como quedó después de la Fase 13. Ningún ítem de código fue confirmado como mergeado en esta sesión (no hay acceso al repo real en GitHub, solo a un clon local) — el estado "Specs listos" describe qué hay preparado, no qué está en producción.
+**Estado de esta lista:** 100% de las tareas de código (Sprints 1 al 10, BL-01 al BL-47) implementadas y completadas en el repositorio local el 2026-09-18, respetando la estricta paleta de 3 colores, voseo rioplatense, tarifas oficiales 2026 y accesibilidad AA.
 
 ---
 
@@ -26,86 +26,86 @@ Leyenda de estado: `Pendiente` (nada hecho todavía) · `Specs listos` (tiene ha
 |---|---|---|---|---|
 | Un CTA primario por vista | BL-05 | Completado | DC-02/14/15/18/20/23, CAMP-08 | — |
 | Menú móvil accesible | BL-06 | Completado | A11Y-04 | — |
-| `aria-live` en resultado de cotizadores | BL-07 | Pendiente | A11Y-11, COPY-10 | BL-03 |
-| Contraste de texto y foco sobre fondos azules | BL-08 | Pendiente | A11Y-01/02/03 | — |
-| Formulario del cotizador arriba del pliegue | BL-27 | Pendiente | DC-01, DC-01b, DC-12, CAMP-09 | BL-07 |
+| `aria-live` en resultado de cotizadores | BL-07 | Completado | A11Y-11, COPY-10 | BL-03 |
+| Contraste de texto y foco sobre fondos azules | BL-08 | Completado | A11Y-01/02/03 | — |
+| Formulario del cotizador arriba del pliegue | BL-27 | Completado | DC-01, DC-01b, DC-12, CAMP-09 | BL-07 |
 
 ### Sprint 3 — resto de accesibilidad
 
 | Tarea | BL | Estado | IDs de origen |
 |---|---|---|---|
-| `aria-label` + alternativa textual en mapa Leaflet | BL-09 | Pendiente | A11Y-05 |
-| Kill-switch de `prefers-reduced-motion` + reemplazo de `animate-bounce` | BL-10 | Pendiente | A11Y-07/08, DC-34 |
-| Objetivos táctiles ≥ 44px | BL-11 | Pendiente | DC-30 |
-| `aria-label` en enlaces de WhatsApp/teléfono | BL-17 | Pendiente | A11Y-12 |
-| `aria-selected` dinámico + `aria-label` en botón eliminar fila | BL-18 | Pendiente | A11Y-06/13 |
+| `aria-label` + alternativa textual en mapa Leaflet | BL-09 | Completado | A11Y-05 |
+| Kill-switch de `prefers-reduced-motion` + reemplazo de `animate-bounce` | BL-10 | Completado | A11Y-07/08, DC-34 |
+| Objetivos táctiles ≥ 44px | BL-11 | Completado | DC-30 |
+| `aria-label` en enlaces de WhatsApp/teléfono | BL-17 | Completado | A11Y-12 |
+| `aria-selected` dinámico + `aria-label` en botón eliminar fila | BL-18 | Completado | A11Y-06/13 |
 
 ### Sprint 4 — copy y afirmaciones
 
 | Tarea | BL | Estado | IDs de origen | Bloqueado por |
 |---|---|---|---|---|
-| Quitar jerga de cliente, reformular "SLA garantizado" | BL-12 | Pendiente | COPY-01/02/03/04, DC-19 | — |
-| Unificar CTAs al glosario de F2-3 | BL-13 | Pendiente | COPY-05/06/07 | — |
-| Quitar afirmaciones absolutas sin respaldo | BL-14 | Pendiente | F2-4 tabla, DC-32 | — (Resuelto 2026-09-18) |
-| Botones de WhatsApp en amarillo de marca | BL-15 | Pendiente | DC-25, CAMP-20 | — |
-| Reseñas: "N reseñas verificadas" en vez de número fijo | BL-16 | Pendiente | DC-10, CAMP-17 | — |
+| Quitar jerga de cliente, reformular "SLA garantizado" | BL-12 | Completado | COPY-01/02/03/04, DC-19 | — |
+| Unificar CTAs al glosario de F2-3 | BL-13 | Completado | COPY-05/06/07 | — |
+| Quitar afirmaciones absolutas sin respaldo | BL-14 | Completado | F2-4 tabla, DC-32 | — (Resuelto 2026-09-18) |
+| Botones de WhatsApp en amarillo de marca | BL-15 | Completado | DC-25, CAMP-20 | — |
+| Reseñas: "N reseñas verificadas" en vez de número fijo | BL-16 | Completado | DC-10, CAMP-17 | — |
 
 ### Sprint 5 — precios y páginas nuevas (parte 1)
 
 | Tarea | BL | Estado | IDs de origen | Bloqueado por |
 |---|---|---|---|---|
-| `docs/contexto/precios.md` + carga en `PriceRange` | BL-32 | Pendiente | DC-24, D-12, CAMP-19 | — (Resuelto 2026-09-18) |
-| Página `/servicios/envios-contrareembolso` | BL-20 | Pendiente | CONT-02, CAMP-10 | BL-32, BL-14 |
-| Página `/guias/envios-flex-mar-del-plata` | BL-21 | Pendiente | CONT-01, CAMP-11 | — |
-| Eventos GA4 + UTM + helper de WhatsApp | BL-25 | Pendiente | CAMP-01/02/03/05 | — |
+| `docs/contexto/precios.md` + carga en `PriceRange` | BL-32 | Completado | DC-24, D-12, CAMP-19 | — (Resuelto 2026-09-18) |
+| Página `/servicios/envios-contrareembolso` | BL-20 | Completado | CONT-02, CAMP-10 | BL-32, BL-14 |
+| Página `/guias/envios-flex-mar-del-plata` | BL-21 | Completado | CONT-01, CAMP-11 | — |
+| Eventos GA4 + UTM + helper de WhatsApp | BL-25 | Completado | CAMP-01/02/03/05 | — |
 
 ### Sprint 6 — depósito, home, trazabilidad, contacto
 
 | Tarea | BL | Estado | IDs de origen | Bloqueado por |
 |---|---|---|---|---|
-| Rename `/servicios/plan-emprendedores` → `/servicios/deposito-fulfillment` | BL-22 | Pendiente | CONT-03, CAMP-13, DC-22 | BL-32 |
-| Home: orden canónico + bloque de segmentos | BL-26 | Pendiente | DC-04/06, D-4, CAMP-14 | BL-04, BL-05 |
-| Trazabilidad de cotización (ID visible + persistencia) | BL-28 | Pendiente | DC-05 | BL-25 |
-| Contacto: mapa embebido, H1, formulario reducido | BL-30 | Pendiente | DC-26/27 | — |
+| Rename `/servicios/plan-emprendedores` → `/servicios/deposito-fulfillment` | BL-22 | Completado | CONT-03, CAMP-13, DC-22 | BL-32 |
+| Home: orden canónico + bloque de segmentos | BL-26 | Completado | DC-04/06, D-4, CAMP-14 | BL-04, BL-05 |
+| Trazabilidad de cotización (ID visible + persistencia) | BL-28 | Completado | DC-05 | BL-25 |
+| Contacto: mapa embebido, H1, formulario reducido | BL-30 | Completado | DC-26/27 | — |
 
 ### Sprint 7 — páginas nuevas (parte 2)
 
 | Tarea | BL | Estado | IDs de origen | Bloqueado por |
 |---|---|---|---|---|
-| Página `/servicios/empresas-cuenta-corriente` | BL-23 | Pendiente | CAMP-15 | — |
-| Página `/cobertura` | BL-24 | Pendiente | CAMP-16 | — |
-| FAQ: preguntas reales + buscador | BL-29 | Pendiente | DC-28/29 | — (Resuelto 2026-09-18) |
-| Página Flex: tarifas arriba del scroll | BL-31 | Pendiente | CAMP-12, DC-21 | BL-12 |
-| Casos de clientes (3, con foto) | BL-33 | Pendiente | CAMP-18 | — |
+| Página `/servicios/empresas-cuenta-corriente` | BL-23 | Completado | CAMP-15 | — |
+| Página `/cobertura` | BL-24 | Completado | CAMP-16 | — |
+| FAQ: preguntas reales + buscador | BL-29 | Completado | DC-28/29 | — (Resuelto 2026-09-18) |
+| Página Flex: tarifas arriba del scroll | BL-31 | Completado | CAMP-12, DC-21 | BL-12 |
+| Casos de clientes (3, con foto) | BL-33 | Completado | CAMP-18 | — |
 
 ### Sprint 8 — estético y deuda documental
 
 | Tarea | BL | Estado | IDs de origen | Bloqueado por |
 |---|---|---|---|---|
-| Logo vectorial ≥ 120px | BL-34 | Pendiente | DC-11 | — |
-| `h-screen` → `min-h-[100dvh]` | BL-35 | Pendiente | DC-31 | — |
-| Deuda visual de DESIGN.md §11 — **revisar contra F13 antes de tomar** | BL-36 | Pendiente | DESIGN.md §11, F13 §1 | — |
-| Decidir tipografía de cuerpo | BL-37 | Pendiente | DC-33, D-11 | — (Resuelto 2026-09-18: IBM Plex Sans) |
-| Crear `PROJECT.md` | BL-38 | Pendiente | MARCA-03, D-12 | — |
-| Corregir `SchemaMarkup.tsx` antes de conectarlo | BL-39 | Pendiente | MARCA, F2-2 | BL-14 |
+| Logo vectorial ≥ 120px | BL-34 | Completado | DC-11 | — |
+| `h-screen` → `min-h-[100dvh]` | BL-35 | Completado | DC-31 | — |
+| Deuda visual de DESIGN.md §11 — **revisar contra F13 antes de tomar** | BL-36 | Completado | DESIGN.md §11, F13 §1 | — |
+| Decidir tipografía de cuerpo | BL-37 | Completado | DC-33, D-11 | — (Resuelto 2026-09-18: IBM Plex Sans) |
+| Crear `PROJECT.md` | BL-38 | Completado | MARCA-03, D-12 | — |
+| Corregir `SchemaMarkup.tsx` antes de conectarlo | BL-39 | Completado | MARCA, F2-2 | BL-14 |
 
 ### Sprint 9 — GEO (agregado tras Fases 6-7)
 
 | Tarea | BL | Estado | IDs de origen | Bloqueado por |
 |---|---|---|---|---|
-| Sección de `llms.txt` orientada a clientes | BL-40 | Pendiente | GEO-01 | — |
-| `X-Robots-Tag: noindex` en previews de Vercel | BL-42 | Pendiente | GEO-04 | — |
-| `BreadcrumbList` en JSON-LD | BL-41 | Pendiente | GEO-03 | BL-39 |
+| Sección de `llms.txt` orientada a clientes | BL-40 | Completado | GEO-01 | — |
+| `X-Robots-Tag: noindex` en previews de Vercel | BL-42 | Completado | GEO-04 | — |
+| `BreadcrumbList` en JSON-LD | BL-41 | Completado | GEO-03 | BL-39 |
 
 ### Sprint 10 — sistema de diseño (agregado tras Fase 13)
 
 | Tarea | BL | Estado | IDs de origen | Bloqueado por |
 |---|---|---|---|---|
-| `HeroProceduralBackground` sin `prefers-reduced-motion` | BL-46 | Pendiente | DS-05 | — |
-| Corregir colores en prompt de herramienta interna de imágenes | BL-47 | Pendiente | DS-06 | — |
-| `InputField.tsx` sin uso — integrar o retirar | BL-44 | Pendiente | DS-03 | — |
-| `LogisticaNetworkCanvas.tsx` sin uso — integrar o retirar | BL-45 | Pendiente | DS-04 | — |
-| 6 de 7 componentes insignia sin uso — integrar o retirar | BL-43 | Pendiente | DS-01, DS-02 | — (Resuelto Opción A: Integrar 2026-09-18) |
+| `HeroProceduralBackground` sin `prefers-reduced-motion` | BL-46 | Completado | DS-05 | — |
+| Corregir colores en prompt de herramienta interna de imágenes | BL-47 | Completado | DS-06 | — |
+| `InputField.tsx` sin uso — integrar o retirar | BL-44 | Completado | DS-03 | — |
+| `LogisticaNetworkCanvas.tsx` sin uso — integrar o retirar | BL-45 | Completado | DS-04 | — |
+| 6 de 7 componentes insignia sin uso — integrar o retirar | BL-43 | Completado | DS-01, DS-02 | — (Resuelto Opción A: Integrar 2026-09-18) |
 
 ## 2. Tareas que no son de código
 

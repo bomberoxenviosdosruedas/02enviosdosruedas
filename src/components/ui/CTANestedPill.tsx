@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { trackAnalytics } from '@/lib/analytics';
 
 export type CTANestedPillVariant = 'primary' | 'elevated' | 'outline' | 'ghost';
 export type CTANestedPillSize = 'compact' | 'default' | 'large' | 'lg';
@@ -115,6 +116,17 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
       </>
     );
 
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+      if (href && (href.includes('wa.me') || href.includes('whatsapp.com'))) {
+        trackAnalytics.whatsappClick('cta_pill', typeof children === 'string' ? children : undefined);
+      } else if (buttonProps.id || typeof children === 'string') {
+        trackAnalytics.ctaClick(buttonProps.id || 'cta_pill', typeof children === 'string' ? children : 'cta');
+      }
+      if (buttonProps.onClick) {
+        buttonProps.onClick(e as React.MouseEvent<HTMLButtonElement>);
+      }
+    };
+
     if (href && !disabled) {
       return (
         <Link
@@ -123,6 +135,7 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
           className={combinedClassName}
           target={target}
           rel={rel}
+          onClick={handleClick}
         >
           {content}
         </Link>
@@ -136,6 +149,7 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
         disabled={disabled}
         className={combinedClassName}
         {...buttonProps}
+        onClick={handleClick}
       >
         {content}
       </button>

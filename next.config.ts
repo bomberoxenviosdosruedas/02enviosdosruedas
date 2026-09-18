@@ -29,7 +29,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/servicios/3pl',
-        destination: '/servicios/plan-emprendedores',
+        destination: '/servicios/deposito-fulfillment',
+        permanent: true,
+      },
+      {
+        source: '/servicios/plan-emprendedores',
+        destination: '/servicios/deposito-fulfillment',
         permanent: true,
       },
     ];

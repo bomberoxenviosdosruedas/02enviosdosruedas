@@ -169,9 +169,9 @@ export default function ServicesOverview() {
     },
     {
       id: '3pl',
-      title: 'E-Commerce & 3PL',
+      title: 'Depósito & Fulfillment',
       description: 'Logística integral: almacenamiento, preparación y despacho de pedidos.',
-      href: '/servicios/plan-emprendedores',
+      href: '/servicios/deposito-fulfillment',
       icon: Warehouse,
       badge: 'LOGÍSTICA INTEGRAL',
       city: 'Depósito Friuli 1972',
@@ -201,7 +201,7 @@ export default function ServicesOverview() {
           'Distribución de pedidos Same-Day y Next-Day.'
         ],
         ctaText: 'CONSULTÁ PLANES',
-        ctaHref: '/servicios/plan-emprendedores'
+        ctaHref: '/servicios/deposito-fulfillment'
       }
     },
   ];

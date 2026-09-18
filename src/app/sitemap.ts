@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/servicios/plan-emprendedores`,
+      url: `${baseUrl}/servicios/deposito-fulfillment`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -50,6 +50,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/servicios/envios-contrareembolso`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/servicios/empresas-cuenta-corriente`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/cobertura`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/guias/envios-flex-mar-del-plata`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/contacto`,

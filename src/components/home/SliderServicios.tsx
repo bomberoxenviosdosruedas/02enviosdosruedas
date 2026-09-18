@@ -95,8 +95,8 @@ const INDUSTRY_SLIDES: IndustrySlide[] = [
     icon: ClipboardCheck,
     sla: 'Horarios Programados',
     keyBenefits: ['Franjas pactadas de entrega', 'Depósito central Friuli 1972', 'Atención personalizada'],
-    ctaUrl: '/servicios/plan-emprendedores',
-    ctaText: 'Conocer Plan Comercios',
+    ctaUrl: '/servicios/deposito-fulfillment',
+    ctaText: 'Conocé Plan Comercios',
     variant: 'dark-blue',
   },
   {
@@ -108,8 +108,8 @@ const INDUSTRY_SLIDES: IndustrySlide[] = [
     icon: Package,
     sla: 'Fulfillment Total',
     keyBenefits: ['Depósito seguro en MDQ', 'Picking & Packing profesional', 'Control de stock diario'],
-    ctaUrl: '/servicios/plan-emprendedores',
-    ctaText: 'Ver Servicio 3PL',
+    ctaUrl: '/servicios/deposito-fulfillment',
+    ctaText: 'Ver Depósito & Fulfillment',
     variant: 'yellow-accent',
   },
 ];
@@ -328,7 +328,7 @@ export default function SliderServicios() {
                     )}
                   >
                     <Clock className="w-3.5 h-3.5" />
-                    <span>SLA: {activeSlide.sla}</span>
+                    <span>Plazo: {activeSlide.sla}</span>
                   </div>
                 </div>
 

@@ -41,7 +41,7 @@ export default function NetworksChannels() {
         {/* Asymmetric Bento Grid (Replaces banned 3 equal card layout) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-          {/* WhatsApp: Full width 12 columns (Main Call Channel con #25D366 exclusivo para soporte directo) */}
+          {/* WhatsApp: Full width 12 columns (Canal directo oficial) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -51,7 +51,7 @@ export default function NetworksChannels() {
             <div className="rounded-[20px] bg-white p-6 sm:p-8 border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-brand-blue">
               <div className="space-y-4 max-w-3xl">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 rounded-2xl relative w-12 h-12 flex items-center justify-center shrink-0">
+                  <div className="p-3 bg-brand-yellow-50 text-brand-blue-700 border border-brand-yellow-200 rounded-2xl relative w-12 h-12 flex items-center justify-center shrink-0">
                     <Image
                       src="/iconos/whatapps.svg"
                       alt="WhatsApp"
@@ -78,11 +78,11 @@ export default function NetworksChannels() {
                   href="https://wa.me/5492236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group min-h-[52px] w-full md:w-auto px-8 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-subheading tracking-wider text-lg uppercase font-bold rounded-full flex items-center justify-center gap-3 shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50"
+                  className="group min-h-[52px] w-full md:w-auto px-8 py-3.5 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading tracking-wider text-lg uppercase font-bold rounded-full flex items-center justify-center gap-3 shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500/50"
                 >
                   <span>CHATEÁ AHORA</span>
-                  <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 shrink-0">
-                    <ArrowRight className="h-5 w-5 text-white" />
+                  <span className="w-8 h-8 rounded-full bg-brand-blue-900/10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 shrink-0">
+                    <ArrowRight className="h-5 w-5 text-brand-blue-900" />
                   </span>
                 </a>
               </div>

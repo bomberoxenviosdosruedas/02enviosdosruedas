@@ -21,32 +21,42 @@ export const FAQ_DATA: FaqCategoryGroup[] = [
       {
         question: '¿Qué tipo de servicios y soluciones logísticas realizan en Mar del Plata?',
         answer:
-          'Ofrecemos mensajería urbana y soluciones para e-commerce: Envíos Flex para MercadoLibre, Envíos Express prioritarios, reparto LowCost programado, cadetería corporativa, mandados y servicio integral 3PL (almacenamiento, preparación de pedidos y distribución).',
+          'Ofrecemos mensajería urbana y paquetería especializada en e-commerce: Envíos Flex para MercadoLibre con 100% cumplimiento en el día, Envíos Express prioritarios en 60-90 min, reparto LowCost económico antes de las 19:00 hs, cadetería corporativa, cobro contrarreembolso y servicio integral de depósito & fulfillment (picking, packing y despacho).',
+      },
+      {
+        question: '¿Se puede entregar en un horario puntual específico?',
+        answer:
+          'No, únicamente trabajamos con rangos horarios de entrega de 3 horas de espaciado (por ejemplo de 10:00 a 13:00 hs o de 14:00 a 17:00 hs). Esta metodología permite a nuestros repartidores optimizar las rutas viales en Mar del Plata y garantizar que tu entrega se cumpla sin demoras imprevistas.',
+      },
+      {
+        question: '¿Se puede elegir horario en los envíos LowCost?',
+        answer:
+          'No, las entregas LowCost no admiten elección de franja horaria. Los paquetes se entregan a lo largo de la jornada antes de las 19:00 hs. Esto nos permite consolidar volumen de envíos en la misma zona y ofrecerte la tarifa más económica de la ciudad.',
+      },
+      {
+        question: '¿Tienen mínimo de envíos para vendedores de Mercado Libre Flex?',
+        answer:
+          'No tenemos ningún mínimo de envíos diarios: retiramos desde 1 solo paquete en tu domicilio o local comercial. Retiramos varias veces al día si es necesario. A mayor cantidad de envíos diarios coordinados, obtenés mejores beneficios y tarifas reducidas por volumen.',
+      },
+      {
+        question: '¿Cómo funciona el depósito y fulfillment (Servicio E-Commerce / 3PL)?',
+        answer:
+          'Almacenamos tu stock en nuestra base logística de Friuli 1972. Cuando concretás una venta online o por redes, nosotros nos encargamos del empaquetado, etiquetado y despacho directo en el día (Same-Day). También disponemos de modalidad Drop-Off: traés tus envíos listos a nuestro depósito y obtenés un 20% de descuento sobre la tarifa final.',
       },
       {
         question: '¿Cuáles son las zonas de cobertura?',
         answer:
-          'Cubrimos de forma integral todo el ejido urbano de Mar del Plata (no cubrimos zonas aledañas), garantizando presencia y entregas seguras en todos los barrios de la ciudad.',
-      },
-      {
-        question: '¿Hacen entregas en el mismo día (Same-Day) y Mercado Envíos Flex?',
-        answer:
-          'Sí, somos especialistas en entregas en el día. Retiramos tus ventas y las entregamos en la misma jornada, cumpliendo estrictamente los tiempos de MercadoLibre para proteger tu reputación y medalla de vendedor.',
+          'Cubrimos de forma integral todo el ejido urbano de Mar del Plata (Centro, Güemes, Puerto, Mogotes, Constitución, San Juan, La Perla, etc.) y extendemos radios operativos hasta 20 km para llegar a Batán y Sierra de los Padres.',
       },
       {
         question: '¿Cuáles son los límites de peso y tamaño por paquete?',
         answer:
-          'Operamos con una flota propia y exclusiva de motocicletas. La capacidad máxima estándar es de hasta 5 kg o dimensiones de aproximadamente 40x40x30 cm por bulto.',
+          'Operamos con una flota propia y exclusiva de motos. La capacidad estándar es de hasta 5 kg o dimensiones de aproximadamente 40x30 cm por bulto. Paquetes que superen este peso o volumen pueden tener un adicional por bulto especial.',
       },
       {
-        question: '¿Realizan entregas a contrareembolso?',
+        question: '¿Realizan entregas a contrareembolso? ¿Cobran comisión extra?',
         answer:
-          'Sí, realizamos la cobranza en efectivo al momento de entregar el producto. El dinero recaudado se rinde en el transcurso del mismo día o a primera hora del día hábil siguiente.',
-      },
-      {
-        question: '¿Trabajan con empresas o solo con particulares?',
-        answer:
-          'Atendemos a empresas, pymes, tiendas online, emprendedores y particulares que necesiten cadetería puntual o recurrente.',
+          'Sí, realizamos el cobro en efectivo en mano al destinatario en el momento de la entrega. Lo más importante: no cobramos ningún extra ni porcentaje de comisión por este servicio. El dinero recaudado se rinde en el transcurso del mismo día.',
       },
     ],
   },
@@ -57,34 +67,29 @@ export const FAQ_DATA: FaqCategoryGroup[] = [
     iconName: 'Clock',
     questions: [
       {
-        question: '¿Cuáles son sus horarios de atención y recepción de pedidos?',
+        question: '¿Cuáles son los horarios de corte para entregas en el mismo día?',
         answer:
-          'Nuestro horario de atención en base (Friuli 1972) es de lunes a viernes de 09:00 a 18:00 hs y sábados de 10:00 a 15:00 hs. Para el servicio LowCost del día, el horario de corte de recepción de pedidos es a las 13:00 hs.',
+          'Nuestros horarios de corte son: Reparto LowCost: solicitar antes de las 13:00 hs (entregas antes de las 19:00 hs). Envíos Express: solicitar antes de las 15:00 hs con mínimo 2 hs de anticipación. Mercado Envíos Flex: horario de corte a las 15:00 hs con entregas aseguradas antes de las 20:00 hs.',
       },
       {
-        question: '¿Cómo funciona el Servicio Express y con cuánta anticipación debo pedirlo?',
+        question: '¿Cuáles son sus horarios de atención en base Friuli 1972?',
         answer:
-          'El Servicio Express cuenta con prioridad operativa inmediata para envíos urgentes. Podés programar tu franja horaria de retiro y entrega con una antelación mínima de 2 horas.',
+          'Nuestra base de operaciones atiende de lunes a viernes de 09:00 a 18:00 hs y los sábados de 10:00 a 15:00 hs. Podés acercarte para dejar paquetes (Drop-Off) o retirar correspondencia y mercadería.',
+      },
+      {
+        question: '¿Cómo funciona el Servicio Express prioritario?',
+        answer:
+          'El Servicio Express cuenta con prioridad inmediata de cadetería. Es ideal para trámites urgentes, repuestos o mandados donde necesitás franja acotada de 3 hs. Podés pedirlo antes de las 15:00 hs con 2 horas de anticipación.',
       },
       {
         question: '¿Cómo realizo el seguimiento de mi envío?',
         answer:
-          'Centralizamos la gestión de forma ágil y directa vía WhatsApp. Te mantenemos informado del estado del paquete y te enviamos la confirmación inmediata una vez concretada la entrega.',
-      },
-      {
-        question: '¿Qué información necesito proporcionar para solicitar un envío?',
-        answer:
-          'Solo requerimos: dirección exacta de retiro, dirección de entrega, franja horaria, detalle o tamaño del paquete, y nombre con teléfono de contacto de quien recibe.',
-      },
-      {
-        question: '¿Puedo modificar la dirección de entrega cuando el paquete ya está en camino?',
-        answer:
-          'Sí, podés avisarnos por WhatsApp y coordinamos el cambio. Tené en cuenta que, dependiendo de la distancia a la nueva zona, puede aplicar un costo adicional por kilometraje.',
+          'Centralizamos la gestión de forma ágil y directa vía WhatsApp (+54 223 660-2699). Cada cotización genera un identificador de seguimiento (#DR-XXXX). Te mantenemos informado del estado del paquete y te confirmamos la entrega con foto o firma en el acto.',
       },
       {
         question: '¿Qué sucede si el destinatario no está en el domicilio o rechaza el producto?',
         answer:
-          'Te avisamos en el momento para intentar resolverlo. Si el paquete no puede entregarse y debe regresar a tu local o depósito, la devolución se realiza totalmente SIN CARGO.',
+          'Te contactamos en el momento por WhatsApp para intentar coordinar con el comprador o vecino. Si el paquete no puede entregarse y debe regresar a tu local o a nuestra base, la devolución o segundo intento se coordina de inmediato cuidando tu mercadería.',
       },
     ],
   },
@@ -95,24 +100,29 @@ export const FAQ_DATA: FaqCategoryGroup[] = [
     iconName: 'CreditCard',
     questions: [
       {
-        question: '¿Cómo calculan el costo del envío?',
+        question: '¿Cuáles son las tarifas vigentes 2026 de Envíos DosRuedas?',
         answer:
-          'El valor se calcula según la distancia punto a punto entre retiro y entrega, contemplando adicionales si existen (días de lluvia, bultos especiales o demoras en espera).',
+          'Nuestras tarifas base 2026 son transparentes: Express: 0-3km $3.700, 3-5km $4.600, 5-7km $6.100, 7-10km $8.200. LowCost: 0-3km $3.000, 3-5km $4.000, 5-7km $5.300, 7-10km $7.000. Superados los 10 km, rige el valor unitario por km con redondeo superior Math.ceil.',
+      },
+      {
+        question: '¿Cómo se calcula el precio para distancias de más de 10 km?',
+        answer:
+          'Para distancias superiores a 10 km (hasta nuestro límite de 20 km), se toma el kilometraje total redondeado hacia arriba (Math.ceil) y se multiplica por la tarifa por km: $1.000 por km en Express o $700 por km en LowCost. Por ejemplo, un envío de 10,3 km en Express se calcula como 11 km × $1.000 = $11.000.',
       },
       {
         question: '¿Cuáles son las formas de pago aceptadas?',
         answer:
-          'Podés abonar mediante transferencia bancaria, dinero en cuenta o efectivo al momento del retiro o la entrega.',
+          'Aceptamos transferencias bancarias (CBU / CVU / alias), dinero en cuenta de Mercado Pago y efectivo en mano tanto en el retiro como en destino al entregar.',
       },
       {
-        question: '¿Emiten factura por el servicio?',
+        question: '¿Emiten factura por el servicio logístico?',
         answer:
-          'Sí, emitimos Factura C para todos nuestros servicios profesionales, comerciales y corporativos.',
+          'Sí, emitimos comprobantes oficiales de Facturación para todos nuestros servicios profesionales, comerciales y corporativos (ideal empresas con cuenta corriente quincenal).',
       },
       {
-        question: '¿Tienen planes o tarifas especiales para emprendedores y envíos masivos?',
+        question: '¿Tienen descuentos para comercios y cuentas corrientes?',
         answer:
-          'Sí, contamos con el "Plan Emprendedores" y esquemas de tarifas reducidas para comercios y marcas con volumen diario recurrente.',
+          'Sí, contamos con el servicio para Empresas con Cuenta Corriente: liquidación quincenal unificada, tarifas bonificadas por volumen diario recurrente y atención preferencial vía WhatsApp.',
       },
     ],
   },
@@ -123,14 +133,19 @@ export const FAQ_DATA: FaqCategoryGroup[] = [
     iconName: 'ShieldCheck',
     questions: [
       {
-        question: '¿Qué diferencia a Envíos DosRuedas de otras mensajerías o apps?',
+        question: '¿Qué diferencia a Envíos DosRuedas de las apps de delivery o mensajerías informales?',
         answer:
-          'Brindamos "Logística con Cara Humana": contamos con flota propia de motos (cero tercerización informal), atención personalizada y directa por WhatsApp sin bots impersonales, y una calificación perfecta de 5 estrellas en Mar del Plata respaldada por nuestra puntualidad, cuidado y compromiso real.',
+          'Brindamos logística con cara humana y responsabilidad real: flota de cadetes de confianza, base física establecida en Friuli 1972, comunicación directa por WhatsApp sin bots automatizados impersonales, y más de 7 años de trayectoria en las calles de Mar del Plata con calificación 5 estrellas.',
       },
       {
-        question: '¿Cómo puedo solicitar un envío o pedir una cotización?',
+        question: '¿Cuál es la política de la empresa ante imprevistos o sobrecarga de demanda?',
         answer:
-          'Escribinos directamente por WhatsApp al 2236602699 y un operador te responderá al instante con la cotización exacta para tu pedido.',
+          '"Preferimos decir que no podemos, a fallar". Si por factores climáticos adversos o saturación de flota no podemos garantizar la entrega en el tiempo pactado, te avisamos de inmediato con total transparencia. Jamás prometemos lo que no podemos cumplir.',
+      },
+      {
+        question: '¿Cómo puedo solicitar un envío en este momento?',
+        answer:
+          'Podés cotizar de forma inmediata en nuestra web o enviarnos un mensaje por WhatsApp al 2236602699 con las direcciones de retiro y entrega. Te asignamos cadete al instante.',
       },
     ],
   },

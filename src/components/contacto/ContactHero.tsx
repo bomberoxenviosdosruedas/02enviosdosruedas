@@ -73,16 +73,16 @@ export default function ContactHero() {
               </span>
             </div>
 
-            {/* Monumental Title */}
+            {/* Monumental Title with Keyword & Address (DC-26) */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display uppercase tracking-tight leading-[0.98] text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-white"
+              className="font-display uppercase tracking-tight leading-[0.98] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white"
             >
-              ¿Hablamos<br />
+              CONTACTO & BASE LOGÍSTICA<br />
               <span className="italic text-[#FFF12E] drop-shadow-[0_2px_16px_rgba(255,241,46,0.4)]">
-                ahora?
+                MAR DEL PLATA · FRIULI 1972
               </span>
             </motion.h1>
 
@@ -260,7 +260,8 @@ export default function ContactHero() {
                       )}%20para%20${encodeURIComponent(formData.volumen)}%20env%C3%ADos%20mensuales.`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-between min-h-[52px] px-6 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-subheading uppercase text-sm tracking-wider font-bold shadow-lg transition-all cursor-pointer mt-2 group"
+                      aria-label="Coordinar plan a medida ahora por WhatsApp"
+                      className="inline-flex items-center justify-between min-h-[52px] px-6 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase text-sm tracking-wider font-bold shadow-cta-glow transition-all cursor-pointer mt-2 group"
                     >
                       <span>Coordinar ahora por WhatsApp</span>
                       <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" />

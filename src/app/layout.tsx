@@ -203,7 +203,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                           '@type': 'Service',
                           name: 'Centro de Depósito y Logística',
                           description: 'Almacenamiento, preparación y despacho directo en Friuli 1972.',
-                          url: `${baseUrl}/servicios/plan-emprendedores`,
+                          url: `${baseUrl}/servicios/deposito-fulfillment`,
                         },
                       },
                     ],
@@ -230,7 +230,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </head>
-      <body className="bg-white text-brand-ink font-sans antialiased selection:bg-brand-yellow selection:text-brand-blue min-h-screen flex flex-col" suppressHydrationWarning>
+      <body className="bg-white text-brand-ink font-sans antialiased selection:bg-brand-yellow selection:text-brand-blue min-h-[100dvh] flex flex-col" suppressHydrationWarning>
         <ClientLayout>
           {children}
         </ClientLayout>

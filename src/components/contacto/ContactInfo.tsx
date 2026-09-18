@@ -114,7 +114,7 @@ export default function ContactInfo() {
                     rel="noopener noreferrer"
                     className={`relative z-10 w-full min-h-[44px] h-11 rounded-full font-subheading tracking-wider uppercase text-xs font-bold flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer border ${
                       isWhatsApp
-                        ? 'bg-[#25D366] hover:bg-[#20bd5a] text-white border-none shadow-lg'
+                        ? 'bg-[#FFEC01] hover:bg-[#FFF12E] text-[#052C87] border-none shadow-lg'
                         : 'bg-white/10 hover:bg-white/20 text-white border-white/20'
                     } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E]`}
                   >
@@ -236,6 +236,38 @@ export default function ContactInfo() {
                 <span>Atención presencial y retiro de cargas</span>
                 <span className="text-[#FFF12E] font-bold tabular-nums">Friuli 1972</span>
               </div>
+            </div>
+          </div>
+
+          {/* Mapa Embebido de Ubicación Friuli 1972 (DC-27) */}
+          <div className="relative z-10 mt-8 pt-6 border-t border-white/15">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+              <div>
+                <span className="text-xs font-subheading uppercase tracking-wider text-[#FFF12E] font-bold block">
+                  UBICACIÓN EXACTA · MAPA EN VIVO
+                </span>
+                <h4 className="font-display text-xl uppercase tracking-tight text-white mt-0.5">
+                  BASE OPERATIVA EN MAR DEL PLATA
+                </h4>
+              </div>
+              <a
+                href="https://share.google/ofw5wAQt3Fc1dArom"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-[#FFF12E] text-xs font-subheading font-bold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E]"
+              >
+                <span>Abrir en Google Maps</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+            <div className="w-full h-64 sm:h-72 rounded-xl overflow-hidden border border-white/20 shadow-md relative bg-[#04236B]">
+              <iframe
+                title="Mapa de ubicación Friuli 1972, Mar del Plata - Envíos DosRuedas"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-57.5750%2C-38.0220%2C-57.5610%2C-38.0120&amp;layer=mapnik&amp;marker=-38.0172%2C-57.5684"
+                className="w-full h-full border-0"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

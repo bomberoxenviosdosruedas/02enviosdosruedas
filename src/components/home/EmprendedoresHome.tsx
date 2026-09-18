@@ -188,10 +188,10 @@ export default function EmprendedoresHome() {
 
               <div className="pt-6 mt-6 border-t border-white/10 relative z-10 flex justify-end">
                 <Link
-                  href="/servicios/plan-emprendedores"
+                  href="/servicios/deposito-fulfillment"
                   className="inline-flex items-center justify-between rounded-full min-h-[52px] px-8 py-3.5 bg-[#FFF12E] hover:bg-[#FFF44A] text-[#0950F6] font-subheading text-base font-bold uppercase tracking-wider shadow-glow-yellow transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
                 >
-                  <span>Conocer más</span>
+                  <span>Conocé más</span>
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#0950F6]/15 text-[#0950F6] ml-3 transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
@@ -241,7 +241,7 @@ export default function EmprendedoresHome() {
                     Envíos Flex Meli
                   </h3>
                   <p className="text-brand-blue-950 text-xs sm:text-sm leading-relaxed font-sans font-medium">
-                    Socio logístico homologado para tus envíos rápidos en el día. Recolección gratis en tu local y entrega garantizada dentro del SLA establecido.
+                    Servicio adaptado a los estándares de Mercado Envíos Flex para tus envíos rápidos en el día. Recolección en tu local y entrega puntual garantizada.
                   </p>
                 </div>
               </div>

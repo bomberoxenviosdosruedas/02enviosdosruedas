@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'motion/react';
+import { useReducedMotion } from 'motion/react';
 
 interface HeroProceduralBackgroundProps {
   variant?: 'express' | 'lowcost' | 'flex' | '3pl' | 'community' | 'contact' | 'default';
@@ -12,6 +12,7 @@ export default function HeroProceduralBackground({
   variant = 'default',
   className = '',
 }: HeroProceduralBackgroundProps) {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <div
       className={`absolute inset-0 pointer-events-none select-none overflow-hidden ${className}`}
@@ -93,7 +94,7 @@ export default function HeroProceduralBackground({
             stroke="#FFEC01"
             strokeWidth="2.5"
             strokeDasharray="12 16"
-            className="animate-pulse"
+            className={shouldReduceMotion ? '' : 'animate-pulse'}
           />
           <path
             d="M -100 300 Q 500 480 1000 250 T 1600 350"
@@ -177,7 +178,16 @@ export default function HeroProceduralBackground({
           preserveAspectRatio="none"
         >
           {/* GPS Coordinate Beacon Radar */}
-          <circle cx="1050" cy="320" r="80" fill="none" stroke="#FFEC01" strokeWidth="1.5" className="animate-ping" style={{ animationDuration: '4s' }} />
+          <circle
+            cx="1050"
+            cy="320"
+            r="80"
+            fill="none"
+            stroke="#FFEC01"
+            strokeWidth="1.5"
+            className={shouldReduceMotion ? '' : 'animate-ping'}
+            style={{ animationDuration: '4s' }}
+          />
           <circle cx="1050" cy="320" r="180" fill="none" stroke="#FFEC01" strokeWidth="1" strokeDasharray="4 8" />
           <circle cx="1050" cy="320" r="300" fill="none" stroke="#628FF9" strokeWidth="0.75" strokeDasharray="6 12" />
           <circle cx="1050" cy="320" r="6" fill="#FFEC01" />

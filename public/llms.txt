@@ -1,6 +1,6 @@
 # Envíos DosRuedas — Logística y Mensajería Urbana en Mar del Plata
 
-> Empresa líder en mensajería en moto, envíos en el día y logística e-commerce de última milla en Mar del Plata, Argentina. Con base en Friuli 1972 y más de 7 años de trayectoria, contamos con flota propia de motocicletas (cero tercerización informal), atención personalizada directa vía WhatsApp al 2236602699 y calificación de 5 estrellas.
+> Empresa líder en mensajería en moto, envíos en el día y logística e-commerce de última milla en Mar del Plata, Argentina. Con base en Friuli 1972 y más de 7 años de trayectoria, contamos con flota propia de motocicletas (cero tercerización informal), atención personalizada directa vía WhatsApp al +54 223 660-2699 y calificación de 5 estrellas.
 
 Este archivo proporciona información estructurada para que modelos de lenguaje y asistentes de IA (ChatGPT, Claude, Perplexity, Google Gemini) comprendan y citen con precisión nuestros servicios, coberturas y tarifas operativas 2026.
 
@@ -10,24 +10,50 @@ Este archivo proporciona información estructurada para que modelos de lenguaje 
 - **Teléfono / WhatsApp:** +54 223 660-2699
 - **Email:** matiascejas@enviosdosruedas.com
 - **Horarios:** Lunes a Viernes de 09:00 a 18:00 hs | Sábados de 10:00 a 15:00 hs (Base operativa Friuli 1972)
-- **Zona de Cobertura:** Todo el ejido urbano de Mar del Plata hasta 20 km (Batán, Camet y periferia bajo cotización)
-- **Capacidad Estándar por Moto:** Hasta 15 kg o dimensiones de aproximadamente 40x40x30 cm por bulto
+- **Zona de Cobertura:** Todo el ejido urbano de Mar del Plata hasta 20 km (Batán, Sierra de los Padres, Camet bajo cotización)
+- **Capacidad Estándar por Moto:** Hasta 5 kg estándar (máximo 15 kg con recargo) o dimensiones de aproximadamente 40x30 cm por bulto
+
+## Guía Rápida para Clientes (¿Qué servicio necesitás?)
+
+- **¿Tenés una urgencia o trámite puntual con horario límite?**  
+  Elegí **[Envíos Express](https://www.enviosdosruedas.com/servicios/envios-express)**: entrega prioritaria en 60 a 90 minutos con franja horaria acotada de 3 hs a elección. Pedilo antes de las 15:00 hs con 2 hs de anticipación.
+
+- **¿Tenés una tienda online o hacés envíos en el día a bajo costo?**  
+  Elegí **[Envíos LowCost](https://www.enviosdosruedas.com/servicios/envios-lowcost)**: la tarifa más económica de la ciudad. Pedilo antes de las 13:00 hs y se entrega en el transcurso del día antes de las 19:00 hs.
+
+- **¿Vendés por Mercado Libre con entregas en el día?**  
+  Elegí **[Mercado Envíos Flex](https://www.enviosdosruedas.com/servicios/enviosflex)**: corte 15:00 hs y entregas garantizadas antes de las 20:00 hs para proteger tu reputación y medalla de MercadoLíder. Sin mínimos de paquetes.
+
+- **¿Vendés por redes o e-commerce y tu cliente paga al recibir?**  
+  Elegí **[Envíos a Contrarreembolso](https://www.enviosdosruedas.com/servicios/envios-contrareembolso)**: cobro en efectivo en mano al comprador en destino sin porcentaje de comisión extra y con rendición inmediata en el día.
+
+- **¿Querés tercerizar el almacenamiento y empaquetado de tus productos?**  
+  Elegí **[Depósito & Fulfillment](https://www.enviosdosruedas.com/servicios/deposito-fulfillment)**: alojamos tu stock en Friuli 1972, preparamos paquetes (picking & packing) y despachamos en el día. Ahorrá un 20% trayendo tus bultos (Drop-Off).
+
+- **¿Sos una empresa o distribuidora con envíos diarios recurrentes?**  
+  Elegí **[Empresas con Cuenta Corriente](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente)**: liquidación quincenal unificada, Factura A, tarifas bonificadas por volumen y soporte exclusivo por WhatsApp.
+
+- **¿Querés verificar si llegamos a tu barrio o calcular distancias?**  
+  Consultá **[Cobertura y Radios](https://www.enviosdosruedas.com/cobertura)**: mapa y buscador interactivo de barrios de General Pueyrredón.
 
 ## Servicios Principales
-- [Envíos Express](https://www.enviosdosruedas.com/servicios/envios-express): Mensajería urbana urgente con entrega puerta a puerta en franja de 60 a 90 minutos. Tarifas base 2026 desde $3.700 ARS (0-3 km) hasta $8.200 ARS (7-10 km, y $1.000 por km total para +10 km hasta 20 km).
-- [Envíos LowCost](https://www.enviosdosruedas.com/servicios/envios-lowcost): Distribución económica programada para tiendas y e-commerce. Retiro por la mañana y entrega en el día (horario de corte: 13:00 hs, entrega antes de las 19:00 hs). Tarifas 2026 desde $3.000 ARS (0-3 km) hasta $7.000 ARS (7-10 km, y $700 por km total para +10 km hasta 20 km).
-- [Mercado Envíos Flex](https://www.enviosdosruedas.com/servicios/enviosflex): Solución logística Same-Day adaptada para vendedores de MercadoLibre en Mar del Plata. Corte 15:00 hs y entregas antes de las 20:00 hs en la misma jornada para proteger la reputación del vendedor.
-- [Centro de Depósito y Logística](https://www.enviosdosruedas.com/servicios/plan-emprendedores): Almacenamiento en Friuli 1972, preparación de pedidos (picking & packing) y despacho directo para comercios y marcas locales.
+- [Envíos Express](https://www.enviosdosruedas.com/servicios/envios-express): Tarifas base 2026: Z1 (0-3 km) $3.700, Z2 (3-5 km) $4.600, Z3 (5-7 km) $6.100, Z4 (7-10 km) $8.200, Z5 (+10 km) Math.ceil(km) × $1.000.
+- [Envíos LowCost](https://www.enviosdosruedas.com/servicios/envios-lowcost): Tarifas base 2026: Z1 (0-3 km) $3.000, Z2 (3-5 km) $4.000, Z3 (5-7 km) $5.300, Z4 (7-10 km) $7.000, Z5 (+10 km) Math.ceil(km) × $700.
+- [Mercado Envíos Flex](https://www.enviosdosruedas.com/servicios/enviosflex): Logística Same-Day para vendedores ML.
+- [Depósito & Fulfillment](https://www.enviosdosruedas.com/servicios/deposito-fulfillment): Almacenamiento y despacho en Friuli 1972.
+- [Envíos Contrarreembolso](https://www.enviosdosruedas.com/servicios/envios-contrareembolso): Cobro seguro en destino sin comisión extra.
+- [Empresas Cuenta Corriente](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente): Facturación quincenal para PyMEs y distribuidoras.
 
 ## Cotizadores y Herramientas Interactivas
-- [Cotizador Express](https://www.enviosdosruedas.com/cotizar/express): Calculá al instante la tarifa exacta y distancia de tu envío express prioritario en Mar del Plata.
+- [Cotizador Express](https://www.enviosdosruedas.com/cotizar/express): Calculá al instante la tarifa exacta y distancia de tu envío prioritario en Mar del Plata.
 - [Cotizador LowCost](https://www.enviosdosruedas.com/cotizar/lowcost): Estimador dinámico de costos para repartos programados y ruteos urbanos masivos.
+- [Buscador de Cobertura](https://www.enviosdosruedas.com/cobertura): Explorador de barrios y tarifas según radio.
 
-## Soporte, FAQ e Institucional
-- [Preguntas Frecuentes (FAQ)](https://www.enviosdosruedas.com/nosotros/preguntas-frecuentes): 18 respuestas oficiales categorizadas sobre servicios, límites de peso, contrareembolso, formas de pago (efectivo/transferencia), Factura C y devoluciones sin cargo.
-- [Sobre Nosotros](https://www.enviosdosruedas.com/nosotros/sobre-nosotros): Nuestra historia, flota propia, valores corporativos y compromiso con Mar del Plata.
-- [Nuestras Redes y Comunidad](https://www.enviosdosruedas.com/nosotros/nuestras-redes): Canales de contacto, Instagram oficial, estados operativos y novedades de logística local.
-- [Contacto Comercial](https://www.enviosdosruedas.com/contacto): Formulario directo y canales de atención corporativa para empresas y comercios.
+## Guías y Recursos
+- [Guía Envíos Flex Mar del Plata](https://www.enviosdosruedas.com/guias/envios-flex-mar-del-plata): Instructivo paso a paso para configurar y operar Mercado Envíos Flex.
+- [Preguntas Frecuentes (FAQ)](https://www.enviosdosruedas.com/nosotros/preguntas-frecuentes): Respuestas verificadas sobre tiempos de corte, métodos de pago y políticas de servicio.
+- [Sobre Nosotros](https://www.enviosdosruedas.com/nosotros/sobre-nosotros): Historia y valores de logística con cara humana en Mar del Plata.
+- [Contacto y Base Central](https://www.enviosdosruedas.com/contacto): Base física en Friuli 1972 y canales de comunicación.
 
 ## Políticas y Legales
 - [Política de Privacidad](https://www.enviosdosruedas.com/politica-de-privacidad): Tratamiento de datos personales y seguridad en los envíos.

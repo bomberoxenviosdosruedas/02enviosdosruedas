@@ -152,7 +152,7 @@ export default function HeroAnimado() {
                 <div className="w-8 h-8 rounded-lg bg-brand-yellow-500/15 border border-brand-yellow-500/30 flex items-center justify-center text-brand-yellow-500">
                   <Package className="h-4 w-4" />
                 </div>
-                <span>+50k Envíos</span>
+                <span>Miles de Envíos</span>
               </motion.div>
               <motion.div
                 className="flex items-center gap-2.5 font-subheading text-sm uppercase tracking-wider cursor-default"

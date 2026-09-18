@@ -2,14 +2,18 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 /**
- * Middleware para Envíos DosRuedas (BL-01)
+ * Middleware para Envíos DosRuedas (BL-01 & BL-42)
  * 1. Bloqueo / Redirección 308 del host duplicado de Vercel (02enviosdosruedas.vercel.app -> www.enviosdosruedas.com)
- * 2. Inyección de header X-Robots-Tag: noindex en deployments de vista previa / vercel.app
+ * 2. Inyección estricta de header X-Robots-Tag: noindex, nofollow en cualquier preview de Vercel o vercel.app
  */
 export function proxy(request: NextRequest) {
   const host = request.headers.get('host') || '';
+  const isVercelPreview =
+    process.env.VERCEL_ENV === 'preview' ||
+    process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview' ||
+    host.includes('vercel.app');
 
-  // Detección de despliegue en Vercel (evita canibalización de SEO por contenido duplicado)
+  // Si es el dominio de producción legacy o subdominio vercel.app, redirigir al canónico www.enviosdosruedas.com
   if (host.includes('vercel.app')) {
     const url = request.nextUrl.clone();
     url.protocol = 'https:';
@@ -21,7 +25,14 @@ export function proxy(request: NextRequest) {
     return response;
   }
 
-  return NextResponse.next();
+  const response = NextResponse.next();
+
+  // En cualquier entorno de preview, inyectar noindex
+  if (isVercelPreview) {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  }
+
+  return response;
 }
 
 export const config = {

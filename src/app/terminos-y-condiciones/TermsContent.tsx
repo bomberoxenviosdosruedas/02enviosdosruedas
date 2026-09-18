@@ -86,7 +86,7 @@ const SECTIONS: TermSection[] = [
     content: "Garantizamos la máxima custodia y cuidado de cada paquete. No nos responsabilizamos por demoras extraordinarias ocasionadas por fuerza mayor, condiciones meteorológicas severas (temporal o inundaciones en la vía pública) o cortes de tránsito.",
     bullets: [
       "Exclusión de responsabilidad por eventos de fuerza mayor",
-      "Tiempos de entrega con SLA prioritario garantizado",
+      "Tiempos de entrega prioritaria garantizada en el día",
       "Cobertura de reenvío en caso de incidencias de transporte"
     ]
   },
@@ -169,7 +169,7 @@ export default function TermsContent() {
   };
 
   return (
-    <div className="bg-brand-white-50 min-h-screen relative font-sans text-brand-ink">
+    <div className="bg-brand-white-50 min-h-[100dvh] relative font-sans text-brand-ink">
       {/* HERO HEADER */}
       <section className="bg-brand-blue-700 text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-yellow-500/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />

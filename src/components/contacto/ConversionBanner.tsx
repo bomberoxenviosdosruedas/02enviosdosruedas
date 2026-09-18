@@ -55,10 +55,11 @@ export default function ConversionBanner() {
               href="https://wa.me/542236602699?text=Hola!%20Quiero%20coordinar%20mis%20env%C3%ADos%20de%20hoy."
               target="_blank"
               rel="noopener noreferrer"
-              className="group w-full sm:w-auto min-h-[52px] rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-subheading tracking-wider uppercase text-base font-bold py-3.5 px-8 shadow-lg flex items-center justify-center gap-3 transition-all duration-300 active:scale-[0.99]"
+              aria-label="Chateá con Nosotros por WhatsApp para coordinar envíos de hoy"
+              className="group w-full sm:w-auto min-h-[52px] rounded-full bg-white text-brand-blue-700 hover:bg-brand-blue-50 font-subheading tracking-wider uppercase text-base font-bold py-3.5 px-8 shadow-elevated flex items-center justify-center gap-3 transition-all duration-300 active:scale-[0.99]"
             >
               <span>Chateá con Nosotros</span>
-              <span className="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
+              <span className="w-8 h-8 rounded-full bg-brand-blue-700/10 text-brand-blue-700 flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
                 <MessageCircle className="w-4 h-4" />
               </span>
             </a>

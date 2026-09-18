@@ -192,7 +192,7 @@ export default function PrivacyContent() {
   };
 
   return (
-    <div className="bg-brand-white-50 min-h-screen relative font-sans text-brand-ink">
+    <div className="bg-brand-white-50 min-h-[100dvh] relative font-sans text-brand-ink">
       {/* HERO BANNER SECTION */}
       <section className="bg-brand-blue-700 text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-yellow-500/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />

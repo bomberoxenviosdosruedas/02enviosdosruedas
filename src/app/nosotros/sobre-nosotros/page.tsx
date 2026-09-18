@@ -59,7 +59,7 @@ const jsonLdSchema = {
 
 export default function SobreNosotrosPage() {
   return (
-    <main className="min-h-screen bg-brand-white-50 text-brand-ink relative overflow-hidden">
+    <main className="min-h-[100dvh] bg-brand-white-50 text-brand-ink relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}

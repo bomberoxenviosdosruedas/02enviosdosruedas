@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import OptimizedHeader from './layout/OptimizedHeader';
 import OptimizedFooter from './layout/OptimizedFooter';
+import { captureAndPersistUtms } from '../lib/analytics';
 
 // CarruselRedes contains GSAP ScrollTrigger and is dynamically imported to avoid blocking FCP / TBT on initial paint
 const CarruselRedes = dynamic(() => import('./layout/CarruselRedes'), {
@@ -12,6 +13,9 @@ const CarruselRedes = dynamic(() => import('./layout/CarruselRedes'), {
 });
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    captureAndPersistUtms();
+  }, []);
   return (
     <>
       <a

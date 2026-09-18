@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageCircle, CheckCircle2, AlertCircle, Sparkles, Clock, Send } from 'lucide-react';
+import { trackAnalytics } from '@/src/lib/analytics';
+import { buildWhatsAppUrl } from '@/src/lib/whatsapp';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -35,12 +37,24 @@ export default function ContactForm() {
       formData.volumen ? ` Volumen mensual estimado: ${formData.volumen}.` : ''
     } Quisiera recibir una cotización.`;
 
-    const waUrl = `https://wa.me/542236602699?text=${encodeURIComponent(message)}`;
+    if (typeof window !== 'undefined') {
+      try {
+        sessionStorage.setItem('contact_lead', JSON.stringify({
+          ...formData,
+          submittedAt: new Date().toISOString(),
+        }));
+      } catch {}
+    }
+
+    trackAnalytics.formSubmit('contact_form');
+    trackAnalytics.whatsappClick('contact_form');
+
+    const waUrl = buildWhatsAppUrl({ message, source: 'formulario_contacto' });
 
     setTimeout(() => {
       setStatus('success');
       window.open(waUrl, '_blank', 'noopener,noreferrer');
-    }, 600);
+    }, 400);
   };
 
   const handleReset = () => {
@@ -62,7 +76,7 @@ export default function ContactForm() {
         />
 
         {/* Accent top gradient bar */}
-        <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#0950F6] via-[#FFF12E] to-[#25D366]" />
+        <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#0950F6] via-[#FFF12E] to-[#0950F6]" />
 
         <div className="relative z-10">
           {/* Header & Badges */}

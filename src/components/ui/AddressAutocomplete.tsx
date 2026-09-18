@@ -30,6 +30,7 @@ export default function AddressAutocomplete({
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const containerRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -38,6 +39,7 @@ export default function AddressAutocomplete({
     function handleClickOutside(event: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
         setIsOpen(false);
+        setSelectedIndex(-1);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -47,6 +49,7 @@ export default function AddressAutocomplete({
   const searchAddresses = async (searchQuery: string) => {
     if (searchQuery.trim().length < 3) {
       setSuggestions([]);
+      setSelectedIndex(-1);
       return;
     }
 
@@ -62,8 +65,10 @@ export default function AddressAutocomplete({
       if (data.status === 'OK' && data.predictions) {
         setSuggestions(data.predictions);
         setIsOpen(true);
+        setSelectedIndex(-1);
       } else {
         setSuggestions([]);
+        setSelectedIndex(-1);
       }
     } catch (error) {
       console.error('Error fetching addresses from local API:', error);
@@ -76,6 +81,7 @@ export default function AddressAutocomplete({
     const val = e.target.value;
     onChange(val);
     onSelectCoordinate(null);
+    setSelectedIndex(-1);
 
     if (val.trim() === '') {
       setSuggestions([]);
@@ -96,6 +102,7 @@ export default function AddressAutocomplete({
     onChange(suggestion.description);
     setIsOpen(false);
     setSuggestions([]);
+    setSelectedIndex(-1);
 
     // Obtener las coordenadas a través de nuestro endpoint proxy de details
     try {
@@ -111,6 +118,24 @@ export default function AddressAutocomplete({
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!isOpen || suggestions.length === 0) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setSelectedIndex((prev) => (prev < suggestions.length - 1 ? prev + 1 : 0));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setSelectedIndex((prev) => (prev > 0 ? prev - 1 : suggestions.length - 1));
+    } else if (e.key === 'Enter' && selectedIndex >= 0 && selectedIndex < suggestions.length) {
+      e.preventDefault();
+      handleSelect(suggestions[selectedIndex]);
+    } else if (e.key === 'Escape') {
+      setIsOpen(false);
+      setSelectedIndex(-1);
+    }
+  };
+
   return (
     <div ref={containerRef} className="relative w-full">
       <div className="relative">
@@ -121,14 +146,16 @@ export default function AddressAutocomplete({
           placeholder={placeholder}
           value={value}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
           className={className}
           autoComplete="off"
           role="combobox"
           aria-autocomplete="list"
           aria-expanded={isOpen && suggestions.length > 0}
           aria-controls={`${id}-suggestions`}
+          aria-activedescendant={selectedIndex >= 0 ? `${id}-option-${selectedIndex}` : undefined}
         />
-        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-brand-blue-300 pointer-events-none" aria-hidden="true">
+        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-brand-blue-200 pointer-events-none" aria-hidden="true">
           {isLoading ? (
             <Loader2 className="h-4 w-4 animate-spin" />
           ) : (
@@ -141,27 +168,33 @@ export default function AddressAutocomplete({
         <ul
           id={`${id}-suggestions`}
           role="listbox"
-          className="absolute z-50 w-full mt-1 bg-brand-blue-700 border border-white/10 rounded-xl max-h-60 overflow-y-auto shadow-2xl text-brand-blue-100 divide-y divide-white/5"
+          className="absolute z-50 w-full mt-1 bg-brand-blue-800 border border-white/20 rounded-xl max-h-60 overflow-y-auto shadow-2xl text-white divide-y divide-white/10"
         >
-          {suggestions.map((s) => (
-            <li
-              key={s.place_id}
-              role="option"
-              aria-selected="false"
-              onClick={() => handleSelect(s)}
-              className="px-4 py-3 hover:bg-white/5 cursor-pointer flex items-start gap-3 transition-colors text-sm"
-            >
-              <MapPin className="h-5 w-5 text-brand-yellow shrink-0 mt-0.5" aria-hidden="true" />
-              <div>
-                <p className="font-semibold text-white">
-                  {s.description.split(',')[0]}
-                </p>
-                <p className="text-xs text-brand-blue-300 mt-0.5 line-clamp-1">
-                  {s.description}
-                </p>
-              </div>
-            </li>
-          ))}
+          {suggestions.map((s, idx) => {
+            const isSelected = idx === selectedIndex;
+            return (
+              <li
+                key={s.place_id}
+                id={`${id}-option-${idx}`}
+                role="option"
+                aria-selected={isSelected}
+                onClick={() => handleSelect(s)}
+                className={`px-4 py-3 cursor-pointer flex items-start gap-3 transition-colors text-sm ${
+                  isSelected ? 'bg-white/20 ring-1 ring-brand-yellow-500' : 'hover:bg-white/10'
+                }`}
+              >
+                <MapPin className="h-5 w-5 text-brand-yellow-500 shrink-0 mt-0.5" aria-hidden="true" />
+                <div>
+                  <p className="font-semibold text-white">
+                    {s.description.split(',')[0]}
+                  </p>
+                  <p className="text-xs text-brand-blue-100 mt-0.5 line-clamp-1 font-medium">
+                    {s.description}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>

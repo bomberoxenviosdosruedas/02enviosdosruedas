@@ -187,7 +187,19 @@ export default function LeafletRouteMap({
   return (
     <div className="w-full h-full min-h-[300px] relative rounded-2xl overflow-hidden bg-brand-blue-900 select-none">
       {/* Map Target Canvas */}
-      <div ref={mapContainer} className="w-full h-full min-h-[300px] z-0" />
+      <div
+        ref={mapContainer}
+        role="region"
+        aria-label="Mapa interactivo de ruta en Mar del Plata"
+        className="relative w-full h-full min-h-[300px] z-0 overflow-hidden"
+      >
+        {/* Texto accesible alternativo para lectores de pantalla (BL-09) */}
+        <div className="sr-only" aria-live="polite">
+          {origin && destination
+            ? `Mapa con ruta trazada entre origen y destino en Mar del Plata. Distancia aproximada: ${distanceKm || 0} kilómetros. Modalidad de servicio: ${serviceType === 'EXPRESS' ? 'Express' : 'LowCost'}.`
+            : 'Mapa satelital de Mar del Plata preparado para trazar la ruta seleccionada.'}
+        </div>
+      </div>
 
       {/* Top Left: Logo Badge Branding Overlay */}
       <div className="absolute top-3 left-3 z-[400] pointer-events-none">

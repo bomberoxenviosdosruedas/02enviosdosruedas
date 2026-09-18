@@ -30,7 +30,7 @@ const SEARCH_SUGGESTIONS = [
   { text: '¿Hacen entregas en Batán y Sierra de los Padres?', link: '/servicios/envios-express', tag: 'Cobertura' },
   { text: '¿Cómo funciona MercadoLibre Flex en MDQ?', link: '/servicios/enviosflex', tag: 'Flex' },
   { text: '¿Cuáles son los medios de pago aceptados?', link: '#faq-accordion', tag: 'Pagos' },
-  { text: '¿Tienen servicio de almacenamiento 3PL?', link: '/servicios/plan-emprendedores', tag: '3PL' },
+  { text: '¿Tienen servicio de depósito y fulfillment?', link: '/servicios/deposito-fulfillment', tag: 'Depósito' },
 ];
 
 const CATEGORY_CHIPS = [
@@ -255,11 +255,12 @@ export default function FaqHero() {
                     href="https://wa.me/542236602699?text=Hola!%20Tengo%20una%20duda%20sobre%20los%20env%C3%ADos%20de%20Envíos%20DosRuedas%20en%20Mar%20del%20Plata."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group min-h-[52px] w-full px-6 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg font-subheading tracking-wider uppercase text-sm font-bold rounded-full flex items-center justify-center gap-3 transition-all duration-300 active:scale-[0.99] cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50"
+                    aria-label="Preguntanos por WhatsApp sobre envíos en Mar del Plata"
+                    className="group min-h-[52px] w-full px-6 py-3 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 shadow-cta-glow font-subheading tracking-wider uppercase text-sm font-bold rounded-full flex items-center justify-center gap-3 transition-all duration-300 active:scale-[0.99] cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500/50"
                   >
                     <span>Preguntanos por WhatsApp</span>
-                    <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 shrink-0">
-                      <MessageCircle className="h-4 w-4 text-white" />
+                    <span className="w-8 h-8 rounded-full bg-brand-blue-900/10 text-brand-blue-900 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 shrink-0">
+                      <MessageCircle className="h-4 w-4" />
                     </span>
                   </a>
                 </div>

@@ -73,12 +73,26 @@ const jsonLdSchema = {
   },
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: baseUrl },
+    { '@type': 'ListItem', position: 2, name: 'Servicios', item: `${baseUrl}/#servicios` },
+    { '@type': 'ListItem', position: 3, name: 'Mercado Envíos Flex', item: `${baseUrl}/servicios/enviosflex` },
+  ],
+};
+
 export default function EnviosFlexPage() {
   return (
-    <main className="min-h-screen bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-[100dvh] bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* Hero Header Block — Electric Speed Blue (brand-blue-500) */}
