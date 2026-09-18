@@ -12,7 +12,7 @@ import {
   Sparkles,
   MapPin,
   CircleDollarSign,
-  ReceiptCheck,
+  Receipt,
   TrendingUp,
 } from 'lucide-react';
 import CTANestedPill from '@/src/components/ui/CTANestedPill';
@@ -91,7 +91,7 @@ export default function EnviosContrareembolsoPage() {
       step: '03',
       title: 'Rendición en el día',
       desc: 'Te transferimos la recaudación a tu CBU/CVU o te entregamos el efectivo en mano con comprobante firmado.',
-      icon: ReceiptCheck,
+      icon: Receipt,
     },
   ];
 

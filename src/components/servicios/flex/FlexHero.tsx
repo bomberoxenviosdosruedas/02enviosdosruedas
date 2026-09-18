@@ -238,7 +238,7 @@ export default function FlexHero() {
                           </div>
                         </div>
                       </motion.div>
-                    ) : (
+                    ) : activeTab === 'integracion' ? (
                       <motion.div
                         key="integracion"
                         initial={{ opacity: 0, y: 8 }}

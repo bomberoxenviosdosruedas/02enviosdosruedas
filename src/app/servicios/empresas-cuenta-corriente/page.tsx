@@ -187,7 +187,6 @@ export default function EmpresasCuentaCorrientePage() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-3.5">
-                      <div>
                       <InputField
                         label="Nombre y Apellido"
                         required
