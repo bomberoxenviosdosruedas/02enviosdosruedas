@@ -51,18 +51,64 @@ export const MobileNav: React.FC<MobileNavProps> = ({
   onDropdownToggle,
 }) => {
   const prefersReducedMotion = useReducedMotion();
+  const drawerRef = React.useRef<HTMLDivElement>(null);
 
-  // Prevent page scroll when mobile drawer is open
+  // Prevent page scroll when mobile drawer is open & handle focus trap / Escape key
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          onClose();
+          return;
+        }
+
+        if (e.key === 'Tab' && drawerRef.current) {
+          const focusableElements = drawerRef.current.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusableElements.length === 0) return;
+
+          const firstElement = focusableElements[0];
+          const lastElement = focusableElements[focusableElements.length - 1];
+
+          if (e.shiftKey) {
+            if (document.activeElement === firstElement) {
+              e.preventDefault();
+              lastElement.focus();
+            }
+          } else {
+            if (document.activeElement === lastElement) {
+              e.preventDefault();
+              firstElement.focus();
+            }
+          }
+        }
+      };
+
+      window.addEventListener('keydown', handleKeyDown);
+
+      // Auto-focus first focusable element inside drawer
+      const focusTimer = setTimeout(() => {
+        const firstFocusable = drawerRef.current?.querySelector<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        firstFocusable?.focus();
+      }, 50);
+
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+        clearTimeout(focusTimer);
+        const trigger = document.getElementById('mobile-menu-toggle-opt');
+        trigger?.focus();
+      };
     } else {
       document.body.style.overflow = '';
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   return (
     <AnimatePresence>
@@ -78,8 +124,13 @@ export const MobileNav: React.FC<MobileNavProps> = ({
             className="fixed inset-0 bg-brand-blue-900/70 backdrop-blur-md z-50 lg:hidden"
           />
 
-          {/* Slide-over Drawer — spring from right + enhanced blur border */}
+          {/* Slide-over Drawer — spring from right + enhanced blur border (BL-06) */}
           <motion.div
+            ref={drawerRef}
+            id="mobile-navigation-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menú principal de navegación"
             initial={prefersReducedMotion ? { x: 0 } : { x: '100%' }}
             animate={{ x: 0 }}
             exit={prefersReducedMotion ? { opacity: 0 } : { x: '100%' }}

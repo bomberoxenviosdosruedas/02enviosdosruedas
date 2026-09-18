@@ -24,8 +24,8 @@ Leyenda de estado: `Pendiente` (nada hecho todavía) · `Specs listos` (tiene ha
 
 | Tarea | BL | Estado | IDs de origen | Bloqueado por |
 |---|---|---|---|---|
-| Un CTA primario por vista | BL-05 | Pendiente | DC-02/14/15/18/20/23, CAMP-08 | — |
-| Menú móvil accesible | BL-06 | Pendiente | A11Y-04 | — |
+| Un CTA primario por vista | BL-05 | Completado | DC-02/14/15/18/20/23, CAMP-08 | — |
+| Menú móvil accesible | BL-06 | Completado | A11Y-04 | — |
 | `aria-live` en resultado de cotizadores | BL-07 | Pendiente | A11Y-11, COPY-10 | BL-03 |
 | Contraste de texto y foco sobre fondos azules | BL-08 | Pendiente | A11Y-01/02/03 | — |
 | Formulario del cotizador arriba del pliegue | BL-27 | Pendiente | DC-01, DC-01b, DC-12, CAMP-09 | BL-07 |

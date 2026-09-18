@@ -257,17 +257,22 @@ export default function OptimizedHeader() {
               <span>223 660-2699</span>
             </a>
 
-            {/* CTA with idle pulse ring */}
+            {/* CTA with idle pulse ring (BL-05: Un solo CTA primario por vista) */}
             <div className="relative">
-              {/* Idle pulse ring — draws attention without distraction */}
-              {!prefersReducedMotion && (
+              {/* Idle pulse ring — solo si el header es el CTA primario activo de la vista */}
+              {!(pathname === '/' || pathname.startsWith('/servicios') || pathname.startsWith('/cotizar')) && !prefersReducedMotion && (
                 <motion.span
                   className="absolute inset-0 rounded-full bg-brand-yellow-500/25 pointer-events-none"
                   animate={{ scale: [1, 1.18, 1], opacity: [0.6, 0, 0.6] }}
                   transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1.5 }}
                 />
               )}
-              <CTANestedPill href="/cotizar/express" variant="primary" size="default">
+              <CTANestedPill
+                href="/cotizar/express"
+                variant={(pathname === '/' || pathname.startsWith('/servicios') || pathname.startsWith('/cotizar')) ? 'outline' : 'primary'}
+                size="default"
+                className={(pathname === '/' || pathname.startsWith('/servicios') || pathname.startsWith('/cotizar')) ? 'border-white/40 text-white hover:bg-white/10 hover:border-white hover:text-white' : ''}
+              >
                 Cotizá tu envío
               </CTANestedPill>
             </div>
@@ -287,7 +292,9 @@ export default function OptimizedHeader() {
               onClick={() => setIsOpen(!isOpen)}
               id="mobile-menu-toggle-opt"
               className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 transition-all cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
-              aria-label="Toggle Navigation Menu"
+              aria-label={isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation-dialog"
             >
               <AnimatePresence mode="wait" initial={false}>
                 {isOpen ? (
