@@ -157,7 +157,7 @@ export default function BatchGrid() {
                   type="button"
                   onClick={() => removeRow(row.id)}
                   disabled={rows.length <= 1}
-                  aria-label={`Eliminar fila ${idx + 1} de la planilla de envíos`}
+                  aria-label={`Eliminar fila ${index + 1} de la planilla de envíos`}
                   className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-brand-blue-400 hover:text-red-600 disabled:opacity-30 disabled:hover:text-brand-blue-400 rounded-lg transition-colors shrink-0 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500"
                   title="Eliminar fila"
                 >
