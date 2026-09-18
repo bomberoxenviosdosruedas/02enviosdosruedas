@@ -12,14 +12,14 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Cotizador de Envíos Express en Moto | Mar del Plata | Envíos DosRuedas',
+  title: 'Cotizá tu Envío Express en Moto',
   description:
     'Calculá el costo exacto de tu envío prioritario en Mar del Plata. Tarifas transparentes por kilómetro, entrega en el día y coordinación en el acto.',
   alternates: {
     canonical: `${baseUrl}/cotizar/express`,
   },
   openGraph: {
-    title: 'Cotizá tu Envío Express en Moto | Mar del Plata | Envíos DosRuedas',
+    title: 'Cotizá tu Envío Express en Moto | Envíos DosRuedas',
     description:
       'Calculá al instante el valor de tu envío express en Mar del Plata. Tarifas transparentes 2026.',
     url: `${baseUrl}/cotizar/express`,

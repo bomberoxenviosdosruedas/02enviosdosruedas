@@ -238,10 +238,10 @@ export default function ExpressPricing() {
                   TRAYECTOS DE MÁS DE 10 KM
                 </span>
                 <h3 className="text-3xl font-display uppercase tracking-tight text-white">
-                  <span className="font-mono tabular-nums">$8.200</span> Base + <span className="font-mono tabular-nums">$1.000</span> x km adicional
+                  +10 km: <span className="font-mono tabular-nums">$1.000</span> por km total (redondeado al entero superior)
                 </h3>
                 <p className="text-sm text-blue-100 leading-relaxed font-sans max-w-2xl">
-                  Para envíos que exceden los 10 km (Batán, Sierra de los Padres, Camet o periferia de General Pueyrredón), el cálculo aplica tarifa base de 7 a 10 km (<span className="font-mono tabular-nums">$8.200</span>) más <span className="font-mono tabular-nums">$1.000</span> por kilómetro adicional entero.
+                  Para envíos de más de 10 km (Batán, Sierra de los Padres, Camet o periferia de General Pueyrredón hasta 20 km), se multiplican los kilómetros totales redondeados hacia arriba por <span className="font-mono tabular-nums">$1.000</span> (ej. 12 km = <span className="font-mono tabular-nums">$12.000</span>). Trayectos mayores a 20 km se cotizan a medida vía WhatsApp.
                 </p>
               </div>
 

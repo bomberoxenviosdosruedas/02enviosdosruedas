@@ -310,8 +310,8 @@ export default function OptimizedFooter() {
                 </div>
                 <div>
                   <p className="font-bold text-white uppercase font-subheading tracking-wider">Atención Comercial</p>
-                  <a href="mailto:contacto@enviosdosruedas.com.ar" className="font-sans text-[12px] text-brand-blue-100 hover:text-brand-yellow-500 transition-colors block mt-0.5 break-all">
-                    contacto@enviosdosruedas.com.ar
+                  <a href="mailto:matiascejas@enviosdosruedas.com" className="font-sans text-[12px] text-brand-blue-100 hover:text-brand-yellow-500 transition-colors block mt-0.5 break-all">
+                    matiascejas@enviosdosruedas.com
                   </a>
                 </div>
               </div>

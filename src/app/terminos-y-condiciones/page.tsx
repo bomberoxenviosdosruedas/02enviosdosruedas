@@ -6,7 +6,7 @@ import CarruselRedes from '@/src/components/layout/CarruselRedes';
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Términos y Condiciones | Envíos DosRuedas Mar del Plata',
+  title: 'Términos y Condiciones',
   description: 'Leé detenidamente las pautas operativas, obligaciones del usuario, tarifas, formas de pago y limitaciones de responsabilidad de Envíos DosRuedas.',
   alternates: {
     canonical: `${baseUrl}/terminos-y-condiciones`,

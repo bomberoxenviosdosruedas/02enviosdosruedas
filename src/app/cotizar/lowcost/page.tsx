@@ -13,14 +13,14 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Cotizador de Envíos LowCost en Moto | Mar del Plata | Envíos DosRuedas',
+  title: 'Cotizá tu Envío LowCost en Moto',
   description:
     'Calculá tu tarifa de envío económico programado con entrega en el día en Mar del Plata (pedidos antes de las 13 hs). Ruteo optimizado para comercios y PyMEs.',
   alternates: {
     canonical: `${baseUrl}/cotizar/lowcost`,
   },
   openGraph: {
-    title: 'Cotizá tu Envío LowCost en Moto | Mar del Plata | Envíos DosRuedas',
+    title: 'Cotizá tu Envío LowCost en Moto | Envíos DosRuedas',
     description:
       'Calculá tu envío programado con entrega en el día en Mar del Plata. Máxima rentabilidad y eficiencia logística.',
     url: `${baseUrl}/cotizar/lowcost`,

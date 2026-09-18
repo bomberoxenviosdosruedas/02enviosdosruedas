@@ -7,7 +7,7 @@ import RecentPosts from '@/src/components/nosotros/nuestras-redes/RecentPosts';
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Nuestras Redes y Comunidad | Envíos DosRuedas Mar del Plata',
+  title: 'Nuestras Redes y Comunidad',
   description: 'Conectate con la mayor comunidad logística y de mensajería urbana en Mar del Plata. Seguí nuestras novedades operativas de calle, beneficios y promociones.',
   alternates: {
     canonical: `${baseUrl}/nosotros/nuestras-redes`,

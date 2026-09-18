@@ -14,23 +14,34 @@ function CounterMetric({
   suffix?: string;
 }) {
   const reduceMotion = useReducedMotion();
-  const count = useMotionValue(0);
+  const count = useMotionValue(value);
   const rounded = useTransform(count, (latest) => `${prefix}${Math.round(latest)}${suffix}`);
+  const finalString = `${prefix}${value}${suffix}`;
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
-    <motion.span
-      onViewportEnter={() => {
-        if (reduceMotion) {
-          count.set(value);
-        } else {
-          animate(count, value, { duration: 1.2, ease: [0.16, 1, 0.3, 1] });
-        }
-      }}
-      viewport={{ once: true, margin: '-50px' }}
-      className="tabular-nums font-mono"
-    >
-      {rounded}
-    </motion.span>
+    <>
+      <span className="sr-only">{finalString}</span>
+      <motion.span
+        aria-hidden="true"
+        onViewportEnter={() => {
+          if (reduceMotion) {
+            count.set(value);
+          } else {
+            count.set(0);
+            animate(count, value, { duration: 1.2, ease: [0.16, 1, 0.3, 1] });
+          }
+        }}
+        viewport={{ once: true, margin: '-50px' }}
+        className="tabular-nums font-mono"
+      >
+        {mounted ? rounded : finalString}
+      </motion.span>
+    </>
   );
 }
 
@@ -41,11 +52,12 @@ export default function VisionSection() {
   const springConfig = { type: 'spring' as const, stiffness: 100, damping: 20 };
   const springConfigCard = { type: 'spring' as const, stiffness: 300, damping: 25 };
 
-  // Container variants with orchestrated stagger
+  // Container variants with orchestrated stagger (visible by default in SSR to prevent empty initial paint)
   const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0.95, y: 10 },
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
         staggerChildren: 0.1,
         delayChildren: 0.1,

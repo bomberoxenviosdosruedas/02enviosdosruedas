@@ -8,14 +8,14 @@ import FaqCta from '@/src/components/nosotros/preguntas-frecuentes/FaqCta';
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Preguntas Frecuentes (FAQ) | Envíos DosRuedas Mar del Plata',
+  title: 'Preguntas Frecuentes (FAQ)',
   description:
     'Despejá todas tus dudas sobre mensajería en moto, Envíos Flex MercadoLibre, reparto LowCost, servicio Express, tarifas 2026 y cobertura en Mar del Plata.',
   alternates: {
     canonical: `${baseUrl}/nosotros/preguntas-frecuentes`,
   },
   openGraph: {
-    title: 'Preguntas Frecuentes (FAQ) | Envíos DosRuedas Mar del Plata',
+    title: 'Preguntas Frecuentes (FAQ) | Envíos DosRuedas',
     description:
       'Respuestas inmediatas sobre servicios, tiempos, tarifas y logística urbana con flota propia en Mar del Plata.',
     url: `${baseUrl}/nosotros/preguntas-frecuentes`,

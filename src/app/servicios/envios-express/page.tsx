@@ -8,23 +8,16 @@ import ExpressUseCases from '@/src/components/servicios/express/ExpressUseCases'
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Mensajería en Moto y Envíos Express | Entregas Inmediatas Mar del Plata | Envíos DosRuedas',
+  title: 'Envíos Express en Moto (60-90 min)',
   description:
-    'Servicio prioritario de mensajería en moto y envíos express en Mar del Plata. Entregas inmediatas con rango de 3 horas (solicitud con 2 hs de anticipación antes de las 15:00 hs). Bultos hasta 5 kg y 40x30 cm.',
-  keywords: [
-    'mensajeria en moto',
-    'envios express',
-    'entregas inmediatas',
-    'cadeteria express mar del plata',
-    'mensajeria urbana mar del plata',
-  ],
+    'Servicio prioritario de mensajería en moto y envíos express en Mar del Plata. Entregas en franja de 60 a 90 minutos con tarifa fija por distancia.',
   alternates: {
     canonical: `${baseUrl}/servicios/envios-express`,
   },
   openGraph: {
-    title: 'Mensajería en Moto y Envíos Express en Mar del Plata | Envíos DosRuedas',
+    title: 'Envíos Express en Moto en Mar del Plata | Envíos DosRuedas',
     description:
-      'Cadetería prioritarias y entregas inmediatas en Mar del Plata. Rango de entrega de 3 horas, solicitud antes de las 15:00 hs. Hasta 5 kg y 40x30 cm.',
+      'Cadetería prioritaria y entregas inmediatas en 60-90 min en Mar del Plata. Tarifas transparentes 2026.',
     url: `${baseUrl}/servicios/envios-express`,
     type: 'website',
     locale: 'es_AR',
@@ -34,9 +27,9 @@ export const metadata: Metadata = {
 const jsonLdSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Mensajería en Moto y Envíos Express con Entregas Inmediatas en Mar del Plata',
+  name: 'Mensajería en Moto y Envíos Express en Mar del Plata',
   description:
-    'Servicio prioritario de mensajería en moto y envíos express con entregas inmediatas en rango de 3 horas en Mar del Plata. Solicita con 2 hs de anticipación antes de las 15:00 hs. Bultos de hasta 5 kg y 40x30 cm.',
+    'Servicio prioritario de mensajería en moto y envíos express con entregas en franja de 60 a 90 minutos en Mar del Plata. Bultos de hasta 15 kg.',
   url: `${baseUrl}/servicios/envios-express`,
   provider: {
     '@type': 'LocalBusiness',

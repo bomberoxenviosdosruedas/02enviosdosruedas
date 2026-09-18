@@ -8,23 +8,16 @@ import EmprendedoresPricing from '@/src/components/servicios/emprendedores/Empre
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Paquetería E-Commerce, Envíos E-Commerce y Logística 3PL Mar del Plata | Envíos DosRuedas',
+  title: 'Depósito, Fulfillment y Envíos PyME',
   description:
-    'Especialistas en paquetería e-commerce, envíos e-commerce y logística 3PL en Mar del Plata. Almacenamiento en Friuli 1972 con picking QR Same Day, E-Commerce Next Day (24hs), opción DropOFF (-20% OFF) y contrareembolso sin cargo extra.',
-  keywords: [
-    'paqueteria ecommerce',
-    'envios ecommerce',
-    'logistica 3pl mar del plata',
-    'fulfillment mar del plata',
-    'dropoff envios mar del plata',
-  ],
+    'Almacenamiento en Friuli 1972 con picking, preparación de pedidos, opción DropOFF y contrareembolso en Mar del Plata.',
   alternates: {
     canonical: `${baseUrl}/servicios/plan-emprendedores`,
   },
   openGraph: {
-    title: 'Paquetería E-Commerce, Envíos E-Commerce y Logística 3PL | Envíos DosRuedas',
+    title: 'Depósito, Fulfillment y Envíos PyME | Envíos DosRuedas',
     description:
-      'Soluciones integrales de paquetería e-commerce y logística 3PL en Mar del Plata. Depósito en Friuli 1972, picking QR Same Day, Next Day 24hs, DropOFF 20% OFF y cobro contrareembolso gratis.',
+      'Soluciones integrales de logística para e-commerce en Mar del Plata. Depósito en Friuli 1972, preparación y despacho directo.',
     url: `${baseUrl}/servicios/plan-emprendedores`,
     type: 'website',
     locale: 'es_AR',

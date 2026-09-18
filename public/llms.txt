@@ -9,15 +9,15 @@ Este archivo proporciona información estructurada para que modelos de lenguaje 
 - **Ubicación Central:** Friuli 1972, B7600 Mar del Plata, Provincia de Buenos Aires, Argentina
 - **Teléfono / WhatsApp:** +54 223 660-2699
 - **Email:** matiascejas@enviosdosruedas.com
-- **Horarios:** Lunes a Viernes de 09:00 a 18:00 hs | Sábados de 10:00 a 15:00 hs (Base operativa)
-- **Zona de Cobertura:** Todo el ejido urbano de Mar del Plata (no cubre zonas aledañas)
-- **Capacidad Estándar por Moto:** Hasta 5 kg o dimensiones de aproximadamente 40x40x30 cm por bulto
+- **Horarios:** Lunes a Viernes de 09:00 a 18:00 hs | Sábados de 10:00 a 15:00 hs (Base operativa Friuli 1972)
+- **Zona de Cobertura:** Todo el ejido urbano de Mar del Plata hasta 20 km (Batán, Camet y periferia bajo cotización)
+- **Capacidad Estándar por Moto:** Hasta 15 kg o dimensiones de aproximadamente 40x40x30 cm por bulto
 
 ## Servicios Principales
-- [Envíos Express](https://www.enviosdosruedas.com/servicios/envios-express): Mensajería urbana urgente con entrega puerta a puerta en menos de 2 horas. Tarifas base 2026 desde $3.700 ARS (0-3 km) hasta $8.200 ARS (7-10 km, con $1.000 por km adicional entero).
-- [Envíos LowCost](https://www.enviosdosruedas.com/servicios/envios-lowcost): Distribución económica programada para tiendas y e-commerce. Retiro por la mañana y entrega en el día (horario de corte: 13:00 hs). Tarifas 2026 desde $3.000 ARS (0-3 km) hasta $7.000 ARS (7-10 km, con $700 por km adicional entero).
-- [Mercado Envíos Flex](https://www.enviosdosruedas.com/servicios/enviosflex): Solución logística Same-Day oficial para vendedores de MercadoLibre en Mar del Plata. Retiros programados y entregas en la misma jornada para proteger la reputación verde del vendedor.
-- [Logística 3PL y Plan Emprendedores](https://www.enviosdosruedas.com/servicios/plan-emprendedores): Servicio integral de fulfillment para marcas y PyMEs: almacenamiento en depósito central (Friuli 1972), preparación de pedidos (picking & packing) y entrega de última milla.
+- [Envíos Express](https://www.enviosdosruedas.com/servicios/envios-express): Mensajería urbana urgente con entrega puerta a puerta en franja de 60 a 90 minutos. Tarifas base 2026 desde $3.700 ARS (0-3 km) hasta $8.200 ARS (7-10 km, y $1.000 por km total para +10 km hasta 20 km).
+- [Envíos LowCost](https://www.enviosdosruedas.com/servicios/envios-lowcost): Distribución económica programada para tiendas y e-commerce. Retiro por la mañana y entrega en el día (horario de corte: 13:00 hs, entrega antes de las 19:00 hs). Tarifas 2026 desde $3.000 ARS (0-3 km) hasta $7.000 ARS (7-10 km, y $700 por km total para +10 km hasta 20 km).
+- [Mercado Envíos Flex](https://www.enviosdosruedas.com/servicios/enviosflex): Solución logística Same-Day adaptada para vendedores de MercadoLibre en Mar del Plata. Corte 15:00 hs y entregas antes de las 20:00 hs en la misma jornada para proteger la reputación del vendedor.
+- [Centro de Depósito y Logística](https://www.enviosdosruedas.com/servicios/plan-emprendedores): Almacenamiento en Friuli 1972, preparación de pedidos (picking & packing) y despacho directo para comercios y marcas locales.
 
 ## Cotizadores y Herramientas Interactivas
 - [Cotizador Express](https://www.enviosdosruedas.com/cotizar/express): Calculá al instante la tarifa exacta y distancia de tu envío express prioritario en Mar del Plata.

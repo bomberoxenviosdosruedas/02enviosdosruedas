@@ -234,10 +234,10 @@ export default function LowCostPricing() {
                   ZONA 5 (MÁS DE 10 KM)
                 </span>
                 <h3 className="text-3xl font-mono tabular-nums uppercase tracking-tight text-white font-bold">
-                  $7.000 Base + $700 x km adicional
+                  +10 km: $700 por km total (redondeado al entero superior)
                 </h3>
                 <p className="text-sm text-blue-100 leading-relaxed font-sans max-w-2xl">
-                  Para envíos de larga distancia fuera del ejido urbano masivo tradicional (+10 km), aplicamos tarifa base de 7 a 10 km (<span className="font-mono tabular-nums">$7.000</span>) más <span className="font-mono tabular-nums">$700</span> por kilómetro adicional entero para que sigas ruteando con máxima rentabilidad.
+                  Para envíos de larga distancia (+10 km hasta 20 km), se multiplican los kilómetros totales redondeados hacia arriba por <span className="font-mono tabular-nums">$700</span> (ej. 12 km = <span className="font-mono tabular-nums">$8.400</span>). Trayectos mayores a 20 km se cotizan a medida vía WhatsApp.
                 </p>
               </div>
 

@@ -10,14 +10,14 @@ import AboutMissionVision from '@/src/components/nosotros/sobre-nosotros/AboutMi
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Sobre Nosotros & Historia | Envíos DosRuedas Mar del Plata',
+  title: 'Sobre Nosotros y Trayectoria',
   description:
-    'Conocé la historia, valores y equipo detrás de Envíos DosRuedas. Más de 7 años de trayectoria liderando la logística urbana, cadetería y última milla e-commerce en Mar del Plata.',
+    'Conocé la historia, valores y equipo detrás de Envíos DosRuedas. Más de 7 años de trayectoria en logística urbana, cadetería y última milla e-commerce en Mar del Plata.',
   alternates: {
     canonical: `${baseUrl}/nosotros/sobre-nosotros`,
   },
   openGraph: {
-    title: 'Sobre Nosotros & Historia | Envíos DosRuedas Mar del Plata',
+    title: 'Sobre Nosotros y Trayectoria | Envíos DosRuedas',
     description:
       'Más de 7 años de trayectoria transformando la logística urbana y la última milla en Mar del Plata con flota propia.',
     url: `${baseUrl}/nosotros/sobre-nosotros`,

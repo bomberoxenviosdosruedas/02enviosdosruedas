@@ -39,8 +39,10 @@ const webSiteSchema = {
 };
 
 export const metadata: Metadata = {
-  title: 'Mensajería y Logística E-commerce en Mar del Plata | Envíos DosRuedas',
-  description: 'Especialistas en logística e-commerce y última milla en Mar del Plata. Envíos en el día, Flex y soluciones 3PL para potenciar tu negocio local.',
+  title: {
+    absolute: 'Mensajería en moto y logística en Mar del Plata | Envíos DosRuedas',
+  },
+  description: 'Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express en 60-90 min, Mercado Envíos Flex en el día y paquetería LowCost para comercios y particulares.',
   alternates: {
     canonical: baseUrl,
   },

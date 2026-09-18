@@ -9,21 +9,14 @@ import LowCostHowItWorks from '@/src/components/servicios/lowcost/LowCostHowItWo
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Paquetería E-Commerce, Servicio de Cadetería y Encomiendas LowCost | Envíos DosRuedas',
+  title: 'Envíos LowCost y Cadetería en el Día',
   description:
-    'Paquetería e-commerce, servicio de cadetería y servicio de encomiendas más rentable en Mar del Plata. Pedidos solicitados antes de las 13:00 hs se entregan en el día antes de las 19:00 hs. Tarifas 2026.',
-  keywords: [
-    'paqueteria ecommerce',
-    'servicio de cadeteria',
-    'servicio de encomiendas',
-    'envios lowcost mar del plata',
-    'cadeteria economica mar del plata',
-  ],
+    'Paquetería e-commerce y cadetería programada con entrega en el día en Mar del Plata. Pedidos antes de las 13:00 hs se entregan antes de las 19:00 hs. Tarifas 2026.',
   alternates: {
     canonical: `${baseUrl}/servicios/envios-lowcost`,
   },
   openGraph: {
-    title: 'Paquetería E-Commerce y Servicio de Encomiendas LowCost | Envíos DosRuedas',
+    title: 'Envíos LowCost y Cadetería en el Día | Envíos DosRuedas',
     description:
       'El servicio de cadetería y encomiendas más económico de Mar del Plata. Pedidos antes de las 13:00 hs se entregan antes de las 19:00 hs.',
     url: `${baseUrl}/servicios/envios-lowcost`,

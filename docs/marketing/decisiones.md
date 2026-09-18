@@ -7,18 +7,18 @@
 ## 1. Decisiones del dueño
 
 - **2026-09-18** — **Aprobación del Plan Maestro e Informe Integral de Ejecución (`INFORME-EJECUCION-ROADMAP.md`) y adopción de los valores de Fase 0 para desbloqueo operativo:**
-  1. *Trayectoria de marca:* Se fija "+7 años de trayectoria en Mar del Plata" para proteger a la marca contra riesgos de publicidad engañosa (Ley 24.240).
-  2. *Volumen histórico:* Se reemplaza la afirmación absoluta no auditada "+50k envíos" por "Miles de envíos entregados a tiempo".
-  3. *Mercado Envíos Flex:* Se descartan los términos "socio oficial/homologado/certificado" y se adopta "Servicio adaptado a los estándares de Mercado Envíos Flex".
-  4. *Badge 3PL:* Se sustituye el sello sin entidad certificadora por "Centro de Depósito y Logística Local · Friuli 1972".
-  5. *Horarios de atención unificados:* Lunes a Viernes 09:00 a 18:00 hs y Sábados 10:00 a 15:00 hs para Schema JSON-LD, Footer y Contacto.
-  6. *Email público oficial:* Se adopta `contacto@enviosdosruedas.com.ar` (retirando correos de desarrollo `dev@...`).
-  7. *Tarifas Flex / Depósito / Emprendedores:* Se ratifica la tabla de `AGENTS.md` (2026) volcada a `docs/contexto/precios.md`.
-  8. *Promesa Express y Cobertura:* Franja de entrega de 60 a 90 min y cálculo automático en cotizador hasta 20 km (después deriva a WhatsApp).
-  9. *Medios de pago en Contrareembolso:* Efectivo, Transferencia y QR en el momento de entrega. Facturación: Factura C.
-  10. *Tipografía de cuerpo:* `IBM Plex Sans` como tipografía primaria (secundaria `Outfit`).
-  11. *Componentes insignia:* Opción A (Integrar): reutilizar `DoubleBezelCard` y `CTANestedPill` en cotizadores y vistas principales.
-  *Motivo:* Desbloquear el inicio inmediato del Sprint 1 técnico, la respuesta a las 9 reseñas de Google y la prospección comercial B2B.
+  1. _Trayectoria de marca:_ Se fija "+7 años de trayectoria en Mar del Plata" para proteger a la marca contra riesgos de publicidad engañosa (Ley 24.240).
+  2. _Volumen histórico:_ Se reemplaza la afirmación absoluta no auditada "+50k envíos" por "Miles de envíos entregados a tiempo".
+  3. _Mercado Envíos Flex:_ Se descartan los términos "socio oficial/homologado/certificado" y se adopta "Servicio adaptado a los estándares de Mercado Envíos Flex".
+  4. _Badge 3PL:_ Se sustituye el sello sin entidad certificadora por "Centro de Depósito y Logística Local · Friuli 1972".
+  5. _Horarios de atención unificados:_ Lunes a Viernes 09:00 a 18:00 hs y Sábados 10:00 a 15:00 hs para Schema JSON-LD, Footer y Contacto.
+  6. _Email público oficial:_ Se adopta `matiascejas@enviosdosruedas.com` (retirando correos de desarrollo `dev@...`).
+  7. _Tarifas Flex / Depósito / Emprendedores:_ Se ratifica la tabla de `AGENTS.md` (2026) volcada a `docs/contexto/precios.md`.
+  8. _Promesa Express y Cobertura:_ Franja de entrega de 60 a 90 min y cálculo automático en cotizador hasta 20 km (después deriva a WhatsApp).
+  9. _Medios de pago en Contrareembolso:_ Efectivo, Transferencia y QR en el momento de entrega. Facturación: Factura C.
+  10. _Tipografía de cuerpo:_ `IBM Plex Sans` como tipografía primaria (secundaria `Outfit`).
+  11. _Componentes insignia:_ Opción A (Integrar): reutilizar `DoubleBezelCard` y `CTANestedPill` en cotizadores y vistas principales.
+      _Motivo:_ Desbloquear el inicio inmediato del Sprint 1 técnico, la respuesta a las 9 reseñas de Google y la prospección comercial B2B.
 
 ## 2. Decisiones de método, tomadas durante la ejecución de las Fases 1 a 14 (2026-09-18)
 

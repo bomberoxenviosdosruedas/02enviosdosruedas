@@ -102,15 +102,20 @@ export default function EmprendedoresHome() {
 
           <motion.div className="pt-2" variants={wordContainerVariants}>
             <p className="text-brand-blue-200 font-sans text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl font-medium tracking-tight">
-              {words.map((word, i) => (
-                <motion.span
-                  key={i}
-                  variants={wordVariant}
-                  className="inline-block mr-1.5"
-                >
-                  {word}
-                </motion.span>
-              ))}
+              <span className="sr-only">{descriptionText}</span>
+              <span aria-hidden="true">
+                {words.map((word, i) => (
+                  <React.Fragment key={i}>
+                    <motion.span
+                      variants={wordVariant}
+                      className="inline-block"
+                    >
+                      {word}
+                    </motion.span>
+                    {i < words.length - 1 ? ' ' : ''}
+                  </React.Fragment>
+                ))}
+              </span>
             </p>
           </motion.div>
 

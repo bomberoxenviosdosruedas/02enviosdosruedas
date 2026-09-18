@@ -78,9 +78,9 @@ export default function ServicesOverview() {
       statLabelStyle: 'text-brand-blue-200',
       hintColor: 'text-brand-yellow-500',
       stats: {
-        time: '30-90 min',
+        time: '60-90 min',
         price: '$3.700 Base',
-        weight: 'Hasta 10 kg',
+        weight: 'Hasta 15 kg',
       },
       details: {
         summary: 'Servicio de mensajería urbana inmediata, ideal para trámites urgentes, despacho de encomiendas y entrega de documentación. Se asigna un repartidor exclusivo para tu envío.',

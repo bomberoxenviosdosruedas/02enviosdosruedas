@@ -331,7 +331,7 @@ export default function ContactHero() {
                           onChange={(e) => setFormData({ ...formData, servicio: e.target.value })}
                           className="w-full h-11 px-3 rounded-xl border-2 border-[#0950F6]/30 bg-[#052C87] text-white font-sans text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF12E] cursor-pointer"
                         >
-                          <option value="express">Express (2 horas)</option>
+                          <option value="express">Express (60 a 90 min)</option>
                           <option value="lowcost">LowCost (Mismo día)</option>
                           <option value="flex">MercadoLibre Flex</option>
                           <option value="3pl">Fulfillment 3PL</option>

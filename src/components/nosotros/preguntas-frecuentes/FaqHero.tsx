@@ -8,7 +8,7 @@ const TOP_FAQS = [
   {
     id: 'corte-same-day',
     question: '¿Cuál es el horario de corte para Same-Day?',
-    answer: 'Para envíos LowCost con entrega en el día, el corte de solicitud es a las 14:00 hs. Para envíos Express (2 horas), tomamos pedidos de lunes a sábados hasta las 19:00 hs.',
+    answer: 'Para envíos LowCost con entrega en el día, el corte de solicitud es a las 13:00 hs (entrega antes de las 19:00 hs). Para envíos Express (60 a 90 min), tomamos pedidos de lunes a viernes de 09:00 a 18:00 hs y sábados de 10:00 a 15:00 hs.',
     category: 'Express / LowCost',
   },
   {

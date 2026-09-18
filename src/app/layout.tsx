@@ -129,7 +129,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   description: 'Mensajería y logística e-commerce en Mar del Plata. Envíos Express en 60-90 min, LowCost, Mercado Envíos Flex y almacenamiento en Friuli 1972.',
                   url: baseUrl,
                   telephone: '+54-223-660-2699',
-                  email: 'contacto@enviosdosruedas.com.ar',
+                  email: 'matiascejas@enviosdosruedas.com',
                   image: `${baseUrl}/og-image.jpg`,
                   hasMap: 'https://maps.google.com/?q=Friuli+1972,+Mar+del+Plata',
                   address: {

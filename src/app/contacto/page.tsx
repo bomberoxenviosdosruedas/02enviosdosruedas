@@ -8,7 +8,7 @@ import ConversionBanner from '@/src/components/contacto/ConversionBanner';
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Contacto | Envíos DosRuedas Mar del Plata',
+  title: 'Contacto y Base Central',
   description: 'Contacto con el equipo comercial y logística urbana de Envíos DosRuedas en Mar del Plata. Cotizaciones inmediatas por WhatsApp y atención personalizada.',
   alternates: {
     canonical: `${baseUrl}/contacto`,
