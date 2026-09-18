@@ -38,23 +38,10 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Envíos DosRuedas · Tu Partner Logístico en Mar del Plata',
+    default: 'Mensajería en moto y logística en Mar del Plata | Envíos DosRuedas',
     template: '%s | Envíos DosRuedas',
   },
-  description: 'Tu partner logístico de confianza en Mar del Plata. Envíos Express (rango 3hs), Envíos Flex MercadoLibre en el día, Paquetería LowCost y Fulfillment 3PL para E-Commerce.',
-  keywords: [
-    'envios flex',
-    'mensajeria en moto',
-    'paqueteria ecommerce',
-    'envios express',
-    'reparto mercadolibre',
-    'servicio de cadeteria',
-    'logistica flex',
-    'envios mar del plata',
-    'mensajeria mar del plata',
-    'cadeteria mar del plata',
-    'logistica 3pl mar del plata',
-  ],
+  description: 'Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express en 60-90 min, Mercado Envíos Flex en el día y paquetería LowCost para comercios y particulares.',
   authors: [{ name: 'Envíos DosRuedas' }],
   creator: 'Envíos DosRuedas',
   publisher: 'Envíos DosRuedas',
@@ -122,11 +109,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   '@type': 'Organization',
                   name: 'Envíos DosRuedas',
                   url: baseUrl,
-                  logo: `${baseUrl}/logo-envios-simplified.webp`,
+                  logo: `${baseUrl}/logo-master.svg`,
                   sameAs: [
                     'https://www.instagram.com/enviosdosruedas',
                     'https://www.facebook.com/enviosdosruedas',
-                    'https://wa.me/542236602699',
                   ],
                   contactPoint: {
                     '@type': 'ContactPoint',
@@ -140,10 +126,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   '@type': 'LocalBusiness',
                   '@id': `${baseUrl}#localbusiness`,
                   name: 'Envíos DosRuedas',
-                  description: 'Mensajería y logística e-commerce en Mar del Plata. Envíos Express, LowCost, MercadoLibre Flex y soluciones 3PL para PyMEs.',
+                  description: 'Mensajería y logística e-commerce en Mar del Plata. Envíos Express en 60-90 min, LowCost, Mercado Envíos Flex y almacenamiento en Friuli 1972.',
                   url: baseUrl,
                   telephone: '+54-223-660-2699',
-                  email: 'matiascejas@enviosdosruedas.com',
+                  email: 'contacto@enviosdosruedas.com.ar',
+                  image: `${baseUrl}/og-image.jpg`,
+                  hasMap: 'https://maps.google.com/?q=Friuli+1972,+Mar+del+Plata',
                   address: {
                     '@type': 'PostalAddress',
                     streetAddress: 'Friuli 1972',
@@ -160,9 +148,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   openingHoursSpecification: [
                     {
                       '@type': 'OpeningHoursSpecification',
-                      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-                      opens: '08:00',
-                      closes: '20:00',
+                      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                      opens: '09:00',
+                      closes: '18:00',
+                    },
+                    {
+                      '@type': 'OpeningHoursSpecification',
+                      dayOfWeek: ['Saturday'],
+                      opens: '10:00',
+                      closes: '15:00',
                     },
                   ],
                   areaServed: {
@@ -181,7 +175,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         itemOffered: {
                           '@type': 'Service',
                           name: 'Envíos Express',
-                          description: 'Entregas prioritarias en menos de 2 horas en Mar del Plata.',
+                          description: 'Entregas prioritarias en franja de 60 a 90 min en Mar del Plata.',
                           url: `${baseUrl}/servicios/envios-express`,
                         },
                       },
@@ -199,7 +193,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         itemOffered: {
                           '@type': 'Service',
                           name: 'Envíos Flex (MercadoLibre)',
-                          description: 'Socio logístico certificado para Mercado Envíos Flex. Same-Day delivery.',
+                          description: 'Servicio adaptado a los estándares de Mercado Envíos Flex. Same-Day delivery.',
                           url: `${baseUrl}/servicios/enviosflex`,
                         },
                       },
@@ -207,8 +201,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         '@type': 'Offer',
                         itemOffered: {
                           '@type': 'Service',
-                          name: 'Logística 3PL y Plan Emprendedores',
-                          description: 'Almacenamiento, picking, packing y fulfillment para e-commerce.',
+                          name: 'Centro de Depósito y Logística',
+                          description: 'Almacenamiento, preparación y despacho directo en Friuli 1972.',
                           url: `${baseUrl}/servicios/plan-emprendedores`,
                         },
                       },

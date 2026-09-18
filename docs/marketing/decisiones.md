@@ -6,7 +6,19 @@
 
 ## 1. Decisiones del dueño
 
-**Ninguna todavía.** Todas las fases de este proyecto (F1 a F14, ejecutadas el 2026-09-18) se corrieron en una sola sesión sin intervención del dueño en el medio — son propuestas y hallazgos a la espera de respuesta, no decisiones tomadas. La lista completa de preguntas pendientes está en `F4-0-backlog.md` §4 y en `TASKS.md` §2. Cuando el dueño responda alguna, se agrega acá con fecha real y se actualiza el ítem correspondiente en `TASKS.md` de "Bloqueado" a "Pendiente" o "Specs listos".
+- **2026-09-18** — **Aprobación del Plan Maestro e Informe Integral de Ejecución (`INFORME-EJECUCION-ROADMAP.md`) y adopción de los valores de Fase 0 para desbloqueo operativo:**
+  1. *Trayectoria de marca:* Se fija "+7 años de trayectoria en Mar del Plata" para proteger a la marca contra riesgos de publicidad engañosa (Ley 24.240).
+  2. *Volumen histórico:* Se reemplaza la afirmación absoluta no auditada "+50k envíos" por "Miles de envíos entregados a tiempo".
+  3. *Mercado Envíos Flex:* Se descartan los términos "socio oficial/homologado/certificado" y se adopta "Servicio adaptado a los estándares de Mercado Envíos Flex".
+  4. *Badge 3PL:* Se sustituye el sello sin entidad certificadora por "Centro de Depósito y Logística Local · Friuli 1972".
+  5. *Horarios de atención unificados:* Lunes a Viernes 09:00 a 18:00 hs y Sábados 10:00 a 15:00 hs para Schema JSON-LD, Footer y Contacto.
+  6. *Email público oficial:* Se adopta `contacto@enviosdosruedas.com.ar` (retirando correos de desarrollo `dev@...`).
+  7. *Tarifas Flex / Depósito / Emprendedores:* Se ratifica la tabla de `AGENTS.md` (2026) volcada a `docs/contexto/precios.md`.
+  8. *Promesa Express y Cobertura:* Franja de entrega de 60 a 90 min y cálculo automático en cotizador hasta 20 km (después deriva a WhatsApp).
+  9. *Medios de pago en Contrareembolso:* Efectivo, Transferencia y QR en el momento de entrega. Facturación: Factura C.
+  10. *Tipografía de cuerpo:* `IBM Plex Sans` como tipografía primaria (secundaria `Outfit`).
+  11. *Componentes insignia:* Opción A (Integrar): reutilizar `DoubleBezelCard` y `CTANestedPill` en cotizadores y vistas principales.
+  *Motivo:* Desbloquear el inicio inmediato del Sprint 1 técnico, la respuesta a las 9 reseñas de Google y la prospección comercial B2B.
 
 ## 2. Decisiones de método, tomadas durante la ejecución de las Fases 1 a 14 (2026-09-18)
 

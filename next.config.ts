@@ -4,6 +4,37 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   devIndicators: false,
 
+  // Redirecciones 301/308 permanentes para URLs legacy y alias (BL-01)
+  async redirects() {
+    return [
+      {
+        source: '/enviosflex',
+        destination: '/servicios/enviosflex',
+        permanent: true,
+      },
+      {
+        source: '/servicios/express',
+        destination: '/servicios/envios-express',
+        permanent: true,
+      },
+      {
+        source: '/servicios/lowcost',
+        destination: '/servicios/envios-lowcost',
+        permanent: true,
+      },
+      {
+        source: '/servicios/flex',
+        destination: '/servicios/enviosflex',
+        permanent: true,
+      },
+      {
+        source: '/servicios/3pl',
+        destination: '/servicios/plan-emprendedores',
+        permanent: true,
+      },
+    ];
+  },
+
   typescript: {
     ignoreBuildErrors: false,
   },

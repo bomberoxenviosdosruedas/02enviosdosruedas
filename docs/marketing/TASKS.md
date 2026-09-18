@@ -15,10 +15,10 @@ Leyenda de estado: `Pendiente` (nada hecho todavía) · `Specs listos` (tiene ha
 | Tarea | BL | Estado | IDs de origen | Bloqueado por |
 |---|---|---|---|---|
 | Redirecciones 301 + bloqueo del duplicado en Vercel | BL-01 | Specs listos | DC (D-3), CAMP-04 | — |
-| Metadata global, horarios reales en JSON-LD | BL-02 | Specs listos | D-9, CAMP-04, MARCA-01, GEO-02 | Horario real (owner) |
-| Constantes únicas de promesa de tiempo/umbral | BL-03 | Specs listos | DC-03, DC-13, CAMP-06 | Promesa y umbral reales (owner) |
+| Metadata global, horarios reales en JSON-LD | BL-02 | Specs listos | D-9, CAMP-04, MARCA-01, GEO-02 | — (Resuelto 2026-09-18) |
+| Constantes únicas de promesa de tiempo/umbral | BL-03 | Specs listos | DC-03, DC-13, CAMP-06 | — (Resuelto 2026-09-18) |
 | Contadores con valor final en SSR | BL-04 | Specs listos | DC-07/08/09, A11Y-09/10, CAMP-07 | — |
-| Unificar email de contacto público | BL-19 | Specs listos | MARCA-02 | Email real (owner) |
+| Unificar email de contacto público | BL-19 | Specs listos | MARCA-02 | — (Resuelto 2026-09-18) |
 
 ### Sprint 2 — SEO técnico + accesibilidad crítica del flujo de conversión
 
@@ -46,7 +46,7 @@ Leyenda de estado: `Pendiente` (nada hecho todavía) · `Specs listos` (tiene ha
 |---|---|---|---|---|
 | Quitar jerga de cliente, reformular "SLA garantizado" | BL-12 | Pendiente | COPY-01/02/03/04, DC-19 | — |
 | Unificar CTAs al glosario de F2-3 | BL-13 | Pendiente | COPY-05/06/07 | — |
-| Quitar afirmaciones absolutas sin respaldo | BL-14 | **Bloqueado** | F2-4 tabla, DC-32 | Antigüedad real, "+50k envíos", homologación Flex, badge 3PL (owner) |
+| Quitar afirmaciones absolutas sin respaldo | BL-14 | Pendiente | F2-4 tabla, DC-32 | — (Resuelto 2026-09-18) |
 | Botones de WhatsApp en amarillo de marca | BL-15 | Pendiente | DC-25, CAMP-20 | — |
 | Reseñas: "N reseñas verificadas" en vez de número fijo | BL-16 | Pendiente | DC-10, CAMP-17 | — |
 
@@ -54,7 +54,7 @@ Leyenda de estado: `Pendiente` (nada hecho todavía) · `Specs listos` (tiene ha
 
 | Tarea | BL | Estado | IDs de origen | Bloqueado por |
 |---|---|---|---|---|
-| `docs/contexto/precios.md` + carga en `PriceRange` | BL-32 | **Bloqueado** | DC-24, D-12, CAMP-19 | Precio real Emprendedores/Flex/3PL (owner) |
+| `docs/contexto/precios.md` + carga en `PriceRange` | BL-32 | Pendiente | DC-24, D-12, CAMP-19 | — (Resuelto 2026-09-18) |
 | Página `/servicios/envios-contrareembolso` | BL-20 | Pendiente | CONT-02, CAMP-10 | BL-32, BL-14 |
 | Página `/guias/envios-flex-mar-del-plata` | BL-21 | Pendiente | CONT-01, CAMP-11 | — |
 | Eventos GA4 + UTM + helper de WhatsApp | BL-25 | Pendiente | CAMP-01/02/03/05 | — |
@@ -74,7 +74,7 @@ Leyenda de estado: `Pendiente` (nada hecho todavía) · `Specs listos` (tiene ha
 |---|---|---|---|---|
 | Página `/servicios/empresas-cuenta-corriente` | BL-23 | Pendiente | CAMP-15 | — |
 | Página `/cobertura` | BL-24 | Pendiente | CAMP-16 | — |
-| FAQ: preguntas reales + buscador | BL-29 | **Bloqueado** | DC-28/29 | Factura A/C, qué no se transporta (owner) |
+| FAQ: preguntas reales + buscador | BL-29 | Pendiente | DC-28/29 | — (Resuelto 2026-09-18) |
 | Página Flex: tarifas arriba del scroll | BL-31 | Pendiente | CAMP-12, DC-21 | BL-12 |
 | Casos de clientes (3, con foto) | BL-33 | Pendiente | CAMP-18 | — |
 
@@ -85,7 +85,7 @@ Leyenda de estado: `Pendiente` (nada hecho todavía) · `Specs listos` (tiene ha
 | Logo vectorial ≥ 120px | BL-34 | Pendiente | DC-11 | — |
 | `h-screen` → `min-h-[100dvh]` | BL-35 | Pendiente | DC-31 | — |
 | Deuda visual de DESIGN.md §11 — **revisar contra F13 antes de tomar** | BL-36 | Pendiente | DESIGN.md §11, F13 §1 | — |
-| Decidir tipografía de cuerpo | BL-37 | **Bloqueado** | DC-33, D-11 | Decisión de tipografía (owner) |
+| Decidir tipografía de cuerpo | BL-37 | Pendiente | DC-33, D-11 | — (Resuelto 2026-09-18: IBM Plex Sans) |
 | Crear `PROJECT.md` | BL-38 | Pendiente | MARCA-03, D-12 | — |
 | Corregir `SchemaMarkup.tsx` antes de conectarlo | BL-39 | Pendiente | MARCA, F2-2 | BL-14 |
 
@@ -105,24 +105,24 @@ Leyenda de estado: `Pendiente` (nada hecho todavía) · `Specs listos` (tiene ha
 | Corregir colores en prompt de herramienta interna de imágenes | BL-47 | Pendiente | DS-06 | — |
 | `InputField.tsx` sin uso — integrar o retirar | BL-44 | Pendiente | DS-03 | — |
 | `LogisticaNetworkCanvas.tsx` sin uso — integrar o retirar | BL-45 | Pendiente | DS-04 | — |
-| 6 de 7 componentes insignia sin uso — integrar o retirar | BL-43 | **Bloqueado** | DS-01, DS-02 | Decisión Opción A/B (owner) |
+| 6 de 7 componentes insignia sin uso — integrar o retirar | BL-43 | Pendiente | DS-01, DS-02 | — (Resuelto Opción A: Integrar 2026-09-18) |
 
 ## 2. Tareas que no son de código
 
 | Tarea | Fuente | Estado |
 |---|---|---|
-| Completar categorías, horario real y 20 fotos de la ficha de Google Business Profile | F4-0 §5 | Pendiente |
+| Completar categorías, horario real y 20 fotos de la ficha de Google Business Profile | F4-0 §5 | Pendiente (horario definido) |
 | Publicar el calendario de redes de octubre 2026 (12 piezas) — bloqueado por el brand kit de Canva sin confirmar | `F11-1-calendario-2026-10.md` | Bloqueado (brand kit Canva) |
 | Confirmar o crear el brand kit de Envíos DosRuedas en Canva | `F5-1-piezas.md`, `F11-1` §6 | Bloqueado (conector Canva sin verificar en esta sesión) |
 | Aprobar el calendario de octubre 2026 (contenido y fechas) | `F11-1-calendario-2026-10.md` §6 | Pendiente decisión del dueño |
 | Programa de reseñas: pedir reseña en los 3 momentos de F3-1/F7, responder las 9 reseñas reales sin respuesta | `F7-reputacion.md` §6bis | Pendiente (dueño) |
 | Prospección B2B: contactar a los 19 prospectos marcados Top20 en `F9-1-prospectos.xlsx` | `F9-1-perfil-cliente-ideal.md`, `F9-2-outreach.md` | Pendiente (dueño) |
 | 10 entrevistas + test de usabilidad + encuesta de WhatsApp de `F8-1` | `F8-1-plan-investigacion.md` | Pendiente — necesita que el dueño reclute a los participantes |
-| Completar y enviar las 3 propuestas comerciales (`PROP-01/02/03`) con precios reales | `F10-1-propuestas/` | Bloqueado (faltan precios y condiciones — `{A DEFINIR POR EL DUEÑO}`) |
+| Completar y enviar las 3 propuestas comerciales (`PROP-01/02/03`) con precios reales | `F10-1-propuestas/` | Pendiente (desbloqueado con tarifas 2026) |
 | Validación legal de `/terminos-y-condiciones` y `/politica-de-privacidad` con un abogado | `F10-2-contratos.md` (LEGAL-01, LEGAL-02) | Pendiente (dueño / profesional) |
 | Definir presupuesto de Google Ads / Meta Ads, recién después de BL-25 y Sprint 1 | `F11-2-pauta-2026-10.md` | Bloqueado (BL-25, Sprint 1) |
 | Aprobar la activación del reporte semanal como tarea programada | `F14-1-definicion-reporte.md` §5 | Pendiente decisión del dueño |
-| Responder las preguntas pendientes de la tabla de `F4-0-backlog.md` §4 (11 preguntas) | `F4-0-backlog.md` §4 | Pendiente (dueño) |
+| Responder las preguntas pendientes de la tabla de `F4-0-backlog.md` §4 (11 preguntas) | `F4-0-backlog.md` §4 | **Resuelto** (aprobado en `INFORME-EJECUCION-ROADMAP.md` 2026-09-18) |
 
 ## 3. Rutina de cierre de sesión
 

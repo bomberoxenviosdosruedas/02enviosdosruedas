@@ -72,6 +72,7 @@
 - `F14-1-definicion-reporte.md` — definición fija del reporte semanal (10 indicadores, fuentes, umbrales de alerta); todavía sin ningún reporte real generado (`F14-reporte-AAAA-SS.md`) porque no hay datos de ninguna semana.
 - `TASKS.md` (raíz del repo, no en `docs/marketing/`) — una tarea por ítem del backlog, más las tareas que no son de código.
 - `memory/` (esta carpeta) — glosario, quién es quién, decisiones y este mismo índice.
+- `INFORME-EJECUCION-ROADMAP.md` — **Hoja de Ruta Integral de Ejecución Q4 2026**: sincronización de los Sprints 1 a 10 con la operación comercial (43 leads B2B, aceleración de reseñas, GBP) y resolución de la Fase 0 de desbloqueos del dueño.
 
 ## Lo que falta (Fases 15-16, ver el cierre en `F4-0-backlog.md` y el reporte final de esta sesión)
 

@@ -197,10 +197,10 @@ export default function ContactInfo() {
                     Atención Comercial
                   </span>
                   <a
-                    href="mailto:matiascejas@enviosdosruedas.com"
+                    href="mailto:contacto@enviosdosruedas.com.ar"
                     className="block font-mono text-sm sm:text-base font-bold text-white hover:text-[#FFF12E] transition-colors mt-0.5 break-all tabular-nums"
                   >
-                    matiascejas@enviosdosruedas.com
+                    contacto@enviosdosruedas.com.ar
                   </a>
                 </div>
               </div>

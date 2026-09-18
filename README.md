@@ -521,8 +521,9 @@ test(pricing): add unit tests for calculateLowCost edge cases
 ## 📄 Licencia & Contacto
 
 **Código:** Propietario — Envíos DosRuedas S.R.L. — Mar del Plata, Argentina
-**Contacto Técnico:** `dev@enviosdosruedas.com.ar`
-**WhatsApp Business:** `+54 9 223 XXX XXXX`
+**Atención al Cliente / Comercial:** `contacto@enviosdosruedas.com.ar`
+**Contacto Técnico / Desarrollo:** `dev@enviosdosruedas.com.ar`
+**WhatsApp Business:** `+54 223 660-2699`
 **Oficina:** Friuli 1972, Mar del Plata (B7600), Buenos Aires
 
 ---
