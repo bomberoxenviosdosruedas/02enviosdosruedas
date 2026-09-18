@@ -6,7 +6,7 @@ import type { NextRequest } from 'next/server';
  * 1. Bloqueo / Redirección 308 del host duplicado de Vercel (02enviosdosruedas.vercel.app -> www.enviosdosruedas.com)
  * 2. Inyección de header X-Robots-Tag: noindex en deployments de vista previa / vercel.app
  */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const host = request.headers.get('host') || '';
 
   // Detección de despliegue en Vercel (evita canibalización de SEO por contenido duplicado)
