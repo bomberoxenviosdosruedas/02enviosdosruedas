@@ -53,23 +53,30 @@
 - Leaflet tile fade uses Date deltas → LeafletRouteMap preview forces `.leaflet-tile{opacity:1}` in a scoped style.
 - Sparkles: `@tsparticles/react` throws "init callback must be stable" if a 2nd instance mounts before the engine loads
   (`particlesInit` recreated per render in src/components/ui/sparkles.tsx). The preview gates extra cells until a canvas
-  exists. Latent app bug: hoist `particlesInit` to module scope.
-- `public/` paths (`/logo-envios-simplified.webp`, used by LeafletRouteMap badge and LogosCarousel defaults) 404 outside the app →
-  the next/image shim maps them to data URIs (build-ds `PUBLIC_ASSETS`). logo-master.svg is 4 MB (embedded raster), so it
-  maps to `.design-sync/assets/logo-master-384.png`, a committed rasterization of the same file.
+  exists. (Root cause fixed in src 2026-09-19; the gate is now just belt-and-braces.)
+- `public/` paths (`/logo-envios-simplified.webp`, used by LeafletRouteMap badge and LogosCarousel defaults) 404 outside
+  the app → the next/image shim maps them to data URIs of the real files (build-ds `PUBLIC_ASSETS`, MIME by extension).
+  Add any new root-relative `src="/..."` used in src/components/ui to that list.
 - BentoGridItem numeric `span` builds `md:col-span-${n}` dynamically → safelisted via `@source inline` in build/ds.css.
 
-## Component findings worth reporting to the app owner (src untouched)
+## Component findings (fixed in src on 2026-09-19)
 
-- VerticalCutReveal / TimelineContent clipUp mask each word with overflow-hidden: at `leading-[0.98]` Anton accents are
-  clipped (ENVIÁ → ENVIA). Previews use line-height 1.25 / paddingTop 8.
-- BentoGridItem's inner DoubleBezel panel doesn't stretch to the row height; previews pass `innerClassName="flex-1 flex flex-col"`
-  via spread (not in `BentoGridItemProps`). Consider adding `innerClassName` to the props.
-- CardHeader is `flex flex-col`: a Badge placed directly inside stretches full width — wrap it in a `<div>`.
+- VerticalCutReveal word masks now have `pt-[0.2em] -mt-[0.2em]` and TimelineContent `clipUp` ends at `inset(-20% 0 0 0)`,
+  so Anton accents survive `leading-[0.98]` (was ENVIÁ → ENVIA on the live pricing headings).
+- BentoGridItem: new `innerClassName` prop; the inner panel stretches to the row height by default.
+- Card `elevated` got `border-transparent` (the bare `border` rendered currentColor and read as an outline); `bezel` used
+  a non-existent `shadow-float-shadow` → `shadow-float`.
+- Sparkles `particlesInit` hoisted to module scope (multiple instances no longer throw).
+- AA contrast pass: input border blue-300, placeholder/help text blue-500 11px, error text red-600, stepper pending states
+  and RadioCardGroup "DESDE" to blue-500 (dark stepper: blue-200/blue-100).
+- Still open: CardHeader is `flex flex-col`, so a Badge placed directly inside stretches full width — wrap it in a `<div>`.
+- Pre-existing test failures (not from these fixes): cotizar express/lowcost T2.3 + T2.4, preguntas-frecuentes T1.5,
+  and `src/lib/promises.test.ts` can't resolve `@/next.config`.
 
 ## Re-sync risks
 
-- `.design-sync/assets/logo-master-384.png` is derived from `public/logo-envios-simplified.webp`; regenerate it if the logo changes.
+- `PUBLIC_ASSETS` in build-ds.mjs must list every root-relative image path the ui components use (a repo-wide rename of
+  the logo on 2026-09-19 silently left the bundle pointing at a stale file).
 - Fonts are pinned copies of @fontsource 5.3.0 (latin subset) in `.design-sync/fonts/`.
 - The Tailwind CSS scans the whole repo: new site classes flow into the bundle automatically; removed ones disappear.
 - Preview workarounds above are tied to motion 12 / leaflet 1.9 / @tsparticles v4 behaviour — recheck after upgrades.

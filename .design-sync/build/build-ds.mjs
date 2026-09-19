@@ -22,12 +22,13 @@ mkdirSync(join(OUT, 'dist/fonts'), { recursive: true });
 
 // 1. JS: bundle the real components; react stays external for the converter's shims.
 const shim = (name) => join(BUILD, 'shims', `${name}.tsx`);
-// public/ files referenced by the components, embedded as data URIs. The master logo is
-// 4 MB (embedded raster), so it maps to a committed 384px rasterization of the same file.
-const PUBLIC_ASSETS = { '/logo-envios-simplified.webp': '.design-sync/assets/logo-master-384.png' };
-const publicAssetsModule = `export default ${JSON.stringify(Object.fromEntries(
-  Object.entries(PUBLIC_ASSETS).map(([k, f]) => [k, `data:image/png;base64,${readFileSync(join(ROOT, f)).toString('base64')}`]),
-))};`;
+// public/ files referenced by the components (root-relative src), embedded as data URIs
+// because /public doesn't exist outside the app. Keep in sync with `grep -rn "src=\"/" src/components/ui`.
+const PUBLIC_ASSETS = ['/logo-envios-simplified.webp'];
+const MIME = { '.webp': 'image/webp', '.png': 'image/png', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg' };
+const publicAssetsModule = `export default ${JSON.stringify(Object.fromEntries(PUBLIC_ASSETS.map((url) => [
+  url, `data:${MIME[url.slice(url.lastIndexOf('.'))]};base64,${readFileSync(join(ROOT, 'public', url)).toString('base64')}`,
+])))};`;
 const nextShims = {
   name: 'next-shims',
   setup(b) {
