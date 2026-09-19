@@ -149,7 +149,7 @@ Los tokens `gray-*`, `slate-*`, `zinc-*` están remapeados a escala de azul y **
 > ❌ **Prohibido ABSOLUTO — Auditoría Brand 2026-07-17:**
 > - `green-500` / `green-400` en stepper vertical completed state → **Usar `brand-yellow-500`**
 > - `green-500` / `green-400` en CTA WhatsApp → **Usar `brand-yellow-500`** (WhatsApp es marca externa, no color del sistema)
-> - Logo rasterizado (`LogoEnviosDosRuedas.webp`) → **Solo `/public/logo-master.svg` vectorial**
+> - Logo rasterizado (`LogoEnviosDosRuedas.webp`) → **Solo `/public/logo-envios-simplified.webpplified.webp` vectorial**
 > - Logo < 120px ancho → **Mínimo 120px (web) / 30mm (print)**
 
 ### Tipografía (Tokens Obligatorios)
@@ -227,13 +227,13 @@ Los tokens `gray-*`, `slate-*`, `zinc-*` están remapeados a escala de azul y **
   </div>
 </div>
 ```
-- `h-11` (44px), `border-2 border-brand-blue-100`, `rounded-xl`, `pl-10` (espacio icono)
+- `h-11` (44px), `border-2 border-brand-blue-300` (3,1:1, mínimo WCAG para controles), `rounded-xl`, `pl-10` (espacio icono); placeholder `text-brand-blue-500`
 - **Hover:** `border-brand-blue-200`
 - **Focus:** `border-brand-blue-700` + `ring-2 ring-brand-blue-500/20`
 - **Error:** `border-red-500` + `ring-2 ring-red-500/20`
 - **Disabled:** `border-brand-blue-100`, `bg-brand-blue-50/50`, `cursor-not-allowed`
 - Label: `font-subheading`, `text-label`, `uppercase`, `tracking-[.05em]`
-- Help text: `font-mono`, `10px`, `text-brand-blue-400`
+- Help text: `font-mono`, `11px`, `text-brand-blue-500` (azul-400 no llega a 4,5:1 en texto chico)
 
 #### Steppers
 **Horizontal (Cotizador):**

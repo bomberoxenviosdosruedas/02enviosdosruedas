@@ -47,7 +47,7 @@ Envíos DosRuedas es la plataforma de logística de última milla y mensajería 
 - **Nombre:** Envíos DosRuedas.
 - **Voz y tono:** Rioplatense riguroso con voseo marplatense ("Cotizá", "Ingresá", "Contactanos", "Rastreá", "Vos elegís").
 - **Identidad visual oficial:** Paleta estricta de 3 colores (Azul Egipcio `#0636A5`, Amarillo Señal Eléctrico `#FFEC01`, Blanco Puro `#FFFFFF`), tipografía display en Anton/Bebas Neue, cuerpo en Outfit y datos tabulares en Geist Mono.
-- **Identidad de marca:** Logo vectorial exclusivo `/logo-master.svg` (mínimo 120px ancho).
+- **Identidad de marca:** Logo vectorial exclusivo `/logo-envios-simplified.webp` (mínimo 120px ancho).
 - **Canales de contacto institucionales:** WhatsApp/Teléfono `223 660-2699`, Base operativa en Friuli 1972, correo `hola@enviosdosruedas.com`.
 
 ## Evidence on Hand

@@ -109,7 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   '@type': 'Organization',
                   name: 'Envíos DosRuedas',
                   url: baseUrl,
-                  logo: `${baseUrl}/logo-master.svg`,
+                  logo: `${baseUrl}/logo-envios-simplified.webp`,
                   sameAs: [
                     'https://www.instagram.com/enviosdosruedas',
                     'https://www.facebook.com/enviosdosruedas',

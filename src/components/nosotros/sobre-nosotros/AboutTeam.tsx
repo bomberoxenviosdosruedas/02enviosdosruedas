@@ -102,7 +102,7 @@ export default function AboutTeam() {
 
                   <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/60 font-mono">
                     <span className="flex items-center gap-1.5">
-                      <Image src="/logo-master.svg" alt="Envíos DosRuedas" width={16} height={16} className="object-contain" />
+                      <Image src="/logo-envios-simplified.webp" alt="Envíos DosRuedas" width={16} height={16} className="object-contain" />
                       Envíos DosRuedas
                     </span>
                     <span className="font-bold text-brand-yellow-500">MDQ 2026</span>

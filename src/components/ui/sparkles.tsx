@@ -20,6 +20,12 @@ interface SparklesProps {
   options?: Record<string, unknown>;
 }
 
+// Module scope: ParticlesProvider requires a stable init callback ("init callback must be stable")
+// and throws when a second <Sparkles> mounts with a new function identity.
+const particlesInit = async (engine: Parameters<typeof loadSlim>[0]) => {
+  await loadSlim(engine)
+}
+
 export function Sparkles({
   className,
   size = 1,
@@ -36,10 +42,6 @@ export function Sparkles({
   options = {},
 }: SparklesProps) {
   const id = useId()
-
-  const particlesInit = async (engine: Parameters<typeof loadSlim>[0]) => {
-    await loadSlim(engine)
-  }
 
   const defaultOptions = {
     background: {

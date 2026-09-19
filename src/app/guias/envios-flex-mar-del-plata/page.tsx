@@ -52,7 +52,7 @@ const jsonLdSchema = {
     name: 'Envíos DosRuedas',
     logo: {
       '@type': 'ImageObject',
-      url: `${baseUrl}/logo-master.svg`,
+      url: `${baseUrl}/logo-envios-simplified.webp`,
     },
   },
   datePublished: '2026-01-15T09:00:00-03:00',

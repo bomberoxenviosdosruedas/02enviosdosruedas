@@ -15,6 +15,8 @@ export interface BentoGridItemProps extends React.HTMLAttributes<HTMLDivElement>
   className?: string;
   doubleBezel?: boolean;
   variant?: 'light' | 'dark';
+  /** Extra classes for the inner DoubleBezel panel (it already stretches to the row height) */
+  innerClassName?: string;
 }
 
 /**
@@ -46,6 +48,7 @@ export const BentoGridItem: React.FC<BentoGridItemProps> = ({
   className,
   doubleBezel = true,
   variant = 'light',
+  innerClassName,
   ...props
 }) => {
   const getSpanClass = () => {
@@ -71,6 +74,7 @@ export const BentoGridItem: React.FC<BentoGridItemProps> = ({
       <DoubleBezelCard
         variant={variant}
         className={cn(spanClass, 'h-full flex flex-col', className)}
+        innerClassName={cn('flex-1 flex flex-col', innerClassName)}
         {...props}
       >
         {children}

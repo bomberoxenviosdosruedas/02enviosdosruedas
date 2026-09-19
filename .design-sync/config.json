@@ -1,0 +1,82 @@
+{
+  "projectId": "ddb37e1c-982b-4208-a8f8-ff004c084f3f",
+  "shape": "package",
+  "pkg": "@enviosdosruedas/ui",
+  "globalName": "EnviosDosRuedas",
+  "buildCmd": "node .design-sync/build/build-ds.mjs",
+  "entry": ".ds-pkg/dist/index.js",
+  "srcDir": "../src/components/ui",
+  "cssEntry": "dist/styles.css",
+  "extraFonts": [
+    "dist/fonts/fonts.css"
+  ],
+  "guidelinesGlob": [
+    "../DESIGN.md",
+    "../.design-sync/guides/*.md"
+  ],
+  "componentSrcMap": {
+    "BentoGridItem": "../src/components/ui/BentoGrid.tsx",
+    "CardHeader": "../src/components/ui/card.tsx",
+    "CardFooter": "../src/components/ui/card.tsx",
+    "CardTitle": "../src/components/ui/card.tsx",
+    "CardDescription": "../src/components/ui/card.tsx",
+    "CardContent": "../src/components/ui/card.tsx",
+    "TimelineContent": "../src/components/ui/timeline-animation.tsx",
+    "TimelineGroup": "../src/components/ui/timeline-animation.tsx"
+  },
+  "docsMap": {
+    "DoubleBezelCard": "../.design-sync/groups/superficies.md",
+    "Card": "../.design-sync/groups/superficies.md",
+    "CardHeader": "../.design-sync/groups/superficies.md",
+    "CardFooter": "../.design-sync/groups/superficies.md",
+    "CardTitle": "../.design-sync/groups/superficies.md",
+    "CardDescription": "../.design-sync/groups/superficies.md",
+    "CardContent": "../.design-sync/groups/superficies.md",
+    "FloatTiltCard": "../.design-sync/groups/superficies.md",
+    "BentoGrid": "../.design-sync/groups/superficies.md",
+    "BentoGridItem": "../.design-sync/groups/superficies.md",
+    "CTANestedPill": "../.design-sync/groups/acciones.md",
+    "Badge": "../.design-sync/groups/acciones.md",
+    "InputField": "../.design-sync/groups/formularios.md",
+    "RadioCardGroup": "../.design-sync/groups/formularios.md",
+    "AddressAutocomplete": "../.design-sync/groups/formularios.md",
+    "StepperHorizontal": "../.design-sync/groups/progreso.md",
+    "StepperVertical": "../.design-sync/groups/progreso.md",
+    "LogosCarousel": "../.design-sync/groups/showcase.md",
+    "LeafletRouteMap": "../.design-sync/groups/mapas.md",
+    "HeroProceduralBackground": "../.design-sync/groups/motion.md",
+    "Sparkles": "../.design-sync/groups/motion.md",
+    "TimelineContent": "../.design-sync/groups/motion.md",
+    "TimelineGroup": "../.design-sync/groups/motion.md",
+    "VerticalCutReveal": "../.design-sync/groups/motion.md"
+  },
+  "runtimeFontPrefixes": [
+    "Cambria"
+  ],
+  "dtsPropsFor": {
+    "TimelineContent": "/** Built-in entrance preset (default fadeUp) */ variant?: \"fadeUp\" | \"slideLeft\" | \"slideRight\" | \"scalePop\" | \"blurIn\" | \"clipUp\" | \"staggerContainer\" | \"staggerItem\"; /** Custom motion variants ({hidden, visible}) overriding the preset */ customVariants?: Record<string, unknown>; /** Delay in seconds before the animation starts */ delay?: number; /** Viewport trigger margin (default \"-80px\") */ viewportMargin?: string; /** Animate only the first time it enters the viewport (default true) */ once?: boolean; /** Element to render: div (default), p, span, h1-h6, section, article, aside, header, footer, nav */ as?: \"div\" | \"p\" | \"span\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"section\" | \"article\" | \"aside\" | \"header\" | \"footer\" | \"nav\"; /** Index passed as motion custom value for staggered presets */ animationNum?: number; timelineRef?: React.RefObject<HTMLElement | null>; children?: React.ReactNode; className?: string; style?: React.CSSProperties; id?: string; onClick?: React.MouseEventHandler<HTMLElement>;",
+    "CTANestedPill": "/** Label (use voseo: \"Cotizá tu envío\") */ children: React.ReactNode; /** Renders a link (<a>) instead of a <button> */ href?: string; /** primary = yellow CTA; elevated = white; outline; ghost */ variant?: \"primary\" | \"elevated\" | \"outline\" | \"ghost\"; /** compact 36px · default 44px · large/lg 52px min height */ size?: \"compact\" | \"default\" | \"large\" | \"lg\"; /** Icon inside the nested chip (default ArrowRight); pass null to hide */ icon?: React.ReactNode; iconPosition?: \"left\" | \"right\"; className?: string; iconClassName?: string; target?: string; rel?: string; disabled?: boolean; onClick?: React.MouseEventHandler<HTMLButtonElement>; type?: \"button\" | \"submit\" | \"reset\"; id?: string; style?: React.CSSProperties; \"aria-label\"?: string;",
+    "InputField": "/** Uppercase Bebas label above the field */ label?: string; /** Error message (red border + mono message) */ error?: string; /** Mono help text under the field */ helpText?: string; /** Leading icon (e.g. <MapPinIcon className=\"w-4 h-4\" />) */ icon?: React.ReactNode; containerClassName?: string; labelClassName?: string; className?: string; id?: string; name?: string; type?: string; placeholder?: string; value?: string | number; defaultValue?: string | number; onChange?: React.ChangeEventHandler<HTMLInputElement>; required?: boolean; disabled?: boolean; readOnly?: boolean; autoComplete?: string; inputMode?: \"text\" | \"numeric\" | \"tel\" | \"email\" | \"search\" | \"decimal\" | \"url\" | \"none\"; style?: React.CSSProperties;",
+    "BentoGridItem": "children: React.ReactNode; /** hero/\"7\" = lg:col-span-7 · standard/\"5\" = lg:col-span-5 · full/\"12\" = full row · number = custom span */ span?: \"hero\" | \"standard\" | \"full\" | \"7\" | \"5\" | \"12\" | number; /** Wrap content in a DoubleBezelCard (default true) */ doubleBezel?: boolean; variant?: \"light\" | \"dark\"; /** Forwarded to the inner DoubleBezelCard panel; use \"flex-1 flex flex-col\" so short content fills the 380px row */ innerClassName?: string; className?: string; id?: string; style?: React.CSSProperties;"
+  },
+  "overrides": {
+    "BentoGrid": {
+      "cardMode": "column",
+      "viewport": "1100x900"
+    },
+    "BentoGridItem": {
+      "cardMode": "column",
+      "viewport": "1100x900"
+    },
+    "RadioCardGroup": {
+      "cardMode": "column"
+    },
+    "CardFooter": {
+      "cardMode": "column"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md",
+  "extraEntries": [
+    "../.design-sync/build/icons.ts"
+  ]
+}

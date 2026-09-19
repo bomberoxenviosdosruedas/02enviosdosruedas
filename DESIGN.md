@@ -1,4 +1,5 @@
 # Design System: Envíos DosRuedas (Sovereign Infrastructure & Heritage Logistics)
+
 **Project ID:** `EnviosDosruedasDesignSystem_a2df0d`
 
 > **Documento Maestro de Arquitectura Visual, Sistema de Diseño Semántico y Directrices de Generación (2026)**
@@ -10,19 +11,22 @@
 ## 1. Overview: Visual Theme & Atmosphere
 
 ### 1.1 Calibración Sensorial (Taste Spectrum)
-| Eje | Valor | Lectura |
-|---|---|---|
-| **Creativity** | 9/10 | Identidad urbana costera marplatense: señalética vial monumental, bloques de color duros, energía de afiche deportivo aplicada a un servicio logístico. |
-| **Variance** | 8/10 | Composición offset: Bento asimétrico 7/5/12, split de hero 7/5, knockout rotado -1°, slab amarillo sesgado sangrando por el borde. **El hero centrado está prohibido.** |
-| **Motion** | 7/10 | Coreografía fluida con física de resortes (`stiffness: 100, damping: 20`), reveals en cascada, micro-loops perpetuos en indicadores activos, tilt 3D en tarjetas hero. |
-| **Density** | 6/10 | Equilibrio entre la precisión operativa de un panel logístico (métricas en mono, steppers) y la respiración de un servicio premium (secciones `py-24`, `max-w-prose`). |
+
+| Eje            | Valor | Lectura                                                                                                                                                                 |
+| -------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Creativity** | 9/10  | Identidad urbana costera marplatense: señalética vial monumental, bloques de color duros, energía de afiche deportivo aplicada a un servicio logístico.                 |
+| **Variance**   | 8/10  | Composición offset: Bento asimétrico 7/5/12, split de hero 7/5, knockout rotado -1°, slab amarillo sesgado sangrando por el borde. **El hero centrado está prohibido.** |
+| **Motion**     | 7/10  | Coreografía fluida con física de resortes (`stiffness: 100, damping: 20`), reveals en cascada, micro-loops perpetuos en indicadores activos, tilt 3D en tarjetas hero.  |
+| **Density**    | 6/10  | Equilibrio entre la precisión operativa de un panel logístico (métricas en mono, steppers) y la respiración de un servicio premium (secciones `py-24`, `max-w-prose`).  |
 
 ### 1.2 Narrativa de Atmósfera
+
 Envíos DosRuedas proyecta la solidez, velocidad y confiabilidad de una infraestructura logística propia con 15+ años ininterrumpidos en las calles de Mar del Plata. La interfaz fusiona el rigor de la señalética vial y portuaria con la claridad de una plataforma de última milla contemporánea. Lienzos limpios en **Blanco Puro (`#FFFFFF`)** contrastan con bloques monumentales en **Azul Egipcio (`#0636A5`)** y una única señal de alta energía en **Amarillo Vial (`#FFEC01`)**. Todo suena a que ya está en movimiento: la tipografía empuja, los botones ofrecen resistencia táctil al click y las tarjetas flotan con elevación gravitacional real (sombras teñidas al tono del fondo, nunca grises).
 
-**Vibe en una línea:** *logística urbana de precisión, industrial-moderno de alta velocidad, hablando en voseo.*
+**Vibe en una línea:** _logística urbana de precisión, industrial-moderno de alta velocidad, hablando en voseo._
 
 ### 1.3 Firma Geométrica & Elevación
+
 - **Contenedores de Doble Capa (`double-bezel`):** Capa exterior en azul hielo suave (`rounded-2xl` / 16px, `bg-brand-blue-50/80`, `border border-brand-blue-100`, `p-2`, `shadow-float`) y núcleo interior (`rounded-xl` / 12px, `bg-white`, `p-6`, `border border-brand-blue-50/50`, `shadow-inner`).
 - **Insignias de Velocidad:** Etiquetas y badges inclinados suavemente (`-rotate-1` / `rotate-1`).
 - **Resplandor de Señal Vial:** Halos cálidos ámbar/amarillo (`shadow-accent-*`, `shadow-cta-glow`) y azul ultramar (`shadow-glow-blue`), nunca luces neón cibernéticas desvinculadas de la identidad.
@@ -38,27 +42,28 @@ Envíos DosRuedas proyecta la solidez, velocidad y confiabilidad de una infraest
 
 ### 2.1 Tabla Maestra de Tokens Cromáticos
 
-| Rol Semántico | Nombre Descriptivo | Token Tailwind / CSS | Hex | Función en la Interfaz |
-|---|---|---|---|---|
-| **Primary / Trust** | Egyptian Brand Blue | `brand-blue-700` / `--color-brand-blue` | `#0636A5` | Header, footer, navegación, secciones invertidas, títulos H1/H2, marcos institucionales. |
-| **Surface Base** | Pure Canvas White | `brand-white-50` / `--surface-page` | `#FFFFFF` | Fondo de página, núcleo de tarjetas (`double-bezel-inner`), inputs, modales, tablas. |
-| **Soft Canvas / Outer Bezel** | Ice Blue Tint | `brand-blue-50` / `--surface-muted` | `#E6EEFE` | Marco exterior de tarjetas, secciones alternas suaves, fondo de skeleton. |
-| **Structural Border** | Blueprint Border | `brand-blue-100` / `--border-subtle` | `#BACEFD` | Bordes de tarjetas e inputs (2px), divisores 1px, líneas inactivas de steppers. |
-| **Hover Border** | Sky Blueprint | `brand-blue-300` | `#628FF9` | Borde del outer bezel en hover. |
-| **Muted Text** | Steel Blue Muted | `brand-blue-400` / `--text-muted` | `#3570F8` | Help text, metadatos, placeholders, eyebrows secundarios. Nunca para párrafos completos. |
-| **Interactive Blue** | Ultramarine Action | `brand-blue-500` / `--focus-ring` | `#0950F6` | Botones secundarios, estado activo de navegación, **anillo de foco universal**. |
-| **Primary Hover** | Royal Pressed | `brand-blue-800` / `--action-primary-hover` | `#052D8C` | Hover de botones azules sólidos, dropdowns sobre header. |
-| **Accent / CTA Oficial** | Electric Signal Yellow | `brand-yellow-500` / `--color-brand-yellow` | `#FFEC01` | **CTA primario oficial**, badges de alta prioridad, stepper dots activos/completos, franja footer 6px. |
-| **Accent Hover** | Signal Yellow Bright | `brand-yellow-400` / `--action-accent-hover` | `#FFF12E` | Hover de CTA primario y botón WhatsApp. |
-| **Accent Pressed** | Amber Flare | `brand-yellow-600` | `#E6D400` | Estado `:active` de CTA y badges de alta prioridad. |
-| **Accent Halo** | Pale Signal | `brand-yellow-100` | `#FFFAB8` | Anillo de stepper completado, fondo de badge "Flex". |
-| **Text on Accent** | Deep Navy | `brand-blue-900` / `--text-on-accent` | `#04236B` | Texto sobre amarillo (CTA primary, badges). |
-| **Body Ink** | Deep Blue Ink | `brand-ink` / `--text-body` | `#00277C` | Texto de cuerpo, párrafos, valores de inputs. Reemplaza al negro. |
-| **Ultra Deep Void** | Midnight Abyss | `brand-blue-950` | `#021440` | Footer profundo, overlays de modales críticos. |
-| **Glass on Blue** | Atmospheric Mist | `--surface-glass` | `rgba(255,255,255,0.06)` | Paneles flotantes sobre azul + `border: 1px solid rgba(255,255,255,0.12)` + `backdrop-blur-md`. |
-| **Destructive (único externo)** | Alert Red | `--action-danger` | `#EF4444` | **Solo** bordes/anillos de error de formulario y acciones destructivas confirmadas. Jamás decorativo. |
+| Rol Semántico                   | Nombre Descriptivo     | Token Tailwind / CSS                         | Hex                      | Función en la Interfaz                                                                                                                                     |
+| ------------------------------- | ---------------------- | -------------------------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Primary / Trust**             | Egyptian Brand Blue    | `brand-blue-700` / `--color-brand-blue`      | `#0636A5`                | Header, footer, navegación, secciones invertidas, títulos H1/H2, marcos institucionales.                                                                   |
+| **Surface Base**                | Pure Canvas White      | `brand-white-50` / `--surface-page`          | `#FFFFFF`                | Fondo de página, núcleo de tarjetas (`double-bezel-inner`), inputs, modales, tablas.                                                                       |
+| **Soft Canvas / Outer Bezel**   | Ice Blue Tint          | `brand-blue-50` / `--surface-muted`          | `#E6EEFE`                | Marco exterior de tarjetas, secciones alternas suaves, fondo de skeleton.                                                                                  |
+| **Structural Border**           | Blueprint Border       | `brand-blue-100` / `--border-subtle`         | `#BACEFD`                | Bordes de tarjetas e inputs (2px), divisores 1px, líneas inactivas de steppers.                                                                            |
+| **Hover Border**                | Sky Blueprint          | `brand-blue-300`                             | `#628FF9`                | Borde del outer bezel en hover.                                                                                                                            |
+| **Muted Text**                  | Steel Blue Muted       | `brand-blue-400` / `--text-muted`            | `#3570F8`                | Metadatos y eyebrows **≥ 18px** (4,35:1 sobre blanco). Texto chico, help text y placeholders usan `brand-blue-500` (6,0:1). Nunca para párrafos completos. |
+| **Interactive Blue**            | Ultramarine Action     | `brand-blue-500` / `--focus-ring`            | `#0950F6`                | Botones secundarios, estado activo de navegación, **anillo de foco universal**.                                                                            |
+| **Primary Hover**               | Royal Pressed          | `brand-blue-800` / `--action-primary-hover`  | `#052D8C`                | Hover de botones azules sólidos, dropdowns sobre header.                                                                                                   |
+| **Accent / CTA Oficial**        | Electric Signal Yellow | `brand-yellow-500` / `--color-brand-yellow`  | `#FFEC01`                | **CTA primario oficial**, badges de alta prioridad, stepper dots activos/completos, franja footer 6px.                                                     |
+| **Accent Hover**                | Signal Yellow Bright   | `brand-yellow-400` / `--action-accent-hover` | `#FFF12E`                | Hover de CTA primario y botón WhatsApp.                                                                                                                    |
+| **Accent Pressed**              | Amber Flare            | `brand-yellow-600`                           | `#E6D400`                | Estado `:active` de CTA y badges de alta prioridad.                                                                                                        |
+| **Accent Halo**                 | Pale Signal            | `brand-yellow-100`                           | `#FFFAB8`                | Anillo de stepper completado, fondo de badge "Flex".                                                                                                       |
+| **Text on Accent**              | Deep Navy              | `brand-blue-900` / `--text-on-accent`        | `#04236B`                | Texto sobre amarillo (CTA primary, badges).                                                                                                                |
+| **Body Ink**                    | Deep Blue Ink          | `brand-ink` / `--text-body`                  | `#00277C`                | Texto de cuerpo, párrafos, valores de inputs. Reemplaza al negro.                                                                                          |
+| **Ultra Deep Void**             | Midnight Abyss         | `brand-blue-950`                             | `#021440`                | Footer profundo, overlays de modales críticos.                                                                                                             |
+| **Glass on Blue**               | Atmospheric Mist       | `--surface-glass`                            | `rgba(255,255,255,0.06)` | Paneles flotantes sobre azul + `border: 1px solid rgba(255,255,255,0.12)` + `backdrop-blur-md`.                                                            |
+| **Destructive (único externo)** | Alert Red              | `--action-danger`                            | `#EF4444`                | **Solo** bordes/anillos de error de formulario y acciones destructivas confirmadas. Jamás decorativo.                                                      |
 
 ### 2.2 Reglas de Aplicación
+
 - **Sombras teñidas, nunca grises:** todas las sombras usan `rgba(0,39,124,α)` o `rgba(6,54,165,α)`; los CTAs amarillos usan bloom `rgba(255,236,1,α)` (`shadow-accent-*`, `shadow-cta-glow`). Nunca `rgba(0,0,0,…)`.
 - **Amarillo = señal, no superficie:** nunca como fondo de secciones completas ni para párrafos de texto; sí para CTAs, badges, dots, subrayados, franjas ≤ 6px y knockouts.
 - **Azul sobre azul:** en secciones invertidas el texto es blanco; los bordes `rgba(255,255,255,0.10)` (`--border-on-invert`); los acentos, amarillo.
@@ -70,12 +75,12 @@ Envíos DosRuedas proyecta la solidez, velocidad y confiabilidad de una infraest
 
 ### 3.1 Familias Tipográficas Oficiales (cargadas vía `next/font/google`)
 
-| Rol | Familia | Token | Tratamiento |
-|---|---|---|---|
-| **Display / Titulares de impacto** | `Anton` (Anton SC como alias visual) | `font-display` / `--font-headline` | Uppercase obligatorio, `leading` 0.8–1.0 (`--leading-hero: 0.8`), tracking `-0.05em` a `-0.025em`, `text-wrap: balance`. H1, H2, cifras de impacto, ghost wordmark. |
-| **Subtítulos / Labels / Badges / Botones** | `Bebas Neue` | `font-subheading` | Uppercase obligatorio, tracking `0.05em`–`0.1em` (`tracking-wider`/`widest`), peso 700 visual. H3, eyebrows, nav, headers de tabla, texto de CTA, labels de input. |
-| **Cuerpo / UI** | `Outfit` (primaria) · `IBM Plex Sans` (fallback del stack) | `font-sans` / `--font-body` | Sentence case, `leading-relaxed` (1.625), `max-w-prose` (~65ch), pesos 400–600. Párrafos, descripciones, inputs, tooltips, textos legales. |
-| **Métricas / Tarifas / Tracking** | `Geist Mono` | `font-mono` | `font-variant-numeric: tabular-nums` siempre. Precios (`$4.600 ARS`), distancias (`3,7 km`), códigos de seguimiento, coordenadas, help text de inputs (10px). |
+| Rol                                        | Familia                                                    | Token                              | Tratamiento                                                                                                                                                         |
+| ------------------------------------------ | ---------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Display / Titulares de impacto**         | `Anton` (Anton SC como alias visual)                       | `font-display` / `--font-headline` | Uppercase obligatorio, `leading` 0.8–1.0 (`--leading-hero: 0.8`), tracking `-0.05em` a `-0.025em`, `text-wrap: balance`. H1, H2, cifras de impacto, ghost wordmark. |
+| **Subtítulos / Labels / Badges / Botones** | `Bebas Neue`                                               | `font-subheading`                  | Uppercase obligatorio, tracking `0.05em`–`0.1em` (`tracking-wider`/`widest`), peso 700 visual. H3, eyebrows, nav, headers de tabla, texto de CTA, labels de input.  |
+| **Cuerpo / UI**                            | `Outfit` (primaria) · `IBM Plex Sans` (fallback del stack) | `font-sans` / `--font-body`        | Sentence case, `leading-relaxed` (1.625), `max-w-prose` (~65ch), pesos 400–600. Párrafos, descripciones, inputs, tooltips, textos legales.                          |
+| **Métricas / Tarifas / Tracking**          | `Geist Mono`                                               | `font-mono`                        | `font-variant-numeric: tabular-nums` siempre. Precios (`$4.600 ARS`), distancias (`3,7 km`), códigos de seguimiento, coordenadas, help text de inputs (10px).       |
 
 > **Prohibido:** `Inter`, `Roboto`, `Arial` y cualquier system sans en contextos de marca; serifs genéricas (`Times New Roman`, `Georgia`, `Garamond`) en cualquier contexto. `Inter` aparece como fallback residual en `--font-sans` de `globals.css` y **debe eliminarse** del stack (ver §11).
 
@@ -86,10 +91,34 @@ Tokens (`@theme`): `--text-2xs: 0.625rem` (10px, eyebrows técnicos) · `--text-
 Utilidades fluidas (preferir sobre tamaños fijos por breakpoint):
 
 ```css
-.text-display { font: var(--font-display); font-size: clamp(3rem, 5vw, 4.5rem);    line-height: 1.05; letter-spacing: -0.02em;  text-wrap: balance; }
-.text-h1      { font: var(--font-display); font-size: clamp(2.25rem, 4vw, 3rem);   line-height: 1.1;  letter-spacing: -0.015em; text-wrap: balance; }
-.text-h2      { font: var(--font-display); font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1.2;  letter-spacing: -0.01em;  text-wrap: balance; }
-.text-h3      { font: var(--font-subheading); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.4; letter-spacing: 0.02em; text-wrap: pretty; }
+.text-display {
+  font: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.text-h1 {
+  font: var(--font-display);
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.text-h2 {
+  font: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.text-h3 {
+  font: var(--font-subheading);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-wrap: pretty;
+}
 ```
 
 - La jerarquía se comunica por **familia + peso + color**, no solo por tamaño gigante. Un H2 `text-h2` en `brand-blue-700` sobre blanco pesa más que un H1 gris desvaído.
@@ -97,6 +126,7 @@ Utilidades fluidas (preferir sobre tamaños fijos por breakpoint):
 - **Nunca Title Case** en oraciones; uppercase por regla en display/subheading, sentence case en cuerpo.
 
 ### 3.3 Tratamientos de Firma Tipográfica
+
 1. **Knockout Rotado (-1°):** palabra clave con fondo `brand-yellow-500`, texto `brand-blue-900`, `px-3 py-1 rounded` y `transform: rotate(-1deg)`. Máximo una por titular. Sobre azul puede invertirse (fondo azul 700, letras amarillas).
 2. **Titular Outline Transparente:** display itálico con relleno transparente y `-webkit-text-stroke: 2px #0636A5` (blanco sobre azul). Para la segunda línea de un H1, nunca para párrafos.
 3. **Ghost Wordmark:** "ENVÍOS DOS RUEDAS" en `font-display text-[15vw] text-white/[0.035] whitespace-nowrap` detrás del hero, con `pointer-events-none select-none aria-hidden`. Textura, no contenido.
@@ -114,7 +144,7 @@ La home y cada landing de servicio abren con un hero que debe ser **asimétrico,
 - **Titular:** `font-display` uppercase en 2–3 líneas con **un** knockout rotado o **una** línea outline. Escala `text-4xl sm:text-5xl lg:text-6xl xl:text-7xl`, `leading-[0.95–1.0]`.
 - **Tipografía con imagen inline (técnica de firma):** cuando haya fotografía real disponible, una foto pequeña (courier, caja, mapa MDQ) puede insertarse entre palabras del titular a la altura de la x, en `rounded-xl h-[0.8em] aspect-[4/3] object-cover`, con tinte `bg-brand-blue-700/10 mix-blend-multiply`. En mobile la imagen baja debajo del titular. Nunca con imágenes de stock genéricas ni placeholders rotos.
 - **Badge de contexto:** pill `bg-brand-yellow-500 text-brand-blue-900 font-subheading text-xs uppercase tracking-widest` con dato real ("Mar del Plata · 15+ años · 2026").
-- **Promesa + consecuencia:** un párrafo `text-lg text-white/85 max-w-prose` en voseo: *"Si no llegamos a la hora acordada, el envío corre por nuestra cuenta. Sin excusas."*
+- **Promesa + consecuencia:** un párrafo `text-lg text-white/85 max-w-prose` en voseo: _"Si no llegamos a la hora acordada, el envío corre por nuestra cuenta. Sin excusas."_
 - **CTA:** **un solo** CTA primario (`CTANestedPill --primary`, "Cotizá tu envío"). Permitido un segundo enlace de texto plano hacia WhatsApp/tarifas, nunca un segundo botón compitiendo.
 - **Prueba operativa:** fila de 3 chips `font-subheading text-sm uppercase` con hechos verificables ("Express en menos de 60 min", "Cobertura Gral. Pueyrredón", "Friuli 1972") — nunca métricas inventadas.
 - **Prohibido en el hero:** "Scroll para explorar", flechas/chevrons rebotando, texto superpuesto a imágenes o a otro texto, partículas violetas, más de un acento amarillo grande, contadores de uptime.
@@ -126,16 +156,17 @@ La home y cada landing de servicio abren con un hero que debe ser **asimétrico,
 Las primitivas viven en `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`, `InputField`, `RadioCardGroup`, `StepperHorizontal`, `StepperVertical`, `LogosCarousel`, `FloatTiltCard`, `BentoGrid`, `Badge`). **Las páginas deben consumirlas, no reimplementar el markup a mano.**
 
 ### 5.1 Buttons — CTA Nested Pill
+
 - **Forma:** `rounded-full`, `font-subheading uppercase tracking-[.05em] font-bold`, `px-8 py-3` (large) / `px-4 py-2` (compact). Altura mínima 44px (56/64px en CTAs de marketing).
 - **Icono anidado:** círculo `w-8 h-8` (32px) `rounded-full`, `transition: transform, background-color, color`; en hover `translateX(4px)`.
 - **Variantes:**
 
-| Variante | Fondo | Texto | Borde | Icono reposo → hover | Sombra reposo → hover |
-|---|---|---|---|---|---|
-| `--primary` | `brand-yellow-500` | `brand-blue-900` | — | `bg-brand-blue/10` → `bg-brand-blue/15` + `translateX(4px)` | `shadow-accent-sm` → `shadow-cta-glow` |
-| `--elevated` (sobre azul) | `brand-white-50` | `brand-blue-700` | `brand-blue-100` | `bg-brand-blue/10 text-brand-blue` → `bg-brand-blue text-white` | `shadow-elevated` → `shadow-hover-lift` |
-| `--outline` | transparente | `brand-blue-700` | `brand-blue-700` 2px | — | hover `bg-brand-blue-50` |
-| `--ghost` | transparente | `brand-blue-700` | transparente | — | hover `bg-brand-blue-50` |
+| Variante                  | Fondo              | Texto            | Borde                | Icono reposo → hover                                            | Sombra reposo → hover                   |
+| ------------------------- | ------------------ | ---------------- | -------------------- | --------------------------------------------------------------- | --------------------------------------- |
+| `--primary`               | `brand-yellow-500` | `brand-blue-900` | —                    | `bg-brand-blue/10` → `bg-brand-blue/15` + `translateX(4px)`     | `shadow-accent-sm` → `shadow-cta-glow`  |
+| `--elevated` (sobre azul) | `brand-white-50`   | `brand-blue-700` | `brand-blue-100`     | `bg-brand-blue/10 text-brand-blue` → `bg-brand-blue text-white` | `shadow-elevated` → `shadow-hover-lift` |
+| `--outline`               | transparente       | `brand-blue-700` | `brand-blue-700` 2px | —                                                               | hover `bg-brand-blue-50`                |
+| `--ghost`                 | transparente       | `brand-blue-700` | transparente         | —                                                               | hover `bg-brand-blue-50`                |
 
 - **Hover primary:** fondo `brand-yellow-400`. **Active:** `scale-[.98] translateY(1px)` (primary) / `scale-[.98]` (elevated). Feedback táctil, sin glow exterior neón.
 - **Focus-visible:** `ring-2 ring-brand-blue-500 ring-offset-2 ring-offset-white` (sobre azul: `ring-offset-brand-blue-700`).
@@ -144,13 +175,22 @@ Las primitivas viven en `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`
 - **Loading:** spinner reemplazado por el texto "Calculando…" + icono anidado con `animate-pulse-subtle`; el ancho del botón no cambia (`min-w`).
 
 ### 5.2 Cards — Double Bezel System
+
+/logo-envios-simplified.webp
+/logo-envios-simplified.webp
+
 ```html
-<div class="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-float transition-all duration-300 hover:shadow-antigravity-deep hover:border-brand-blue-300">
-  <div class="double-bezel-inner bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-inner overflow-hidden">
+<div
+  class="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-float transition-all duration-300 hover:shadow-antigravity-deep hover:border-brand-blue-300"
+>
+  <div
+    class="double-bezel-inner bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-inner overflow-hidden"
+  >
     <!-- contenido -->
   </div>
 </div>
 ```
+
 - **Outer:** `bg-brand-blue-50/80`, `border-brand-blue-100`, `rounded-2xl` (16px), `p-2` (8px), `shadow-float`. Hover: `shadow-antigravity-deep` + `border-brand-blue-300`.
 - **Inner:** `bg-white`, `rounded-xl` (12px), `p-6`, `shadow-inner` suave, `overflow-hidden`.
 - **Variante Dark (sobre azul):** el outer mantiene `bg-brand-blue-50` / `border-brand-blue-100` por legibilidad; alternativa glass: `--surface-glass` + `border-white/12` + `backdrop-blur-md`, `rounded-3xl`.
@@ -159,34 +199,40 @@ Las primitivas viven en `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`
 - **Radio Card Group (selector de servicio):** `grid lg:grid-cols-3 grid-cols-1 gap-4`; card `bg-white border-2 border-brand-blue-100 rounded-xl p-6`, icon box `w-12 h-12 rounded-xl`. Checked Express: `bg-brand-blue-700 border-brand-blue-700 text-white`; checked LowCost: `bg-brand-blue-50 border-brand-blue-200 text-brand-blue-700`; checked Flex: `bg-brand-yellow-50 border-brand-yellow-200 text-brand-blue-700`. Input nativo visualmente oculto (`sr-only`), focus-visible en el label.
 
 ### 5.3 Inputs & Forms
-- **Campo:** `h-11` (44px), `border-2 border-brand-blue-100 rounded-xl bg-white pl-10` (espacio para icono Lucide 20px a la izquierda), texto `brand-ink`, placeholder `brand-blue-400`.
+
+- **Campo:** `h-11` (44px), `border-2 border-brand-blue-300 rounded-xl bg-white pl-10` (espacio para icono Lucide 20px a la izquierda; el borde necesita ≥ 3:1), texto `brand-ink`, placeholder `brand-blue-500`.
 - **Estados:** hover `border-brand-blue-200`; focus `border-brand-blue-700 ring-2 ring-brand-blue-500/20`; error `border-[--action-danger] ring-2 ring-[--action-danger]/20` + `aria-invalid="true"`; disabled `bg-brand-blue-50/50 cursor-not-allowed`.
 - **Label:** arriba del campo, `font-subheading uppercase tracking-[.05em] text-sm text-brand-blue-700 font-bold`. Sin floating labels.
-- **Help text:** debajo, `font-mono text-[10px] text-brand-blue-400`. **Error text:** debajo, `font-sans text-sm` en `--action-danger`, con icono `AlertCircle` 16px, `role="alert"`.
+- **Help text:** debajo, `font-mono text-[11px] text-brand-blue-500`. **Error text:** debajo, `font-sans text-sm` en `--action-danger`, con icono `AlertCircle` 16px, `role="alert"`.
 - **Autocomplete de direcciones:** lista `bg-white border border-brand-blue-100 rounded-xl shadow-elevated`, opción activa `bg-brand-blue-50`; siempre con sugerencias reales de MDQ ("Güemes 3200", "Av. Constitución 5400", "Friuli 1972").
 - **Gap vertical:** `space-y-1.5` dentro del wrapper, `gap-5` entre campos, `gap-8` entre grupos.
 
 ### 5.4 Steppers & Progress
+
 - **Horizontal (cotizador):** línea 2px `brand-blue-100`; tramo completado `brand-yellow-500`. Círculos 40px: completed `bg-brand-yellow-500` + glifo `Check`; active `bg-brand-blue-700 ring-4 ring-brand-blue-500/30`; pending `bg-brand-blue-100`. Labels `font-subheading text-sm uppercase`.
 - **Vertical (Cómo Funciona, sobre azul):** línea izquierda 2px `brand-blue-100`; dots 24px con borde blanco 3px. Completed `brand-yellow-500` + ring `brand-yellow-100`; active `brand-yellow-500` + ring `brand-yellow-500/30` + `animate-pulse-subtle`; pending `brand-blue-100`. Números `font-display text-h2`. **Nunca `green-500`.**
 
 ### 5.5 Badges, Chips & Status
+
 - **Badge:** pill `px-3 py-1 rounded-full font-subheading text-xs uppercase tracking-widest font-bold`. Variantes: `accent` (`bg-brand-yellow-500 text-brand-blue-900`), `outline` (`border border-brand-blue-200 text-brand-blue-700`), `invert` (`bg-white/10 text-white border-white/15`), `flex` (`bg-brand-yellow-50 text-brand-blue-700 border-brand-yellow-200`).
 - **Status dot:** 8px `bg-brand-yellow-500` + `box-shadow: 0 0 10px rgba(255,236,1,0.8)` + `animate-pulse-subtle` para "En camino"; `bg-brand-blue-300` estático para pendiente.
 
 ### 5.6 Navigation
-- **Header:** `fixed top-0 z-50 bg-brand-blue-700`; al scrollear `bg-brand-blue-700/95 backdrop-blur-md shadow-elevated border-b border-white/10` y padding `py-4 → py-3`. Logo vectorial `/public/logo-master.svg` ≥ 120px de ancho. Links `font-subheading uppercase tracking-wider text-base xl:text-lg text-white hover:text-brand-yellow-500`, activo con subrayado `link-animated` amarillo. Dropdown `bg-brand-blue-800/95 rounded-2xl border-white/15 shadow-2xl`.
+
+- **Header:** `fixed top-0 z-50 bg-brand-blue-700`; al scrollear `bg-brand-blue-700/95 backdrop-blur-md shadow-elevated border-b border-white/10` y padding `py-4 → py-3`. Logo vectorial `/public/logo-envios-simplified.webp` ≥ 120px de ancho. Links `font-subheading uppercase tracking-wider text-base xl:text-lg text-white hover:text-brand-yellow-500`, activo con subrayado `link-animated` amarillo. Dropdown `bg-brand-blue-800/95 rounded-2xl border-white/15 shadow-2xl`.
 - **Mobile nav (`< lg`):** botón hamburguesa 44px; panel full-height `bg-brand-blue-700` con items `py-4 text-2xl font-subheading`, CTA primary al pie, cierre con `Escape` y focus trap.
 - **Footer:** `bg-brand-blue-950` con franja superior `h-1.5 bg-brand-yellow-500`; columnas 4/3/3/2 en desktop, 1 en mobile; datos reales (Friuli 1972 · 223 660-2699 · hola@enviosdosruedas.com).
 
 ### 5.7 Feedback States (Loading · Empty · Error)
+
 - **Skeleton:** bloques con `shimmer-bg` (gradiente `brand-blue-50 → brand-blue-100 → brand-blue-50`, 2.5s) que **replican las dimensiones exactas** del layout final (misma altura de tarjeta, mismo número de líneas). Sin spinners circulares genéricos.
-- **Empty state:** composición con icono Lucide 48px en `bg-brand-blue-50 rounded-2xl p-4`, título `text-h3`, una línea en voseo que dice qué hacer y el CTA correspondiente. Ej.: *"Todavía no cargaste envíos. Subí tu planilla o agregá el primero a mano."* Nunca "No data".
-- **Error state:** inline, junto al elemento que falló; `border-l-4` en `--action-danger` sobre `bg-white`, texto `brand-ink`, acción de reintento visible. Tono: *"No pudimos calcular la ruta. Revisá la dirección de destino e intentá de nuevo."*
+- **Empty state:** composición con icono Lucide 48px en `bg-brand-blue-50 rounded-2xl p-4`, título `text-h3`, una línea en voseo que dice qué hacer y el CTA correspondiente. Ej.: _"Todavía no cargaste envíos. Subí tu planilla o agregá el primero a mano."_ Nunca "No data".
+- **Error state:** inline, junto al elemento que falló; `border-l-4` en `--action-danger` sobre `bg-white`, texto `brand-ink`, acción de reintento visible. Tono: _"No pudimos calcular la ruta. Revisá la dirección de destino e intentá de nuevo."_
 - **Toast:** esquina inferior derecha, `bg-brand-blue-700 text-white rounded-xl shadow-elevated border-l-4 border-brand-yellow-500`, entra con spring desde abajo, auto-dismiss 5s con pausa en hover, `role="status"`.
 - **Mapa (Leaflet) cargando:** skeleton con el mismo `aspect-[16/10] rounded-2xl` + etiqueta mono "Trazando ruta…".
 
 ### 5.8 Carousels & Media
+
 - **Logos Carousel:** track `flex gap-12 animate-logos-scroll` (30s linear infinite, `translateX(-50%)` con contenido duplicado) bajo `mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent)`. Items `h-12 grayscale contrast-[1.2] opacity-60`, hover/focus `grayscale-0 contrast-100 opacity-100`. **Pausa obligatoria** en hover, `focusin` y `document.hidden`; respeta `prefers-reduced-motion`.
 - **Slider de servicios:** dots ≥ 44px de área táctil (el punto visual puede ser 8px dentro de un botón de 44px), flechas visibles en desktop, swipe en mobile.
 
@@ -209,23 +255,23 @@ Las primitivas viven en `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`
   5. Prueba Social — blanco, carrusel de comercios marplatenses.
   6. CTA Final — panel `brand-blue-700` con tarjeta blanca `rounded-3xl` y slab amarillo sesgado (`-skew-x-12`, amarillo al 10%) sangrando a la derecha.
   7. Footer — `brand-blue-950` con franja amarilla 6px.
-  Nunca dos secciones azules consecutivas ni dos blancas consecutivas sin un separador tonal.
+     Nunca dos secciones azules consecutivas ni dos blancas consecutivas sin un separador tonal.
 
 ---
 
 ## 7. Responsive Rules
 
-| Regla | Especificación |
-|---|---|
-| **Mobile-first collapse** | `< 768px`: toda grilla multi-columna colapsa a una columna. Sin excepciones. Bento → stack en orden de lectura (Express, LowCost, Flex, 3PL, Cotizador). |
-| **Sin scroll horizontal** | Overflow lateral en mobile = fallo crítico. Tablas y bloques de código van dentro de `overflow-x-auto` propio; el ghost wordmark usa `overflow-hidden` en el contenedor. |
-| **Tipografía** | Titulares con `clamp()` (`text-display`, `text-h1`…); cuerpo nunca `< 1rem`; badges `< 12px` solo uppercase con tracking. |
-| **Touch targets** | Todo elemento interactivo ≥ 44×44px (botones, links de nav, dots de carrusel, iconos de input, chips de filtro). |
-| **Imágenes** | `max-w-full h-auto`, `next/image` con `sizes`; fotos del hero inline bajan debajo del titular en mobile; tilt card pasa a `mt-4` estático sin 3D. |
-| **Navegación** | Horizontal `≥ lg`; hamburguesa + panel full-screen `< lg`. |
-| **Espaciado** | Secciones `clamp(3rem, 8vw, 6rem)`; `gap-6 → gap-8` en `lg`; padding de tarjeta `p-5 → p-6`. |
-| **Breakpoints de verificación** | 320 · 375 · 768 · 1024 · 1280 · 1920 px. |
-| **Hero mobile** | `text-center` permitido solo `< lg`; CTA full-width (`w-full sm:w-auto`); badge arriba del titular. |
+| Regla                           | Especificación                                                                                                                                                           |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Mobile-first collapse**       | `< 768px`: toda grilla multi-columna colapsa a una columna. Sin excepciones. Bento → stack en orden de lectura (Express, LowCost, Flex, 3PL, Cotizador).                 |
+| **Sin scroll horizontal**       | Overflow lateral en mobile = fallo crítico. Tablas y bloques de código van dentro de `overflow-x-auto` propio; el ghost wordmark usa `overflow-hidden` en el contenedor. |
+| **Tipografía**                  | Titulares con `clamp()` (`text-display`, `text-h1`…); cuerpo nunca `< 1rem`; badges `< 12px` solo uppercase con tracking.                                                |
+| **Touch targets**               | Todo elemento interactivo ≥ 44×44px (botones, links de nav, dots de carrusel, iconos de input, chips de filtro).                                                         |
+| **Imágenes**                    | `max-w-full h-auto`, `next/image` con `sizes`; fotos del hero inline bajan debajo del titular en mobile; tilt card pasa a `mt-4` estático sin 3D.                        |
+| **Navegación**                  | Horizontal `≥ lg`; hamburguesa + panel full-screen `< lg`.                                                                                                               |
+| **Espaciado**                   | Secciones `clamp(3rem, 8vw, 6rem)`; `gap-6 → gap-8` en `lg`; padding de tarjeta `p-5 → p-6`.                                                                             |
+| **Breakpoints de verificación** | 320 · 375 · 768 · 1024 · 1280 · 1920 px.                                                                                                                                 |
+| **Hero mobile**                 | `text-center` permitido solo `< lg`; CTA full-width (`w-full sm:w-auto`); badge arriba del titular.                                                                      |
 
 ---
 
@@ -245,7 +291,14 @@ Las primitivas viven en `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`
 - **Kill-switch global obligatorio:**
   ```css
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
   ```
   y `useReducedMotion()` en cada componente `motion` para degradar a fade simple. El tilt 3D y el carrusel se detienen por completo.
@@ -257,9 +310,9 @@ Las primitivas viven en `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`
 
 - **Iconos:** `lucide-react` exclusivamente; stroke 2px (1.75px en tamaños ≥ 32px); tamaños 16 / 20 / 24 / 48px; color heredado (`currentColor`). Sin emojis, sin icon packs mezclados. La flecha `→` (o glifo `ArrowRight`) es el único ornamento de texto permitido en CTAs y rutas ("Centro → Terminal").
 - **Fotografía:** real, de couriers, cajas, calles y mapas de Mar del Plata; luz diurna cálida, saturación moderada, sin grano ni duotono. El azul se suma encima: `bg-brand-blue-700/10 mix-blend-multiply` o gradiente de protección `rgba(6,54,165,0.95) → 0.35` detrás de texto. Marcos `rounded-3xl shadow-2xl`, eventualmente `rotate-2`. Placeholders: `picsum.photos` o SVG propios; **nunca** enlaces rotos de Unsplash.
-- **Logo:** solo `/public/logo-master.svg` (vectorial). Ancho mínimo 120px web / 30mm impreso; zona de respeto = altura de la "D"; sobre azul usar la versión con wordmark blanco; nunca rasterizado, recoloreado, estirado ni con sombra.
+- **Logo:** solo `/public/logo-envios-simplified.webp` (vectorial). Ancho mínimo 120px web / 30mm impreso; zona de respeto = altura de la "D"; sobre azul usar la versión con wordmark blanco; nunca rasterizado, recoloreado, estirado ni con sombra.
 - **Generación de imágenes (Nano Banana):** fotografía/escenas según la Estructura 1/2 de `AGENTS.md` (§Prompts de Imágenes; `docs/directrices_imagenes.md` aún no existe en el repo), referencias en `docs/imagenes/`, paleta `#00277C · #FFEC01 · #0636A5`, entorno MDQ. **Hero Card Media:** exclusivamente según §9.1 y `docs/imagenes/hero-derecha/PROMPTS.md`.
-- **Dos carriles visuales, sin mezcla:** *fotografía real* (secciones, imagen inline del titular, zig-zag) y *renders 3D isométricos modernos* (Hero Card Media: diorama kit sobre tarjeta, estilo Blender Cycles / Octane depurado y sin texto). Prohibido flat vector genérico o ilustración 2D en el slot de Hero Card Media; los iconos Lucide de UI no cuentan como ilustración.
+- **Dos carriles visuales, sin mezcla:** _fotografía real_ (secciones, imagen inline del titular, zig-zag) y _renders 3D isométricos modernos_ (Hero Card Media: diorama kit sobre tarjeta, estilo Blender Cycles / Octane depurado y sin texto). Prohibido flat vector genérico o ilustración 2D en el slot de Hero Card Media; los iconos Lucide de UI no cuentan como ilustración.
 
 ### 9.1 Hero Card Media — Renders 3D Isométricos de la Columna Derecha
 
@@ -276,24 +329,25 @@ Render **3D isométrico moderno en miniatura (diorama)** con fondo transparente 
 
 **Slots (modos de montaje):**
 
-| Modo | Dónde | Aspect | Contenedor | Páginas |
-|---|---|---|---|---|
-| `card-media` cuadrado | Centro de la tarjeta tilt, entre HUD pill y chips | `1:1` | `relative w-full aspect-square max-w-[340px] mx-auto` | Home (reemplaza a `/card_mapa.webp`) |
-| `card-media` cabecera | Primer bloque del inner de la tarjeta, arriba del contenido | `4:3` | `relative w-full aspect-[4/3] max-w-[400px] mx-auto mb-4` | Servicios (Express, LowCost, Flex, Emprendedores), Cotizar (Express, LowCost), Sobre Nosotros, FAQ, Redes |
-| `standalone` compacto | Columna derecha sin tarjeta, encima de los canales | `4:3` | `relative w-full aspect-[4/3] max-w-[420px] mb-6` | Contacto |
-| `standalone` vertical | Columna derecha completa | `4:5` | `relative w-full aspect-[4/5] max-w-[420px] mx-auto` | Reservado: páginas legales / internas cuando tengan hero 7/5 |
+| Modo                  | Dónde                                                       | Aspect | Contenedor                                                | Páginas                                                                                                   |
+| --------------------- | ----------------------------------------------------------- | ------ | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `card-media` cuadrado | Centro de la tarjeta tilt, entre HUD pill y chips           | `1:1`  | `relative w-full aspect-square max-w-[340px] mx-auto`     | Home (reemplaza a `/card_mapa.webp`)                                                                      |
+| `card-media` cabecera | Primer bloque del inner de la tarjeta, arriba del contenido | `4:3`  | `relative w-full aspect-[4/3] max-w-[400px] mx-auto mb-4` | Servicios (Express, LowCost, Flex, Emprendedores), Cotizar (Express, LowCost), Sobre Nosotros, FAQ, Redes |
+| `standalone` compacto | Columna derecha sin tarjeta, encima de los canales          | `4:3`  | `relative w-full aspect-[4/3] max-w-[420px] mb-6`         | Contacto                                                                                                  |
+| `standalone` vertical | Columna derecha completa                                    | `4:5`  | `relative w-full aspect-[4/5] max-w-[420px] mx-auto`      | Reservado: páginas legales / internas cuando tengan hero 7/5                                              |
 
 **Superficie destino → regla de contraste y materiales** (define la línea `[Palette]`):
 
-| Superficie | Fondo real | Volúmenes principales | Caras superiores / highlights | Caras laterales / bisel | Regla de contraste |
-|---|---|---|---|---|---|
-| `dark` | Tarjeta `brand-blue-950` / `#052C87` / `brand-blue-900` | `#0950F6` · `#628FF9` | `#E6EEFE` · `#FFFFFF` | `#0636A5` (navy `#00277C` solo en grietas) | Volúmenes claros y luminosos para recortar sobre el azul noche. |
-| `light` | Tarjeta `bg-white` (LowCost, Flex, Emprendedores) | `#0636A5` · `#0950F6` | `#E6EEFE` | `#00277C` (navy en laterales y canto) | Sin grandes volúmenes blancos; solidez contra tarjeta blanca. |
-| `bright` | Sección `brand-blue-500` sin tarjeta (Contacto) | `#FFFFFF` · `#E6EEFE` | `#FFFFFF` | `#0636A5` · `#00277C` | Sin grandes masas `#0950F6`; contrasta sobre el azul saturado. |
+| Superficie | Fondo real                                              | Volúmenes principales | Caras superiores / highlights | Caras laterales / bisel                    | Regla de contraste                                              |
+| ---------- | ------------------------------------------------------- | --------------------- | ----------------------------- | ------------------------------------------ | --------------------------------------------------------------- |
+| `dark`     | Tarjeta `brand-blue-950` / `#052C87` / `brand-blue-900` | `#0950F6` · `#628FF9` | `#E6EEFE` · `#FFFFFF`         | `#0636A5` (navy `#00277C` solo en grietas) | Volúmenes claros y luminosos para recortar sobre el azul noche. |
+| `light`    | Tarjeta `bg-white` (LowCost, Flex, Emprendedores)       | `#0636A5` · `#0950F6` | `#E6EEFE`                     | `#00277C` (navy en laterales y canto)      | Sin grandes volúmenes blancos; solidez contra tarjeta blanca.   |
+| `bright`   | Sección `brand-blue-500` sin tarjeta (Contacto)         | `#FFFFFF` · `#E6EEFE` | `#FFFFFF`                     | `#0636A5` · `#00277C`                      | Sin grandes masas `#0950F6`; contrasta sobre el azul saturado.  |
 
 Amarillo `#FFEC01` = único acento (cajones de moto, rutas tubulares emisivas, biseles de pin, top boxes), **≤ 15%** del sujeto (coherente con "un solo acento amarillo grande" de §4). Sin gris, carbón, degradados ajenos ni cromo/oro metálico.
 
 **Kit 3D Canónico DosRuedas (vocabulario común):**
+
 - **Diorama base:** `a rounded-square isometric diorama tile with a thick bevelled egyptian-blue edge, like a chunk cut out of a miniature city map` (o navy edge en superficie `light`/`bright`).
 - **City blocks:** `low matte blue city blocks of varied heights with pale-blue rooftops and narrow streets between them`.
 - **Route:** `a thick glossy route tube in signal yellow with a tight emissive core, following the streets`.
@@ -321,7 +375,7 @@ Amarillo `#FFEC01` = único acento (cajones de moto, rutas tubulares emisivas, b
 </div>
 ```
 
-- `next/image` con `fill` + `object-contain` (nunca `object-cover`: recortaría el margen de seguridad). `priority` porque es LCP del hero.
+- `next/image` con `fill` + `object-contain` (nunca `object-cover`: recortaría el margen de seguridad). `priority` porque e/logo-envios-simplified.webp
 - **Alt:** `alt=""` (decorativa) cuando la tarjeta ya comunica el contenido — caso por defecto. Alt descriptivo en voseo solo en modo `standalone` sin texto equivalente.
 - **Motion:** hereda el tilt/float de la tarjeta; sin animación propia salvo `hover:scale-[1.03]` (300ms, transform). Nada bajo `prefers-reduced-motion` ni en touch.
 - **Sin superposición:** el render ocupa su propio bloque en el flujo; nunca `absolute` detrás o encima de texto de la tarjeta (§10.13).
@@ -333,32 +387,18 @@ Amarillo `#FFEC01` = único acento (cajones de moto, rutas tubulares emisivas, b
 ## 10. Anti-Patterns & Guidelines (Do's and Don'ts — Cero Tolerancia)
 
 **Color y superficie**
+
 1. Emojis en UI o copy (solo iconos Lucide).
 2. Negro puro `#000000` (usar `brand-ink #00277C` o `brand-blue-950 #021440`).
 3. Escalas `slate/gray/zinc/neutral`, hex inline, segundo acento, "AI purple/cyan neon", degradados cibernéticos, glow exterior neón.
 4. Verde en steppers, CTA de WhatsApp o cualquier fondo (`#10B981`, `green-*`); amarillo off-brand (`#FFCC00`, `#E6B800` como fondo plano).
 5. Sombras grises `rgba(0,0,0,…)`; gradiente de texto en titulares grandes.
 
-**Tipografía y copy**
-6. `Inter`, system sans, serifs genéricas; Title Case en oraciones; inglés en copy de cara al cliente.
-7. Clichés de IA: "Elevá tu logística", "Seamless", "Unleash", "Next-Gen", "Soluciones integrales 360°". Usar voseo concreto con promesa + consecuencia.
-8. Nombres genéricos ("Juan Pérez", "Acme", "Empresa S.A."); usar anclas reales de MDQ ("Friuli 1972", "Zona Güemes", "Playa Grande", "Punta Mogotes", "Batán").
-9. Formato `ETIQUETA // 2026` decorativo; eyebrows vacíos.
-10. Métricas inventadas ("99.99% uptime", "124ms", "18.5k envíos") y secciones "By the numbers" con datos ficticios. Si no hay dato real: `[métrica]` como placeholder explícito.
+**Tipografía y copy** 6. `Inter`, system sans, serifs genéricas; Title Case en oraciones; inglés en copy de cara al cliente. 7. Clichés de IA: "Elevá tu logística", "Seamless", "Unleash", "Next-Gen", "Soluciones integrales 360°". Usar voseo concreto con promesa + consecuencia. 8. Nombres genéricos ("Juan Pérez", "Acme", "Empresa S.A."); usar anclas reales de MDQ ("Friuli 1972", "Zona Güemes", "Playa Grande", "Punta Mogotes", "Batán"). 9. Formato `ETIQUETA // 2026` decorativo; eyebrows vacíos. 10. Métricas inventadas ("99.99% uptime", "124ms", "18.5k envíos") y secciones "By the numbers" con datos ficticios. Si no hay dato real: `[métrica]` como placeholder explícito.
 
-**Layout e interacción**
-11. Hero centrado en desktop; "Scroll para explorar", chevrons rebotando, flechas de scroll.
-12. Tres tarjetas idénticas en fila; grillas simétricas de features.
-13. Elementos superpuestos (texto sobre texto, contenido absoluto apilado); `h-screen`; `calc()` con porcentajes; overflow horizontal en mobile.
-14. Cursores personalizados; spinners circulares genéricos; "No data" como empty state.
-15. Más de un CTA primario por pantalla; botones "Saber más" sin destino concreto.
-16. Logo rasterizado (`.webp/.png`), menor a 120px o recoloreado.
-17. Borde lateral grueso en tarjetas (`side-tab` / `border-l-4` o similar): cliché visual de IA que rompe la limpieza de superficie. Usar el sistema canónico `double-bezel` o separadores tonales limpios.
-18. Animaciones de rebote (`bounce-easing` / `animate-bounce` / curvas elásticas): transmiten desprolijidad e inestabilidad; usar resortes físicos (`stiffness: 100, damping: 20`) o curvas exponenciales controladas.
-19. Animación de propiedades de layout (`layout-transition`): animar `width`, `height`, `padding` o `margin` provoca layout thrash; animar únicamente `transform` y `opacity`.
+**Layout e interacción** 11. Hero centrado en desktop; "Scroll para explorar", chevrons rebotando, flechas de scroll. 12. Tres tarjetas idénticas en fila; grillas simétricas de features. 13. Elementos superpuestos (texto sobre texto, contenido absoluto apilado); `h-screen`; `calc()` con porcentajes; overflow horizontal en mobile. 14. Cursores personalizados; spinners circulares genéricos; "No data" como empty state. 15. Más de un CTA primario por pantalla; botones "Saber más" sin destino concreto. 16. Logo rasterizado (`.webp/.png`), menor a 120px o recoloreado. 17. Borde lateral grueso en tarjetas (`side-tab` / `border-l-4` o similar): cliché visual de IA que rompe la limpieza de superficie. Usar el sistema canónico `double-bezel` o separadores tonales limpios. 18. Animaciones de rebote (`bounce-easing` / `animate-bounce` / curvas elásticas): transmiten desprolijidad e inestabilidad; usar resortes físicos (`stiffness: 100, damping: 20`) o curvas exponenciales controladas. 19. Animación de propiedades de layout (`layout-transition`): animar `width`, `height`, `padding` o `margin` provoca layout thrash; animar únicamente `transform` y `opacity`.
 
-**Imagen de hero**
-20. Hero Card Media con texto, cifras, logos o marcas externas dibujadas; render que repite los datos que la tarjeta ya muestra; mezclar flat vector o ilustración 2D en el slot de Hero Card Media; superficies grises, carbón, degradados ajenos a la paleta o cromo/oro metálico; fondo no transparente, halo o sangrado magenta/verde; siluetas navy sobre tarjeta oscura (sin contraste) o siluetas blancas sobre tarjeta blanca; más de un acento amarillo dominante (máx 15%); `object-cover` sobre el render (§9.1).
+**Imagen de hero** 20. Hero Card Media con texto, cifras, logos o marcas externas dibujadas; render que repite los datos que la tarjeta ya muestra; mezclar flat vector o ilustración 2D en el slot de Hero Card Media; superficies grises, carbón, degradados ajenos a la paleta o cromo/oro metálico; fondo no transparente, halo o sangrado magenta/verde; siluetas navy sobre tarjeta oscura (sin contraste) o siluetas blancas sobre tarjeta blanca; más de un acento amarillo dominante (máx 15%); `object-cover` sobre el render (§9.1).
 
 ---
 
@@ -366,25 +406,25 @@ Amarillo `#FFEC01` = único acento (cajones de moto, rutas tubulares emisivas, b
 
 Para que los agentes no "corrijan" el spec hacia el bug, se registra lo que el código aún no cumple:
 
-| Área | Estado real | Acción esperada |
-|---|---|---|
-| Borde lateral AI (`side-tab`) | Detectado `border-l-4` en 12 componentes (`LowCostFeatures`, `FlexFeatures`, `ExpressFeatures`, `AboutHero`, etc.). | Reemplazar por tarjetas limpias con `double-bezel` o espaciado tonal sin bordes asimétricos gruesos. |
-| Curvas de rebote (`bounce-easing`) | `animate-bounce` en `NewsletterSubscribe` y `LeafletRouteMap`; `cubic-bezier(0.34, 1.56, 0.64, 1)` en `globals.css`. | Migrar a resortes de Framer Motion o easing exponencial suave (`cubic-bezier(0.25, 1, 0.5, 1)`). |
-| Animación de ancho (`layout-transition`) | `transition: width` en barra de progreso de `globals.css` (línea 508). | Animar `transform: scaleX()` con `transform-origin: left`. |
-| Primitivas UI | 8 de 11 primitivas de `src/components/ui/` son código muerto; las páginas reimplementan el markup. | Migrar páginas a las primitivas, no borrar las primitivas. |
-| `@utility cta-nested-icon` | Define `w/h 1.75rem` (28px); el contrato dice 32px (`2rem`). | Alinear la utility en `globals.css` a `w-8 h-8` (`2rem`) y `bg-brand-blue/10`. |
-| Fuentes | `Inter` figura como fallback residual en `--font-sans`; `IBM Plex Sans` no se carga vía `next/font`. | Quitar `Inter`; cargar IBM Plex Sans o consolidar exclusivamente `Outfit` como primaria. |
-| `h-screen` | 18 usos en `src/`. | Reemplazar por `min-h-[100dvh]`. |
-| Logo en header | `/logo-envios-simplified.webp` rasterizado a 40px en algunos componentes legacy. | Usar exclusivamente `/logo-master.svg` ≥ 120px. |
-| Reduced motion | Cobertura parcial en componentes motion; falta formalizar el kill-switch global en `globals.css`. | Incorporar el media query estricto de §8 en `globals.css` y `useReducedMotion()`. |
-| Focus-visible | Cobertura ~20%; header con anillo amarillo sobre azul. | Extender cobertura con `focus-ring-brand` y formalizar anillo amarillo (`ring-brand-yellow-500`) sobre azul. |
-| Colores off-brand | `#10B981` en `RevisarClient.tsx`; `#FFCC00` ×10 en `LogisticaNetworkCanvas.tsx`. | Reemplazar por `brand-yellow-500` / tokens oficiales. |
-| Home vs canon §6 | Falta "Cómo Funciona"; alternancia de fondos invertida. | Reordenar secciones según el ritmo canónico. |
-| Archivos huérfanos | ~14 componentes sin uso con métricas falsas/copy en inglés (`HeroSection.tsx`, `cinematic-hero`, `demo.tsx`). | Eliminar, no corregir. |
-| Tarifas B2B | Flex y Emprendedores muestran precios sin fila en `PricingRange`. | Decisión de negocio pendiente; no inventar valores. |
-| Hero Card Media (§9.1) | Solo Home tiene imagen en la tarjeta y es un render 3D rasterizado legacy (`/card_mapa.webp`). Los otros 10 heroes no tienen slot en código aún. Catálogo de prompts 3D isométricos actualizado y optimizado en `PROMPTS.md` con variantes B a partir de capturas en `todos_heros/`. Assets aún no generados (`GEMINI_API_KEY` sin cuota de imagen). | Generar con `docs/imagenes/hero-derecha/generate.py`, reemplazar `card_mapa.webp` por `home.webp` (render 3D diorama transparente depurado) e incorporar el slot `card-media` cabecera 4:3 (y central 1:1 en Home) en cada hero. |
-| CTA WhatsApp verde | `FaqHero.tsx`: botón "Preguntanos por WhatsApp" con fondo verde (captura 2026-09-16). | `brand-yellow-500` / hover `brand-yellow-400` (§12, WhatsApp CTA). |
-| Páginas sin hero 7/5 | `politica-de-privacidad`, `terminos-y-condiciones`, `admin/imagenes`, `revisar` no tienen columna derecha. | Prompts `standalone 4:5` listos en `PROMPTS.md` §Pendientes; no generar hasta que exista el hero. |
+| Área                                     | Estado real                                                                                                                                                                                                                                                                                                                                          | Acción esperada                                                                                                                                                                                                                  |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Borde lateral AI (`side-tab`)            | Detectado `border-l-4` en 12 componentes (`LowCostFeatures`, `FlexFeatures`, `ExpressFeatures`, `AboutHero`, etc.).                                                                                                                                                                                                                                  | Reemplazar por tarjetas limpias con `double-bezel` o espaciado tonal sin bordes asimétricos gruesos.                                                                                                                             |
+| Curvas de rebote (`bounce-easing`)       | `animate-bounce` en `NewsletterSubscribe` y `LeafletRouteMap`; `cubic-bezier(0.34, 1.56, 0.64, 1)` en `globals.css`.                                                                                                                                                                                                                                 | Migrar a resortes de Framer Motion o easing exponencial suave (`cubic-bezier(0.25, 1, 0.5, 1)`).                                                                                                                                 |
+| Animación de ancho (`layout-transition`) | `transition: width` en barra de progreso de `globals.css` (línea 508).                                                                                                                                                                                                                                                                               | Animar `transform: scaleX()` con `transform-origin: left`.                                                                                                                                                                       |
+| Primitivas UI                            | 8 de 11 primitivas de `src/components/ui/` son código muerto; las páginas reimplementan el markup.                                                                                                                                                                                                                                                   | Migrar páginas a las primitivas, no borrar las primitivas.                                                                                                                                                                       |
+| `@utility cta-nested-icon`               | Define `w/h 1.75rem` (28px); el contrato dice 32px (`2rem`).                                                                                                                                                                                                                                                                                         | Alinear la utility en `globals.css` a `w-8 h-8` (`2rem`) y `bg-brand-blue/10`.                                                                                                                                                   |
+| Fuentes                                  | `Inter` figura como fallback residual en `--font-sans`; `IBM Plex Sans` no se carga vía `next/font`.                                                                                                                                                                                                                                                 | Quitar `Inter`; cargar IBM Plex Sans o consolidar exclusivamente `Outfit` como primaria.                                                                                                                                         |
+| `h-screen`                               | 18 usos en `src/`.                                                                                                                                                                                                                                                                                                                                   | Reemplazar por `min-h-[100dvh]`.                                                                                                                                                                                                 |
+| Logo en header                           | `/logo-envios-simplified.webp` rasterizado a 40px en algunos componentes legacy.                                                                                                                                                                                                                                                                     | Usar exclusivamente `/logo-envios-simplified.webp` ≥ 120px.                                                                                                                                                                      |
+| Reduced motion                           | Cobertura parcial en componentes motion; falta formalizar el kill-switch global en `globals.css`.                                                                                                                                                                                                                                                    | Incorporar el media query estricto de §8 en `globals.css` y `useReducedMotion()`.                                                                                                                                                |
+| Focus-visible                            | Cobertura ~20%; header con anillo amarillo sobre azul.                                                                                                                                                                                                                                                                                               | Extender cobertura con `focus-ring-brand` y formalizar anillo amarillo (`ring-brand-yellow-500`) sobre azul.                                                                                                                     |
+| Colores off-brand                        | `#10B981` en `RevisarClient.tsx`; `#FFCC00` ×10 en `LogisticaNetworkCanvas.tsx`.                                                                                                                                                                                                                                                                     | Reemplazar por `brand-yellow-500` / tokens oficiales.                                                                                                                                                                            |
+| Home vs canon §6                         | Falta "Cómo Funciona"; alternancia de fondos invertida.                                                                                                                                                                                                                                                                                              | Reordenar secciones según el ritmo canónico.                                                                                                                                                                                     |
+| Archivos huérfanos                       | ~14 componentes sin uso con métricas falsas/copy en inglés (`HeroSection.tsx`, `cinematic-hero`, `demo.tsx`).                                                                                                                                                                                                                                        | Eliminar, no corregir.                                                                                                                                                                                                           |
+| Tarifas B2B                              | Flex y Emprendedores muestran precios sin fila en `PricingRange`.                                                                                                                                                                                                                                                                                    | Decisión de negocio pendiente; no inventar valores.                                                                                                                                                                              |
+| Hero Card Media (§9.1)                   | Solo Home tiene imagen en la tarjeta y es un render 3D rasterizado legacy (`/card_mapa.webp`). Los otros 10 heroes no tienen slot en código aún. Catálogo de prompts 3D isométricos actualizado y optimizado en `PROMPTS.md` con variantes B a partir de capturas en `todos_heros/`. Assets aún no generados (`GEMINI_API_KEY` sin cuota de imagen). | Generar con `docs/imagenes/hero-derecha/generate.py`, reemplazar `card_mapa.webp` por `home.webp` (render 3D diorama transparente depurado) e incorporar el slot `card-media` cabecera 4:3 (y central 1:1 en Home) en cada hero. |
+| CTA WhatsApp verde                       | `FaqHero.tsx`: botón "Preguntanos por WhatsApp" con fondo verde (captura 2026-09-16).                                                                                                                                                                                                                                                                | `brand-yellow-500` / hover `brand-yellow-400` (§12, WhatsApp CTA).                                                                                                                                                               |
+| Páginas sin hero 7/5                     | `politica-de-privacidad`, `terminos-y-condiciones`, `admin/imagenes`, `revisar` no tienen columna derecha.                                                                                                                                                                                                                                           | Prompts `standalone 4:5` listos en `PROMPTS.md` §Pendientes; no generar hasta que exista el hero.                                                                                                                                |
 
 ---
 
@@ -392,6 +432,7 @@ Para que los agentes no "corrijan" el spec hacia el bug, se registra lo que el c
 
 ```markdown
 **DESIGN SYSTEM SPECIFICATION — ENVÍOS DOSRUEDAS (2026):**
+
 - **Brand Colors (STRICT 3-COLOR RULE):**
   - Primary: Egyptian Blue `#0636A5` (`brand-blue-700`) — dark section canvas, nav, footer, H1/H2, institutional borders.
   - Accent / CTA: Electric Signal Yellow `#FFEC01` (`brand-yellow-500`; hover `#FFF12E`, pressed `#E6D400`) — primary buttons, badges, completed/active stepper dots, live status glow, 6px footer stripe. Signal, never a surface.
@@ -413,7 +454,7 @@ Para que los agentes no "corrijan" el spec hacia el bug, se registra lo que el c
 - **Signature Components:**
   - Double Bezel Card: outer `bg-brand-blue-50/80 border border-brand-blue-100 rounded-2xl p-2 shadow-float hover:shadow-antigravity-deep hover:border-brand-blue-300` wrapping inner `bg-white rounded-xl p-6 shadow-inner overflow-hidden`.
   - CTA Nested Pill: `rounded-full uppercase font-subheading tracking-[.05em] bg-brand-yellow-500 text-brand-blue-900 px-8 py-3 min-h-[44px]` + nested 32px circular icon `bg-brand-blue/10` translating `translateX(4px)` on hover; active `scale-[.98] translateY(1px)`; focus `ring-2 ring-brand-blue-500 ring-offset-2`. Elevated variant on blue: white bg, blue text, `border-brand-blue-100`.
-  - Inputs: `h-11 border-2 border-brand-blue-100 rounded-xl pl-10`, label above in Bebas uppercase, mono 10px help text, red error text below with `role="alert"`.
+  - Inputs: `h-11 border-2 border-brand-blue-300 rounded-xl pl-10`, label above in Bebas uppercase, mono 11px help text in brand-blue-500, red error text below with `role="alert"`.
   - Steppers: completed & active = `brand-yellow-500` (NEVER green); horizontal 40px circles, vertical 24px dots with 3px white border + `pulse-subtle` on active.
   - Radio Card Group: 3 cols desktop / 1 mobile; checked Express = solid blue-700, checked LowCost = blue-50, checked Flex = yellow-50.
   - WhatsApp CTA: background ALWAYS `brand-yellow-500`, hover `brand-yellow-400`; green only inside the SVG glyph.
@@ -422,7 +463,7 @@ Para que los agentes no "corrijan" el spec hacia el bug, se registra lo que el c
   - Logos carousel: 30s linear infinite, edge mask 10%/90%, grayscale 60% → color on hover, paused on hover/focus/hidden.
 - **Layout:** `max-w-7xl` container; sections `py-[clamp(3rem,8vw,6rem)]`; 12-col asymmetric Bento (7/5/12, `auto-rows-[380px]`, `gap-6 lg:gap-8`); zig-zag 5/7 rows instead of equal 3-card rows; CSS Grid, no `calc()` percentages; `min-h-[100dvh]` never `h-screen`; strict single column < 768px; no horizontal overflow; touch targets ≥ 44px; no overlapping elements.
 - **Motion:** springs `stiffness 100, damping 20`; stagger `0.08s`; `whileInView once`; perpetual loops only on active elements (`float-slow` 4s, `pulse-subtle` 3s, `border-pulse` 2s, `logos-scroll` 30s); transform/opacity only; full `prefers-reduced-motion` kill-switch; tilt/carousel disabled on reduced motion and touch.
-- **Icons & imagery:** Lucide only (16/20/24/48px, 2px stroke); real Mar del Plata courier photography with blue multiply tint in `rounded-3xl` frames; logo = `/logo-master.svg` ≥ 120px; placeholders via picsum/SVG, never broken links.
+- **Icons & imagery:** Lucide only (16/20/24/48px, 2px stroke); real Mar del Plata courier photography with blue multiply tint in `rounded-3xl` frames; logo = `/logo-envios-simplified.webp` ≥ 120px; placeholders via picsum/SVG, never broken links.
 - **Hero renders (Hero Card Media):** modern 3D isometric miniature diorama renders only, soft matte clay and satin plastic materials, rounded bevelled edges, chunky simplified geometry. Prompts from `docs/imagenes/hero-derecha/PROMPTS.md` with structure `[Subject] [Style: Modern 3D isometric miniature diorama render] [Palette] [Lighting: Soft studio three-point] [Composition: centered] [Quality: 8k ultra-detailed] [Background: chroma #FF00FF] [Negative]`. Palette by target surface — dark card: bright-blue/sky-blue volumes, pale-blue/white tops, egyptian-blue sides; white card: egyptian-blue/bright-blue volumes, navy sides, pale-blue tops; bright-blue section: white/pale-blue volumes, navy sides. Yellow `#FFEC01` single accent ≤ 15%. No text, numbers, logos, external brands, realistic humans/faces, grey/charcoal or metal.
 - **Language & Tone:**
   - Argentinian Spanish with strict voseo: "Cotizá tu envío", "Ingresá origen y destino", "Contactanos", "Rastreá tu paquete". Promise + consequence: "Si no llegamos a la hora acordada, el envío corre por nuestra cuenta. Sin excusas."

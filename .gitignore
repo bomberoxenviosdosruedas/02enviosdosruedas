@@ -35,3 +35,11 @@ screenshots/www_enviosdosruedas_com_desktop.png
 docs/sitio_completo.html
 docs/diseno/*
 scratch/*
+
+# design-sync (Claude Design)
+.ds-sync/
+.ds-pkg/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules

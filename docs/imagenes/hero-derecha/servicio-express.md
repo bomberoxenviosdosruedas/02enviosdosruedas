@@ -10,34 +10,35 @@ Archivo dedicado al render 3D de la columna derecha de **`/servicios/envios-expr
 
 ## 1. Lectura de la pantalla actual
 
-| Zona | Qué hay hoy (código) | Implicancia para la imagen |
-|---|---|---|
-| Sección | `bg-brand-blue-500` + `HeroProceduralBackground variant="express"` + ghost wordmark "MENSAJERÍA EN MOTO" | El render nunca se ve contra el fondo de sección: vive dentro de la tarjeta |
-| Tarjeta derecha | Outer `bg-white/10` `rounded-[28px]`, inner **`bg-brand-blue-900` (#04236B)** con grilla de puntos `#628FF9` y watermark `Zap` | Superficie **`dark`**: volúmenes claros y brillantes, canto azul, amarillo como acento |
-| Header tarjeta | "TELEMETRÍA EN VIVO · MDQ" + pill "PRIORIDAD 1" | No dibujar badges ni textos de estado |
-| Bloque visual (líneas 142–195) | SVG de ruta punteada origen→destino con beacon animado + labels "RETIRO EN ORIGEN / ENTREGA DESTINO" | **El render reemplaza este SVG** (ver §5): muestra la misma idea en volumen, sin labels |
-| ETA | "RANGO HORARIO PROGRAMADO · 3 HS RANGO" | Traducir a imagen sin números: reloj con **un cuarto** en amarillo (3 h de 12) |
-| Chips | Ruteo DIRECTO · Custodia 100% EXCLUSIVA · Confirmación AL INSTANTE | Ruta recta sin paradas · un solo paquete con precinto · check al llegar |
-| Copy izquierdo | "Todo lo que entre en moto (hasta 5 kg y 40x30 cm)", corte 15:00 hs | Paquete compacto que entra en la top box; nada de cifras en la imagen |
+| Zona                           | Qué hay hoy (código)                                                                                                           | Implicancia para la imagen                                                              |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| Sección                        | `bg-brand-blue-500` + `HeroProceduralBackground variant="express"` + ghost wordmark "MENSAJERÍA EN MOTO"                       | El render nunca se ve contra el fondo de sección: vive dentro de la tarjeta             |
+| Tarjeta derecha                | Outer `bg-white/10` `rounded-[28px]`, inner **`bg-brand-blue-900` (#04236B)** con grilla de puntos `#628FF9` y watermark `Zap` | Superficie **`dark`**: volúmenes claros y brillantes, canto azul, amarillo como acento  |
+| Header tarjeta                 | "TELEMETRÍA EN VIVO · MDQ" + pill "PRIORIDAD 1"                                                                                | No dibujar badges ni textos de estado                                                   |
+| Bloque visual (líneas 142–195) | SVG de ruta punteada origen→destino con beacon animado + labels "RETIRO EN ORIGEN / ENTREGA DESTINO"                           | **El render reemplaza este SVG** (ver §5): muestra la misma idea en volumen, sin labels |
+| ETA                            | "RANGO HORARIO PROGRAMADO · 3 HS RANGO"                                                                                        | Traducir a imagen sin números: reloj con **un cuarto** en amarillo (3 h de 12)          |
+| Chips                          | Ruteo DIRECTO · Custodia 100% EXCLUSIVA · Confirmación AL INSTANTE                                                             | Ruta recta sin paradas · un solo paquete con precinto · check al llegar                 |
+| Copy izquierdo                 | "Todo lo que entre en moto (hasta 5 kg y 40x30 cm)", corte 15:00 hs                                                            | Paquete compacto que entra en la top box; nada de cifras en la imagen                   |
 
 ## 2. Referencias de marca (imágenes de entrada)
 
 Se pasan a Gemini **antes** del texto, en este orden. El prompt las nombra por posición ("first reference image"…).
 
-| # | Archivo | Qué se toma | Qué se ignora |
-|---|---|---|---|
-| 1 | `public/img/generales/card_moto01.webp` | Identidad de la moto DosRuedas: underbone urbana, espejos redondos, rayos, top box grande, look clay 3D | Top box carbón, logo/teléfono/redes impresos, faro trasero rojo, gris del escape |
-| 2 | `public/cards/hero_express.webp` | Uniforme: chomba azul con cuello amarillo, gorra azul con visera amarilla | **La cara y la persona real**, la caja marrón, el logo del pecho |
-| 3 | `public/card_mapa.webp` | Estilo de diorama: manzanas azules mate, canto biselado, ruta amarilla emisiva | El texto "ENVIOS DosRuedas MDQ", la cara gris del pin |
-| 4 | `docs/imagenes/hero-derecha/referencias/logo-master-1024.png` (raster de `/public/logo-master.svg`) | Aro a cuadros azul/blanco y pictograma de dos ruedas unidas | Todas las palabras, el número de teléfono, íconos de Facebook/Instagram, el fondo carbón |
+| #   | Archivo                                                                                                         | Qué se toma                                                                                             | Qué se ignora                                                                            |
+| --- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| 1   | `public/img/generales/card_moto01.webp`                                                                         | Identidad de la moto DosRuedas: underbone urbana, espejos redondos, rayos, top box grande, look clay 3D | Top box carbón, logo/teléfono/redes impresos, faro trasero rojo, gris del escape         |
+| 2   | `public/cards/hero_express.webp`                                                                                | Uniforme: chomba azul con cuello amarillo, gorra azul con visera amarilla                               | **La cara y la persona real**, la caja marrón, el logo del pecho                         |
+| 3   | `public/card_mapa.webp`                                                                                         | Estilo de diorama: manzanas azules mate, canto biselado, ruta amarilla emisiva                          | El texto "ENVIOS DosRuedas MDQ", la cara gris del pin                                    |
+| 4   | `docs/imagenes/hero-derecha/referencias/logo-master-1024.png` (raster de `/public/logo-envios-simplified.webp`) | Aro a cuadros azul/blanco y pictograma de dos ruedas unidas                                             | Todas las palabras, el número de teléfono, íconos de Facebook/Instagram, el fondo carbón |
 
-> El logo **no** se reproduce en la imagen del hero (DESIGN §10.20): solo sus motivos gráficos. El logo real se muestra en HTML con `/logo-master.svg`. La variante con logo (§3.C) es exclusiva para redes/OG.
+> El logo **no** se reproduce en la imagen del hero (DESIGN §10.20): solo sus motivos gráficos. El logo real se muestra en HTML con `/logo-envios-simplified.webp`. La variante con logo (§3.C) es exclusiva para redes/OG.
 
 ---
 
 ## 3. Prompts
 
 ### servicio-express
+
 - **Uso:** Hero Card Media principal (recomendado) — reemplaza el SVG de ruta de la tarjeta
 - **Referencias:** `public/img/generales/card_moto01.webp` · `public/cards/hero_express.webp` · `public/card_mapa.webp` · `docs/imagenes/hero-derecha/referencias/logo-master-1024.png`
 - **Aspect ratio:** `4:3`
@@ -58,6 +59,7 @@ Se pasan a Gemini **antes** del texto, en este orden. El prompt las nombra por p
 ---
 
 ### servicio-express-producto
+
 - **Uso:** alternativa para Hero Card Media cuando el diorama se lee chico — moto protagonista, silueta grande
 - **Referencias:** `public/img/generales/card_moto01.webp` · `public/cards/hero_express.webp` · `docs/imagenes/hero-derecha/referencias/logo-master-1024.png`
 - **Aspect ratio:** `4:3`
@@ -78,6 +80,7 @@ Se pasan a Gemini **antes** del texto, en este orden. El prompt las nombra por p
 ---
 
 ### servicio-express-marca
+
 - **Uso:** marketing — posteo de Instagram / imagen OG de `/servicios/envios-express`. **No usar en Hero Card Media** (DESIGN §10.20). Pendiente de aprobación de marca: el script la saltea salvo que se pida por slug.
 - **Referencias:** `docs/imagenes/hero-derecha/referencias/logo-master-1024.png` · `public/img/generales/card_moto01.webp` · `public/cards/hero_express.webp`
 - **Aspect ratio:** `1:1`
@@ -101,23 +104,25 @@ Se pasan a Gemini **antes** del texto, en este orden. El prompt las nombra por p
 
 Si la primera generación falla en un punto, **no regenerar desde cero**: editar la imagen con una sola instrucción por turno, repitiendo el contexto mínimo.
 
-| Problema detectado | Instrucción de edición (un turno) |
-|---|---|
-| Aparecen letras, números o el teléfono en la top box | `On this scooter render, remove every letter, number and icon from the top box, leaving a clean signal-yellow surface with the thin blue-and-white checkered band only.` |
-| La top box sale carbón o gris (heredado de la referencia 1) | `In this render, recolor the top box to solid signal yellow #FFEC01 with rounded egyptian-blue #0636A5 bevels; keep everything else unchanged.` |
-| Se ve una cara o una persona realista | `Keep the same pose, but make the rider a stylized vinyl-toy figure with a fully closed tinted egyptian-blue helmet visor so no face is visible.` |
-| Faro trasero rojo o escape gris | `Change the tail light to pale blue #E6EEFE and the exhaust to egyptian blue #0636A5; change nothing else.` |
-| Tinte violeta en los azules / reflejo del fondo | `Remove any magenta or purple reflection from the scooter and diorama; surfaces must stay pure blue, pale blue, white and yellow.` |
-| El glow amarillo se derrama sobre el fondo | `Tighten the yellow route glow so it stays inside the tube; the magenta background must remain perfectly flat and unlit.` |
-| Diorama chico / silueta ilegible a 380 px | `Zoom in so the scooter and the house fill about 80% of the width, keeping 8% empty margin on every side.` |
-| Sombra o piso fuera de la base | `Remove every shadow and floor outside the diorama tile; the background must be flat magenta #FF00FF edge to edge.` |
+| Problema detectado                                          | Instrucción de edición (un turno)                                                                                                                                        |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Aparecen letras, números o el teléfono en la top box        | `On this scooter render, remove every letter, number and icon from the top box, leaving a clean signal-yellow surface with the thin blue-and-white checkered band only.` |
+| La top box sale carbón o gris (heredado de la referencia 1) | `In this render, recolor the top box to solid signal yellow #FFEC01 with rounded egyptian-blue #0636A5 bevels; keep everything else unchanged.`                          |
+| Se ve una cara o una persona realista                       | `Keep the same pose, but make the rider a stylized vinyl-toy figure with a fully closed tinted egyptian-blue helmet visor so no face is visible.`                        |
+| Faro trasero rojo o escape gris                             | `Change the tail light to pale blue #E6EEFE and the exhaust to egyptian blue #0636A5; change nothing else.`                                                              |
+| Tinte violeta en los azules / reflejo del fondo             | `Remove any magenta or purple reflection from the scooter and diorama; surfaces must stay pure blue, pale blue, white and yellow.`                                       |
+| El glow amarillo se derrama sobre el fondo                  | `Tighten the yellow route glow so it stays inside the tube; the magenta background must remain perfectly flat and unlit.`                                                |
+| Diorama chico / silueta ilegible a 380 px                   | `Zoom in so the scooter and the house fill about 80% of the width, keeping 8% empty margin on every side.`                                                               |
+| Sombra o piso fuera de la base                              | `Remove every shadow and floor outside the diorama tile; the background must be flat magenta #FF00FF edge to edge.`                                                      |
 
 ## 5. Implementación recomendada en `ExpressHero.tsx`
 
 Reemplazar el bloque SVG de ruta (líneas 142–195, `h-32` + labels) por el render — la imagen ya cuenta "retiro → entrega directa" y evita duplicar la idea. Mantener header, ETA "3 HS RANGO" y los 3 chips.
 
 ```tsx
-{/* Hero Card Media — render 3D (DESIGN §9.1) */}
+{
+  /* Hero Card Media — render 3D (DESIGN §9.1) */
+}
 <div className="relative z-10 w-full aspect-[4/3] max-w-[380px] mx-auto drop-shadow-[0_18px_28px_rgba(0,39,124,0.45)]">
   <Image
     src="/img/heroes/servicio-express.webp"
@@ -127,7 +132,7 @@ Reemplazar el bloque SVG de ruta (líneas 142–195, `h-32` + labels) por el ren
     sizes="(min-width: 1024px) 380px, 90vw"
     className="object-contain"
   />
-</div>
+</div>;
 ```
 
 - Si se usa `servicio-express-producto`, mismo contenedor y `src`.

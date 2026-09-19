@@ -39,7 +39,8 @@ export const timelineVariants = {
   /** Clip reveal from bottom — editorial feel */
   clipUp: {
     hidden:  { clipPath: 'inset(100% 0 0 0)', opacity: 0 },
-    visible: { clipPath: 'inset(0% 0 0 0)',   opacity: 1, transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] } },
+    // Negative top inset keeps Anton accents (Á, Í) visible when the heading uses tight leading
+    visible: { clipPath: 'inset(-20% 0 0 0)', opacity: 1, transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] } },
   } as Variants,
 
   /** Stagger container — apply to parent for child stagger */

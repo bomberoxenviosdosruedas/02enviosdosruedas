@@ -173,8 +173,8 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
               <div className="mt-4 pt-3 border-t border-current/10 flex items-baseline justify-between">
                 <span
                   className={cn(
-                    'text-[10px] font-subheading uppercase tracking-wider',
-                    isChecked && type.includes('EXPRESS') ? 'text-brand-blue-100' : 'text-brand-blue-400'
+                    'text-[11px] font-subheading uppercase tracking-wider',
+                    isChecked && type.includes('EXPRESS') ? 'text-brand-blue-100' : 'text-brand-blue-500'
                   )}
                 >
                   DESDE

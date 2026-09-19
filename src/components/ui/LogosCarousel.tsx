@@ -18,12 +18,12 @@ export interface LogosCarouselProps {
 }
 
 const DEFAULT_LOGOS: LogoItem[] = [
-  { name: 'MercadoLibre Flex', logoUrl: '/logo-master.svg', alt: 'Partner MercadoLibre Flex' },
-  { name: 'E-Commerce MDQ', logoUrl: '/logo-master.svg', alt: 'Partner E-Commerce MDQ' },
-  { name: 'Güemes Express', logoUrl: '/logo-master.svg', alt: 'Partner Güemes Express' },
-  { name: 'Chauvín Logística', logoUrl: '/logo-master.svg', alt: 'Partner Chauvín Logística' },
-  { name: 'Playa Grande Retail', logoUrl: '/logo-master.svg', alt: 'Partner Playa Grande Retail' },
-  { name: 'Puerto Mar del Plata', logoUrl: '/logo-master.svg', alt: 'Partner Puerto Mar del Plata' },
+  { name: 'MercadoLibre Flex', logoUrl: '/logo-envios-simplified.webp', alt: 'Partner MercadoLibre Flex' },
+  { name: 'E-Commerce MDQ', logoUrl: '/logo-envios-simplified.webp', alt: 'Partner E-Commerce MDQ' },
+  { name: 'Güemes Express', logoUrl: '/logo-envios-simplified.webp', alt: 'Partner Güemes Express' },
+  { name: 'Chauvín Logística', logoUrl: '/logo-envios-simplified.webp', alt: 'Partner Chauvín Logística' },
+  { name: 'Playa Grande Retail', logoUrl: '/logo-envios-simplified.webp', alt: 'Partner Playa Grande Retail' },
+  { name: 'Puerto Mar del Plata', logoUrl: '/logo-envios-simplified.webp', alt: 'Partner Puerto Mar del Plata' },
 ];
 
 /**

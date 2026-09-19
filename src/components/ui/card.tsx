@@ -9,9 +9,10 @@ const cardVariants = cva(
     variants: {
       variant: {
         default: "border-brand-blue-100",
-        bezel: "double-bezel-outer p-2 shadow-float-shadow bg-brand-blue-50/80 border-brand-blue-100",
+        bezel: "double-bezel-outer p-2 shadow-float bg-brand-blue-50/80 border-brand-blue-100",
         glass: "glass-card",
-        elevated: "shadow-elevated hover:shadow-hover-lift transition-shadow duration-300",
+        // border-transparent: the base `border` would otherwise take currentColor (dark blue) and read as an outline
+        elevated: "border-transparent shadow-elevated hover:shadow-hover-lift transition-shadow duration-300",
       },
     },
     defaultVariants: {

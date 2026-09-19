@@ -178,7 +178,7 @@ flowchart TD
 - **Objetivo de la semana:** Preparación de contingencia operativa para Cyber Monday y despliegue de casos de clientes.
 - **Track Técnico (Sprint 7 parcial + Sprint 8 parcial):**
   - `BL-33`: Maquetar e integrar el componente de Casos de Clientes Reales (foto, rubro, testimonio y métrica) en la Home y páginas de servicio.
-  - `BL-34`: Implementar el logotipo vectorial oficial `/logo-master.svg` con un ancho renderizado mínimo de 120px.
+  - `BL-34`: Implementar el logotipo vectorial oficial `/logo-envios-simplified.webp` con un ancho renderizado mínimo de 120px.
   - `BL-35`: Reemplazar clases `h-screen` por `min-h-[100dvh]` en las 17 vistas detectadas para evitar problemas de visualización en Safari iOS.
 - **Track Comercial y Operativo:**
   - **Sprint de Comunicación Cyber Monday:** Publicar serie de 5 historias diarias informando horarios de corte extendidos (15:00 hs) y refuerzo de flota para el evento de ventas.

@@ -1,0 +1,8 @@
+/* Tailwind v4 entry for the Claude Design bundle: the site's real globals.css
+   (tokens, @utility classes, keyframes), compiled against the whole repo like the
+   app build, plus the authored preview files so their layout classes exist too. */
+@import "../../src/app/globals.css";
+@source "../previews";
+@source "../guides";
+/* BentoGridItem builds `md:col-span-${n}` / `lg:col-span-${n}` at runtime for numeric spans. */
+@source inline("{md:,lg:,}col-span-{1,2,3,4,5,6,7,8,9,10,11,12}");

@@ -8,19 +8,19 @@ Fuente de verdad de los prompts para los **renders 3D modernos** de la columna d
 
 Hallazgos que condicionan los prompts tras el relevamiento de `docs/imagenes/todos_heros/`:
 
-| Slug | Captura en `todos_heros/` | Datos que ya muestra la tarjeta en pantalla | Contenido canónico del render 3D (complemento) | Superficie | Ratio |
-|---|---|---|---|---|---|
-| `home` | `hero_home.png` / `hero.png` | HUD "Ruteo activo · MDQ", "Friuli 1972", chips Same-Day y Flota propia | Diorama costero MDQ con bahía, manzanas azules, pin facetado central y scooter en ruta emisiva | `dark` | `1:1` |
-| `servicio-express` | `hero_envioexpress.png` | Telemetría en vivo, "PRIORIDAD 1", ruta animada origen→destino, "3 HS rango" | Scooter aerodinámico en tramo directo sin paradas hacia casa residencial con cronómetro 3D | `dark` | `4:3` |
-| `servicio-lowcost` | `hero_lowcost.png` | "Circuitos activos MDQ · Consolidado", tabs Ahorro (-40%) y Horario (corte 14:00) | Plataforma de consolidación con pirámide de paquetes y scooter de cajón grande en circuito cerrado | `light` | `4:3` |
-| `servicio-flex` | `hero_enviosflex.png` | "Integración logística Flex · SLA 100%", tabs Ventajas MercadoLíder y Proceso QR | Taller e-commerce con escaneo de código QR mediante haz amarillo, scooter esperando y medalla reputación | `light` | `4:3` |
-| `servicio-emprendedores` | `hero_plan-emprendedores.png` | "Hub logístico Friuli 1972 · 3PL activo", tabs DropOff -20% y Flujo Operativo | Corte estilo dollhouse de micro-hub 3PL: stock modular → picking QR → empaque con cinta → bahía moto | `light` | `4:3` |
-| `cotizar-express` | `hero_cotizar_express.png` | "Cálculo automático · Sistema Express Maps", inputs origen/destino, distancia km y tarifa | Medición de ruta punto a punto sobre diorama urbano con calibre/bracket de distancia geométrico | `dark` | `4:3` |
-| `cotizar-lowcost` | `hero_cotizar_lowcost.png` | "Cálculo automático · Sistema LowCost batch", matriz multidestino y descuentos | Hub emisor desplegando 5 rutas simultáneas a 5 destinos con panel de manifiesto/checklist 3D | `dark` | `4:3` |
-| `sobre-nosotros` | `hero_sobre-nosotros.png` | 5 estrellas Google, testimonio destacado, "Flota 100% propia", "Friuli 1972" | Sede Friuli 1972 con persiana abierta, faro Punta Mogotes azul y blanco sobre olas, y 3 couriers propios | `dark` | `4:3` |
-| `preguntas-frecuentes` | `hero_preguntas-frecuentes.png` | Buscador interactivo, chips temáticos, acordeón "Respuestas rápidas", botón WhatsApp | Secuencia de resolución: signo de interrogación 3D enlazado a paquete abierto del que emerge check mark | `dark` | `4:3` |
-| `nuestras-redes` | `hero_nuestras-redes.png` | "+5.000 seguidores en redes", historias del asfalto MDQ, status badges | Smartphone 3D vertical exhibiendo feed con miniaturas del reparto, corazones amarillos y avatares orbitales | `dark` | `4:3` |
-| `contacto` | `hero_contacto.png` | 3 canales de atención directa (WhatsApp Comercial, Llamada, B2B) sobre fondo azul | Puesto de despacho y coordinación humana: operadora con headset, laptop, teléfono fijo y scooter al fondo | `bright` | `4:3` |
+| Slug                     | Captura en `todos_heros/`       | Datos que ya muestra la tarjeta en pantalla                                               | Contenido canónico del render 3D (complemento)                                                              | Superficie | Ratio |
+| ------------------------ | ------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------- | ----- |
+| `home`                   | `hero_home.png` / `hero.png`    | HUD "Ruteo activo · MDQ", "Friuli 1972", chips Same-Day y Flota propia                    | Diorama costero MDQ con bahía, manzanas azules, pin facetado central y scooter en ruta emisiva              | `dark`     | `1:1` |
+| `servicio-express`       | `hero_envioexpress.png`         | Telemetría en vivo, "PRIORIDAD 1", ruta animada origen→destino, "3 HS rango"              | Scooter aerodinámico en tramo directo sin paradas hacia casa residencial con cronómetro 3D                  | `dark`     | `4:3` |
+| `servicio-lowcost`       | `hero_lowcost.png`              | "Circuitos activos MDQ · Consolidado", tabs Ahorro (-40%) y Horario (corte 14:00)         | Plataforma de consolidación con pirámide de paquetes y scooter de cajón grande en circuito cerrado          | `light`    | `4:3` |
+| `servicio-flex`          | `hero_enviosflex.png`           | "Integración logística Flex · SLA 100%", tabs Ventajas MercadoLíder y Proceso QR          | Taller e-commerce con escaneo de código QR mediante haz amarillo, scooter esperando y medalla reputación    | `light`    | `4:3` |
+| `servicio-emprendedores` | `hero_plan-emprendedores.png`   | "Hub logístico Friuli 1972 · 3PL activo", tabs DropOff -20% y Flujo Operativo             | Corte estilo dollhouse de micro-hub 3PL: stock modular → picking QR → empaque con cinta → bahía moto        | `light`    | `4:3` |
+| `cotizar-express`        | `hero_cotizar_express.png`      | "Cálculo automático · Sistema Express Maps", inputs origen/destino, distancia km y tarifa | Medición de ruta punto a punto sobre diorama urbano con calibre/bracket de distancia geométrico             | `dark`     | `4:3` |
+| `cotizar-lowcost`        | `hero_cotizar_lowcost.png`      | "Cálculo automático · Sistema LowCost batch", matriz multidestino y descuentos            | Hub emisor desplegando 5 rutas simultáneas a 5 destinos con panel de manifiesto/checklist 3D                | `dark`     | `4:3` |
+| `sobre-nosotros`         | `hero_sobre-nosotros.png`       | 5 estrellas Google, testimonio destacado, "Flota 100% propia", "Friuli 1972"              | Sede Friuli 1972 con persiana abierta, faro Punta Mogotes azul y blanco sobre olas, y 3 couriers propios    | `dark`     | `4:3` |
+| `preguntas-frecuentes`   | `hero_preguntas-frecuentes.png` | Buscador interactivo, chips temáticos, acordeón "Respuestas rápidas", botón WhatsApp      | Secuencia de resolución: signo de interrogación 3D enlazado a paquete abierto del que emerge check mark     | `dark`     | `4:3` |
+| `nuestras-redes`         | `hero_nuestras-redes.png`       | "+5.000 seguidores en redes", historias del asfalto MDQ, status badges                    | Smartphone 3D vertical exhibiendo feed con miniaturas del reparto, corazones amarillos y avatares orbitales | `dark`     | `4:3` |
+| `contacto`               | `hero_contacto.png`             | 3 canales de atención directa (WhatsApp Comercial, Llamada, B2B) sobre fondo azul         | Puesto de despacho y coordinación humana: operadora con headset, laptop, teléfono fijo y scooter al fondo   | `bright`   | `4:3` |
 
 - La columna derecha ya tiene **tarjetas funcionales**; el render va **dentro de la cabecera de la tarjeta** (Hero Card Media), nunca superpuesto (§10.13). Contacto, sin tarjeta, lo lleva encima de la lista de canales.
 - El render **complementa** la tarjeta: nunca repite cifras, precios, direcciones ni horarios que la tarjeta muestra.
@@ -33,15 +33,15 @@ Hallazgos que condicionan los prompts tras el relevamiento de `docs/imagenes/tod
 
 Usar estos objetos con esta descripción exacta dentro de `[Subject]` para mantener consistencia entre páginas.
 
-| Pieza | Descripción canónica (inglés, pegar tal cual) |
-|---|---|
-| **Diorama base** | `a rounded-square isometric diorama tile with a thick bevelled egyptian-blue edge, like a chunk cut out of a miniature city map` |
-| **City blocks** | `low matte blue city blocks of varied heights with pale-blue rooftops and narrow streets between them` |
-| **Route** | `a thick glossy route tube in signal yellow with a tight emissive core, following the streets` |
-| **Map pin** | `a faceted chunky map pin in bright blue with a signal-yellow bevelled rim, its face a smooth pale-blue disc` |
+| Pieza               | Descripción canónica (inglés, pegar tal cual)                                                                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Diorama base**    | `a rounded-square isometric diorama tile with a thick bevelled egyptian-blue edge, like a chunk cut out of a miniature city map`                                                      |
+| **City blocks**     | `low matte blue city blocks of varied heights with pale-blue rooftops and narrow streets between them`                                                                                |
+| **Route**           | `a thick glossy route tube in signal yellow with a tight emissive core, following the streets`                                                                                        |
+| **Map pin**         | `a faceted chunky map pin in bright blue with a signal-yellow bevelled rim, its face a smooth pale-blue disc`                                                                         |
 | **Courier scooter** | `a chunky toy-like delivery scooter in bright blue with a large rounded signal-yellow top box, ridden by a stylized faceless vinyl-toy courier in a blue jacket and pale-blue helmet` |
-| **Parcel** | `rounded cardboard-shaped parcels in pale blue with a signal-yellow tape band` |
-| **Coast** | `one diorama side ending in a strip of stylized glossy blue sea with soft rounded waves` |
+| **Parcel**          | `rounded cardboard-shaped parcels in pale blue with a signal-yellow tape band`                                                                                                        |
+| **Coast**           | `one diorama side ending in a strip of stylized glossy blue sea with soft rounded waves`                                                                                              |
 
 ---
 
@@ -60,11 +60,11 @@ Usar estos objetos con esta descripción exacta dentro de `[Subject]` para mante
 
 ### Líneas `[Palette]` por superficie destino
 
-| Superficie | Dónde | Línea `[Palette]` |
-|---|---|---|
-| `dark` | Tarjeta `bg-brand-blue-950` / `brand-blue-900` (Home, Express, Cotizar, Nosotros, FAQ, Redes) | `Base material colors ONLY: bright blue #0950F6 and sky blue #628FF9 for main volumes, pale blue #E6EEFE and white #FFFFFF for top faces and highlights, egyptian blue #0636A5 for side faces and the diorama edge, signal yellow #FFEC01 as the single accent (routes, rims, top boxes) covering at most 15% of the image. Natural shading stays within these hues. The object must read light and bright against a near-black navy card; navy #00277C only in deepest crevices.` |
-| `light` | Tarjeta `bg-white` (LowCost, Flex, Emprendedores) | `Base material colors ONLY: egyptian blue #0636A5 and bright blue #0950F6 for main volumes, navy #00277C for side faces and the diorama edge, pale blue #E6EEFE for top faces, signal yellow #FFEC01 as the single accent covering at most 15% of the image. Natural shading stays within these hues. No large white volumes; the object must read strong against a white card.` |
-| `bright` | Sección `bg-brand-blue-500` sin tarjeta (Contacto) | `Base material colors ONLY: white #FFFFFF and pale blue #E6EEFE for main volumes, egyptian blue #0636A5 and navy #00277C for side faces and the diorama edge, signal yellow #FFEC01 as the single accent covering at most 15% of the image. Natural shading stays within these hues. No large bright blue #0950F6 volumes; the object must separate clearly from a bright blue background.` |
+| Superficie | Dónde                                                                                         | Línea `[Palette]`                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dark`     | Tarjeta `bg-brand-blue-950` / `brand-blue-900` (Home, Express, Cotizar, Nosotros, FAQ, Redes) | `Base material colors ONLY: bright blue #0950F6 and sky blue #628FF9 for main volumes, pale blue #E6EEFE and white #FFFFFF for top faces and highlights, egyptian blue #0636A5 for side faces and the diorama edge, signal yellow #FFEC01 as the single accent (routes, rims, top boxes) covering at most 15% of the image. Natural shading stays within these hues. The object must read light and bright against a near-black navy card; navy #00277C only in deepest crevices.` |
+| `light`    | Tarjeta `bg-white` (LowCost, Flex, Emprendedores)                                             | `Base material colors ONLY: egyptian blue #0636A5 and bright blue #0950F6 for main volumes, navy #00277C for side faces and the diorama edge, pale blue #E6EEFE for top faces, signal yellow #FFEC01 as the single accent covering at most 15% of the image. Natural shading stays within these hues. No large white volumes; the object must read strong against a white card.`                                                                                                   |
+| `bright`   | Sección `bg-brand-blue-500` sin tarjeta (Contacto)                                            | `Base material colors ONLY: white #FFFFFF and pale blue #E6EEFE for main volumes, egyptian blue #0636A5 and navy #00277C for side faces and the diorama edge, signal yellow #FFEC01 as the single accent covering at most 15% of the image. Natural shading stays within these hues. No large bright blue #0950F6 volumes; the object must separate clearly from a bright blue background.`                                                                                        |
 
 ### Base `[Negative]` (siempre presente)
 
@@ -76,17 +76,17 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 
 ## 🎯 Parámetros
 
-| Parámetro | Valor | Motivo |
-|---|---|---|
-| Modelo | `gemini-3-pro-image-preview` (default del script) · `gemini-2.5-flash-image` vía `HERO_IMAGE_MODEL` para iterar | Pro resuelve materiales y bordes 3D con más limpieza |
-| Aspect | por entrada (`1:1`, `4:3`, `4:5`) | Coincide con el slot real (§9.1) |
-| Resolución | 2K final (≥ 1024 px lado corto) | Slot 340–420 px CSS × 2–3 DPR |
-| Idioma | Inglés | Adherencia del modelo |
-| Chroma | `#FF00FF` · alternativo `#00B140` | Magenta ausente de la paleta; verde solo si aparece tinte violeta en azules |
-| Post-proceso | Recorte alfa (T0 60 / T1 140) + despill de bordes + clamp anti-tinte magenta | Los renders 3D reflejan el fondo; el script lo neutraliza |
-| Texto / logos | Prohibidos en la imagen | Texto en HTML; logo solo `/public/logo-master.svg` |
-| Personas | Figuras tipo vinyl toy sin rostro | Sin parecidos con personas reales |
-| Marcas externas | Nunca (Mercado Libre, WhatsApp, Instagram, Google) | Se nombran en el copy, no se dibujan |
+| Parámetro       | Valor                                                                                                           | Motivo                                                                      |
+| --------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Modelo          | `gemini-3-pro-image-preview` (default del script) · `gemini-2.5-flash-image` vía `HERO_IMAGE_MODEL` para iterar | Pro resuelve materiales y bordes 3D con más limpieza                        |
+| Aspect          | por entrada (`1:1`, `4:3`, `4:5`)                                                                               | Coincide con el slot real (§9.1)                                            |
+| Resolución      | 2K final (≥ 1024 px lado corto)                                                                                 | Slot 340–420 px CSS × 2–3 DPR                                               |
+| Idioma          | Inglés                                                                                                          | Adherencia del modelo                                                       |
+| Chroma          | `#FF00FF` · alternativo `#00B140`                                                                               | Magenta ausente de la paleta; verde solo si aparece tinte violeta en azules |
+| Post-proceso    | Recorte alfa (T0 60 / T1 140) + despill de bordes + clamp anti-tinte magenta                                    | Los renders 3D reflejan el fondo; el script lo neutraliza                   |
+| Texto / logos   | Prohibidos en la imagen                                                                                         | Texto en HTML; logo solo `/public/logo-envios-simplified.webp`              |
+| Personas        | Figuras tipo vinyl toy sin rostro                                                                               | Sin parecidos con personas reales                                           |
+| Marcas externas | Nunca (Mercado Libre, WhatsApp, Instagram, Google)                                                              | Se nombran en el copy, no se dibujan                                        |
 
 **Salidas:** `docs/imagenes/hero-derecha/chroma/<slug>.png` (crudo) → `public/img/heroes/<slug>.png` + `.webp` (transparente).
 **Regenerar:** `python docs/imagenes/hero-derecha/generate.py [slug ...]` · solo recorte: `--cutout-only`. Requiere `GEMINI_API_KEY` con cuota de imagen.
@@ -96,6 +96,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 ## 📦 Catálogo
 
 ### home
+
 - **Ruta:** `/` · **Componente:** `src/components/home/HeroAnimado.tsx`
 - **Slot:** card media · reemplaza `/card_mapa.webp` (`aspect-square max-w-[340px]`)
 - **Aspect ratio:** `1:1`
@@ -116,6 +117,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 ---
 
 ### servicio-express
+
 - **Ruta:** `/servicios/envios-express` · **Componente:** `src/components/servicios/express/ExpressHero.tsx`
 - **Slot:** card media · cabecera de la tarjeta "Telemetría en vivo"
 - **Aspect ratio:** `4:3`
@@ -137,6 +139,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 ---
 
 ### servicio-lowcost
+
 - **Ruta:** `/servicios/envios-lowcost` · **Componente:** `src/components/servicios/lowcost/LowCostHero.tsx`
 - **Slot:** card media · cabecera de la tarjeta "Circuitos activos MDQ · Consolidado"
 - **Aspect ratio:** `4:3`
@@ -157,6 +160,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 ---
 
 ### servicio-flex
+
 - **Ruta:** `/servicios/enviosflex` · **Componente:** `src/components/servicios/flex/FlexHero.tsx`
 - **Slot:** card media · cabecera de la tarjeta "Integración logística Flex"
 - **Aspect ratio:** `4:3`
@@ -177,6 +181,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 ---
 
 ### servicio-emprendedores
+
 - **Ruta:** `/servicios/plan-emprendedores` · **Componente:** `src/components/servicios/emprendedores/EmprendedoresHero.tsx`
 - **Slot:** card media · cabecera de la tarjeta "Hub logístico Friuli 1972 · 3PL activo"
 - **Aspect ratio:** `4:3`
@@ -197,6 +202,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 ---
 
 ### cotizar-express
+
 - **Ruta:** `/cotizar/express` · **Componente:** `src/components/cotizar/express/CotizadorExpressHero.tsx`
 - **Slot:** card media · cabecera de la tarjeta "Cálculo automático · Sistema Express Maps"
 - **Aspect ratio:** `4:3`
@@ -217,6 +223,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 ---
 
 ### cotizar-lowcost
+
 - **Ruta:** `/cotizar/lowcost` · **Componente:** `src/components/cotizar/lowcost/CotizadorLowCostHero.tsx`
 - **Slot:** card media · cabecera de la tarjeta "Cálculo automático · Sistema LowCost batch"
 - **Aspect ratio:** `4:3`
@@ -237,6 +244,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 ---
 
 ### sobre-nosotros
+
 - **Ruta:** `/nosotros/sobre-nosotros` · **Componente:** `src/components/nosotros/sobre-nosotros/AboutHero.tsx`
 - **Slot:** card media · cabecera de la tarjeta "Confianza local" (debajo de la franja amarilla, arriba de las estrellas)
 - **Aspect ratio:** `4:3`
@@ -257,6 +265,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 ---
 
 ### preguntas-frecuentes
+
 - **Ruta:** `/nosotros/preguntas-frecuentes` · **Componente:** `src/components/nosotros/preguntas-frecuentes/FaqHero.tsx`
 - **Slot:** card media · cabecera de la tarjeta "Respuestas rápidas"
 - **Aspect ratio:** `4:3`
@@ -277,6 +286,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 ---
 
 ### nuestras-redes
+
 - **Ruta:** `/nosotros/nuestras-redes` · **Componente:** `src/components/nosotros/nuestras-redes/NetworksHero.tsx`
 - **Slot:** card media · cabecera de la tarjeta de seguidores (debajo de la franja amarilla, arriba de la cifra)
 - **Aspect ratio:** `4:3`
@@ -297,6 +307,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 ---
 
 ### contacto
+
 - **Ruta:** `/contacto` · **Componente:** `src/components/contacto/ContactHero.tsx`
 - **Slot:** standalone compacto · encima de la lista de canales, sin tarjeta
 - **Aspect ratio:** `4:3`
@@ -321,6 +332,7 @@ No text, no letters, no numbers, no logos, no brand marks, no watermark, no mage
 Estas variantes alternativas exploran ángulos visuales complementarios bajo el mismo Kit 3D DosRuedas y reglas de superficie. Contienen `(variante alternativa, pendiente de selección)` en sus metadatos para que el script `generate.py` las marque como `pending: True` y no las genere en batch automático, pero permitiendo invocarlas directamente: `python docs/imagenes/hero-derecha/generate.py <slug>-variante-b`.
 
 ### home-variante-b
+
 - **Ruta:** `/` · **Componente:** `src/components/home/HeroAnimado.tsx`
 - **Slot:** card media central (variante alternativa, pendiente de selección)
 - **Aspect ratio:** `1:1`
@@ -341,6 +353,7 @@ Estas variantes alternativas exploran ángulos visuales complementarios bajo el 
 ---
 
 ### servicio-express-variante-b
+
 - **Ruta:** `/servicios/envios-express` · **Componente:** `src/components/servicios/express/ExpressHero.tsx`
 - **Slot:** card media cabecera (variante alternativa, pendiente de selección)
 - **Aspect ratio:** `4:3`
@@ -361,6 +374,7 @@ Estas variantes alternativas exploran ángulos visuales complementarios bajo el 
 ---
 
 ### servicio-lowcost-variante-b
+
 - **Ruta:** `/servicios/envios-lowcost` · **Componente:** `src/components/servicios/lowcost/LowCostHero.tsx`
 - **Slot:** card media cabecera (variante alternativa, pendiente de selección)
 - **Aspect ratio:** `4:3`
@@ -381,6 +395,7 @@ Estas variantes alternativas exploran ángulos visuales complementarios bajo el 
 ---
 
 ### servicio-flex-variante-b
+
 - **Ruta:** `/servicios/enviosflex` · **Componente:** `src/components/servicios/flex/FlexHero.tsx`
 - **Slot:** card media cabecera (variante alternativa, pendiente de selección)
 - **Aspect ratio:** `4:3`
@@ -401,6 +416,7 @@ Estas variantes alternativas exploran ángulos visuales complementarios bajo el 
 ---
 
 ### servicio-emprendedores-variante-b
+
 - **Ruta:** `/servicios/plan-emprendedores` · **Componente:** `src/components/servicios/emprendedores/EmprendedoresHero.tsx`
 - **Slot:** card media cabecera (variante alternativa, pendiente de selección)
 - **Aspect ratio:** `4:3`
@@ -421,6 +437,7 @@ Estas variantes alternativas exploran ángulos visuales complementarios bajo el 
 ---
 
 ### cotizar-express-variante-b
+
 - **Ruta:** `/cotizar/express` · **Componente:** `src/components/cotizar/express/CotizadorExpressHero.tsx`
 - **Slot:** card media cabecera (variante alternativa, pendiente de selección)
 - **Aspect ratio:** `4:3`
@@ -441,6 +458,7 @@ Estas variantes alternativas exploran ángulos visuales complementarios bajo el 
 ---
 
 ### cotizar-lowcost-variante-b
+
 - **Ruta:** `/cotizar/lowcost` · **Componente:** `src/components/cotizar/lowcost/CotizadorLowCostHero.tsx`
 - **Slot:** card media cabecera (variante alternativa, pendiente de selección)
 - **Aspect ratio:** `4:3`
@@ -461,6 +479,7 @@ Estas variantes alternativas exploran ángulos visuales complementarios bajo el 
 ---
 
 ### sobre-nosotros-variante-b
+
 - **Ruta:** `/nosotros/sobre-nosotros` · **Componente:** `src/components/nosotros/sobre-nosotros/AboutHero.tsx`
 - **Slot:** card media cabecera (variante alternativa, pendiente de selección)
 - **Aspect ratio:** `4:3`
@@ -481,6 +500,7 @@ Estas variantes alternativas exploran ángulos visuales complementarios bajo el 
 ---
 
 ### preguntas-frecuentes-variante-b
+
 - **Ruta:** `/nosotros/preguntas-frecuentes` · **Componente:** `src/components/nosotros/preguntas-frecuentes/FaqHero.tsx`
 - **Slot:** card media cabecera (variante alternativa, pendiente de selección)
 - **Aspect ratio:** `4:3`
@@ -501,6 +521,7 @@ Estas variantes alternativas exploran ángulos visuales complementarios bajo el 
 ---
 
 ### nuestras-redes-variante-b
+
 - **Ruta:** `/nosotros/nuestras-redes` · **Componente:** `src/components/nosotros/nuestras-redes/NetworksHero.tsx`
 - **Slot:** card media cabecera (variante alternativa, pendiente de selección)
 - **Aspect ratio:** `4:3`
@@ -521,6 +542,7 @@ Estas variantes alternativas exploran ángulos visuales complementarios bajo el 
 ---
 
 ### contacto-variante-b
+
 - **Ruta:** `/contacto` · **Componente:** `src/components/contacto/ContactHero.tsx`
 - **Slot:** standalone compacto (variante alternativa, pendiente de selección)
 - **Aspect ratio:** `4:3`
@@ -545,6 +567,7 @@ Estas variantes alternativas exploran ángulos visuales complementarios bajo el 
 Estas rutas **no tienen hero con columna derecha** (verificado en código 2026-09-16). Prompts listos en modo `standalone` 4:5; no generar hasta que exista el hero (el script las saltea salvo que se pidan por slug).
 
 ### politica-de-privacidad
+
 - **Ruta:** `/politica-de-privacidad` · **Componente:** `src/app/politica-de-privacidad/PrivacyContent.tsx`
 - **Slot:** standalone (pendiente de hero)
 - **Aspect ratio:** `4:5`
@@ -562,6 +585,7 @@ Estas rutas **no tienen hero con columna derecha** (verificado en código 2026-0
 ```
 
 ### terminos-y-condiciones
+
 - **Ruta:** `/terminos-y-condiciones` · **Componente:** `src/app/terminos-y-condiciones/TermsContent.tsx`
 - **Slot:** standalone (pendiente de hero)
 - **Aspect ratio:** `4:5`
@@ -579,6 +603,7 @@ Estas rutas **no tienen hero con columna derecha** (verificado en código 2026-0
 ```
 
 ### panel-gestion-revision
+
 - **Rutas:** `/admin/imagenes` y `/revisar` · **Componentes:** `src/app/admin/imagenes/AdminImagenesClient.tsx`, `src/app/revisar/RevisarClient.tsx`
 - **Slot:** standalone (uso interno, pendiente de hero)
 - **Aspect ratio:** `4:5`

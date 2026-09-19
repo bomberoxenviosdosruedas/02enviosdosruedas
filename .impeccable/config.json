@@ -1,3 +1,15 @@
 {
-  "buildPath": "code"
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "geist mono",
+        "createdAt": "2026-09-19T02:10:47.351Z",
+        "reason": "project brand system: AGENTS.md/DESIGN.md mandate Geist Mono as font-mono (prices, tracking); app loads it via next/font in src/app/layout.tsx"
+      }
+    ]
+  }
 }

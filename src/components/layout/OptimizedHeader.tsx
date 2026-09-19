@@ -139,7 +139,7 @@ export default function OptimizedHeader() {
                 transition={{ type: 'spring', stiffness: 500, damping: 18 }}
               >
                 <Image
-                  src="/logo-master.svg"
+                  src="/logo-envios-simplified.webp"
                   alt="Logo Envíos Dos Ruedas"
                   fill={true}
                   className="object-contain"

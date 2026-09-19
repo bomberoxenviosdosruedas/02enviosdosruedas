@@ -206,7 +206,7 @@ export default function LeafletRouteMap({
         <div className="bg-brand-blue-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-brand-blue-500/30 shadow-lg flex items-center gap-2.5">
           <div className="relative w-6 h-6 shrink-0 bg-white/10 rounded-lg p-0.5 flex items-center justify-center">
             <Image
-              src="/logo-master.svg"
+              src="/logo-envios-simplified.webp"
               alt="Logo DosRuedas"
               width={20}
               height={20}

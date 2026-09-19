@@ -74,11 +74,11 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
             disabled={disabled}
             aria-invalid={!!error}
             className={cn(
-              'input-field h-11 w-full border-2 rounded-xl bg-white font-sans text-sm text-brand-blue-900 placeholder:text-brand-blue-300/70 transition-all duration-200 focus:outline-none',
+              'input-field h-11 w-full border-2 rounded-xl bg-white font-sans text-sm text-brand-blue-900 placeholder:text-brand-blue-500 transition-all duration-200 focus:outline-none',
               icon ? 'pl-10 pr-4' : 'px-4',
               error
                 ? 'border-red-500 focus:border-red-500 ring-2 ring-red-500/20 text-red-600'
-                : 'border-brand-blue-100 hover:border-brand-blue-200 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20',
+                : 'border-brand-blue-300 hover:border-brand-blue-400 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-500/20',
               disabled && 'border-brand-blue-100 bg-brand-blue-50/50 text-brand-blue-400 cursor-not-allowed',
               className
             )}
@@ -87,9 +87,9 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
         </div>
 
         {error ? (
-          <p className="font-mono text-[10px] text-red-500 font-medium">{error}</p>
+          <p className="font-mono text-[11px] text-red-600 font-medium">{error}</p>
         ) : helpText ? (
-          <p className="font-mono text-[10px] text-brand-blue-400">{helpText}</p>
+          <p className="font-mono text-[11px] text-brand-blue-500">{helpText}</p>
         ) : null}
       </div>
     );

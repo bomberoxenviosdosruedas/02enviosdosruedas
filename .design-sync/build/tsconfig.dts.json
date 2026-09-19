@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "incremental": false,
+    "rootDir": "../..",
+    "outDir": "../../.ds-pkg/types",
+    "plugins": []
+  },
+  "include": ["../../src/types/**/*.d.ts", "../../next-env.d.ts", "./entry.ts"],
+  "exclude": []
+}

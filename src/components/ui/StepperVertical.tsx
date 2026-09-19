@@ -69,8 +69,8 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
                   'bg-brand-yellow-500 border-white ring-4 ring-brand-yellow-500/30 animate-pulse-subtle text-brand-blue-900 scale-110',
                 isPending &&
                   (isDark
-                    ? 'bg-brand-blue-900 border-white/20 text-brand-blue-300'
-                    : 'bg-brand-blue-100 border-white text-brand-blue-400')
+                    ? 'bg-brand-blue-900 border-brand-blue-300 text-brand-blue-200'
+                    : 'bg-brand-blue-100 border-white text-brand-blue-500')
               )}
             >
               {isCompleted ? (
@@ -91,8 +91,8 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
                         ? 'text-brand-yellow-500'
                         : 'text-brand-blue-700'
                       : isDark
-                      ? 'text-brand-blue-200/60'
-                      : 'text-brand-blue-300'
+                      ? 'text-brand-blue-200'
+                      : 'text-brand-blue-400'
                   )}
                 >
                   {typeof stepNum === 'number' && stepNum < 10 ? `0${stepNum}` : stepNum}.
@@ -110,8 +110,8 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
                         ? 'text-white/90'
                         : 'text-brand-blue-800'
                       : isDark
-                      ? 'text-brand-blue-200/70'
-                      : 'text-brand-blue-400'
+                      ? 'text-brand-blue-100'
+                      : 'text-brand-blue-500'
                   )}
                 >
                   {step.title}

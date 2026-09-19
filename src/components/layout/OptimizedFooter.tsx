@@ -129,7 +129,7 @@ export default function OptimizedFooter() {
             <Link href="/" className="flex items-center gap-3.5 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
               <div className="relative w-11 h-11 bg-white/10 p-1.5 rounded-xl border border-white/15 group-hover:scale-105 transition-all duration-300 shrink-0 flex items-center justify-center">
                 <Image
-                  src="/logo-master.svg"
+                  src="/logo-envios-simplified.webp"
                   alt="Logo Envíos DosRuedas"
                   width={32}
                   height={32}
