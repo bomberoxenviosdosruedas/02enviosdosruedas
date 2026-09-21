@@ -172,9 +172,8 @@ export default function LowCostHero() {
                 <span>MÁXIMA RENTABILIDAD</span>
                 <span className="text-white/40">·</span>
                 <span>E-COMMERCE MDQ</span>
-              </span>
+              </div>
             </div>
-          </div>
 
             {/* Bottom Micro-Card: Horario y Tarifa Vigente */}
             <motion.div
