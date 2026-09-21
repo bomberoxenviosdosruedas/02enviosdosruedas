@@ -124,7 +124,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
       <div className="bg-brand-blue text-white rounded-3xl p-8 lg:p-12 border-2 border-brand-blue shadow-[6px_6px_0px_var(--color-brand-blue)] mb-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(255,236,1,0.05),transparent_40%)]" />
         <span className="bg-brand-yellow text-brand-blue font-mono font-bold text-xs px-3 py-1.5 rounded-[4px] uppercase tracking-wider inline-block mb-4">
-          Operación 2026 — Mar del Plata
+          Operación 2026 · Mar del Plata
         </span>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-none mb-4">
           Panel de Revisión de Contenidos

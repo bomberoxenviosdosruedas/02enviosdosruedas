@@ -418,7 +418,7 @@ TECNOLOGÍA PROPIA
 
 URL: https://www.enviosdosruedas.com/revisar
 
-Operación 2026 — Mar del Plata
+Operación 2026 · Mar del Plata
 
 ## Panel de Revisión de Contenidos
 ¡Hola! Desde este panel podés revisar todos los textos y componentes actuales de cada página de Envíos DosRuedas . Escribí tus comentarios, ajustes de títulos, propuestas de imágenes o modificaciones y guardalos directamente en la base de datos.
