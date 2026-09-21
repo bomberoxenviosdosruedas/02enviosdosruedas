@@ -14,15 +14,15 @@ Mensajería y logística de última milla en Mar del Plata (Partido de General P
 |---|---|---|
 | Typecheck | `pnpm typecheck` | ~20 s |
 | Lint de archivos puntuales | `pnpm exec eslint <archivos>` | ~1 min |
+| Lint completo (solo si cambió config ESLint) | `pnpm run lint` | ~2 min |
 | Tests relacionados a lo tocado | `pnpm exec vitest related <archivos> --run` | ~40 s |
 | Tests de un archivo | `pnpm exec vitest run <ruta>` | según archivo |
 | Build de producción | `pnpm build` (Windows: `powershell -ExecutionPolicy Bypass -Command "pnpm build"`) | **10–12 min** |
 | Dev | `pnpm dev` (si el hot-reload no refleja cambios en Windows: `pnpm dev --webpack`) | — |
 | Prisma | `pnpm prisma generate` · `pnpm prisma db push` | — |
 
-- **Nunca** correr `pnpm test` a secas: es `vitest` en modo watch y deja al agente colgado. Usar siempre `vitest run` o `vitest related --run`.
+- **Nunca** correr `pnpm test` a secas: el script en `package.json` lanza `vitest` en modo watch y deja al agente colgado. Usar siempre `pnpm exec vitest run ...` o `pnpm exec vitest related --run`.
 - `pnpm dev` solo en segundo plano y solo si hace falta ver la app.
-- `pnpm run lint` (`eslint .`) recorre todo el repo: usarlo solo si se cambió la configuración de ESLint.
 - No existe suite E2E (no hay Playwright configurado).
 
 ## Protocolo de trabajo (Plan → Ejecuta → Verifica → Itera → Build final)
@@ -33,11 +33,11 @@ Ninguna tarea que toque código se marca `completed` sin pasar el paso 5.
 |---|---|---|
 | **1. PLAN** | Leer los archivos que la tarea toca y la sección de referencia que corresponda (ver "Documentos de referencia"). Definir archivos afectados y criterio de terminado | Plan con archivos afectados |
 | **2. EJECUTA** | Cambios mínimos y atómicos, siguiendo este archivo y `DESIGN.md` | Sin `any`, Server Components por defecto |
-| **3. VERIFICA (loop rápido, repetible)** | `pnpm typecheck` + `pnpm exec eslint <archivos tocados>` + `pnpm exec vitest run <archivo de test>` si aplica | 0 errores de TypeScript, sin errores ni warnings nuevos en lo tocado |
+| **3. VERIFICA (loop rápido, repetible)** | `pnpm typecheck` + `pnpm exec eslint <archivos que editaste en esta tarea>` + `pnpm exec vitest run <archivo de test>` si aplica | 0 errores de TypeScript, sin errores ni warnings nuevos en lo tocado |
 | **4. ITERA** | Si falla → corregir → volver al paso 3, las veces que haga falta | Loop hasta verde. **Nunca** correr `pnpm build` en esta vuelta |
 | **5. BUILD FINAL (una sola vez, al cerrar la tarea)** | `pnpm build` (Windows: `powershell -ExecutionPolicy Bypass -Command "pnpm build"`) + `pnpm run lint` completo + suite de tests relevante (`pnpm exec vitest run <carpeta o archivos>`) | Build sin errores, 0 errores de TypeScript, ningún error de lint ni test **nuevo** respecto del baseline. Recién acá se marca `completed` |
 
-> **Por qué dos velocidades:** `pnpm build` compila y prerenderiza el sitio entero (10–12 min en esta máquina); es el paso más lento del flujo. Se corre **una sola vez**, como gate final antes de marcar la tarea `completed`. Durante el loop de iteración, `pnpm typecheck` (incremental, `tsc --noEmit`, ~20 s) + lint acotado a los archivos tocados detectan la gran mayoría de los errores sin recompilar todo el sitio en cada ajuste chico.
+> **Por qué dos velocidades:** `pnpm build` compila y prerenderiza el sitio entero (10–12 min en esta máquina); es el paso más lento del flujo. Se corre **una sola vez**, como gate final antes de marcar la tarea `completed`. Durante el loop de iteración, `pnpm typecheck` (incremental, `tsc --noEmit`, ~20 s) + lint acotado a los archivos que **vos editaste** (pasalos directo a `pnpm exec eslint`, sin `git diff`) detectan la gran mayoría de los errores sin recompilar todo el sitio en cada ajuste chico.
 
 - **Tests:** nunca `pnpm test` a secas ni `pnpm test <archivo>`: es `vitest` en modo watch y deja al agente colgado. Siempre `pnpm exec vitest run ...`.
 - **Tareas solo de documentación, markdown o assets:** no aplican los pasos 3–5.
