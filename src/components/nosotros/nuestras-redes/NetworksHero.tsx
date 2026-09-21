@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { motion } from 'motion/react';
-import { Share2, Users, ArrowRight, Sparkles, MessageCircle, Instagram, Facebook, ExternalLink } from 'lucide-react';
+import { Share2, Users, ArrowRight, Sparkles, MessageCircle, ExternalLink } from 'lucide-react';
+import { FaInstagram, FaFacebookF } from 'react-icons/fa';
 
 const SOCIAL_CHANNELS = [
   {
@@ -11,7 +12,7 @@ const SOCIAL_CHANNELS = [
     name: 'Instagram Oficial',
     handle: '@enviosdosruedas',
     desc: 'Rutas en vivo, fotos de la flota en MDQ y novedades de horarios.',
-    icon: Instagram,
+    icon: FaInstagram,
     badge: 'Último post: hace 18 min',
     link: 'https://instagram.com/enviosdosruedas',
     ctaText: 'Ver historias',
@@ -21,7 +22,7 @@ const SOCIAL_CHANNELS = [
     name: 'Facebook Comunidad',
     handle: '@enviosdosruedas',
     desc: 'El día a día de nuestros cadetes recorriendo calles y barrios de Mar del Plata.',
-    icon: Facebook,
+    icon: FaFacebookF,
     badge: 'Video nuevo hoy',
     link: 'https://facebook.com/enviosdosruedas',
     ctaText: 'Mirar videos',

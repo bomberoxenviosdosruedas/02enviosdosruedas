@@ -3,13 +3,14 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Heart, MessageCircle, Facebook, Instagram, ExternalLink } from 'lucide-react';
+import { Heart, MessageCircle, ExternalLink } from 'lucide-react';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 
 export default function RecentPosts() {
   const posts = [
     {
       platform: 'Facebook',
-      platformIcon: Facebook,
+      platformIcon: FaFacebookF,
       date: '21 Jun',
       avatar: 'https://picsum.photos/seed/avatar1/100/100',
       image: '/redes/fac2.webp',
@@ -21,7 +22,7 @@ export default function RecentPosts() {
     },
     {
       platform: 'Instagram',
-      platformIcon: Instagram,
+      platformIcon: FaInstagram,
       date: '21 Jun',
       avatar: 'https://picsum.photos/seed/avatar2/100/100',
       image: '/redes/ig4.webp',
@@ -33,7 +34,7 @@ export default function RecentPosts() {
     },
     {
       platform: 'Facebook',
-      platformIcon: Facebook,
+      platformIcon: FaFacebookF,
       date: '21 Jun',
       avatar: 'https://picsum.photos/seed/avatar1/100/100',
       image: '/redes/fac1.webp',
@@ -45,7 +46,7 @@ export default function RecentPosts() {
     },
     {
       platform: 'Instagram',
-      platformIcon: Instagram,
+      platformIcon: FaInstagram,
       date: '21 Jun',
       avatar: 'https://picsum.photos/seed/avatar2/100/100',
       image: '/redes/ig1.webp',
@@ -57,7 +58,7 @@ export default function RecentPosts() {
     },
     {
       platform: 'Instagram',
-      platformIcon: Instagram,
+      platformIcon: FaInstagram,
       date: '21 Jun',
       avatar: 'https://picsum.photos/seed/avatar2/100/100',
       image: '/redes/ig3.webp',
