@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Zap, Truck, Package, Warehouse, ArrowRight, MapPin, Clock, ShieldCheck, CreditCard } from 'lucide-react';
+import { Zap, Truck, Package, Warehouse, ArrowRight, MapPin, Clock, ShieldCheck, CreditCard, MessageSquare } from 'lucide-react';
 import CTANestedPill from '@/src/components/ui/CTANestedPill';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
@@ -304,7 +304,7 @@ export default function ServiciosPage() {
                     <CTANestedPill
                       href={service.href}
                       variant="outline"
-                      size="medium"
+                      size="default"
                       className="w-full justify-center"
                     >
                       {service.cta}
@@ -389,7 +389,7 @@ export default function ServiciosPage() {
                 <p className="font-sans text-sm text-brand-ink/80 leading-relaxed mb-3">
                   Cobro en efectivo en mano al destinatario. Sin comisión extra. Rinde de dinero en el día.
                 </p>
-                <CTANestedPill variant="outline" size="small" href="/servicios/envios-contrareembolso">
+                <CTANestedPill variant="outline" size="compact" href="/servicios/envios-contrareembolso">
                   Ver detalle
                   <ArrowRight className="w-3.5 h-3.5" />
                 </CTANestedPill>
@@ -412,7 +412,7 @@ export default function ServiciosPage() {
                 <p className="font-sans text-sm text-brand-ink/80 leading-relaxed mb-3">
                   Liquidación quincenal unificada, tarifas bonificadas por volumen y atención preferencial.
                 </p>
-                <CTANestedPill variant="outline" size="small" href="/servicios/empresas-cuenta-corriente">
+                <CTANestedPill variant="outline" size="compact" href="/servicios/empresas-cuenta-corriente">
                   Ver detalle
                   <ArrowRight className="w-3.5 h-3.5" />
                 </CTANestedPill>

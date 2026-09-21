@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Users, HelpCircle, MessageSquare, ArrowRight, ShieldCheck, Truck, Clock, MapPin } from 'lucide-react';
+import { Users, HelpCircle, MessageSquare, ArrowRight, ShieldCheck, MapPin, Clock, Truck } from 'lucide-react';
 import CTANestedPill from '@/src/components/ui/CTANestedPill';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
@@ -218,7 +218,7 @@ export default function NosotrosPage() {
                     <CTANestedPill
                       href={section.href}
                       variant="outline"
-                      size="medium"
+                      size="default"
                       className="w-full justify-center"
                     >
                       {section.cta}
