@@ -143,14 +143,14 @@ export default function LowCostHero() {
               </span>
             </div>
 
-            {/* Central Visual: Logo Dos Ruedas con Órbitas Cinemáticas */}
-            <div className="relative w-72 h-72 sm:w-84 sm:h-84 flex items-center justify-center animate-float-slow z-10">
+            {/* Central Visual: Imagen LowCost con Órbitas Cinemáticas */}
+            <div className="relative w-80 h-80 sm:w-96 sm:h-96 flex items-center justify-center animate-float-slow z-10">
               <div className="absolute inset-0 rounded-full bg-brand-blue-500/20 blur-2xl pointer-events-none"></div>
-              <div className="relative z-10 w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center group">
+              <div className="relative z-10 w-72 h-72 sm:w-84 sm:h-84 flex items-center justify-center group">
                 <img
-                  src="/logo-envios-simplified.webp"
-                  alt="Envíos DosRuedas - Paquetería LowCost Encomiendas y Cadetería MDQ"
-                  className="w-full h-full object-contain drop-shadow-[0_20px_35px_rgba(0,16,53,0.7)] filter group-hover:scale-105 transition-transform duration-500"
+                  src="/elementos/envios_lowcost.webp"
+                  alt="Paquetería LowCost - Envíos DosRuedas"
+                  className="w-full h-full object-cover rounded-2xl drop-shadow-[0_20px_35px_rgba(0,16,53,0.7)] filter group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="absolute -top-3 right-0 bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-xl border border-brand-yellow-500/40 shadow-lg flex items-center gap-1.5 z-20 px-3 py-1.5">
