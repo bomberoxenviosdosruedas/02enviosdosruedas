@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_AR',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mercado Envíos Flex Same-Day | Envíos DosRuedas',
+    description: 'Logística Same-Day para Mercado Envíos Flex en Mar del Plata. Corte 15:00 hs, entregas antes de las 20:00 hs y múltiples retiros.',
+    images: [`${baseUrl}/og-image.jpg`],
+    creator: '@enviosdosruedas',
+  },
 };
 
 const jsonLdSchema = {

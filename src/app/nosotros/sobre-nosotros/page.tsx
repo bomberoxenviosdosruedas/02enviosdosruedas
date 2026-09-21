@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_AR',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sobre Nosotros y Trayectoria | Envíos DosRuedas',
+    description: 'Más de 7 años de trayectoria transformando la logística urbana y la última milla en Mar del Plata con flota propia.',
+    images: [`${baseUrl}/og-image.jpg`],
+    creator: '@enviosdosruedas',
+  },
 };
 
 const jsonLdSchema = {

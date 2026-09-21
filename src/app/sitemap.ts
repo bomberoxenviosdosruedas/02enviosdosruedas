@@ -4,80 +4,81 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Dominio canónico oficial de producción unificado
   const baseUrl = 'https://www.enviosdosruedas.com';
 
-  // Fecha de referencia operativa para indexación
-  const lastModified = new Date();
+  // Fecha de referencia operativa para indexación - usando fechas fijas por página
+  // En producción idealmente vendrían de CMS/DB con updatedAt real
+  const lastModified = new Date('2026-09-21');
 
   // 1. Portada & Páginas Transaccionales Clave (Prioridad 1.0 - 0.9)
   const commercialRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/servicios/envios-express`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/servicios/envios-lowcost`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/servicios/enviosflex`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/servicios/deposito-fulfillment`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/cotizar/express`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/cotizar/lowcost`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/servicios/envios-contrareembolso`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/servicios/empresas-cuenta-corriente`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/cobertura`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/guias/envios-flex-mar-del-plata`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/contacto`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.85,
     },
@@ -87,21 +88,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const institutionalRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/nosotros/sobre-nosotros`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/nosotros/preguntas-frecuentes`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/nosotros/nuestras-redes`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',
       priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/nosotros`,
+      lastModified: new Date('2026-09-21'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/servicios`,
+      lastModified: new Date('2026-09-21'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
   ];
 
@@ -109,13 +122,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const legalRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/politica-de-privacidad`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${baseUrl}/terminos-y-condiciones`,
-      lastModified,
+      lastModified: new Date('2026-09-21'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },

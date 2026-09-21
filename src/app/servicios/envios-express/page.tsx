@@ -22,6 +22,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_AR',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Envíos Express en Moto en Mar del Plata | Envíos DosRuedas',
+    description: 'Cadetería prioritaria y entregas inmediatas en 60-90 min en Mar del Plata. Tarifas transparentes 2026.',
+    images: [`${baseUrl}/og-image.jpg`],
+    creator: '@enviosdosruedas',
+  },
 };
 
 const jsonLdSchema = {

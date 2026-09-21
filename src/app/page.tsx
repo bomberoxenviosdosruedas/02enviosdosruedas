@@ -48,6 +48,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: baseUrl,
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Envíos DosRuedas - Mensajería & Logística en Mar del Plata',
+    description: 'Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express 60-90 min, Flex y LowCost. Tarifas 2026.',
+    images: [`${baseUrl}/og-image.jpg`],
+    creator: '@enviosdosruedas',
+  },
 };
 
 export default function Home() {

@@ -22,6 +22,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_AR',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Preguntas Frecuentes (FAQ) | Envíos DosRuedas',
+    description: 'Respuestas inmediatas sobre servicios, tiempos, tarifas y logística urbana con flota propia en Mar del Plata.',
+    images: [`${baseUrl}/og-image.jpg`],
+    creator: '@enviosdosruedas',
+  },
 };
 
 // Flatten all questions across categories for comprehensive FAQPage Schema.org structured data

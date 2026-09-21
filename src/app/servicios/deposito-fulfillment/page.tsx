@@ -22,6 +22,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_AR',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Depósito, Fulfillment y Envíos PyME | Envíos DosRuedas',
+    description: 'Soluciones integrales de logística para e-commerce en Mar del Plata. Depósito en Friuli 1972, preparación y despacho directo.',
+    images: [`${baseUrl}/og-image.jpg`],
+    creator: '@enviosdosruedas',
+  },
 };
 
 const jsonLdSchema = {

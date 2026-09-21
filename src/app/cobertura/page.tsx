@@ -9,7 +9,7 @@ import LogisticaNetworkCanvas from '@/src/components/home/LogisticaNetworkCanvas
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Cobertura de Envíos en Mar del Plata y Zonas | Envíos DosRuedas',
+  title: 'Cobertura de Envíos en Mar del Plata y Zonas',
   description:
     'Zonas y radios de cobertura de mensajería y paquetería en Mar del Plata. Desde Friuli 1972 a todos los barrios: Centro, Güemes, Puerto, Mogotes, Constitución y hasta 20 km.',
   alternates: {
@@ -22,6 +22,13 @@ export const metadata: Metadata = {
     url: `${baseUrl}/cobertura`,
     type: 'website',
     locale: 'es_AR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cobertura de Envíos en Mar del Plata y Zonas | Envíos DosRuedas',
+    description: 'Mapa y radios de cobertura para entregas Express y LowCost en Mar del Plata y Partido de General Pueyrredón.',
+    images: [`${baseUrl}/og-image.jpg`],
+    creator: '@enviosdosruedas',
   },
 };
 

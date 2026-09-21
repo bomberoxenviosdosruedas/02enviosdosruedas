@@ -13,3 +13,5 @@ allowBuilds:
   vitest: true
   '@vitejs/plugin-react': true
   puppeteer: true
+  msgpackr-extract: true
+  workerd: true

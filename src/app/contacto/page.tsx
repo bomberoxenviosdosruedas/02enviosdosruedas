@@ -13,6 +13,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${baseUrl}/contacto`,
   },
+  openGraph: {
+    title: 'Contacto y Base Central | Envíos DosRuedas',
+    description: 'Contacto con el equipo comercial y logística urbana de Envíos DosRuedas en Mar del Plata. Cotizaciones inmediatas por WhatsApp.',
+    url: `${baseUrl}/contacto`,
+    type: 'website',
+    locale: 'es_AR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contacto y Base Central | Envíos DosRuedas',
+    description: 'Contacto con el equipo comercial y logística urbana de Envíos DosRuedas en Mar del Plata. Cotizaciones inmediatas por WhatsApp.',
+    images: [`${baseUrl}/og-image.jpg`],
+    creator: '@enviosdosruedas',
+  },
 };
 
 const jsonLdSchema = {
