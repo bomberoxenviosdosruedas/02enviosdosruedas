@@ -17,15 +17,20 @@ import {
 } from 'lucide-react';
 
 export default function LowCostHero() {
-  const [activeTab, setActiveTab] = useState<'ahorro' | 'franjas'>('ahorro');
-
   return (
     <section
       id="lowcost-hero"
-      className="relative w-full overflow-hidden bg-brand-blue-500 text-white min-h-[85vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-white/10"
+      className="relative w-full overflow-hidden bg-brand-blue-700 text-white min-h-[85vh] flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 border-b border-white/10"
     >
-      {/* Pure Vector & Dynamic Procedural Background */}
-      <HeroProceduralBackground variant="lowcost" />
+      {/* Procedural Vignette & Radial Light */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        <div className="absolute inset-0" style="background:linear-gradient(135deg, #021440 0%, #04236B 35%, #0636A5 75%, #00277C 100%)"></div>
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none" style="background:radial-gradient(circle, rgba(9,80,246,0.35) 0%, rgba(6,54,165,0.15) 50%, transparent 70%);filter:blur(80px)"></div>
+        <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none" style="background:radial-gradient(circle, rgba(255,236,1,0.22) 0%, rgba(255,236,1,0.06) 45%, transparent 70%);filter:blur(90px)"></div>
+        <div className="absolute -bottom-40 left-1/3 w-[550px] h-[550px] rounded-full pointer-events-none" style="background:radial-gradient(circle, rgba(6,54,165,0.4) 0%, transparent 70%);filter:blur(100px)"></div>
+        <svg className="absolute inset-0 w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="hero-procedural-grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M 48 0 L 0 0 0 48" fill="none" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="2,6"></path><circle cx="0" cy="0" r="1.5" fill="#FFEC01"></circle></pattern></defs><rect width="100%" height="100%" fill="url(#hero-procedural-grid)"></rect></svg>
+        <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" preserveAspectRatio="none"><circle cx="1100" cy="300" r="160" fill="none" stroke="#FFEC01" stroke-width="1" stroke-dasharray="4 8"></circle><circle cx="1100" cy="300" r="280" fill="none" stroke="#628FF9" stroke-width="1" stroke-dasharray="6 12"></circle><circle cx="1100" cy="300" r="400" fill="none" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="4 16"></circle><line x1="200" y1="300" x2="1100" y2="300" stroke="#FFEC01" stroke-width="1.5" stroke-dasharray="8 8"></line></svg>
+      </div>
 
       {/* Ghost Wordmark Monumental de Fondo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
@@ -43,7 +48,7 @@ export default function LowCostHero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="rotate-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-brand-blue-900 border border-brand-yellow-500/30 text-brand-yellow-500 shadow-glow-yellow"
+              className="rotate-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-brand-blue-900/90 border border-brand-yellow-500/40 text-brand-yellow-500 shadow-glow-yellow backdrop-blur-md"
             >
               <TrendingDown className="h-4 w-4 text-brand-yellow-500 shrink-0" />
               <span>PAQUETERÍA E-COMMERCE Y CADETERÍA ECONÓMICA · MDQ 2026</span>
@@ -60,7 +65,7 @@ export default function LowCostHero() {
               </span>
             </h1>
 
-            {/* Description — without side-tab anti-pattern */}
+            {/* Description */}
             <p className="text-base sm:text-lg lg:text-xl font-sans text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
               Solución en paquetería e-commerce, servicio de cadetería y servicio de encomiendas programadas en Mar del Plata. Pedidos solicitados antes de las 13:00 hs se entregan en el día antes de las 19:00 hs.
             </p>
@@ -117,158 +122,103 @@ export default function LowCostHero() {
             </div>
           </div>
 
-          {/* Right Column: Interactive Double Bezel Mini-Comparador Card (5 cols) */}
-          <div className="lg:col-span-5 relative w-full">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-[28px] shadow-2xl">
-              <div className="bg-white p-5 sm:p-7 rounded-[20px] border border-brand-blue-50/50 shadow-sm text-brand-blue-700 space-y-5 relative overflow-hidden">
-                {/* Giant Watermark Icon */}
-                <TrendingDown className="absolute -bottom-6 -right-6 h-48 w-48 text-brand-blue-700/[0.04] pointer-events-none select-none" />
-                {/* Header with status badge */}
-                <div className="flex items-center justify-between border-b border-brand-blue-100/80 pb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="relative flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-yellow-500" />
-                    </span>
-                    <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-blue-700">
-                      CIRCUITOS ACTIVOS MDQ
-                    </span>
-                  </div>
-                  <span className="font-mono text-xs font-bold bg-brand-blue-50 text-brand-blue-700 px-2.5 py-1 rounded-lg border border-brand-blue-100">
-                    CONSOLIDADO
-                  </span>
-                </div>
+          {/* Right Column: Animated Kinetic Brand HUD & Logo (5 cols) */}
+          <div className="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
+            {/* Ambient Backlight Glow */}
+            <div className="absolute -inset-6 bg-gradient-to-r from-brand-yellow-500/20 via-brand-blue-500/35 to-brand-yellow-500/15 rounded-full blur-3xl pointer-events-none"></div>
 
-                {/* Interactive Segmented Toggle */}
-                <div className="grid grid-cols-2 p-1 bg-brand-blue-50 rounded-xl border border-brand-blue-100">
-                  <button
-                    type="button"
-                    onClick={() => setActiveTab('ahorro')}
-                    className={`py-2 px-3 rounded-lg text-xs font-subheading uppercase tracking-wider font-bold transition-all min-h-[44px] cursor-pointer flex items-center justify-center gap-1.5 ${
-                      activeTab === 'ahorro'
-                        ? 'bg-brand-blue-700 text-brand-yellow-500 shadow-sm'
-                        : 'text-brand-blue-700 hover:bg-white/60'
-                    }`}
-                  >
-                    <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                    <span>Ventajas Ahorro</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setActiveTab('franjas')}
-                    className={`py-2 px-3 rounded-lg text-xs font-subheading uppercase tracking-wider font-bold transition-all min-h-[44px] cursor-pointer flex items-center justify-center gap-1.5 ${
-                      activeTab === 'franjas'
-                        ? 'bg-brand-blue-700 text-brand-yellow-500 shadow-sm'
-                        : 'text-brand-blue-700 hover:bg-white/60'
-                    }`}
-                  >
-                    <Clock className="w-3.5 h-3.5 shrink-0" />
-                    <span>Horario y Corte</span>
-                  </button>
-                </div>
+            {/* Top Status Flag: Flota Activa & Tarifa Consolidada */}
+            <div className="flex items-center gap-2 mb-3 z-20">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-full flex items-center gap-2 border border-brand-yellow-500/30 shadow-sm px-4 py-1.5">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow-500"></span>
+                </span>
+                <span className="font-subheading text-xs tracking-widest text-brand-yellow-400 font-bold uppercase">
+                  CIRCUITOS CONSOLIDADOS · MDQ
+                </span>
+              </div>
+              <span className="font-mono text-[11px] font-bold bg-brand-yellow-500 text-brand-blue-900 px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+                TARIFA LOWCOST
+              </span>
+            </div>
 
-                {/* Tab Content Display */}
-                <div className="min-h-[190px]">
-                  <AnimatePresence mode="wait">
-                    {activeTab === 'ahorro' ? (
-                      <motion.div
-                        key="ahorro"
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.25 }}
-                        className="space-y-3"
-                      >
-                        <div className="flex items-start gap-3 p-2.5 rounded-xl bg-brand-blue-50/50 border border-brand-blue-100">
-                          <CheckCircle2 className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
-                          <div>
-                            <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
-                              Paquetería E-Commerce Rentable
-                            </p>
-                            <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              Optimización en paquetería e-commerce y encomiendas para bajar costos de envío significativamente.
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-start gap-3 p-2.5 rounded-xl bg-brand-blue-50/50 border border-brand-blue-100">
-                          <Layers className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
-                          <div>
-                            <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
-                              Servicio de Cadetería Flexible
-                            </p>
-                            <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              Ideal para emprendedores con envíos esporádicos o volúmenes diarios ruteados.
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-start gap-3 p-2.5 rounded-xl bg-brand-blue-50/50 border border-brand-blue-100">
-                          <ShieldCheck className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
-                          <div>
-                            <p className="text-xs font-bold font-subheading uppercase tracking-wide text-brand-blue-700">
-                              Seguimiento y Notificaciones
-                            </p>
-                            <p className="text-[11px] text-brand-ink/80 font-sans leading-snug">
-                              Notificaciones directas vía WhatsApp para cada despacho en Mar del Plata.
-                            </p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="franjas"
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.25 }}
-                        className="space-y-3"
-                      >
-                        <div className="p-3 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-1">
-                          <div className="flex justify-between items-center text-xs font-subheading uppercase font-bold text-brand-blue-700">
-                            <span className="flex items-center gap-1.5">
-                              <Clock className="w-3.5 h-3.5 text-brand-yellow-500" />
-                              Corte Solicitud
-                            </span>
-                            <span className="font-mono text-brand-blue-500 font-bold">13:00 hs Límite</span>
-                          </div>
-                          <p className="text-[11px] text-brand-ink/75 font-sans">
-                            Pedí tu servicio de encomiendas o cadetería antes de las 13:00 hs para entrega el mismo día.
-                          </p>
-                        </div>
-
-                        <div className="p-3 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-1">
-                          <div className="flex justify-between items-center text-xs font-subheading uppercase font-bold text-brand-blue-700">
-                            <span className="flex items-center gap-1.5">
-                              <Clock className="w-3.5 h-3.5 text-brand-yellow-500" />
-                              Horario de Entrega
-                            </span>
-                            <span className="font-mono text-brand-blue-500 font-bold">Antes de 19:00 hs</span>
-                          </div>
-                          <p className="text-[11px] text-brand-ink/75 font-sans">
-                            Entregas continuas ruteadas en el transcurso del día sin elección de hora puntual.
-                          </p>
-                        </div>
-
-                        <div className="p-2.5 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 flex items-center justify-between text-xs font-subheading uppercase font-bold text-brand-blue-700">
-                          <span className="flex items-center gap-1.5">
-                            <MapPin className="w-3.5 h-3.5 text-brand-yellow-500" />
-                            Todo Mar del Plata
-                          </span>
-                          <span className="text-brand-blue-500">100% Cobertura</span>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                {/* Footer trust strip */}
-                <div className="pt-3 border-t border-brand-blue-100 flex items-center justify-between text-[11px] font-subheading uppercase tracking-wider text-brand-blue-600 font-bold">
-                  <span>Tarifa Vigente 2026</span>
-                  <span className="text-brand-blue-700 font-mono text-xs">Excedente $700/km</span>
-                </div>
+            {/* Central Visual: Logo Dos Ruedas con Órbitas Cinemáticas */}
+            <div className="relative w-72 h-72 sm:w-84 sm:h-84 flex items-center justify-center animate-float-slow z-10">
+              <div className="absolute inset-0 rounded-full bg-brand-blue-500/20 blur-2xl pointer-events-none"></div>
+              <div className="relative z-10 w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center group">
+                <img
+                  src="/logo-envios-simplified.webp"
+                  alt="Envíos DosRuedas - Paquetería LowCost Encomiendas y Cadetería MDQ"
+                  className="w-full h-full object-contain drop-shadow-[0_20px_35px_rgba(0,16,53,0.7)] filter group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="absolute -top-3 right-0 bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-xl border border-brand-yellow-500/40 shadow-lg flex items-center gap-1.5 z-20 px-3 py-1.5">
+                <svg className="w-3.5 h-3.5 text-brand-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <span className="font-subheading text-xs tracking-wider text-white uppercase font-bold">MISMA JORNADA</span>
+              </div>
+              <div className="absolute -bottom-2 -left-3 bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-xl border border-white/20 shadow-lg flex items-center gap-1.5 z-20 px-3 py-1.5">
+                <svg className="w-3.5 h-3.5 text-brand-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <span className="font-subheading text-xs tracking-wider text-blue-100 uppercase font-bold">TODO MAR DEL PLATA</span>
               </div>
             </div>
+
+            {/* Kinetic Typography Banner Bajo el Logo */}
+            <div className="text-center mt-6 z-10 space-y-1">
+              <div className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] uppercase tracking-tight text-white leading-none drop-shadow-md">
+                DOS RUEDAS <span className="text-brand-yellow-500 drop-shadow-[0_0_18px_rgba(255,236,1,0.5)]">LOWCOST</span>
+              </div>
+              <div className="font-subheading text-base sm:text-lg tracking-widest text-brand-yellow-400 uppercase font-bold flex items-center justify-center gap-2">
+                <span>MÁXIMA RENTABILIDAD</span>
+                <span className="text-white/40">·</span>
+                <span>E-COMMERCE MDQ</span>
+              </span>
+            </div>
+          </div>
+
+            {/* Bottom Micro-Card: Horario y Tarifa Vigente */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mt-6 w-full max-w-xs bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[20px] shadow-float z-10"
+            >
+              <div className="bg-brand-blue-900 text-white p-4 rounded-[16px] border border-white/10 shadow-sm space-y-3">
+                <div className="flex items-center justify-between border-b border-white/15 pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow-500"></span>
+                    </span>
+                    <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-yellow-500">
+                      HORARIO OPERATIVO
+                    </span>
+                  </div>
+                  <span className="font-mono text-[11px] font-bold bg-brand-yellow-500 text-brand-blue-900 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    2026
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 gap-3 text-center">
+                  <div className="bg-white/5 border border-white/10 p-3 rounded-xl">
+                    <div className="font-subheading text-[10px] uppercase tracking-wider text-brand-blue-400 mb-1">CORTE</div>
+                    <div className="font-display text-xl text-brand-yellow-500">13:00 HS</div>
+                    <div className="font-sans text-[10px] text-white/60">SOLICITUD</div>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 p-3 rounded-xl">
+                    <div className="font-subheading text-[10px] uppercase tracking-wider text-brand-blue-400 mb-1">ENTREGA</div>
+                    <div className="font-display text-xl text-brand-yellow-500">19:00 HS</div>
+                    <div className="font-sans text-[10px] text-white/60">MISMA JORNADA</div>
+                  </div>
+                </div>
+                <div className="pt-2 border-t border-white/15 flex items-center justify-center gap-2 text-[10px] font-subheading uppercase tracking-wider text-brand-blue-400 font-bold">
+                  <span className="flex items-center gap-1">
+                    <MapPin className="w-3 h-3 text-brand-yellow-500" />
+                    TODO MAR DEL PLATA
+                  </span>
+                  <span className="text-brand-blue-500 font-mono text-xs">+20 KM</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
