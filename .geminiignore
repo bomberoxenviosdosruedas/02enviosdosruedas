@@ -1,6 +1,6 @@
 # ==============================================================================
 # .geminiignore — FinOps & Context Optimization for Google AI / Gemini
-# Proyecto: Envíos DosRuedas | Stack: Next.js 16 · TS · Prisma · pnpm · Vitest/Playwright
+# Proyecto: Envíos DosRuedas | Stack: Next.js 16 · TS · Prisma · pnpm · Vitest
 # ==============================================================================
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -28,14 +28,15 @@ $RECYCLE.BIN/
 .history/
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 2. DEPENDENCIAS Y LOCK FILES (mayor ahorro de tokens del proyecto)
-# pnpm-lock.yaml pesa ~500 KB — ignorarlo es el mayor win de FinOps
+# 2. DEPENDENCIAS Y LOCK FILES (Mayor ahorro de tokens: ~500 KB lockfile)
 # ──────────────────────────────────────────────────────────────────────────────
 node_modules/
 pnpm-lock.yaml
 package-lock.json
 yarn.lock
+bun.lockb
 .npmrc
+.pnpm-store/
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 3. BUILDS Y OUTPUTS DE COMPILACIÓN
@@ -51,6 +52,11 @@ generated/
 tsconfig.tsbuildinfo
 *.tsbuildinfo
 
+# Source maps (no aportan al análisis de lógica)
+*.js.map
+*.css.map
+*.ts.map
+
 # ──────────────────────────────────────────────────────────────────────────────
 # 4. CACHÉS DE HERRAMIENTAS Y FRAMEWORKS
 # ──────────────────────────────────────────────────────────────────────────────
@@ -63,11 +69,11 @@ tsconfig.tsbuildinfo
 .swc/
 .pytest_cache/
 .ruff_cache/
+coverage/
 .vercel/
-.hermes/
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 5. VARIABLES DE ENTORNO Y SECRETOS (nunca deben llegar al contexto IA)
+# 5. VARIABLES DE ENTORNO Y SECRETOS (Nunca deben llegar al contexto IA)
 # ──────────────────────────────────────────────────────────────────────────────
 .env
 .env.local
@@ -77,14 +83,18 @@ tsconfig.tsbuildinfo
 .env.test.local
 .env.production
 .env.production.local
-# Whitelistear el ejemplo: el agente necesita entender la estructura
+.env.*.local
+*.pem
+*.key
+*.cert
+*.pfx
+
+# Whitelist: el esquema de variables es necesario para que el agente entienda dependencias
 !.env.example
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 6. ASSETS BINARIOS Y MULTIMEDIA (evitan tokens de visión costosos)
-# Se excluyen a nivel global; mantener public/manifest.json visible
+# 6. ASSETS BINARIOS Y MULTIMEDIA (Evitan consumo de tokens de visión)
 # ──────────────────────────────────────────────────────────────────────────────
-
 # Imágenes
 *.png
 *.jpg
@@ -124,14 +134,10 @@ tsconfig.tsbuildinfo
 *.mov
 *.mp3
 *.wav
-
-# Mapas de source (no aportan al análisis de lógica)
-*.js.map
-*.css.map
-*.ts.map
+*.ogg
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 7. BASES DE DATOS Y LOGS
+# 7. BASES DE DATOS, LOGS Y PLANILLAS DE DATOS PESADAS
 # ──────────────────────────────────────────────────────────────────────────────
 *.log
 *.db
@@ -146,9 +152,17 @@ yarn-error.log*
 
 # Migraciones de Prisma: conservar schema.prisma y seed.ts, ignorar SQL generado
 prisma/migrations/**/*.sql
+.prisma/
+
+# Exclusión de planillas y datasets masivos
+enviosdosruedas_datos_2_anos/
+*.csv
+*.tsv
+*.xlsx
+*.xls
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 8. BINARIOS COMPILADOS Y ARCHIVOS DE PLATAFORMA
+# 8. BINARIOS COMPILADOS Y HERRAMIENTAS EXTERNAS (>14 MB)
 # ──────────────────────────────────────────────────────────────────────────────
 *.apk
 *.aab
@@ -162,83 +176,63 @@ __pycache__/
 *.dylib
 *.dll
 *.exe
+*.bin
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 9. CARPETAS ESPECÍFICAS DE ESTE PROYECTO QUE NO APORTAN AL CONTEXTO IA
+# 9. DIRECTORIOS DE OTROS AGENTES, CACHÉS Y HERRAMIENTAS INTERNAS
 # ──────────────────────────────────────────────────────────────────────────────
-
-# Datos históricos de operaciones (CSV/JSON de operaciones pasadas — muy pesados)
-enviosdosruedas_datos_2_anos/
-
-# Carpetas de herramientas internas de IA/agentes (no son código fuente)
-.agents/
+.hermes/
+.opencode/
+.agent/
 .claude/
-# .gemini/ — NO ignorar: settings.json y commands/ son críticos para el agente
-.od-skills/
+.design-sync/
+.ds-sync/
+.ds-pkg/
+ds-bundle/
+.impeccable/
+.playwright-mcp/
 .specify/
 .stitch/
-.prisma/
-
-# Carpeta de scratch y sitio de pruebas
+.scratch/
 scratch/
 site/
-
-# Skills lock (metadata de herramientas, no código de la app)
 skills-lock.json
 
-# Assets de diseño (no son código ejecutable)
-assets/
+# Exclusiones pesadas dentro de skills
+.agents/**/bin/
+.agents/**/font-index.json
+.agents/**/node_modules/
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 10. DOCS: EXCLUSIONES QUIRÚRGICAS (los .md de contexto DEBEN VERSE)
+# 10. DOCS: EXCLUSIONES QUIRÚRGICAS (Mantener solo contexto operativo)
 # ──────────────────────────────────────────────────────────────────────────────
-
-# Archivos extremadamente pesados que no aportan texto útil al agente
-docs/mapa.svg
-docs/imagen_mapa_mdq.png
-docs/heroactual.png
-docs/Captura de pantalla 2026-07-09 235629.png
-docs/tema.json
-
-# HTML de ejemplo y archivos de prompt borrador (no son reglas de arquitectura)
+docs/imagenes/
+docs/sitio_completo.html
 docs/ejemplo_tema.html
+docs/prompts/*
 docs/prompts_jules.md
 docs/refactor-pages-prompt.md
 docs/stitch-design-md-prompt.md
 docs/stitch-home-prompt.md
 docs/public-Feedback-selection.md
+docs/diseno/*
+docs/contexto/correo_propio/*
 
-# JSON de assets (listas de URLs de imágenes, no lógica de negocio)
-docs/imagenes.json
-docs/background-image-prompts.md
-
-# Análisis competitivos pesados (>40KB cada uno, no son reglas del proyecto)
+# Análisis competitivos y auditorías pesadas (>40KB c/u)
 docs/contexto/analisis_correo_argentino.md
 docs/contexto/analisis_correo_uruguayo.md
 docs/contexto/analisis_envios_dosruedas.md
 docs/contexto/analisis_fedex.md
-
-# Auditoría de marca (archivo de reporte, no contexto operativo)
 docs/REPORTE_BRAND_AUDIT.md
 REPORTE_BRAND_AUDIT.md
+document.md
+document.html
+document.pdf
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 11. WHITELIST EXPLÍCITA: ARCHIVOS CRÍTICOS QUE SÍ DEBEN VERSE
 # ──────────────────────────────────────────────────────────────────────────────
-
-# Knowledge Base centralizada (nueva)
-!docs/knowledge_base/contexto.md
-
-# Contexto operativo esencial
-!docs/contexto/precios.md              # Fuente de verdad de tarifas 2026
-!docs/contexto/arquitectura.md         # Decisiones arquitectónicas
-!docs/contexto/convenciones.md         # Convenciones de código
-!docs/contexto/decisiones.md           # ADR / decisiones técnicas
-!docs/contexto/errores-conocidos.md    # Gotchas y workarounds
-!docs/contexto/flujo-de-trabajo.md     # Flujo de desarrollo
-!docs/contexto/glosario.md             # Glosario de términos
-
-# Configuración de proyecto
+# Configuración del proyecto
 !next.config.ts
 !tailwind.config.ts
 !tsconfig.json
@@ -247,6 +241,7 @@ REPORTE_BRAND_AUDIT.md
 !postcss.config.mjs
 !eslint.config.mjs
 !vitest.config.ts
+!prisma.config.ts
 !prisma/schema.prisma
 !prisma/seed.ts
 
@@ -254,13 +249,36 @@ REPORTE_BRAND_AUDIT.md
 !src/**/*
 !public/**/manifest.json
 
-# Documentación raíz
+# Documentación de reglas y arquitectura raíz
 !README.md
 !AGENTS.md
 !DESIGN.md
 !PROJECT.md
-!.aiexclude
+!CONTEXT.md
+!PRODUCT.md
+!CLAUDE.md
+
+# Archivos de control de contexto IA
+!.antigravityignore
 !.geminiignore
-!.env.examplePantilla_Base_General.md
-REPORTE_BRAND_AUDIT.md
-docs/REPORTE_BRAND_AUDIT.md
+!.aiexclude
+
+# Skills de agentes
+!.agents/skills/**/SKILL.md
+!.agents/skills.json
+!.agents/rules/**
+
+# Knowledge base y contexto operativo esencial
+!docs/knowledge_base/**
+!docs/contexto/precios.md              # Fuente de verdad de tarifas 2026
+!docs/contexto/arquitectura.md         # Decisiones arquitectónicas
+!docs/contexto/convenciones.md         # Convenciones de código
+!docs/contexto/decisiones.md           # ADR / decisiones técnicas
+!docs/contexto/errores-conocidos.md    # Gotchas y workarounds
+!docs/contexto/flujo-de-trabajo.md     # Flujo de desarrollo
+!docs/contexto/glosario.md             # Glosario de términos
+!docs/marketing/glosario.md            # Vocabulario comercial
+!docs/marketing/decisiones.md          # Decisiones de producto
+!docs/adr/**                           # Architecture Decision Records
+!docs/agents/**                        # Agent issue trackers y guías
+!docs/imagenes/hero-derecha/PROMPTS.md # Prompts oficiales para hero

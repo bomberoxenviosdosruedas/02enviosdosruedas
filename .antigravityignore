@@ -1,11 +1,10 @@
 # ==============================================================================
-# .aiexclude — AI Context Exclusion & Token Optimization Standard
+# .antigravityignore — Token Optimization & Context Boundary for Antigravity AI
 # Proyecto: Envíos DosRuedas (2026) | Stack: Next.js 16 · TS · Tailwind v4 · Prisma
-# Compatible con: Cursor, Copilot, Windsurf, Cody, JetBrains AI, Gemini, etc.
 # ==============================================================================
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 1. DEPENDENCIAS Y LOCKFILES (Mayor ahorro de tokens: ~500 KB lockfile)
+# 1. DEPENDENCIAS Y GESTORES DE PAQUETES (Mayor ahorro de tokens: ~500 KB lockfile)
 # ──────────────────────────────────────────────────────────────────────────────
 node_modules/
 pnpm-lock.yaml
@@ -16,7 +15,7 @@ bun.lockb
 .pnpm-store/
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 2. BUILDS Y OUTPUTS DE COMPILACIÓN
+# 2. BUILDS, BUNDLERS Y OUTPUTS DE COMPILACIÓN
 # ──────────────────────────────────────────────────────────────────────────────
 .next/
 dist/
@@ -25,7 +24,7 @@ out/
 .output/
 generated/
 
-# TypeScript incremental build cache
+# TypeScript incremental build cache (~570 KB)
 tsconfig.tsbuildinfo
 *.tsbuildinfo
 
@@ -35,16 +34,22 @@ tsconfig.tsbuildinfo
 *.ts.map
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 3. CONTROL DE VERSIONES
+# 3. CACHÉS DE HERRAMIENTAS Y FRAMEWORKS
 # ──────────────────────────────────────────────────────────────────────────────
-.git/
-.gitattributes
-.gitmodules
-.hg/
-.svn/
+.turbo/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.vite/
+.babel-cache/
+.swc/
+.pytest_cache/
+.ruff_cache/
+coverage/
+.vercel/
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 4. VARIABLES DE ENTORNO Y SECRETOS (Protección estricta contra filtraciones)
+# 4. VARIABLES DE ENTORNO Y SECRETOS (Seguridad estricta y FinOps)
 # ──────────────────────────────────────────────────────────────────────────────
 .env
 .env.local
@@ -64,57 +69,42 @@ tsconfig.tsbuildinfo
 !.env.example
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 5. CACHÉS DE HERRAMIENTAS Y FRAMEWORKS
+# 5. ASSETS BINARIOS, MULTIMEDIA Y FUENTES (Evita consumo innecesario de visión/tokens)
 # ──────────────────────────────────────────────────────────────────────────────
-.turbo/
-.parcel-cache/
-.eslintcache
-.stylelintcache
-.vite/
-.babel-cache/
-.swc/
-.pytest_cache/
-.ruff_cache/
-coverage/
-.vercel/
-
-# ──────────────────────────────────────────────────────────────────────────────
-# 6. ARCHIVOS BINARIOS, MULTIMEDIA Y FUENTES (Evita consumo innecesario de visión)
-# ──────────────────────────────────────────────────────────────────────────────
-# Imágenes
+# Imágenes rasterizadas
 *.png
 *.jpg
 *.jpeg
-*.webp
 *.gif
-*.ico
-*.svg
+*.webp
 *.avif
+*.ico
 *.bmp
 *.tiff
 
-# Vectores y diseño
+# Vectores y diseño pesado (e.g. logo-master.svg 4.2 MB)
+*.svg
 *.psd
 *.fig
 *.sketch
 *.ai
 *.xd
 
-# Fuentes
+# Tipografías binarias
 *.woff
 *.woff2
 *.ttf
 *.otf
 *.eot
 
-# Documentos no analizables y comprimidos
+# Archivos comprimidos y documentos no analizables
 *.pdf
 *.zip
 *.tar.gz
 *.rar
 *.7z
 
-# Video y audio
+# Multimedia
 *.mp4
 *.webm
 *.mov
@@ -123,7 +113,7 @@ coverage/
 *.ogg
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 7. BINARIOS COMPILADOS Y EJECUTABLES (>14 MB)
+# 6. BINARIOS COMPILADOS Y EJECUTABLES (Archivos >14 MB de herramientas)
 # ──────────────────────────────────────────────────────────────────────────────
 *.exe
 *.dll
@@ -137,24 +127,24 @@ coverage/
 __pycache__/
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 8. BASES DE DATOS LOCALES, LOGS Y PLANILLAS DE DATOS MASIVAS
+# 7. BASES DE DATOS, DATASETS OPERACIONALES Y PLANILLAS PESADAS
 # ──────────────────────────────────────────────────────────────────────────────
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
 *.db
 *.sqlite
 *.sqlite3
 *.sql
 *.sql.gz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
-# Prisma migrations SQL
+# SQL generado de migraciones (schema.prisma y seed.ts son la fuente de verdad)
 prisma/migrations/**/*.sql
 .prisma/
 
-# Datasets históricos y planillas
+# Datos masivos y hojas de cálculo (evitan cientos de miles de tokens de datos tabulares)
 enviosdosruedas_datos_2_anos/
 *.csv
 *.tsv
@@ -162,7 +152,7 @@ enviosdosruedas_datos_2_anos/
 *.xls
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 9. DIRECTORIOS DE OTROS AGENTES, CACHÉS Y HERRAMIENTAS INTERNAS
+# 8. WORKSPACES DE OTROS AGENTES, CACHÉS Y HERRAMIENTAS INTERNAS
 # ──────────────────────────────────────────────────────────────────────────────
 .hermes/
 .opencode/
@@ -181,25 +171,32 @@ scratch/
 site/
 skills-lock.json
 
-# Exclusiones pesadas dentro de skills
+# Exclusiones internas pesadas de skills
 .agents/**/bin/
 .agents/**/font-index.json
 .agents/**/node_modules/
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 10. CONFIGURACIONES DE EDITORES E IDEs
+# 9. SISTEMA OPERATIVO E IDEs
 # ──────────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.suo
+*.swp
+*.sln
+.idea/
+*.iml
+.history/
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/tasks.json
-.idea/
-*.iml
-.history/
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 11. DOCUMENTACIÓN PESADA, SCRAPES HTML Y PROMPTS BORRADOR
+# 10. DOCUMENTACIÓN PESADA, SCRAPES HTML Y PROMPTS BORRADOR
 # ──────────────────────────────────────────────────────────────────────────────
 docs/imagenes/
 docs/sitio_completo.html
@@ -213,7 +210,7 @@ docs/public-Feedback-selection.md
 docs/diseno/*
 docs/contexto/correo_propio/*
 
-# Informes pesados no operativos (>40 KB)
+# Informes y benchmarks competitivos pesados (>40 KB c/u no operativos)
 docs/contexto/analisis_correo_argentino.md
 docs/contexto/analisis_correo_uruguayo.md
 docs/contexto/analisis_envios_dosruedas.md
@@ -225,20 +222,9 @@ document.html
 document.pdf
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 12. ARCHIVOS DEL SISTEMA OPERATIVO
+# 11. WHITELIST EXPLÍCITA: REGLAS, CÓDIGO Y CONTEXTO VITAL PARA EL AGENTE
 # ──────────────────────────────────────────────────────────────────────────────
-.DS_Store
-Thumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-*.suo
-*.swp
-*.sln
-
-# ──────────────────────────────────────────────────────────────────────────────
-# 13. WHITELIST EXPLÍCITA (Archivos y reglas requeridos para desarrollo asistido)
-# ──────────────────────────────────────────────────────────────────────────────
-# Configuración
+# Archivos de configuración raíz
 !next.config.ts
 !tailwind.config.ts
 !tsconfig.json
@@ -251,11 +237,11 @@ $RECYCLE.BIN/
 !prisma/schema.prisma
 !prisma/seed.ts
 
-# Código fuente
+# Código fuente completo
 !src/**/*
 !public/**/manifest.json
 
-# Reglas y especificaciones
+# Reglas de orquestación, arquitectura y contexto de proyecto
 !README.md
 !AGENTS.md
 !DESIGN.md
@@ -264,18 +250,17 @@ $RECYCLE.BIN/
 !PRODUCT.md
 !CLAUDE.md
 
-# Archivos de control IA
+# Archivos de control de contexto IA
 !.antigravityignore
 !.geminiignore
 !.aiexclude
 
-# Skills de agentes
+# Skills y reglas de Antigravity
 !.agents/skills/**/SKILL.md
 !.agents/skills.json
 !.agents/rules/**
 
 # Documentación operativa esencial
-!docs/knowledge_base/**
 !docs/contexto/precios.md
 !docs/contexto/arquitectura.md
 !docs/contexto/convenciones.md
@@ -287,4 +272,5 @@ $RECYCLE.BIN/
 !docs/marketing/decisiones.md
 !docs/adr/**
 !docs/agents/**
+!docs/knowledge_base/**
 !docs/imagenes/hero-derecha/PROMPTS.md
