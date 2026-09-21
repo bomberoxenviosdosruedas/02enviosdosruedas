@@ -4,15 +4,9 @@ Protocolo obligatorio del proyecto — leer y respetar en toda tarea:
 
 @AGENTS.md
 
-## Comandos
+## Comandos y verificación
 
-- `pnpm dev` — servidor de desarrollo (Turbopack)
-- `pnpm build` — build de producción (verificación obligatoria antes de dar por terminada una tarea)
-- `pnpm lint` — ESLint
-- `pnpm typecheck` — `tsc --noEmit`
-- `pnpm test` — Vitest
-
-Gestor de paquetes: **pnpm únicamente** (nunca npm ni yarn).
+Definidos en `AGENTS.md` (secciones "Comandos" y "Protocolo de trabajo"): mientras iterás, typecheck + lint y tests de lo tocado (pasos 3–4, sin build); `pnpm build` una sola vez al cerrar la tarea (paso 5). Nunca `pnpm test` a secas (modo watch). Gestor de paquetes: **pnpm únicamente**.
 
 ## Agent skills
 

@@ -94,5 +94,5 @@ const LeafletRouteMap = dynamic(
 ---
 
 ## 🧪 5. Validación y DoD
-- Ejecutar `pnpm run lint` para validar tipos y reglas ESLint.
-- Ejecutar `pnpm build` para verificar el empaquetado Turbopack/Webpack en Next.js 16.
+- Mientras iterás (pasos 3–4 del protocolo de `AGENTS.md`): `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest run <archivo de test>`. Sin build.
+- Al cerrar la tarea (paso 5), una sola vez: `pnpm build` (10–12 min) + `pnpm run lint` + tests relevantes.

@@ -102,4 +102,4 @@ El sistema cromático oficial se compone **únicamente** de Azul, Amarillo y Bla
 - [ ] Títulos y números en `font-display` en mayúsculas (`uppercase`).
 - [ ] Tarjetas principales con patrón Double Bezel.
 - [ ] Touch targets ≥ 44×44px en elementos clickeables.
-- [ ] Build limpio: `pnpm build` sin errores.
+- [ ] Protocolo de `AGENTS.md` cumplido: loop rápido en verde y `pnpm build` final (una vez) sin errores.

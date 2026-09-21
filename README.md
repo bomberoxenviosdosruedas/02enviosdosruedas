@@ -201,14 +201,14 @@ pnpm dev --webpack
 # Build producción (Windows)
 powershell -ExecutionPolicy Bypass -Command "pnpm build"
 
-# Lint (ejecutar ANTES de commit)
+# Typecheck (~20 s)
+pnpm typecheck
+
+# Lint de todo el repo (lento; para archivos puntuales: pnpm exec eslint <archivos>)
 pnpm run lint
 
-# Tests unitarios
-pnpm test
-
-# Tests E2E (Playwright)
-pnpm test:e2e
+# Tests unitarios, una corrida (pnpm test queda en modo watch)
+pnpm exec vitest run
 
 # Prisma Studio (GUI BD)
 pnpm prisma studio
@@ -239,7 +239,7 @@ pnpm tsc --noEmit
 3. **SIEMPRE voseo rioplatense** → "Cotizá", "Enviá", "Rastreá", "Contactanos", "Tu envío"
 4. **SIEMPRE referencias MDQ reales** → Güemes, Friuli 1972, Playa Grande, Punta Mogotes, Chauvín, Puerto, Batán, Camet
 5. **SIEMPRE 2026** en tarifas, fechas, vigencia
-6. **ANTES de done** → `pnpm build` + `pnpm lint` + tests relevantes = VERDE
+6. **ANTES de done** → protocolo de `AGENTS.md`: loop rápido (typecheck + lint y tests de lo tocado) y `pnpm build` una sola vez al cerrar
 
 ---
 
@@ -527,7 +527,7 @@ test(pricing): add unit tests for calculateLowCost edge cases
 
 - [ ] Título: `[tipo(scope)] descripción clara en español`
 - [ ] Descripción: Qué + Por qué + Cómo testear + Screenshots (si UI)
-- [ ] `pnpm build` ✅ | `pnpm lint` ✅ | `pnpm test` ✅ | `pnpm test:e2e` ✅
+- [ ] `pnpm build` ✅ | `pnpm typecheck` ✅ | lint y `vitest run` sin fallos nuevos ✅
 - [ ] Preview deploy URL en descripción
 - [ ] 1 approval mínimo (code owner del área)
 - [ ] Squash merge, delete branch
