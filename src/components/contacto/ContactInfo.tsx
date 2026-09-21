@@ -3,8 +3,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import {
-  Facebook,
-  Instagram,
   MessageCircle,
   MapPin,
   Clock,
@@ -13,6 +11,7 @@ import {
   ArrowUpRight,
   Sparkles,
 } from 'lucide-react';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 
 export default function ContactInfo() {
   const socialCards = [
@@ -24,7 +23,7 @@ export default function ContactInfo() {
       description: 'Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.',
       buttonText: 'SEGUIR COMUNIDAD',
       href: 'https://facebook.com/enviosdosruedas',
-      icon: Facebook,
+      icon: FaFacebookF,
     },
     {
       id: 'instagram',
@@ -34,7 +33,7 @@ export default function ContactInfo() {
       description: 'Mirá el detrás de escena de nuestros riders y la flota recorriendo las calles de MDQ.',
       buttonText: 'VER CONTENIDO',
       href: 'https://instagram.com/enviosdosruedas',
-      icon: Instagram,
+      icon: FaInstagram,
     },
     {
       id: 'whatsapp',
