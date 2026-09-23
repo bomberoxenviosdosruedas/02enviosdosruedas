@@ -193,7 +193,7 @@ export default function NetworksHero() {
             {/* Kinetic Typography Banner */}
             <div className="text-center mt-6 z-10 space-y-1">
               <div className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] uppercase tracking-tight text-white leading-none drop-shadow-md">
-                COMUNIDAD <span className="text-brand-yellow-500 drop-shadow-[0_0_18px_rgba(255,236,1,0.5)]">DOS RUEDAS</span>
+                COMUNIDAD <span className="text-brand-yellow-500 drop-shadow-[0_0_18px_rgba(255,236,1,0.5)]">DOSRUEDAS</span>
               </div>
               <div className="font-subheading text-base sm:text-lg tracking-widest text-brand-yellow-400 uppercase font-bold flex items-center justify-center gap-2">
                 <span>HISTORIAS EN VIVO</span>
