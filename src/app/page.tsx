@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import HeroAnimado from '@/src/components/home/HeroAnimado';
 import SegmentosHome from '@/src/components/home/SegmentosHome';
 import ServicesOverview from '@/src/components/home/ServicesOverview';
 import VisionSection from '@/src/components/home/VisionSection';
@@ -21,6 +20,11 @@ const SocialProofSection = dynamic(() => import('@/src/components/home/SocialPro
 
 const CtaSection = dynamic(() => import('@/src/components/home/CtaSection'), {
   loading: () => <div className="w-full py-24 min-h-[300px]" />,
+});
+
+// Hero principal is a client component (uses motion), load dynamically
+const HeroPrincipal = dynamic(() => import('@/src/components/home/HeroPrincipal'), {
+  loading: () => <div className="w-full min-h-[90dvh] bg-brand-blue-700" />,
 });
 
 const baseUrl = 'https://www.enviosdosruedas.com';
@@ -64,9 +68,9 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
       />
-      {/* 1. Hero Presentation — Critical Above-the-fold (Immediate FCP & LCP) */}
+      {/* 1. Hero Principal — Nuevo diseño inspirado en el ejemplo */}
       <section className="relative z-10">
-        <HeroAnimado />
+        <HeroPrincipal />
       </section>
 
       {/* 2. Intent-Based Segments Grid (BL-26) */}
@@ -94,17 +98,17 @@ export default function Home() {
         <SliderServicios />
       </section>
 
-      {/* 5. Entrepreneurs & B2B Solutions Panel — Lazy Loaded */}
+      {/* 6. Entrepreneurs & B2B Solutions Panel — Lazy Loaded */}
       <section className="relative z-10">
         <EmprendedoresHome />
       </section>
 
-      {/* 6. Social Proof & Verified Testimonials — Lazy Loaded */}
+      {/* 7. Social Proof & Verified Testimonials — Lazy Loaded */}
       <section className="relative z-10">
         <SocialProofSection />
       </section>
 
-      {/* 7. Call to Action High Conversion Segment — Lazy Loaded */}
+      {/* 8. Call to Action High Conversion Segment — Lazy Loaded */}
       <section className="relative z-10">
         <CtaSection />
       </section>
