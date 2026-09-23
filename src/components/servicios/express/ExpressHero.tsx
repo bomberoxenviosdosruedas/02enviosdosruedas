@@ -21,11 +21,11 @@ export default function ExpressHero() {
       {/* Procedural Vignette & Radial Light */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #021440 0%, #04236B 35%, #0636A5 75%, #00277C 100%)' }}></div>
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(9,80,246,0.35) 0%, rgba(6,54,165,0.15) 50%, transparent 70%)', filter: 'blur(80px)' }}></div>
-        <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,236,1,0.22) 0%, rgba(255,236,1,0.06) 45%, transparent 70%)', filter: 'blur(90px)' }}></div>
-        <div className="absolute -bottom-40 left-1/3 w-[550px] h-[550px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(6,54,165,0.4) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
-        <svg className="absolute inset-0 w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="hero-procedural-grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M 48 0 L 0 0 0 48" fill="none" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="2,6"></path><circle cx="0" cy="0" r="1.5" fill="#FFEC01"></circle></pattern></defs><rect width="100%" height="100%" fill="url(#hero-procedural-grid)"></rect></svg>
-        <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" preserveAspectRatio="none"><circle cx="1100" cy="300" r="160" fill="none" stroke="#FFEC01" stroke-width="1" stroke-dasharray="4 8"></circle><circle cx="1100" cy="300" r="280" fill="none" stroke="#628FF9" stroke-width="1" stroke-dasharray="6 12"></circle><circle cx="1100" cy="300" r="400" fill="none" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="4 16"></circle><line x1="200" y1="300" x2="1100" y2="300" stroke="#FFEC01" stroke-width="1.5" stroke-dasharray="8 8"></line></svg>
+        <div className="absolute -top-32 -left-32 w-125 h-125 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(9,80,246,0.35) 0%, rgba(6,54,165,0.15) 50%, transparent 70%)', filter: 'blur(80px)' }}></div>
+        <div className="absolute top-1/4 -right-32 w-150 h-150 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,236,1,0.22) 0%, rgba(255,236,1,0.06) 45%, transparent 70%)', filter: 'blur(90px)' }}></div>
+        <div className="absolute -bottom-40 left-1/3 w-137.5 h-137.5 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(6,54,165,0.4) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
+        <svg className="absolute inset-0 w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="hero-procedural-grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M 48 0 L 0 0 0 48" fill="none" stroke="#FFFFFF" strokeWidth="0.75" strokeDasharray="2,6"></path><circle cx="0" cy="0" r="1.5" fill="#FFEC01"></circle></pattern></defs><rect width="100%" height="100%" fill="url(#hero-procedural-grid)"></rect></svg>
+        <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" preserveAspectRatio="none"><circle cx="1100" cy="300" r="160" fill="none" stroke="#FFEC01" strokeWidth="1" strokeDasharray="4 8"></circle><circle cx="1100" cy="300" r="280" fill="none" stroke="#628FF9" strokeWidth="1" strokeDasharray="6 12"></circle><circle cx="1100" cy="300" r="400" fill="none" stroke="#FFFFFF" strokeWidth="0.75" strokeDasharray="4 16"></circle><line x1="200" y1="300" x2="1100" y2="300" stroke="#FFEC01" strokeWidth="1.5" strokeDasharray="8 8"></line></svg>
       </div>
 
       {/* Ghost Wordmark Monumental de Fondo */}
@@ -95,7 +95,7 @@ export default function ExpressHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
                   3 Horas
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
                   Rango de Entrega
                 </span>
               </div>
@@ -103,7 +103,7 @@ export default function ExpressHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
                   15:00 hs
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
                   Corte Solicitud
                 </span>
               </div>
@@ -111,7 +111,7 @@ export default function ExpressHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-brand-yellow-500 tabular-nums">
                   Hasta 5 kg
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-blue-100 mt-0.5">
                   40x30 cm Límite
                 </span>
               </div>
@@ -125,7 +125,7 @@ export default function ExpressHero() {
 
             {/* Top Status Flag: Prioridad & Telemetría */}
             <div className="flex items-center gap-2 mb-3 z-20">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-full flex items-center gap-2 border border-brand-yellow-500/30 shadow-sm px-4 py-1.5">
+              <div className="bg-white/10 backdrop-blur-md border border-brand-yellow-500/30 p-2 rounded-full flex items-center gap-2 shadow-sm px-4 py-1.5">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow-500"></span>
@@ -149,11 +149,11 @@ export default function ExpressHero() {
                   className="w-full h-full object-cover rounded-2xl drop-shadow-[0_20px_35px_rgba(0,16,53,0.7)] filter group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="absolute -top-3 right-0 bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-xl border border-brand-yellow-500/40 shadow-lg flex items-center gap-1.5 z-20 px-3 py-1.5">
+              <div className="absolute -top-3 right-0 bg-white/10 backdrop-blur-md border border-brand-yellow-500/40 p-2 rounded-xl shadow-lg flex items-center gap-1.5 z-20 px-3 py-1.5">
                 <svg className="w-3.5 h-3.5 text-brand-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 <span className="font-subheading text-xs tracking-wider text-white uppercase font-bold">RANGO 3 HS</span>
               </div>
-              <div className="absolute -bottom-2 -left-3 bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-xl border border-white/20 shadow-lg flex items-center gap-1.5 z-20 px-3 py-1.5">
+              <div className="absolute -bottom-2 -left-3 bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-xl shadow-lg flex items-center gap-1.5 z-20 px-3 py-1.5">
                 <svg className="w-3.5 h-3.5 text-brand-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 <span className="font-subheading text-xs tracking-wider text-blue-100 uppercase font-bold">TODO MAR DEL PLATA</span>
               </div>
@@ -162,7 +162,7 @@ export default function ExpressHero() {
             {/* Kinetic Typography Banner */}
             <div className="text-center mt-6 z-10 space-y-1">
               <div className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] uppercase tracking-tight text-white leading-none drop-shadow-md">
-                DOS RUEDAS <span className="text-brand-yellow-500 drop-shadow-[0_0_18px_rgba(255,236,1,0.5)]">EXPRESS</span>
+                SERVICIO <span className="text-brand-yellow-500 drop-shadow-[0_0_18px_rgba(255,236,1,0.5)]">EXPRESS</span>
               </div>
               <div className="font-subheading text-base sm:text-lg tracking-widest text-brand-yellow-400 uppercase font-bold flex items-center justify-center gap-2">
                 <span>ENTREGA PRIORITARIA</span>
@@ -170,8 +170,6 @@ export default function ExpressHero() {
                 <span>EN 60-90 MIN</span>
               </div>
             </div>
-
-       
           </div>
         </div>
       </div>

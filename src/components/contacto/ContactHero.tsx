@@ -44,11 +44,11 @@ export default function ContactHero() {
     <section className="relative w-full pt-20 pb-16 lg:pt-24 lg:pb-24 bg-[#0950F6] text-white overflow-hidden">
       {/* Glow orbs - high voltage neon & deep midnight navy */}
       <div
-        className="absolute top-[-128px] left-[-128px] w-[384px] h-[384px] rounded-full pointer-events-none bg-[#FFF12E]/25 blur-[100px]"
+        className="absolute -top-32 -left-32 w-[384px] h-96 rounded-full pointer-events-none bg-[#FFF12E]/25 blur-[100px]"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-[-160px] right-[-128px] w-[500px] h-[500px] rounded-full pointer-events-none bg-[#052C87]/60 blur-[130px]"
+        className="absolute -bottom-40 -right-32 w-125 h-125 rounded-full pointer-events-none bg-[#052C87]/60 blur-[130px]"
         aria-hidden="true"
       />
 
@@ -204,7 +204,7 @@ export default function ContactHero() {
               </div>
 
               {/* Vector Dispatch HUD Card */}
-              <div className="relative w-full h-[220px] rounded-2xl overflow-hidden shadow-xl border border-white/20 bg-gradient-to-br from-[#052C87] via-[#04236B] to-[#021440] p-6 flex flex-col justify-between">
+              <div className="relative w-full h-55 rounded-2xl overflow-hidden shadow-xl border border-white/20 bg-linear-to-br from-[#052C87] via-[#04236B] to-[#021440] p-6 flex flex-col justify-between">
                 <HeroProceduralBackground variant="contact" />
                 <div className="relative z-10 flex justify-between items-start">
                   <div>
@@ -237,7 +237,7 @@ export default function ContactHero() {
             <div className="rounded-[28px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl">
               <div className="bg-[#052C87] p-6 sm:p-8 rounded-[20px] border border-white/10 relative overflow-hidden text-white">
                 {/* Accent line top */}
-                <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#0950F6] via-white to-[#FFF12E]" />
+                <div className="absolute top-0 inset-x-0 h-1.5 bg-linear-to-r from-[#0950F6] via-white to-[#FFF12E]" />
 
                 {submitted ? (
                   <motion.div
@@ -261,7 +261,7 @@ export default function ContactHero() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Coordinar plan a medida ahora por WhatsApp"
-                      className="inline-flex items-center justify-between min-h-[52px] px-6 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase text-sm tracking-wider font-bold shadow-cta-glow transition-all cursor-pointer mt-2 group"
+                      className="inline-flex items-center justify-between min-h-13 px-6 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase text-sm tracking-wider font-bold shadow-cta-glow transition-all cursor-pointer mt-2 group"
                     >
                       <span>Coordinar ahora por WhatsApp</span>
                       <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" />
@@ -342,7 +342,7 @@ export default function ContactHero() {
 
                     <button
                       type="submit"
-                      className="group w-full mt-2 min-h-[52px] rounded-full bg-[#FFF12E] hover:bg-[#FFF44A] text-[#0950F6] font-subheading uppercase text-base tracking-wider font-bold py-3 px-6 shadow-glow-yellow transition-all duration-300 cursor-pointer flex items-center justify-between"
+                      className="group w-full mt-2 min-h-13 rounded-full bg-[#FFF12E] hover:bg-[#FFF44A] text-[#0950F6] font-subheading uppercase text-base tracking-wider font-bold py-3 px-6 shadow-glow-yellow transition-all duration-300 cursor-pointer flex items-center justify-between"
                     >
                       <span>Solicitar Plan y Tarifas</span>
                       <span className="w-8 h-8 rounded-full bg-[#0950F6]/10 text-[#0950F6] flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
