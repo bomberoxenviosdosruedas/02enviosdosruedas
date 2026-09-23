@@ -144,7 +144,7 @@ export default function ExpressHero() {
               <div className="absolute inset-0 rounded-full bg-brand-blue-500/20 blur-2xl pointer-events-none"></div>
               <div className="relative z-10 w-72 h-72 sm:w-84 sm:h-84 flex items-center justify-center group">
                 <img
-                  src="/elementos/icono_express_transparent.webp"
+                  src="/elementos/icono_express.webp"
                   alt="Envíos Express - Envíos DosRuedas"
                   className="w-full h-full object-cover rounded-2xl drop-shadow-[0_20px_35px_rgba(0,16,53,0.7)] filter group-hover:scale-105 transition-transform duration-500"
                 />
