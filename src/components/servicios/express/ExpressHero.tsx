@@ -52,7 +52,7 @@ export default function ExpressHero() {
 
             {/* Monumental Headline */}
             <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.98] text-white">
-              <span className="block">MENSAJERÍA EN MOTO Y</span>
+              <span className="block">MENSAJERÍA EN MOTO</span>
               <span className="block text-brand-yellow-500 drop-shadow-[0_2px_16px_rgba(255,236,1,0.35)]">
                 ENVÍOS EXPRESS
               </span>
@@ -171,49 +171,7 @@ export default function ExpressHero() {
               </div>
             </div>
 
-            {/* Bottom Micro-Card: Horario y Corte */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-6 w-full max-w-xs bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[20px] shadow-float z-10"
-            >
-              <div className="bg-brand-blue-900 text-white p-4 rounded-[16px] border border-white/10 shadow-sm space-y-3">
-                <div className="flex items-center justify-between border-b border-white/15 pb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="relative flex h-2.5 w-2.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow-500"></span>
-                    </span>
-                    <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-yellow-500">
-                      HORARIO OPERATIVO
-                    </span>
-                  </div>
-                  <span className="font-mono text-[11px] font-bold bg-brand-yellow-500 text-brand-blue-900 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                    2026
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 gap-3 text-center">
-                  <div className="bg-white/5 border border-white/10 p-3 rounded-xl">
-                    <div className="font-subheading text-[10px] uppercase tracking-wider text-brand-blue-400 mb-1">CORTE</div>
-                    <div className="font-display text-xl text-brand-yellow-500">15:00 HS</div>
-                    <div className="font-sans text-[10px] text-white/60">SOLICITUD</div>
-                  </div>
-                  <div className="bg-white/5 border border-white/10 p-3 rounded-xl">
-                    <div className="font-subheading text-[10px] uppercase tracking-wider text-brand-blue-400 mb-1">ENTREGA</div>
-                    <div className="font-display text-xl text-brand-yellow-500">60-90 MIN</div>
-                    <div className="font-sans text-[10px] text-white/60">FRANJA 3 HS</div>
-                  </div>
-                </div>
-                <div className="pt-2 border-t border-white/15 flex items-center justify-center gap-2 text-[10px] font-subheading uppercase tracking-wider text-brand-blue-400 font-bold">
-                  <span className="flex items-center gap-1">
-                    <MapPin className="w-3 h-3 text-brand-yellow-500" />
-                    TODO MAR DEL PLATA
-                  </span>
-                  <span className="text-brand-blue-500 font-mono text-xs">+20 KM</span>
-                </div>
-              </div>
-            </motion.div>
+       
           </div>
         </div>
       </div>
