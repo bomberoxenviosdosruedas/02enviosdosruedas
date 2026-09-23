@@ -84,9 +84,10 @@ Fuente de verdad: tabla `PriceRange` en BD → `docs/contexto/precios.md` → `s
 
 ## Diseño — no negociable
 
-Spec completa: **`DESIGN.md`** (tokens, componentes, layout, motion, a11y; §11 lista la deuda conocida). Si `DESIGN.md` contradice a `globals.css`, gana el CSS. Leer la sección que corresponda antes de crear o editar UI.
+Spec completa: **`DESIGN.md`** (tokens, componentes, layout, motion, a11y; §2.0 mapea spec↔producción, §2.4 es el anexo `@theme`, §11 lista la deuda conocida y §13 es el cheat sheet de las primitivas de `src/components/ui/`). Si `DESIGN.md` contradice a `globals.css`, gana el CSS. Leer la sección que corresponda antes de crear o editar UI.
 
 - **Tres colores:** azul egipcio `brand-blue-700` (#0636A5, lienzo), amarillo vial `brand-yellow-500` (#FFEC01, único acento/CTA), blanco. Texto de cuerpo `brand-ink`. Siempre tokens `brand-*`: nada de `slate/gray/zinc/neutral`, hex inline, ni aliases legacy de `tailwind.config.ts` (`slate-canvas`, `brand-dark`, `brand-yellow-hover`, `brand-navy-deep`).
+- **Spec Max vs. producción:** `DESIGN.md` describe el ajuste Max (`#0950F6`); el código vivo usa la paleta de `globals.css` (`brand-blue-700` = `#0636A5`, `brand-ink` = `#00277C`). Antes de escribir una clase de color, resolver el valor por la tabla §2.0 de `DESIGN.md`; no mezclar ni inventar hex.
 - `brand-blue-500` (#0950F6) es solo foco/hover, nunca fondo. Sombras teñidas de azul o amarillo, nunca negras.
 - **Nunca verde**, tampoco en steppers ni en el CTA de WhatsApp (fondo amarillo; el verde solo dentro del glifo). Único color externo: rojo `#EF4444` para errores de formulario.
 - **Tipografía:** `font-display` (Anton) y `font-subheading` (Bebas Neue) en uppercase; `font-sans` (Outfit) para cuerpo; `font-mono` (Geist Mono) con `tabular-nums` para precios y datos.
@@ -119,7 +120,7 @@ Spec completa: **`DESIGN.md`** (tokens, componentes, layout, motion, a11y; §11 
 
 | Tema | Archivo |
 |---|---|
-| Sistema de diseño | `DESIGN.md` |
+| Sistema de diseño | `DESIGN.md` (mapeo spec↔producción §2.0 · fichas de primitivas §13) |
 | Tarifas | `docs/contexto/precios.md` |
 | Arquitectura, roadmap, DoD por milestone | `PROJECT.md` |
 | Vocabulario de dominio | `CONTEXT.md`, `docs/marketing/glosario.md` |
