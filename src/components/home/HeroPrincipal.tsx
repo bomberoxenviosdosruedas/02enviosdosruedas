@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -158,11 +159,14 @@ export default function HeroPrincipal() {
 
                   {/* Hero Card Media */}
                   <div className="relative w-full aspect-square max-w-[340px] flex items-center justify-center my-1">
-                    <img
+                    <Image
+                      src="/card_mapa.webp"
                       alt="Envíos DosRuedas - Logística y Mensajería"
+                      width={340}
+                      height={340}
                       className="object-contain w-full h-full"
                       style={{ filter: 'drop-shadow(0 16px 32px rgba(9,80,246,0.15))' }}
-                      src="https://cdn.fbsbx.com/v/t65.102178-21/817741692_2081998142688634_1994825668778072962_n.jpg/seguinos_transparent.png?_nc_ht=cdn.fbsbx.com&oh=00_AQKiFLAaht7g_PMQfizOOhfBjhi0QKwU1Ezn-uynN466Kw&oe=6AB51CA4"
+                      priority
                     />
                   </div>
 
