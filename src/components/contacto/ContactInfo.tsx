@@ -79,16 +79,16 @@ export default function ContactInfo() {
                 <div className="bg-[#052C87] p-5 rounded-[20px] border border-white/10 shadow-md h-full flex flex-col justify-between text-white relative overflow-hidden">
                   {/* Visual Watermark in card corner */}
                   <IconComp
-                    className="absolute -bottom-6 -right-6 w-32 h-32 text-white/[0.04] pointer-events-none"
+                    className="absolute -bottom-6 -right-6 w-32 h-32 text-white/4 pointer-events-none"
                     aria-hidden="true"
                   />
 
                   <div className="relative z-10">
                     <div className="flex items-center justify-between gap-2 mb-4">
-                      <span className="text-[10px] font-subheading uppercase tracking-wider text-[#FFF12E] font-bold px-2.5 py-0.5 rounded bg-white/10 border border-white/20">
+                      <span className="text-2xs font-subheading uppercase tracking-wider text-[#FFF12E] font-bold px-2.5 py-0.5 rounded bg-white/10 border border-white/20">
                         {card.tag}
                       </span>
-                      <span className="text-[10px] font-mono font-bold uppercase text-white/60 tabular-nums">
+                      <span className="text-2xs font-mono font-bold uppercase text-white/60 tabular-nums">
                         {card.subtag}
                       </span>
                     </div>
@@ -132,7 +132,7 @@ export default function ContactInfo() {
         <div className="bg-[#052C87] p-6 sm:p-8 rounded-[20px] border border-white/10 shadow-lg relative overflow-hidden text-white">
           {/* Watermark icon */}
           <MapPin
-            className="absolute -bottom-10 -right-10 w-64 h-64 text-white/[0.04] pointer-events-none"
+            className="absolute -bottom-10 -right-10 w-64 h-64 text-white/4 pointer-events-none"
             aria-hidden="true"
           />
 
@@ -218,13 +218,13 @@ export default function ContactInfo() {
                 <div className="space-y-4 font-sans text-sm">
                   <div className="flex items-center justify-between py-2 border-b border-white/10">
                     <span className="text-white/90 font-mono tabular-nums">Lunes a Viernes: 09:00 - 18:00 hs</span>
-                    <span className="px-2.5 py-0.5 text-[10px] font-mono uppercase font-bold text-[#0950F6] bg-[#FFF12E] rounded-full shadow-xs tabular-nums">
+                    <span className="px-2.5 py-0.5 text-2xs font-mono uppercase font-bold text-[#0950F6] bg-[#FFF12E] rounded-full shadow-xs tabular-nums">
                       Activo
                     </span>
                   </div>
                   <div className="flex items-center justify-between py-2 border-b border-white/10">
                     <span className="text-white/90 font-mono tabular-nums">Sábados: 10:00 - 15:00 hs</span>
-                    <span className="px-2.5 py-0.5 text-[10px] font-mono uppercase font-bold text-[#0950F6] bg-[#FFF12E] rounded-full shadow-xs tabular-nums">
+                    <span className="px-2.5 py-0.5 text-2xs font-mono uppercase font-bold text-[#0950F6] bg-[#FFF12E] rounded-full shadow-xs tabular-nums">
                       Activo
                     </span>
                   </div>

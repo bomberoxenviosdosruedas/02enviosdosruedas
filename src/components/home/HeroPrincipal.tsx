@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -16,9 +16,9 @@ export default function HeroPrincipal() {
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
         <div className="absolute inset-0 bg-brand-blue-700" />
-        <div className="absolute top-1/2 left-[18%] -translate-y-1/2 w-[700px] h-[700px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 40%, transparent 70%)', filter: 'blur(80px)' }} />
-        <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,236,1,0.18) 0%, rgba(255,236,1,0.06) 45%, transparent 70%)', filter: 'blur(90px)' }} />
-        <div className="absolute -bottom-40 left-1/3 w-[550px] h-[550px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,236,1,0.12) 0%, transparent 65%)', filter: 'blur(100px)' }} />
+        <div className="absolute top-1/2 left-[18%] -translate-y-1/2 w-175 h-175 rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 40%, transparent 70%)', filter: 'blur(80px)' }} />
+        <div className="absolute top-1/4 -right-32 w-150 h-150 rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,236,1,0.18) 0%, rgba(255,236,1,0.06) 45%, transparent 70%)', filter: 'blur(90px)' }} />
+        <div className="absolute -bottom-40 left-1/3 w-137.5 h-137.5 rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,236,1,0.12) 0%, transparent 65%)', filter: 'blur(100px)' }} />
         <svg className="absolute inset-0 w-full h-full opacity-[0.12]" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="hero-procedural-grid-correct" width="48" height="48" patternUnits="userSpaceOnUse">
@@ -34,12 +34,12 @@ export default function HeroPrincipal() {
           <circle cx="450" cy="240" r="4" fill="#FFEC01" />
           <circle cx="950" cy="360" r="5" fill="#FFEC01" />
         </svg>
-        <div className="absolute bottom-0 left-0 right-0 h-[6px] bg-brand-yellow-500" />
+        <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-brand-yellow-500" />
       </div>
 
       {/* Ghost wordmark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-        <span className="font-display uppercase text-[15vw] leading-none text-white/[0.035] tracking-tighter whitespace-nowrap">ENVÍOS DOS RUEDAS</span>
+        <span className="font-display uppercase text-[15vw] leading-none text-white/[0.035] tracking-tighter whitespace-nowrap">ENVÃOS DOS RUEDAS</span>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28">
@@ -55,13 +55,13 @@ export default function HeroPrincipal() {
                   <path d="M22 4h-4" />
                   <circle cx="4" cy="20" r="2" />
                 </svg>
-                Tu Solución Confiable en Mar del Plata
+                Tu SoluciÃ³n Confiable en Mar del Plata
               </span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.05em] leading-[0.9] flex flex-col items-center lg:items-start gap-2 select-none text-balance">
-              <span>Mensajería y Logística</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-tighter leading-[0.9] flex flex-col items-center lg:items-start gap-2 select-none text-balance">
+              <span>MensajerÃ­a y LogÃ­stica</span>
               <span className="relative inline-block bg-brand-yellow-500 text-brand-blue-700 px-3.5 py-1 my-1 -rotate-1 rounded-xl shadow-[0_0_28px_rgba(255,236,1,0.45)]">
                 <span className="font-display font-black">E-Commerce</span>
               </span>
@@ -69,14 +69,14 @@ export default function HeroPrincipal() {
             </h1>
 
             {/* Body */}
-            <p className="text-base sm:text-lg lg:text-xl max-w-[65ch] mx-auto lg:mx-0 font-sans leading-[1.625] text-white/90 font-light">
-              Somos tu partner estratégico en mensajería urbana, envíos en el día y delivery de última milla. Cotizá tu envío en 30 segundos. Flota propia de motos, cero tercerización y respuesta inmediata.
+            <p className="text-base sm:text-lg lg:text-xl max-w-[65ch] mx-auto lg:mx-0 font-sans leading-relaxed text-white/90 font-light">
+              Somos tu partner estratÃ©gico en mensajerÃ­a urbana, envÃ­os en el dÃ­a y delivery de Ãºltima milla. CotizÃ¡ tu envÃ­o en 30 segundos. Flota propia de motos, cero tercerizaciÃ³n y respuesta inmediata.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-1">
-              <a className="group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-[.05em] font-bold px-8 py-3 text-base min-h-[44px] bg-brand-yellow-500 text-brand-blue-700 border border-brand-yellow-500 shadow-[0_0_28px_rgba(255,236,1,0.45)] hover:bg-brand-yellow-400 hover:scale-[1.02] active:scale-[.98] focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-blue-700" href="/cotizar/express">
-                <span>Cotizá Express</span>
+              <a className="group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-wider font-bold px-8 py-3 text-base min-h-[44px] bg-brand-yellow-500 text-brand-blue-700 border border-brand-yellow-500 shadow-[0_0_28px_rgba(255,236,1,0.45)] hover:bg-brand-yellow-400 hover:scale-[1.02] active:scale-[.98] focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-blue-700" href="/cotizar/express">
+                <span>CotizÃ¡ Express</span>
                 <span className="w-8 h-8 rounded-full flex items-center justify-center bg-brand-blue-700/10 group-hover:bg-brand-blue-700 group-hover:text-brand-yellow-500 group-hover:translate-x-1 transition-all">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14" />
@@ -84,8 +84,8 @@ export default function HeroPrincipal() {
                   </svg>
                 </span>
               </a>
-              <a className="group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-[.05em] font-bold px-8 py-3 text-base min-h-[44px] bg-white text-brand-blue-700 border border-brand-blue-100 shadow-[0_16px_40px_rgba(9,80,246,0.12)] hover:shadow-[0_24px_64px_rgba(9,80,246,0.18)] hover:border-brand-blue-300 hover:scale-[1.02] active:scale-[.98]" href="/servicios/envios-express">
-                <span>Mirá los Servicios</span>
+              <a className="group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-wider font-bold px-8 py-3 text-base min-h-[44px] bg-white text-brand-blue-700 border border-brand-blue-100 shadow-[0_16px_40px_rgba(9,80,246,0.12)] hover:shadow-[0_24px_64px_rgba(9,80,246,0.18)] hover:border-brand-blue-300 hover:scale-[1.02] active:scale-[.98]" href="/servicios/envios-express">
+                <span>MirÃ¡ los Servicios</span>
                 <span className="w-8 h-8 rounded-full flex items-center justify-center bg-brand-blue-700/10 text-brand-blue-700 group-hover:bg-brand-blue-700 group-hover:text-white group-hover:translate-x-1 transition-all">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14" />
@@ -97,16 +97,16 @@ export default function HeroPrincipal() {
 
             {/* Chips */}
             <div className="pt-2 flex flex-wrap justify-center lg:justify-start gap-3">
-              <div className="flex items-center gap-2.5 font-subheading text-[13px] uppercase tracking-wider px-3 py-2 rounded-3xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-[12px]">
+              <div className="flex items-center gap-2.5 font-subheading text-[13px] uppercase tracking-wider px-3 py-2 rounded-3xl bg-white/6 border border-white/12 backdrop-blur-md">
                 <div className="w-7 h-7 rounded-lg bg-brand-yellow-500/15 border border-brand-yellow-500/30 flex items-center justify-center text-brand-yellow-500">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" />
                     <path d="M12 22V12" />
                   </svg>
                 </div>
-                <span className="text-white/90">Miles de Envíos</span>
+                <span className="text-white/90">Miles de EnvÃ­os</span>
               </div>
-              <div className="flex items-center gap-2.5 font-subheading text-[13px] uppercase tracking-wider px-3 py-2 rounded-3xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-[12px]">
+              <div className="flex items-center gap-2.5 font-subheading text-[13px] uppercase tracking-wider px-3 py-2 rounded-3xl bg-white/6 border border-white/12 backdrop-blur-md">
                 <div className="w-7 h-7 rounded-lg bg-brand-yellow-500/15 border border-brand-yellow-500/30 flex items-center justify-center text-brand-yellow-500">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
@@ -115,14 +115,14 @@ export default function HeroPrincipal() {
                 </div>
                 <span className="text-white/90">Cobertura Total MDQ</span>
               </div>
-              <div className="flex items-center gap-2.5 font-subheading text-[13px] uppercase tracking-wider px-3 py-2 rounded-3xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-[12px]">
+              <div className="flex items-center gap-2.5 font-subheading text-[13px] uppercase tracking-wider px-3 py-2 rounded-3xl bg-white/6 border border-white/12 backdrop-blur-md">
                 <div className="w-7 h-7 rounded-lg bg-brand-yellow-500/15 border border-brand-yellow-500/30 flex items-center justify-center text-brand-yellow-500">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 6a2 2 0 0 1 3.414-1.414l6 6a2 2 0 0 1 0 2.828l-6 6A2 2 0 0 1 12 18z" />
                     <path d="M2 6a2 2 0 0 1 3.414-1.414l6 6a2 2 0 0 1 0 2.828l-6 6A2 2 0 0 1 2 18z" />
                   </svg>
                 </div>
-                <span className="text-white/90">Entregas en el Día</span>
+                <span className="text-white/90">Entregas en el DÃ­a</span>
               </div>
             </div>
           </div>
@@ -136,32 +136,32 @@ export default function HeroPrincipal() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-[460px] animate-float-slow"
+              className="relative w-full max-w-115 animate-float-slow"
             >
               {/* Top chip */}
-              <div className="self-end ml-auto mr-8 mb-[-12px] relative z-30 flex justify-end">
+              <div className="self-end ml-auto mr-8 -mb-3 relative z-30 flex justify-end">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-brand-blue-700 border border-brand-blue-100 shadow-[0_16px_40px_rgba(9,80,246,0.12)] font-subheading text-[11px] uppercase tracking-widest font-bold">
                   <span className="relative flex h-2.5 w-2.5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow-500" />
                   </span>
-                  Ruteo Activo · MDQ
+                  Ruteo Activo Â· MDQ
                 </div>
               </div>
 
               {/* Double Bezel Card */}
-              <div className="bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-[16px] shadow-[0_16px_40px_rgba(9,80,246,0.12)] hover:shadow-[0_24px_64px_rgba(9,80,246,0.18)] hover:border-brand-blue-300 transition-all">
-                <div className="bg-white rounded-[12px] p-4 sm:p-5 shadow-[inset_0_2px_8px_rgba(9,80,246,0.06)] overflow-hidden flex flex-col items-center">
+              <div className="bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-xl shadow-[0_16px_40px_rgba(9,80,246,0.12)] hover:shadow-[0_24px_64px_rgba(9,80,246,0.18)] hover:border-brand-blue-300 transition-all">
+                <div className="bg-white rounded-lg p-4 sm:p-5 shadow-[inset_0_2px_8px_rgba(9,80,246,0.06)] overflow-hidden flex flex-col items-center">
                   <div className="w-full flex items-center justify-between gap-2 mb-3">
-                    <span className="font-mono text-[10px] font-bold text-brand-blue-700 bg-brand-blue-50 px-2 py-0.5 rounded-md border border-brand-blue-100">Friuli 1972</span>
-                    <span className="font-mono text-[10px] text-brand-blue-400">Zona Güemes · MDQ</span>
+                    <span className="font-mono text-2xs font-bold text-brand-blue-700 bg-brand-blue-50 px-2 py-0.5 rounded-md border border-brand-blue-100">Friuli 1972</span>
+                    <span className="font-mono text-2xs text-brand-blue-400">Zona GÃ¼emes Â· MDQ</span>
                   </div>
 
                   {/* Hero Card Media */}
-                  <div className="relative w-full aspect-square max-w-[340px] flex items-center justify-center my-1">
+                  <div className="relative w-full aspect-square max-w-85 flex items-center justify-center my-1">
                     <Image
                       src="/card_mapa.webp"
-                      alt="Envíos DosRuedas - Logística y Mensajería"
+                      alt="EnvÃ­os DosRuedas - LogÃ­stica y MensajerÃ­a"
                       width={340}
                       height={340}
                       className="object-contain w-full h-full"
@@ -179,8 +179,8 @@ export default function HeroPrincipal() {
                         </svg>
                       </div>
                       <div>
-                        <p className="font-subheading text-[11px] font-bold uppercase text-brand-blue-700 leading-tight">Envíos Same-Day</p>
-                        <p className="font-mono text-[10px] text-brand-blue-400">Entrega en el Día</p>
+                        <p className="font-subheading text-[11px] font-bold uppercase text-brand-blue-700 leading-tight">EnvÃ­os Same-Day</p>
+                        <p className="font-mono text-[10px] text-brand-blue-400">Entrega en el DÃ­a</p>
                       </div>
                     </div>
                     <div className="bg-brand-blue-50 border border-brand-blue-100 p-2.5 rounded-xl flex items-center gap-2.5">
@@ -192,7 +192,7 @@ export default function HeroPrincipal() {
                       </div>
                       <div>
                         <p className="font-subheading text-[11px] font-bold uppercase text-brand-blue-700 leading-tight">Flota Propia</p>
-                        <p className="font-mono text-[10px] text-brand-blue-400">Cero Tercerización</p>
+                        <p className="font-mono text-[10px] text-brand-blue-400">Cero TercerizaciÃ³n</p>
                       </div>
                     </div>
                   </div>
@@ -200,10 +200,10 @@ export default function HeroPrincipal() {
               </div>
 
               {/* Bottom chip */}
-              <div className="self-start ml-8 mt-[-12px] relative z-30 flex justify-start">
+              <div className="self-start ml-8 -mt-3 relative z-30 flex justify-start">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-700 border border-white/40 shadow-[0_0_28px_rgba(255,236,1,0.45)] font-subheading text-[11px] uppercase tracking-widest font-bold">
                   <span className="w-2 h-2 rounded-full bg-brand-blue-700 animate-pulse" />
-                  ENTREGA EN EL DÍA · MDQ
+                  ENTREGA EN EL DÃA Â· MDQ
                 </div>
               </div>
             </motion.div>
