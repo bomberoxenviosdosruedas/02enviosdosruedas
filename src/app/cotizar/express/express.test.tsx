@@ -89,7 +89,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
     fireEvent.change(addressInputs[0], { target: { value: 'Colon 1200' } });
     fireEvent.change(addressInputs[1], { target: { value: 'San Martin 2300' } });
 
-    const submitBtn = screen.getByRole('button', { name: /Calcular Ruta/ });
+    const submitBtn = screen.getByRole('button', { name: /Calcular Ruta y Tarifa Express/ });
     fireEvent.click(submitBtn);
 
     await waitFor(() => {
@@ -102,7 +102,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
 
   it('T2.1: mantiene deshabilitado el botón de cálculo si faltan campos obligatorios', () => {
     render(<CotizadorExpressForm priceRanges={mockPriceRanges} />);
-    const submitBtn = screen.getByRole('button', { name: /Calcular Ruta/ });
+    const submitBtn = screen.getByRole('button', { name: /Calcular Ruta y Tarifa Express/ });
     expect(submitBtn).toBeDisabled();
   });
 
@@ -124,7 +124,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
     fireEvent.change(addressInputs[0], { target: { value: 'Friuli 1972' } });
     fireEvent.change(addressInputs[1], { target: { value: 'Constitucion 5000' } });
 
-    const submitBtn = screen.getByRole('button', { name: /Calcular Ruta/ });
+    const submitBtn = screen.getByRole('button', { name: /Calcular Ruta y Tarifa Express/ });
     fireEvent.click(submitBtn);
 
     await waitFor(() => {
@@ -146,7 +146,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
     fireEvent.change(addressInputs[0], { target: { value: 'Friuli 1972' } });
     fireEvent.change(addressInputs[1], { target: { value: 'Constitucion 5000' } });
 
-    const submitBtn = screen.getByRole('button', { name: /Calcular Ruta/ });
+    const submitBtn = screen.getByRole('button', { name: /Calcular Ruta y Tarifa Express/ });
     fireEvent.click(submitBtn);
 
     await waitFor(() => {
@@ -171,7 +171,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
     fireEvent.change(addressInputs[0], { target: { value: 'Friuli 1972' } });
     fireEvent.change(addressInputs[1], { target: { value: 'Centro' } });
 
-    fireEvent.click(screen.getByRole('button', { name: /Calcular Ruta/ }));
+    fireEvent.click(screen.getByRole('button', { name: /Calcular Ruta y Tarifa Express/ }));
 
     await waitFor(() => {
       const waButton = screen.getByRole('link', { name: /Pedí.*WhatsApp/i });
