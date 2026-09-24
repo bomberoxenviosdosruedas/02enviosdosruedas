@@ -51,7 +51,7 @@ export default function LowCostHowItWorks() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
           
           {/* Stepper Connector Line for Desktop */}
-          <div className="absolute top-[2.4rem] left-12 right-12 h-1 bg-[#0950F6] hidden lg:block rounded-full -z-0">
+          <div className="absolute top-[2.4rem] left-12 right-12 h-1 bg-[#0950F6] hidden lg:block rounded-full z-0">
             <div className="w-full h-full bg-[#3B7BF8] rounded-full" />
           </div>
 
@@ -62,7 +62,7 @@ export default function LowCostHowItWorks() {
               <div key={step.number} className="lg:col-span-4 z-10">
                 <DoubleBezelCard>
                   <div className="h-full flex flex-col items-center text-center relative overflow-hidden space-y-4">
-                    <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-[#0950F6]/[0.05] pointer-events-none select-none" />
+                    <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-[#0950F6]/5 pointer-events-none select-none" />
 
                     {/* Concentric Node Circle in Yellow #FFEC01 with Geist Mono */}
                     <div className="w-12 h-12 rounded-full bg-[#FFEC01] border-2 border-[#FFFFFF] ring-2 ring-[#0950F6] shadow-md flex items-center justify-center font-mono text-sm font-bold text-[#0950F6] tabular-nums z-10">

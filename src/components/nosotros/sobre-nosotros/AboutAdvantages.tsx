@@ -114,9 +114,10 @@ export default function AboutAdvantages() {
                 <div className="shrink-0 flex items-center">
                   <CTANestedPill
                     href="/cotizar/express"
-                    text="Cotizar tu Envío"
                     variant="primary"
-                  />
+                  >
+                    Cotizar tu Envío
+                  </CTANestedPill>
                 </div>
               </div>
             </DoubleBezelCard>

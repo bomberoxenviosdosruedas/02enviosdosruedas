@@ -65,7 +65,8 @@ export default function CotizadorLowCostForm() {
       }
 
       const distanceKm = route.distanceKm;
-      setRouteCoords(route.coordinates);
+      const coords = (route as unknown as { coordinates?: [number, number][] }).coordinates || [];
+      setRouteCoords(coords);
 
       const formData = new FormData();
       formData.append('origen', origen);
@@ -85,9 +86,16 @@ export default function CotizadorLowCostForm() {
           distancia: distanceKm,
           precio: response.price,
         });
-        setQuoteId(response.quoteId || null);
+        const extendedResponse = response as QuoteState & { quoteId?: string };
+        setQuoteId(extendedResponse.quoteId || null);
         setCalculated(true);
-        trackAnalytics.quoteCalculate('lowcost', distanceKm, typeof response.price === 'number' ? response.price : 0);
+        
+        trackAnalytics.quoteComplete({
+          service: 'lowcost',
+          distanceKm,
+          priceArs: response.price,
+          result: response.price === 'consultar' ? 'consultar' : 'price',
+        });
       }
 
       setIsCalculating(false);
@@ -97,7 +105,7 @@ export default function CotizadorLowCostForm() {
   const getWhatsAppLink = () => {
     if (!result) return '#';
     const message = `¡Hola Envíos DosRuedas! Vengo del cotizador web de Servicio LowCost. Mi ID de Cotización es #${quoteId || 'SD'}. Retiro en: ${origen}, Entrega en: ${destino}. Distancia: ${result.distancia} km. Precio estimado: ${result.precio === 'consultar' ? 'A consultar (> 20 km)' : `$${result.precio.toLocaleString('es-AR')} ARS`}. Nombre: ${nombre}, Tel: ${telefono}, Producto: ${producto}. ¡Quiero confirmar la reserva!`;
-    return buildWhatsAppUrl(message);
+    return buildWhatsAppUrl({ message, source: 'cotizador_lowcost' });
   };
 
   return (
@@ -223,11 +231,12 @@ export default function CotizadorLowCostForm() {
 
               <div className="pt-2">
                 <CTANestedPill
-                  text={isCalculating ? 'Calculando Tarifa LowCost...' : 'Calcular Ruta y Tarifa LowCost'}
-                  onClick={() => {}}
+                  type="submit"
                   variant="primary"
                   className="w-full"
-                />
+                >
+                  {isCalculating ? 'Calculando Tarifa LowCost...' : 'Calcular Ruta y Tarifa LowCost'}
+                </CTANestedPill>
               </div>
             </form>
           </div>
@@ -258,7 +267,7 @@ export default function CotizadorLowCostForm() {
                   )}
                   <div className="grid grid-cols-2 gap-3 text-center">
                     <div className="bg-white/10 p-3 rounded-xl border border-white/20">
-                      <span className="block text-[10px] font-subheading font-bold text-[#FFEC01] uppercase tracking-wider">
+                      <span className="block text-2xs font-subheading font-bold text-[#FFEC01] uppercase tracking-wider">
                         DISTANCIA REAL
                       </span>
                       <span className="text-xl font-mono text-white font-bold tabular-nums">
@@ -266,7 +275,7 @@ export default function CotizadorLowCostForm() {
                       </span>
                     </div>
                     <div className="bg-white/10 p-3 rounded-xl border border-white/20">
-                      <span className="block text-[10px] font-subheading font-bold text-[#FFEC01] uppercase tracking-wider">
+                      <span className="block text-2xs font-subheading font-bold text-[#FFEC01] uppercase tracking-wider">
                         FRANJA ESTIMADA
                       </span>
                       <span className="text-sm font-subheading font-bold text-white uppercase">
@@ -277,7 +286,7 @@ export default function CotizadorLowCostForm() {
 
                   <div className="border-t border-white/15 pt-4 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div>
-                      <span className="block text-[10px] font-subheading font-bold text-[#FFEC01] uppercase tracking-wider">
+                      <span className="block text-2xs font-subheading font-bold text-[#FFEC01] uppercase tracking-wider">
                         TARIFA EXACTA LOWCOST 2026
                       </span>
                       <div className="flex items-baseline gap-1.5 mt-0.5">
@@ -299,16 +308,18 @@ export default function CotizadorLowCostForm() {
                     {result.precio === 'consultar' ? (
                       <CTANestedPill
                         href="/contacto"
-                        text="Pedir Cotización Especial"
-                        variant="secondary"
-                      />
+                        variant="outline"
+                      >
+                        Pedir Cotización Especial
+                      </CTANestedPill>
                     ) : (
                       <CTANestedPill
                         href={getWhatsAppLink()}
-                        text="Pedí por WhatsApp"
                         variant="primary"
                         onClick={() => trackAnalytics.whatsappClick('cotizador_lowcost_resultado')}
-                      />
+                      >
+                        Pedí por WhatsApp
+                      </CTANestedPill>
                     )}
                   </div>
                 </div>
@@ -319,11 +330,11 @@ export default function CotizadorLowCostForm() {
       </article>
 
       {/* Real Interactive Map Panel (5 cols) */}
-      <aside aria-label="Mapa interactivo y cobertura LowCost" className="lg:col-span-5 min-h-[360px] lg:min-h-full">
+      <aside aria-label="Mapa interactivo y cobertura LowCost" className="lg:col-span-5 min-h-90 lg:min-h-full">
         <DoubleBezelCard>
           <div className="bg-[#0950F6] p-6 rounded-[20px] border border-white/20 flex flex-col justify-between h-full relative overflow-hidden text-white">
             {/* Subtle grid pattern */}
-            <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+            <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
 
             {/* Header Map */}
             <div className="relative z-10 flex justify-between items-center border-b border-white/15 pb-3 mb-3">
@@ -333,13 +344,13 @@ export default function CotizadorLowCostForm() {
                   Ruteador Batch Activo
                 </span>
               </div>
-              <span className="text-[10px] font-mono text-white/70 tabular-nums">
+              <span className="text-2xs font-mono text-white/70 tabular-nums">
                 OpenStreetMap + OSRM
               </span>
             </div>
 
             {/* Leaflet Map Loader */}
-            <div className="relative flex-grow min-h-[260px] rounded-xl overflow-hidden border border-white/15 shadow-inner z-10">
+            <div className="relative grow min-h-65 rounded-xl overflow-hidden border border-white/15 shadow-inner z-10">
               <DynamicRouteMap
                 origin={origenCoords}
                 destination={destinoCoords}

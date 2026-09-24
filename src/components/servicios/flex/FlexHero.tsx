@@ -45,15 +45,17 @@ export default function FlexHero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
               <CTANestedPill
                 href="/cotizar/lowcost"
-                text="Activá Envíos Flex"
                 variant="primary"
-              />
+              >
+                Activá Envíos Flex
+              </CTANestedPill>
 
               <CTANestedPill
                 href="https://wa.me/542236602699"
-                text="Contactá un asesor"
-                variant="secondary"
-              />
+                variant="outline"
+              >
+                Contactá un asesor
+              </CTANestedPill>
             </div>
 
             {/* Quick KPI Chips */}
@@ -62,7 +64,7 @@ export default function FlexHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
                   15:00 hs
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
                   Horario de Corte
                 </span>
               </div>
@@ -70,7 +72,7 @@ export default function FlexHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
                   100%
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
                   Entregas en el Día
                 </span>
               </div>
@@ -78,7 +80,7 @@ export default function FlexHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
                   Sin Mínimos
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
                   Retiros Múltiples
                 </span>
               </div>

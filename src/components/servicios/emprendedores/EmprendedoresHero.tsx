@@ -56,15 +56,17 @@ export default function EmprendedoresHero() {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <CTANestedPill
                 href="/contacto"
-                text="Solicitar Plan Corporativo"
                 variant="primary"
-              />
+              >
+                Solicitar Plan Corporativo
+              </CTANestedPill>
 
               <CTANestedPill
                 href="https://wa.me/542236602699"
-                text="Agendar Asesoría 3PL"
-                variant="secondary"
-              />
+                variant="outline"
+              >
+                Agendar Asesoría 3PL
+              </CTANestedPill>
             </div>
 
             {/* Quick KPI Chips */}
@@ -73,7 +75,7 @@ export default function EmprendedoresHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
                   Same Day
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
                   Stock Friuli 1972
                 </span>
               </div>
@@ -81,7 +83,7 @@ export default function EmprendedoresHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
                   -20% OFF
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
                   Opción DropOFF
                 </span>
               </div>
@@ -89,7 +91,7 @@ export default function EmprendedoresHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
                   $0 Comis.
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
                   Contrareembolso Gratis
                 </span>
               </div>

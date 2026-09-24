@@ -45,7 +45,7 @@ export default function CtaSection() {
     <section
       id="cta-section"
       aria-labelledby="cta-section-title"
-      className="py-20 lg:py-28 bg-[#0950F6] relative z-10 overflow-hidden px-4 sm:px-6 lg:px-8 shadow-[0_25px_50px_-12px_rgba(9,80,246,0.25)]"
+      className="py-20 lg:py-28 bg-[#0950F6] relative z-10 overflow-hidden px-4 sm:px-6 lg:px-8 shadow-2xl"
     >
       <motion.div
         className="max-w-6xl mx-auto p-2.5 sm:p-3.5 rounded-[30px] bg-white/10 backdrop-blur-md border border-white/25 shadow-2xl"
@@ -60,7 +60,7 @@ export default function CtaSection() {
         >
 
           {/* Background grid */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,54,165,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(6,54,165,0.03)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,54,165,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(6,54,165,0.03)_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
 
           {/* Left Text Block */}
           <motion.div className="lg:w-1/2 space-y-8 relative z-10 text-center lg:text-left" variants={itemVariants}>
@@ -68,7 +68,7 @@ export default function CtaSection() {
               className="inline-flex"
               whileHover={reduceMotion ? undefined : { scale: 1.03, transition: springConfigSnappy }}
             >
-              <span className="px-4 py-2 rounded-full text-xs font-subheading tracking-widest bg-[#FFF12E]/20 text-[#0950F6] border border-[#FFF12E] uppercase font-bold cursor-default shadow-glow-yellow">
+              <span className="px-4 py-2 rounded-full text-xs font-subheading tracking-widest bg-brand-yellow-400/20 text-[#0950F6] border border-brand-yellow-400 uppercase font-bold cursor-default shadow-glow-yellow">
                 Cotización Inmediata
               </span>
             </motion.div>
@@ -86,7 +86,7 @@ export default function CtaSection() {
               whileHover={reduceMotion ? undefined : { x: 4, transition: springConfigSnappy }}
             >
               <p className="text-xs font-mono tracking-widest text-[#0950F6] font-bold uppercase leading-none">
-                Atención comercial <span className="text-[#FFF12E] bg-[#0950F6] px-2 py-0.5 rounded font-mono">{'<'} 2 MIN</span>
+                Atención comercial <span className="text-brand-yellow-400 bg-[#0950F6] px-2 py-0.5 rounded font-mono">{'<'} 2 MIN</span>
               </p>
             </motion.div>
           </motion.div>
@@ -175,7 +175,7 @@ export default function CtaSection() {
                       : { scale: 1.02, transition: springConfigSnappy }
                   }
                   whileTap={reduceMotion ? undefined : { scale: 0.98, transition: springConfigSnappy }}
-                  className="w-full min-h-[52px] bg-[#FFF12E] hover:bg-[#FFF44A] text-[#0950F6] font-subheading tracking-wider text-xl uppercase rounded-full shadow-glow-yellow flex items-center justify-center gap-3 cursor-pointer font-bold transition-all"
+                  className="w-full min-h-13 bg-brand-yellow-400 hover:bg-[#FFF44A] text-[#0950F6] font-subheading tracking-wider text-xl uppercase rounded-full shadow-glow-yellow flex items-center justify-center gap-3 cursor-pointer font-bold transition-all"
                 >
                   <span>Hablar por WhatsApp</span>
                   <motion.span

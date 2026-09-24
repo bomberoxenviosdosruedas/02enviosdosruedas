@@ -50,7 +50,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
           <label
             htmlFor={inputId}
             className={cn(
-              'input-label font-subheading text-xs uppercase tracking-[.05em] font-bold text-brand-blue-700 flex items-center justify-between',
+              'input-label font-subheading text-xs uppercase tracking-wider font-bold text-brand-blue-700 flex items-center justify-between',
               labelClassName
             )}
           >

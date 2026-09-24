@@ -76,7 +76,7 @@ export default function CotizadorExpressResults({ form, error }: CotizadorExpres
 
                 <div className="border-t border-white/15 pt-4 flex flex-col sm:flex-row justify-between items-center gap-4">
                   <div>
-                    <span className="block text-[10px] font-subheading font-bold text-[#FFEC01] uppercase tracking-wider">
+                    <span className="block text-2xs font-subheading font-bold text-[#FFEC01] uppercase tracking-wider">
                       TARIFA EXACTA EXPRESS 2026
                     </span>
                     <div className="flex items-baseline gap-1.5 mt-0.5">
@@ -98,16 +98,18 @@ export default function CotizadorExpressResults({ form, error }: CotizadorExpres
                   {result.precio === 'consultar' ? (
                     <CTANestedPill
                       href="/contacto"
-                      text="Pedir Cotización Especial"
-                      variant="secondary"
-                    />
+                      variant="outline"
+                    >
+                      Pedir Cotización Especial
+                    </CTANestedPill>
                   ) : (
                     <CTANestedPill
                       href={getWhatsAppLink()}
-                      text="Pedí por WhatsApp"
                       variant="primary"
                       onClick={() => trackAnalytics.whatsappClick('cotizador_express_resultado')}
-                    />
+                    >
+                      Pedí por WhatsApp
+                    </CTANestedPill>
                   )}
                 </div>
               </div>

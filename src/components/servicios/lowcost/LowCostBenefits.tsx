@@ -78,7 +78,7 @@ export default function LowCostBenefits() {
               >
                 <div className="bg-white text-brand-blue-900 p-8 rounded-[20px] h-full space-y-5 relative overflow-hidden">
                   {/* Giant Watermark Icon */}
-                  <Icon className="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/[0.05] pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
+                  <Icon className="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
 
                   <div className="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit border border-brand-blue-500 shadow-sm relative z-10">
                     <Icon className="h-6 w-6 shrink-0" />

@@ -147,10 +147,11 @@ export default function ExpressPricing() {
                     <div className="pt-4">
                       <CTANestedPill
                         href="/cotizar/express"
-                        text={zone.ctaText}
-                        variant={zone.highlight ? 'primary' : 'secondary'}
+                        variant={zone.highlight ? 'primary' : 'outline'}
                         className="w-full justify-center"
-                      />
+                      >
+                        {zone.ctaText}
+                      </CTANestedPill>
                     </div>
                   </div>
                 </DoubleBezelCard>
@@ -162,7 +163,7 @@ export default function ExpressPricing() {
         {/* Dynamic Quote Callout (+10 km rule) */}
         <DoubleBezelCard>
           <div className="bg-[#0950F6] text-white rounded-[20px] p-8 relative overflow-hidden text-left border border-white/20 shadow-sm">
-            <Calculator className="absolute -bottom-8 -right-8 h-64 w-64 text-white/[0.04] pointer-events-none select-none" />
+            <Calculator className="absolute -bottom-8 -right-8 h-64 w-64 text-white/4 pointer-events-none select-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
 
@@ -181,9 +182,10 @@ export default function ExpressPricing() {
               <div className="lg:col-span-4 flex justify-start lg:justify-end">
                 <CTANestedPill
                   href="/cotizar/express"
-                  text="Calcular con Mapa"
                   variant="primary"
-                />
+                >
+                  Calcular con Mapa
+                </CTANestedPill>
               </div>
 
             </div>

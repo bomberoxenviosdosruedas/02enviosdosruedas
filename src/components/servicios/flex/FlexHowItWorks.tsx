@@ -84,7 +84,7 @@ export default function FlexHowItWorks() {
               >
                 <div className="bg-white p-6 rounded-[20px] border border-brand-blue-50/50 shadow-sm h-full flex flex-col items-center text-center relative overflow-hidden">
                   {/* Giant Watermark Icon */}
-                  <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/[0.05] pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
+                  <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
 
                   {/* Floating step number */}
                   <span className="-rotate-1 absolute top-3 left-3 bg-brand-yellow-500 text-brand-blue-900 font-bold font-mono tabular-nums text-xs tracking-widest px-3 py-1 rounded-full shadow-glow-yellow z-10">

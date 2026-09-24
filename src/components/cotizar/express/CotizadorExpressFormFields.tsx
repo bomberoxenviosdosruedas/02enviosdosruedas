@@ -117,13 +117,15 @@ export default function CotizadorExpressFormFields({
         />
       </div>
 
+      {/* Botón de acción adaptado */}
       <div className="pt-2">
         <CTANestedPill
-          text={isCalculating ? 'Calculando Ruta Express...' : 'Calcular Ruta y Tarifa Express'}
-          onClick={() => {}}
+          type="submit"
           variant="primary"
           className="w-full"
-        />
+        >
+          {isCalculating ? 'Calculando Ruta Express...' : 'Calcular Ruta y Tarifa Express'}
+        </CTANestedPill>
       </div>
     </form>
   );

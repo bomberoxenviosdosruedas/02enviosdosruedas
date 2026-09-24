@@ -126,7 +126,7 @@ export default function BatchGrid() {
                     {index + 1}
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 w-full flex-grow">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 w-full grow">
                     <input
                       type="text"
                       placeholder="Destinatario"
@@ -162,7 +162,7 @@ export default function BatchGrid() {
                     onClick={() => removeRow(row.id)}
                     disabled={rows.length <= 1}
                     aria-label={`Eliminar fila ${index + 1} de la planilla de envíos`}
-                    className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-[#0950F6]/60 hover:text-red-600 disabled:opacity-30 rounded-lg transition-colors shrink-0 cursor-pointer"
+                    className="p-2.5 min-w-11 min-h-11 flex items-center justify-center text-[#0950F6]/60 hover:text-red-600 disabled:opacity-30 rounded-lg transition-colors shrink-0 cursor-pointer"
                     title="Eliminar fila"
                   >
                     <Trash2 className="h-4 w-4" />
@@ -181,9 +181,10 @@ export default function BatchGrid() {
 
             <CTANestedPill
               href={getBatchWhatsAppLink()}
-              text={`Cotizar Lote (${validCount > 0 ? validCount : rows.length} Envíos) por WhatsApp`}
               variant="primary"
-            />
+            >
+              Cotizar Lote ({validCount > 0 ? validCount : rows.length} Envíos) por WhatsApp
+            </CTANestedPill>
           </div>
         </div>
       </DoubleBezelCard>

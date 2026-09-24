@@ -72,9 +72,10 @@ export default function NetworksChannels() {
                 <div className="shrink-0 w-full md:w-auto">
                   <CTANestedPill
                     href="https://wa.me/542236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web."
-                    text="CHATEÁ AHORA"
                     variant="primary"
-                  />
+                  >
+                    CHATEÁ AHORA
+                  </CTANestedPill>
                 </div>
               </div>
             </DoubleBezelCard>
@@ -89,7 +90,7 @@ export default function NetworksChannels() {
             className="lg:col-span-6"
           >
             <DoubleBezelCard>
-              <div className="flex flex-col justify-between h-full min-h-[340px]">
+              <div className="flex flex-col justify-between h-full min-h-85">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <div className="p-3 bg-[#E6EEFE] border border-[#D6E4FE] rounded-2xl relative w-12 h-12 flex items-center justify-center">
@@ -120,16 +121,17 @@ export default function NetworksChannels() {
                 <div className="pt-6 mt-6 border-t border-[#D6E4FE] w-full">
                   <CTANestedPill
                     href="https://instagram.com/enviosdosruedas"
-                    text="SEGUINOS EN INSTAGRAM"
-                    variant="secondary"
+                    variant="outline"
                     className="w-full justify-center"
-                  />
+                  >
+                    SEGUINOS EN INSTAGRAM
+                  </CTANestedPill>
                 </div>
               </div>
             </DoubleBezelCard>
           </motion.div>
 
-          {/* Facebook: 6 columns (Excepción permitida #1877F2 para badge social) */}
+          {/* Facebook: 6 columns */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -138,7 +140,7 @@ export default function NetworksChannels() {
             className="lg:col-span-6"
           >
             <DoubleBezelCard>
-              <div className="flex flex-col justify-between h-full min-h-[340px]">
+              <div className="flex flex-col justify-between h-full min-h-85">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <div className="p-3 bg-[#1877F2]/10 border border-[#1877F2]/20 rounded-2xl relative w-12 h-12 flex items-center justify-center">
@@ -169,10 +171,11 @@ export default function NetworksChannels() {
                 <div className="pt-6 mt-6 border-t border-[#D6E4FE] w-full">
                   <CTANestedPill
                     href="https://facebook.com/enviosdosruedas"
-                    text="SEGUINOS EN FACEBOOK"
-                    variant="secondary"
+                    variant="outline"
                     className="w-full justify-center"
-                  />
+                  >
+                    SEGUINOS EN FACEBOOK
+                  </CTANestedPill>
                 </div>
               </div>
             </DoubleBezelCard>

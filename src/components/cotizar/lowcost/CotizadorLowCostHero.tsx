@@ -111,10 +111,11 @@ export default function CotizadorLowCostHero() {
               <div className="pt-2 sm:pt-0 w-full sm:w-auto">
                 <CTANestedPill
                   href="#cotizador-lowcost-form"
-                  text="Calcular Ahora"
-                  variant="secondary"
+                  variant="outline"
                   className="w-full sm:w-auto border border-[#D6E4FE]"
-                />
+                >
+                  Calcular Ahora
+                </CTANestedPill>
               </div>
             </div>
           </motion.div>
@@ -161,7 +162,7 @@ export default function CotizadorLowCostHero() {
                       <span className="font-subheading text-xs uppercase tracking-wider font-bold text-[#FFEC01]">
                         ORIGEN
                       </span>
-                      <span className="font-sans text-xs sm:text-sm font-semibold text-white text-right truncate max-w-[210px]">
+                      <span className="font-sans text-xs sm:text-sm font-semibold text-white text-right truncate max-w-52.5">
                         {currentTrip.origen}
                       </span>
                     </div>
@@ -171,7 +172,7 @@ export default function CotizadorLowCostHero() {
                       <span className="font-subheading text-xs uppercase tracking-wider font-bold text-[#FFEC01]">
                         DESTINO
                       </span>
-                      <span className="font-sans text-xs sm:text-sm font-semibold text-white text-right truncate max-w-[210px]">
+                      <span className="font-sans text-xs sm:text-sm font-semibold text-white text-right truncate max-w-52.5">
                         {currentTrip.destino}
                       </span>
                     </div>

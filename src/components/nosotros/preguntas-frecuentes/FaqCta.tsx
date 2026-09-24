@@ -38,15 +38,17 @@ export default function FaqCta() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full">
                 <CTANestedPill
                   href="https://wa.me/542236602699?text=Hola,%20tengo%20una%20consulta%20que%20no%20encontr%C3%A9%20en%20las%20FAQ"
-                  text="Hablá por WhatsApp"
                   variant="primary"
-                />
+                >
+                  Hablá por WhatsApp
+                </CTANestedPill>
 
                 <CTANestedPill
                   href="/contacto"
-                  text="Contacto Directo"
-                  variant="secondary"
-                />
+                  variant="outline"
+                >
+                  Contacto Directo
+                </CTANestedPill>
               </div>
 
             </div>

@@ -70,21 +70,21 @@ function ProceduralBg() {
     <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
       {/* 3 blobs radiales */}
       <div
-        className="absolute -top-40 -left-40 w-[560px] h-[560px] rounded-full"
+        className="absolute -top-40 -left-40 w-140 h-140 rounded-full"
         style={{
           background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)',
           filter: 'blur(80px)',
         }}
       />
       <div
-        className="absolute top-1/3 -right-32 w-[640px] h-[640px] rounded-full"
+        className="absolute top-1/3 -right-32 w-160 h-160 rounded-full"
         style={{
           background: 'radial-gradient(circle, rgba(255,236,1,0.22) 0%, rgba(255,236,1,0.06) 50%, transparent 70%)',
           filter: 'blur(80px)',
         }}
       />
       <div
-        className="absolute -bottom-48 left-1/4 w-[580px] h-[580px] rounded-full"
+        className="absolute -bottom-48 left-1/4 w-145 h-145 rounded-full"
         style={{
           background: 'radial-gradient(circle, rgba(9,80,246,0.35) 0%, transparent 70%)',
           filter: 'blur(80px)',
@@ -109,7 +109,7 @@ function ProceduralBg() {
       </svg>
 
       {/* Ghost wordmark */}
-      <span className="absolute inset-0 flex items-center justify-center font-display text-[16vw] leading-none text-white/[0.035] uppercase tracking-tighter whitespace-nowrap pointer-events-none select-none z-0">
+      <span className="absolute inset-0 flex items-center justify-center font-display text-[16vw] leading-none text-white/4 uppercase tracking-tighter whitespace-nowrap pointer-events-none select-none z-0">
         PAQUETERÍA LOWCOST
       </span>
     </div>
@@ -132,7 +132,7 @@ function MarqueeStrip({ isPaused }: { isPaused: boolean }) {
       {/* Fila 1 → izquierda */}
       <div
         className={cn(
-          'flex whitespace-nowrap font-display text-[8vw] uppercase text-white/[0.04] leading-none mb-1',
+          'flex whitespace-nowrap font-display text-[8vw] uppercase text-white/4 leading-none mb-1',
           isPaused ? 'is-paused' : 'animate-marquee-left',
         )}
       >
@@ -142,7 +142,7 @@ function MarqueeStrip({ isPaused }: { isPaused: boolean }) {
       {/* Fila 2 → derecha */}
       <div
         className={cn(
-          'flex whitespace-nowrap font-display text-[8vw] uppercase text-white/[0.04] leading-none',
+          'flex whitespace-nowrap font-display text-[8vw] uppercase text-white/4 leading-none',
           isPaused ? 'is-paused' : 'animate-marquee-right',
         )}
       >
@@ -176,14 +176,14 @@ function FloatingCard({
   return (
     <div
       className={cn(
-        'absolute w-[220px] sm:w-[260px] select-none z-20',
+        'absolute w-55 sm:w-65 select-none z-20',
         !reduceMotion && !isPaused && 'animate-float-slow',
         isPaused && !reduceMotion && 'is-paused',
       )}
       style={posStyle}
     >
       {/* Outer bezel glass */}
-      <div className="p-[10px] rounded-[28px] backdrop-blur-md border bg-white/10 border-white/15 shadow-[var(--shadow-ambient-elevation)] will-change-transform">
+      <div className="p-2.5 rounded-[28px] backdrop-blur-md border bg-white/10 border-white/15 shadow-(--shadow-ambient-elevation) will-change-transform">
         {/* Inner card */}
         <div className="p-4 rounded-[20px] bg-white text-brand-blue-700">
           <div className="flex items-center gap-2 mb-2">
@@ -199,7 +199,7 @@ function FloatingCard({
             {card.value}
           </div>
           {card.accent && (
-            <div className="mt-1.5 inline-block bg-brand-yellow-500 text-brand-blue-700 font-subheading text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full">
+            <div className="mt-1.5 inline-block bg-brand-yellow-500 text-brand-blue-700 font-subheading text-2xs uppercase tracking-wider px-2 py-0.5 rounded-full">
               {card.sub}
             </div>
           )}
@@ -245,7 +245,7 @@ export default function LowCostHero() {
               initial={reduceMotion ? false : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="rotate-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-white/10 border border-brand-yellow-500/40 text-brand-yellow-500 shadow-[var(--shadow-glow-yellow)] backdrop-blur-md"
+              className="rotate-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-white/10 border border-brand-yellow-500/40 text-brand-yellow-500 shadow-(--shadow-glow-yellow) backdrop-blur-md"
             >
               <TrendingDown className="h-4 w-4 text-brand-yellow-500 shrink-0" />
               <span>PAQUETERÍA E-COMMERCE Y CADETERÍA ECONÓMICA · MDQ 2026</span>
@@ -261,7 +261,7 @@ export default function LowCostHero() {
             >
               <span className="block">LOWCOST</span>
               <span className="block">
-                <span className="inline-block bg-brand-yellow-500 text-brand-blue-700 px-3 -rotate-1 shadow-[var(--shadow-accent-sm)] leading-none py-1">
+                <span className="inline-block bg-brand-yellow-500 text-brand-blue-700 px-3 -rotate-1 shadow-(--shadow-accent-sm) leading-none py-1">
                   QUE RINDE
                 </span>
               </span>
@@ -320,13 +320,13 @@ export default function LowCostHero() {
               {KPI_CHIPS.map((kpi) => (
                 <div
                   key={kpi.label}
-                  className="double-bezel-outer p-2 rounded-2xl !bg-white/10 !border-white/15 !shadow-none"
+                  className="double-bezel-outer p-2 rounded-2xl bg-white/10! border-white/15! shadow-none!"
                 >
-                  <div className="double-bezel-inner p-3 rounded-xl !bg-white/5 !border-white/10 text-center">
+                  <div className="double-bezel-inner p-3 rounded-xl bg-white/5! border-white/10! text-center">
                     <span className="block font-mono font-bold text-xl sm:text-2xl text-brand-yellow-500 tabular-nums leading-none">
                       {kpi.value}
                     </span>
-                    <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white/60 mt-1">
+                    <span className="block font-subheading text-2xs uppercase tracking-wider text-white/60 mt-1">
                       {kpi.label}
                     </span>
                   </div>
@@ -340,7 +340,7 @@ export default function LowCostHero() {
             initial={reduceMotion ? false : { opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: 0.2 }}
-            className="lg:col-span-5 relative flex items-center justify-center min-h-[420px] sm:min-h-[500px]"
+            className="lg:col-span-5 relative flex items-center justify-center min-h-105 sm:min-h-125"
           >
             {/* Ambient glow detrás de la imagen */}
             <div
@@ -353,18 +353,18 @@ export default function LowCostHero() {
             />
 
             {/* Imagen central */}
-            <div className="relative group z-10 w-[280px] h-[280px] sm:w-[336px] sm:h-[336px] shrink-0">
+            <div className="relative group z-10 w-70 h-70 sm:w-84 sm:h-84 shrink-0">
               <Image
                 src="/elementos/envios_lowcost.webp"
                 alt="Paquetería LowCost — Envíos DosRuedas Mar del Plata"
                 width={336}
                 height={336}
-                className="w-full h-full object-cover rounded-2xl shadow-[var(--shadow-float)] transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover rounded-2xl shadow-(--shadow-float) transition-transform duration-500 group-hover:scale-105"
                 priority
               />
 
               {/* Badge: MISMA JORNADA (top-right) */}
-              <div className="absolute -top-3 -right-3 flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/20 border-brand-yellow-500/40 px-3 py-1.5 rounded-xl shadow-[var(--shadow-glow-yellow)] z-30">
+              <div className="absolute -top-3 -right-3 flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-brand-yellow-500/40 px-3 py-1.5 rounded-xl shadow-(--shadow-glow-yellow) z-30">
                 <Sparkles className="w-3.5 h-3.5 text-brand-yellow-500" />
                 <span className="font-subheading text-[11px] uppercase tracking-wider text-white font-bold">
                   MISMA JORNADA
@@ -392,15 +392,15 @@ export default function LowCostHero() {
 
             {/* Micro-card horario — double-bezel */}
             <div className="absolute bottom-0 right-0 z-30 sm:bottom-2 sm:right-2">
-              <div className="double-bezel-outer rounded-[20px] !bg-white/10 !border-white/15 !shadow-none p-2 w-[190px]">
-                <div className="rounded-[16px] bg-brand-blue-700 border border-white/10 p-3 space-y-2">
+              <div className="double-bezel-outer rounded-[20px] bg-white/10! border-white/15! shadow-none! p-2 w-47.5">
+                <div className="rounded-xl bg-brand-blue-700 border border-white/10 p-3 space-y-2">
                   {/* Header */}
                   <div className="flex items-center gap-1.5 border-b border-white/10 pb-2">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-yellow-500" />
                     </span>
-                    <span className="font-subheading text-[10px] uppercase tracking-widest text-brand-yellow-500 font-bold">
+                    <span className="font-subheading text-2xs uppercase tracking-widest text-brand-yellow-500 font-bold">
                       HORARIO ACTIVO
                     </span>
                   </div>

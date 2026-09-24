@@ -88,7 +88,7 @@ export default function LowCostFeatures() {
                 >
                   <div className="bg-white p-6 rounded-[20px] border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row gap-5 items-start h-full relative overflow-hidden">
                     {/* Giant Watermark Icon */}
-                    <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/[0.05] pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
+                    <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
 
                     <div className="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl shrink-0 border border-brand-blue-500 shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors duration-300 relative z-10">
                       <Icon className="h-6 w-6 shrink-0" />

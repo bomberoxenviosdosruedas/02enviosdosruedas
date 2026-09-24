@@ -78,7 +78,7 @@ export default function ContactForm() {
   return (
     <section aria-label="Formulario de contacto comercial" className="h-full flex flex-col justify-between">
       <DoubleBezelCard>
-        <div className="space-y-6 relative overflow-hidden h-full flex flex-col justify-between">
+        <div className="space-[#D6E4FE] space-y-6 relative overflow-hidden h-full flex flex-col justify-between">
           <div className="relative z-10 space-y-6">
             {/* Header & Badges */}
             <div className="pb-4 border-b border-[#D6E4FE]">
@@ -218,10 +218,11 @@ export default function ContactForm() {
                   <div className="pt-2">
                     <CTANestedPill
                       type="submit"
-                      text="Hablar por WhatsApp"
                       variant="primary"
                       className="w-full"
-                    />
+                    >
+                      Hablar por WhatsApp
+                    </CTANestedPill>
                   </div>
                 </motion.form>
               )}

@@ -33,7 +33,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ children, className }) => 
   return (
     <div
       className={cn(
-        'grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 auto-rows-[minmax(340px,auto)] md:auto-rows-[380px] w-full',
+        'grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 auto-rows-[minmax(340px,auto)] md:auto-rows-95 w-full',
         className
       )}
     >

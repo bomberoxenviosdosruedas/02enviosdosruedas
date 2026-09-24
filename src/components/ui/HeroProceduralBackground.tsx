@@ -28,7 +28,7 @@ export default function HeroProceduralBackground({
 
       {/* 2. Procedural Dynamic Radial Highlights (CSS Glows) */}
       <div
-        className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute -top-32 -left-32 w-125 h-125 rounded-full pointer-events-none"
         style={{
           background: 'radial-gradient(circle, rgba(9,80,246,0.35) 0%, rgba(6,54,165,0.15) 50%, transparent 70%)',
           filter: 'blur(80px)',
@@ -36,7 +36,7 @@ export default function HeroProceduralBackground({
       />
 
       <div
-        className="absolute top-1/4 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none"
+        className="absolute top-1/4 -right-32 w-150 h-150 rounded-full pointer-events-none"
         style={{
           background:
             variant === 'express' || variant === 'lowcost'
@@ -47,7 +47,7 @@ export default function HeroProceduralBackground({
       />
 
       <div
-        className="absolute -bottom-40 left-1/3 w-[550px] h-[550px] rounded-full pointer-events-none"
+        className="absolute -bottom-40 left-1/3 w-137.5 h-137.5 rounded-full pointer-events-none"
         style={{
           background: 'radial-gradient(circle, rgba(6,54,165,0.4) 0%, transparent 70%)',
           filter: 'blur(100px)',

@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 const LeafletRouteMap = dynamic(() => import('./LeafletRouteMap'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-full min-h-[300px] bg-brand-blue-700 flex items-center justify-center rounded-3xl border border-white/10 animate-pulse">
+    <div className="w-full h-full min-h-75 bg-brand-blue-700 flex items-center justify-center rounded-3xl border border-white/10 animate-pulse">
       <div className="text-center space-y-2">
         <svg className="animate-spin h-8 w-8 text-brand-yellow mx-auto" fill="none" viewBox="0 0 24 24">
           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />

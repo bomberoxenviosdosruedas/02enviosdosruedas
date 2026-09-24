@@ -29,7 +29,7 @@ export default function NewsletterSubscribe() {
           <div className="inline-flex p-3.5 bg-white/10 text-[#FFEC01] rounded-3xl mx-auto border border-white/15 shadow-glow-yellow">
             <Mail className="h-6 w-6 text-[#FFEC01]" />
           </div>
- 
+
           <div className="space-y-3">
             <span className="px-4 py-1.5 bg-[#FFEC01] text-[#0950F6] font-bold rounded-full text-xs font-subheading uppercase tracking-widest inline-block shadow-glow-yellow transform -rotate-1">
               COMUNIDAD LOGÍSTICA
@@ -41,7 +41,7 @@ export default function NewsletterSubscribe() {
               Recibí promociones relámpago, novedades operativas de calle, beneficios corporativos y noticias logísticas de Mar del Plata directamente en tu bandeja de entrada.
             </p>
           </div>
-  
+
           {/* Form container with DoubleBezelCard */}
           <div className="w-full">
             <DoubleBezelCard>
@@ -72,10 +72,11 @@ export default function NewsletterSubscribe() {
                     <div className="pt-5 sm:pt-0 shrink-0 w-full sm:w-auto">
                       <CTANestedPill
                         type="submit"
-                        text="Unirme Ahora"
                         variant="primary"
                         className="w-full sm:w-auto"
-                      />
+                      >
+                        Unirme Ahora
+                      </CTANestedPill>
                     </div>
                   </motion.form>
                 ) : (
@@ -100,13 +101,13 @@ export default function NewsletterSubscribe() {
               </AnimatePresence>
             </DoubleBezelCard>
           </div>
- 
+
           {/* Disclaimer text */}
           <div className="flex items-center justify-center gap-2 text-xs text-white/80 font-sans pt-2">
             <ShieldCheck className="h-4.5 w-4.5 text-[#FFEC01] shrink-0" />
             <span>Garantizamos la privacidad de tus datos. Podés darte de baja con un solo clic en cualquier momento.</span>
           </div>
- 
+
         </div>
       </div>
     </section>

@@ -11,7 +11,7 @@ export default function ConversionBanner() {
       <DoubleBezelCard>
         <div className="bg-[#0950F6] text-white p-8 sm:p-12 rounded-[20px] border border-white/20 relative overflow-hidden text-center space-y-6">
           <MessageCircle
-            className="absolute -bottom-10 -right-10 w-72 h-72 text-white/[0.03] pointer-events-none"
+            className="absolute -bottom-10 -right-10 w-72 h-72 text-white/3 pointer-events-none"
             aria-hidden="true"
           />
 
@@ -34,15 +34,17 @@ export default function ConversionBanner() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <CTANestedPill
                 href="/cotizar/express"
-                text="Cotizá tu Envío"
                 variant="primary"
-              />
+              >
+                Cotizá tu Envío
+              </CTANestedPill>
 
               <CTANestedPill
                 href="https://wa.me/542236602699?text=Hola!%20Quiero%20coordinar%20mis%20env%C3%ADos%20de%20hoy."
-                text="Chateá con Nosotros"
-                variant="secondary"
-              />
+                variant="outline"
+              >
+                Chateá con Nosotros
+              </CTANestedPill>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { Check, Briefcase } from 'lucide-react';
 import NumberFlow from '@number-flow/react';
 import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
@@ -89,7 +89,7 @@ export default function EmprendedoresPricing() {
                       <span className="text-xs font-subheading tracking-wider uppercase text-[#0950F6] font-bold">
                         {plan.badge}
                       </span>
-                      <h3 className="text-2xl font-display uppercase tracking-wider leading-tight text-[#0950F6] font-bold min-h-[56px]">
+                      <h3 className="text-2xl font-display uppercase tracking-wider leading-tight text-[#0950F6] font-bold min-h-14">
                         {plan.name}
                       </h3>
 
@@ -113,7 +113,7 @@ export default function EmprendedoresPricing() {
                         <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-[#0950F6]/80 font-medium">{plan.period}</span>
                       </div>
 
-                      <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-[#0950F6]/80">
+                      <p className="text-sm opacity-90 leading-relaxed font-sans min-h-12 text-[#0950F6]/80">
                         {plan.description}
                       </p>
 
@@ -130,10 +130,11 @@ export default function EmprendedoresPricing() {
                     <div className="pt-4">
                       <CTANestedPill
                         href="https://wa.me/542236602699"
-                        text={`Elegir ${plan.name.split(' ')[0]}`}
                         variant="primary"
                         className="w-full justify-center"
-                      />
+                      >
+                        Elegir {plan.name.split(' ')[0]}
+                      </CTANestedPill>
                     </div>
                   </div>
                 </DoubleBezelCard>
@@ -145,7 +146,7 @@ export default function EmprendedoresPricing() {
         {/* Bottom CTA Special custom callout */}
         <DoubleBezelCard>
           <div className="bg-[#0950F6] text-white rounded-[20px] p-8 relative overflow-hidden text-left border border-white/20 shadow-sm">
-            <Briefcase className="absolute -bottom-8 -right-8 h-64 w-64 text-white/[0.04] pointer-events-none select-none" />
+            <Briefcase className="absolute -bottom-8 -right-8 h-64 w-64 text-white/4 pointer-events-none select-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
 
@@ -164,9 +165,10 @@ export default function EmprendedoresPricing() {
               <div className="lg:col-span-4 flex justify-start lg:justify-end">
                 <CTANestedPill
                   href="https://wa.me/542236602699"
-                  text="Agendar Asesoría 3PL"
                   variant="primary"
-                />
+                >
+                  Agendar Asesoría 3PL
+                </CTANestedPill>
               </div>
 
             </div>

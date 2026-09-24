@@ -45,15 +45,17 @@ export default function ExpressHero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
               <CTANestedPill
                 href="/cotizar/express"
-                text="Cotizá tu envío Express"
                 variant="primary"
-              />
+              >
+                Cotizá tu envío Express
+              </CTANestedPill>
 
               <CTANestedPill
                 href="https://wa.me/542236602699"
-                text="Hablar por WhatsApp"
-                variant="secondary"
-              />
+                variant="outline"
+              >
+                Hablar por WhatsApp
+              </CTANestedPill>
             </div>
 
             {/* Quick KPI Chips */}
@@ -62,7 +64,7 @@ export default function ExpressHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
                   3 Horas
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
                   Rango de Entrega
                 </span>
               </div>
@@ -70,7 +72,7 @@ export default function ExpressHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
                   15:00 hs
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
                   Corte Solicitud
                 </span>
               </div>
@@ -78,7 +80,7 @@ export default function ExpressHero() {
                 <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
                   Hasta 5 kg
                 </span>
-                <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
+                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
                   40x30 cm Límite
                 </span>
               </div>
