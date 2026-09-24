@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import {
   MapPin,
@@ -13,7 +14,6 @@ import {
 } from 'lucide-react';
 import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
 
-// 1. Permitimos que el ícono sea un Componente de React O una ruta string para SVGs locales
 interface ContactCard {
   title: string;
   description: string;
@@ -24,14 +24,13 @@ interface ContactCard {
   subtag: string;
 }
 
-// 2. Definimos las rutas públicas para tus íconos locales
 const contactCards: ContactCard[] = [
   {
     title: 'WhatsApp Comercial',
     description: 'Cotizaciones instantáneas, consultas operativas y seguimiento en vivo por WhatsApp.',
     buttonText: 'Chatear por WhatsApp',
     href: 'https://wa.me/542236602699?text=Hola!%20Vengo%20desde%20la%20p%C3%A1gina%20de%20Contacto.',
-    icon: MessageSquare, // O puedes usar '/iconos/whatapps.svg'
+    icon: MessageSquare,
     tag: 'RESPUESTA < 2 MIN',
     subtag: 'MAR DEL PLATA 2026',
   },
@@ -90,9 +89,15 @@ export default function ContactInfo() {
 
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-[#E6EEFE] border border-[#D6E4FE] text-[#0950F6]">
-                        {/* 3. Renderizado condicional según el tipo de ícono */}
+                        {/* Renderizado con el componente optimizado de Next.js */}
                         {typeof IconComp === 'string' ? (
-                          <img src={IconComp} alt={card.title} className="w-5 h-5 object-contain" />
+                          <Image
+                            src={IconComp}
+                            alt={card.title}
+                            width={20}
+                            height={20}
+                            className="w-5 h-5 object-contain"
+                          />
                         ) : (
                           <IconComp className="w-5 h-5 text-[#0950F6]" />
                         )}
