@@ -33,10 +33,11 @@ describe('SobreNosotrosPage — Tier 1 & 2', () => {
     expect(screen.getByText('Lanzamiento Inicial en MDQ')).toBeInTheDocument();
   });
 
-  it('T1.5: renderiza el widget de Google Reviews con puntuación 5.0 / 5', () => {
+  it('T1.5: renderiza el Hub Logístico FRIULI 1972 con corte diario', () => {
     render(<SobreNosotrosPage />);
-    expect(screen.getByText('GOOGLE REVIEWS')).toBeInTheDocument();
-    expect(screen.getByText('5.0 / 5')).toBeInTheDocument();
+    expect(screen.getByText('HUB LOGÍSTICO')).toBeInTheDocument();
+    expect(screen.getByText('FRIULI')).toBeInTheDocument();
+    expect(screen.getAllByText('Corte 13:00').length).toBeGreaterThan(0);
   });
 
   // ─── TIER 2: BOUNDARY & CORNER CASES (5 tests) ─────────────────────────────
