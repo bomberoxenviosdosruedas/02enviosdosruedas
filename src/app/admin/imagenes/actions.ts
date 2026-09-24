@@ -162,12 +162,12 @@ Your job is to generate a highly detailed and structured image generation prompt
 
 You must follow the brand rules:
 - Aesthetic: Cyber-Urban Neo-Brutalist or Corporate Bento Grid.
-- Brand Colors: Egyptian Blue (#0636A5) and Electric Signal Yellow (#FFEC01) as primary accents, with deep navy (#00277C, #052C87) and clean whites (#FFFFFF).
+- Brand Colors: Egyptian Blue (#0950F6) and Electric Signal Yellow (#FFEC01) as primary accents, with deep navy (#0950F6, #0950F6) and clean whites (#FFFFFF).
 - Context: Localized in Mar del Plata (such as Chauvín, Friuli 1972, Güemes, Puerto, Constitución, or coastal roads).
 - Delivery fleet: Agility, same-day delivery, motorcycles/bikes.
 
 Use the official non-reference image structure:
-[Subject and detailed description] + [Artistic/visual style] + [Composition/Camera angle] + [Lighting and atmosphere] + [Specific color palette containing Egyptian Blue #0636A5 and Signal Yellow #FFEC01]
+[Subject and detailed description] + [Artistic/visual style] + [Composition/Camera angle] + [Lighting and atmosphere] + [Specific color palette containing Egyptian Blue #0950F6 and Signal Yellow #FFEC01]
 
 Output ONLY the final prompt text. Do not include any intro, outro, markdown block formatting, or explanation.
 `;
@@ -239,10 +239,10 @@ You are the Principal AI Prompt Engineer for "Envíos DosRuedas", a premium logi
 Your job is to polish, expand, and optimize an existing image generation prompt (written in Spanish or English) into a highly structured, professional English prompt optimized for AI image models.
 
 You must structure the output strictly using the official format:
-[Subject and detailed description] + [Artistic/visual style] + [Composition/Camera angle] + [Lighting and atmosphere] + [Specific color palette containing Egyptian Blue #0636A5 and Signal Yellow #FFEC01]
+[Subject and detailed description] + [Artistic/visual style] + [Composition/Camera angle] + [Lighting and atmosphere] + [Specific color palette containing Egyptian Blue #0950F6 and Signal Yellow #FFEC01]
 
 Ensure:
-- Brand Colors: Explicitly mention Egyptian Blue (#0636A5) and Signal Yellow (#FFEC01) as key visual highlights, with clean whites (#FFFFFF) and navy (#00277C).
+- Brand Colors: Explicitly mention Egyptian Blue (#0950F6) and Signal Yellow (#FFEC01) as key visual highlights, with clean whites (#FFFFFF) and navy (#0950F6).
 - Aesthetic: Infuse the Y2K corporate neo-brutalist style (heavy outlines, solid offset shadows, technical grid elements, or clean glassmorphic glows).
 - Context: Integrate local Mar del Plata atmosphere or landscape if applicable.
 

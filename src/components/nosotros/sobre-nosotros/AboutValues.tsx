@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, Handshake, Heart } from 'lucide-react';
+import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
 
 export default function AboutValues() {
   const values = [
@@ -13,7 +14,7 @@ export default function AboutValues() {
     },
     {
       title: 'Cuidado del Paquete',
-      desc: 'Tratamos cada paquete como si fuera nuestro. Mochilas reforzadas, cajas seguras y manipulación profesional de mercadería frágil.',
+      desc: 'Tratamos cada paquete como si fuera nuestro. Mochilas reinforced, cajas seguras y manipulación profesional de mercadería frágil.',
       icon: ShieldCheck,
       featured: true,
     },
@@ -27,17 +28,13 @@ export default function AboutValues() {
   return (
     <section 
       id="about-values" 
-      className="py-20 sm:py-24 bg-brand-blue-900 text-white relative z-10 overflow-hidden border-t border-white/10"
+      className="py-20 sm:py-24 bg-[#0950F6] text-white relative z-10 overflow-hidden border-t border-white/10"
     >
-      {/* Background ambient radial glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-blue-500/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-[140px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="text-left max-w-2xl mb-16 space-y-3.5">
-          <span className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
+          <span className="px-4 py-1.5 bg-[#FFEC01] text-[#0950F6] rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
             FILOSOFÍA OPERATIVA
           </span>
           <h2 className="text-white text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -57,25 +54,27 @@ export default function AboutValues() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-7 rounded-[28px] bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-2xl"
+            className="lg:col-span-7"
           >
-            <div className="rounded-[20px] bg-white p-7 sm:p-10 border border-brand-blue-50/50 shadow-sm flex flex-col gap-6 text-brand-blue-700 h-full justify-between">
-              <div className="w-14 h-14 bg-brand-blue-50 text-brand-blue-700 rounded-2xl flex items-center justify-center border border-brand-blue-100">
-                <ShieldCheck className="h-7 w-7 text-brand-blue-500" />
-              </div>
+            <DoubleBezelCard>
+              <div className="flex flex-col gap-6 h-full justify-between">
+                <div className="w-14 h-14 bg-[#E6EEFE] text-[#0950F6] rounded-2xl flex items-center justify-center border border-[#D6E4FE]">
+                  <ShieldCheck className="h-7 w-7 text-[#0950F6]" />
+                </div>
 
-              <div className="space-y-3">
-                <span className="text-xs font-subheading uppercase tracking-wider text-brand-blue-900 font-bold bg-brand-yellow-500 px-3 py-1 rounded-full w-fit transform -rotate-1 inline-block">
-                  Pilar de Confianza
-                </span>
-                <h3 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
-                  Cuidado del Paquete
-                </h3>
-                <p className="text-brand-ink font-sans leading-relaxed text-sm sm:text-base max-w-prose">
-                  Manipulación profesional de paquetería e-commerce, indumentaria, tecnología y repuestos. Cada envío viaja seguro y protegido de las inclemencias del clima marplatense.
-                </p>
+                <div className="space-y-3">
+                  <span className="text-xs font-subheading uppercase tracking-wider text-[#0950F6] font-bold bg-[#FFEC01] px-3 py-1 rounded-full w-fit transform -rotate-1 inline-block">
+                    Pilar de Confianza
+                  </span>
+                  <h3 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-[#0950F6] leading-tight">
+                    Cuidado del Paquete
+                  </h3>
+                  <p className="text-[#0950F6]/80 font-sans leading-relaxed text-sm sm:text-base max-w-prose">
+                    Manipulación profesional de paquetería e-commerce, indumentaria, tecnología y repuestos. Cada envío viaja seguro y protegido de las inclemencias del clima marplatense.
+                  </p>
+                </div>
               </div>
-            </div>
+            </DoubleBezelCard>
           </motion.div>
 
           {/* Secondary Values - 5 cols */}
@@ -91,22 +90,24 @@ export default function AboutValues() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: (idx + 1) * 0.1 }}
-                    className="rounded-[28px] bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-2xl flex-1"
+                    className="flex-1"
                   >
-                    <div className="rounded-[20px] bg-white p-6 sm:p-7 border border-brand-blue-50/50 shadow-sm flex flex-col gap-4 text-brand-blue-700 h-full justify-between">
-                      <div className="w-11 h-11 bg-brand-blue-50 text-brand-blue-700 rounded-xl flex items-center justify-center border border-brand-blue-100 shrink-0">
-                        <Icon className="h-5 w-5 text-brand-blue-500" />
-                      </div>
+                    <DoubleBezelCard>
+                      <div className="flex flex-col gap-4 h-full justify-between">
+                        <div className="w-11 h-11 bg-[#E6EEFE] text-[#0950F6] rounded-xl flex items-center justify-center border border-[#D6E4FE] shrink-0">
+                          <Icon className="h-5 w-5 text-[#0950F6]" />
+                        </div>
 
-                      <div className="space-y-1.5">
-                        <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
-                          {val.title}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-brand-ink leading-relaxed font-sans">
-                          {val.desc}
-                        </p>
+                        <div className="space-y-1.5">
+                          <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-[#0950F6] leading-tight">
+                            {val.title}
+                          </h3>
+                          <p className="text-xs sm:text-sm text-[#0950F6]/80 leading-relaxed font-sans">
+                            {val.desc}
+                          </p>
+                        </div>
                       </div>
-                    </div>
+                    </DoubleBezelCard>
                   </motion.div>
                 );
               })}

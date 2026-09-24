@@ -22,7 +22,7 @@ export default function HeroProceduralBackground({
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(135deg, #021440 0%, #04236B 35%, #0636A5 75%, #00277C 100%)',
+            'linear-gradient(135deg, #0950F6 0%, #0950F6 35%, #0950F6 75%, #0950F6 100%)',
         }}
       />
 

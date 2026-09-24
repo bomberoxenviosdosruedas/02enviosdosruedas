@@ -1,49 +1,46 @@
 import React from 'react';
-import { Metadata } from 'next';
 import Link from 'next/link';
+import { Metadata } from 'next';
 import { Users, HelpCircle, MessageSquare, ArrowRight, ShieldCheck, MapPin, Clock, Truck } from 'lucide-react';
 import CTANestedPill from '@/src/components/ui/CTANestedPill';
-
-const baseUrl = 'https://www.enviosdosruedas.com';
+import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
 
 export const metadata: Metadata = {
-  title: 'Nosotros - Equipo, Historia y Preguntas Frecuentes',
-  description: 'Conocé a Envíos DosRuedas: más de 7 años de trayectoria en logística urbana y última milla en Mar del Plata. Equipo, valores, preguntas frecuentes y contacto directo.',
-  alternates: {
-    canonical: `${baseUrl}/nosotros`,
-  },
+  title: 'Sobre Nosotros, FAQs y Redes | Envíos DosRuedas Mar del Plata',
+  description: 'Conocé al equipo de Envíos DosRuedas: cadetería y mensajería en moto en Mar del Plata. Flota propia, base física en Friuli 1972 Chauvín y más de 7 años de trayectoria. Respuestas a FAQs y canales de contacto directo.',
+  keywords: [
+    'envíos dosruedas nosotros',
+    'cadetería mar del plata historia',
+    'quiénes somos envíos dosruedas',
+    'base física friuli 1972 chauvín',
+    'mensajería en moto mar del plata equipo',
+    'faq cadetería mar del plata',
+  ],
   openGraph: {
-    title: 'Nosotros | Envíos DosRuedas',
-    description: 'Más de 7 años transformando la logística urbana en Mar del Plata con flota propia y base en Friuli 1972.',
-    url: `${baseUrl}/nosotros`,
+    title: 'Sobre Nosotros, FAQs y Redes | Envíos DosRuedas MDQ',
+    description: 'Flota propia, base física en Friuli 1972 y el compromiso de conectar cada barrio de Mar del Plata.',
+    url: 'https://enviosdosruedas.com.ar/nosotros',
     type: 'website',
-    locale: 'es_AR',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Nosotros | Envíos DosRuedas',
-    description: 'Más de 7 años transformando la logística urbana en Mar del Plata con flota propia.',
-    images: [`${baseUrl}/og-image.jpg`],
-    creator: '@enviosdosruedas',
   },
 };
 
 const jsonLdSchema = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
-  name: 'Nosotros - Envíos DosRuedas',
-  description: 'Conocé al equipo, la historia y los valores de Envíos DosRuedas. Logística urbana y última milla en Mar del Plata desde 2017.',
-  url: `${baseUrl}/nosotros`,
+  name: 'Sobre Nosotros | Envíos DosRuedas',
+  description: 'Empresa de mensajería urbana y distribución en moto en Mar del Plata.',
+  url: 'https://enviosdosruedas.com.ar/nosotros',
   mainEntity: {
     '@type': 'Organization',
-    '@id': `${baseUrl}#localbusiness`,
     name: 'Envíos DosRuedas',
-    url: baseUrl,
-    logo: `${baseUrl}/logo-envios-simplified.webp`,
-    sameAs: [
-      'https://www.instagram.com/enviosdosruedas',
-      'https://www.facebook.com/enviosdosruedas',
-    ],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Friuli 1972',
+      addressLocality: 'Mar del Plata',
+      addressRegion: 'Buenos Aires',
+      addressCountry: 'AR',
+    },
+    telephone: '+542236602699',
   },
 };
 
@@ -51,8 +48,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Inicio', item: baseUrl },
-    { '@type': 'ListItem', position: 2, name: 'Nosotros', item: `${baseUrl}/nosotros` },
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://enviosdosruedas.com.ar' },
+    { '@type': 'ListItem', position: 2, name: 'Nosotros', item: 'https://enviosdosruedas.com.ar/nosotros' },
   ],
 };
 
@@ -60,14 +57,11 @@ const sections = [
   {
     id: 'sobre-nosotros',
     label: 'SOBRE NOSOTROS',
-    title: 'Historia, Valores y Trayectoria',
-    description: 'Más de 7 años de experiencia en las calles de Mar del Plata. Flota propia, base física en Friuli 1972 y compromiso real con cada entrega.',
+    title: 'Nuestra Historia y Compromiso',
+    description: 'Conocé quiénes estamos detrás de Envíos DosRuedas en Mar del Plata. Flota propia, base física en Friuli 1972 y compromiso real con cada entrega.',
     icon: Users,
     href: '/nosotros/sobre-nosotros',
     cta: 'Conocé nuestra historia',
-    bgColor: 'bg-brand-blue-700',
-    borderColor: 'border-brand-blue-800',
-    highlightColor: 'text-brand-yellow-500',
   },
   {
     id: 'preguntas-frecuentes',
@@ -77,9 +71,6 @@ const sections = [
     icon: HelpCircle,
     href: '/nosotros/preguntas-frecuentes',
     cta: 'Ver todas las FAQs',
-    bgColor: 'bg-brand-blue-900',
-    borderColor: 'border-brand-blue-800',
-    highlightColor: 'text-brand-yellow-500',
   },
   {
     id: 'nuestras-redes',
@@ -89,9 +80,6 @@ const sections = [
     icon: MessageSquare,
     href: '/nosotros/nuestras-redes',
     cta: 'Ver redes y contacto',
-    bgColor: 'bg-brand-blue-500',
-    borderColor: 'border-brand-blue-600',
-    highlightColor: 'text-brand-yellow-500',
   },
 ];
 
@@ -104,7 +92,7 @@ const values = [
 
 export default function NosotrosPage() {
   return (
-    <main className="min-h-[100dvh] bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-[100dvh] bg-[#F8FAFC] text-[#0950F6] relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -115,32 +103,26 @@ export default function NosotrosPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-brand-blue-700 text-white pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden border-b border-brand-blue-800">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(#FFEC01_1px,transparent_1px)] [background-size:16px_16px]" />
-        </div>
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none bg-brand-yellow-500/10 blur-[120px]" />
-        <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none bg-brand-blue-500/10 blur-[120px]" />
-
+      <section className="relative bg-[#0950F6] text-white pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden border-b border-white/10">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-xs uppercase font-bold tracking-wider mb-4">
-              <Users className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0950F6] text-[#FFEC01] border border-[#FFEC01]/40 font-subheading text-xs uppercase font-bold tracking-wider mb-4 shadow-glow-yellow transform -rotate-1">
+              <Users className="w-3.5 h-3.5 text-[#FFEC01]" />
               <span>EQUIPO · TRAYECTORIA · VALORES · MDQ 2026</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white leading-none">
-              CONOCÉ A <span className="text-brand-yellow-500">ENVÍOS DOSRUEDAS</span>
+              CONOCÉ A <span className="inline-block bg-[#FFEC01] text-[#0950F6] px-3 py-1 rounded-lg transform -rotate-1 shadow-glow-yellow mx-1">ENVÍOS DOSRUEDAS</span>
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-brand-blue-50/90 font-sans leading-relaxed font-light max-w-2xl">
+            <p className="mt-4 text-base sm:text-lg text-white/90 font-sans leading-relaxed font-light max-w-2xl">
               Somos la solución logística y última milla de mayor confianza en Mar del Plata.
               Flota propia, base operativa en Friuli 1972 y más de 7 años recorriendo cada barrio de la ciudad.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <CTANestedPill href="/nosotros/sobre-nosotros" variant="primary" size="large">
+              <CTANestedPill href="/nosotros/sobre-nosotros" variant="primary">
                 Nuestra Historia
               </CTANestedPill>
-              <CTANestedPill href="/nosotros/preguntas-frecuentes" variant="elevated" size="large">
+              <CTANestedPill href="/nosotros/preguntas-frecuentes" variant="secondary">
                 Preguntas Frecuentes
               </CTANestedPill>
             </div>
@@ -151,27 +133,27 @@ export default function NosotrosPage() {
       {/* Values Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-900">
+          <h2 className="font-display text-3xl sm:text-4xl uppercase text-[#0950F6]">
             LO QUE NOS DIFERENCIA
           </h2>
-          <p className="font-sans text-sm sm:text-base text-brand-ink/80 mt-2">
+          <p className="font-sans text-sm sm:text-base text-[#0950F6]/80 mt-2">
             No somos una app. Somos vecinos que entregan con responsabilidad.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((value) => (
-            <div key={value.title} className="bg-white p-6 rounded-2xl border border-brand-blue-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-xl bg-brand-blue-50 text-brand-blue-700 flex items-center justify-center font-bold mb-4">
+            <DoubleBezelCard key={value.title}>
+              <div className="w-12 h-12 rounded-xl bg-[#E6EEFE] text-[#0950F6] flex items-center justify-center font-bold mb-4">
                 <value.icon className="w-6 h-6" />
               </div>
-              <h3 className="font-subheading text-lg uppercase font-bold text-brand-blue-900 mb-2">
+              <h3 className="font-subheading text-lg uppercase font-bold text-[#0950F6] mb-2">
                 {value.title}
               </h3>
-              <p className="font-sans text-sm text-brand-ink/80 leading-relaxed">
+              <p className="font-sans text-sm text-[#0950F6]/80 leading-relaxed">
                 {value.desc}
               </p>
-            </div>
+            </DoubleBezelCard>
           ))}
         </div>
       </section>
@@ -179,10 +161,10 @@ export default function NosotrosPage() {
       {/* Sections Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-900">
+          <h2 className="font-display text-3xl sm:text-4xl uppercase text-[#0950F6]">
             EXPLORÁ NUESTRAS PÁGINAS
           </h2>
-          <p className="font-sans text-sm sm:text-base text-brand-ink/80 mt-2">
+          <p className="font-sans text-sm sm:text-base text-[#0950F6]/80 mt-2">
             Profundizá en lo que te interese: nuestra historia, respuestas a tus dudas o contactanos directo.
           </p>
         </div>
@@ -191,42 +173,36 @@ export default function NosotrosPage() {
           {sections.map((section) => {
             const Icon = section.icon;
             return (
-              <Link
-                key={section.id}
-                href={section.href}
-                className={`group relative ${section.bgColor} ${section.borderColor} p-3 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col`}
-              >
-                <div className="bg-white p-6 rounded-[20px] border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full relative overflow-hidden">
-                  <div className="space-y-4 relative z-10">
-                    <div className="w-12 h-12 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center shrink-0 border border-brand-blue-500 shadow-sm group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors duration-200">
+              <DoubleBezelCard key={section.id}>
+                <div className="space-y-4 flex flex-col justify-between h-full">
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#0950F6] text-[#FFEC01] flex items-center justify-center shrink-0 border border-[#0950F6] shadow-sm">
                       <Icon className="w-6 h-6 shrink-0" />
                     </div>
                     <div>
-                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-500 font-bold">
+                      <span className="text-xs font-subheading tracking-wider uppercase text-[#0950F6] font-bold">
                         {section.label}
                       </span>
-                      <h3 className="text-xl font-display uppercase tracking-wider mt-1 leading-tight text-brand-blue-900 font-bold min-h-[56px]">
+                      <h3 className="text-xl font-display uppercase tracking-wider mt-1 leading-tight text-[#0950F6] font-bold min-h-[56px]">
                         {section.title}
                       </h3>
                     </div>
-                    <p className="text-sm text-brand-ink/80 font-sans leading-relaxed">
+                    <p className="text-sm text-[#0950F6]/80 font-sans leading-relaxed">
                       {section.description}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-brand-blue-100 relative z-10">
+                  <div className="pt-4 border-t border-[#D6E4FE]">
                     <CTANestedPill
                       href={section.href}
-                      variant="outline"
-                      size="default"
+                      variant="primary"
                       className="w-full justify-center"
                     >
                       {section.cta}
-                      <ArrowRight className="w-4 h-4" />
                     </CTANestedPill>
                   </div>
                 </div>
-              </Link>
+              </DoubleBezelCard>
             );
           })}
         </div>
@@ -234,28 +210,28 @@ export default function NosotrosPage() {
 
       {/* CTA Final */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="bg-brand-blue-50/80 border border-brand-blue-100 p-3 rounded-[28px] shadow-float">
-          <div className="bg-white p-6 sm:p-10 rounded-[20px] border border-brand-blue-50/50 shadow-sm text-center">
-            <div className="w-16 h-16 rounded-xl bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center font-bold mx-auto mb-6">
+        <DoubleBezelCard>
+          <div className="text-center space-y-4">
+            <div className="w-16 h-16 rounded-xl bg-[#FFEC01] text-[#0950F6] flex items-center justify-center font-bold mx-auto mb-2">
               <MessageSquare className="w-8 h-8" />
             </div>
-            <h3 className="font-subheading text-2xl sm:text-3xl uppercase font-bold text-brand-blue-900 mb-3">
+            <h3 className="font-subheading text-2xl sm:text-3xl uppercase font-bold text-[#0950F6]">
               ¿TENÉS DUDAS O QUERÉS EMPEZAR?
             </h3>
-            <p className="font-sans text-base sm:text-lg text-brand-ink/80 leading-relaxed max-w-2xl mx-auto mb-6">
+            <p className="font-sans text-base sm:text-lg text-[#0950F6]/80 leading-relaxed max-w-2xl mx-auto">
               Escríbinos por WhatsApp y te respondemos al instante. Sin bots, sin esperas.
               Cotizá tu envío o consultanos lo que necesites.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CTANestedPill href="https://wa.me/542236602699" variant="primary" size="large">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+              <CTANestedPill href="https://wa.me/542236602699" variant="primary">
                 Hablar por WhatsApp
               </CTANestedPill>
-              <CTANestedPill href="/cotizar/express" variant="elevated" size="large">
+              <CTANestedPill href="/cotizar/express" variant="secondary">
                 Cotizá Ahora
               </CTANestedPill>
             </div>
           </div>
-        </div>
+        </DoubleBezelCard>
       </section>
     </main>
   );

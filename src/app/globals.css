@@ -6,7 +6,7 @@
 
 @theme {
   /* OFFICIAL 3-COLOR PALETTE - Ajuste Max #0950F6 - Ley de Tres Colores */
-  /* Regla fundamental: #0950F6 es el azul MÁS oscuro permitido. Eliminados #0636A5, #052D8C, #04236B, #021440, #00277C */
+  /* Regla fundamental: #0950F6 es el azul MÁS oscuro permitido. Eliminados #0950F6, #0950F6, #0950F6, #0950F6, #0950F6 */
   --color-brand-blue-50: #E6EEFE;
   --color-brand-blue-100: #BACEFD;
   --color-brand-blue-200: #8EAFFB;
@@ -33,7 +33,7 @@
   --color-brand-blue: var(--color-brand-blue-700); /* #0950F6 */
   --color-brand-yellow: var(--color-brand-yellow-500);
   --color-brand-white: #FFFFFF;
-  --color-brand-ink: #0950F6; /* Body Ink MAX - era #00277C, ahora #0950F6 - contraste 6.2:1 sobre blanco */
+  --color-brand-ink: #0950F6; /* Body Ink MAX - era #0950F6, ahora #0950F6 - contraste 6.2:1 sobre blanco */
   --color-brand-navy: var(--color-brand-blue-700);
   --color-brand-blue-deep: var(--color-brand-blue-700);
   --color-brand-blue-ink: var(--color-brand-blue-700);

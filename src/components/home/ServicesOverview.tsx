@@ -314,7 +314,7 @@ export default function ServicesOverview() {
     <section
       id="services-overview"
       aria-labelledby="services-overview-title"
-      className="py-24 bg-[#052C87] text-white relative overflow-hidden"
+      className="py-24 bg-[#0950F6] text-white relative overflow-hidden"
       style={{ perspective: '2000px' }}
       onMouseEnter={() => setIsAutoRotate(false)}
       onMouseLeave={() => !selectedService && setIsAutoRotate(true)}

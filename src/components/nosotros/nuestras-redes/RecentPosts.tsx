@@ -73,7 +73,7 @@ export default function RecentPosts() {
   return (
     <section 
       id="recent-posts" 
-      className="py-24 bg-[#052C87] text-white relative overflow-hidden border-t border-white/10"
+      className="py-24 bg-[#0950F6] text-white relative overflow-hidden border-t border-white/10"
     >
       {/* Ambient background glows */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,#0950F6,transparent_50%)] pointer-events-none opacity-30" />
@@ -83,7 +83,7 @@ export default function RecentPosts() {
         
         {/* Header Block */}
         <div className="text-left max-w-2xl mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow-500 text-[#052C87] rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block shadow-glow-yellow font-bold transform -rotate-1">
+          <span className="px-4 py-1.5 bg-brand-yellow-500 text-[#0950F6] rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block shadow-glow-yellow font-bold transform -rotate-1">
             EN VIVO
           </span>
           <h2 className="text-white text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -196,8 +196,8 @@ export default function RecentPosts() {
                           className="group min-h-[44px] bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading tracking-wider text-sm uppercase font-bold py-2 px-4.5 rounded-full flex items-center justify-center gap-2 shadow-glow-yellow transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                         >
                           <span>Ver original</span>
-                          <span className="w-6 h-6 rounded-full bg-[#052C87]/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 shrink-0">
-                            <ExternalLink className="h-3.5 w-3.5 text-[#052C87]" />
+                          <span className="w-6 h-6 rounded-full bg-[#0950F6]/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 shrink-0">
+                            <ExternalLink className="h-3.5 w-3.5 text-[#0950F6]" />
                           </span>
                         </a>
                       </div>

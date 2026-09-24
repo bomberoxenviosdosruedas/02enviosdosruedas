@@ -146,7 +146,7 @@ export default function LeafletRouteMap({
       
       // Underlay glow polyline
       glowPolylineInstance.current = L.polyline(latLngs, {
-        color: '#0636A5',
+        color: '#0950F6',
         weight: 8,
         opacity: 0.7,
         lineCap: 'round',

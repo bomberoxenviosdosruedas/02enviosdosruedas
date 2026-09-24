@@ -1,266 +1,194 @@
 'use client';
 
-import React, { useRef } from 'react';
-import Link from 'next/link';
-import { Check, ArrowRight, Calculator } from 'lucide-react';
-import { Card, CardContent, CardHeader } from '@/src/components/ui/card';
-import { Sparkles } from '@/src/components/ui/sparkles';
-import { TimelineContent } from '@/src/components/ui/timeline-animation';
-import { VerticalCutReveal } from '@/src/components/ui/vertical-cut-reveal';
-import { useReducedMotion } from 'motion/react';
+import React from 'react';
+import { Check, Calculator } from 'lucide-react';
 import NumberFlow from '@number-flow/react';
+import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/src/components/ui/CTANestedPill';
+
+const zones = [
+  {
+    name: 'Radio Urbano Corto',
+    scope: 'Hasta 3 km',
+    price: '$4.600',
+    description: 'Envíos rápidos dentro del área céntrica de Mar del Plata (Centro, Chauvín, Güemes, Plaza Mitre).',
+    bullets: [
+      'Asignación inmediata en moto',
+      'Rango de entrega en 3 horas',
+      'Confirmación por WhatsApp',
+    ],
+    highlight: false,
+    ctaText: 'Cotizar Corto',
+  },
+  {
+    name: 'Radio Urbano Medio',
+    scope: 'Hasta 6 km',
+    price: '$6.100',
+    description: 'Mayor alcance hacia barrios como Constitución, Puerto, La Perla o Terminal Ferroautomotora.',
+    bullets: [
+      'Prioridad de despacho urgente',
+      'Ruta optimizada por cadete',
+      'Seguimiento en tiempo real',
+    ],
+    highlight: true,
+    ctaText: 'Cotizar Medio',
+  },
+  {
+    name: 'Radio Urbano Extendido',
+    scope: 'Hasta 10 km',
+    price: '$8.200',
+    description: 'Conectá puntos distantes de la ciudad como Punta Mogotes, Monolito, B° Libertad o Bosque Peralta Ramos.',
+    bullets: [
+      'Cobertura total de la ciudad',
+      'Atención garantizada Same-Day',
+      'Hasta 5 kg y 40x30 cm',
+    ],
+    highlight: false,
+    ctaText: 'Cotizar Extendido',
+  },
+  {
+    name: 'Radio Periférico',
+    scope: 'Más de 10 km',
+    price: 'A Medida',
+    description: 'Para traslados hacia Batán, Sierra de los Padres o zona sur de Mar del Plata.',
+    bullets: [
+      '$1.000 / km adicional',
+      'Atención personalizada',
+      'Tarifa transparente garantizada',
+    ],
+    highlight: false,
+    ctaText: 'Consultar Tarifa',
+  },
+];
 
 export default function ExpressPricing() {
-  const pricingRef = useRef<HTMLDivElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-
-  const zones = [
-    {
-      name: 'Radio Cercano',
-      scope: 'Hasta 3 km',
-      ctaText: 'Cotizá hasta 3 km',
-      price: '$3.700',
-      description: 'Ideal para entregas inmediatas de cercanía.',
-      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Notificación digital por WhatsApp', 'Custodia digital'],
-      highlight: false,
-    },
-    {
-      name: 'Radio Central',
-      scope: '3 a 5 km',
-      ctaText: 'Cotizá 3 a 5 km',
-      price: '$4.600',
-      description: 'Cobertura intermedia rápida en el casco urbano.',
-      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Notificación digital por WhatsApp', 'Custodia digital'],
-      highlight: true,
-    },
-    {
-      name: 'Radio Extendido',
-      scope: '5 a 7 km',
-      ctaText: 'Cotizá 5 a 7 km',
-      price: '$6.100',
-      description: 'Llegamos a distancias medias con máxima agilidad.',
-      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Notificación digital por WhatsApp', 'Custodia digital'],
-      highlight: false,
-    },
-    {
-      name: 'Radio Perimetral',
-      scope: '7 a 10 km',
-      ctaText: 'Cotizá 7 a 10 km',
-      price: '$8.200',
-      description: 'Máxima cobertura urbana perimetral.',
-      bullets: ['Elegís rango horario', 'Mínimo 2hs anticipación', 'Notificación digital por WhatsApp', 'Custodia digital'],
-      highlight: false,
-    },
-  ];
-
-  const revealVariants = {
-    visible: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      filter: "blur(0px)",
-      transition: {
-        delay: shouldReduceMotion ? 0 : i * 0.15,
-        duration: shouldReduceMotion ? 0 : 0.5,
-      },
-    }),
-    hidden: {
-      filter: shouldReduceMotion ? "none" : "blur(10px)",
-      y: shouldReduceMotion ? 0 : -20,
-      opacity: shouldReduceMotion ? 1 : 0,
-    },
-  };
-
   return (
     <section
       id="express-pricing"
-      className="py-24 bg-brand-blue-500 relative overflow-hidden text-white border-t border-b border-white/10"
-      ref={pricingRef}
+      className="py-24 bg-[#0950F6] relative z-10 overflow-hidden text-white"
     >
-      {/* Background Sparkles overlay throttled for performance */}
-      {!shouldReduceMotion && (
-        <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent_85%)] opacity-25 pointer-events-none">
-          <Sparkles
-            density={350}
-            direction="bottom"
-            speed={0.6}
-            color="#FFFFFF"
-            className="absolute inset-0 h-full w-full"
-          />
-        </div>
-      )}
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
 
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <TimelineContent
-            animationNum={0}
-            timelineRef={pricingRef}
-            customVariants={revealVariants}
-            as="span"
-            className="-rotate-1 px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold uppercase tracking-widest inline-block shadow-glow-yellow"
-          >
+          <span className="-rotate-1 px-4 py-1.5 bg-[#FFEC01] text-[#0950F6] rounded-full text-xs font-subheading font-bold uppercase tracking-widest inline-block shadow-glow-yellow">
             TARIFARIO VIGENTE 2026
-          </TimelineContent>
+          </span>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white flex justify-center leading-[0.98]">
-            <VerticalCutReveal
-              splitBy="words"
-              staggerDuration={0.1}
-              staggerFrom="first"
-              containerClassName="justify-center"
-            >
-              TARIFAS POR DISTANCIA
-            </VerticalCutReveal>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white leading-[0.98]">
+            TARIFAS POR DISTANCIA
           </h2>
 
-          <TimelineContent
-            animationNum={1}
-            timelineRef={pricingRef}
-            customVariants={revealVariants}
-            as="p"
-            className="text-blue-100 font-sans text-base sm:text-lg max-w-lg mx-auto leading-relaxed"
-          >
+          <p className="text-white/80 font-sans text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
             Precios oficiales calculados por rango kilométrico para envíos inmediatos en Mar del Plata.
-          </TimelineContent>
+          </p>
         </div>
 
         {/* Pricing Cards Grid Bento layout with Double Bezel */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {zones.map((zone, idx) => {
+          {zones.map((zone) => {
             const isNumericPrice = zone.price.startsWith('$');
             const numericValue = isNumericPrice ? parseInt(zone.price.replace('$', '').replace('.', '')) : null;
 
             return (
-              <TimelineContent
-                key={zone.scope}
-                animationNum={2 + idx}
-                timelineRef={pricingRef}
-                customVariants={revealVariants}
-                as="div"
-                className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col"
-              >
-                <Card
-                  className={`border-0 bg-white text-brand-blue-900 rounded-[20px] p-6 flex flex-col justify-between h-full group text-left shadow-sm relative overflow-hidden ${
-                    zone.highlight ? 'ring-2 ring-brand-yellow-500' : ''
-                  }`}
-                >
-                  <CardHeader className="p-0 pb-4 text-left relative z-10">
-                    {zone.highlight && (
-                      <span className="-rotate-1 inline-block self-start mb-3 bg-brand-yellow-500 text-brand-blue-900 font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-glow-yellow">
-                        MÁS ELEGIDO
-                      </span>
-                    )}
-
-                    <div>
-                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-500 font-bold">
-                        {zone.name}
-                      </span>
-                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 leading-tight text-brand-blue-900 font-bold">
-                        {zone.scope}
-                      </h3>
-                    </div>
-
-                    <div className="py-3">
-                      {isNumericPrice && numericValue ? (
-                        <div className="flex items-baseline">
-                          <span className="text-4xl sm:text-5xl font-mono tabular-nums font-bold tracking-tight text-brand-blue-900">
-                            $
-                            <NumberFlow
-                              value={numericValue}
-                              format={{ minimumFractionDigits: 0 }}
-                              className="inline-block font-mono tabular-nums"
-                            />
-                          </span>
-                        </div>
-                      ) : (
-                        <span className="text-4xl sm:text-5xl font-mono tabular-nums font-bold tracking-tight text-brand-blue-900">
-                          {zone.price}
+              <div key={zone.scope}>
+                <DoubleBezelCard>
+                  <div className="space-y-3 text-[#0950F6] flex flex-col justify-between h-full">
+                    <div className="space-y-2">
+                      {zone.highlight && (
+                        <span className="-rotate-1 inline-block self-start mb-2 bg-[#FFEC01] text-[#0950F6] font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-glow-yellow">
+                          MÁS ELEGIDO
                         </span>
                       )}
-                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-700 font-medium">/ despacho final</span>
-                    </div>
 
-                    <p className="text-sm leading-relaxed font-sans text-brand-ink/80">
-                      {zone.description}
-                    </p>
-                  </CardHeader>
-
-                  <CardContent className="p-0 pt-0 flex flex-col justify-between flex-grow relative z-10">
-                    {/* Bullets */}
-                    <ul className="space-y-2.5 pt-4 border-t border-brand-blue-100 mb-6">
-                      {zone.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-center gap-2 text-xs text-brand-ink">
-                          <Check className="h-4 w-4 shrink-0 text-brand-blue-500" />
-                          <span className="font-sans text-xs">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div>
-                      <Link
-                        href="/cotizar/express"
-                        className={`group w-full inline-flex items-center justify-between gap-2 px-6 py-3 rounded-full text-sm font-subheading font-bold uppercase tracking-wider min-h-[48px] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 ${
-                          zone.highlight
-                            ? 'bg-brand-yellow-500 text-brand-blue-900 hover:bg-brand-yellow-400 shadow-glow-yellow'
-                            : 'bg-brand-blue-500 text-white hover:bg-brand-blue-700'
-                        }`}
-                      >
-                        <span>{zone.ctaText}</span>
-                        <span className="w-7 h-7 rounded-full bg-current/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
-                          <ArrowRight className="h-4 w-4 shrink-0" />
+                      <div>
+                        <span className="text-xs font-subheading tracking-wider uppercase text-[#0950F6] font-bold">
+                          {zone.name}
                         </span>
-                      </Link>
+                        <h3 className="text-2xl font-display uppercase tracking-wider leading-tight text-[#0950F6] font-bold">
+                          {zone.scope}
+                        </h3>
+                      </div>
+
+                      <div className="py-2">
+                        {isNumericPrice && numericValue ? (
+                          <div className="flex items-baseline">
+                            <span className="text-4xl sm:text-5xl font-mono tabular-nums font-bold tracking-tight text-[#0950F6]">
+                              $
+                              <NumberFlow
+                                value={numericValue}
+                                format={{ minimumFractionDigits: 0 }}
+                                className="inline-block font-mono tabular-nums"
+                              />
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="text-4xl sm:text-5xl font-mono tabular-nums font-bold tracking-tight text-[#0950F6]">
+                            {zone.price}
+                          </span>
+                        )}
+                        <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-[#0950F6]/80 font-medium">/ despacho final</span>
+                      </div>
+
+                      <p className="text-sm leading-relaxed font-sans text-[#0950F6]/80">
+                        {zone.description}
+                      </p>
+
+                      <ul className="space-y-2.5 pt-4 border-t border-[#D6E4FE]">
+                        {zone.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-center gap-2 text-xs text-[#0950F6]">
+                            <Check className="h-4 w-4 shrink-0 text-[#0950F6]" />
+                            <span className="font-sans text-xs">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </CardContent>
-                </Card>
-              </TimelineContent>
+
+                    <div className="pt-4">
+                      <CTANestedPill
+                        href="/cotizar/express"
+                        text={zone.ctaText}
+                        variant={zone.highlight ? 'primary' : 'secondary'}
+                        className="w-full justify-center"
+                      />
+                    </div>
+                  </div>
+                </DoubleBezelCard>
+              </div>
             );
           })}
         </div>
 
         {/* Dynamic Quote Callout (+10 km rule) */}
-        <TimelineContent
-          animationNum={6}
-          timelineRef={pricingRef}
-          customVariants={revealVariants}
-          as="div"
-          className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float"
-        >
-          <div className="bg-brand-blue-900 text-white rounded-[20px] p-8 relative overflow-hidden text-left border border-white/10 shadow-sm">
-            {/* Background icon watermark */}
+        <DoubleBezelCard>
+          <div className="bg-[#0950F6] text-white rounded-[20px] p-8 relative overflow-hidden text-left border border-white/20 shadow-sm">
             <Calculator className="absolute -bottom-8 -right-8 h-64 w-64 text-white/[0.04] pointer-events-none select-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
 
               <div className="lg:col-span-8 space-y-3 text-left">
-                <span className="-rotate-1 inline-block px-3.5 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-glow-yellow">
+                <span className="-rotate-1 inline-block px-3.5 py-1 bg-[#FFEC01] text-[#0950F6] rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-glow-yellow">
                   TRAYECTOS DE MÁS DE 10 KM
                 </span>
                 <h3 className="text-3xl font-display uppercase tracking-tight text-white">
                   +10 km: <span className="font-mono tabular-nums">$1.000</span> por km total (redondeado al entero superior)
                 </h3>
-                <p className="text-sm text-blue-100 leading-relaxed font-sans max-w-2xl">
+                <p className="text-sm text-white/90 leading-relaxed font-sans max-w-2xl">
                   Para envíos de más de 10 km (Batán, Sierra de los Padres, Camet o periferia de General Pueyrredón hasta 20 km), se multiplican los kilómetros totales redondeados hacia arriba por <span className="font-mono tabular-nums">$1.000</span> (ej. 12 km = <span className="font-mono tabular-nums">$12.000</span>). Trayectos mayores a 20 km se cotizan a medida vía WhatsApp.
                 </p>
               </div>
 
               <div className="lg:col-span-4 flex justify-start lg:justify-end">
-                <Link
+                <CTANestedPill
                   href="/cotizar/express"
-                  id="express-pricing-cta-cotizador"
-                  className="group inline-flex items-center justify-between gap-3 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-[48px] shadow-glow-yellow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 w-full sm:w-auto"
-                >
-                  <span>Calcular con Mapa</span>
-                  <span className="w-8 h-8 rounded-full bg-brand-blue-900/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
-                    <Calculator className="h-4 w-4 shrink-0 text-brand-blue-900" />
-                  </span>
-                </Link>
+                  text="Calcular con Mapa"
+                  variant="primary"
+                />
               </div>
 
             </div>
           </div>
-        </TimelineContent>
+        </DoubleBezelCard>
 
       </div>
     </section>

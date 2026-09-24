@@ -58,7 +58,7 @@ describe('SobreNosotrosPage — Tier 1 & 2', () => {
     });
   });
 
-  it('T2.3: aplica las variables de color institucionales correctas (Azul #0636A5 / Amarillo #FFEC01)', () => {
+  it('T2.3: aplica las variables de color institucionales correctas (Azul #0950F6 / Amarillo #FFEC01)', () => {
     const { container } = render(<SobreNosotrosPage />);
     const heroSection = container.querySelector('#about-hero');
     expect(heroSection?.className).toContain('bg-brand-blue-500');

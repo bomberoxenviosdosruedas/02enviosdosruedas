@@ -73,7 +73,7 @@ export default function FaqHero() {
             className="lg:col-span-7 space-y-6 sm:space-y-8"
           >
             {/* Speed Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-[#052C87]/90 text-brand-yellow-500 text-xs sm:text-sm font-subheading uppercase tracking-widest shadow-md backdrop-blur-md transform -rotate-1">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-[#0950F6]/90 text-brand-yellow-500 text-xs sm:text-sm font-subheading uppercase tracking-widest shadow-md backdrop-blur-md transform -rotate-1">
               <HelpCircle className="h-4 w-4 text-brand-yellow-500 shrink-0" />
               <span>CENTRO DE SOPORTE · MAR DEL PLATA 2026</span>
             </div>
@@ -81,7 +81,7 @@ export default function FaqHero() {
             {/* Monumental Headline */}
             <h1 className="font-display uppercase tracking-tight leading-[0.98] text-5xl sm:text-7xl lg:text-[7rem] text-white">
               <span className="block">¿TENÉS</span>
-              <span className="inline-block bg-brand-yellow-500 text-[#052C87] px-3 py-1 rounded-md transform -rotate-1 mt-1 font-display tracking-tight shadow-glow-yellow">
+              <span className="inline-block bg-brand-yellow-500 text-[#0950F6] px-3 py-1 rounded-md transform -rotate-1 mt-1 font-display tracking-tight shadow-glow-yellow">
                 DUDAS?
               </span>
             </h1>
@@ -159,9 +159,9 @@ export default function FaqHero() {
                   <a
                     key={cat.name}
                     href="#faq-accordion"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-[#052C87] border border-white/20 text-white text-xs font-subheading uppercase tracking-wider font-bold transition-all shadow-glow-yellow min-h-[44px] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-[#0950F6] border border-white/20 text-white text-xs font-subheading uppercase tracking-wider font-bold transition-all shadow-glow-yellow min-h-[44px] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                   >
-                    <IconComp className="w-3.5 h-3.5 text-brand-yellow-500 group-hover:text-[#052C87]" />
+                    <IconComp className="w-3.5 h-3.5 text-brand-yellow-500 group-hover:text-[#0950F6]" />
                     <span>{cat.name}</span>
                   </a>
                 );
@@ -177,7 +177,7 @@ export default function FaqHero() {
             className="lg:col-span-5"
           >
             <div className="rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-2xl">
-              <div className="rounded-[20px] bg-[#052C87] p-6 sm:p-7 border border-white/10 shadow-sm relative overflow-hidden space-y-5 text-white">
+              <div className="rounded-[20px] bg-[#0950F6] p-6 sm:p-7 border border-white/10 shadow-sm relative overflow-hidden space-y-5 text-white">
                 {/* Accent line top */}
                 <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-brand-yellow-500 via-white to-brand-yellow-400" />
 

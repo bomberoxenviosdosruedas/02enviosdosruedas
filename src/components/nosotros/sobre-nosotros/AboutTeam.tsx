@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Users2, ShieldCheck, HeartHandshake, MapPin } from 'lucide-react';
 import Image from 'next/image';
+import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
 
 export default function AboutTeam() {
   const teamStats = [
@@ -40,17 +41,13 @@ export default function AboutTeam() {
   return (
     <section
       id="about-team"
-      className="py-20 sm:py-24 bg-[#052C87] text-white relative z-10 overflow-hidden border-t border-white/10"
+      className="py-20 sm:py-24 bg-[#0950F6] text-white relative z-10 overflow-hidden border-t border-white/10"
     >
-      {/* Dynamic ambient glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,#0950F6,transparent_50%)] pointer-events-none opacity-30" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_75%,#FFF12E,transparent_50%)] pointer-events-none opacity-15" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="text-left max-w-3xl mb-16 space-y-3.5">
-          <span className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
+          <span className="px-4 py-1.5 bg-[#FFEC01] text-[#0950F6] rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
             FUERZA OPERATIVA & EXPERIENCIA
           </span>
           <h2 className="text-white text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -72,42 +69,43 @@ export default function AboutTeam() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.08 }}
-                className="rounded-[28px] bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-2xl"
               >
-                <div className="rounded-[20px] bg-[#052C87] p-6 border border-white/10 shadow-sm flex flex-col justify-between h-full text-white space-y-5 relative overflow-hidden">
-                  <Icon className="absolute -right-4 -bottom-4 w-28 h-28 text-white/[0.04] pointer-events-none" />
+                <DoubleBezelCard>
+                  <div className="flex flex-col justify-between h-full space-y-5 relative overflow-hidden">
+                    <Icon className="absolute -right-4 -bottom-4 w-28 h-28 text-[#0950F6]/[0.05] pointer-events-none" />
 
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-10 h-10 bg-white/10 text-brand-yellow-500 rounded-xl flex items-center justify-center border border-white/15">
-                        <Icon className="w-5 h-5 text-brand-yellow-500" />
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="w-10 h-10 bg-[#E6EEFE] text-[#0950F6] rounded-xl flex items-center justify-center border border-[#D6E4FE]">
+                          <Icon className="w-5 h-5 text-[#0950F6]" />
+                        </div>
+                        <span className="text-[10px] font-subheading uppercase tracking-wider bg-[#FFEC01] text-[#0950F6] px-2.5 py-0.5 rounded-full font-bold transform -rotate-1">
+                          {stat.tag}
+                        </span>
                       </div>
-                      <span className="text-[10px] font-subheading uppercase tracking-wider bg-brand-yellow-500 text-[#052C87] px-2.5 py-0.5 rounded-full font-bold transform -rotate-1">
-                        {stat.tag}
+
+                      <span className="block font-mono text-5xl sm:text-6xl font-bold text-[#0950F6] leading-none mb-2 tabular-nums">
+                        {stat.number}
                       </span>
+
+                      <h3 className="text-xl font-display uppercase tracking-tight text-[#0950F6] leading-tight mb-2">
+                        {stat.role}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-[#0950F6]/80 leading-relaxed font-sans">
+                        {stat.desc}
+                      </p>
                     </div>
 
-                    <span className="block font-mono text-5xl sm:text-6xl font-bold text-brand-yellow-500 leading-none mb-2 tabular-nums">
-                      {stat.number}
-                    </span>
-
-                    <h3 className="text-xl font-display uppercase tracking-tight text-white leading-tight mb-2">
-                      {stat.role}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-sans">
-                      {stat.desc}
-                    </p>
+                    <div className="pt-4 border-t border-[#D6E4FE] flex items-center justify-between text-xs text-[#0950F6]/60 font-mono">
+                      <span className="flex items-center gap-1.5">
+                        <Image src="/logo-envios-simplified.webp" alt="Envíos DosRuedas" width={16} height={16} className="object-contain" />
+                        Envíos DosRuedas
+                      </span>
+                      <span className="font-bold text-[#0950F6] tabular-nums">MDQ 2026</span>
+                    </div>
                   </div>
-
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/60 font-mono">
-                    <span className="flex items-center gap-1.5">
-                      <Image src="/logo-envios-simplified.webp" alt="Envíos DosRuedas" width={16} height={16} className="object-contain" />
-                      Envíos DosRuedas
-                    </span>
-                    <span className="font-bold text-brand-yellow-500">MDQ 2026</span>
-                  </div>
-                </div>
+                </DoubleBezelCard>
               </motion.div>
             );
           })}

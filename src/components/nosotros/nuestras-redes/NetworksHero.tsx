@@ -77,7 +77,7 @@ export default function NetworksHero() {
             className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left"
           >
             {/* Speed Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-[#052C87]/90 text-brand-yellow-500 text-xs sm:text-sm font-subheading uppercase tracking-widest shadow-md backdrop-blur-md transform -rotate-1">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-[#0950F6]/90 text-brand-yellow-500 text-xs sm:text-sm font-subheading uppercase tracking-widest shadow-md backdrop-blur-md transform -rotate-1">
               <Share2 className="h-4 w-4 text-brand-yellow-500 animate-pulse shrink-0" />
               <span>COMUNIDAD EN MOVIMIENTO · SOCIAL MEDIA 2026</span>
             </div>
@@ -85,7 +85,7 @@ export default function NetworksHero() {
             {/* Monumental Headline */}
             <h1 className="text-5xl sm:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-display uppercase tracking-tight leading-[0.98] text-white">
               <span className="block">COMUNIDAD EN</span>
-              <span className="inline-block bg-brand-yellow-500 text-[#052C87] px-3 py-1 rounded-md transform -rotate-1 mt-1 font-display tracking-tight shadow-glow-yellow">
+              <span className="inline-block bg-brand-yellow-500 text-[#0950F6] px-3 py-1 rounded-md transform -rotate-1 mt-1 font-display tracking-tight shadow-glow-yellow">
                 LÍNEA
               </span>
             </h1>
@@ -209,7 +209,7 @@ export default function NetworksHero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mt-6 w-full max-w-sm bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[20px] shadow-float z-10"
             >
-              <div className="bg-[#052C87] text-white p-4 rounded-[16px] border border-white/10 shadow-sm space-y-3">
+              <div className="bg-[#0950F6] text-white p-4 rounded-[16px] border border-white/10 shadow-sm space-y-3">
                 <div className="flex items-center justify-between border-b border-white/15 pb-2.5">
                   <div className="flex items-center gap-2">
                     <span className="relative flex h-2 w-2">
