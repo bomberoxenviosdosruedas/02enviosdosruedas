@@ -179,7 +179,7 @@ export default function GuiaEnviosFlexPage() {
               ¿Por qué activar Flex si vendés en Mar del Plata?
             </h2>
             <p className="font-sans text-base text-brand-blue-600 leading-relaxed">
-              En Mar del Plata, más del 65% de los compradores de Mercado Libre prefieren publicaciones con la insignia <strong>"Llega hoy"</strong>. Activar Envíos Flex posiciona tus publicaciones en los primeros lugares de búsqueda para usuarios ubicados en el Partido de General Pueyrredón, multiplicando tu tasa de conversión sin costos adicionales de comisión.
+              En Mar del Plata, más del 65% de los compradores de Mercado Libre prefieren publicaciones con la insignia <strong>&quot;Llega hoy&quot;</strong>. Activar Envíos Flex posiciona tus publicaciones en los primeros lugares de búsqueda para usuarios ubicados en el Partido de General Pueyrredón, multiplicando tu tasa de conversión sin costos adicionales de comisión.
             </p>
           </div>
 

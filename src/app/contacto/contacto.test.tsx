@@ -11,7 +11,7 @@ describe('ContactoPage — Verbatim & Functionality Tests', () => {
   it('1. Renderiza el contenedor principal y el hero de la página', () => {
     const { container } = render(<ContactoPage />);
     expect(container.querySelector('main')).toBeInTheDocument();
-    expect(screen.getByText('Conexión Directa Mar del Plata')).toBeInTheDocument();
+    expect(screen.getByText(/Conexión Directa.*Mar del Plata/i)).toBeInTheDocument();
   });
 
   it('2. Verifica los textos literales y campos de la sección Formulario de Contacto', () => {

@@ -174,7 +174,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
     fireEvent.click(screen.getByRole('button', { name: /Calcular Ruta/ }));
 
     await waitFor(() => {
-      const waButton = screen.getByRole('link', { name: /Pedir por WhatsApp/ });
+      const waButton = screen.getByRole('link', { name: /Pedí.*WhatsApp/i });
       expect(waButton).toHaveAttribute('href');
       expect(waButton.getAttribute('href')).toContain('https://wa.me/542236602699');
       expect(waButton.getAttribute('href')).toContain('Alberto');

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import CTANestedPill from '@/components/ui/CTANestedPill';
 import { motion } from 'motion/react';
@@ -143,10 +144,13 @@ export default function ExpressHero() {
             <div className="relative w-80 h-80 sm:w-96 sm:h-96 flex items-center justify-center animate-float-slow z-10">
               <div className="absolute inset-0 rounded-full bg-brand-blue-500/20 blur-2xl pointer-events-none"></div>
               <div className="relative z-10 w-72 h-72 sm:w-84 sm:h-84 flex items-center justify-center group">
-                <img
+                <Image
                   src="/elementos/icono_express.webp"
                   alt="Envíos Express - Envíos DosRuedas"
+                  width={336}
+                  height={336}
                   className="w-full h-full object-cover rounded-2xl drop-shadow-[0_20px_35px_rgba(0,16,53,0.7)] filter group-hover:scale-105 transition-transform duration-500"
+                  priority
                 />
               </div>
               <div className="absolute -top-3 right-0 bg-white/10 backdrop-blur-md border border-brand-yellow-500/40 p-2 rounded-xl shadow-lg flex items-center gap-1.5 z-20 px-3 py-1.5">

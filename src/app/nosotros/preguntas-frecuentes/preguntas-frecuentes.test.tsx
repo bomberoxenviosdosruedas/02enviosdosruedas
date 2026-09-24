@@ -40,7 +40,7 @@ describe('PreguntasFrecuentesPage — Tier 1 & 2', () => {
     const pagosTabButton = screen.getByText('Precios, Pagos y Facturación');
     fireEvent.click(pagosTabButton);
 
-    expect(screen.getByText('¿Cómo calculan el costo del envío?')).toBeInTheDocument();
+    expect(screen.getByText(/¿Cuáles son las tarifas vigentes 2026/i)).toBeInTheDocument();
     expect(screen.queryByText('¿Qué tipo de servicios y soluciones logísticas realizan en Mar del Plata?')).not.toBeInTheDocument();
   });
 

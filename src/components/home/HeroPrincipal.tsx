@@ -1,4 +1,4 @@
-﻿﻿'use client';
+'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -61,7 +61,7 @@ export default function HeroPrincipal() {
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-tighter leading-[0.9] flex flex-col items-center lg:items-start gap-2 select-none text-balance">
-              <span>MensajerÃ­a y LogÃ­stica</span>
+              <span>Mensajería y Logística</span>
               <span className="relative inline-block bg-brand-yellow-500 text-brand-blue-700 px-3.5 py-1 my-1 -rotate-1 rounded-xl shadow-[0_0_28px_rgba(255,236,1,0.45)]">
                 <span className="font-display font-black">E-Commerce</span>
               </span>

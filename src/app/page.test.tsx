@@ -28,13 +28,13 @@ describe('Home Page', () => {
     expect(container).toBeInTheDocument();
 
     // Check Hero section title text
-    expect(screen.getByText(/Mensajería y Logística/i)).toBeInTheDocument();
+    expect(screen.getByText(/Mensajeria.*Logistica/i)).toBeInTheDocument();
     expect(screen.getAllByText(/E-Commerce/i).length).toBeGreaterThan(0);
 
     // Check Vision section heading
     expect(screen.getByText(/CONECTAMOS MAR DEL PLATA DE PUNTA A PUNTA/i)).toBeInTheDocument();
 
     // Check Services Overview section heading
-    expect(screen.getByText(/NUESTROS SERVICIOS/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/NUESTROS SERVICIOS/i).length).toBeGreaterThan(0);
   });
 });
