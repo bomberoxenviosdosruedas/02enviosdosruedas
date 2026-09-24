@@ -56,7 +56,11 @@ const mockMotionComponent = (tag: string) => {
 };
 
 const mockMotion: any = {};
-['div', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'section', 'button', 'a', 'form', 'input', 'label', 'ul', 'li', 'ol'].forEach(tag => {
+// Mantener sincronizado con los tags reales usados como motion.<tag> en src/
+// (grep: motion.([a-z]+)). Sin article/aside/footer/header/nav el mock devuelve
+// undefined y React crashea con "Element type is invalid" (p. ej. en
+// SocialProofSection, PrivacyContent, TermsContent y timeline-animation).
+['div', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'section', 'button', 'a', 'form', 'input', 'label', 'ul', 'li', 'ol', 'article', 'aside', 'footer', 'header', 'nav'].forEach(tag => {
   mockMotion[tag] = mockMotionComponent(tag);
 });
 
