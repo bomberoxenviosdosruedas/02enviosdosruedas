@@ -57,7 +57,11 @@ export default function SegmentosHome() {
   ];
 
   return (
-    <section id="segmentos-home" className="py-20 bg-brand-white-50 relative z-10 border-b border-brand-blue-100/50">
+    <section 
+      id="segmentos-home" 
+      aria-labelledby="segmentos-home-title"
+      className="py-20 bg-brand-white-50 relative z-10 border-b border-brand-blue-100/50"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -65,7 +69,7 @@ export default function SegmentosHome() {
             <Sparkles className="w-3.5 h-3.5 text-brand-blue-700" />
             <span>Elegí tu solución a medida</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-700">
+          <h2 id="segmentos-home-title" className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-700">
             ¿CÓMO PODEMOS IMPULSAR TU LOGÍSTICA HOY?
           </h2>
           <p className="font-sans text-sm sm:text-base text-brand-blue-600/90 max-w-xl mx-auto leading-relaxed">

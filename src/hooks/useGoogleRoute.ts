@@ -22,6 +22,7 @@ interface UseGoogleRouteState {
 /**
  * Hook para calcular rutas reales por carretera utilizando la API de Google Directions.
  * Requiere NEXT_PUBLIC_GOOGLE_MAPS_API_KEY configurada.
+ * Soporta AbortController para cancelación de requests en vuelo.
  */
 export function useGoogleRoute() {
   const [state, setState] = useState<UseGoogleRouteState>({
@@ -31,13 +32,17 @@ export function useGoogleRoute() {
   });
 
   const fetchRoute = useCallback(
-    async (origin: Coordinate, destination: Coordinate): Promise<RouteResult | null> => {
+    async (
+      origin: Coordinate,
+      destination: Coordinate,
+      signal?: AbortSignal
+    ): Promise<RouteResult | null> => {
       setState({ result: null, error: null, isLoading: true });
 
       try {
         const url = `/api/routes/directions?origin=${origin.lat},${origin.lng}&destination=${destination.lat},${destination.lng}`;
 
-        const res = await fetch(url);
+        const res = await fetch(url, { signal });
         if (!res.ok) {
           throw new Error('Error al obtener la ruta de Google Maps');
         }
@@ -67,6 +72,11 @@ export function useGoogleRoute() {
         setState({ result, error: null, isLoading: false });
         return result;
       } catch (err: unknown) {
+        // Ignorar errores de abort (cancelación intencional)
+        if (err instanceof Error && err.name === 'AbortError') {
+          setState({ result: null, error: null, isLoading: false });
+          return null;
+        }
         console.error('[useGoogleRoute]', err);
         const errorMessage = err instanceof Error ? err.message : 'No se pudo calcular la ruta. Por favor, intentá de nuevo más tarde.';
         setState({ result: null, error: errorMessage, isLoading: false });

@@ -64,6 +64,7 @@ export default function EmprendedoresHome() {
   return (
     <section
       id="emprendedores-home"
+      aria-labelledby="emprendedores-home-title"
       className="py-32 md:py-48 bg-[#0950F6] relative overflow-hidden text-white border-y border-white/10"
     >
       {/* Background Decorative Asymmetric Glows */}
@@ -88,7 +89,7 @@ export default function EmprendedoresHome() {
             Socio Estratégico Local
           </span>
 
-          <h2 className="text-white text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9] text-left max-w-5xl">
+          <h2 id="emprendedores-home-title" className="text-white text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9] text-left max-w-5xl">
             Potenciamos tu{' '}
             <span
               className="inline-flex items-center justify-center w-16 sm:w-20 md:w-24 h-8 sm:h-10 md:h-12 rounded-full align-middle bg-gradient-to-r from-brand-yellow-500 to-brand-yellow-400 mx-2 border border-brand-yellow-500 shadow-md text-brand-blue-900 font-display text-base sm:text-xl font-bold uppercase transition-transform duration-500 hover:scale-105"

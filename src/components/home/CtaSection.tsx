@@ -44,6 +44,7 @@ export default function CtaSection() {
   return (
     <section
       id="cta-section"
+      aria-labelledby="cta-section-title"
       className="py-20 lg:py-28 bg-[#0950F6] relative z-10 overflow-hidden px-4 sm:px-6 lg:px-8 shadow-[0_25px_50px_-12px_rgba(9,80,246,0.25)]"
     >
       <motion.div
@@ -72,7 +73,7 @@ export default function CtaSection() {
               </span>
             </motion.div>
 
-            <motion.h2 className="text-[#0950F6] font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase leading-[0.98] tracking-tight">
+            <motion.h2 id="cta-section-title" className="text-[#0950F6] font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase leading-[0.98] tracking-tight">
               ¿Listo para escalar la logística de tu e-commerce?
             </motion.h2>
 

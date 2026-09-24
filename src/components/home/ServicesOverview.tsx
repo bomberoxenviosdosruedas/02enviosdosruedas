@@ -298,6 +298,7 @@ export default function ServicesOverview() {
   return (
     <section
       id="services-overview"
+      aria-labelledby="services-overview-title"
       className="py-24 bg-[#052C87] text-white relative overflow-hidden"
       style={{ perspective: '2000px' }}
       onMouseEnter={() => setIsAutoRotate(false)}
@@ -324,7 +325,7 @@ export default function ServicesOverview() {
             <div className="px-4 py-1.5 bg-[#0950F6] text-[#FFF12E] rounded-full text-xs font-subheading font-bold tracking-widest inline-block uppercase shadow-glow-yellow mb-3 border border-[#FFF12E]/40">
               NUESTROS SERVICIOS
             </div>
-            <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-tight leading-none text-balance">
+            <h2 id="services-overview-title" className="font-display text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-tight leading-none text-balance">
               SOLUCIONES LOGÍSTICAS <br />
               <span className="text-[#FFF12E] drop-shadow-[0_2px_10px_rgba(255,241,46,0.35)] underline decoration-[#0950F6] underline-offset-8">
                 A TU MEDIDA

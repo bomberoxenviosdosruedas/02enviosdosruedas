@@ -1,135 +1,25 @@
 'use client';
 
-import React, { useState, useTransition } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
-import { Calculator, CheckCircle2, AlertTriangle, ArrowRight, User, Phone, Package, MapPin } from 'lucide-react';
-import AddressAutocomplete from '../../ui/AddressAutocomplete';
-import DynamicRouteMap from '../../ui/DynamicRouteMap';
-import { useGoogleRoute, type Coordinate } from '@/src/hooks/useGoogleRoute';
-import { type PriceRangeProp } from '@/src/lib/pricing';
-import { calculateQuoteAction, type QuoteState } from '@/src/actions/quote';
-import { trackAnalytics } from '@/src/lib/analytics';
-import { buildWhatsAppUrl } from '@/src/lib/whatsapp';
+import React from 'react';
+import { Calculator } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import CotizadorExpressFormFields from './CotizadorExpressFormFields';
+import CotizadorExpressResults from './CotizadorExpressResults';
+import CotizadorExpressMap from './CotizadorExpressMap';
+import { useCotizadorExpress } from './hooks/useCotizadorExpress';
+import { useQuoteAnalytics } from './hooks/useQuoteAnalytics';
+import type { PriceRangeProp } from '@/src/lib/pricing';
 
 export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges?: PriceRangeProp[] }) {
-  const [origen, setOrigen] = useState('');
-  const [destino, setDestino] = useState('');
-  const [nombre, setNombre] = useState('');
-  const [telefono, setTelefono] = useState('');
-  const [producto, setProducto] = useState('');
-  const [origenCoords, setOrigenCoords] = useState<Coordinate | null>(null);
-  const [destinoCoords, setDestinoCoords] = useState<Coordinate | null>(null);
-  const [routeCoords, setRouteCoords] = useState<[number, number][]>([]);
+  const form = useCotizadorExpress({ priceRanges });
+  const analytics = useQuoteAnalytics();
 
-  const [isCalculating, setIsCalculating] = useState(false);
-  const [, startTransition] = useTransition();
-  const [calculated, setCalculated] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState<{
-    distancia: number;
-    precio: number | 'consultar';
-  } | null>(null);
-  const [quoteId, setQuoteId] = useState<string | null>(null);
+  // Track quote start when any input gets focus (delegated to form fields)
+  const handleInputFocus = form.handleInputFocus;
 
-  const { fetchRoute } = useGoogleRoute();
-  const shouldReduceMotion = useReducedMotion();
-  const initialState: QuoteState = { success: false, price: null, error: null };
-  const hasTrackedStart = React.useRef(false);
-
-  const handleInputFocus = () => {
-    if (!hasTrackedStart.current) {
-      hasTrackedStart.current = true;
-      trackAnalytics.quoteStart('express');
-    }
-  };
-
-  const handleCalculate = (e: React.FormEvent) => {
-    e.preventDefault();
-    startTransition(async () => {
-      if (!origenCoords || !destinoCoords) {
-        setError('Por favor, elegí direcciones válidas de la lista desplegable de sugerencias.');
-        return;
-      }
-
-      setIsCalculating(true);
-      setCalculated(false);
-      setError(null);
-
-      const route = await fetchRoute(origenCoords, destinoCoords);
-
-      if (!route) {
-        setError('No se pudo calcular la ruta. Por favor, intentá de nuevo en unos momentos.');
-        setIsCalculating(false);
-        return;
-      }
-
-      setRouteCoords(route.routeCoords);
-
-      const formData = new FormData();
-      formData.append('distanceKm', route.distanceKm.toString());
-      formData.append('serviceType', 'EXPRESS');
-      formData.append('priceRanges', JSON.stringify(priceRanges));
-
-      const actionResult = await calculateQuoteAction(initialState, formData);
-
-      if (!actionResult.success) {
-        setError(actionResult.error || 'Error al calcular el valor del envío');
-        setIsCalculating(false);
-        return;
-      }
-
-      const newQuoteId = `DR-${Math.floor(1000 + Math.random() * 9000)}`;
-      setQuoteId(newQuoteId);
-
-      setResult({
-        distancia: route.distanceKm,
-        precio: actionResult.price!,
-      });
-      setCalculated(true);
-      setIsCalculating(false);
-
-      if (typeof window !== 'undefined') {
-        try {
-          sessionStorage.setItem('last_quote_id', newQuoteId);
-          sessionStorage.setItem('last_quote_data', JSON.stringify({
-            id: newQuoteId,
-            service: 'EXPRESS',
-            distancia: route.distanceKm,
-            precio: actionResult.price,
-            origen,
-            destino,
-            nombre,
-            telefono,
-            producto,
-            timestamp: new Date().toISOString(),
-          }));
-        } catch {
-          // Session storage fallback
-        }
-      }
-
-      trackAnalytics.quoteComplete({
-        service: 'express',
-        distanceKm: route.distanceKm,
-        priceArs: actionResult.price!,
-        result: actionResult.price === 'consultar' ? 'consultar' : 'price',
-      });
-    });
-  };
-
-  const getWhatsAppLink = () => {
-    if (!result) return '#';
-    const priceText = result.precio === 'consultar' ? 'A convenir (Excede radio estándar)' : `$${result.precio.toLocaleString('es-AR')}`;
-    const text = `¡Hola Envíos DosRuedas! Quiero coordinar un Envío Express cotizado en la web:
-🆔 *Cotización N°:* #${quoteId || 'WEB'}
-👤 *Nombre:* ${nombre}
-📞 *Teléfono:* ${telefono}
-📦 *Producto:* ${producto}
-📍 *Origen:* ${origen}
-🏁 *Destino:* ${destino}
-📏 *Distancia:* ${result.distancia} km
-💵 *Tarifa Express 2026:* ${priceText}`;
-    return buildWhatsAppUrl({ message: text, source: 'cotizador_express' });
+  // Track WhatsApp click from results
+  const handleWhatsAppClick = () => {
+    analytics.trackWhatsAppClick('cotizador_express_resultado');
   };
 
   return (
@@ -148,7 +38,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
               <span className="px-3.5 py-1 bg-white/10 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold tracking-wider uppercase border border-white/20 -rotate-1 shadow-glow-yellow inline-block">
                 Cotización Al Instante · Mar del Plata
               </span>
-              <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white mt-3">
+              <h2 id="cotizador-title" className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white mt-3">
                 Calculá tu Envío Express
               </h2>
               <p className="text-white/80 text-sm font-sans mt-1 leading-relaxed">
@@ -342,33 +232,10 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
                         </div>
                       </div>
 
-                      {result.precio === 'consultar' ? (
-                        <a
-                          href="/contacto"
-                          className="w-full sm:w-auto min-h-[52px] inline-flex items-center justify-between bg-white/10 hover:bg-white/20 text-white font-subheading text-sm tracking-wider uppercase px-5 py-3 rounded-full border border-white/20 shadow transition-all active:scale-[0.98]"
-                        >
-                          <span>Pedir Cotización Especial</span>
-                          <ArrowRight className="h-4 w-4 ml-3" />
-                        </a>
-                      ) : (
-                        <a
-                          href={getWhatsAppLink()}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => trackAnalytics.whatsappClick('cotizador_express_resultado')}
-                          className="group w-full sm:w-auto min-h-[52px] inline-flex items-center justify-between bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold text-sm tracking-wider uppercase px-5 py-3 rounded-full shadow-cta-glow transition-all active:scale-[0.98]"
-                        >
-                          <span>Pedí por WhatsApp</span>
-                          <span className="w-7 h-7 rounded-full bg-brand-blue-900/10 text-brand-blue-900 flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
-                            <CheckCircle2 className="h-4 w-4" />
-                          </span>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <CotizadorExpressResults
+              form={form}
+              error={form.error}
+            />
           </div>
         </div>
       </article>
