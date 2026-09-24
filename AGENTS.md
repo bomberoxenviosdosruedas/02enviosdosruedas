@@ -10,39 +10,50 @@ Mensajería y logística de última milla en Mar del Plata (Partido de General P
 
 ## Comandos
 
-| Acción | Comando | Tiempo aprox. |
-|---|---|---|
-| Typecheck | `pnpm typecheck` | ~20 s |
-| Lint de archivos puntuales | `pnpm exec eslint <archivos>` | ~1 min |
-| Lint completo (solo si cambió config ESLint) | `pnpm run lint` | ~2 min |
-| Tests relacionados a lo tocado | `pnpm exec vitest related <archivos> --run` | ~40 s |
-| Tests de un archivo | `pnpm exec vitest run <ruta>` | según archivo |
-| Build de producción | `pnpm build` (Windows: `powershell -ExecutionPolicy Bypass -Command "pnpm build"`) | **10–12 min** |
-| Dev | `pnpm dev` (si el hot-reload no refleja cambios en Windows: `pnpm dev --webpack`) | — |
-| Prisma | `pnpm prisma generate` · `pnpm prisma db push` | — |
+| Acción                                       | Comando                                                                            | Tiempo aprox. |
+| -------------------------------------------- | ---------------------------------------------------------------------------------- | ------------- |
+| Typecheck                                    | `pnpm typecheck`                                                                   | ~20 s         |
+| Lint de archivos puntuales                   | `pnpm exec eslint <archivos>`                                                      | ~1 min        |
+| Lint completo (solo si cambió config ESLint) | `pnpm run lint`                                                                    | ~2 min        |
+| Tests relacionados a lo tocado               | `pnpm exec vitest related <archivos> --run --reporter=dot`                         | ~40 s         |
+| Tests de un archivo                          | `pnpm exec vitest run <ruta>`                                                      | según archivo |
+| Build de producción                          | `pnpm build` (Windows: `powershell -ExecutionPolicy Bypass -Command "pnpm build"`) | **10–12 min** |
+| Dev                                          | `pnpm dev` (si el hot-reload no refleja cambios en Windows: `pnpm dev --webpack`)  | —             |
+| Prisma                                       | `pnpm prisma generate` · `pnpm prisma db push`                                     | —             |
 
 - **Nunca** correr `pnpm test` a secas: el script en `package.json` lanza `vitest` en modo watch y deja al agente colgado. Usar siempre `pnpm exec vitest run ...` o `pnpm exec vitest related --run`.
-- `pnpm dev` solo en segundo plano y solo si hace falta ver la app.
 - No existe suite E2E (no hay Playwright configurado).
 
-## Protocolo de trabajo (Plan → Ejecuta → Verifica → Itera → Build final)
+## Protocolo de trabajo (Plan → Ejecuta → Verifica según riesgo → Itera → Cierre)
 
-Ninguna tarea que toque código se marca `completed` sin pasar el paso 5.
+La verificación **se escala según el riesgo de lo que tocaste**, no se corre completa siempre. Cada chequeo cuesta tiempo y tokens: correr solo lo que puede fallar por tu cambio.
 
-| Fase | Acción | Criterio |
-|---|---|---|
-| **1. PLAN** | Leer los archivos que la tarea toca y la sección de referencia que corresponda (ver "Documentos de referencia"). Definir archivos afectados y criterio de terminado | Plan con archivos afectados |
-| **2. EJECUTA** | Cambios mínimos y atómicos, siguiendo este archivo y `DESIGN.md` | Sin `any`, Server Components por defecto |
-| **3. VERIFICA (loop rápido, repetible)** | `pnpm typecheck` + `pnpm exec eslint <archivos que editaste en esta tarea>` + `pnpm exec vitest run <archivo de test>` si aplica | 0 errores de TypeScript, sin errores ni warnings nuevos en lo tocado |
-| **4. ITERA** | Si falla → corregir → volver al paso 3, las veces que haga falta | Loop hasta verde. **Nunca** correr `pnpm build` en esta vuelta |
-| **5. BUILD FINAL (una sola vez, al cerrar la tarea)** | `pnpm build` (Windows: `powershell -ExecutionPolicy Bypass -Command "pnpm build"`) + `pnpm run lint` completo + suite de tests relevante (`pnpm exec vitest run <carpeta o archivos>`) | Build sin errores, 0 errores de TypeScript, ningún error de lint ni test **nuevo** respecto del baseline. Recién acá se marca `completed` |
+| Fase            | Acción                                                                                                                                                                         | Criterio                                        |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| **1. PLAN**     | Leer los archivos que la tarea toca y la sección de referencia que corresponda. Definir archivos afectados, criterio de terminado y **nivel de verificación** (tabla de abajo) | Plan con archivos y nivel                       |
+| **2. EJECUTA**  | Cambios mínimos y atómicos, siguiendo este archivo y `DESIGN.md`                                                                                                               | Sin `any`, Server Components por defecto        |
+| **3. VERIFICA** | Correr **solo** los chequeos del nivel, una vez, al terminar el cambio (no después de cada edición)                                                                            | Sin errores ni warnings **nuevos** en lo tocado |
+| **4. ITERA**    | Si algo falla: corregir y **re-correr solo el chequeo que falló**. Máximo 3 vueltas; si sigue fallando, parar y reportar con el error                                          | Loop hasta verde                                |
+| **5. CIERRE**   | Build y lint completo **solo si el nivel lo exige** (N3) o si el usuario lo pide                                                                                               | Recién acá se marca `completed`                 |
 
-> **Por qué dos velocidades:** `pnpm build` compila y prerenderiza el sitio entero (10–12 min en esta máquina); es el paso más lento del flujo. Se corre **una sola vez**, como gate final antes de marcar la tarea `completed`. Durante el loop de iteración, `pnpm typecheck` (incremental, `tsc --noEmit`, ~20 s) + lint acotado a los archivos que **vos editaste** (pasalos directo a `pnpm exec eslint`, sin `git diff`) detectan la gran mayoría de los errores sin recompilar todo el sitio en cada ajuste chico.
+### Niveles de verificación
 
-- **Tests:** nunca `pnpm test` a secas ni `pnpm test <archivo>`: es `vitest` en modo watch y deja al agente colgado. Siempre `pnpm exec vitest run ...`.
-- **Tareas solo de documentación, markdown o assets:** no aplican los pasos 3–5.
-- **Baseline de fallos previos (2026-09-21):** 57 errores de lint en otros archivos; 5 tests fallan en `cotizar/express`, `cotizar/lowcost`, `preguntas-frecuentes` y `lib/promises.test.ts`. No perseguirlos salvo que la tarea sea arreglarlos. Para confirmar que un fallo no es tuyo, correr el mismo test con tus cambios en `git stash`. Cuando el lint quede limpio, el criterio del paso 5 pasa a ser "0 warnings ESLint".
-- **Al reportar:** decir qué pasos se corrieron y su resultado. Si el build no se corrió (o falló), decirlo explícitamente y no marcar `completed`.
+Elegir el nivel **más alto** que aplique a cualquier archivo tocado.
+
+| Nivel                              | Qué tocaste                                                                                                                                                                                                                                                                       | Qué correr                                                                                                                                                                      | Qué NO correr                                                                   |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **N0 — Docs**                      | Markdown, comentarios, assets en `public/`, `docs/`                                                                                                                                                                                                                               | Nada                                                                                                                                                                            | Todo                                                                            |
+| **N1 — Estilo y copy**             | Solo `className`, textos visibles, orden de JSX, íconos; sin cambiar props, tipos, imports, hooks ni lógica                                                                                                                                                                       | `pnpm exec eslint <archivos>`                                                                                                                                                   | typecheck, tests, build                                                         |
+| **N2 — Componente o lógica local** | Props, tipos, imports, hooks, estado, handlers o componentes nuevos en `src/components/**` o `src/hooks/**`                                                                                                                                                                       | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run` **solo si existe un test que los cubra**                                         | build, lint completo, suite entera                                              |
+| **N3 — Crítico o transversal**     | `src/lib/pricing.ts` y demás `src/lib/**`, `src/actions/**`, `src/app/api/**`, `src/proxy.ts`, `prisma/**`, `src/app/layout.tsx`, `src/app/globals.css`, `tailwind.config.ts`, `next.config.ts`, `eslint.config.mjs`, `package.json`, rutas o metadata SEO, o más de ~10 archivos | Lo de N2 + tests del área (`pnpm exec vitest run <carpeta>`) + **cierre:** `pnpm build` (Windows: `powershell -ExecutionPolicy Bypass -Command "pnpm build"`) + `pnpm run lint` | Suite entera, salvo cambios transversales (config, `globals.css`, `layout.tsx`) |
+
+- **Tests nuevos:** escribirlos solo si la tarea lo pide, si es N3 con lógica (precios, Server Actions, validaciones) o si corregís un bug que se puede reproducir con un test. No agregar tests a cambios N1.
+- **No repetir chequeos que ya pasaron** si no volviste a tocar esos archivos. No correr `pnpm build` para "confirmar" un cambio N1 o N2.
+- **Salida corta:** mostrar solo errores y el resumen final, no el log completo. Bash: `… 2>&1 | tail -40`; PowerShell: `… 2>&1 | Select-Object -Last 40`. Tests con `--reporter=dot`.
+- **`pnpm dev`** solo en segundo plano y solo si la tarea necesita verificación visual (cambios N1/N2 de UI que el usuario va a revisar, o el prompt lo pide).
+- **Tests:** nunca `pnpm test` a secas ni `pnpm test <archivo>`: es `vitest` en modo watch y deja al agente colgado. Siempre `pnpm exec vitest run ...` o `pnpm exec vitest related <archivos> --run`.
+- **Baseline de fallos previos (2026-09-21):** 57 errores de lint en otros archivos; 5 tests fallan en `cotizar/express`, `cotizar/lowcost`, `preguntas-frecuentes` y `lib/promises.test.ts`. No perseguirlos salvo que la tarea sea arreglarlos. Si un fallo aparece en un archivo que no tocaste y está en el baseline, no es tuyo: no hace falta `git stash` para confirmarlo. Usar `git stash` solo si el fallo es nuevo y dudás de su origen. Cuando el lint quede limpio, el criterio pasa a ser "0 warnings ESLint".
+- **Al reportar:** decir el nivel elegido, qué chequeos corriste y su resultado, y cuáles salteaste por el nivel. Si era N3 y el build no se corrió (o falló), decirlo explícitamente y no marcar `completed`.
 
 ## Next.js 16 — reglas que cambian respecto de versiones anteriores
 
@@ -75,24 +86,31 @@ prisma/schema.prisma  modelos productivos: PriceRange + enum ServiceType (User/P
 
 Fuente de verdad: tabla `PriceRange` en BD → `docs/contexto/precios.md` → `src/lib/pricing.ts` (fallback si la BD está vacía). Cualquier precio en código, copy, seed o pieza de marketing tiene que coincidir **exactamente**.
 
-| Servicio | 0–3 km | 3–5 km | 5–7 km | 7–10 km | 10–20 km | > 20 km |
-|---|---|---|---|---|---|---|
-| EXPRESS | $3.700 | $4.600 | $6.100 | $8.200 | `Math.ceil(km) × $1.000` | consultar (WhatsApp) |
-| LOW_COST | $3.000 | $4.000 | $5.300 | $7.000 | `Math.ceil(km) × $700` | consultar (WhatsApp) |
+| Servicio | 0–3 km | 3–5 km | 5–7 km | 7–10 km | 10–20 km                 | > 20 km              |
+| -------- | ------ | ------ | ------ | ------- | ------------------------ | -------------------- |
+| EXPRESS  | $3.700 | $4.600 | $6.100 | $8.200  | `Math.ceil(km) × $1.000` | consultar (WhatsApp) |
+| LOW_COST | $3.000 | $4.000 | $5.300 | $7.000  | `Math.ceil(km) × $700`   | consultar (WhatsApp) |
 
-`calculateExpressPrice(10.3)` → `11000`. Flex y Emprendedores no tienen fila en `PriceRange`: no mostrar números para esos servicios.
+`calculateExpressPrice(10.3)` → `11000`. Flex y Emprendedores no tienen fila en `PriceRange`: no mostrar números para esos servicios (hoy `FlexPricing`, `FlexHero` y `EmprendedoresPricing` los muestran: es deuda pendiente de decisión del dueño, ver `DESIGN.md` §12.2).
+
+- **Las tarifas se leen en el servidor.** Un Server Action nunca calcula con tarifas que lleguen del cliente (`FormData`, props serializadas, query): las obtiene de `PriceRange` vía Prisma y cae al fallback de `src/lib/pricing.ts`. Hoy `src/actions/quote.ts` viola esta regla (`DESIGN.md` §12.3).
+- **No copiar tablas de precios a mano en componentes:** derivarlas de constantes exportadas por `src/lib/pricing.ts`.
 
 ## Diseño — no negociable
 
-Spec completa: **`DESIGN.md`** (tokens, componentes, layout, motion, a11y; §2.0 mapea spec↔producción, §2.4 es el anexo `@theme`, §11 lista la deuda conocida y §13 es el cheat sheet de las primitivas de `src/components/ui/`). Si `DESIGN.md` contradice a `globals.css`, gana el CSS. Leer la sección que corresponda antes de crear o editar UI.
+Spec completa: **`DESIGN.md`** (§0 resumen de auditoría · §2 color y contraste · §3 tipografía · §5 fichas de primitivas · §8 motion · §10 anti-patrones · §11 deuda conocida · §12 tarifas · §13 cheat sheet · §15 plan de remediación). Prompts para ejecutar el plan: `docs/agents/prompts-remediacion.md`. Si `DESIGN.md` contradice a `globals.css` o al código de una primitiva, gana el código y `DESIGN.md` se corrige en el mismo PR. Leer la sección que corresponda antes de crear o editar UI.
 
-- **Tres colores:** azul egipcio `brand-blue-700` (#0636A5, lienzo), amarillo vial `brand-yellow-500` (#FFEC01, único acento/CTA), blanco. Texto de cuerpo `brand-ink`. Siempre tokens `brand-*`: nada de `slate/gray/zinc/neutral`, hex inline, ni aliases legacy de `tailwind.config.ts` (`slate-canvas`, `brand-dark`, `brand-yellow-hover`, `brand-navy-deep`).
-- **Spec Max vs. producción:** `DESIGN.md` describe el ajuste Max (`#0950F6`); el código vivo usa la paleta de `globals.css` (`brand-blue-700` = `#0636A5`, `brand-ink` = `#00277C`). Antes de escribir una clase de color, resolver el valor por la tabla §2.0 de `DESIGN.md`; no mezclar ni inventar hex.
-- `brand-blue-500` (#0950F6) es solo foco/hover, nunca fondo. Sombras teñidas de azul o amarillo, nunca negras.
-- **Nunca verde**, tampoco en steppers ni en el CTA de WhatsApp (fondo amarillo; el verde solo dentro del glifo). Único color externo: rojo `#EF4444` para errores de formulario.
-- **Tipografía:** `font-display` (Anton) y `font-subheading` (Bebas Neue) en uppercase; `font-sans` (Outfit) para cuerpo; `font-mono` (Geist Mono) con `tabular-nums` para precios y datos.
-- **Componentes de firma:** usar las utilities `double-bezel-outer`/`double-bezel-inner` y `cta-nested-pill`/`cta-nested-icon` de `globals.css`. Ojo: acá `rounded-xl` = 16px y `rounded-2xl` = 24px (escala redefinida).
-- Un solo CTA primario por pantalla. Nada de `border-l-4` en tarjetas, `h-screen` (usar `min-h-[100dvh]`), `animate-bounce`, emojis en UI, ni animar `width`/`height`. Respetar `prefers-reduced-motion`.
+- **Ajuste Max aplicado en producción (PR #21):** `#0950F6` es el azul primario **y** el más oscuro permitido. `brand-blue-500/600/700/900/950` y `brand-ink` valen `#0950F6`; `brand-blue-800` vale `#3570F8` (hover de fondos, se aclara). Ya no hay mapeo spec↔producción: el hex de `DESIGN.md` es el del sitio.
+- **Tres colores:** azul vibrante `brand-blue-700` (`#0950F6`, lienzo, header, footer, hero, títulos), amarillo vial `brand-yellow-500` (`#FFEC01`, único acento/CTA, ≤ 15% de la superficie, nunca fondo de sección ni texto sobre blanco), blanco. Texto de cuerpo `text-brand-blue-900` / `brand-ink`. Siempre tokens `brand-*`: nada de `slate/gray/zinc/neutral/stone/black`, hex en clases (`bg-[#…]`) ni en `style`/SVG, ni aliases legacy (`brand-dark`, `brand-navy`, `brand-blue-deep`, `brand-blue-ink`, `slate-canvas`, `brand-yellow-hover`, `brand-navy-deep`).
+- **Prohibido todo azul más oscuro que `#0950F6`:** `#0636A5`, `#052D8C`, `#052C87`, `#04236B`, `#021440`, `#00277C` y sus `rgba()` (`6,54,165` · `0,39,124`), también en gradientes, sombras, Leaflet y prompts de imagen. Si aparecen en el código son deuda a eliminar, no valores vigentes.
+- **Contraste mínimo 4.5:1 en texto normal** (`DESIGN.md` §2.4). Sobre blanco: `text-brand-blue-900`/`700`, nunca `brand-blue-300/400/800` ni opacidades. Sobre azul: `text-white`, mínimo `text-white/85`, o `text-brand-blue-50`. `brand-blue-400` solo en íconos o texto ≥ 24 px.
+- Sombras teñidas (`rgba(9,80,246,α)` o `rgba(255,236,1,α)`), nunca grises ni negras.
+- **Nunca verde**, tampoco en steppers ni en el CTA de WhatsApp (fondo amarillo; el verde solo dentro del glifo). **Rojo solo para errores de formulario:** `#EF4444` (`border-red-500`, `ring-red-500/20`, ícono) en borde e ícono; `text-red-600` en el texto del mensaje. Ningún otro rojo.
+- **Tipografía:** `font-display` (Anton) y `font-subheading` (Bebas Neue) en uppercase y **sin clases de peso** (`font-bold`, `font-extrabold`: solo se cargan en 400 y el navegador inventa la negrita); `font-sans` (Outfit) para cuerpo; `font-mono` (Geist Mono) con `tabular-nums` para precios y datos. Nada por debajo de `text-2xs` (10 px); texto que se lee ≥ 12 px.
+- **Primitivas primero:** tarjetas, botones, inputs, selectores, steppers, badges, grillas y fondos de hero salen de `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`, `InputField`, `RadioCardGroup`, `StepperHorizontal/Vertical`, `Badge`, `BentoGrid`, `HeroProceduralBackground`). Import desde `@/components/ui`. Todo hero usa `HeroProceduralBackground`, sin gradientes inline. Ojo: acá `rounded-xl` = 16px y `rounded-2xl` = 24px (escala redefinida); nada de radios arbitrarios (`rounded-[20px]`).
+- **Motion:** solo `transform`/`opacity`, springs (`stiffness 100, damping 20`). Respetar `prefers-reduced-motion` también en animaciones JS (`motion/react` bajo `MotionConfig reducedMotion="user"` o `useReducedMotion`). Nada de clases dinámicas por interpolación (`md:col-span-${n}`): Tailwind no las genera.
+- **Accesibilidad:** controles nativos (`<button>`, `<a>`), nunca `div role="button"`; errores de formulario con `aria-describedby` + `role="alert"`; íconos y SVG decorativos con `aria-hidden="true"`; objetivos táctiles ≥ 44 px.
+- Un solo CTA primario por pantalla. Nada de `border-l-4` (tampoco en toasts ni errores), `h-screen` (usar `min-h-[100dvh]`), `animate-bounce`, emojis en UI, ni animar `width`/`height`. Hero asimétrico 7/5, nunca centrado en desktop.
 - Logo: solo `/logo-envios-simplified.webp`, mínimo 120px de ancho, sin recolorear.
 - Íconos: `lucide-react` (`react-icons/fa` solo para el glifo de WhatsApp).
 
@@ -118,27 +136,31 @@ Spec completa: **`DESIGN.md`** (tokens, componentes, layout, motion, a11y; §2.0
 
 ## Documentos de referencia
 
-| Tema | Archivo |
-|---|---|
-| Sistema de diseño | `DESIGN.md` (mapeo spec↔producción §2.0 · fichas de primitivas §13) |
-| Tarifas | `docs/contexto/precios.md` |
-| Arquitectura, roadmap, DoD por milestone | `PROJECT.md` |
-| Vocabulario de dominio | `CONTEXT.md`, `docs/marketing/glosario.md` |
-| Decisiones | `docs/marketing/decisiones.md`, `docs/adr/` |
-| Backlog / issues | `docs/agents/issue-tracker.md` (tracker en `docs/marketing/` y `.scratch/`) |
-| Prompts de imágenes hero | `docs/imagenes/hero-derecha/PROMPTS.md` |
-| Skills del proyecto | `.agents/skills/` |
+| Tema                                     | Archivo                                                                                         |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Sistema de diseño                        | `DESIGN.md` (contraste §2.4 · fichas de primitivas §5 · deuda §11 · cheat sheet §13 · plan §15) |
+| Prompts del plan de remediación          | `docs/agents/prompts-remediacion.md`                                                            |
+| Tarifas                                  | `docs/contexto/precios.md`                                                                      |
+| Arquitectura, roadmap, DoD por milestone | `PROJECT.md`                                                                                    |
+| Vocabulario de dominio                   | `CONTEXT.md`, `docs/marketing/glosario.md`                                                      |
+| Decisiones                               | `docs/marketing/decisiones.md`, `docs/adr/`                                                     |
+| Backlog / issues                         | `docs/agents/issue-tracker.md` (tracker en `docs/marketing/` y `.scratch/`)                     |
+| Prompts de imágenes hero                 | `docs/imagenes/hero-derecha/PROMPTS.md`                                                         |
+| Skills del proyecto                      | `.agents/skills/`                                                                               |
 
 ## Errores conocidos
 
-| Síntoma | Causa / solución |
-|---|---|
-| Cambios que no se reflejan en el navegador (Windows) | Bug de hot-reload con Turbopack → `pnpm dev --webpack` |
-| Hook de React falla en un componente | Falta `'use client'` en un componente que usa hooks |
-| Leaflet sin estilos | Importar `leaflet/dist/leaflet.css` en el componente padre o layout |
-| Animación de Motion no arranca / error de hidratación | Usar `whileInView` con `viewport={{ once: true }}` o montar tras `useEffect` |
-| Precio distinto a la tabla | Revisar `src/lib/pricing.ts` (tramo +10 km con `Math.ceil`) → fila en `PriceRange` → `precios.md` |
-| Agente colgado corriendo tests | Se usó `pnpm test` (watch) → cortar y usar `vitest run` |
+| Síntoma                                                    | Causa / solución                                                                                                                                            |
+| ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cambios que no se reflejan en el navegador (Windows)       | Bug de hot-reload con Turbopack → `pnpm dev --webpack`                                                                                                      |
+| Hook de React falla en un componente                       | Falta `'use client'` en un componente que usa hooks                                                                                                         |
+| Leaflet sin estilos                                        | Importar `leaflet/dist/leaflet.css` en el componente padre o layout                                                                                         |
+| Animación de Motion no arranca / error de hidratación      | Usar `whileInView` con `viewport={{ once: true }}` o montar tras `useEffect`                                                                                |
+| Precio distinto a la tabla                                 | Revisar `src/lib/pricing.ts` (tramo +10 km con `Math.ceil`) → fila en `PriceRange` → `precios.md`                                                           |
+| Agente colgado corriendo tests                             | Se usó `pnpm test` (watch) → cortar y usar `vitest run`                                                                                                     |
+| Clase de Tailwind que no aplica estilos                    | Clase inexistente (`animate-marquee`, `glass-card`) o armada por interpolación (`col-span-${n}`) → usar clases definidas en `globals.css` y mapas estáticos |
+| Texto en Anton/Bebas con trazo deforme                     | Se aplicó `font-bold`/`font-extrabold` a una familia cargada solo en 400 → quitar la clase de peso                                                          |
+| Botón `outline`/`ghost` con fondo amarillo o alto de 56 px | Colisión con la utility `cta-nested-pill` de `globals.css` → ver `DESIGN.md` §5.2                                                                           |
 
 <!-- BEGIN:nextjs-agent-rules -->
 
