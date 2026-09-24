@@ -67,7 +67,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="rounded-[28px] sm:rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl h-full flex flex-col justify-between">
+    <section aria-label="Formulario de contacto comercial" className="rounded-[28px] sm:rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl h-full flex flex-col justify-between">
       <div className="bg-[#052C87] p-6 sm:p-8 rounded-[20px] border border-white/10 shadow-lg relative overflow-hidden h-full flex flex-col justify-between text-white">
         {/* Visual Watermark in bottom right */}
         <MessageCircle
@@ -236,6 +236,6 @@ export default function ContactForm() {
           <span className="font-mono font-bold text-[#FFF12E] tabular-nums">Mar del Plata 2026</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { EXPRESS_WINDOW, CONSULT_THRESHOLD_KM, CONTACT_EMAIL, OPERATING_HOURS } from './promises';
 import { calculateExpressPrice, calculateLowCostPrice } from './pricing';
-import nextConfig from '@/next.config';
+import nextConfig from '../../next.config';
 
 describe('BL-01 & BL-03 — Enrutamiento, Promesas y Fórmulas 2026', () => {
   it('BL-01: next.config.ts define redirecciones permanentes para URLs legacy', async () => {

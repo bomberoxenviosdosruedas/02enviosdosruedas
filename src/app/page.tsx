@@ -7,7 +7,7 @@ import LogisticaNetworkCanvas from '@/src/components/home/LogisticaNetworkCanvas
 
 export default function HomePage() {
   return (
-    <main className="bg-white text-[#0950F6] selection:bg-[#FFEC01] selection:text-[#0950F6] overflow-x-hidden">
+    <main id="home-page-container" className="bg-white text-[#0950F6] selection:bg-[#FFEC01] selection:text-[#0950F6] overflow-x-hidden">
       <HeroAnimado />
       
       <section className="relative z-10 bg-[#E6EEFE] border-y border-[#BACEFD] py-4">

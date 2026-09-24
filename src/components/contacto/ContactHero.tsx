@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion, useReducedMotion } from 'motion/react';
 import type { Variants } from 'motion/react';
 import { Phone, Mail, ArrowRight, MapPin, Clock } from 'lucide-react';
@@ -159,7 +160,7 @@ export default function ContactHero() {
               {/* was rounded-[16px] -> rounded-xl and rounded-[12px] -> rounded-lg and max-h-[340px] -> max-h-85 */}
               <div className="relative z-10 mb-5 rounded-xl bg-white border-2 border-brand-blue-100 p-3 shadow-[0_24px_64px_rgba(9,80,246,0.18)]">
                 <div className="bg-brand-blue-50/60 rounded-lg p-2">
-                  <img src="/elementos/hero_contacto.webp" alt="Envíos DosRuedas 3D" className="w-full h-auto max-h-85 object-contain drop-shadow-[0_16px_32px_rgba(9,80,246,0.15)] mx-auto" />
+                  <Image src="/elementos/hero_contacto.webp" alt="Envíos DosRuedas 3D" width={400} height={340} className="w-full h-auto max-h-85 object-contain drop-shadow-[0_16px_32px_rgba(9,80,246,0.15)] mx-auto" priority />
                 </div>
                 {/* was text-[10px] -> text-2xs */}
                 <div className="mt-3 flex items-center justify-between font-mono text-2xs uppercase tracking-wider text-brand-blue-700/60">

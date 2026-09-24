@@ -133,9 +133,9 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
   };
 
   return (
-    <div id="cotizador-express-form" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+    <section id="cotizador-express-form" aria-label="Cotizador Express" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       {/* Form Input & Results Panel (7 cols) */}
-      <div className="lg:col-span-7 flex flex-col justify-between rounded-[28px] sm:rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl transition-all duration-300">
+      <article className="lg:col-span-7 flex flex-col justify-between rounded-[28px] sm:rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl transition-all duration-300">
         <div className="bg-brand-blue-900 p-6 sm:p-8 rounded-[20px] border border-white/10 flex flex-col justify-between h-full text-white relative overflow-hidden">
           {/* Visual Watermark in bottom right */}
           <Calculator
@@ -247,7 +247,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
               </div>
 
               {error && (
-                <div className="bg-red-500/20 text-red-200 border border-red-500/40 text-xs px-4 py-3 rounded-xl flex items-center gap-2 font-sans font-medium">
+                <div role="alert" aria-live="assertive" className="p-3.5 bg-red-500/20 border border-red-500/40 rounded-xl flex items-center gap-2 text-red-200 text-xs font-sans">
                   <AlertTriangle className="h-4 w-4 text-red-400 shrink-0" />
                   <span>{error}</span>
                 </div>
@@ -285,23 +285,6 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
 
           {/* Dynamic Results Display */}
           <div className="mt-6 relative z-10 space-y-4">
-            <AnimatePresence>
-              {/* Error Message with role alert (BL-07) */}
-              {error && (
-                <motion.div
-                  role="alert"
-                  aria-live="assertive"
-                  initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  className="p-3 bg-red-500/20 border border-red-500/40 rounded-xl flex items-center gap-2 text-red-200 text-xs font-sans"
-                >
-                  <AlertTriangle className="h-4 w-4 shrink-0 text-red-400" />
-                  <span>{error}</span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
             {/* Price Result with Accessible Live Region (BL-07) */}
             <AnimatePresence>
               {calculated && result && (
@@ -388,10 +371,10 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
             </AnimatePresence>
           </div>
         </div>
-      </div>
+      </article>
 
       {/* Real Interactive Map Panel (5 cols) */}
-      <div className="lg:col-span-5 min-h-[360px] lg:min-h-full rounded-[28px] sm:rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl transition-all duration-300">
+      <aside aria-label="Mapa interactivo y cobertura Express" className="lg:col-span-5 min-h-[360px] lg:min-h-full rounded-[28px] sm:rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl transition-all duration-300">
         <div className="bg-brand-blue-900 p-6 rounded-[20px] border border-white/10 flex flex-col justify-between h-full relative overflow-hidden text-white">
           {/* Subtle grid pattern */}
           <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
@@ -432,7 +415,7 @@ export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </aside>
+    </section>
   );
 }
