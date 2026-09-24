@@ -1,7 +1,4 @@
-import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
-import { prisma } from '@/src/lib/prisma';
-import { PriceRange } from '@/generated/prisma/client';
 import CotizadorLowCostHero from '@/src/components/cotizar/lowcost/CotizadorLowCostHero';
 import CotizadorLowCostForm from '@/src/components/cotizar/lowcost/CotizadorLowCostForm';
 import BatchGrid from '@/src/components/cotizar/lowcost/BatchGrid';

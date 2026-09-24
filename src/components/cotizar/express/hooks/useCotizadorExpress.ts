@@ -3,14 +3,9 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { useReducedMotion } from 'motion/react';
 import { useGoogleRoute, type Coordinate } from '@/src/hooks/useGoogleRoute';
-import { type PriceRangeProp } from '@/src/lib/pricing';
 import { calculateQuoteAction, type QuoteState } from '@/src/actions/quote';
 import { trackAnalytics } from '@/src/lib/analytics';
 import { buildWhatsAppUrl } from '@/src/lib/whatsapp';
-
-interface UseCotizadorExpressProps {
-  priceRanges: PriceRangeProp[];
-}
 
 interface QuoteResult {
   distancia: number;
@@ -19,7 +14,7 @@ interface QuoteResult {
 
 const initialState: QuoteState = { success: false, price: null, error: null };
 
-export function useCotizadorExpress({ priceRanges }: UseCotizadorExpressProps) {
+export function useCotizadorExpress() {
   const shouldReduceMotion = useReducedMotion() ?? false;
   const hasTrackedStart = useRef(false);
 
@@ -89,7 +84,6 @@ export function useCotizadorExpress({ priceRanges }: UseCotizadorExpressProps) {
       const formData = new FormData();
       formData.append('distanceKm', route.distanceKm.toString());
       formData.append('serviceType', 'EXPRESS');
-      formData.append('priceRanges', JSON.stringify(priceRanges));
 
       const actionResult = await calculateQuoteAction(initialState, formData);
 
@@ -143,7 +137,7 @@ export function useCotizadorExpress({ priceRanges }: UseCotizadorExpressProps) {
       setError('Error inesperado al calcular la cotización');
       setIsCalculating(false);
     }
-  }, [origenCoords, destinoCoords, priceRanges, fetchRoute, origen, destino, nombre, telefono, producto]);
+  }, [origenCoords, destinoCoords, fetchRoute, origen, destino, nombre, telefono, producto]);
 
   const getWhatsAppLink = useCallback(() => {
     if (!result) return '#';

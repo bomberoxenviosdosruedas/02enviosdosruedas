@@ -10,29 +10,29 @@ import {
   ArrowUpRight,
   ShieldCheck,
   MessageSquare,
-  Instagram,
-  Facebook,
 } from 'lucide-react';
 import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
 
+// 1. Permitimos que el ícono sea un Componente de React O una ruta string para SVGs locales
 interface ContactCard {
   title: string;
   description: string;
   buttonText: string;
   href: string;
-  icon: React.ElementType;
+  icon: React.ElementType | string;
   tag: string;
   subtag: string;
 }
 
+// 2. Definimos las rutas públicas para tus íconos locales
 const contactCards: ContactCard[] = [
   {
     title: 'WhatsApp Comercial',
     description: 'Cotizaciones instantáneas, consultas operativas y seguimiento en vivo por WhatsApp.',
     buttonText: 'Chatear por WhatsApp',
     href: 'https://wa.me/542236602699?text=Hola!%20Vengo%20desde%20la%20p%C3%A1gina%20de%20Contacto.',
-    icon: MessageSquare,
-    tag: 'RESPUESTA &lt; 2 MIN',
+    icon: MessageSquare, // O puedes usar '/iconos/whatapps.svg'
+    tag: 'RESPUESTA < 2 MIN',
     subtag: 'MAR DEL PLATA 2026',
   },
   {
@@ -40,7 +40,7 @@ const contactCards: ContactCard[] = [
     description: 'Novedades de la flota, consejos para tiendas online y fotos reales de nuestro día a día.',
     buttonText: 'Seguir en Instagram',
     href: 'https://instagram.com/enviosdosruedas',
-    icon: Instagram,
+    icon: '/iconos/instagram.svg',
     tag: '@ENVIOSDOSRUEDAS',
     subtag: 'COMUNIDAD E-COMMERCE',
   },
@@ -49,7 +49,7 @@ const contactCards: ContactCard[] = [
     description: 'Avisos de servicios, información de tránsito urbano y contacto para empresas.',
     buttonText: 'Visitar Facebook',
     href: 'https://facebook.com/enviosdosruedas',
-    icon: Facebook,
+    icon: '/iconos/facebook.svg',
     tag: 'PÁGINA OFICIAL',
     subtag: 'MAR DEL PLATA',
   },
@@ -80,17 +80,22 @@ export default function ContactInfo() {
                 <div className="flex flex-col justify-between h-full space-y-4 relative overflow-hidden">
                   <div className="relative z-10">
                     <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-[10px] font-subheading uppercase tracking-wider text-[#0950F6] font-bold px-2.5 py-0.5 rounded bg-[#E6EEFE] border border-[#D6E4FE]">
+                      <span className="text-2xs font-subheading uppercase tracking-wider text-[#0950F6] font-bold px-2.5 py-0.5 rounded bg-[#E6EEFE] border border-[#D6E4FE]">
                         {card.tag}
                       </span>
-                      <span className="text-[10px] font-mono font-bold uppercase text-[#0950F6]/60 tabular-nums">
+                      <span className="text-2xs font-mono font-bold uppercase text-[#0950F6]/60 tabular-nums">
                         {card.subtag}
                       </span>
                     </div>
 
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-[#E6EEFE] border border-[#D6E4FE] text-[#0950F6]">
-                        <IconComp className="w-5 h-5 text-[#0950F6]" />
+                        {/* 3. Renderizado condicional según el tipo de ícono */}
+                        {typeof IconComp === 'string' ? (
+                          <img src={IconComp} alt={card.title} className="w-5 h-5 object-contain" />
+                        ) : (
+                          <IconComp className="w-5 h-5 text-[#0950F6]" />
+                        )}
                       </div>
                       <h3 className="font-display text-lg uppercase tracking-tight text-[#0950F6] truncate">
                         {card.title}
@@ -106,7 +111,7 @@ export default function ContactInfo() {
                     href={card.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`relative z-10 w-full min-h-[44px] h-11 rounded-full font-subheading tracking-wider uppercase text-xs font-bold flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer border ${
+                    className={`relative z-10 w-full min-h-11 h-11 rounded-full font-subheading tracking-wider uppercase text-xs font-bold flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer border ${
                       isWhatsApp
                         ? 'bg-[#FFEC01] hover:bg-[#FFEC01]/90 text-[#0950F6] border-none shadow-glow-yellow'
                         : 'bg-[#0950F6] hover:bg-[#0950F6]/90 text-white border-none'
@@ -212,13 +217,13 @@ export default function ContactInfo() {
                 <div className="space-y-4 font-sans text-sm">
                   <div className="flex items-center justify-between py-2 border-b border-white/10">
                     <span className="text-white/90 font-mono tabular-nums">Lunes a Viernes: 09:00 - 18:00 hs</span>
-                    <span className="px-2.5 py-0.5 text-[10px] font-mono uppercase font-bold text-[#0950F6] bg-[#FFEC01] rounded-full shadow-xs tabular-nums">
+                    <span className="px-2.5 py-0.5 text-2xs font-mono uppercase font-bold text-[#0950F6] bg-[#FFEC01] rounded-full shadow-xs tabular-nums">
                       Activo
                     </span>
                   </div>
                   <div className="flex items-center justify-between py-2 border-b border-white/10">
                     <span className="text-white/90 font-mono tabular-nums">Sábados: 10:00 - 15:00 hs</span>
-                    <span className="px-2.5 py-0.5 text-[10px] font-mono uppercase font-bold text-[#0950F6] bg-[#FFEC01] rounded-full shadow-xs tabular-nums">
+                    <span className="px-2.5 py-0.5 text-2xs font-mono uppercase font-bold text-[#0950F6] bg-[#FFEC01] rounded-full shadow-xs tabular-nums">
                       Activo
                     </span>
                   </div>

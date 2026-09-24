@@ -8,12 +8,11 @@ import DynamicRouteMap from '../../ui/DynamicRouteMap';
 import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
 import CTANestedPill from '@/src/components/ui/CTANestedPill';
 import { useGoogleRoute, type Coordinate } from '@/src/hooks/useGoogleRoute';
-import { type PriceRangeProp } from '@/src/lib/pricing';
 import { calculateQuoteAction, type QuoteState } from '@/src/actions/quote';
 import { trackAnalytics } from '@/src/lib/analytics';
 import { buildWhatsAppUrl } from '@/src/lib/whatsapp';
 
-export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges?: PriceRangeProp[] }) {
+export default function CotizadorLowCostForm() {
   const [origen, setOrigen] = useState('');
   const [destino, setDestino] = useState('');
   const [nombre, setNombre] = useState('');
@@ -74,7 +73,7 @@ export default function CotizadorLowCostForm({ priceRanges = [] }: { priceRanges
       formData.append('nombre', nombre);
       formData.append('telefono', telefono);
       formData.append('producto', producto);
-      formData.append('tipoServicio', 'LOW_COST');
+      formData.append('serviceType', 'LOW_COST');
       formData.append('distanceKm', distanceKm.toString());
 
       const response = await calculateQuoteAction(initialState, formData);
