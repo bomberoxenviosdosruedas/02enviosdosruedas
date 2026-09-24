@@ -51,6 +51,21 @@ export default function ServicesOverview() {
   const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
   const carouselRef = useRef<HTMLDivElement>(null);
 
+  // Bloquear scroll del body y cerrar con Escape mientras el modal está abierto
+  useEffect(() => {
+    if (!selectedService) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedService(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [selectedService]);
+
   // Snappy spring configs
   const springConfigSnappy = { type: 'spring' as const, stiffness: 300, damping: 25 };
   const springConfigCarousel = { type: 'spring' as const, stiffness: 140, damping: 22 };
@@ -567,7 +582,7 @@ export default function ServicesOverview() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-0 z-50 bg-[#0950F6]/80 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-[#0950F6]/80 backdrop-blur-md flex items-center justify-center p-4 overscroll-contain overflow-y-auto"
             role="dialog"
             aria-modal="true"
             aria-labelledby="service-modal-title"

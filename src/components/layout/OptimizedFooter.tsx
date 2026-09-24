@@ -77,7 +77,7 @@ export default function OptimizedFooter() {
         >
           <div className="space-y-2 text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading font-bold uppercase tracking-wider">
-              <span className="w-2 h-2 rounded-full bg-brand-yellow-500 animate-ping" />
+              <span className="w-2 h-2 rounded-full bg-brand-yellow-500 animate-ping motion-reduce:animate-none" />
               Operaciones Activas Mar del Plata 2026
             </div>
             <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">

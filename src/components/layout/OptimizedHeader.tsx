@@ -117,7 +117,7 @@ export default function OptimizedHeader() {
     <>
       <header
         id="optimized-header"
-        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-[background-color,border-color,box-shadow,padding] duration-300 ${
           scrolled ? 'bg-brand-blue-700/95 shadow-elevated border-b border-white/10 py-2.5 backdrop-blur-md' : 'bg-brand-blue-700 py-4 border-b border-transparent'
         }`}
       >
@@ -141,7 +141,7 @@ export default function OptimizedHeader() {
                   {item.href ? (
                     <Link href={item.href} className="px-4 py-2 rounded-xl text-sm font-subheading font-bold uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-white/10 transition-colors">{item.label}</Link>
                   ) : (
-                    <button onClick={() => handleDropdownToggle(item.label)} className="px-4 py-2 rounded-xl text-sm font-subheading font-bold uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-white/10 transition-colors flex items-center gap-1.5">
+                    <button onClick={() => handleDropdownToggle(item.label)} aria-haspopup="menu" aria-expanded={activeDropdown === item.label} className="px-4 py-2 rounded-xl text-sm font-subheading font-bold uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-white/10 transition-colors flex items-center gap-1.5">
                       {item.label}<ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
                     </button>
                   )}
@@ -153,7 +153,7 @@ export default function OptimizedHeader() {
                             const SubIcon = subItem.icon || ChevronRight;
                             return (
                               <motion.div key={subItem.href} variants={dropdownItem}>
-                                <Link href={subItem.href} className="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-white/10 text-white hover:text-brand-yellow-500 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500">
+                                <Link href={subItem.href} className="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors hover:bg-white/10 text-white hover:text-brand-yellow-500 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500">
                                   <div className="p-1.5 rounded-lg bg-white/10 text-brand-blue-100 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-700 transition-colors shrink-0"><SubIcon className="h-4 w-4" /></div>
                                   <span className="text-sm sm:text-base font-bold uppercase font-subheading tracking-wider leading-none">{subItem.label}</span>
                                 </Link>

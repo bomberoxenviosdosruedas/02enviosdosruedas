@@ -129,7 +129,7 @@ export default function EmprendedoresHome() {
           {/* Card 1: PyMEs (E-Commerce) - lg:col-span-7 lg:row-span-2 (Dark Navy Card with Double-Layered Glass Shell) */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-7 lg:row-span-2 p-3 sm:p-4 rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#FFF12E]/40 hover:shadow-glow-yellow transition-all duration-300 group overflow-hidden flex flex-col cursor-pointer"
+            className="lg:col-span-7 lg:row-span-2 p-3 sm:p-4 rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#FFF12E]/40 hover:shadow-glow-yellow transition-all duration-300 group overflow-hidden flex flex-col"
             whileHover={reduceMotion ? undefined : { y: -6, transition: snappySpring }}
           >
             <div className="rounded-[20px] bg-[#0950F6] p-6 sm:p-8 border border-white/10 flex flex-col justify-between h-full relative overflow-hidden text-left flex-1">
@@ -204,7 +204,7 @@ export default function EmprendedoresHome() {
           {/* Card 2: MercadoLibre Flex - lg:col-span-5 lg:row-span-1 (Yellow Card) */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-5 lg:row-span-1 double-bezel-outer p-2 rounded-2xl bg-brand-yellow-500/10 border border-brand-yellow-500/20 hover:border-brand-blue-700/30 hover:bg-brand-yellow-500/15 hover:shadow-[0_20px_40px_-15px_rgba(255,236,1,0.15)] group overflow-hidden flex flex-col cursor-pointer"
+            className="lg:col-span-5 lg:row-span-1 double-bezel-outer p-2 rounded-2xl bg-brand-yellow-500/10 border border-brand-yellow-500/20 hover:border-brand-blue-700/30 hover:bg-brand-yellow-500/15 hover:shadow-[0_20px_40px_-15px_rgba(255,236,1,0.15)] group overflow-hidden flex flex-col"
             whileHover={reduceMotion ? undefined : { y: -6, transition: snappySpring }}
           >
             <div className="double-bezel-inner bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 p-6 sm:p-8 rounded-xl border border-brand-yellow-500/20 shadow-sm flex flex-col justify-between h-full relative overflow-hidden text-left text-brand-blue-900 flex-1">
@@ -264,7 +264,7 @@ export default function EmprendedoresHome() {
           {/* Card 3: Corporativos (White Card) - lg:col-span-5 lg:row-span-1 */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-5 lg:row-span-1 double-bezel-outer p-2 rounded-2xl bg-brand-blue-50/80 border border-brand-blue-100 hover:border-brand-blue-300 hover:shadow-antigravity-deep group overflow-hidden flex flex-col cursor-pointer"
+            className="lg:col-span-5 lg:row-span-1 double-bezel-outer p-2 rounded-2xl bg-brand-blue-50/80 border border-brand-blue-100 hover:border-brand-blue-300 hover:shadow-antigravity-deep group overflow-hidden flex flex-col"
             whileHover={reduceMotion ? undefined : { y: -6, transition: snappySpring }}
           >
             <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col justify-between h-full relative overflow-hidden text-left text-brand-ink flex-1">

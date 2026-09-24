@@ -3,15 +3,19 @@
 import React, { useEffect, useRef } from 'react';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { ArrowUpRight } from 'lucide-react';
+import { useReducedMotion } from 'motion/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function CarruselRedes() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
+    if (prefersReducedMotion) return undefined;
 
     const ctx = gsap.context(() => {
       if (containerRef.current) {
@@ -41,7 +45,7 @@ export default function CarruselRedes() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [prefersReducedMotion]);
 
   const networks = [
     {
@@ -146,7 +150,7 @@ export default function CarruselRedes() {
             return (
               <div
                 key={net.id}
-                className={`social-block group relative rounded-2xl p-2 transition-all duration-300 border ${net.cardBorder} bg-[#0950F6]/80 backdrop-blur-md hover:-translate-y-1.5 shadow-xl`}
+                className={`social-block group relative rounded-2xl p-2 transition-[transform,border-color,box-shadow] duration-300 border ${net.cardBorder} bg-[#0950F6]/80 backdrop-blur-md hover:-translate-y-1.5 shadow-xl`}
               >
                 {/* Internal Glow on Hover */}
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-b ${net.glow} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
@@ -154,7 +158,7 @@ export default function CarruselRedes() {
                 <div className={`relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden ${net.cardBg} border border-white/10 transition-colors`}>
                   
                   {/* Background Watermark Icon that enlarges and tilts on hover */}
-                  <div className={`absolute -right-8 -bottom-8 ${net.watermarkColor} transition-all duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none`}>
+                  <div className={`absolute -right-8 -bottom-8 ${net.watermarkColor} transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none`}>
                     <Icon className="w-56 h-56" />
                   </div>
 
@@ -190,7 +194,7 @@ export default function CarruselRedes() {
                       href={net.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-full inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-all duration-200 group/btn ${net.btnBg}`}
+                      className={`w-full inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn ${net.btnBg}`}
                     >
                       <span>{net.action}</span>
                       <span className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 ${net.btnIconBg}`}>

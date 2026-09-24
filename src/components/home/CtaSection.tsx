@@ -99,12 +99,15 @@ export default function CtaSection() {
                 className="space-y-1.5"
                 whileHover={reduceMotion ? undefined : { x: 3, transition: springConfigSnappy }}
               >
-                <label className="text-xs font-subheading tracking-wider text-[#0950F6] uppercase font-bold">Tu Nombre</label>
+                <label htmlFor="cta-name" className="text-xs font-subheading tracking-wider text-[#0950F6] uppercase font-bold">Tu Nombre</label>
                 <div className="relative">
                   <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#0950F6]/60 pointer-events-none">
                     <User className="w-5 h-5" />
                   </div>
                   <input
+                    id="cta-name"
+                    name="nombre"
+                    autoComplete="name"
                     required
                     value={formData.name}
                     onChange={e => setFormData({...formData, name: e.target.value})}
@@ -119,12 +122,15 @@ export default function CtaSection() {
                 className="space-y-1.5"
                 whileHover={reduceMotion ? undefined : { x: 3, transition: springConfigSnappy }}
               >
-                <label className="text-xs font-subheading tracking-wider text-[#0950F6] uppercase font-bold">Empresa / Negocio</label>
+                <label htmlFor="cta-business" className="text-xs font-subheading tracking-wider text-[#0950F6] uppercase font-bold">Empresa / Negocio</label>
                 <div className="relative">
                   <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#0950F6]/60 pointer-events-none">
                     <Store className="w-5 h-5" />
                   </div>
                   <input
+                    id="cta-business"
+                    name="empresa"
+                    autoComplete="organization"
                     required
                     value={formData.business}
                     onChange={e => setFormData({...formData, business: e.target.value})}
@@ -147,6 +153,7 @@ export default function CtaSection() {
                   <select
                     required
                     id="volume-select"
+                    name="volumen"
                     value={formData.volume}
                     onChange={e => setFormData({...formData, volume: e.target.value})}
                     className="w-full h-11 border-2 border-[#0950F6]/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-[#0950F6] focus:ring-2 focus:ring-[#0950F6]/20 text-[#0950F6] text-sm font-sans transition-colors appearance-none bg-white cursor-pointer"

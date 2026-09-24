@@ -108,7 +108,7 @@ export default function HeroAnimado() {
                 <div className="relative rounded-[20px] overflow-hidden bg-[#0950F6] border border-white/15 p-4 sm:p-6 flex flex-col items-center">
                   <div className="w-full flex items-center justify-between gap-2 mb-4 bg-white/10 border border-white/20 px-3.5 py-1.5 rounded-full backdrop-blur-md">
                     <div className="flex items-center gap-2">
-                      <span className="relative flex h-2.5 w-2.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFEC01] opacity-75" /><span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFEC01]" /></span>
+                      <span className="relative flex h-2.5 w-2.5"><span className="animate-ping motion-reduce:animate-none absolute inline-flex h-full w-full rounded-full bg-[#FFEC01] opacity-75" /><span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFEC01]" /></span>
                       <span className="font-subheading text-[11px] sm:text-xs uppercase tracking-widest text-[#FFEC01] font-bold">Ruteo Activo · MDQ</span>
                     </div>
                     <span className="font-mono text-[10px] sm:text-[11px] font-bold text-white bg-white/15 px-2 py-0.5 rounded-md border border-white/20">Friuli 1972</span>

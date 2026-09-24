@@ -3,11 +3,12 @@ import SegmentosHome from '@/src/components/home/SegmentosHome';
 import ServicesOverview from '@/src/components/home/ServicesOverview';
 import EmprendedoresHome from '@/src/components/home/EmprendedoresHome';
 import CtaSection from '@/src/components/home/CtaSection';
+import SocialProofSection from '@/src/components/home/SocialProofSection';
 import LogisticaNetworkCanvas from '@/src/components/home/LogisticaNetworkCanvas';
 
 export default function HomePage() {
   return (
-    <main id="home-page-container" className="bg-white text-[#0950F6] selection:bg-[#FFEC01] selection:text-[#0950F6] overflow-x-hidden">
+    <div id="home-page-container" className="bg-white text-[#0950F6] selection:bg-[#FFEC01] selection:text-[#0950F6] overflow-x-hidden">
       <HeroAnimado />
       
       <section 
@@ -45,7 +46,8 @@ export default function HomePage() {
       </section>
 
       <EmprendedoresHome />
+      <SocialProofSection />
       <CtaSection />
-    </main>
+    </div>
   );
 }
