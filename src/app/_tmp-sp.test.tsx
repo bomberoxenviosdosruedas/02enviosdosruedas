@@ -1,13 +1,15 @@
 import { describe, it, expect } from 'vitest';
-import { motion } from 'motion/react';
+import * as motionModule from 'motion/react';
 
-describe('Diagnóstico motion en runtime de vitest', () => {
-  it('inspecciona el objeto motion', () => {
-    const keys = ['article', 'div', 'section', 'span', 'p', 'h3', 'button', 'a'];
-    for (const k of keys) {
-      // eslint-disable-next-line no-console
-      console.log(`motion.${k} =`, typeof (motion as Record<string, unknown>)[k]);
-    }
-    expect(typeof motion).toBe('object');
+describe('Diagnóstico resolución en vitest', () => {
+  it('inspecciona motion', () => {
+    const m = (motionModule as Record<string, unknown>).motion as Record<string, unknown>;
+    // eslint-disable-next-line no-console
+    console.log('typeof motion:', typeof m);
+    // eslint-disable-next-line no-console
+    console.log('keys motion:', Object.keys(m).slice(0, 60).join(','));
+    // eslint-disable-next-line no-console
+    console.log('has article:', 'article' in m, 'has div:', 'div' in m);
+    expect(true).toBe(true);
   });
 });
