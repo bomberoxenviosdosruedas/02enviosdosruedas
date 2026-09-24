@@ -280,7 +280,7 @@ export default function SliderServicios() {
           variants={itemVariants}
           className={cn(
             'p-2.5 sm:p-3.5 rounded-[30px] backdrop-blur-md transition-all duration-500 shadow-2xl border',
-            isDarkBlue && 'bg-[#052C87]/80 border-white/20',
+            isDarkBlue && 'bg-[#0950F6]/80 border-white/20',
             isYellowAccent && 'bg-[#FFF12E]/20 border-[#FFF12E]/40',
             isFrostBlue && 'bg-white/40 border-white/60',
             !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white/50 border-white/60'
@@ -289,10 +289,10 @@ export default function SliderServicios() {
           <div
             className={cn(
               'p-6 sm:p-10 lg:p-12 rounded-[20px] border relative overflow-hidden transition-colors duration-500',
-              isDarkBlue && 'bg-[#052C87] text-white border-white/15',
-              isYellowAccent && 'bg-white text-[#00277C] border-yellow-200',
-              isFrostBlue && 'bg-white text-[#00277C] border-blue-100',
-              !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white text-[#00277C] border-blue-50'
+              isDarkBlue && 'bg-[#0950F6] text-white border-white/15',
+              isYellowAccent && 'bg-white text-[#0950F6] border-yellow-200',
+              isFrostBlue && 'bg-white text-[#0950F6] border-blue-100',
+              !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white text-[#0950F6] border-blue-50'
             )}
           >
             <AnimatePresence mode="wait">

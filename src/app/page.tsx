@@ -1,117 +1,42 @@
-import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
+import HeroAnimado from '@/src/components/home/HeroAnimado';
 import SegmentosHome from '@/src/components/home/SegmentosHome';
 import ServicesOverview from '@/src/components/home/ServicesOverview';
-import VisionSection from '@/src/components/home/VisionSection';
-import { LogosCarousel } from '@/src/components/ui/LogosCarousel';
+import EmprendedoresHome from '@/src/components/home/EmprendedoresHome';
+import CtaSection from '@/src/components/home/CtaSection';
+import LogisticaNetworkCanvas from '@/src/components/home/LogisticaNetworkCanvas';
 
-// Below-the-fold sections are dynamically loaded to minimize initial JS execution
-const SliderServicios = dynamic(() => import('@/src/components/home/SliderServicios'), {
-  loading: () => <div className="w-full py-24 min-h-[400px]" />,
-});
-
-const EmprendedoresHome = dynamic(() => import('@/src/components/home/EmprendedoresHome'), {
-  loading: () => <div className="w-full py-24 min-h-[400px]" />,
-});
-
-const SocialProofSection = dynamic(() => import('@/src/components/home/SocialProofSection'), {
-  loading: () => <div className="w-full py-24 min-h-[400px]" />,
-});
-
-const CtaSection = dynamic(() => import('@/src/components/home/CtaSection'), {
-  loading: () => <div className="w-full py-24 min-h-[300px]" />,
-});
-
-// Hero principal is a client component (uses motion), load dynamically
-const HeroPrincipal = dynamic(() => import('@/src/components/home/HeroPrincipal'), {
-  loading: () => <div className="w-full min-h-[90dvh] bg-brand-blue-700" />,
-});
-
-const baseUrl = 'https://www.enviosdosruedas.com';
-
-const webSiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Envíos DosRuedas',
-  url: baseUrl,
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${baseUrl}/cotizar/express?search={search_term_string}`,
-    },
-    'query-input': 'required name=search_term_string',
-  },
-};
-
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Mensajería en moto y logística en Mar del Plata | Envíos DosRuedas',
-  },
-  description: 'Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express en 60-90 min, Mercado Envíos Flex en el día y paquetería LowCost para comercios y particulares.',
-  alternates: {
-    canonical: baseUrl,
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Envíos DosRuedas - Mensajería & Logística en Mar del Plata',
-    description: 'Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express 60-90 min, Flex y LowCost. Tarifas 2026.',
-    images: [`${baseUrl}/og-image.jpg`],
-    creator: '@enviosdosruedas',
-  },
-};
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div id="home-page-container" className="w-full bg-brand-white-50 text-brand-blue-700 min-h-[100dvh] relative overflow-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
-      />
-      {/* 1. Hero Principal — Nuevo diseño inspirado en el ejemplo */}
-      <section className="relative z-10">
-        <HeroPrincipal />
+    <main className="bg-white text-[#0950F6] selection:bg-[#FFEC01] selection:text-[#0950F6] overflow-x-hidden">
+      <HeroAnimado />
+      
+      <section className="relative z-10 bg-[#E6EEFE] border-y border-[#BACEFD] py-4">
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-8 flex flex-wrap justify-between gap-4 font-mono text-[11px] tracking-[0.12em] uppercase font-bold text-[#0950F6]">
+          <span className="inline-flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-[#FFEC01] border border-[#0950F6]/20" /> Miles de Envios</span>
+          <span className="inline-flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-[#FFEC01] border border-[#0950F6]/20" /> Cobertura Total MDQ</span>
+          <span className="inline-flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-[#FFEC01] border border-[#0950F6]/20" /> Entregas en el Dia</span>
+          <span className="inline-flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-[#FFEC01] border border-[#0950F6]/20" /> Ruteo Activo MDQ</span>
+        </div>
       </section>
 
-      {/* 2. Intent-Based Segments Grid (BL-26) */}
-      <section className="relative z-10">
-        <SegmentosHome />
-      </section>
+      <SegmentosHome />
 
-      {/* 3. Logistics Services Overview — White Bento Grid Canvas */}
-      <section className="relative z-10">
+      <section className="relative bg-[#0950F6] py-20 overflow-hidden">
+        <LogisticaNetworkCanvas />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.08),transparent_60%)] pointer-events-none" />
+        <div className="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-8">
+          <div className="max-w-[720px] mb-12">
+            <div className="font-subheading text-[12px] tracking-[0.2em] uppercase text-[#FFEC01]">Nuestros Servicios</div>
+            <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.75rem)] leading-[0.9] tracking-[-0.03em] uppercase text-white">
+              Conectamos Mar del Plata de punta a punta
+            </h2>
+          </div>
+        </div>
         <ServicesOverview />
       </section>
 
-      {/* 4. Brand Vision & Trust Metrics — Light Surface */}
-      <section className="relative z-10">
-        <VisionSection />
-      </section>
-
-      {/* Partner & Logistics Hubs Carousel — Infinite Marquee (DESIGN.md signature component) */}
-      <section className="relative z-10 py-6 bg-brand-blue-50/60 border-y border-brand-blue-100/70">
-        <LogosCarousel />
-      </section>
-
-      {/* 5. Tailored Solutions for Industries — Lazy Loaded Below-the-fold */}
-      <section className="relative z-10">
-        <SliderServicios />
-      </section>
-
-      {/* 6. Entrepreneurs & B2B Solutions Panel — Lazy Loaded */}
-      <section className="relative z-10">
-        <EmprendedoresHome />
-      </section>
-
-      {/* 7. Social Proof & Verified Testimonials — Lazy Loaded */}
-      <section className="relative z-10">
-        <SocialProofSection />
-      </section>
-
-      {/* 8. Call to Action High Conversion Segment — Lazy Loaded */}
-      <section className="relative z-10">
-        <CtaSection />
-      </section>
-    </div>
+      <EmprendedoresHome />
+      <CtaSection />
+    </main>
   );
 }

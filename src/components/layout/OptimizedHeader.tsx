@@ -117,7 +117,7 @@ export default function OptimizedHeader() {
       transition={EASE_MOUNT}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-brand-blue-700/95 shadow-elevated border-b border-white/10 py-2.5 backdrop-blur-md'
+          ? 'bg-[#0950F6]/95 shadow-[0_16px_40px_rgba(9,80,246,0.18)] border-b border-white/10 py-2.5 backdrop-blur-md'
           : 'bg-brand-blue-700 py-4 border-b border-transparent'
       }`}
     >
@@ -213,7 +213,7 @@ export default function OptimizedHeader() {
                       initial="hidden"
                       animate="visible"
                       exit="exit"
-                      className="absolute left-0 mt-2 w-64 bg-brand-blue-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden z-50"
+                      className="absolute left-0 mt-2 w-64 bg-[#0950F6]/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden z-50"
                       onBlur={(e) => {
                         if (!e.currentTarget.contains(e.relatedTarget)) {
                           setActiveDropdown(null);

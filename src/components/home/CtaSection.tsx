@@ -44,7 +44,7 @@ export default function CtaSection() {
   return (
     <section
       id="cta-section"
-      className="py-20 lg:py-28 bg-[#0950F6] relative z-10 overflow-hidden px-4 sm:px-6 lg:px-8 shadow-ambient-elevation"
+      className="py-20 lg:py-28 bg-[#0950F6] relative z-10 overflow-hidden px-4 sm:px-6 lg:px-8 shadow-[0_25px_50px_-12px_rgba(9,80,246,0.25)]"
     >
       <motion.div
         className="max-w-6xl mx-auto p-2.5 sm:p-3.5 rounded-[30px] bg-white/10 backdrop-blur-md border border-white/25 shadow-2xl"
@@ -76,7 +76,7 @@ export default function CtaSection() {
               ¿Listo para escalar la logística de tu e-commerce?
             </motion.h2>
 
-            <motion.p className="text-[#00277C] text-base sm:text-lg font-sans leading-relaxed font-medium">
+            <motion.p className="text-[#0950F6] text-base sm:text-lg font-sans leading-relaxed font-medium">
               Olvidate de la gestión de paquetes en Mar del Plata. Completá tus datos y te respondemos por WhatsApp al instante.
             </motion.p>
 
@@ -109,7 +109,7 @@ export default function CtaSection() {
                     onChange={e => setFormData({...formData, name: e.target.value})}
                     type="text"
                     placeholder="Ingresá tu nombre"
-                    className="w-full h-11 border-2 border-[#0950F6]/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-[#0950F6] focus:ring-2 focus:ring-[#0950F6]/20 text-[#052C87] placeholder:text-[#0950F6]/40 text-sm font-sans transition-colors bg-white"
+                    className="w-full h-11 border-2 border-[#0950F6]/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-[#0950F6] focus:ring-2 focus:ring-[#0950F6]/20 text-[#0950F6] placeholder:text-[#0950F6]/40 text-sm font-sans transition-colors bg-white"
                   />
                 </div>
               </motion.div>
@@ -129,7 +129,7 @@ export default function CtaSection() {
                     onChange={e => setFormData({...formData, business: e.target.value})}
                     type="text"
                     placeholder="Nombre de tu emprendimiento"
-                    className="w-full h-11 border-2 border-[#0950F6]/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-[#0950F6] focus:ring-2 focus:ring-[#0950F6]/20 text-[#052C87] placeholder:text-[#0950F6]/40 text-sm font-sans transition-colors bg-white"
+                    className="w-full h-11 border-2 border-[#0950F6]/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-[#0950F6] focus:ring-2 focus:ring-[#0950F6]/20 text-[#0950F6] placeholder:text-[#0950F6]/40 text-sm font-sans transition-colors bg-white"
                   />
                 </div>
               </motion.div>
@@ -148,7 +148,7 @@ export default function CtaSection() {
                     id="volume-select"
                     value={formData.volume}
                     onChange={e => setFormData({...formData, volume: e.target.value})}
-                    className="w-full h-11 border-2 border-[#0950F6]/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-[#0950F6] focus:ring-2 focus:ring-[#0950F6]/20 text-[#052C87] text-sm font-sans transition-colors appearance-none bg-white cursor-pointer"
+                    className="w-full h-11 border-2 border-[#0950F6]/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-[#0950F6] focus:ring-2 focus:ring-[#0950F6]/20 text-[#0950F6] text-sm font-sans transition-colors appearance-none bg-white cursor-pointer"
                   >
                     <option value="" disabled>Seleccioná una opción</option>
                     <option value="1 a 50">1 a 50 envíos</option>

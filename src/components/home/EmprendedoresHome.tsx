@@ -64,7 +64,7 @@ export default function EmprendedoresHome() {
   return (
     <section
       id="emprendedores-home"
-      className="py-32 md:py-48 bg-[#052C87] relative overflow-hidden text-white border-y border-white/10"
+      className="py-32 md:py-48 bg-[#0950F6] relative overflow-hidden text-white border-y border-white/10"
     >
       {/* Background Decorative Asymmetric Glows */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
@@ -131,7 +131,7 @@ export default function EmprendedoresHome() {
             className="lg:col-span-7 lg:row-span-2 p-3 sm:p-4 rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#FFF12E]/40 hover:shadow-glow-yellow transition-all duration-300 group overflow-hidden flex flex-col cursor-pointer"
             whileHover={reduceMotion ? undefined : { y: -6, transition: snappySpring }}
           >
-            <div className="rounded-[20px] bg-[#052C87] p-6 sm:p-8 border border-white/10 flex flex-col justify-between h-full relative overflow-hidden text-left flex-1">
+            <div className="rounded-[20px] bg-[#0950F6] p-6 sm:p-8 border border-white/10 flex flex-col justify-between h-full relative overflow-hidden text-left flex-1">
               {/* Subtle Radial Glow */}
               <motion.div
                 className="absolute bottom-0 right-0 w-48 h-48 rounded-full bg-brand-yellow-500/10 blur-3xl pointer-events-none"
@@ -237,16 +237,16 @@ export default function EmprendedoresHome() {
                 </div>
 
                 <div className="space-y-1">
-                  <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-950">
+                  <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-[#0950F6]">
                     Envíos Flex Meli
                   </h3>
-                  <p className="text-brand-blue-950 text-xs sm:text-sm leading-relaxed font-sans font-medium">
+                  <p className="text-[#0950F6] text-xs sm:text-sm leading-relaxed font-sans font-medium">
                     Servicio adaptado a los estándares de Mercado Envíos Flex para tus envíos rápidos en el día. Recolección en tu local y entrega puntual garantizada.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-brand-blue-900/10 relative z-10 flex justify-end">
+              <div className="pt-4 mt-4 border-t border-[#BACEFD] relative z-10 flex justify-end">
                 <Link
                   href="/servicios/enviosflex"
                   className="cta-nested-pill bg-brand-blue-700 text-white px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-md hover:bg-brand-blue-800"

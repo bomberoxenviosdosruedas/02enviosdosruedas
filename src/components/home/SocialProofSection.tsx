@@ -282,7 +282,7 @@ export default function SocialProofSection() {
   return (
     <section
       id="social-proof"
-      className="py-24 bg-[#F8FAFC] relative z-10 border-y border-blue-100/60 overflow-hidden"
+      className="py-24 bg-[#FFFFFF] relative z-10 border-y border-blue-100/60 overflow-hidden"
     >
       {/* Ambient background glows */}
       <div className="absolute top-0 right-10 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -499,7 +499,7 @@ export default function SocialProofSection() {
                 whileHover={reduceMotion ? undefined : { y: -6, transition: snappySpring }}
                 className={cn(
                   'p-2.5 sm:p-3.5 rounded-[28px] backdrop-blur-md transition-all duration-300 flex flex-col h-full select-none cursor-pointer border',
-                  isDarkBlue && 'bg-[#052C87]/90 border-white/20 shadow-2xl',
+                  isDarkBlue && 'bg-[#0950F6]/90 border-white/20 shadow-2xl',
                   isYellowAccent && 'bg-[#FFF12E]/20 border-[#FFF12E]/40 shadow-xl',
                   isFrostBlue && 'bg-white/50 border-white/60 shadow-lg',
                   !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white/60 border-white/80 shadow-lg',
@@ -509,10 +509,10 @@ export default function SocialProofSection() {
                 <div
                   className={cn(
                     'p-6 sm:p-7 rounded-[20px] border relative flex flex-col justify-between h-full transition-colors',
-                    isDarkBlue && 'bg-[#052C87] text-white border-white/15',
-                    isYellowAccent && 'bg-white text-[#00277C] border-yellow-200/80',
-                    isFrostBlue && 'bg-white text-[#00277C] border-blue-100',
-                    !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white text-[#00277C] border-blue-50'
+                    isDarkBlue && 'bg-[#0950F6] text-white border-white/15',
+                    isYellowAccent && 'bg-white text-[#0950F6] border-yellow-200/80',
+                    isFrostBlue && 'bg-white text-[#0950F6] border-blue-100',
+                    !isDarkBlue && !isYellowAccent && !isFrostBlue && 'bg-white text-[#0950F6] border-blue-50'
                   )}
                 >
                   {/* Top Watermark Icon */}

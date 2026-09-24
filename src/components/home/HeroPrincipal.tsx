@@ -1,4 +1,4 @@
-﻿'use client';
+﻿﻿'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -203,7 +203,7 @@ export default function HeroPrincipal() {
               <div className="self-start ml-8 -mt-3 relative z-30 flex justify-start">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-700 border border-white/40 shadow-[0_0_28px_rgba(255,236,1,0.45)] font-subheading text-[11px] uppercase tracking-widest font-bold">
                   <span className="w-2 h-2 rounded-full bg-brand-blue-700 animate-pulse" />
-                  ENTREGA EN EL DÃA Â· MDQ
+                  ENTREGA EN EL DIA· MDQ
                 </div>
               </div>
             </motion.div>

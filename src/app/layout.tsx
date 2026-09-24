@@ -93,12 +93,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
-        {/* DNS Prefetch & Preconnect para recursos externos */}
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://wa.me" />
-
-        {/* Schema Markup: Organization + LocalBusiness */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -159,81 +156,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       closes: '15:00',
                     },
                   ],
-                  areaServed: {
-                    '@type': 'City',
-                    name: 'Mar del Plata',
-                  },
+                  areaServed: { '@type': 'City', name: 'Mar del Plata' },
                   priceRange: '$$',
                   currenciesAccepted: 'ARS',
                   paymentAccepted: 'Cash, Credit Card, Transfer, MercadoPago',
-                  hasOfferCatalog: {
-                    '@type': 'OfferCatalog',
-                    name: 'Servicios de Logística y Mensajería',
-                    itemListElement: [
-                      {
-                        '@type': 'Offer',
-                        itemOffered: {
-                          '@type': 'Service',
-                          name: 'Envíos Express',
-                          description: 'Entregas prioritarias en franja de 60 a 90 min en Mar del Plata.',
-                          url: `${baseUrl}/servicios/envios-express`,
-                        },
-                      },
-                      {
-                        '@type': 'Offer',
-                        itemOffered: {
-                          '@type': 'Service',
-                          name: 'Envíos LowCost',
-                          description: 'Envíos económicos con entrega garantizada en el día para PyMEs.',
-                          url: `${baseUrl}/servicios/envios-lowcost`,
-                        },
-                      },
-                      {
-                        '@type': 'Offer',
-                        itemOffered: {
-                          '@type': 'Service',
-                          name: 'Envíos Flex (MercadoLibre)',
-                          description: 'Servicio adaptado a los estándares de Mercado Envíos Flex. Same-Day delivery.',
-                          url: `${baseUrl}/servicios/enviosflex`,
-                        },
-                      },
-                      {
-                        '@type': 'Offer',
-                        itemOffered: {
-                          '@type': 'Service',
-                          name: 'Centro de Depósito y Logística',
-                          description: 'Almacenamiento, preparación y despacho directo en Friuli 1972.',
-                          url: `${baseUrl}/servicios/deposito-fulfillment`,
-                        },
-                      },
-                    ],
-                  },
                 },
               ],
             }, null, 2)
           }}
         />
-
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17510443994"
-          strategy="lazyOnload"
-        />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-17510443994" strategy="lazyOnload" />
         <Script id="google-tag-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'AW-17510443994');
             gtag('config', 'G-LSLQ3RJ8WT');
           `}
         </Script>
       </head>
-      <body className="bg-white text-brand-ink font-sans antialiased selection:bg-brand-yellow selection:text-brand-blue min-h-[100dvh] flex flex-col" suppressHydrationWarning>
-        <ClientLayout>
-          {children}
-        </ClientLayout>
+      <body className="bg-white text-[#0950F6] font-sans antialiased selection:bg-[#FFEC01] selection:text-[#0950F6] min-h-[100dvh] flex flex-col" suppressHydrationWarning>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

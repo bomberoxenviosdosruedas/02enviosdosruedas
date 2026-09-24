@@ -121,7 +121,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
             exit={{ opacity: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
             onClick={onClose}
-            className="fixed inset-0 bg-brand-blue-900/70 backdrop-blur-md z-50 lg:hidden"
+            className="fixed inset-0 bg-[#0950F6]/70 backdrop-blur-md z-50 lg:hidden"
           />
 
           {/* Slide-over Drawer — spring from right + enhanced blur border (BL-06) */}
@@ -246,7 +246,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
             </div>
 
             {/* Quick Contact & Action Buttons */}
-            <div className="p-5 border-t border-white/10 space-y-4 shrink-0 bg-brand-blue-700/80 backdrop-blur-md">
+            <div className="p-5 border-t border-white/10 space-y-4 shrink-0 bg-[#0950F6]/80 backdrop-blur-md">
               <a
                 href="tel:+542236602699"
                 className="flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-white/10 border border-white/5 text-white hover:text-brand-yellow-500 font-mono text-sm font-bold transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"

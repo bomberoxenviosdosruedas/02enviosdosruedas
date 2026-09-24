@@ -66,13 +66,13 @@ export default function ServicesOverview() {
       city: 'Cobertura MDQ',
       founded: '+7 Años de Trayectoria',
       imageUrl: '/cards/fondo_express.webp',
-      cardStyleCenter: 'border-brand-yellow-500 bg-gradient-to-br from-brand-blue-700 to-brand-blue-900 shadow-cta-glow text-white',
-      cardStyleSide: 'border-brand-blue-500/20 bg-brand-blue-800 text-white/90',
+      cardStyleCenter: 'border-brand-yellow-500 bg-gradient-to-br from-[#0950F6] to-[#0950F6] shadow-cta-glow text-white',
+      cardStyleSide: 'border-brand-blue-500/20 bg-brand-blue-700 text-white/90',
       textColor: 'text-white',
       titleColor: 'text-white group-hover:text-brand-yellow-500',
       descColor: 'text-brand-blue-100',
       imgBlend: 'opacity-25 mix-blend-overlay',
-      badgeStyle: 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-400',
+      badgeStyle: 'bg-brand-yellow-500 text-brand-blue-700 border-brand-yellow-400',
       statBoxStyle: 'bg-white/10 border border-white/10 text-white',
       statValStyle: 'text-brand-yellow-500',
       statLabelStyle: 'text-brand-blue-200',
@@ -103,7 +103,7 @@ export default function ServicesOverview() {
       city: 'Todo Gral. Pueyrredón',
       founded: 'Tarifa Fija Especial',
       imageUrl: '/cards/fondo_lowcost.webp',
-      cardStyleCenter: 'border-brand-blue-500 bg-gradient-to-br from-brand-white-50 to-brand-blue-50 shadow-[8px_8px_0px_rgba(6,54,165,0.2)] text-brand-ink',
+      cardStyleCenter: 'border-brand-blue-500 bg-gradient-to-br from-brand-white-50 to-brand-blue-50 shadow-[8px_8px_0px_rgba(9,80,246,0.2)] text-brand-ink',
       cardStyleSide: 'border-brand-blue-100 bg-white text-brand-ink',
       textColor: 'text-brand-ink',
       titleColor: 'text-brand-ink group-hover:text-brand-blue-700',
@@ -143,14 +143,14 @@ export default function ServicesOverview() {
       cardStyleCenter: 'border-brand-blue-700 bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-[8px_8px_0px_rgba(255,236,1,0.25)] text-brand-ink',
       cardStyleSide: 'border-brand-yellow-500/30 bg-brand-yellow-500 text-brand-ink',
       textColor: 'text-brand-ink',
-      titleColor: 'text-brand-ink group-hover:text-brand-blue-900',
-      descColor: 'text-brand-blue-900/80',
+      titleColor: 'text-brand-ink group-hover:text-brand-blue-700',
+      descColor: 'text-brand-blue-700/80',
       imgBlend: 'opacity-20 mix-blend-multiply',
-      badgeStyle: 'bg-brand-blue-900 text-white border-brand-blue-700/30',
+      badgeStyle: 'bg-brand-blue-700 text-white border-brand-blue-700/30',
       statBoxStyle: 'bg-brand-blue-700/10 border border-brand-blue-700/20 text-brand-ink',
-      statValStyle: 'text-brand-blue-900',
-      statLabelStyle: 'text-brand-blue-800',
-      hintColor: 'text-brand-blue-900',
+      statValStyle: 'text-brand-blue-700',
+      statLabelStyle: 'text-brand-blue-700',
+      hintColor: 'text-brand-blue-700',
       stats: {
         time: 'En el día',
         price: 'Zonificado LowCost',
@@ -177,13 +177,13 @@ export default function ServicesOverview() {
       city: 'Depósito Friuli 1972',
       founded: 'Depósito Inteligente',
       imageUrl: '/cards/fondo_emprendedores.webp',
-      cardStyleCenter: 'border-brand-blue-500 bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 shadow-2xl text-white',
-      cardStyleSide: 'border-brand-blue-800/20 bg-brand-blue-900 text-white/90',
+      cardStyleCenter: 'border-brand-blue-500 bg-gradient-to-br from-brand-blue-700 to-brand-blue-700 shadow-2xl text-white',
+      cardStyleSide: 'border-brand-blue-700/20 bg-brand-blue-700 text-white/90',
       textColor: 'text-white',
       titleColor: 'text-white group-hover:text-brand-yellow-500',
       descColor: 'text-brand-blue-100',
       imgBlend: 'opacity-25 mix-blend-overlay',
-      badgeStyle: 'bg-brand-blue-900 text-white border-brand-blue-700/30',
+      badgeStyle: 'bg-brand-blue-700 text-white border-brand-blue-700/30',
       statBoxStyle: 'bg-white/10 border border-white/10 text-white',
       statValStyle: 'text-brand-yellow-500',
       statLabelStyle: 'text-brand-blue-200',
@@ -353,7 +353,7 @@ export default function ServicesOverview() {
                 onClick={handlePrev}
                 whileHover={reduceMotion ? undefined : { scale: 1.05 }}
                 whileTap={reduceMotion ? undefined : { scale: 0.95 }}
-                className="p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-900 border border-white/20 cursor-pointer transition-colors"
+                className="p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-700 border border-white/20 cursor-pointer transition-colors"
                 aria-label="Anterior Servicio"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -363,7 +363,7 @@ export default function ServicesOverview() {
                 onClick={handleNext}
                 whileHover={reduceMotion ? undefined : { scale: 1.05 }}
                 whileTap={reduceMotion ? undefined : { scale: 0.95 }}
-                className="p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-900 border border-white/20 cursor-pointer transition-colors"
+                className="p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-700 border border-white/20 cursor-pointer transition-colors"
                 aria-label="Siguiente Servicio"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -461,7 +461,7 @@ export default function ServicesOverview() {
                       className="flex items-center gap-2.5"
                       whileHover={reduceMotion ? undefined : { scale: 1.05, transition: springConfigSnappy }}
                     >
-                      <div className="p-3 bg-brand-yellow-500 text-brand-blue-900 rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-700)]">
+                      <div className="p-3 bg-brand-yellow-500 text-brand-blue-700 rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-700)]">
                         <Icon className="h-5 w-5" />
                       </div>
                       <span className={`text-[10px] font-bold font-subheading px-2.5 py-1 rounded-full border shadow-sm ${service.badgeStyle}`}>
@@ -566,7 +566,7 @@ export default function ServicesOverview() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-0 z-50 bg-brand-blue-950/80 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-[#0950F6]/80 backdrop-blur-md flex items-center justify-center p-4"
             role="dialog"
             aria-modal="true"
             aria-labelledby="service-modal-title"
@@ -585,7 +585,7 @@ export default function ServicesOverview() {
                   onClick={() => setSelectedService(null)}
                   whileHover={reduceMotion ? undefined : { scale: 1.1, rotate: 90, transition: springConfigSnappy }}
                   whileTap={reduceMotion ? undefined : { scale: 0.9 }}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-900 transition-colors cursor-pointer z-20"
+                  className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-700 transition-colors cursor-pointer z-20"
                   aria-label="Cerrar ficha técnica"
                 >
                   <X className="w-5 h-5" />
@@ -593,7 +593,7 @@ export default function ServicesOverview() {
 
                 {/* Modal Header */}
                 <div className="flex items-center gap-4 text-left">
-                  <div className="p-4 bg-brand-yellow-500 text-brand-blue-900 rounded-2xl shadow-[3px_3px_0px_var(--color-brand-blue-900)]">
+                  <div className="p-4 bg-brand-yellow-500 text-brand-blue-700 rounded-2xl shadow-[3px_3px_0px_var(--color-brand-blue-700)]">
                     {React.createElement(selectedService.icon, { className: "w-8 h-8" })}
                   </div>
                   <div>
@@ -669,10 +669,10 @@ export default function ServicesOverview() {
                   </motion.button>
                   <a
                     href={selectedService.details.ctaHref}
-                    className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 px-6 py-2.5 text-sm font-subheading font-bold uppercase hover:bg-brand-yellow-400"
+                    className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-700 px-6 py-2.5 text-sm font-subheading font-bold uppercase hover:bg-brand-yellow-400"
                   >
                     <span>{selectedService.details.ctaText}</span>
-                    <span className="cta-nested-icon bg-brand-blue-900/10">→</span>
+                    <span className="cta-nested-icon bg-brand-blue-700/10">→</span>
                   </a>
                 </div>
               </div>

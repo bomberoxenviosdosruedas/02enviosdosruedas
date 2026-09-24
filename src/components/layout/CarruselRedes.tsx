@@ -111,7 +111,7 @@ export default function CarruselRedes() {
       ref={sectionRef}
       id="carrusel-redes"
       suppressHydrationWarning
-      className="py-20 md:py-32 bg-brand-blue-700 border-y border-white/10 relative overflow-hidden font-sans select-none"
+      className="py-20 md:py-32 bg-[#0950F6] border-y border-white/10 relative overflow-hidden font-sans select-none"
     >
       {/* Background Decorative Mesh & Depth Highlights */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
@@ -146,7 +146,7 @@ export default function CarruselRedes() {
             return (
               <div
                 key={net.id}
-                className={`social-block group relative rounded-2xl p-2 transition-all duration-300 border ${net.cardBorder} bg-brand-blue-800/80 backdrop-blur-md hover:-translate-y-1.5 shadow-xl`}
+                className={`social-block group relative rounded-2xl p-2 transition-all duration-300 border ${net.cardBorder} bg-[#0950F6]/80 backdrop-blur-md hover:-translate-y-1.5 shadow-xl`}
               >
                 {/* Internal Glow on Hover */}
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-b ${net.glow} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />

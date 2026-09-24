@@ -77,7 +77,7 @@ export default function VisionSection() {
   return (
     <section
       id="vision-section"
-      className="py-24 bg-[#F8FAFC] relative z-10 overflow-hidden"
+      className="py-24 bg-[#FFFFFF] relative z-10 overflow-hidden"
     >
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -160,7 +160,7 @@ export default function VisionSection() {
             {/* Main Bento Card: Envíos Realizados */}
             <motion.div
               whileHover={reduceMotion ? undefined : { y: -6, transition: springConfigCard }}
-              className="sm:col-span-2 p-3 sm:p-4 rounded-[28px] bg-white/20 backdrop-blur-md border border-white/40 shadow-2xl hover:shadow-glow-yellow transition-shadow group cursor-default"
+              className="sm:col-span-2 p-3 sm:p-4 rounded-[28px] bg-[#E6EEFE]/80 backdrop-blur-md border border-[#BACEFD] shadow-2xl hover:shadow-glow-yellow transition-shadow group cursor-default"
             >
               <div className="bg-[#0950F6] rounded-[20px] p-6 sm:p-8 text-white relative overflow-hidden h-full flex flex-col justify-between border border-white/20">
                 <div className="flex justify-between items-start mb-12">
@@ -170,7 +170,7 @@ export default function VisionSection() {
                   >
                     <Truck className="h-6 w-6" />
                   </motion.div>
-                  <span className="text-[10px] font-subheading tracking-widest uppercase px-3 py-1.5 rounded-lg bg-[#052C87] text-[#FFF12E] font-bold border border-[#FFF12E]/30">
+                  <span className="text-[10px] font-subheading tracking-widest uppercase px-3 py-1.5 rounded-lg bg-[#0950F6] text-[#FFF12E] font-bold border border-[#FFF12E]/30">
                     MAR DEL PLATA 2026
                   </span>
                 </div>
@@ -188,7 +188,7 @@ export default function VisionSection() {
             {/* Bento Card 2: Paquetes Extraviados (Double Bezel Glass Container) */}
             <motion.div
               whileHover={reduceMotion ? undefined : { y: -6, transition: springConfigCard }}
-              className="p-2 sm:p-2.5 rounded-[28px] bg-white/40 backdrop-blur-md border border-white/50 shadow-xl hover:shadow-glow-blue transition-shadow group cursor-default"
+              className="p-2 sm:p-2.5 rounded-[28px] bg-[#E6EEFE]/80 backdrop-blur-md border border-[#BACEFD] shadow-xl hover:shadow-glow-blue transition-shadow group cursor-default"
             >
               <div className="bg-white p-6 sm:p-8 rounded-[20px] border border-blue-100 shadow-sm flex flex-col justify-between h-full">
                 <div className="flex justify-between items-start mb-6">
@@ -213,7 +213,7 @@ export default function VisionSection() {
             {/* Bento Card 3: Emprendedores Confían (Double Bezel Glass Container) */}
             <motion.div
               whileHover={reduceMotion ? undefined : { y: -6, transition: springConfigCard }}
-              className="p-2 sm:p-2.5 rounded-[28px] bg-white/40 backdrop-blur-md border border-white/50 shadow-xl hover:shadow-glow-blue transition-shadow group cursor-default"
+              className="p-2 sm:p-2.5 rounded-[28px] bg-[#E6EEFE]/80 backdrop-blur-md border border-[#BACEFD] shadow-xl hover:shadow-glow-blue transition-shadow group cursor-default"
             >
               <div className="bg-white p-6 sm:p-8 rounded-[20px] border border-blue-100 shadow-sm flex flex-col justify-between h-full">
                 <div className="flex justify-between items-start mb-6">
