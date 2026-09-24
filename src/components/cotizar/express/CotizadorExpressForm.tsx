@@ -7,7 +7,7 @@ import CotizadorExpressResults from './CotizadorExpressResults';
 import CotizadorExpressMap from './CotizadorExpressMap';
 import { useCotizadorExpress } from './hooks/useCotizadorExpress';
 import { useQuoteAnalytics } from './hooks/useQuoteAnalytics';
-import type { PriceRangeProp } from '@/lib/pricing';
+import type { PriceRangeProp } from '@/src/lib/pricing';
 
 export default function CotizadorExpressForm({ priceRanges = [] }: { priceRanges?: PriceRangeProp[] }) {
   const form = useCotizadorExpress({ priceRanges });
