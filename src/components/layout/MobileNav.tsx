@@ -2,21 +2,16 @@
 
 import React, { useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { ChevronDown, ChevronRight, Phone, X } from 'lucide-react';
 import { CTANestedPill } from '@/components/ui';
-import { cn } from '@/lib/utils';
 
 export interface MobileNavItem {
   label: string;
   href?: string;
   icon?: React.ComponentType<{ className?: string }>;
-  dropdownItems?: {
-    label: string;
-    href: string;
-    icon?: React.ComponentType<{ className?: string }>;
-  }[];
+  dropdownItems?: { label: string; href: string; icon?: React.ComponentType<{ className?: string }> }[];
 }
 
 export interface MobileNavProps {
@@ -27,249 +22,132 @@ export interface MobileNavProps {
   onDropdownToggle: (label: string) => void;
 }
 
-// Spring config for the panel slide-in
 const SPRING_PANEL = { type: 'spring', stiffness: 340, damping: 30 } as const;
+const NAV_CONTAINER = { hidden: {}, visible: { transition: { staggerChildren: 0.07, delayChildren: 0.15 } } } as const;
+const NAV_ITEM_VARIANT = { hidden: { opacity: 0, x: 24 }, visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 380, damping: 26 } } } as const;
 
-// Stagger config for nav items appearing after panel opens
-const NAV_CONTAINER = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.15 },
-  },
-} as const;
+// FIX ESLINT: useSyncExternalStore para mounted sin setState en effect
+function useIsMounted() {
+  return React.useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+}
 
-const NAV_ITEM_VARIANT = {
-  hidden: { opacity: 0, x: 24 },
-  visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 380, damping: 26 } },
-} as const;
-
-export const MobileNav: React.FC<MobileNavProps> = ({
-  isOpen,
-  onClose,
-  navItems,
-  activeDropdown,
-  onDropdownToggle,
-}) => {
+export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, navItems, activeDropdown, onDropdownToggle }) => {
   const prefersReducedMotion = useReducedMotion();
+  const mounted = useIsMounted();
   const drawerRef = React.useRef<HTMLDivElement>(null);
 
-  // Prevent page scroll when mobile drawer is open & handle focus trap / Escape key
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+      if (e.key === 'Tab' && drawerRef.current) {
+        const focusable = drawerRef.current.querySelectorAll<HTMLElement>('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
           e.preventDefault();
-          onClose();
-          return;
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
         }
-
-        if (e.key === 'Tab' && drawerRef.current) {
-          const focusableElements = drawerRef.current.querySelectorAll<HTMLElement>(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-          );
-          if (focusableElements.length === 0) return;
-
-          const firstElement = focusableElements[0];
-          const lastElement = focusableElements[focusableElements.length - 1];
-
-          if (e.shiftKey) {
-            if (document.activeElement === firstElement) {
-              e.preventDefault();
-              lastElement.focus();
-            }
-          } else {
-            if (document.activeElement === lastElement) {
-              e.preventDefault();
-              firstElement.focus();
-            }
-          }
-        }
-      };
-
-      window.addEventListener('keydown', handleKeyDown);
-
-      // Auto-focus first focusable element inside drawer
-      const focusTimer = setTimeout(() => {
-        const firstFocusable = drawerRef.current?.querySelector<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        firstFocusable?.focus();
-      }, 50);
-
-      return () => {
-        document.body.style.overflow = '';
-        window.removeEventListener('keydown', handleKeyDown);
-        clearTimeout(focusTimer);
-        const trigger = document.getElementById('mobile-menu-toggle-opt');
-        trigger?.focus();
-      };
-    } else {
-      document.body.style.overflow = '';
-    }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    const t = setTimeout(() => drawerRef.current?.querySelector<HTMLElement>('button, [href]')?.focus(), 80);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      clearTimeout(t);
+      document.getElementById('mobile-menu-toggle-opt')?.focus();
+    };
   }, [isOpen, onClose]);
 
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          {/* Backdrop Overlay — enhanced blur transition */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
-            onClick={onClose}
-            className="fixed inset-0 bg-[#0950F6]/70 backdrop-blur-md z-50 lg:hidden"
-          />
+  if (!mounted) return null;
 
-          {/* Slide-over Drawer — spring from right + enhanced blur border (BL-06) */}
-          <motion.div
-            ref={drawerRef}
-            id="mobile-navigation-dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menú principal de navegación"
-            initial={prefersReducedMotion ? { x: 0 } : { x: '100%' }}
-            animate={{ x: 0 }}
-            exit={prefersReducedMotion ? { opacity: 0 } : { x: '100%' }}
-            transition={SPRING_PANEL}
-            className="fixed inset-y-0 right-0 w-full max-w-[320px] bg-brand-blue-700 shadow-2xl z-50 flex flex-col h-full border-l border-white/10 lg:hidden"
-          >
-            {/* Header Mobile Brand Info */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0">
-              <Link href="/" onClick={onClose} className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50 rounded-lg">
-                <span className="font-display text-xl tracking-tight uppercase select-none flex flex-col items-start leading-none">
-                  <span className="text-white">Envíos</span>
-                  <span className="text-brand-yellow-500">DosRuedas</span>
-                </span>
-              </Link>
+  const content = (
+    <>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: prefersReducedMotion ? 0 : 0.2 }} onClick={onClose} className="fixed inset-0 bg-brand-blue-700/70 backdrop-blur-md z-99 lg:hidden" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }} />
+      <motion.div
+        ref={drawerRef}
+        id="mobile-navigation-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menú principal"
+        initial={prefersReducedMotion ? { x: 0 } : { x: '100%' }}
+        animate={{ x: 0 }}
+        exit={prefersReducedMotion ? { opacity: 0 } : { x: '100%' }}
+        transition={SPRING_PANEL}
+        className="fixed top-0 right-0 bottom-0 z-100 flex flex-col w-full max-w-[320px] h-dvh bg-brand-blue-700 shadow-2xl border-l border-white/10 lg:hidden overscroll-contain"
+        style={{ position: 'fixed', top: 0, right: 0, bottom: 0, height: '100dvh', maxHeight: '100dvh', minHeight: '-webkit-fill-available' as any }}
+      >
+        <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
+          <Link href="/" onClick={onClose} className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50 rounded-lg">
+            <span className="font-display text-xl tracking-tight uppercase select-none flex flex-col items-start leading-none">
+              <span className="text-white">Envíos</span>
+              <span className="text-brand-yellow-500">DosRuedas</span>
+            </span>
+          </Link>
+          <motion.button onClick={onClose} whileHover={prefersReducedMotion ? {} : { scale: 1.08, rotate: 90 }} whileTap={prefersReducedMotion ? {} : { scale: 0.92 }} transition={{ type: 'spring', stiffness: 500, damping: 20 }} className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50 transition-colors cursor-pointer min-w-11 min-h-11 flex items-center justify-center" aria-label="Cerrar menú">
+            <X className="h-5 w-5" />
+          </motion.button>
+        </div>
 
-              {/* Animated close button */}
-              <motion.button
-                onClick={onClose}
-                whileHover={prefersReducedMotion ? {} : { scale: 1.08, rotate: 90 }}
-                whileTap={prefersReducedMotion ? {} : { scale: 0.92 }}
-                transition={{ type: 'spring', stiffness: 500, damping: 20 }}
-                className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50 transition-colors cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
-                aria-label="Cerrar menú"
-              >
-                <X className="h-5 w-5" />
-              </motion.button>
-            </div>
+        <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-6 space-y-6">
+          <motion.nav className="space-y-2" variants={prefersReducedMotion ? {} : NAV_CONTAINER} initial="hidden" animate="visible">
+            {navItems.map((item) => (
+              <motion.div key={item.label} variants={prefersReducedMotion ? {} : NAV_ITEM_VARIANT} className="border-b border-white/10 pb-2.5 last:border-b-0 last:pb-0">
+                {item.href ? (
+                  <Link href={item.href} onClick={onClose} className="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5 transition-all font-bold min-h-12 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50">
+                    {item.icon && <item.icon className="h-5 w-5 text-brand-yellow-500 shrink-0" />}
+                    <span>{item.label}</span>
+                  </Link>
+                ) : (
+                  <div>
+                    <button onClick={() => onDropdownToggle(item.label)} className="w-full text-left py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase flex items-center justify-between text-white hover:bg-white/5 font-bold cursor-pointer transition-all min-h-12 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50">
+                      <span className="flex items-center gap-3.5">{item.icon && <item.icon className="h-5 w-5 text-brand-yellow-500 shrink-0" />}<span>{item.label}</span></span>
+                      <motion.span animate={{ rotate: activeDropdown === item.label ? 180 : 0 }} transition={{ type: 'spring', stiffness: 400, damping: 25 }}><ChevronDown className="h-5 w-5 text-brand-yellow-500 shrink-0" /></motion.span>
+                    </button>
+                    <AnimatePresence>
+                      {item.dropdownItems && activeDropdown === item.label && (
+                        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={prefersReducedMotion ? { duration: 0 } : { type: 'spring', stiffness: 340, damping: 28 }} className="pl-4 pr-1 py-2 flex flex-col gap-1 overflow-hidden">
+                          {item.dropdownItems.map((subItem, idx) => {
+                            const SubIcon = subItem.icon || ChevronRight;
+                            return (
+                              <motion.div key={subItem.href} initial={prefersReducedMotion ? {} : { opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: idx * 0.05, type: 'spring', stiffness: 380, damping: 26 }}>
+                                <Link href={subItem.href} onClick={onClose} className="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider font-bold text-brand-blue-50/90 hover:text-brand-yellow-500 hover:bg-white/10 transition-all min-h-10.5 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50">
+                                  <div className="p-1 rounded-lg bg-white/10 text-brand-yellow-500 shrink-0"><SubIcon className="h-4 w-4" /></div><span>{subItem.label}</span>
+                                </Link>
+                              </motion.div>
+                            );
+                          })}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </motion.nav>
+        </div>
 
-            {/* Nav Items List — staggered entrance */}
-            <div className="flex-1 overflow-y-auto px-5 py-6 space-y-6">
-              <motion.nav
-                className="space-y-2"
-                variants={prefersReducedMotion ? {} : NAV_CONTAINER}
-                initial="hidden"
-                animate="visible"
-              >
-                {navItems.map((item) => (
-                  <motion.div
-                    key={item.label}
-                    variants={prefersReducedMotion ? {} : NAV_ITEM_VARIANT}
-                    className="border-b border-white/10 pb-2.5 last:border-b-0 last:pb-0"
-                  >
-                    {item.href ? (
-                      <Link
-                        href={item.href}
-                        onClick={onClose}
-                        className="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5 transition-all font-bold min-h-[48px] focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"
-                      >
-                        {item.icon && <item.icon className="h-5 w-5 text-brand-yellow-500 shrink-0" />}
-                        <span>{item.label}</span>
-                      </Link>
-                    ) : (
-                      <div>
-                        <button
-                          onClick={() => onDropdownToggle(item.label)}
-                          className="w-full text-left py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase flex items-center justify-between text-white hover:bg-white/5 font-bold cursor-pointer transition-all min-h-[48px] focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"
-                        >
-                          <span className="flex items-center gap-3.5">
-                            {item.icon && <item.icon className="h-5 w-5 text-brand-yellow-500 shrink-0" />}
-                            <span>{item.label}</span>
-                          </span>
-                          <motion.span
-                            animate={{ rotate: activeDropdown === item.label ? 180 : 0 }}
-                            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                          >
-                            <ChevronDown className="h-5 w-5 text-brand-yellow-500 shrink-0" />
-                          </motion.span>
-                        </button>
-
-                        <AnimatePresence>
-                          {item.dropdownItems && activeDropdown === item.label && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={
-                                prefersReducedMotion
-                                  ? { duration: 0 }
-                                  : { type: 'spring', stiffness: 340, damping: 28 }
-                              }
-                              className="pl-4 pr-1 py-2 flex flex-col gap-1 overflow-hidden"
-                            >
-                              {item.dropdownItems.map((subItem, idx) => {
-                                const SubIcon = subItem.icon || ChevronRight;
-                                return (
-                                  <motion.div
-                                    key={subItem.href}
-                                    initial={prefersReducedMotion ? {} : { opacity: 0, x: 12 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: idx * 0.05, type: 'spring', stiffness: 380, damping: 26 }}
-                                  >
-                                    <Link
-                                      href={subItem.href}
-                                      onClick={onClose}
-                                      className="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider font-bold text-brand-blue-50/90 hover:text-brand-yellow-500 hover:bg-white/10 transition-all min-h-[42px] focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"
-                                    >
-                                      <div className="p-1 rounded-lg bg-white/10 text-brand-yellow-500 shrink-0">
-                                        <SubIcon className="h-4 w-4" />
-                                      </div>
-                                      <span>{subItem.label}</span>
-                                    </Link>
-                                  </motion.div>
-                                );
-                              })}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
-              </motion.nav>
-            </div>
-
-            {/* Quick Contact & Action Buttons */}
-            <div className="p-5 border-t border-white/10 space-y-4 shrink-0 bg-[#0950F6]/80 backdrop-blur-md">
-              <a
-                href="tel:+542236602699"
-                className="flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-white/10 border border-white/5 text-white hover:text-brand-yellow-500 font-mono text-sm font-bold transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"
-              >
-                <Phone className="h-4 w-4 text-brand-yellow-500" />
-                <span>+54 223 660-2699</span>
-              </a>
-
-              <CTANestedPill
-                href="/cotizar/express"
-                variant="primary"
-                size="large"
-                className="w-full justify-center min-h-[44px] py-3.5"
-                onClick={onClose}
-              >
-                Cotizá tu envío
-              </CTANestedPill>
-            </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+        <div className="p-5 border-t border-white/10 space-y-4 shrink-0 bg-brand-blue-700 backdrop-blur-md mt-auto">
+          <a href="tel:+542236602699" className="flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-white/10 border border-white/5 text-white hover:text-brand-yellow-500 font-mono text-sm font-bold transition-all min-h-11 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"><Phone className="h-4 w-4 text-brand-yellow-500" /><span>+54 223 660-2699</span></a>
+          <CTANestedPill href="/cotizar/express" variant="primary" size="large" className="w-full justify-center min-h-11 py-3.5" onClick={onClose}>Cotizá tu envío</CTANestedPill>
+        </div>
+      </motion.div>
+    </>
   );
+
+  return createPortal(content, document.body);
 };
 
 export default MobileNav;
