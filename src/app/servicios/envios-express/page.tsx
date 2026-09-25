@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Envíos Express en Moto en Mar del Plata | Envíos DosRuedas',
     description: `Cadetería en moto con entrega en ${EXPRESS_WINDOW} en todo Mar del Plata. Flota propia y tarifas 2026 por distancia.`,
-    images: [`${baseUrl}/og-image.jpg`],
+    // Sin `images`: X usa og:image, que genera ./opengraph-image.tsx (public/og-image.jpg no existe).
     creator: '@enviosdosruedas',
   },
 };
