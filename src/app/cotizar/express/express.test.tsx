@@ -27,14 +27,6 @@ vi.mock('@/src/lib/prisma', () => ({
   },
 }));
 
-const mockPriceRanges = [
-  { id: 1, serviceType: 'EXPRESS', distanciaMinKm: 0, distanciaMaxKm: 3, precioRango: 3700, descripcion: 'Zona 1' },
-  { id: 2, serviceType: 'EXPRESS', distanciaMinKm: 3, distanciaMaxKm: 5, precioRango: 4600, descripcion: 'Zona 2' },
-  { id: 3, serviceType: 'EXPRESS', distanciaMinKm: 5, distanciaMaxKm: 7, precioRango: 6100, descripcion: 'Zona 3' },
-  { id: 4, serviceType: 'EXPRESS', distanciaMinKm: 7, distanciaMaxKm: 10, precioRango: 8200, descripcion: 'Zona 4' },
-  { id: 5, serviceType: 'EXPRESS', distanciaMinKm: 10, distanciaMaxKm: 9999, precioRango: 1000, descripcion: 'Excedente' },
-];
-
 describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -49,21 +41,21 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
   });
 
   it('T1.2: renderiza el formulario de cotización Express con todos sus inputs', () => {
-    render(<CotizadorExpressForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorExpressForm />);
     expect(screen.getByLabelText('Nombre')).toBeInTheDocument();
     expect(screen.getByLabelText('Teléfono')).toBeInTheDocument();
     expect(screen.getByLabelText('Tipo de producto a trasladar')).toBeInTheDocument();
   });
 
   it('T1.3: permite ingresar datos personales y de producto', () => {
-    render(<CotizadorExpressForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorExpressForm />);
     const nameInput = screen.getByPlaceholderText('Tu nombre completo') as HTMLInputElement;
     fireEvent.change(nameInput, { target: { value: 'Alberto Rossi' } });
     expect(nameInput.value).toBe('Alberto Rossi');
   });
 
   it('T1.4: simula la resolución de direcciones mediante el autocomplete', () => {
-    render(<CotizadorExpressForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorExpressForm />);
     const inputs = screen.getAllByTestId('mock-address-input');
     
     // Simular entrada en dirección de origen
@@ -78,7 +70,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
       routeCoords: [[-38.002, -57.55], [-38.01, -57.56]],
     });
 
-    render(<CotizadorExpressForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorExpressForm />);
     
     // Rellenar todos los campos obligatorios
     fireEvent.change(screen.getByPlaceholderText('Tu nombre completo'), { target: { value: 'Alberto' } });
@@ -101,7 +93,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
   // ─── TIER 2: BOUNDARY & CORNER CASES (5 tests) ─────────────────────────────
 
   it('T2.1: mantiene deshabilitado el botón de cálculo si faltan campos obligatorios', () => {
-    render(<CotizadorExpressForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorExpressForm />);
     const submitBtn = screen.getByRole('button', { name: /Calcular Ruta y Tarifa Express/ });
     expect(submitBtn).toBeDisabled();
   });
@@ -114,7 +106,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
       routeCoords: [[-38.002, -57.55], [-38.05, -57.60]],
     });
 
-    render(<CotizadorExpressForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorExpressForm />);
     
     fireEvent.change(screen.getByPlaceholderText('Tu nombre completo'), { target: { value: 'Alberto' } });
     fireEvent.change(screen.getByPlaceholderText('Tu teléfono de contacto'), { target: { value: '223456789' } });
@@ -136,7 +128,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
   it('T2.3: muestra un mensaje de advertencia si la API de rutas no devuelve una ruta válida', async () => {
     mockFetchRoute.mockResolvedValueOnce(null);
 
-    render(<CotizadorExpressForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorExpressForm />);
     
     fireEvent.change(screen.getByPlaceholderText('Tu nombre completo'), { target: { value: 'Alberto' } });
     fireEvent.change(screen.getByPlaceholderText('Tu teléfono de contacto'), { target: { value: '223456789' } });
@@ -161,7 +153,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
       routeCoords: [[-38.002, -57.55], [-38.005, -57.555]],
     });
 
-    render(<CotizadorExpressForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorExpressForm />);
     
     fireEvent.change(screen.getByPlaceholderText('Tu nombre completo'), { target: { value: 'Alberto' } });
     fireEvent.change(screen.getByPlaceholderText('Tu teléfono de contacto'), { target: { value: '223456789' } });
@@ -182,7 +174,7 @@ describe('Express Page & CotizadorExpressForm — Tier 1 & 2', () => {
   });
 
   it('T2.5: verifica que el mapa interactivo mockeado esté presente en la pantalla', () => {
-    render(<CotizadorExpressForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorExpressForm />);
     expect(screen.getByTestId('mock-route-map')).toBeInTheDocument();
   });
 });

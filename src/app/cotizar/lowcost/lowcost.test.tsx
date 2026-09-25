@@ -27,14 +27,6 @@ vi.mock('@/src/lib/prisma', () => ({
   },
 }));
 
-const mockPriceRanges = [
-  { id: 1, serviceType: 'LOW_COST', distanciaMinKm: 0, distanciaMaxKm: 3, precioRango: 3000, descripcion: 'Zona 1' },
-  { id: 2, serviceType: 'LOW_COST', distanciaMinKm: 3, distanciaMaxKm: 5, precioRango: 4000, descripcion: 'Zona 2' },
-  { id: 3, serviceType: 'LOW_COST', distanciaMinKm: 5, distanciaMaxKm: 7, precioRango: 5300, descripcion: 'Zona 3' },
-  { id: 4, serviceType: 'LOW_COST', distanciaMinKm: 7, distanciaMaxKm: 10, precioRango: 7000, descripcion: 'Zona 4' },
-  { id: 5, serviceType: 'LOW_COST', distanciaMinKm: 10, distanciaMaxKm: 9999, precioRango: 700, descripcion: 'Excedente' },
-];
-
 describe('LowCost Page & CotizadorLowCostForm — Tier 1 & 2', () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -49,21 +41,21 @@ describe('LowCost Page & CotizadorLowCostForm — Tier 1 & 2', () => {
   });
 
   it('T1.2: renderiza el formulario de cotización LowCost con sus respectivos campos', () => {
-    render(<CotizadorLowCostForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorLowCostForm />);
     expect(screen.getByLabelText('Nombre')).toBeInTheDocument();
     expect(screen.getByLabelText('Teléfono')).toBeInTheDocument();
     expect(screen.getByLabelText('Tipo de producto a trasladar')).toBeInTheDocument();
   });
 
   it('T1.3: permite la entrada de datos en los campos del formulario', () => {
-    render(<CotizadorLowCostForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorLowCostForm />);
     const telInput = screen.getByPlaceholderText('Tu teléfono de contacto') as HTMLInputElement;
     fireEvent.change(telInput, { target: { value: '223111222' } });
     expect(telInput.value).toBe('223111222');
   });
 
   it('T1.4: simula la entrada y resolución de coordenadas de direcciones en el autocomplete', () => {
-    render(<CotizadorLowCostForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorLowCostForm />);
     const inputs = screen.getAllByTestId('mock-address-input');
     
     fireEvent.change(inputs[0], { target: { value: 'Base Friuli 1972' } });
@@ -77,7 +69,7 @@ describe('LowCost Page & CotizadorLowCostForm — Tier 1 & 2', () => {
       routeCoords: [[-38.002, -57.55], [-38.01, -57.56]],
     });
 
-    render(<CotizadorLowCostForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorLowCostForm />);
     
     fireEvent.change(screen.getByPlaceholderText('Tu nombre completo'), { target: { value: 'Matias' } });
     fireEvent.change(screen.getByPlaceholderText('Tu teléfono de contacto'), { target: { value: '2236602699' } });
@@ -100,7 +92,7 @@ describe('LowCost Page & CotizadorLowCostForm — Tier 1 & 2', () => {
   // ─── TIER 2: BOUNDARY & CORNER CASES (5 tests) ─────────────────────────────
 
   it('T2.1: mantiene deshabilitado el botón de cálculo si faltan campos obligatorios', () => {
-    render(<CotizadorLowCostForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorLowCostForm />);
     const submitBtn = screen.getByRole('button', { name: /Calcular Ruta/ });
     expect(submitBtn).toBeDisabled();
   });
@@ -113,7 +105,7 @@ describe('LowCost Page & CotizadorLowCostForm — Tier 1 & 2', () => {
       routeCoords: [[-38.002, -57.55], [-38.05, -57.60]],
     });
 
-    render(<CotizadorLowCostForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorLowCostForm />);
     
     fireEvent.change(screen.getByPlaceholderText('Tu nombre completo'), { target: { value: 'Matias' } });
     fireEvent.change(screen.getByPlaceholderText('Tu teléfono de contacto'), { target: { value: '2236602699' } });
@@ -135,7 +127,7 @@ describe('LowCost Page & CotizadorLowCostForm — Tier 1 & 2', () => {
   it('T2.3: muestra un mensaje de advertencia si la API de rutas no devuelve una ruta válida', async () => {
     mockFetchRoute.mockResolvedValueOnce(null);
 
-    render(<CotizadorLowCostForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorLowCostForm />);
     
     fireEvent.change(screen.getByPlaceholderText('Tu nombre completo'), { target: { value: 'Matias' } });
     fireEvent.change(screen.getByPlaceholderText('Tu teléfono de contacto'), { target: { value: '2236602699' } });
@@ -160,7 +152,7 @@ describe('LowCost Page & CotizadorLowCostForm — Tier 1 & 2', () => {
       routeCoords: [[-38.002, -57.55], [-38.005, -57.555]],
     });
 
-    render(<CotizadorLowCostForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorLowCostForm />);
     
     fireEvent.change(screen.getByPlaceholderText('Tu nombre completo'), { target: { value: 'Matias' } });
     fireEvent.change(screen.getByPlaceholderText('Tu teléfono de contacto'), { target: { value: '2236602699' } });
@@ -181,7 +173,7 @@ describe('LowCost Page & CotizadorLowCostForm — Tier 1 & 2', () => {
   });
 
   it('T2.5: verifica que el mapa interactivo mockeado esté presente en la pantalla', () => {
-    render(<CotizadorLowCostForm priceRanges={mockPriceRanges} />);
+    render(<CotizadorLowCostForm />);
     expect(screen.getByTestId('mock-route-map')).toBeInTheDocument();
   });
 });

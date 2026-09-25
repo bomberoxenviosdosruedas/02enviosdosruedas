@@ -58,25 +58,6 @@ const jsonLdSchema = {
   },
 };
 
-async function LowCostFormAsync() {
-  let priceRanges: PriceRange[] = [];
-  try {
-    priceRanges = await prisma.priceRange.findMany();
-  } catch (error) {
-    console.error('Error fetching price ranges from Prisma Postgres:', error);
-  }
-  return <CotizadorLowCostForm priceRanges={priceRanges} />;
-}
-
-function FormSkeleton() {
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch animate-pulse">
-      <div className="lg:col-span-7 h-[540px] bg-white/10 rounded-[28px] border border-white/20" />
-      <div className="lg:col-span-5 h-[540px] bg-brand-blue-900 rounded-[28px] border border-white/10" />
-    </div>
-  );
-}
-
 export default function Page() {
   return (
     <>
@@ -139,11 +120,9 @@ export default function Page() {
         </section>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 sm:mt-0 pt-2 lg:pt-8 space-y-12 lg:space-y-16 pb-16 relative z-10">
-          {/* 1. Main Quote Form Streamed with Suspense */}
+          {/* 1. Main Quote Form (tarifas leídas en el servidor por el Server Action) */}
           <main className="w-full font-sans">
-            <Suspense fallback={<FormSkeleton />}>
-              <LowCostFormAsync />
-            </Suspense>
+            <CotizadorLowCostForm />
 
             {/* Batch / Multi-Destination Planilla */}
             <BatchGrid />

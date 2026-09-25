@@ -1028,7 +1028,7 @@ Estado al commit `5d6588a`. Cada fila apunta al ítem del plan (§15) que la res
 
 | Área                          | Estado actual                                                                                                                                     | Objetivo                                                                            | Plan                    |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------- |
-| Integridad de cotización      | `quote.ts` calcula con `priceRanges` y `distanceKm` enviados por el cliente                                                                       | Tarifas leídas en el servidor (Prisma → fallback `pricing.ts`)                      | 1                       |
+| Integridad de cotización      | ✅ 2026-09-24: `quote.ts` lee tarifas vía Prisma → fallback `pricing.ts`; valida `distanceKm` con Zod (finito, 0–200); los formularios ya no envían `priceRanges` | Tarifas leídas en el servidor (Prisma → fallback `pricing.ts`)                      | 1                       |
 | Gradiente hero                | `HeroProceduralBackground` + 3 heros con `#021440/#04236B/#0636A5/#00277C`                                                                        | Gradiente canónico §2.5; los heros consumen la primitiva                            | 2                       |
 | Navy fuera del hero           | `#052C87` × 43, `#04236B`, `#0636A5` (Leaflet), `rgba(6,54,165,…)`, `rgba(0,39,124,…)`, prompts de `admin/imagenes`                               | Tokens `brand-*` / `rgba(9,80,246,α)`                                               | 3                       |
 | Tarifas Flex / Emprendedores  | Números sin respaldo; Flex Z5 "km adicional"                                                                                                      | Cargados en `PriceRange` + `precios.md`, o reemplazados por "Consultá por WhatsApp" | 4                       |
@@ -1143,7 +1143,7 @@ Los prompts listos para ejecutar cada ítem están en **`docs/agents/prompts-rem
 
 | Orden | Acción                                                                                               | Resuelve    | Sev. | Esfuerzo          | Estado    |
 | ----- | ---------------------------------------------------------------------------------------------------- | ----------- | ---- | ----------------- | --------- |
-| 1     | Server Action lee tarifas del servidor                                                               | §12.3       | 🔴   | Bajo              | Pendiente |
+| 1     | Server Action lee tarifas del servidor                                                               | §12.3       | 🔴   | Bajo              | ✅ 2026-09-24 |
 | 2     | Gradiente/halos canónicos en `HeroProceduralBackground`; Express/Flex/Emprendedores Hero la consumen | §2.5, §5.13 | 🔴   | Bajo              | Pendiente |
 | 3     | Reemplazar `#052C87`, `#04236B`, `#0636A5`, `rgba(6,54,165…)`, `rgba(0,39,124…)` por tokens          | §2.5        | 🔴   | Bajo              | Pendiente |
 | 4     | Confirmar tarifas Flex/Emprendedores con el dueño (cargar en BD o quitar números)                    | §12.2       | 🔴   | Decisión          | Pendiente |
