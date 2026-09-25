@@ -65,7 +65,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
       {/* Main outer container */}
-      <div id="cotizar-express-page" className="w-full bg-brand-blue-500 text-white min-h-[100dvh] relative overflow-hidden font-sans">
+      <div id="cotizar-express-page" className="w-full bg-brand-blue-500 text-white min-h-dvh relative overflow-hidden font-sans">
         {/* Hero Section — Rendered and Streamed Immediately */}
         <CotizadorExpressHero />
 

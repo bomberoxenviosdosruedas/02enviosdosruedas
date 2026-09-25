@@ -80,7 +80,7 @@ const breadcrumbSchema = {
 
 export default function CoberturaPage() {
   return (
-    <main className="min-h-[100dvh] bg-brand-white-50 text-brand-blue-700">
+    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-700">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -95,7 +95,7 @@ export default function CoberturaPage() {
         <div className="absolute inset-0 opacity-25 pointer-events-none">
           <LogisticaNetworkCanvas />
         </div>
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFEC01_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFEC01_1px,transparent_1px)] bg-size-[16px_16px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-xs uppercase font-bold tracking-wider mb-4">
@@ -200,7 +200,7 @@ export default function CoberturaPage() {
                     <span className="font-bold text-brand-blue-900">{item.lowCost}</span>
                   </div>
                   {item.isFormula && (
-                    <p className="text-[10px] text-brand-blue-500 font-sans italic pt-1">
+                    <p className="text-2xs text-brand-blue-500 font-sans italic pt-1">
                       * Aplica Math.ceil(km) x valor por km
                     </p>
                   )}
