@@ -6,7 +6,15 @@
  *   # Agregar en package.json > scripts: "test": "vitest"
  */
 import { describe, it, expect } from 'vitest';
-import { calculateExpressPrice, calculateLowCostPrice, type PriceRangeProp } from './pricing';
+import {
+  calculateExpressPrice,
+  calculateLowCostPrice,
+  EXPRESS_PRICE_PER_KM,
+  EXPRESS_TIERS,
+  LOW_COST_PRICE_PER_KM,
+  LOW_COST_TIERS,
+  type PriceRangeProp,
+} from './pricing';
 
 // ─── Fixtures ─────────────────────────────────────────────────────────────────
 
@@ -168,3 +176,39 @@ describe('pricing boundary consistency (DB vs Fallback)', () => {
   });
 });
 
+
+describe('Tarifas oficiales 2026 (fallback con constantes exportadas)', () => {
+  it('EXPRESS_TIERS y LOW_COST_TIERS coinciden con docs/contexto/precios.md', () => {
+    expect(EXPRESS_TIERS.map((t) => t.price)).toEqual([3700, 4600, 6100, 8200]);
+    expect(LOW_COST_TIERS.map((t) => t.price)).toEqual([3000, 4000, 5300, 7000]);
+    expect(EXPRESS_PRICE_PER_KM).toBe(1000);
+    expect(LOW_COST_PRICE_PER_KM).toBe(700);
+  });
+
+  it.each([
+    [3, 3700],
+    [3.01, 4600],
+    [5, 4600],
+    [7, 6100],
+    [10, 8200],
+    [10.3, 11000],
+    [12, 12000],
+    [20, 20000],
+  ])('Express %s km → %s', (km, esperado) => {
+    expect(calculateExpressPrice(km, [])).toBe(esperado);
+  });
+
+  it.each([
+    [3, 3000],
+    [10, 7000],
+    [10.1, 7700],
+    [15.4, 11200],
+  ])('LowCost %s km → %s', (km, esperado) => {
+    expect(calculateLowCostPrice(km, [])).toBe(esperado);
+  });
+
+  it('más de 20 km devuelve "consultar" en ambos servicios', () => {
+    expect(calculateExpressPrice(20.1, [])).toBe('consultar');
+    expect(calculateLowCostPrice(20.1, [])).toBe('consultar');
+  });
+});

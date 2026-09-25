@@ -4,20 +4,21 @@ import ExpressHero from '@/src/components/servicios/express/ExpressHero';
 import ExpressFeatures from '@/src/components/servicios/express/ExpressFeatures';
 import ExpressPricing from '@/src/components/servicios/express/ExpressPricing';
 import ExpressUseCases from '@/src/components/servicios/express/ExpressUseCases';
+import { EXPRESS_PRICE_PER_KM, EXPRESS_TIERS } from '@/src/lib/pricing';
+import { CONSULT_THRESHOLD_KM, EXPRESS_WINDOW, MAX_WEIGHT_KG } from '@/src/lib/promises';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
+const lastTier = EXPRESS_TIERS[EXPRESS_TIERS.length - 1];
 
 export const metadata: Metadata = {
-  title: 'Envíos Express en Moto (60-90 min)',
-  description:
-    'Servicio prioritario de mensajería en moto y envíos express en Mar del Plata. Entregas en franja de 60 a 90 minutos con tarifa fija por distancia.',
+  title: 'Envíos Express en Moto en Mar del Plata (60-90 min)',
+  description: `Mensajería en moto con entrega en ${EXPRESS_WINDOW} en Mar del Plata. Tarifa fija por distancia desde $${EXPRESS_TIERS[0].price.toLocaleString('es-AR')}, bultos de hasta ${MAX_WEIGHT_KG} kg. Cotizá online en segundos.`,
   alternates: {
     canonical: `${baseUrl}/servicios/envios-express`,
   },
   openGraph: {
     title: 'Envíos Express en Moto en Mar del Plata | Envíos DosRuedas',
-    description:
-      'Cadetería prioritaria y entregas inmediatas en 60-90 min en Mar del Plata. Tarifas transparentes 2026.',
+    description: `Cadetería en moto con entrega en ${EXPRESS_WINDOW} en todo Mar del Plata. Flota propia y tarifas 2026 por distancia.`,
     url: `${baseUrl}/servicios/envios-express`,
     type: 'website',
     locale: 'es_AR',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Envíos Express en Moto en Mar del Plata | Envíos DosRuedas',
-    description: 'Cadetería prioritaria y entregas inmediatas en 60-90 min en Mar del Plata. Tarifas transparentes 2026.',
+    description: `Cadetería en moto con entrega en ${EXPRESS_WINDOW} en todo Mar del Plata. Flota propia y tarifas 2026 por distancia.`,
     images: [`${baseUrl}/og-image.jpg`],
     creator: '@enviosdosruedas',
   },
@@ -35,8 +36,8 @@ const jsonLdSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Mensajería en Moto y Envíos Express en Mar del Plata',
-  description:
-    'Servicio prioritario de mensajería en moto y envíos express con entregas en franja de 60 a 90 minutos en Mar del Plata. Bultos de hasta 15 kg.',
+  serviceType: 'Mensajería en moto',
+  description: `Servicio prioritario de mensajería en moto con entrega en ${EXPRESS_WINDOW} en Mar del Plata. Bultos de hasta ${MAX_WEIGHT_KG} kg.`,
   url: `${baseUrl}/servicios/envios-express`,
   provider: {
     '@type': 'LocalBusiness',
@@ -60,41 +61,25 @@ const jsonLdSchema = {
     '@type': 'OfferCatalog',
     name: 'Tarifas Express Vigentes 2026',
     itemListElement: [
-      {
+      ...EXPRESS_TIERS.map((tier) => ({
         '@type': 'Offer',
-        name: 'Express Zona 1 (0 a 3 km)',
-        price: '3700',
+        name: `Express de ${tier.minKm} a ${tier.maxKm} km`,
+        price: String(tier.price),
         priceCurrency: 'ARS',
         availability: 'https://schema.org/InStock',
-      },
+      })),
       {
         '@type': 'Offer',
-        name: 'Express Zona 2 (3 a 5 km)',
-        price: '4600',
+        name: `Express de más de ${lastTier.maxKm} km y hasta ${CONSULT_THRESHOLD_KM} km`,
         priceCurrency: 'ARS',
         availability: 'https://schema.org/InStock',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Express Zona 3 (5 a 7 km)',
-        price: '6100',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Express Zona 4 (7 a 10 km)',
-        price: '8200',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Express Zona 5 (+10 km)',
-        price: '8200',
-        priceCurrency: 'ARS',
-        availability: 'https://schema.org/InStock',
-        description: '$8.200 base más $1.000 por kilómetro adicional entero',
+        description: `Kilómetros totales redondeados hacia arriba por $${EXPRESS_PRICE_PER_KM.toLocaleString('es-AR')} cada uno.`,
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: String(EXPRESS_PRICE_PER_KM),
+          priceCurrency: 'ARS',
+          unitText: 'km',
+        },
       },
     ],
   },
@@ -112,7 +97,7 @@ const breadcrumbSchema = {
 
 export default function EnviosExpressPage() {
   return (
-    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-900 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -121,25 +106,10 @@ export default function EnviosExpressPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      {/* 1. Hero Presentation — Electric Speed Blue (brand-blue-500) */}
-      <section className="relative z-10 bg-brand-blue-500">
-        <ExpressHero />
-      </section>
-
-      {/* 2. Value Propositions & Key Features — White Canvas (brand-white-50) */}
-      <section className="relative z-10 bg-brand-white-50 font-sans">
-        <ExpressFeatures />
-      </section>
-
-      {/* 3. 2026 Zone Pricing Rates & Dynamic Quote Hook — Electric Speed Blue (brand-blue-500) */}
-      <section className="relative z-10 bg-brand-blue-500">
-        <ExpressPricing />
-      </section>
-
-      {/* 4. Common Use Cases & Scenarios — White Canvas (brand-white-50) */}
-      <section className="relative z-10 bg-brand-white-50 font-sans">
-        <ExpressUseCases />
-      </section>
+      <ExpressHero />
+      <ExpressFeatures />
+      <ExpressPricing />
+      <ExpressUseCases />
     </main>
   );
 }

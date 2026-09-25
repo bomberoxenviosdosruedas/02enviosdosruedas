@@ -1064,7 +1064,8 @@ Límites: tramo inferior inclusivo en 0, resto `> min && <= max`. A 10.01 km Exp
 
 | Componente                                                                                                             | Valores                                                              | Estado                         |
 | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------ |
-| `servicios/express/ExpressPricing.tsx`, `cotizar/express/CotizadorExpressHero.tsx`, `home/ServicesOverview.tsx`        | $3.700–$8.200, "+10 km: $1.000 por km total"                         | ✅ coinciden (escritos a mano) |
+| `servicios/express/ExpressPricing.tsx`, `ExpressDistanceRings.tsx`, `ExpressHero.tsx`, JSON-LD de `/servicios/envios-express` | `EXPRESS_TIERS` + `EXPRESS_PRICE_PER_KM` de `pricing.ts`             | ✅ derivados (2026-09-24)      |
+| `cotizar/express/CotizadorExpressHero.tsx`, `home/ServicesOverview.tsx`                                               | $3.700–$8.200, "+10 km: $1.000 por km total"                         | ✅ coinciden (escritos a mano) |
 | `servicios/lowcost/LowCostPricing.tsx`, `LowCostHero.tsx`, `cotizar/lowcost/CotizadorLowCostHero.tsx`, `BatchGrid.tsx` | $3.000–$7.000                                                        | ✅ coinciden (escritos a mano) |
 | `cobertura/CoberturaExplorer.tsx`                                                                                      | precio por barrio                                                    | ✅ coincide (escrito a mano)   |
 | `servicios/flex/FlexPricing.tsx`, `FlexHero.tsx`                                                                       | $3.000, $4.500 plana, tope $6.500, "Z5 $7.000 + $700 × km adicional" | 🔴 sin respaldo                |

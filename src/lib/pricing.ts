@@ -12,6 +12,39 @@ export interface PriceRangeProp {
   descripcion: string;
 }
 
+/** Tramo de tarifa fija: se aplica a distancias mayores que `minKm` y hasta `maxKm` inclusive. */
+export interface PriceTier {
+  minKm: number;
+  maxKm: number;
+  price: number;
+}
+
+/**
+ * Tarifas oficiales 2026 (docs/contexto/precios.md). Son el fallback cuando `PriceRange`
+ * está vacía y la única fuente para mostrar tarifas en la UI: no copiar estos valores a mano.
+ */
+export const EXPRESS_TIERS: readonly PriceTier[] = [
+  { minKm: 0, maxKm: 3, price: 3700 },
+  { minKm: 3, maxKm: 5, price: 4600 },
+  { minKm: 5, maxKm: 7, price: 6100 },
+  { minKm: 7, maxKm: 10, price: 8200 },
+];
+export const EXPRESS_PRICE_PER_KM = 1000;
+
+export const LOW_COST_TIERS: readonly PriceTier[] = [
+  { minKm: 0, maxKm: 3, price: 3000 },
+  { minKm: 3, maxKm: 5, price: 4000 },
+  { minKm: 5, maxKm: 7, price: 5300 },
+  { minKm: 7, maxKm: 10, price: 7000 },
+];
+export const LOW_COST_PRICE_PER_KM = 700;
+
+/** Tarifa de fallback: tramo fijo si entra en uno, si no `Math.ceil(km) × precio por km`. */
+function fallbackPrice(distanceKm: number, tiers: readonly PriceTier[], pricePerKm: number): number {
+  const tier = tiers.find((t) => distanceKm <= t.maxKm);
+  return tier ? tier.price : Math.ceil(distanceKm) * pricePerKm;
+}
+
 /**
  * Calcula el precio del servicio Express para una distancia dada.
  *
@@ -48,11 +81,7 @@ export function calculateExpressPrice(
     }
   } else {
     // Fallback cuando la tabla de precios de la BD está vacía — misma lógica de rangos
-    if (distanceKm <= 3)  return 3700;
-    if (distanceKm <= 5)  return 4600;
-    if (distanceKm <= 7)  return 6100;
-    if (distanceKm <= 10) return 8200;
-    return Math.ceil(distanceKm) * 1000;
+    return fallbackPrice(distanceKm, EXPRESS_TIERS, EXPRESS_PRICE_PER_KM);
   }
 
   return 'consultar';
@@ -94,11 +123,7 @@ export function calculateLowCostPrice(
     }
   } else {
     // Fallback cuando la tabla de precios de la BD está vacía — misma lógica de rangos
-    if (distanceKm <= 3)  return 3000;
-    if (distanceKm <= 5)  return 4000;
-    if (distanceKm <= 7)  return 5300;
-    if (distanceKm <= 10) return 7000;
-    return Math.ceil(distanceKm) * 700;
+    return fallbackPrice(distanceKm, LOW_COST_TIERS, LOW_COST_PRICE_PER_KM);
   }
 
   return 'consultar';
