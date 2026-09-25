@@ -17,7 +17,7 @@ Envíos DosRuedas es la plataforma de logística de última milla y mensajería 
 
 ## Positioning
 
-- **Autoridad local auténtica:** Más de 15 años recorriendo y conociendo cada rincón y particularidad de las calles marplatenses.
+- **Autoridad local auténtica:** Más de 7 años recorriendo y conociendo cada rincón y particularidad de las calles marplatenses.
 - **Garantía con consecuencia real:** "Si no llegamos a la hora acordada, el envío corre por nuestra cuenta. Sin excusas."
 - **Transparencia tarifaria total:** Tarifas 2026 fijas y calculables matemáticamente por distancia real (OSRM) o zonas predefinidas, sin algoritmos abusivos de tarifa dinámica.
 - **Atención humana directa:** Coordinación ágil con base operativa local y canal directo de WhatsApp.
@@ -46,7 +46,7 @@ Envíos DosRuedas es la plataforma de logística de última milla y mensajería 
 
 - **Nombre:** Envíos DosRuedas.
 - **Voz y tono:** Rioplatense riguroso con voseo marplatense ("Cotizá", "Ingresá", "Contactanos", "Rastreá", "Vos elegís").
-- **Identidad visual oficial:** Paleta estricta de 3 colores (Azul Egipcio `#0636A5`, Amarillo Señal Eléctrico `#FFEC01`, Blanco Puro `#FFFFFF`), tipografía display en Anton/Bebas Neue, cuerpo en Outfit y datos tabulares en Geist Mono.
+- **Identidad visual oficial:** Paleta estricta de 3 colores (Azul Vibrante `#0950F6`, Amarillo Señal Eléctrico `#FFEC01`, Blanco Puro `#FFFFFF`), tipografía display en Anton/Bebas Neue, cuerpo en Outfit y datos tabulares en Geist Mono.
 - **Identidad de marca:** Logo vectorial exclusivo `/logo-envios-simplified.webp` (mínimo 120px ancho).
 - **Canales de contacto institucionales:** WhatsApp/Teléfono `223 660-2699`, Base operativa en Friuli 1972, correo `hola@enviosdosruedas.com`.
 

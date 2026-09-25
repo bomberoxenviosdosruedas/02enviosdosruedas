@@ -8,7 +8,7 @@ How the engineering skills should consume this repo's domain documentation when 
 - **`docs/marketing/glosario.md`**: Definitive glossary of business and logistics terms for Envíos DosRuedas.
 - **`docs/marketing/decisiones.md`**: Architecture, business, and design decisions recorded for the project.
 - **`docs/adr/`**: Architectural Decision Records that touch the area you are about to work in.
-- **`AGENTS.md` & `DESIGN.md`**: Binding brand, typography (Anton / Bebas Neue / IBM Plex Sans / Geist Mono), and chromatic rules (Egyptian Blue `#0636A5`, Yellow `#FFEC01`, White).
+- **`AGENTS.md` & `DESIGN.md`**: Binding brand, typography (Anton / Bebas Neue / Outfit / Geist Mono), and chromatic rules (Vibrant Blue `#0950F6`, Yellow `#FFEC01`, White).
 
 If `docs/adr/` does not have decisions for a specific module yet, proceed following `docs/marketing/decisiones.md` and `AGENTS.md`. The `/domain-modeling` skill creates ADRs lazily when technical decisions land.
 

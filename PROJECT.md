@@ -60,7 +60,7 @@ Ver especificación detallada en `docs/contexto/precios.md` y lógica pura en `s
 ## 4. Contratos de Interfaz del Sistema de Diseño (DESIGN.md)
 
 ### Regla Fundamental de 3 Colores
-- **Azul Primario:** `#0636A5` (`brand-blue-700`) / `#052C87` (`brand-blue-900`)
+- **Azul Primario:** `#0950F6` (`brand-blue-700` / `brand-blue-900`, tope de oscuridad permitido)
 - **Amarillo Acento / CTA:** `#FFEC01` (`brand-yellow-500` / hover `#FFF12E`)
 - **Blanco Superficie:** `#FFFFFF` (`brand-white-50`)
 - **Fondo Suave:** `#E6EEFE` (`brand-blue-50`)

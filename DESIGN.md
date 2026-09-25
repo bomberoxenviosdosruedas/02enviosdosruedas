@@ -1037,7 +1037,7 @@ Estado al commit `5d6588a`. Cada fila apunta al ítem del plan (§15) que la res
 | `InputField`                  | `required` no reenviado; error sin `aria-describedby`/`role="alert"`                                                                              | §5.3                                                                                | 7                       |
 | Faux bold                     | `font-bold/extrabold` sobre Anton/Bebas                                                                                                           | Sin peso (§3.1)                                                                     | 8                       |
 | `LogosCarousel` / `BentoGrid` | Carrusel no anima, partners inventados; spans dinámicos                                                                                           | §5.7, §5.9                                                                          | 9                       |
-| Docs y skills desactualizados | Skill `dosruedas-brand-system`, `.agents/skills/tailwind-v4-design-system`, `docs/agents/domain.md` con `#0636A5`                                 | Alineados a este documento                                                          | 10                      |
+| Docs y skills desactualizados | ✅ 2026-09-24: `.agents/skills/tailwind-v4-design-system` y `docs/agents/domain.md` alineados a `#0950F6`; el skill externo `dosruedas-brand-system` está fuera del repo (`CLAUDE.md` ya fija que gana `DESIGN.md`) | Alineados a este documento | 10 |
 | Radio del Double Bezel        | Utility (16/12 px) + `rounded-2xl/xl` (24/16 px)                                                                                                  | Una sola vía                                                                        | 11                      |
 | Colisión `cta-nested-pill`    | Utility con fondo/padding/min-height compite con variantes                                                                                        | Utility solo estructural                                                            | 11                      |
 | Adopción de primitivas        | 5 primitivas sin uso; formularios, tarjetas y steppers a mano; 321 hex arbitrarios; 183 radios arbitrarios; 140 textos de 8–11 px; `border-black` | Migración progresiva                                                                | 11                      |
@@ -1074,7 +1074,7 @@ Límites: tramo inferior inclusivo en 0, resto `> min && <= max`. A 10.01 km Exp
 
 ### 12.3 Integridad del cálculo
 
-`src/actions/quote.ts` recibe `priceRanges` desde el `FormData` del navegador (`CotizadorLowCostForm.tsx`, `useCotizadorExpress.ts`) y Zod solo valida la forma: cualquiera puede mandar `precioRango: 1`. **Regla:** el Server Action lee las tarifas en el servidor y nunca acepta tarifas del cliente. `distanceKm` también llega del cliente: recalcularlo en el servidor es la mejora siguiente.
+✅ 2026-09-24: `src/actions/quote.ts` lee las tarifas en el servidor (`prisma.priceRange.findMany({ where: { serviceType } })`, con fallback a `pricing.ts` si la BD falla o viene vacía) y nunca acepta tarifas del cliente: `quoteSchema` solo valida `distanceKm` y `serviceType`, y un `priceRanges` adulterado en el FormData se ignora (cubierto por `src/actions/quote.test.ts`). Pendiente: `distanceKm` todavía llega del cliente; recalcularlo en el servidor a partir de origen/destino es la mejora siguiente (TODO en `quote.ts`).
 
 ---
 
@@ -1152,6 +1152,6 @@ Los prompts listos para ejecutar cada ítem están en **`docs/agents/prompts-rem
 | 7     | `InputField`: reenviar `required`, `aria-describedby`, `role="alert"`                                | §5.3        | 🟠   | Muy bajo          | Pendiente |
 | 8     | Quitar peso de Anton/Bebas                                                                           | §3.1        | 🟠   | Bajo              | Pendiente |
 | 9     | Arreglar `LogosCarousel` y spans de `BentoGrid`                                                      | §5.7, §5.9  | 🟠   | Bajo              | Pendiente |
-| 10    | Alinear skill de marca y docs secundarios a `#0950F6` (`AGENTS.md` ya alineado en esta versión)      | §11         | 🟡   | Muy bajo          | Parcial   |
+| 10    | Alinear skill de marca y docs secundarios a `#0950F6` (`AGENTS.md` ya alineado en esta versión)      | §11         | 🟡   | Muy bajo          | ✅ 2026-09-24 (queda solo el skill externo `dosruedas-brand-system`, fuera del repo) |
 | 11    | Migrar formularios/tarjetas/steppers a primitivas y reducir hex/radios arbitrarios                   | §5, §11     | 🟡   | Alto (progresivo) | Pendiente |
 | 12    | Reglas ESLint + tests de tokens, contraste, paleta y tarifas                                         | §10.3       | 🟡   | Medio             | Pendiente |

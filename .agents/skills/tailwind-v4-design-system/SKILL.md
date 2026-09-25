@@ -18,17 +18,19 @@ El sistema cromático oficial se compone **únicamente** de Azul, Amarillo y Bla
 
 | Token Tailwind | Variable CSS / Hex | Uso Primario |
 |---|---|---|
-| `bg-brand-blue-700` / `text-brand-blue-700` | `#0636A5` | **Azul Primario**: Headers, footers, secciones oscuras, títulos |
-| `bg-brand-blue-500` / `text-brand-blue-500` | `#0950F6` | **Azul Activo/Interactivo**: Hover states, focus rings, acentos |
+| `bg-brand-blue-700` / `text-brand-blue-700` | `#0950F6` | **Azul Primario** (tope de oscuridad): Headers, footers, secciones oscuras, títulos |
+| `bg-brand-blue-500` / `bg-brand-blue-950` / `text-brand-ink` | `#0950F6` | Mismo azul vibrante: `500/600/700/900/950` e `ink` colapsan a `#0950F6` |
+| `bg-brand-blue-800` | `#3570F8` | **Hover de fondos azules** (se aclara, nunca más oscuro que `#0950F6`) |
 | `bg-brand-blue-50` | `#E6EEFE` | **Fondo Muted**: Outer bezel, fondos secundarios, badges suaves |
 | `bg-brand-blue-100` / `border-brand-blue-100` | `#BACEFD` | **Bordes Sutiles**: Líneas separadoras, bordes de cards |
 | `bg-brand-yellow-500` / `text-brand-yellow-500` | `#FFEC01` | **Acento / CTA Oficial**: Botones primarios, badges de alta prioridad |
 | `bg-brand-yellow-400` | `#FFF12E` | **Hover Acento**: Hover de botones amarillos |
 | `bg-brand-white-50` / `bg-white` | `#FFFFFF` | **Superficie Base**: Fondo de tarjetas internas, formularios |
-| `text-brand-ink` | `#00277C` | **Texto Cuerpo**: Color principal de lectura para texto corrido |
+| `text-brand-ink` | `#0950F6` | **Texto Cuerpo**: Color principal de lectura para texto corrido |
 
 > ❌ **Prohibiciones Absolutas:**
 > - NO usar `text-slate-*`, `bg-slate-*`, `text-gray-*`, `bg-gray-*`, `text-zinc-*`.
+> - NO usar ningún azul más oscuro que `#0950F6` (`#0636A5`, `#052D8C`, `#052C87`, `#04236B`, `#021440`, `#00277C`), ni hex inline: siempre tokens `brand-*`.
 > - NO usar `bg-green-500` ni `bg-green-400` para botones de WhatsApp ni en steppers. Los CTAs de WhatsApp usan `bg-brand-yellow-500` con icono SVG blanco o azul.
 
 ---
@@ -39,7 +41,7 @@ El sistema cromático oficial se compone **únicamente** de Azul, Amarillo y Bla
 |---|---|---|---|
 | `font-display` | **Anton** | `uppercase`, `tracking-tight` | Títulos H1, H2 de alto impacto, números de sección |
 | `font-subheading` | **Bebas Neue** | `uppercase`, `tracking-wider` | Subtítulos H3, labels, badges, botones |
-| `font-sans` | **Outfit / IBM Plex Sans** | Normal | Párrafos, descripciones, inputs |
+| `font-sans` | **Outfit** | Normal | Párrafos, descripciones, inputs |
 | `font-mono` | **Geist Mono** | `tabular-nums` | Precios, distancias en km, tracking numbers |
 
 ### Utilidades Tipográficas

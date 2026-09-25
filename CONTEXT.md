@@ -11,7 +11,7 @@ Contexto central de dominio del proyecto para desarrolladores y agentes de IA.
 | **Nombre** | Envíos DosRuedas |
 | **Actividad** | Logística urbana de última milla, mensajería en moto y paquetería e-commerce |
 | **Ciudad** | Mar del Plata, Provincia de Buenos Aires, Argentina (Partido de General Pueyrredón) |
-| **Trayectoria** | Más de 15 años de operación local |
+| **Trayectoria** | Más de 7 años de operación local |
 | **Año de Referencia** | **2026** (tarifas vigentes, cálculos temporales) |
 | **Stack Principal** | Next.js 16 (App Router, React 19), Tailwind CSS v4, TypeScript strict, Prisma ORM + PostgreSQL, pnpm |
 
@@ -34,7 +34,7 @@ Consultar siempre `docs/marketing/glosario.md` para el detalle exhaustivo. Resum
 ## 3. Reglas Inviolables de Marca y UI
 
 1. **Paleta Cromática (Solo 3 colores)**:
-   - Azul Principal: `#0636A5` (`brand-blue-700`)
+   - Azul Principal: `#0950F6` (`brand-blue-700`)
    - Amarillo Acento / CTA: `#FFEC01` (`brand-yellow-500`)
    - Blanco Superficie: `#FFFFFF` (`brand-white-50`)
    - Prohibido el uso de grises/slates genéricos o colores externos (ej. verde en botones de WhatsApp — usar amarillo de marca).

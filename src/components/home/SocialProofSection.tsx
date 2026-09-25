@@ -258,7 +258,7 @@ function ReviewCard({
       whileHover={reduceMotion ? undefined : { y: -6, rotate: rotation * 0.5, scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       className={cn(
-        'relative shrink-0 w-[360px] sm:w-[420px] p-2.5 rounded-[28px] backdrop-blur-md border will-change-transform select-none',
+        'relative shrink-0 w-90 sm:w-105 p-2.5 rounded-[28px] backdrop-blur-md border will-change-transform select-none',
         v.outer
       )}
     >
@@ -274,7 +274,7 @@ function ReviewCard({
               <Star key={i} className="w-4 h-4 fill-current" />
             ))}
           </div>
-          <span className={cn('text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border', v.badge)}>
+          <span className={cn('text-2xs font-mono font-bold px-2.5 py-0.5 rounded-full border', v.badge)}>
             {review.categoryLabel}
           </span>
         </div>
@@ -304,7 +304,7 @@ function ReviewCard({
                       {review.badge}
                     </span>
                   )}
-                  <span className={cn('text-[10px] font-mono', v.mono)}>{review.timeAgo}</span>
+                  <span className={cn('text-2xs font-mono', v.mono)}>{review.timeAgo}</span>
                 </div>
               </div>
             </div>
@@ -341,7 +341,7 @@ function ReviewCard({
                 className="overflow-hidden"
               >
                 <div className={cn('mt-3 p-3 rounded-xl text-[12px] italic leading-relaxed border', v.response)}>
-                  <span className={cn('not-italic font-bold block text-[10px] font-mono uppercase mb-1', v.responseLabel)}>
+                  <span className={cn('not-italic font-bold block text-2xs font-mono uppercase mb-1', v.responseLabel)}>
                     Respuesta de Envíos DosRuedas:
                   </span>
                   “{review.ownerResponse}”
@@ -398,8 +398,8 @@ export default function SocialProofSection() {
       onBlurCapture={() => setIsPaused(false)}
     >
       {/* Blobs ambientales */}
-      <div className="pointer-events-none absolute -top-20 right-10 h-[28rem] w-[28rem] rounded-full bg-brand-yellow-500/15 blur-[80px]" />
-      <div className="pointer-events-none absolute -bottom-20 left-10 h-[28rem] w-[28rem] rounded-full bg-brand-blue-500/10 blur-[80px]" />
+      <div className="pointer-events-none absolute -top-20 right-10 h-112 w-md rounded-full bg-brand-yellow-500/15 blur-[80px]" />
+      <div className="pointer-events-none absolute -bottom-20 left-10 h-112 w-md rounded-full bg-brand-blue-500/10 blur-[80px]" />
 
       <div className="mx-auto max-w-[1280px] px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -482,7 +482,7 @@ export default function SocialProofSection() {
       {/* Marquee Rows */}
       <div className="relative z-10 space-y-6">
         {/* Row 1: left */}
-        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <div className="relative overflow-hidden mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <div className={cn('flex w-max gap-6 will-change-transform animate-marquee-left', isPaused && 'is-paused')}>
             {doubledRow1.map((review, idx) => (
               <ReviewCard key={`${review.id}-r1-${idx}`} review={review} rotation={getRotation(review.id)} />
@@ -491,7 +491,7 @@ export default function SocialProofSection() {
         </div>
 
         {/* Row 2: right */}
-        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <div className="relative overflow-hidden mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <div className={cn('flex w-max gap-6 will-change-transform animate-marquee-right', isPaused && 'is-paused')}>
             {doubledRow2.map((review, idx) => (
               <ReviewCard key={`${review.id}-r2-${idx}`} review={review} rotation={-getRotation(review.id)} />

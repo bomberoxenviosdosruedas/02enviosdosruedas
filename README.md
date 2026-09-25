@@ -43,7 +43,7 @@ Sistema de diseño propio, rígido y documentado en **[DESIGN.md](./DESIGN.md)**
 
 | Color               | Token                                 | Hex       | Qué transmite                                       |
 | ------------------- | ------------------------------------- | --------- | --------------------------------------------------- |
-| **Azul Principal**  | `brand-blue-700` / `--color-primary`  | `#0636A5` | Confianza, seriedad, respaldo institucional, orden  |
+| **Azul Principal**  | `brand-blue-700` / `--color-primary`  | `#0950F6` | Confianza, seriedad, respaldo institucional, orden  |
 | **Amarillo Acento** | `brand-yellow-500` / `--color-accent` | `#FFEC01` | Energía, velocidad vial, visibilidad urbana, acción |
 | **Blanco Base**     | `brand-white-50` / `--color-surface`  | `#FFFFFF` | Claridad, limpieza, lienzo, foco en contenido       |
 
