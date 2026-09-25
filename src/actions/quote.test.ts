@@ -84,14 +84,34 @@ describe('calculateQuoteAction', () => {
     expect(result).toEqual({ success: true, price: 'consultar', error: null });
   });
 
+  it('ignora un priceRanges adulterado en el FormData: el precio sale de la BD mockeada', async () => {
+    mockFindMany.mockResolvedValue(expressRanges);
+
+    const fd = formDataWith(5.2, 'EXPRESS');
+    fd.append(
+      'priceRanges',
+      JSON.stringify([
+        { id: 1, serviceType: 'EXPRESS', distanciaMinKm: 0, distanciaMaxKm: 10, precioRango: 1, descripcion: 'Adulterado' },
+      ])
+    );
+
+    const result = await calculateQuoteAction(initialState, fd);
+
+    // El action solo lee distanceKm y serviceType del FormData; el precio sale de PriceRange (5–7 km → 6.100).
+    expect(mockFindMany).toHaveBeenCalledWith({ where: { serviceType: 'EXPRESS' } });
+    expect(result).toEqual({ success: true, price: 6100, error: null });
+  });
+
   it('cae al fallback de pricing.ts cuando PriceRange devuelve una lista vacía', async () => {
     mockFindMany.mockResolvedValue([]);
 
-    const express = await calculateQuoteAction(initialState, formDataWith(5, 'EXPRESS'));
-    const lowCost = await calculateQuoteAction(initialState, formDataWith(10.3, 'LOW_COST'));
+    const express3_7 = await calculateQuoteAction(initialState, formDataWith(3.7, 'EXPRESS'));
+    const express10_3 = await calculateQuoteAction(initialState, formDataWith(10.3, 'EXPRESS'));
+    const lowCost10_3 = await calculateQuoteAction(initialState, formDataWith(10.3, 'LOW_COST'));
 
-    expect(express.price).toBe(4600); // fallback tramo 3–5
-    expect(lowCost.price).toBe(7700); // fallback Math.ceil(10.3) × $700
+    expect(express3_7.price).toBe(4600); // fallback tramo 3–5
+    expect(express10_3.price).toBe(11000); // fallback Math.ceil(10.3) × $1.000
+    expect(lowCost10_3.price).toBe(7700); // fallback Math.ceil(10.3) × $700
   });
 
   it('cae al fallback de pricing.ts si la BD falla, sin exponer detalles del error', async () => {
