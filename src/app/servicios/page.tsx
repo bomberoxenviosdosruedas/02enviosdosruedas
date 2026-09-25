@@ -206,7 +206,7 @@ const comparisonTable = [
 
 export default function ServiciosPage() {
   return (
-    <main className="min-h-[100dvh] bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -219,10 +219,10 @@ export default function ServiciosPage() {
       {/* Hero Section */}
       <section className="relative bg-brand-blue-700 text-white pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden border-b border-brand-blue-800">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(#FFEC01_1px,transparent_1px)] [background-size:16px_16px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(#FFEC01_1px,transparent_1px)] bg-size-[16px_16px]" />
         </div>
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none bg-brand-yellow-500/10 blur-[120px]" />
-        <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none bg-brand-blue-500/10 blur-[120px]" />
+        <div className="absolute -top-32 -left-32 w-125 h-125 rounded-full pointer-events-none bg-brand-yellow-500/10 blur-[120px]" />
+        <div className="absolute top-1/4 -right-32 w-150 h-150 rounded-full pointer-events-none bg-brand-blue-500/10 blur-[120px]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
@@ -276,7 +276,7 @@ export default function ServiciosPage() {
                       <span className="text-xs font-subheading tracking-wider uppercase text-brand-yellow-500 font-bold">
                         {service.label}
                       </span>
-                      <h3 className="text-xl font-display uppercase tracking-wider mt-1 leading-tight font-bold min-h-[48px]">
+                      <h3 className="text-xl font-display uppercase tracking-wider mt-1 leading-tight font-bold min-h-12">
                         {service.title}
                       </h3>
                     </div>

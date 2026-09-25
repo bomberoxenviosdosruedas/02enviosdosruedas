@@ -92,7 +92,7 @@ const values = [
 
 export default function NosotrosPage() {
   return (
-    <main className="min-h-[100dvh] bg-[#F8FAFC] text-[#0950F6] relative overflow-hidden">
+    <main className="min-h-dvh bg-[#F8FAFC] text-[#0950F6] relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -122,7 +122,7 @@ export default function NosotrosPage() {
               <CTANestedPill href="/nosotros/sobre-nosotros" variant="primary">
                 Nuestra Historia
               </CTANestedPill>
-              <CTANestedPill href="/nosotros/preguntas-frecuentes" variant="secondary">
+              <CTANestedPill href="/nosotros/preguntas-frecuentes" variant="outline">
                 Preguntas Frecuentes
               </CTANestedPill>
             </div>
@@ -183,7 +183,7 @@ export default function NosotrosPage() {
                       <span className="text-xs font-subheading tracking-wider uppercase text-[#0950F6] font-bold">
                         {section.label}
                       </span>
-                      <h3 className="text-xl font-display uppercase tracking-wider mt-1 leading-tight text-[#0950F6] font-bold min-h-[56px]">
+                      <h3 className="text-xl font-display uppercase tracking-wider mt-1 leading-tight text-[#0950F6] font-bold min-h-14">
                         {section.title}
                       </h3>
                     </div>
@@ -226,7 +226,7 @@ export default function NosotrosPage() {
               <CTANestedPill href="https://wa.me/542236602699" variant="primary">
                 Hablar por WhatsApp
               </CTANestedPill>
-              <CTANestedPill href="/cotizar/express" variant="secondary">
+              <CTANestedPill href="/cotizar/express" variant="outline">
                 Cotizá Ahora
               </CTANestedPill>
             </div>

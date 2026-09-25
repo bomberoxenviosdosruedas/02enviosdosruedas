@@ -32,8 +32,8 @@ export default function HomePage() {
         <LogisticaNetworkCanvas />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.08),transparent_60%)] pointer-events-none" />
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-8">
-          <div className="max-w-[720px] mb-12">
-            <div className="font-subheading text-[12px] tracking-[0.2em] uppercase text-[#FFEC01]">Nuestros Servicios</div>
+          <div className="max-w-180 mb-12">
+            <div className="font-subheading text-[12px] tracking-mega uppercase text-[#FFEC01]">Nuestros Servicios</div>
             <h2 
               id="services-section-title"
               className="mt-4 font-display text-[clamp(2rem,4vw,2.75rem)] leading-[0.9] tracking-[-0.03em] uppercase text-white"

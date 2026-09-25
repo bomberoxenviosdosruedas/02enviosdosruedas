@@ -62,15 +62,15 @@ export default function ContactHero() {
             <div className="grid grid-cols-3 gap-3 max-w-xl mx-auto lg:mx-0 pt-2">
               <div className="p-3.5 rounded-3xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
                 <span className="block font-mono font-bold text-[15px] sm:text-[18px] text-[#FFEC01] tabular-nums">15:00 hs</span>
-                <span className="block font-subheading text-[10px] sm:text-[11px] uppercase tracking-wider text-white/80 mt-1 leading-tight">Corte Diario</span>
+                <span className="block font-subheading text-2xs sm:text-[11px] uppercase tracking-wider text-white/80 mt-1 leading-tight">Corte Diario</span>
               </div>
               <div className="p-3.5 rounded-3xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
                 <span className="block font-mono font-bold text-[15px] sm:text-[18px] text-[#FFEC01] tabular-nums">100%</span>
-                <span className="block font-subheading text-[10px] sm:text-[11px] uppercase tracking-wider text-white/80 mt-1 leading-tight">Mismo Día</span>
+                <span className="block font-subheading text-2xs sm:text-[11px] uppercase tracking-wider text-white/80 mt-1 leading-tight">Mismo Día</span>
               </div>
               <div className="p-3.5 rounded-3xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
                 <span className="block font-mono font-bold text-[11px] sm:text-[13px] text-[#FFEC01] tabular-nums leading-tight">Sin Mínimos</span>
-                <span className="block font-subheading text-[10px] sm:text-[11px] uppercase tracking-wider text-white/80 mt-1 leading-tight">Retiros Libres</span>
+                <span className="block font-subheading text-2xs sm:text-[11px] uppercase tracking-wider text-white/80 mt-1 leading-tight">Retiros Libres</span>
               </div>
             </div>
 
@@ -102,10 +102,11 @@ export default function ContactHero() {
               <div className="relative z-10 w-full flex flex-col gap-3">
                 <CTANestedPill
                   href="https://wa.me/542236602699?text=Hola!%20Quiero%20cotizar%20mis%20envíos"
-                  text="WhatsApp Comercial"
                   variant="primary"
                   className="w-full justify-center"
-                />
+                >
+                  WhatsApp Comercial
+                </CTANestedPill>
               </div>
             </div>
           </div>

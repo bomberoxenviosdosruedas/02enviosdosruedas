@@ -21,7 +21,7 @@ export default function CotizadorExpressHelp() {
 
           {/* Visual Watermark */}
           <HelpCircle
-            className="absolute -bottom-10 -right-10 w-72 h-72 text-white/[0.04] pointer-events-none"
+            className="absolute -bottom-10 -right-10 w-72 h-72 text-white/4 pointer-events-none"
             aria-hidden="true"
           />
 
@@ -42,14 +42,16 @@ export default function CotizadorExpressHelp() {
             <div className="flex flex-col sm:flex-row gap-3.5 w-full lg:w-auto justify-center shrink-0">
               <CTANestedPill
                 href="/contacto"
-                text="Formulario de Contacto"
-                variant="secondary"
-              />
+                variant="outline"
+              >
+                Formulario de Contacto
+              </CTANestedPill>
               <CTANestedPill
                 href="tel:+542236602699"
-                text="Llamanos: 223 660-2699"
                 variant="primary"
-              />
+              >
+                Llamanos: 223 660-2699
+              </CTANestedPill>
             </div>
           </div>
         </div>

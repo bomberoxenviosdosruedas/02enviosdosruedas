@@ -89,7 +89,7 @@ export default function EmpresasCuentaCorrientePage() {
   ];
 
   return (
-    <main className="min-h-[100dvh] bg-brand-white-50 text-brand-blue-700 relative overflow-hidden font-sans">
+    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-700 relative overflow-hidden font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -250,7 +250,7 @@ export default function EmpresasCuentaCorrientePage() {
 
                       <button
                         type="submit"
-                        className="w-full min-h-[48px] rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase text-sm font-bold tracking-wider py-3 px-6 shadow-accent-sm transition-all cursor-pointer flex items-center justify-between mt-2"
+                        className="w-full min-h-12 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase text-sm font-bold tracking-wider py-3 px-6 shadow-accent-sm transition-all cursor-pointer flex items-center justify-between mt-2"
                       >
                         <span>Pedir Apertura de Cuenta</span>
                         <Send className="w-4 h-4" />
