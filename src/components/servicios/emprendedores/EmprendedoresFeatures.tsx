@@ -33,7 +33,7 @@ export default function EmprendedoresFeatures() {
   return (
     <section
       id="emprendedores-features"
-      className="py-24 bg-[#F8FAFC] relative z-10 overflow-hidden border-t border-[#D6E4FE]"
+      className="py-24 bg-white relative z-10 overflow-hidden border-t border-[#D6E4FE]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

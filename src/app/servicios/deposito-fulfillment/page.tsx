@@ -107,10 +107,8 @@ export default function DepositoFulfillmentPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      {/* Hero Header block — Electric Speed Blue (brand-blue-500) */}
-      <section className="relative z-10 bg-brand-blue-500">
-        <EmprendedoresHero />
-      </section>
+      {/* Hero — el propio EmprendedoresHero pinta su fondo amarillo de marca */}
+      <EmprendedoresHero />
 
       {/* Corporate logistics features — White Canvas (brand-white-50) */}
       <section className="relative z-10 bg-brand-white-50 font-sans">

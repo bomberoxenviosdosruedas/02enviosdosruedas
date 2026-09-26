@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function PlanEmprendedoresPage() {
   return (
-    <main className="min-h-dvh bg-[#F8FAFC]">
+    <main className="min-h-dvh bg-white">
       <EmprendedoresHero />
       <EmprendedoresFeatures />
       <EmprendedoresBenefits />
