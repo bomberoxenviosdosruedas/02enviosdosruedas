@@ -1,433 +1,184 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { motion, useReducedMotion } from 'motion/react';
-import {
-  ArrowRight,
-  Phone,
-  TrendingDown,
-  MapPin,
-  CheckCircle2,
-  Sparkles,
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
-import CTANestedPill from '@/components/ui/CTANestedPill';
+import { Clock, Tag, TrendingDown } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+import { CTANestedPill, DoubleBezelCard, Knockout } from '@/src/components/ui';
+import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
+import { LOW_COST_TIERS } from '@/src/lib/pricing';
+import { LOWCOST_CUTOFF_TIME, LOWCOST_DELIVERY_DEADLINE } from '@/src/lib/promises';
 
-/* ─── Constantes ─────────────────────────────────────────── */
-const MARQUEE_TEXT = Array(8).fill('LOWCOST').join('  ');
+const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
-const FLOAT_CARDS = [
-  {
-    id: 'card-costo',
-    rotation: -6,
-    delay: '0s',
-    top: '8%',
-    left: '-8%',
-    icon: <TrendingDown className="h-5 w-5 text-brand-blue-700" />,
-    label: 'Costo Fijo',
-    value: '$3.000',
-    sub: 'Desde 0-3 km',
-    accent: true,
-  },
-  {
-    id: 'card-horario',
-    rotation: 4,
-    delay: '0.8s',
-    top: '52%',
-    right: '-10%',
-    icon: <CheckCircle2 className="h-5 w-5 text-brand-blue-700" />,
-    label: 'Entrega Hoy',
-    value: '13–19 hs',
-    sub: 'Misma jornada',
-    accent: false,
-  },
-  {
-    id: 'card-cobertura',
-    rotation: 6,
-    delay: '1.6s',
-    bottom: '4%',
-    left: '-4%',
-    icon: <MapPin className="h-5 w-5 text-brand-blue-700" />,
-    label: 'Cobertura Total',
-    value: 'MDQ',
-    sub: 'Todo Mar del Plata',
-    accent: false,
-  },
-] as const;
+const firstTier = LOW_COST_TIERS[0];
 
-const KPI_CHIPS = [
-  { value: '$3.000', label: 'Base 0-3 km' },
-  { value: '-30%', label: 'vs Express' },
-  { value: '100%', label: 'MDQ' },
-] as const;
+/** La hora de corte y la de entrega son TODO el servicio: van en chips, no en prosa. */
+const chips = [
+  { icon: Clock, value: LOWCOST_CUTOFF_TIME, label: 'Corte de pedidos' },
+  { icon: Clock, value: LOWCOST_DELIVERY_DEADLINE, label: 'Entrega el mismo día' },
+  { icon: Tag, value: ars(firstTier.price), label: `Base ${firstTier.minKm}-${firstTier.maxKm} km` },
+];
 
-/* ─── Subcomponentes ─────────────────────────────────────── */
-
-/** Fondo procedural: base azul + 3 blobs + grid SVG + ghost wordmark */
-function ProceduralBg() {
-  return (
-    <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-      {/* 3 blobs radiales */}
-      <div
-        className="absolute -top-40 -left-40 w-140 h-140 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)',
-          filter: 'blur(80px)',
-        }}
-      />
-      <div
-        className="absolute top-1/3 -right-32 w-160 h-160 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(255,236,1,0.22) 0%, rgba(255,236,1,0.06) 50%, transparent 70%)',
-          filter: 'blur(80px)',
-        }}
-      />
-      <div
-        className="absolute -bottom-48 left-1/4 w-145 h-145 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(9,80,246,0.35) 0%, transparent 70%)',
-          filter: 'blur(80px)',
-        }}
-      />
-
-      {/* Grid SVG */}
-      <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="lc-hero-grid" width="48" height="48" patternUnits="userSpaceOnUse">
-            <path
-              d="M 48 0 L 0 0 0 48"
-              fill="none"
-              stroke="#FFFFFF"
-              strokeWidth="0.75"
-              strokeDasharray="2,6"
-            />
-            <circle cx="0" cy="0" r="1.5" fill="#FFEC01" opacity="0.07" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#lc-hero-grid)" opacity="0.07" />
-      </svg>
-
-      {/* Ghost wordmark */}
-      <span className="absolute inset-0 flex items-center justify-center font-display text-[16vw] leading-none text-white/4 uppercase tracking-tighter whitespace-nowrap pointer-events-none select-none z-0">
-        PAQUETERÍA LOWCOST
-      </span>
-    </div>
-  );
-}
-
-/** Dos filas de marquee detrás del título */
-function MarqueeStrip({ isPaused }: { isPaused: boolean }) {
-  return (
-    <div
-      className="absolute left-0 right-0 z-0 pointer-events-none select-none overflow-hidden"
-      style={{
-        top: '50%',
-        transform: 'translateY(-50%)',
-        maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
-        WebkitMaskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
-      }}
-      aria-hidden="true"
-    >
-      {/* Fila 1 → izquierda */}
-      <div
-        className={cn(
-          'flex whitespace-nowrap font-display text-[8vw] uppercase text-white/4 leading-none mb-1',
-          isPaused ? 'is-paused' : 'animate-marquee-left',
-        )}
-      >
-        <span>{MARQUEE_TEXT}&nbsp;&nbsp;</span>
-        <span aria-hidden="true">{MARQUEE_TEXT}&nbsp;&nbsp;</span>
-      </div>
-      {/* Fila 2 → derecha */}
-      <div
-        className={cn(
-          'flex whitespace-nowrap font-display text-[8vw] uppercase text-white/4 leading-none',
-          isPaused ? 'is-paused' : 'animate-marquee-right',
-        )}
-      >
-        <span>{MARQUEE_TEXT}&nbsp;&nbsp;</span>
-        <span aria-hidden="true">{MARQUEE_TEXT}&nbsp;&nbsp;</span>
-      </div>
-    </div>
-  );
-}
-
-/** Tarjeta flotante angulada tipo Pinterest */
-function FloatingCard({
-  card,
-  isPaused,
-  reduceMotion,
-}: {
-  card: (typeof FLOAT_CARDS)[number];
-  isPaused: boolean;
-  reduceMotion: boolean;
-}) {
-  const posStyle: React.CSSProperties = {
-    rotate: `${card.rotation}deg`,
-    animationDelay: card.delay,
-    willChange: 'transform',
-    ...('top' in card ? { top: card.top } : {}),
-    ...('bottom' in card ? { bottom: card.bottom } : {}),
-    ...('left' in card ? { left: card.left } : {}),
-    ...('right' in card ? { right: card.right } : {}),
-  };
-
-  return (
-    <div
-      className={cn(
-        'absolute w-55 sm:w-65 select-none z-20',
-        !reduceMotion && !isPaused && 'animate-float-slow',
-        isPaused && !reduceMotion && 'is-paused',
-      )}
-      style={posStyle}
-    >
-      {/* Outer bezel glass */}
-      <div className="p-2.5 rounded-[28px] backdrop-blur-md border bg-white/10 border-white/15 shadow-(--shadow-ambient-elevation) will-change-transform">
-        {/* Inner card */}
-        <div className="p-4 rounded-[20px] bg-white text-brand-blue-700">
-          <div className="flex items-center gap-2 mb-2">
-            {card.icon}
-            <span className="font-subheading text-[11px] uppercase tracking-widest text-brand-blue-700/70">
-              {card.label}
-            </span>
-          </div>
-          <div className={cn(
-            'font-mono font-bold text-2xl tabular-nums leading-none',
-            card.accent ? 'text-brand-blue-700' : 'text-brand-blue-700',
-          )}>
-            {card.value}
-          </div>
-          {card.accent && (
-            <div className="mt-1.5 inline-block bg-brand-yellow-500 text-brand-blue-700 font-subheading text-2xs uppercase tracking-wider px-2 py-0.5 rounded-full">
-              {card.sub}
-            </div>
-          )}
-          {!card.accent && (
-            <div className="mt-1 font-sans text-[11px] text-brand-blue-700/60">
-              {card.sub}
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ─── Componente principal ───────────────────────────────── */
+/**
+ * Hero LowCost — concepto "el reloj de la ventana".
+ *
+ * LowCost no compite por velocidad sino por una franja: lo que se corta a las
+ * 13:00 se entrega antes de las 19:00. La firma visual es un reloj de 12 horas
+ * donde el arco azul marca EXACTAMENTE esas 6 horas de ventana y el resto del
+ * dial queda punteado. El reloj va en un SVG cuadrado (círculos reales) y
+ * recortado contra el borde inferior derecho, así no compite con la card.
+ *
+ * Fondo amarillo: es el único hero con `tone="yellow"`, así que el CTA primary
+ * se reemplaza por el `variant="blue"` (azul de marca sobre amarillo vial).
+ */
 export default function LowCostHero() {
-  const [isPaused, setIsPaused] = useState(false);
-  const reduceMotion = useReducedMotion() ?? false;
-
   return (
     <section
       id="lowcost-hero"
-      aria-labelledby="lowcost-hero-heading"
-      className="relative w-full min-h-[85vh] bg-brand-blue-700 text-white border-b border-white/10 overflow-hidden pt-24 pb-16"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      aria-label="LowCost: paquetería y cadetería con entrega el mismo día en Mar del Plata"
+      className="relative isolate flex min-h-[90dvh] w-full flex-col overflow-hidden bg-brand-yellow-500 text-brand-blue-500"
     >
-      {/* ── Fondo procedural ── */}
-      <ProceduralBg />
+      <HeroProceduralBackground variant="lowcost" tone="yellow" />
 
-      {/* ── Marquee strip (detrás del contenido) ── */}
-      {!reduceMotion && <MarqueeStrip isPaused={isPaused} />}
-
-      {/* ── Contenido principal ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-
-          {/* ── LEFT COLUMN (7 cols) ── */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-
-            {/* Badge */}
-            <motion.div
-              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="rotate-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-white/10 border border-brand-yellow-500/40 text-brand-yellow-500 shadow-(--shadow-glow-yellow) backdrop-blur-md"
-            >
-              <TrendingDown className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-              <span>PAQUETERÍA E-COMMERCE Y CADETERÍA ECONÓMICA · MDQ 2026</span>
-            </motion.div>
-
-            {/* H1 */}
-            <motion.h1
-              id="lowcost-hero-heading"
-              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.08 }}
-              className="font-display text-[3.2rem] sm:text-[4.5rem] lg:text-[5rem] xl:text-[5.5rem] uppercase tracking-tight leading-[0.92] text-white"
-            >
-              <span className="block">LOWCOST</span>
-              <span className="block">
-                <span className="inline-block bg-brand-yellow-500 text-brand-blue-700 px-3 -rotate-1 shadow-(--shadow-accent-sm) leading-none py-1">
-                  QUE RINDE
-                </span>
-              </span>
-              <span className="block">E-COMMERCE MDQ</span>
-            </motion.h1>
-
-            {/* Descripción */}
-            <motion.p
-              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.16 }}
-              className="text-base sm:text-lg font-sans text-white/85 max-w-xl mx-auto lg:mx-0 leading-relaxed"
-            >
-              Paquetería e-commerce, cadetería y encomiendas programadas en Mar del Plata.
-              Pedidos antes de las{' '}
-              <strong className="text-brand-yellow-500 font-bold">13:00 hs</strong>{' '}
-              se entregan en el día antes de las{' '}
-              <strong className="text-brand-yellow-500 font-bold">19:00 hs</strong>.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.24 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-1"
-            >
-              <CTANestedPill
-                href="/cotizar/lowcost"
-                id="lowcost-hero-cta-cotizar"
-                variant="primary"
-                size="large"
-                icon={<ArrowRight className="h-4 w-4" />}
-              >
-                Cotizá tu lote LowCost
-              </CTANestedPill>
-
-              <CTANestedPill
-                href="https://wa.me/542236602699"
-                id="lowcost-hero-cta-whatsapp"
-                variant="elevated"
-                size="large"
-                icon={<Phone className="h-4 w-4" />}
-              >
-                Hablar por WhatsApp
-              </CTANestedPill>
-            </motion.div>
-
-            {/* KPI chips — double-bezel */}
-            <motion.div
-              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.32 }}
-              className="grid grid-cols-3 gap-2 pt-2 max-w-md mx-auto lg:mx-0"
-            >
-              {KPI_CHIPS.map((kpi) => (
-                <div
-                  key={kpi.label}
-                  className="double-bezel-outer p-2 rounded-2xl bg-white/10! border-white/15! shadow-none!"
-                >
-                  <div className="double-bezel-inner p-3 rounded-xl bg-white/5! border-white/10! text-center">
-                    <span className="block font-mono font-bold text-xl sm:text-2xl text-brand-yellow-500 tabular-nums leading-none">
-                      {kpi.value}
-                    </span>
-                    <span className="block font-subheading text-2xs uppercase tracking-wider text-white/60 mt-1">
-                      {kpi.label}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* ── RIGHT COLUMN (5 cols) — visual con cards flotantes ── */}
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55, delay: 0.2 }}
-            className="lg:col-span-5 relative flex items-center justify-center min-h-105 sm:min-h-125"
+      <div className="relative flex-1 flex items-center overflow-hidden">
+        {/* Firma visual: el reloj de la ventana 13:00 → 19:00. */}
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
+          <svg
+            className="absolute -right-[10%] -bottom-[14%] w-[300px] h-[300px] sm:w-[440px] sm:h-[440px] lg:w-[560px] lg:h-[560px]"
+            style={{ opacity: 0.28 }}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="-150 -150 300 300"
           >
-            {/* Ambient glow detrás de la imagen */}
-            <div
-              className="absolute inset-8 rounded-full pointer-events-none"
-              style={{
-                background: 'radial-gradient(circle, rgba(255,236,1,0.18) 0%, rgba(9,80,246,0.25) 50%, transparent 75%)',
-                filter: 'blur(40px)',
-              }}
-              aria-hidden="true"
+            {/* Dial: 6 de 12 horas en azul sólido (la ventana), las otras 6 punteadas. */}
+            <path
+              d="M 50 -86.6 A 100 100 0 1 1 -50 86.6"
+              fill="none"
+              stroke="#0950F6"
+              strokeWidth="14"
+              strokeLinecap="round"
             />
+            <path
+              d="M -50 86.6 A 100 100 0 0 1 50 -86.6"
+              fill="none"
+              stroke="#0950F6"
+              strokeWidth="14"
+              strokeLinecap="round"
+              strokeDasharray="4 14"
+              opacity="0.4"
+            />
+            {/* Marcas horarias. */}
+            {Array.from({ length: 12 }, (_, i) => {
+              const rad = (i * 30 * Math.PI) / 180;
+              return (
+                <line
+                  key={i}
+                  x1={120 * Math.cos(rad)}
+                  y1={120 * Math.sin(rad)}
+                  x2={132 * Math.cos(rad)}
+                  y2={132 * Math.sin(rad)}
+                  stroke="#0950F6"
+                  strokeWidth={i % 3 === 0 ? 3 : 1.5}
+                  strokeLinecap="round"
+                  opacity={i % 3 === 0 ? 0.9 : 0.45}
+                />
+              );
+            })}
+            {/* Manija clavada en el corte (13:00 ≈ 1 del reloj). */}
+            <line
+              x1="0"
+              y1="0"
+              x2="50"
+              y2="-86.6"
+              stroke="#0950F6"
+              strokeWidth="4"
+              strokeLinecap="round"
+            />
+            <circle r="7" fill="#0950F6" />
+          </svg>
+        </div>
 
-            {/* Imagen central */}
-            <div className="relative group z-10 w-70 h-70 sm:w-84 sm:h-84 shrink-0">
-              <Image
-                src="/elementos/envios_lowcost.webp"
-                alt="Paquetería LowCost — Envíos DosRuedas Mar del Plata"
-                width={336}
-                height={336}
-                className="w-full h-full object-cover rounded-2xl shadow-(--shadow-float) transition-transform duration-500 group-hover:scale-105"
-                priority
-              />
+        <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
+            <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest bg-brand-blue-500 text-white -rotate-1">
+                <TrendingDown className="h-4 w-4 shrink-0" aria-hidden="true" />
+                Paquetería y cadetería · MDQ 2026
+              </span>
 
-              {/* Badge: MISMA JORNADA (top-right) */}
-              <div className="absolute -top-3 -right-3 flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-brand-yellow-500/40 px-3 py-1.5 rounded-xl shadow-(--shadow-glow-yellow) z-30">
-                <Sparkles className="w-3.5 h-3.5 text-brand-yellow-500" />
-                <span className="font-subheading text-[11px] uppercase tracking-wider text-white font-bold">
-                  MISMA JORNADA
-                </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-brand-blue-500 text-balance">
+                <span className="block">Cortás el pedido</span>
+                <Knockout tone="blue">y lo recibís hoy</Knockout>
+                <span className="block">en Mar del Plata</span>
+              </h1>
+
+              <p className="text-base sm:text-lg font-sans text-brand-blue-500 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-light">
+                Paquetería e-commerce, cadetería y encomiendas programadas. Lo que cargás
+                antes de las {LOWCOST_CUTOFF_TIME} se entrega en el día, antes de las{' '}
+                {LOWCOST_DELIVERY_DEADLINE}.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
+                <CTANestedPill
+                  href="/cotizar/lowcost"
+                  id="lowcost-hero-cta-cotizar"
+                  variant="blue"
+                  size="large"
+                  className="focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-yellow-500"
+                >
+                  Cotizá tu lote LowCost
+                </CTANestedPill>
+                <a
+                  href="https://wa.me/542236602699?text=Hola!%20Quiero%20hacer%20un%20env%C3%ADo%20LowCost"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center gap-2 font-subheading text-sm sm:text-base uppercase tracking-wider text-brand-blue-500 underline decoration-brand-blue-500 decoration-2 underline-offset-4 hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-yellow-500 rounded-md"
+                >
+                  <FaWhatsapp className="h-5 w-5 shrink-0" aria-hidden="true" />
+                  O escribinos por WhatsApp
+                </a>
               </div>
 
-              {/* Badge: TODO MAR DEL PLATA (bottom-left) */}
-              <div className="absolute -bottom-3 -left-3 flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-xl z-30">
-                <MapPin className="w-3.5 h-3.5 text-brand-yellow-500" />
-                <span className="font-subheading text-[11px] uppercase tracking-wider text-white/85 font-bold">
-                  TODO MAR DEL PLATA
-                </span>
-              </div>
+              <ul className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
+                {chips.map((chip) => (
+                  <li key={chip.label} className="p-3 rounded-xl bg-brand-blue-500/10 border border-brand-blue-500/20 text-center">
+                    <chip.icon className="w-4 h-4 mx-auto text-brand-blue-500" aria-hidden="true" />
+                    <span className="block font-mono text-lg sm:text-2xl text-brand-blue-500 tabular-nums mt-1.5">{chip.value}</span>
+                    <span className="block font-subheading text-[11px] sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">{chip.label}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Tarjetas flotantes anguladas */}
-            {FLOAT_CARDS.map((card) => (
-              <FloatingCard
-                key={card.id}
-                card={card}
-                isPaused={isPaused}
-                reduceMotion={reduceMotion}
-              />
-            ))}
-
-            {/* Micro-card horario — double-bezel */}
-            <div className="absolute bottom-0 right-0 z-30 sm:bottom-2 sm:right-2">
-              <div className="double-bezel-outer rounded-[20px] bg-white/10! border-white/15! shadow-none! p-2 w-47.5">
-                <div className="rounded-xl bg-brand-blue-700 border border-white/10 p-3 space-y-2">
-                  {/* Header */}
-                  <div className="flex items-center gap-1.5 border-b border-white/10 pb-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-yellow-500" />
-                    </span>
-                    <span className="font-subheading text-2xs uppercase tracking-widest text-brand-yellow-500 font-bold">
-                      HORARIO ACTIVO
-                    </span>
-                  </div>
-                  {/* Datos */}
-                  <div className="grid grid-cols-2 gap-2 text-center">
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-2">
-                      <div className="font-subheading text-[9px] uppercase tracking-wider text-white/50 mb-0.5">
-                        CORTE
-                      </div>
-                      <div className="font-display text-base text-brand-yellow-500 leading-none">
-                        13:00
-                      </div>
-                    </div>
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-2">
-                      <div className="font-subheading text-[9px] uppercase tracking-wider text-white/50 mb-0.5">
-                        ENTREGA
-                      </div>
-                      <div className="font-display text-base text-brand-yellow-500 leading-none">
-                        19:00
-                      </div>
-                    </div>
-                  </div>
+            {/* RIGHT 5 — bezel claro con la pieza del servicio. */}
+            <div className="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
+              <DoubleBezelCard className="w-full max-w-md" innerClassName="space-y-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-brand-blue-500 motion-safe:animate-pulse" aria-hidden="true" />
+                  <span className="font-subheading text-sm tracking-widest text-brand-blue-500 uppercase">
+                    Mismo día, sin agrupar
+                  </span>
                 </div>
-              </div>
-            </div>
-          </motion.div>
 
+                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-brand-blue-500/15">
+                  <Image
+                    src="/elementos/envios_lowcost.webp"
+                    alt="Pieza de marca del servicio LowCost de Envíos DosRuedas para paquetería y cadetería en Mar del Plata"
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 420px, 90vw"
+                    className="object-cover"
+                  />
+                </div>
+
+                <div className="pt-3 border-t border-brand-blue-500/15 flex items-center justify-between gap-3 font-mono text-xs sm:text-sm text-brand-blue-500 tabular-nums">
+                  <span className="truncate">
+                    {LOWCOST_CUTOFF_TIME} → {LOWCOST_DELIVERY_DEADLINE}
+                  </span>
+                  <span className="shrink-0">Todo MDQ</span>
+                </div>
+              </DoubleBezelCard>
+            </div>
+          </div>
         </div>
       </div>
     </section>

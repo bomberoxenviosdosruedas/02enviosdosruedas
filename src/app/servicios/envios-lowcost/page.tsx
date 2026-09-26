@@ -123,10 +123,8 @@ export default function EnviosLowCostPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      {/* Hero Header Block — Electric Speed Blue (brand-blue-500) */}
-      <section className="relative z-10 bg-brand-blue-500">
-        <LowCostHero />
-      </section>
+      {/* Hero — el propio LowCostHero ya es el <section id="lowcost-hero"> */}
+      <LowCostHero />
 
       {/* Ruteo masivo features — White Canvas (brand-white-50) */}
       <section className="relative z-10 bg-brand-white-50 font-sans">
