@@ -291,7 +291,7 @@ body {
 @keyframes marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
 /* Motion compartido de heroes (2026-09)
- * 5 firmas visuales reutilizadas por los 9 heroes. Todas arrancan en su estado
+ * 6 firmas visuales reutilizadas por los 9 heroes. Todas arrancan en su estado
  * final legible: si el JS no corre, o si prefers-reduced-motion está activo,
  * el bloque se ve igual de completo, sólo que estático. */
 @keyframes radar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -311,6 +311,16 @@ body {
   from { stroke-dashoffset: var(--draw-len, 1200); }
   to { stroke-dashoffset: 0; }
 }
+/* Motion del ida y vuelta (Contacto). El token sale, se entrega en la base y
+ * vuelve: 44% de ida, 12% de espera en el destino, 44% de vuelta. El wrapper
+ * mide todo el recorrido para que `translateX(100%)` sea el 100% real. Sin
+ * animación queda en el origen, listo para salir. */
+@keyframes roundtrip {
+  0% { transform: translateX(0); }
+  44% { transform: translateX(100%); }
+  56% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
 
 @utility animate-radar { animation: radar 6s linear infinite; }
 @utility animate-floaty { animation: floaty 5s ease-in-out infinite; }
@@ -319,9 +329,12 @@ body {
   animation: shuttle 5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
 }
 @utility animate-draw { animation: draw 2.4s cubic-bezier(0.25,1,0.5,1) forwards; }
+@utility animate-roundtrip {
+  animation: roundtrip 4.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-radar, .animate-floaty, .animate-road, .animate-shuttle, .animate-draw { animation: none !important; }
+  .animate-radar, .animate-floaty, .animate-road, .animate-shuttle, .animate-draw, .animate-roundtrip { animation: none !important; }
   .animate-draw { stroke-dashoffset: 0 !important; }
 }
 
