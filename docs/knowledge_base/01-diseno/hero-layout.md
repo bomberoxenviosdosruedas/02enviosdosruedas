@@ -25,11 +25,33 @@
 - **Mobile (< lg):** stack vertical, `text-center`, visual arriba o abajo según jerarquía.
 - **Nunca** hero centrado en desktop (`text-center` solo `< lg`).
 
+#### Excepción autorizada: FAQ (`FaqHero`)
+
+`src/components/nosotros/preguntas-frecuentes/FaqHero.tsx` es **el único hero
+centrado en desktop** de los nueve. Composición `max-w-3xl` con eje central,
+sin grid 7/5.
+
+**Por qué se autoriza:** una pantalla de respuestas es un documento, no un
+landing. Se lee de arriba hacia abajo, la línea de título más larga define el
+ancho de lectura y componerlo en dos columnas partiría las preguntas al medio.
+Además, la página ya tiene buscador y acordeón en `Faq-categories`: el hero no
+es la puerta de entrada, es el índice.
+
+**Condiciones para que la excepción siga siendo válida:**
+
+- El contenido se deriva de `FAQ_DATA`; si el hero dejara de ser un índice
+  (pasara a ser un formulario o una promo), pierde la justificación y vuelve a 7/5.
+- El H1 sigue siendo único y en Anton; sólo cambia la alineación del contenedor.
+- La firma visual (las barras por categoría) va en la banda inferior, nunca en el
+  eje de lectura.
+
+Cualquier otro hero centrado en desktop es un error, no una excepción.
+
 ### 1.2 Fondo Procedural (Obligatorio)
 
 ```tsx
-<section className="relative isolate overflow-hidden bg-brand-blue-700">
-  <HeroProceduralBackground variant="express" />  {/* o lowcost, flex, 3pl, contact, default */}
+<section className="relative isolate overflow-hidden bg-brand-blue-500">
+  <HeroProceduralBackground variant="express" tone="blue" />  {/* o lowcost, flex, 3pl, community, contact, default */}
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Grid 7/5 */}
   </div>
@@ -38,6 +60,9 @@
 
 - **Los heros NO escriben su propio gradiente inline.** Consumen la primitiva `HeroProceduralBackground`.
 - La primitiva pinta: gradiente canónico `#0950F6` → `#3570F8`, halos amarillo/azul, grilla SVG punteada 48px, y gráficos vectoriales específicos por `variant`.
+- **Fondo de hero: sólo azul `#0950F6` (`tone="blue"`) o amarillo `#FFEC01` (`tone="yellow"`).** Nunca blanco, ni `brand-blue-50`/hielo, ni gris. Sobre `tone="yellow"` el CTA primario cambia a `variant="blue"` de `CTANestedPill` y el `Knockout` lleva `tone="blue"`.
+- `tone="yellow"`: sin gradiente, grilla punteada azul al 5% y halo blanco suave arriba. `tone="blue"`: grilla blanca al 7%.
+- **La sección siguiente al hero siempre es blanca** (`bg-brand-white-50`). Todos los componentes que viven debajo —`ContactForm`, `ContactInfo`, `ConversionBanner`— están compuestos para fondo claro: sobre azul, un `text-brand-blue-700` queda en `#0950F6` sobre `#0950F6`.
 
 ### 1.3 Altura
 
