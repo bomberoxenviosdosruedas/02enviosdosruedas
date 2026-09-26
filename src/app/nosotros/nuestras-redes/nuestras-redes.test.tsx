@@ -13,7 +13,11 @@ describe('NuestrasRedesPage — Tier 1 & 2', () => {
 
   it('T1.2: renderiza el título principal de redes con tipografía Anton mayúscula', () => {
     render(<NuestrasRedesPage />);
-    const heading = screen.getByRole('heading', { level: 1, name: /COMUNIDAD EN/ });
+    // El H1 lleva el texto en minúscula y pasa a mayúscula por `uppercase` en
+    // CSS (como los 8 heroes del sitio), así que el nombre accesible no está
+    // en mayúsculas: se compara sin distinguir caja. Lo que sí se verifica acá
+    // es que la caja sea Anton (`font-display`).
+    const heading = screen.getByRole('heading', { level: 1, name: /Comunidad en/i });
     expect(heading).toBeInTheDocument();
     expect(heading.className).toContain('font-display');
   });

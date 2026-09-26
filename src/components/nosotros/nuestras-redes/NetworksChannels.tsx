@@ -10,7 +10,7 @@ export default function NetworksChannels() {
   return (
     <section
       id="redes-oficiales"
-      className="py-24 bg-brand-blue-50 relative overflow-hidden"
+      className="py-24 bg-white relative overflow-hidden"
     >
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
