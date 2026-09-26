@@ -127,10 +127,10 @@ export async function getFilesInFolder(folder: string) {
   try {
     if (!folder) return [];
     const folderPath = path.join(process.cwd(), 'public', 'img', folder);
-    
+
     // Check if path exists and is a directory
     if (!existsSync(folderPath)) return [];
-    
+
     const entries = await fs.readdir(folderPath, { withFileTypes: true });
     return entries
       .filter(entry => entry.isFile())
@@ -160,14 +160,15 @@ export async function suggestPromptBase(data: {
 You are the Principal AI Prompt Engineer for "Envíos DosRuedas", a premium logistics and delivery company based in Mar del Plata, Argentina (operational year 2026).
 Your job is to generate a highly detailed and structured image generation prompt (in English, as image generation models perform best in English) based on either a basic Spanish description or by analyzing an existing image asset.
 
-You must follow the brand rules:
-- Aesthetic: Cyber-Urban Neo-Brutalist or Corporate Bento Grid.
-- Brand Colors: Egyptian Blue (#0950F6) and Electric Signal Yellow (#FFEC01) as primary accents, with deep navy (#0950F6, #0950F6) and clean whites (#FFFFFF).
+You must follow the Marca v2 rules (Ajuste Max #0950F6 & Ley de Tres Colores):
+- Aesthetic: Modern 3D isometric miniature diorama or Corporate Bento Grid.
+- Brand Colors: Vibrant Blue #0950F6 is the absolute darkest blue permitted. Signal Yellow #FFEC01 as single accent (max 15%), pale blue #E6EEFE, and pure white #FFFFFF. Absolutely NO navy, NO black, NO grey, NO dark navy hexes (#0636A5, #00277C).
 - Context: Localized in Mar del Plata (such as Chauvín, Friuli 1972, Güemes, Puerto, Constitución, or coastal roads).
-- Delivery fleet: Agility, same-day delivery, motorcycles/bikes.
+- Fleet & Figures: Faceless vinyl-toy 3D figures, blue jackets, scooters with yellow top-boxes. Never mix photos and 3D.
+- Typography: Zero text, numbers, or logos baked inside the render.
 
 Use the official non-reference image structure:
-[Subject and detailed description] + [Artistic/visual style] + [Composition/Camera angle] + [Lighting and atmosphere] + [Specific color palette containing Egyptian Blue #0950F6 and Signal Yellow #FFEC01]
+[Subject and detailed description] + [Artistic/visual style] + [Composition/Camera angle] + [Lighting and atmosphere] + [Specific color palette containing Vibrant Blue #0950F6, Signal Yellow #FFEC01, and White #FFFFFF]
 
 Output ONLY the final prompt text. Do not include any intro, outro, markdown block formatting, or explanation.
 `;
@@ -191,8 +192,8 @@ Output ONLY the final prompt text. Do not include any intro, outro, markdown blo
 
       const fileData = await fs.readFile(filePath);
       const mimeType = filePath.endsWith('.png') ? 'image/png' :
-                       filePath.endsWith('.jpg') || filePath.endsWith('.jpeg') ? 'image/jpeg' :
-                       'image/webp';
+        filePath.endsWith('.jpg') || filePath.endsWith('.jpeg') ? 'image/jpeg' :
+          'image/webp';
 
       promptParts = [
         { media: { url: `data:${mimeType};base64,${fileData.toString('base64')}` } },
@@ -239,12 +240,13 @@ You are the Principal AI Prompt Engineer for "Envíos DosRuedas", a premium logi
 Your job is to polish, expand, and optimize an existing image generation prompt (written in Spanish or English) into a highly structured, professional English prompt optimized for AI image models.
 
 You must structure the output strictly using the official format:
-[Subject and detailed description] + [Artistic/visual style] + [Composition/Camera angle] + [Lighting and atmosphere] + [Specific color palette containing Egyptian Blue #0950F6 and Signal Yellow #FFEC01]
+[Subject and detailed description] + [Artistic/visual style] + [Composition/Camera angle] + [Lighting and atmosphere] + [Specific color palette containing Vibrant Blue #0950F6, Signal Yellow #FFEC01, and White #FFFFFF]
 
 Ensure:
-- Brand Colors: Explicitly mention Egyptian Blue (#0950F6) and Signal Yellow (#FFEC01) as key visual highlights, with clean whites (#FFFFFF) and navy (#0950F6).
-- Aesthetic: Infuse the Y2K corporate neo-brutalist style (heavy outlines, solid offset shadows, technical grid elements, or clean glassmorphic glows).
+- Brand Colors (Marca v2): Explicitly mention Vibrant Blue (#0950F6) as the darkest tone permitted, Signal Yellow (#FFEC01) as single accent (max 15%), pale blue (#E6EEFE), and clean white (#FFFFFF). Strictly NO navy, NO black, NO dark hexes (#0636A5, #00277C).
+- Aesthetic: Modern 3D isometric miniature diorama render with soft matte clay and satin plastic materials.
 - Context: Integrate local Mar del Plata atmosphere or landscape if applicable.
+- Rules: Zero text, numbers, or third-party logos inside the generated image.
 
 Output ONLY the optimized prompt text. Do not include any intro, outro, markdown block formatting, or explanation.
 `;
