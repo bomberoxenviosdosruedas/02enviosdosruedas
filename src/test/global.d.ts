@@ -11,11 +11,13 @@ declare module 'vitest' {
     toHaveValue(value: string | number): T;
     toBeDisabled(): T;
     toHaveAttribute(name: string, value?: string): T;
+    toHaveTextContent(text: string | RegExp, options?: { normalizeWhitespace?: boolean }): T;
   }
   interface AsymmetricMatchersContaining extends TestingLibraryMatchers<unknown, any> {
     toBeInTheDocument(): any;
     toHaveValue(value: string | number): any;
     toBeDisabled(): any;
     toHaveAttribute(name: string, value?: string): any;
+    toHaveTextContent(text: string | RegExp, options?: { normalizeWhitespace?: boolean }): any;
   }
 }

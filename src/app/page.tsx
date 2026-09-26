@@ -10,18 +10,6 @@ export default function HomePage() {
   return (
     <div id="home-page-container" className="bg-white text-[#0950F6] selection:bg-[#FFEC01] selection:text-[#0950F6] overflow-x-hidden">
       <HeroAnimado />
-      
-      <section 
-        className="relative z-10 bg-[#E6EEFE] border-y border-[#BACEFD] py-4" 
-        aria-label="Métricas de confianza"
-      >
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-8 flex flex-wrap justify-between gap-4 font-mono text-[11px] tracking-[0.12em] uppercase font-bold text-[#0950F6]">
-          <span className="inline-flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-[#FFEC01] border border-[#0950F6]/20" /> Miles de Envios</span>
-          <span className="inline-flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-[#FFEC01] border border-[#0950F6]/20" /> Cobertura Total MDQ</span>
-          <span className="inline-flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-[#FFEC01] border border-[#0950F6]/20" /> Entregas en el Dia</span>
-          <span className="inline-flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-[#FFEC01] border border-[#0950F6]/20" /> Ruteo Activo MDQ</span>
-        </div>
-      </section>
 
       <SegmentosHome />
 

@@ -1,7 +1,4 @@
-'use client';
-
 import React from 'react';
-import { useReducedMotion } from 'motion/react';
 
 export interface HeroProceduralBackgroundProps {
   variant?: 'express' | 'lowcost' | 'flex' | '3pl' | 'community' | 'contact' | 'default';
@@ -15,12 +12,16 @@ export interface HeroProceduralBackgroundProps {
   className?: string;
 }
 
+/**
+ * Fondo procedural de hero. Server Component: el gate de `prefers-reduced-motion`
+ * es CSS (`motion-safe:`), no `useReducedMotion()`, para no romper el hydration —
+ * `useReducedMotion()` devuelve `false` en el servidor y el valor real en el cliente.
+ */
 export default function HeroProceduralBackground({
   variant = 'default',
   tone = 'blue',
   className = '',
 }: HeroProceduralBackgroundProps) {
-  const shouldReduceMotion = useReducedMotion();
   const isYellow = tone === 'yellow';
   const accent = isYellow ? '#0950F6' : '#FFEC01';
   const softAccent = isYellow ? '#0950F6' : '#628FF9';
@@ -128,7 +129,7 @@ export default function HeroProceduralBackground({
             stroke={accent}
             strokeWidth="2.5"
             strokeDasharray="12 16"
-            className={shouldReduceMotion ? '' : 'animate-pulse'}
+            className="motion-safe:animate-pulse"
           />
           <path
             d="M -100 300 Q 500 480 1000 250 T 1600 350"
@@ -224,7 +225,7 @@ export default function HeroProceduralBackground({
             fill="none"
             stroke={accent}
             strokeWidth="1.5"
-            className={shouldReduceMotion ? '' : 'animate-ping'}
+            className="motion-safe:animate-ping"
             style={{ animationDuration: '4s' }}
           />
           <circle cx="1050" cy="320" r="180" fill="none" stroke={accent} strokeWidth="1" strokeDasharray="4 8" />

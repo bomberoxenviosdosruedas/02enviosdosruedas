@@ -12,6 +12,31 @@ global.ResizeObserver = vi.fn().mockImplementation(() => ({
 // Mock window.scrollTo
 global.scrollTo = vi.fn();
 
+// Mock window.matchMedia (JSDOM no lo implementa). Componentes cliente como
+// FloatTiltCard lo consultan directo — el mock de motion/react no lo cubre.
+// allowMatches permite que un test simule prefers-reduced-motion: reduce.
+if (!window.matchMedia) {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    configurable: true,
+    value: (query: string) => {
+      const matches = /^\(prefers-reduced-motion:\s*reduce\)$/.test(query)
+        ? (window as unknown as { __reducedMotion?: boolean }).__reducedMotion === true
+        : false;
+      return {
+        matches,
+        media: query,
+        onchange: null,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      };
+    },
+  });
+}
+
 // Mock next/image
 vi.mock('next/image', () => ({
   default: function MockImage({ src, alt, width, height, className, style, priority, ...props }: any) {

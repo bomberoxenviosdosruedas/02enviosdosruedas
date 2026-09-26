@@ -27,8 +27,12 @@ describe('Home Page', () => {
     const container = document.getElementById('home-page-container');
     expect(container).toBeInTheDocument();
 
-    // Check Hero section title text
-    expect(screen.getByText(/Mensajeria.*Logistica/i)).toBeInTheDocument();
+    // Check Hero section title text. El H1 se compone de varios spans
+    // (texto + Knockout), así que se valida contra el textContent completo.
+    const heroTitle = document.getElementById('hero-animado')?.querySelector('h1');
+    expect(heroTitle).toBeInTheDocument();
+    expect(heroTitle).toHaveTextContent(/Mensajería en moto/i);
+    expect(heroTitle).toHaveTextContent(/que llega hoy/i);
     expect(screen.getAllByText(/E-Commerce/i).length).toBeGreaterThan(0);
 
     // Check Vision section heading
