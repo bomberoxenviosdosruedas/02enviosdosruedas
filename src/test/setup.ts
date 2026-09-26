@@ -38,8 +38,12 @@ if (!window.matchMedia) {
 }
 
 // Mock next/image
+// `fill` y `sizes` se descartan como en el Image real (que los saca de props y
+// los convierte en clases/atributos propios). Si `fill` queda en `...props`,
+// React 19 escribe fill="true" en el <img> y ensucia stderr con
+// "Received `true` for a non-boolean attribute `fill`".
 vi.mock('next/image', () => ({
-  default: function MockImage({ src, alt, width, height, className, style, priority, ...props }: any) {
+  default: function MockImage({ src, alt, width, height, className, style, priority, fill, sizes, ...props }: any) {
     return React.createElement('img', {
       src: src || '',
       alt: alt || '',

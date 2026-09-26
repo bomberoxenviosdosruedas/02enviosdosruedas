@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
+import { OPERATING_HOURS } from '@/src/lib/promises';
 import SobreNosotrosPage from './page';
 
 describe('SobreNosotrosPage — Tier 1 & 2', () => {
@@ -11,11 +12,16 @@ describe('SobreNosotrosPage — Tier 1 & 2', () => {
     expect(container.querySelector('main')).toBeInTheDocument();
   });
 
-  it('T1.2: renderiza el título monumental en Anton con "LÍDERES EN"', () => {
+  it('T1.2: renderiza el título monumental del hero en Anton', () => {
     render(<SobreNosotrosPage />);
-    const titleElement = screen.getByText('LÍDERES EN');
-    expect(titleElement).toBeInTheDocument();
-    expect(titleElement.parentElement?.className).toContain('font-display');
+    // El H1 se compone de varios spans (texto + Knockout), así que se valida
+    // contra el textContent completo del h1 en vez de contra un span suelto.
+    const heading = document.querySelector('#about-hero h1');
+    expect(heading).toBeInTheDocument();
+    expect(heading).toHaveTextContent(/Más que cadetería/i);
+    expect(heading).toHaveTextContent(/somos logística/i);
+    expect(heading).toHaveTextContent(/de confianza/i);
+    expect(heading?.className).toContain('font-display');
   });
 
   it('T1.3: renderiza las tarjetas con la arquitectura Double-Bezel del sistema de diseño', () => {
@@ -33,11 +39,14 @@ describe('SobreNosotrosPage — Tier 1 & 2', () => {
     expect(screen.getByText('Lanzamiento Inicial en MDQ')).toBeInTheDocument();
   });
 
-  it('T1.5: renderiza el Hub Logístico FRIULI 1972 con corte diario', () => {
+  it('T1.5: renderiza la Base central de Friuli 1972 con sus horarios', () => {
     render(<SobreNosotrosPage />);
-    expect(screen.getByText('HUB LOGÍSTICO')).toBeInTheDocument();
-    expect(screen.getByText('FRIULI')).toBeInTheDocument();
-    expect(screen.getAllByText('Corte 13:00').length).toBeGreaterThan(0);
+    // El hero ya no muestra un "corte" (el corte 13:00 es de LowCost, no de la
+    // base): muestra la base y su horario real, que viene de promesas.ts.
+    expect(screen.getAllByText('Base central').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Friuli 1972').length).toBeGreaterThan(0);
+    expect(screen.getAllByText(OPERATING_HOURS.weekdays).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(OPERATING_HOURS.saturdays).length).toBeGreaterThan(0);
   });
 
   // ─── TIER 2: BOUNDARY & CORNER CASES (5 tests) ─────────────────────────────
