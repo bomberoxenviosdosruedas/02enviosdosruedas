@@ -113,6 +113,8 @@ Más sus escalas **más claras** que `#0950F6`. **Única excepción externa:** r
 | `--color-brand-blue-950` | `#0950F6` | —                         | Colapsado al tope (footer profundo = mismo azul)                                                                           |
 
 > **Consecuencia del colapso:** 500/600/700/900/950 son **un valor con cinco nombres semánticos**. El nombre elige la _función_, no la _oscuridad_. No hay "azul más oscuro" para jerarquía ni para _pressed_: la jerarquía se construye con blanco/amarillo sobre azul, peso visual, escala y tracking; el _pressed_ es `active:scale-[.98]`, nunca oscurecer.
+>
+> ⚠️ **Atención - Token Huérfano `#D6E4FE`:** El valor `#D6E4FE` (azul intermedio usado erróneamente en bordes y divisores hardcodeados) **NO existe** en `@theme` de `src/app/globals.css`. Debe sustituirse sistemáticamente por `border-brand-blue-100` (`#BACEFD`) para bordes/separadores o `bg-brand-blue-50` (`#E6EEFE`) para fondos suaves.
 
 #### Escala amarilla
 
