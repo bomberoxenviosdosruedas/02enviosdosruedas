@@ -1,125 +1,188 @@
-'use client';
-
-import React from 'react';
-import { motion } from 'motion/react';
-import { ShieldCheck, Phone, ArrowRight, MapPin } from 'lucide-react';
 import Image from 'next/image';
+import { BookOpen, PackageCheck, ShieldCheck, Tag, Timer } from 'lucide-react';
+import { CTANestedPill, DoubleBezelCard, Knockout } from '@/src/components/ui';
 import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
+import { LOW_COST_TIERS } from '@/src/lib/pricing';
+import { FLEX_CUTOFF_TIME, FLEX_DELIVERY_DEADLINE } from '@/src/lib/promises';
 
+const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
+
+const firstTier = LOW_COST_TIERS[0];
+
+/** Flex cobra las mismas zonas que LowCost; la tarifa base es la misma constante. */
+const chips = [
+  { icon: Timer, value: FLEX_CUTOFF_TIME, label: 'Corte de retiros' },
+  { icon: PackageCheck, value: FLEX_DELIVERY_DEADLINE, label: 'Entrega garantizada' },
+  { icon: Tag, value: ars(firstTier.price), label: `Base ${firstTier.minKm}-${firstTier.maxKm} km` },
+];
+
+/**
+ * Hero Mercado Envíos Flex — concepto "el corredor de despacho".
+ *
+ * Flex no vende velocidad: vende un corredor. Lo que se retira antes de las
+ * 15:00 tiene que estar entregado antes de las 20:00. La firma visual es ese
+ * corredor, dibujado como un riel de acotado a acotado: compuerta de corte,
+ * cuatro marcas horarias intermedias (los 5 tramos de la franja) y compuerta de
+ * entrega, con un token que recorre la ventana de punta a punta (`shuttle`).
+ *
+ * El riel vive en el padding inferior del hero y su alto es exactamente ese
+ * padding (`h-14 sm:h-20 lg:h-24` = `py-14 sm:py-20 lg:py-24`), así que jamás
+ * puede pisar el texto ni la card. Por eso el token es un `div` real y no un
+ * shape del SVG estirado: el `preserveAspectRatio="none"` no lo deforma.
+ *
+ * La diferencia con las otras firmas es el cierre: Home es un camino abierto e
+ * infinito, Express una curva diagonal, LowCost un dial. Acá el recorrido tiene
+ * dos extremos y cinco tramos contados — es una promesa con horario, no una
+ * sensación de velocidad.
+ *
+ * El token arranca en la compuerta de corte y con `prefers-reduced-motion` queda
+ * ahí: el corredor se sigue leyendo completo, sólo quieto.
+ */
 export default function FlexHero() {
   return (
     <section
       id="flex-hero"
-      aria-label="Presentación Envíos MercadoLibre Flex"
-      className="relative w-full overflow-hidden bg-[#0950F6] text-white pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 border-b border-white/10"
+      aria-label="Mercado Envíos Flex en Mar del Plata: retiro antes de las 15:00 y entrega garantizada antes de las 20:00"
+      className="relative isolate flex min-h-[90dvh] w-full flex-col overflow-hidden bg-brand-blue-500 text-white"
     >
-      <HeroProceduralBackground variant="default" />
+      <HeroProceduralBackground variant="flex" tone="blue" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
-          {/* Left Column (7 cols) */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-            <div className="-rotate-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-widest bg-[#0950F6] border border-[#FFEC01]/40 text-[#FFEC01] shadow-glow-yellow backdrop-blur-md">
-              <ShieldCheck className="h-4 w-4 text-[#FFEC01] shrink-0" />
-              <span>LOGÍSTICA OFICIAL MERCADOLIBRE FLEX · MDQ 2026</span>
-            </div>
+      <div className="relative flex-1 flex items-center overflow-hidden">
+        {/* Firma visual: el corredor de despacho 15:00 → 20:00.
+            Vive en el padding inferior del hero (alto = py del contenedor), así
+            nunca puede pisar texto ni la card, y corre de borde a borde. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-14 sm:h-20 lg:h-24 pointer-events-none"
+        >
+          <svg
+            className="absolute inset-0 h-full w-full"
+            style={{ opacity: 0.32 }}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 96"
+            preserveAspectRatio="none"
+          >
+            {/* Riel del corredor. */}
+            <line x1="0" y1="66" x2="1200" y2="66" stroke="#FFFFFF" strokeWidth="1" strokeDasharray="6 10" opacity="0.7" />
+            {/* Compuerta de corte: sólida. */}
+            <line x1="72" y1="32" x2="72" y2="92" stroke="#FFEC01" strokeWidth="4" strokeLinecap="round" />
+            {/* Compuerta de entrega: punteada, es el plazo que se cumple. */}
+            <line x1="1128" y1="32" x2="1128" y2="92" stroke="#FFEC01" strokeWidth="4" strokeLinecap="round" strokeDasharray="8 10" />
+            {/* Las 4 marcas horarias internas: 5 tramos iguales = 5 horas. */}
+            {[283, 494, 706, 917].map((x) => (
+              <line
+                key={x}
+                x1={x}
+                y1="56"
+                x2={x}
+                y2="76"
+                stroke="#FFEC01"
+                strokeWidth="2"
+                strokeDasharray="3 6"
+                opacity="0.7"
+              />
+            ))}
+          </svg>
 
-            {/* Title with Knockout Badge */}
-            <h1 className="text-4xl sm:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.98] text-white">
-              <span className="block">MERCADOLIBRE FLEX</span>
-              <span className="inline-block bg-[#FFEC01] text-[#0950F6] px-3 py-1 rounded-lg transform -rotate-1 shadow-glow-yellow my-1">
-                LLEGA HOY
-              </span>
-              <span className="block text-2xl sm:text-4xl lg:text-5xl text-white/90">
-                ENTREGAS SAME-DAY EN MAR DEL PLATA
-              </span>
-            </h1>
+          <span className="absolute left-[6%] top-0 font-mono text-[10px] uppercase tracking-[0.18em] text-white/85 tabular-nums">
+            Corte {FLEX_CUTOFF_TIME}
+          </span>
+          <span className="absolute right-[6%] top-0 font-mono text-[10px] uppercase tracking-[0.18em] text-white/85 tabular-nums">
+            Entrega {FLEX_DELIVERY_DEADLINE}
+          </span>
 
-            <p className="text-base sm:text-lg lg:text-xl font-sans text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-              Destacá tus publicaciones en Mercado Libre activando Envíos Flex con entregas garantizadas en el día. Retiramos por tu depósito o domicilio antes de las 15:00 hs y entregamos en toda la ciudad.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-              <CTANestedPill
-                href="/cotizar/lowcost"
-                variant="primary"
-              >
-                Activá Envíos Flex
-              </CTANestedPill>
-
-              <CTANestedPill
-                href="https://wa.me/542236602699"
-                variant="outline"
-              >
-                Contactá un asesor
-              </CTANestedPill>
-            </div>
-
-            {/* Quick KPI Chips */}
-            <div className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
-              <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
-                <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
-                  15:00 hs
-                </span>
-                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
-                  Horario de Corte
-                </span>
-              </div>
-              <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
-                <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
-                  100%
-                </span>
-                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
-                  Entregas en el Día
-                </span>
-              </div>
-              <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center">
-                <span className="block font-mono font-bold text-xl sm:text-2xl text-[#FFEC01] tabular-nums">
-                  Sin Mínimos
-                </span>
-                <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
-                  Retiros Múltiples
-                </span>
-              </div>
+          {/* El token es un div real, no un shape del SVG estirado: así el
+              `preserveAspectRatio="none"` no lo deforma. El wrapper mide todo el
+              recorrido (6% → 94%) para que `translateX(100%)` sea el 100% real. */}
+          <div className="absolute left-[6%] top-[66%] h-0 w-[88%] motion-safe:animate-shuttle">
+            <div className="absolute left-0 -translate-y-1/2 h-[16px] w-[32px] rounded-md bg-brand-yellow-500 shadow-[0_0_18px_rgba(255,236,1,0.45)]">
+              <span className="block mx-auto mt-[6px] h-[3px] w-[16px] rounded-full bg-brand-blue-500" />
             </div>
           </div>
+        </div>
 
-          {/* Right Column (5 cols) */}
-          <div className="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
-            <DoubleBezelCard>
-              <div className="bg-[#0950F6] text-white p-6 sm:p-8 rounded-[20px] border border-white/20 relative overflow-hidden space-y-4">
+        <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
+            <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-500 shadow-accent-sm -rotate-1">
+                <ShieldCheck className="h-4 w-4 shrink-0" aria-hidden="true" />
+                Integración oficial Mercado Envíos · MDQ
+              </span>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white text-balance">
+                <span className="block">Entregamos tu venta Flex</span>
+                <Knockout>antes de las {FLEX_DELIVERY_DEADLINE}</Knockout>
+                <span className="block">en Mar del Plata</span>
+              </h1>
+
+              <p className="text-base sm:text-lg font-sans text-white/85 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-light">
+                Retiramos en tu depósito o domicilio antes de las {FLEX_CUTOFF_TIME} y entregamos
+                en toda la ciudad antes de las {FLEX_DELIVERY_DEADLINE}. Así tu publicación llega
+                Same-Day y cumplís la promesa de Mercado Envíos.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
+                <CTANestedPill
+                  href="https://wa.me/542236602699?text=Hola!%20Quiero%20activar%20Mercado%20Env%C3%ADos%20Flex"
+                  id="flex-hero-cta-activar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="primary"
+                  size="large"
+                  className="focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500"
+                >
+                  Activá Mercado Envíos Flex
+                </CTANestedPill>
+                <a
+                  href="/guias/envios-flex-mar-del-plata"
+                  className="inline-flex min-h-[44px] items-center gap-2 font-subheading text-sm sm:text-base uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 rounded-md"
+                >
+                  <BookOpen className="h-5 w-5 shrink-0" aria-hidden="true" />
+                  Guía para vendedores
+                </a>
+              </div>
+
+              <ul className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
+                {chips.map((chip) => (
+                  <li key={chip.label} className="p-3 rounded-xl bg-white/10 border border-white/20 text-center">
+                    <chip.icon className="w-4 h-4 mx-auto text-brand-yellow-500" aria-hidden="true" />
+                    <span className="block font-mono text-lg sm:text-2xl text-brand-yellow-500 tabular-nums mt-1.5">{chip.value}</span>
+                    <span className="block font-subheading text-[11px] sm:text-sm uppercase tracking-wider text-white/85 mt-0.5">{chip.label}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* RIGHT 5 — bezel claro con la pieza del servicio. */}
+            <div className="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
+              <DoubleBezelCard className="w-full max-w-md" innerClassName="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="relative flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFEC01] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFEC01]"></span>
-                  </span>
-                  <span className="font-subheading text-xs tracking-widest text-[#FFEC01] font-bold uppercase">
-                    INTEGRACIÓN FLEX · MDQ
+                  <span className="h-2.5 w-2.5 rounded-full bg-brand-blue-500 motion-safe:animate-pulse" aria-hidden="true" />
+                  <span className="font-subheading text-sm tracking-widest text-brand-blue-500 uppercase">
+                    Despacho verificado
                   </span>
                 </div>
 
-                <div className="relative w-full h-56 sm:h-64 rounded-xl overflow-hidden border border-white/20 my-2">
+                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-brand-blue-500/15">
                   <Image
                     src="/elementos/envios_flex.webp"
-                    alt="Envíos Flex MercadoLibre - Envíos DosRuedas"
+                    alt="Pieza de marca del servicio Mercado Envíos Flex de Envíos DosRuedas para vendedores de Mar del Plata"
                     fill
-                    className="object-cover"
                     priority
+                    sizes="(min-width: 1024px) 420px, 90vw"
+                    className="object-cover"
                   />
                 </div>
 
-                <div className="pt-2 border-t border-white/15 flex items-center justify-between text-xs font-mono text-white/80">
-                  <span className="flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-[#FFEC01]" />
-                    TODO MAR DEL PLATA
+                <div className="pt-3 border-t border-brand-blue-500/15 flex items-center justify-between gap-3 font-mono text-xs sm:text-sm text-brand-blue-500 tabular-nums">
+                  <span className="truncate">
+                    {FLEX_CUTOFF_TIME} → {FLEX_DELIVERY_DEADLINE}
                   </span>
-                  <span className="text-[#FFEC01] font-bold tabular-nums">2026</span>
+                  <span className="shrink-0">Toda la ciudad</span>
                 </div>
-              </div>
-            </DoubleBezelCard>
+              </DoubleBezelCard>
+            </div>
           </div>
         </div>
       </div>

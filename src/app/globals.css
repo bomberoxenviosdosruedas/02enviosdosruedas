@@ -291,7 +291,7 @@ body {
 @keyframes marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
 /* Motion compartido de heroes (2026-09)
- * 4 firmas visuales reutilizadas por los 9 heroes. Todas arrancan en su estado
+ * 5 firmas visuales reutilizadas por los 9 heroes. Todas arrancan en su estado
  * final legible: si el JS no corre, o si prefers-reduced-motion está activo,
  * el bloque se ve igual de completo, sólo que estático. */
 @keyframes radar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -300,6 +300,13 @@ body {
   50% { transform: translateY(-10px); }
 }
 @keyframes road { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* Motion del corredor de despacho (Flex). El token viaja sobre un wrapper
+ * horizontal de ancho = recorrido, así `translateX(100%)` es el 100% real y no
+ * el ancho del token. Sin animación queda arriba del todo, junto al corte. */
+@keyframes shuttle {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
 @keyframes draw {
   from { stroke-dashoffset: var(--draw-len, 1200); }
   to { stroke-dashoffset: 0; }
@@ -308,10 +315,13 @@ body {
 @utility animate-radar { animation: radar 6s linear infinite; }
 @utility animate-floaty { animation: floaty 5s ease-in-out infinite; }
 @utility animate-road { animation: road 3.5s linear infinite; }
+@utility animate-shuttle {
+  animation: shuttle 5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
 @utility animate-draw { animation: draw 2.4s cubic-bezier(0.25,1,0.5,1) forwards; }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-radar, .animate-floaty, .animate-road, .animate-draw { animation: none !important; }
+  .animate-radar, .animate-floaty, .animate-road, .animate-shuttle, .animate-draw { animation: none !important; }
   .animate-draw { stroke-dashoffset: 0 !important; }
 }
 

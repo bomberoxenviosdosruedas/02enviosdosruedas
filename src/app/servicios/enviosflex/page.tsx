@@ -102,10 +102,8 @@ export default function EnviosFlexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      {/* Hero Header Block — Electric Speed Blue (brand-blue-500) */}
-      <section className="relative z-10 bg-brand-blue-500">
-        <FlexHero />
-      </section>
+      {/* Hero — el propio FlexHero pinta su fondo azul de marca */}
+      <FlexHero />
 
       {/* MercadoLibre expert key features — White Canvas (brand-white-50) */}
       <section className="relative z-10 bg-brand-white-50 font-sans">
