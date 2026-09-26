@@ -61,7 +61,7 @@ export function FaqCategories() {
   }, [searchQuery]);
 
   return (
-    <section id="faq-categories" className="py-12 bg-brand-blue-50">
+    <section id="faq-categories" className="py-12 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Search Bar */}
         <div className="relative max-w-xl mx-auto">
