@@ -1,45 +1,122 @@
+# Dependencies & Build
 node_modules/
 .next/
 *.tsbuildinfo
 coverage/
+
+# IDE & OS
 .DS_Store
 *.log
+.vscode/*
+
+# Environment
 .env*
 !.env.example
+
+# Generated / Cache
+.prisma/
+generated/
+.vercel
+.stitch/*
+site/*
+scratch/
+.playwright-mcp/*
+
+# Documentation (local only)
 docs/prompts/*
+docs/sitio_completo.html
+docs/diseno/*
+docs/contexto/correo_propio/*
+public/optimizadas/*
+public/optimizadas_2/*
+
+# Assets (local only)
+homepage-mobile.png
+homepage-desktop.png
+screenshots/www_enviosdosruedas_com_desktop.png
+
+# Skills (local only)
+skills/*
+
+# Agent configs (local only)
 .agents/*
 !.agents/skills/
 !.agents/skills.json
 .claude/*
 !.claude/settings.json
-.prisma/
-generated/*
-.vercel
-document.md
-document.html
-document.pdf
-.stitch/*
-site/*
-scratch/*
-.vscode/*
 .gemini/*
 .specify/*
-docs/contexto/correo_propio/*
-public/optimizadas/*
-public/optimizadas_2/*
-skills/*
-homepage-mobile.png
-homepage-desktop.png
-screenshots/www_enviosdosruedas_com_desktop.png
-.playwright-mcp/*
-docs/sitio_completo.html
-docs/diseno/*
-scratch/*
 
-# design-sync (Claude Design)
+# Design sync (Claude Design)
 .ds-sync/
 .ds-pkg/
 ds-bundle/
 .design-sync/.cache/
 .design-sync/learnings/
 .design-sync/node_modules
+
+# Documents
+document.md
+document.html
+document.pdf
+
+# === AI AGENTS IGNORE (Unificado: reemplaza .aiexclude, .geminiignore, .cursorignore, etc.) ===
+# Ignora carpetas pesadas y artefactos de build para que los agentes de IA no las lean
+# y consuman tokens innecesariamente.
+
+# Build outputs & cache
+.next/
+node_modules/
+*.tsbuildinfo
+coverage/
+.vercel/
+.prisma/
+generated/
+.stitch/
+.site/
+.scratch/
+.ds-sync/
+.ds-pkg/
+ds-bundle/
+.design-sync/
+
+# IDE & OS
+.vscode/
+.DS_Store
+*.log
+
+# Environment & secrets
+.env*
+!.env.example
+
+# Documentation local (prompts, specs, internals)
+docs/prompts/
+docs/sitio_completo.html
+docs/diseno/
+docs/contexto/correo_propio/
+
+# Assets locales no versionados
+public/optimizadas/
+public/optimizadas_2/
+homepage-mobile.png
+homepage-desktop.png
+screenshots/
+
+# Agent configs locales
+.agents/
+!.agents/skills/
+!.agents/skills.json
+.claude/
+!.claude/settings.json
+.gemini/
+.specify/
+.skills/
+
+# Playwright / testing artifacts
+.playwright-mcp/
+.playwright/
+test-results/
+
+# Turbo / pnpm cache
+.turbo/
+.pnpm-store/
