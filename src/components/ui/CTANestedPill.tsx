@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { trackAnalytics } from '@/lib/analytics';
 
-export type CTANestedPillVariant = 'primary' | 'elevated' | 'outline' | 'ghost';
+export type CTANestedPillVariant = 'primary' | 'blue' | 'elevated' | 'outline' | 'ghost';
 export type CTANestedPillSize = 'compact' | 'default' | 'large' | 'lg';
 
 export interface CTANestedPillProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -28,7 +28,7 @@ export interface CTANestedPillProps extends React.ButtonHTMLAttributes<HTMLButto
  * Follows DESIGN.md specifications:
  * - Rounded-full, font-subheading, uppercase, tracking-[.05em], font-bold
  * - Embedded circular icon chip (w-8 h-8) with smooth hover translation
- * - Variants: --primary (yellow), --elevated (white), --outline, --ghost
+ * - Variants: --primary (yellow), --blue (para fondos amarillos), --elevated (white), --outline, --ghost
  */
 export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTANestedPillProps>(
   (
@@ -48,11 +48,6 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
     },
     ref
   ) => {
-    const isPrimary = variant === 'primary';
-    const isElevated = variant === 'elevated';
-    const isOutline = variant === 'outline';
-    const isGhost = variant === 'ghost';
-
     const baseStyles =
       'cta-nested-pill group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-[.05em] font-bold transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 select-none border';
 
@@ -67,6 +62,8 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
     const variantStyles = {
       primary:
         'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-500 shadow-accent-sm hover:shadow-cta-glow hover:bg-brand-yellow-400 active:scale-[.98] active:translate-y-[1px]',
+      // Para fondos amarillos (#FFEC01): azul de marca, texto blanco, chip amarillo.
+      blue: 'bg-brand-blue-500 text-white border-brand-blue-500 shadow-[0_0_24px_rgba(9,80,246,0.28)] hover:bg-brand-blue-800 hover:border-brand-blue-800 active:scale-[.98] active:translate-y-[1px]',
       elevated:
         'bg-white text-brand-blue-700 border-brand-blue-100 shadow-elevated hover:shadow-hover-lift hover:border-brand-blue-300 hover:text-brand-blue-800 active:scale-[.98]',
       outline:
@@ -81,6 +78,7 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
     const iconChipVariantStyles = {
       primary:
         'bg-brand-blue-700/10 text-brand-blue-900 group-hover:bg-brand-blue-700 group-hover:text-brand-yellow-500 group-hover:translate-x-1',
+      blue: 'bg-brand-yellow-500 text-brand-blue-500 group-hover:bg-brand-yellow-400 group-hover:translate-x-1',
       elevated:
         'bg-brand-blue-700/10 text-brand-blue-700 group-hover:bg-brand-blue-700 group-hover:text-white group-hover:translate-x-1',
       outline:

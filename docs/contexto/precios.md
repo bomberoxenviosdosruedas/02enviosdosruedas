@@ -87,3 +87,18 @@ La función pura de cálculo se ubica en:
 - `src/lib/pricing.ts` (`calculateExpressPrice` y `calculateLowCostPrice`)
 
 Ambas funciones contemplan fallback a estas mismas constantes en caso de desconexión transitoria de base de datos.
+
+## 5. A VERIFICAR — Condiciones comercialesDepósito & Fulfillment
+
+Estas dos condiciones se muestran al cliente pero **no** están en la tabla oficial de tarifas
+ni en la BD (`PriceRange`). Se declararon como constantes en `src/lib/promises.ts` tomando como
+fuente el texto ya publicado en las FAQ.
+
+| Constante | Valor | Dónde se usa | Fuente textual |
+|---|---|---|---|
+| `DROPOFF_DISCOUNT_PERCENT` | `20` | Hero de Plan Emprendedores | `faqData.ts` → «traés tus envíos listos a nuestro depósito y obtenés un 20% de descuento sobre la tarifa final» |
+| `CONTRAREEMBOLSO_COMMISSION_PERCENT` | `0` | Hero de Plan Emprendedores | `faqData.ts` → «no cobramos ningún extra ni porcentaje de comisión por este servicio» |
+
+**Pendiente:** confirmar con Matías el plazo de vigencia del 20% y si aplica también a
+Mercado Envíos Flex dentro de la modalidad Drop-Off. Hasta entonces, consumirlas siempre
+desde `src/lib/promises.ts` — nunca hardcodearlas en un componente.

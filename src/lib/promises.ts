@@ -22,6 +22,14 @@ export const RAIN_SURCHARGE_PERCENT = 30; // +30% recargo por lluvia
 export const CONSULT_THRESHOLD_KM = 20; // Hasta 20 km cálculo automático; > 20 km "A consultar"
 export const MAX_WEIGHT_KG = 15; // Bultos hasta 15 kg
 
+// Condiciones comerciales Depósito & Fulfillment (servicio para empresas)
+// A VERIFICAR: no figuran en docs/contexto/precios.md ni en la BD (PriceRange).
+// Fuente textual: src/components/nosotros/preguntas-frecuentes/faqData.ts
+// ("obtenés un 20% de descuento sobre la tarifa final" / "no cobramos ningún
+// extra ni porcentaje de comisión"). Prometidas al cliente: NO hardcodearlas.
+export const DROPOFF_DISCOUNT_PERCENT = 20; // Descuento por traer envíos listos al depósito
+export const CONTRAREEMBOLSO_COMMISSION_PERCENT = 0; // Sin extra ni comisión por cobro en entrega
+
 // Horarios de atención oficiales en base central Friuli 1972 (Decisión 5 aprobada)
 export const OPERATING_HOURS = {
   weekdays: '09:00 a 18:00 hs',

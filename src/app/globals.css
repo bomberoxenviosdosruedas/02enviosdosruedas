@@ -220,7 +220,12 @@ body {
   border: 1px solid color-mix(in srgb, #E6EEFE 50%, transparent);
 }
 
-/* CTA Nested Pill - Oficial */
+/* CTA Nested Pill - Oficial
+ * NOTA (2026-09): esta utility es SOLO estructura (layout, tipografía, easing).
+ * El color (fondo, texto, borde, sombra) lo define el `variant` de
+ * CTANestedPill (primary | blue | elevated | outline | ghost) o las clases del
+ * consumidor. Antes hardcodeaba `background-color: #FFEC01`, lo que anulaba en
+ * cascada cualquier variant distinto de primary. Ver primitivas-ui.md §3.7. */
 @utility cta-nested-pill {
   display: inline-flex;
   align-items: center;
@@ -232,12 +237,9 @@ body {
   font-weight: 700;
   padding: 0.75rem 1.5rem;
   min-height: 56px;
-  background-color: #FFEC01;
-  color: #0950F6;
-  box-shadow: 0 0 28px rgba(255,236,1,0.45);
   transition: all 0.25s cubic-bezier(0.25,1,0.5,1);
-  &:hover { background-color: #FFF12E; transform: translateY(-1px); }
-  &:active { transform: scale(0.98); background-color: #E6D400; }
+  &:hover { transform: translateY(-1px); }
+  &:active { transform: scale(0.98); }
 }
 @utility cta-nested-icon {
   display: inline-flex;
@@ -287,6 +289,31 @@ body {
 /* V2 Marquee Flotante */
 @keyframes marquee-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+/* Motion compartido de heroes (2026-09)
+ * 4 firmas visuales reutilizadas por los 9 heroes. Todas arrancan en su estado
+ * final legible: si el JS no corre, o si prefers-reduced-motion está activo,
+ * el bloque se ve igual de completo, sólo que estático. */
+@keyframes radar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes road { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes draw {
+  from { stroke-dashoffset: var(--draw-len, 1200); }
+  to { stroke-dashoffset: 0; }
+}
+
+@utility animate-radar { animation: radar 6s linear infinite; }
+@utility animate-floaty { animation: floaty 5s ease-in-out infinite; }
+@utility animate-road { animation: road 3.5s linear infinite; }
+@utility animate-draw { animation: draw 2.4s cubic-bezier(0.25,1,0.5,1) forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-radar, .animate-floaty, .animate-road, .animate-draw { animation: none !important; }
+  .animate-draw { stroke-dashoffset: 0 !important; }
+}
 
 @utility animate-marquee-left { animation: marquee-left 36s linear infinite; }
 @utility animate-marquee-right { animation: marquee-right 42s linear infinite; }
