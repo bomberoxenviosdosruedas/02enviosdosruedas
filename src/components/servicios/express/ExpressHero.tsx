@@ -140,7 +140,7 @@ export default function ExpressHero() {
                   <li key={chip.label} className="p-3 rounded-xl bg-white/10 border border-white/20 text-center">
                     <chip.icon className="w-4 h-4 mx-auto text-brand-yellow-500" aria-hidden="true" />
                     <span className="block font-mono text-lg sm:text-2xl text-brand-yellow-500 tabular-nums mt-1.5">{chip.value}</span>
-                    <span className="block font-subheading text-[11px] sm:text-sm uppercase tracking-wider text-white/85 mt-0.5">{chip.label}</span>
+                    <span className="block font-subheading text-[11px] sm:text-sm uppercase tracking-wider text-white mt-0.5">{chip.label}</span>
                   </li>
                 ))}
               </ul>

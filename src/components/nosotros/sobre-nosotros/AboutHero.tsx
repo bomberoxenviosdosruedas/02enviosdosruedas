@@ -162,7 +162,7 @@ export default function AboutHero() {
                   <li key={chip.label} className="p-3 rounded-xl bg-white/10 border border-white/20 text-center">
                     <chip.icon className="w-4 h-4 mx-auto text-brand-yellow-500" aria-hidden="true" />
                     <span className="block font-mono text-lg sm:text-2xl text-brand-yellow-500 tabular-nums mt-1.5">{chip.value}</span>
-                    <span className="block font-subheading text-[11px] sm:text-xs uppercase tracking-wider text-white/85 mt-0.5">{chip.label}</span>
+                    <span className="block font-subheading text-[11px] sm:text-xs uppercase tracking-wider text-white mt-0.5">{chip.label}</span>
                   </li>
                 ))}
               </ul>
@@ -192,7 +192,7 @@ export default function AboutHero() {
                 <div className="pt-3 border-t border-brand-blue-500/15 space-y-1.5 font-mono text-xs sm:text-sm text-brand-blue-500 tabular-nums">
                   {hours.map((row) => (
                     <div key={row.label} className="flex items-baseline justify-between gap-3">
-                      <span className="font-subheading text-[11px] uppercase tracking-wider text-brand-blue-500/70 shrink-0">
+                      <span className="font-subheading text-[11px] uppercase tracking-wider text-brand-blue-500 shrink-0">
                         {row.label}
                       </span>
                       <span className="truncate text-right">{row.value}</span>

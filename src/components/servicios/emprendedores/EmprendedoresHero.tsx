@@ -132,7 +132,7 @@ export default function EmprendedoresHero() {
 
               <ul className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
                 {chips.map((chip) => (
-                  <li key={chip.label} className="p-3 rounded-xl bg-brand-blue-500/10 border border-brand-blue-500/20 text-center">
+                  <li key={chip.label} className="p-3 rounded-xl bg-white/45 border border-brand-blue-500/30 text-center">
                     <chip.icon className="w-4 h-4 mx-auto text-brand-blue-500" aria-hidden="true" />
                     <span className="block font-mono text-lg sm:text-2xl text-brand-blue-500 tabular-nums mt-1.5">{chip.value}</span>
                     <span className="block font-subheading text-[11px] sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">{chip.label}</span>
