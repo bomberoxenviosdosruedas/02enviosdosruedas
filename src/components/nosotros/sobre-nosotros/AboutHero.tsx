@@ -48,7 +48,7 @@ export default function AboutHero() {
     <section
       id="about-hero"
       aria-label="Presentación institucional Envíos DosRuedas"
-      className="relative w-full overflow-hidden bg-[#0950F6] text-white pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 border-b border-white/10"
+      className="relative w-full overflow-hidden bg-brand-blue-700 text-white pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 border-b border-white/10"
     >
       {/* Dynamic Procedural Background */}
       <HeroProceduralBackground variant="default" />
@@ -64,15 +64,15 @@ export default function AboutHero() {
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
             {/* Glowing Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-wider bg-[#0950F6] text-[#FFEC01] border border-[#FFEC01]/40 -rotate-1 shadow-glow-yellow backdrop-blur-md">
-              <ShieldCheck className="h-4 w-4 text-[#FFEC01] shrink-0" />
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wider bg-brand-blue-700 text-brand-yellow-500 border border-brand-yellow-500/40 -rotate-1 shadow-glow-yellow backdrop-blur-md">
+              <ShieldCheck className="h-4 w-4 text-brand-yellow-500 shrink-0" />
               <span>NUESTRA IDENTIDAD · MAR DEL PLATA 2026</span>
             </div>
 
             {/* Title with Knockout Badge */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-tight text-white leading-[0.92]">
               <span>MÁS QUE CADETERÍA, </span>
-              <span className="inline-block bg-[#FFEC01] text-[#0950F6] px-3 py-1 rounded-lg transform -rotate-1 shadow-glow-yellow mx-1">
+              <span className="inline-block bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 rounded-lg transform -rotate-1 shadow-glow-yellow mx-1">
                 SOMOS LOGÍSTICA
               </span>
               <span className="block sm:inline"> DE CONFIANZA</span>
@@ -80,7 +80,7 @@ export default function AboutHero() {
 
             {/* Description box */}
             <div className="space-y-3 max-w-2xl mx-auto lg:mx-0">
-              <p className="text-lg sm:text-xl font-subheading uppercase tracking-wide text-[#FFEC01] font-bold">
+              <p className="text-lg sm:text-xl font-subheading uppercase tracking-wide text-brand-yellow-500">
                 MÁS DE 7 AÑOS RECORRIENDO MAR DEL PLATA CON FLOTA PROPIA Y COMPROMISO REAL.
               </p>
               <div className="p-4 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md">
@@ -97,10 +97,10 @@ export default function AboutHero() {
                   key={metric.label}
                   className="p-3.5 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-center"
                 >
-                  <span className="block font-mono text-2xl sm:text-3xl font-bold text-[#FFEC01] tabular-nums">
+                  <span className="block font-mono text-2xl sm:text-3xl font-bold text-brand-yellow-500 tabular-nums">
                     {metric.value}
                   </span>
-                  <span className="block font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
+                  <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white/90 mt-0.5">
                     {metric.label}
                   </span>
                 </div>
@@ -116,31 +116,31 @@ export default function AboutHero() {
             className="lg:col-span-5 relative"
           >
             <div className="relative w-full max-w-md mx-auto">
-              <DoubleBezelCard>
-                <div className="bg-[#0950F6] text-white p-6 sm:p-8 rounded-[20px] border border-white/20 relative overflow-hidden space-y-4">
+              <DoubleBezelCard variant="dark">
+                <div className="text-white p-6 sm:p-8 rounded-xl border border-white/20 relative overflow-hidden space-y-4">
                   <div className="flex items-center gap-2 relative">
                     <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFEC01] opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFEC01]" />
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow-500" />
                     </span>
-                    <span className="font-subheading text-xs uppercase tracking-widest text-[#FFEC01] font-bold">
+                    <span className="font-subheading text-xs uppercase tracking-widest text-brand-yellow-500">
                       HUB LOGÍSTICO
                     </span>
                   </div>
 
                   <h3 className="mt-2 font-display text-4xl sm:text-5xl uppercase tracking-tight text-white leading-none">
-                    FRIULI <span className="text-[#FFEC01]">1972</span>
+                    FRIULI <span className="text-brand-yellow-500">1972</span>
                   </h3>
-                  <p className="font-subheading text-sm sm:text-base tracking-wider text-white/80 uppercase font-bold">
+                  <p className="font-subheading text-sm sm:text-base tracking-wider text-white/80 uppercase">
                     BASE CENTRAL · MAR DEL PLATA
                   </p>
 
-                  <div className="pt-4 border-t border-white/15 flex items-center justify-between text-[11px] font-mono text-white/70 uppercase tracking-wider tabular-nums relative">
+                  <div className="pt-4 border-t border-white/15 flex items-center justify-between text-2xs font-mono text-white/70 uppercase tracking-wider tabular-nums relative">
                     <span className="flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5 text-[#FFEC01]" />
+                      <MapPin className="h-3.5 w-3.5 text-brand-yellow-500" />
                       MDQ · GRAL. PUEYRREDÓN
                     </span>
-                    <span className="text-[#FFEC01] font-bold">2026</span>
+                    <span className="text-brand-yellow-500">2026</span>
                   </div>
                 </div>
               </DoubleBezelCard>
@@ -151,8 +151,8 @@ export default function AboutHero() {
                   key={chip.text}
                   className={`absolute ${chip.position} hidden lg:flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3.5 py-1.5 shadow-lg z-20`}
                 >
-                  <chip.icon className="h-3.5 w-3.5 text-[#FFEC01] shrink-0" />
-                  <span className="font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white font-bold">
+                  <chip.icon className="h-3.5 w-3.5 text-brand-yellow-500 shrink-0" />
+                  <span className="font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white">
                     {chip.text}
                   </span>
                 </div>
@@ -166,8 +166,8 @@ export default function AboutHero() {
                   key={chip.text}
                   className="flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3.5 py-1.5 justify-center"
                 >
-                  <chip.icon className="h-3.5 w-3.5 text-[#FFEC01] shrink-0" />
-                  <span className="font-subheading text-[10px] sm:text-xs uppercase tracking-wider text-white font-bold">
+                  <chip.icon className="h-3.5 w-3.5 text-brand-yellow-500 shrink-0" />
+                  <span className="font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white">
                     {chip.text}
                   </span>
                 </div>
@@ -178,12 +178,12 @@ export default function AboutHero() {
 
         {/* Kinetic Banner */}
         <div className="mt-16 lg:mt-24 border-y border-white/15 bg-white/[0.03] py-8 sm:py-10 text-center">
-          <p className="font-mono text-[10px] sm:text-xs text-[#FFEC01] uppercase tracking-[0.35em] mb-3">
+          <p className="font-mono text-2xs sm:text-xs text-brand-yellow-500 uppercase tracking-[0.35em] mb-3">
             NODO OPERATIVO · FRIULI 1972
           </p>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-none">
             DOS RUEDAS{' '}
-            <span className="text-[#FFEC01] drop-shadow-[0_0_18px_rgba(255,236,1,0.5)]">
+            <span className="text-brand-yellow-500 drop-shadow-[0_0_18px_rgba(255,236,1,0.5)]">
               LOGÍSTICA SOBERANA
             </span>
           </h2>
@@ -193,41 +193,41 @@ export default function AboutHero() {
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <DoubleBezelCard>
             <div className="flex items-center justify-between gap-3">
-              <span className="w-9 h-9 rounded-full bg-[#FFEC01]/15 border border-[#FFEC01]/30 flex items-center justify-center shrink-0">
-                <Clock className="h-4 w-4 text-[#FFEC01]" />
+              <span className="w-9 h-9 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 flex items-center justify-center shrink-0">
+                <Clock className="h-4 w-4 text-brand-yellow-500" />
               </span>
-              <span className="font-subheading text-[10px] uppercase tracking-widest text-[#0950F6] font-bold">
+              <span className="font-subheading text-2xs uppercase tracking-widest text-brand-blue-700">
                 CORTE DIARIO
               </span>
             </div>
-            <div className="mt-3 font-mono text-4xl sm:text-5xl font-bold text-[#0950F6] tabular-nums">
+            <div className="mt-3 font-mono text-4xl sm:text-5xl font-bold text-brand-blue-700 tabular-nums">
               13:00
             </div>
-            <p className="mt-2 text-xs sm:text-sm text-[#0950F6]/80 font-sans leading-relaxed">
+            <p className="mt-2 text-xs sm:text-sm text-brand-blue-700/80 font-sans leading-relaxed">
               Enviá antes de las 13 y tu pedido sale el mismo día desde nuestro Hub en Friuli 1972.
             </p>
           </DoubleBezelCard>
 
           <DoubleBezelCard>
             <div className="flex items-center justify-between gap-3">
-              <span className="w-9 h-9 rounded-full bg-[#FFEC01]/15 border border-[#FFEC01]/30 flex items-center justify-center shrink-0">
-                <CheckCircle2 className="h-4 w-4 text-[#FFEC01]" />
+              <span className="w-9 h-9 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 flex items-center justify-center shrink-0">
+                <CheckCircle2 className="h-4 w-4 text-brand-yellow-500" />
               </span>
-              <span className="font-subheading text-[10px] uppercase tracking-widest text-[#0950F6] font-bold">
+              <span className="font-subheading text-2xs uppercase tracking-widest text-brand-blue-700">
                 ÚLTIMA ENTREGA
               </span>
             </div>
-            <div className="mt-3 font-mono text-4xl sm:text-5xl font-bold text-[#0950F6] tabular-nums">
+            <div className="mt-3 font-mono text-4xl sm:text-5xl font-bold text-brand-blue-700 tabular-nums">
               19:00
             </div>
-            <p className="mt-2 text-xs sm:text-sm text-[#0950F6]/80 font-sans leading-relaxed">
+            <p className="mt-2 text-xs sm:text-sm text-brand-blue-700/80 font-sans leading-relaxed">
               Confirmamos cada reparto con seguimiento en tiempo real hasta la puerta de destino.
             </p>
           </DoubleBezelCard>
         </div>
 
         {/* Mono footer */}
-        <p className="mt-8 text-center font-mono text-[11px] sm:text-xs text-white/70 uppercase tracking-wider tabular-nums">
+        <p className="mt-8 text-center font-mono text-2xs sm:text-xs text-white/70 uppercase tracking-wider tabular-nums">
           Nodo · Friuli 1972 · MDQ · 2026 · Operativa verificada
         </p>
       </div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -17,25 +17,25 @@ const SIMULATED_EXPRESS_TRIPS = [
     origen: 'Terminal Ferroautomotora',
     destino: 'B° Stella Maris',
     distancia: '3.7 km',
-    tarifa: '$4.600 ARS',
+    tarifa: '\.600 ARS',
   },
   {
     origen: 'Centro de Distribución (Av. Colón 1200)',
     destino: 'Zona Güemes (Centro)',
     distancia: '2.8 km',
-    tarifa: '$3.700 ARS',
+    tarifa: '\.700 ARS',
   },
   {
     origen: 'Av. Constitución 5500',
     destino: 'Plaza Mitre',
     distancia: '5.8 km',
-    tarifa: '$6.100 ARS',
+    tarifa: '\.100 ARS',
   },
   {
     origen: 'Puerto Mar del Plata',
     destino: 'Punta Mogotes',
     distancia: '7.4 km',
-    tarifa: '$8.200 ARS',
+    tarifa: '\.200 ARS',
   },
 ];
 
@@ -61,7 +61,7 @@ export default function CotizadorExpressHero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
+
           {/* LEFT COLUMN: Headline & Value Proposition (7 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -70,15 +70,15 @@ export default function CotizadorExpressHero() {
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
             {/* Glowing Pill Badge with velocity tilt */}
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-subheading font-bold uppercase tracking-wider bg-[#0950F6]/90 text-[#FFEC01] border-2 border-[#FFEC01]/50 -rotate-1 shadow-glow-yellow backdrop-blur-md">
-              <Zap className="h-4 w-4 text-[#FFEC01] shrink-0 fill-[#FFEC01]" />
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wider bg-brand-blue-700/90 text-brand-yellow-500 border-2 border-brand-yellow-500/50 -rotate-1 shadow-glow-yellow backdrop-blur-md">
+              <Zap className="h-4 w-4 text-brand-yellow-500 shrink-0 fill-current" />
               <span>SERVICIO EXPRESS PRIORITARIO</span>
             </div>
 
             {/* Monumental Headline with Knockout Capsule */}
             <h1 className="text-5xl sm:text-6xl lg:text-[4.75rem] xl:text-[5.5rem] font-display uppercase tracking-tight leading-[0.92] text-white">
               <span>COTIZÁ TU </span>
-              <span className="inline-block bg-[#FFEC01] text-[#0950F6] px-3 py-1 rounded-lg transform -rotate-1 shadow-glow-yellow mx-1">
+              <span className="inline-block bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 rounded-lg transform -rotate-1 shadow-glow-yellow mx-1">
                 ENVÍO
               </span>
               <span className="block sm:inline"> EXPRESS</span>
@@ -92,18 +92,18 @@ export default function CotizadorExpressHero() {
             {/* Feature Pills & CTA Row */}
             <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
               <div className="flex flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start">
-                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-[#0950F6]/80 border border-white/20 text-white backdrop-blur-sm">
-                  <Clock className="h-4 w-4 text-[#FFEC01] shrink-0" />
-                  <span>Entrega en &lt; 2 Horas</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-700/80 border border-white/20 text-white backdrop-blur-sm">
+                  <Clock className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                  <span>{'<'} 2 Horas</span>
                 </div>
 
-                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-[#0950F6]/80 border border-white/20 text-white backdrop-blur-sm">
-                  <Navigation className="h-4 w-4 text-[#FFEC01] shrink-0" />
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-700/80 border border-white/20 text-white backdrop-blur-sm">
+                  <Navigation className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                   <span>Ruta Optimizada</span>
                 </div>
 
-                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-[#0950F6]/80 border border-white/20 text-white backdrop-blur-sm">
-                  <ShieldCheck className="h-4 w-4 text-[#FFEC01] shrink-0" />
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-700/80 border border-white/20 text-white backdrop-blur-sm">
+                  <ShieldCheck className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                   <span>Tarifa 100% Precisa</span>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function CotizadorExpressHero() {
                 <CTANestedPill
                   href="#cotizador-express-form"
                   variant="outline"
-                  className="w-full sm:w-auto border border-[#D6E4FE]"
+                  className="w-full sm:w-auto border border-brand-blue-100"
                 >
                   Calcular Ahora
                 </CTANestedPill>
@@ -128,21 +128,21 @@ export default function CotizadorExpressHero() {
             className="lg:col-span-5 relative w-full max-w-lg mx-auto"
           >
             {/* Double Bezel Outer Frame */}
-            <div className="p-2.5 sm:p-3 rounded-[28px] sm:rounded-[30px] bg-[#E6EEFE]/20 border border-[#D6E4FE]/40 shadow-2xl backdrop-blur-md">
+            <div className="p-2.5 sm:p-3 rounded-2xl sm:rounded-3xl bg-brand-blue-50/20 border border-brand-blue-100/40 shadow-2xl backdrop-blur-md">
               {/* Inner Midnight Card */}
-              <div className="bg-[#0950F6] rounded-[20px] p-6 sm:p-8 text-white border border-white/20 shadow-lg space-y-6">
-                
+              <div className="bg-brand-blue-700 rounded-xl p-6 sm:p-8 text-white border border-white/20 shadow-lg space-y-6">
+
                 {/* Header */}
                 <div className="flex items-start justify-between border-b border-white/15 pb-4">
                   <div>
                     <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white leading-none">
                       CÁLCULO AUTOMÁTICO
                     </h3>
-                    <p className="font-subheading text-[11px] sm:text-xs uppercase tracking-widest text-[#FFEC01] mt-1 font-bold">
+                    <p className="font-subheading text-2xs sm:text-xs uppercase tracking-widest text-brand-yellow-500 mt-1">
                       SISTEMA EXPRESS MAPS
                     </p>
                   </div>
-                  <div className="p-2 rounded-xl bg-white/10 border border-white/20 text-[#FFEC01] shrink-0">
+                  <div className="p-2 rounded-xl bg-white/10 border border-white/20 text-brand-yellow-500 shrink-0">
                     <Calculator className="h-5 w-5" />
                   </div>
                 </div>
@@ -159,7 +159,7 @@ export default function CotizadorExpressHero() {
                   >
                     {/* ORIGEN */}
                     <div className="flex items-center justify-between py-1.5 border-b border-white/10">
-                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-[#FFEC01]">
+                      <span className="font-subheading text-xs uppercase tracking-wider text-brand-yellow-500">
                         ORIGEN
                       </span>
                       <span className="font-sans text-xs sm:text-sm font-semibold text-white text-right truncate max-w-52.5">
@@ -169,7 +169,7 @@ export default function CotizadorExpressHero() {
 
                     {/* DESTINO */}
                     <div className="flex items-center justify-between py-1.5 border-b border-white/10">
-                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-[#FFEC01]">
+                      <span className="font-subheading text-xs uppercase tracking-wider text-brand-yellow-500">
                         DESTINO
                       </span>
                       <span className="font-sans text-xs sm:text-sm font-semibold text-white text-right truncate max-w-52.5">
@@ -179,7 +179,7 @@ export default function CotizadorExpressHero() {
 
                     {/* DISTANCIA */}
                     <div className="flex items-center justify-between py-1.5 border-b border-white/15">
-                      <span className="font-subheading text-xs uppercase tracking-wider font-bold text-[#FFEC01]">
+                      <span className="font-subheading text-xs uppercase tracking-widest text-brand-yellow-500">
                         DISTANCIA
                       </span>
                       <span className="font-mono text-xs sm:text-sm font-bold text-white tabular-nums">
@@ -189,10 +189,10 @@ export default function CotizadorExpressHero() {
 
                     {/* TARIFA FINAL */}
                     <div className="flex items-center justify-between pt-2">
-                      <span className="font-subheading text-sm uppercase tracking-wider font-bold text-white">
+                      <span className="font-subheading text-sm uppercase tracking-wider text-white">
                         TARIFA FINAL
                       </span>
-                      <span className="font-mono text-xl sm:text-2xl font-bold text-[#FFEC01] tabular-nums">
+                      <span className="font-mono text-xl sm:text-2xl font-bold text-brand-yellow-500 tabular-nums">
                         {currentTrip.tarifa}
                       </span>
                     </div>
@@ -201,7 +201,7 @@ export default function CotizadorExpressHero() {
 
                 {/* Centered Yellow Badge */}
                 <div className="pt-3 flex justify-center">
-                  <span className="px-4 py-1.5 rounded-full border border-[#FFEC01]/40 bg-[#FFEC01]/10 text-[#FFEC01] font-subheading text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                  <span className="px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-brand-yellow-500/10 text-brand-yellow-500 font-subheading text-2xs uppercase tracking-wider shadow-sm">
                     SIN REGISTRO OBLIGATORIO
                   </span>
                 </div>

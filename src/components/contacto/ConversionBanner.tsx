@@ -8,8 +8,8 @@ import CTANestedPill from '@/src/components/ui/CTANestedPill';
 export default function ConversionBanner() {
   return (
     <section className="my-12">
-      <DoubleBezelCard>
-        <div className="bg-[#0950F6] text-white p-8 sm:p-12 rounded-[20px] border border-white/20 relative overflow-hidden text-center space-y-6">
+      <DoubleBezelCard variant="dark">
+        <div className="space-y-6 text-center">
           <MessageCircle
             className="absolute -bottom-10 -right-10 w-72 h-72 text-white/3 pointer-events-none"
             aria-hidden="true"
@@ -17,8 +17,8 @@ export default function ConversionBanner() {
 
           <div className="relative z-10 max-w-4xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 -rotate-1 shadow-glow-yellow">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#FFEC01] animate-pulse" />
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#FFEC01] tabular-nums">
+              <span className="w-2.5 h-2.5 rounded-full bg-brand-yellow-500 animate-pulse" />
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-yellow-500 tabular-nums">
                 Operaciones Activas Mar del Plata 2026
               </span>
             </div>

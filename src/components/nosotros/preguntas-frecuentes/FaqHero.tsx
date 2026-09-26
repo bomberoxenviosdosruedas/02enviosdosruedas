@@ -54,9 +54,9 @@ export default function FaqHero() {
     : [];
 
   return (
-    <section 
-      id="faq-hero" 
-      className="relative w-full pt-28 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-brand-blue-500 text-white border-b border-white/10"
+    <section
+      id="faq-hero"
+      className="relative w-full pt-28 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-brand-blue-700 text-white border-b border-white/10"
     >
       {/* Halo glows */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-[140px] pointer-events-none" />
@@ -64,7 +64,7 @@ export default function FaqHero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          
+
           {/* Left Column: Monumental Headline & Smart Search (7 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -73,7 +73,7 @@ export default function FaqHero() {
             className="lg:col-span-7 space-y-6 sm:space-y-8"
           >
             {/* Speed Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-[#0950F6]/90 text-brand-yellow-500 text-xs sm:text-sm font-subheading uppercase tracking-widest shadow-md backdrop-blur-md transform -rotate-1">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-brand-blue-700/90 text-brand-yellow-500 text-xs sm:text-sm font-subheading uppercase tracking-widest shadow-md backdrop-blur-md transform -rotate-1">
               <HelpCircle className="h-4 w-4 text-brand-yellow-500 shrink-0" />
               <span>CENTRO DE SOPORTE · MAR DEL PLATA 2026</span>
             </div>
@@ -81,7 +81,7 @@ export default function FaqHero() {
             {/* Monumental Headline */}
             <h1 className="font-display uppercase tracking-tight leading-[0.98] text-5xl sm:text-7xl lg:text-[7rem] text-white">
               <span className="block">¿TENÉS</span>
-              <span className="inline-block bg-brand-yellow-500 text-[#0950F6] px-3 py-1 rounded-md transform -rotate-1 mt-1 font-display tracking-tight shadow-glow-yellow">
+              <span className="inline-block bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 rounded-md transform -rotate-1 mt-1 font-display tracking-tight shadow-glow-yellow">
                 DUDAS?
               </span>
             </h1>
@@ -93,9 +93,9 @@ export default function FaqHero() {
 
             {/* Smart Search Bar with Dropdown Suggestions */}
             <div className="relative max-w-xl">
-              <div className="relative rounded-[28px] bg-white/10 backdrop-blur-md border border-white/20 p-1.5 shadow-2xl transition-all focus-within:ring-4 focus-within:ring-brand-yellow-500/50">
-                <div className="rounded-[20px] bg-white flex items-center px-4 py-1 border border-brand-blue-50/50">
-                  <Search className="w-5 h-5 text-[#0950F6] shrink-0 mr-3" />
+              <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-1.5 shadow-2xl transition-all focus-within:ring-4 focus-within:ring-brand-yellow-500/50">
+                <div className="rounded-xl bg-white flex items-center px-4 py-1 border border-brand-blue-50/50">
+                  <Search className="w-5 h-5 text-brand-blue-700 shrink-0 mr-3" />
                   <input
                     type="text"
                     value={searchQuery}
@@ -109,7 +109,7 @@ export default function FaqHero() {
                     <button
                       type="button"
                       onClick={() => setSearchQuery('')}
-                      className="min-w-[44px] min-h-[44px] flex items-center justify-center text-xs font-subheading uppercase text-brand-blue-400 hover:text-[#0950F6] px-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0950F6]"
+                      className="min-w-[44px] min-h-[44px] flex items-center justify-center text-xs font-subheading uppercase text-brand-blue-400 hover:text-brand-blue-700 px-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-700"
                     >
                       Limpiar
                     </button>
@@ -127,17 +127,17 @@ export default function FaqHero() {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl border border-brand-blue-100 shadow-2xl p-3 z-30 space-y-1.5"
                   >
-                    <span className="text-[10px] font-subheading uppercase tracking-wider text-brand-blue-400 font-bold px-2 block">
+                    <span className="text-2xs font-subheading uppercase tracking-wider text-brand-blue-400 px-2 block">
                       {searchQuery ? 'Resultados sugeridos' : 'Preguntas frecuentes sugeridas'}
                     </span>
                     {(searchQuery.length > 0 ? filteredSuggestions : SEARCH_SUGGESTIONS).slice(0, 4).map((item, idx) => (
                       <a
                         key={idx}
                         href={item.link}
-                        className="flex items-center justify-between p-2.5 rounded-xl hover:bg-brand-blue-50 text-brand-ink hover:text-[#0950F6] transition-colors group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0950F6]"
+                        className="flex items-center justify-between p-2.5 rounded-xl hover:bg-brand-blue-50 text-brand-ink hover:text-brand-blue-700 transition-colors group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-700"
                       >
                         <span className="font-sans text-xs sm:text-sm">{item.text}</span>
-                        <span className="inline-flex items-center gap-1 text-[11px] font-subheading font-bold uppercase text-[#0950F6] bg-brand-blue-50 px-2 py-0.5 rounded-md">
+                        <span className="inline-flex items-center gap-1 text-2xs font-subheading font-bold uppercase text-brand-blue-700 bg-brand-blue-50 px-2 py-0.5 rounded-md">
                           {item.tag}
                           <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                         </span>
@@ -150,7 +150,7 @@ export default function FaqHero() {
 
             {/* Category Quick Chips */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
-              <span className="text-xs font-subheading uppercase tracking-wider text-white/80 font-bold mr-1">
+              <span className="text-xs font-subheading uppercase tracking-wider text-white/80 mr-1">
                 TEMAS:
               </span>
               {CATEGORY_CHIPS.map((cat) => {
@@ -159,9 +159,9 @@ export default function FaqHero() {
                   <a
                     key={cat.name}
                     href="#faq-accordion"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-[#0950F6] border border-white/20 text-white text-xs font-subheading uppercase tracking-wider font-bold transition-all shadow-glow-yellow min-h-[44px] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-900 border border-white/20 text-white text-xs font-subheading uppercase tracking-wider font-bold transition-all shadow-glow-yellow min-h-[44px] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                   >
-                    <IconComp className="w-3.5 h-3.5 text-brand-yellow-500 group-hover:text-[#0950F6]" />
+                    <IconComp className="w-3.5 h-3.5 text-brand-yellow-500 group-hover:text-brand-blue-900" />
                     <span>{cat.name}</span>
                   </a>
                 );
@@ -176,15 +176,15 @@ export default function FaqHero() {
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5"
           >
-            <div className="rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-2xl">
-              <div className="rounded-[20px] bg-[#0950F6] p-6 sm:p-7 border border-white/10 shadow-sm relative overflow-hidden space-y-5 text-white">
+            <div className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-2xl">
+              <div className="rounded-xl bg-brand-blue-700 p-6 sm:p-7 border border-white/10 shadow-sm relative overflow-hidden space-y-5 text-white">
                 {/* Accent line top */}
                 <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-brand-yellow-500 via-white to-brand-yellow-400" />
 
                 {/* Header */}
                 <div className="flex items-center justify-between pt-1">
                   <div>
-                    <span className="font-subheading text-[10px] uppercase tracking-wider text-brand-yellow-500 font-bold block">
+                    <span className="font-subheading text-2xs uppercase tracking-wider text-brand-yellow-500 block">
                       PREGUNTAS TOP MDQ
                     </span>
                     <h3 className="font-display text-xl sm:text-2xl uppercase tracking-tight text-white leading-none mt-0.5">
@@ -212,7 +212,7 @@ export default function FaqHero() {
                           onClick={() => setOpenFaq(isOpen ? null : faq.id)}
                           className="w-full text-left p-3.5 flex items-center justify-between gap-3 min-h-[44px] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                         >
-                          <span className="font-subheading text-xs sm:text-sm uppercase tracking-wide text-white font-bold leading-snug">
+                          <span className="font-subheading text-xs sm:text-sm uppercase tracking-wide text-white leading-snug">
                             {faq.question}
                           </span>
                           <ChevronDown
@@ -243,16 +243,16 @@ export default function FaqHero() {
                 {/* WhatsApp Help Footer CTA */}
                 <div className="pt-4 border-t border-white/10 space-y-3">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-sans text-white/90 font-medium">
+                    <span className="font-sans text-white/90">
                       ¿No encontrás tu duda?
                     </span>
-                    <span className="font-mono text-[11px] text-brand-yellow-500 font-bold">
-                      Respuesta &lt; 5 min
+                    <span className="font-mono text-2xs text-brand-yellow-500">
+                      Respuesta {'<'} 5 min
                     </span>
                   </div>
 
                   <a
-                    href="https://wa.me/542236602699?text=Hola!%20Tengo%20una%20duda%20sobre%20los%20env%C3%ADos%20de%20Envíos%20DosRuedas%20en%20Mar%20del%20Plata."
+                    href="https://wa.me/542236602699?text=Hola!%20Tengo%20una%20duda%20sobre%20los%20env%C3%ADos%20de%20Env%C3%ADos%20DosRuedas%20en%20Mar%20del%20Plata."
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Preguntanos por WhatsApp sobre envíos en Mar del Plata"

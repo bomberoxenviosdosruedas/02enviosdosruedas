@@ -2,16 +2,34 @@
 
 import React, { useRef } from 'react';
 import { Check, ArrowRight, MessageSquare, CloudRain } from 'lucide-react';
-import { Card, CardContent, CardHeader } from '@/src/components/ui/card';
+import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/src/components/ui/CTANestedPill';
 import { Sparkles } from '@/src/components/ui/sparkles';
 import { TimelineContent } from '@/src/components/ui/timeline-animation';
 import { VerticalCutReveal } from '@/src/components/ui/vertical-cut-reveal';
 import { useReducedMotion } from 'motion/react';
 import NumberFlow from '@number-flow/react';
+import { LOW_COST_TIERS, LOW_COST_PRICE_PER_KM } from '@/src/lib/pricing';
+
+const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
 export default function FlexPricing() {
   const pricingRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
+
+  // Generate pricing bullets from actual pricing tiers
+  const generatePricingBullets = () => {
+    const bullets: string[] = [];
+    LOW_COST_TIERS.forEach((tier) => {
+      if (tier.minKm === 0) {
+        bullets.push(`Z1 (0-${tier.maxKm}km) ${formatArs(tier.price)}`);
+      } else {
+        bullets.push(`Z${LOW_COST_TIERS.indexOf(tier) + 1} (${tier.minKm}-${tier.maxKm}km) ${formatArs(tier.price)}`);
+      }
+    });
+    bullets.push(`Z5 (+10km) ${formatArs(LOW_COST_TIERS[LOW_COST_TIERS.length - 1].price)} + ${formatArs(LOW_COST_PRICE_PER_KM)} x km adicional`);
+    return bullets;
+  };
 
   const levels = [
     {
@@ -19,12 +37,7 @@ export default function FlexPricing() {
       volume: '1 a 4 envíos diarios',
       price: '$3.000',
       description: 'Tarifas estándar segmentadas por distancia en km.',
-      bullets: [
-        'Z1 (0-3km) $3.000 | Z2 (3-5km) $4.000',
-        'Z3 (5-7km) $5.300 | Z4 (7-10km) $7.000',
-        'Z5 (+10km) $7.000 + $700 x km adicional',
-        'Segunda visita bonificada al 50%'
-      ],
+      bullets: generatePricingBullets(),
       highlight: false,
     },
     {
@@ -59,14 +72,14 @@ export default function FlexPricing() {
     visible: (i: number) => ({
       y: 0,
       opacity: 1,
-      filter: "blur(0px)",
+      filter: 'blur(0px)',
       transition: {
         delay: shouldReduceMotion ? 0 : i * 0.15,
         duration: shouldReduceMotion ? 0 : 0.5,
       },
     }),
     hidden: {
-      filter: shouldReduceMotion ? "none" : "blur(10px)",
+      filter: shouldReduceMotion ? 'none' : 'blur(10px)',
       y: shouldReduceMotion ? 0 : -20,
       opacity: shouldReduceMotion ? 1 : 0,
     },
@@ -75,7 +88,7 @@ export default function FlexPricing() {
   return (
     <section
       id="flex-pricing"
-      className="py-24 bg-brand-blue-500 relative overflow-hidden text-white border-t border-b border-white/10"
+      className="py-24 bg-brand-blue-700 relative overflow-hidden text-white border-t border-b border-white/10"
       ref={pricingRef}
     >
       {/* Background Sparkles overlay throttled for performance */}
@@ -121,7 +134,7 @@ export default function FlexPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="p"
-            className="text-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
+            className="text-brand-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
           >
             Escalá tu negocio con MercadoLibre Flex. A mayor volumen diario de despachos, mejores beneficios y tarifas para tus envíos Same-Day.
           </TimelineContent>
@@ -143,80 +156,73 @@ export default function FlexPricing() {
                 timelineRef={pricingRef}
                 customVariants={revealVariants}
                 as="div"
-                className={`${spanClass} bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col`}
+                className={`${spanClass}`}
               >
-                <Card
-                  className={`border-0 bg-white text-brand-blue-900 rounded-[20px] flex flex-col justify-between h-full transition-all duration-300 group text-left shadow-none relative overflow-hidden ${
-                    level.highlight ? 'ring-2 ring-brand-yellow-500' : ''
-                  }`}
-                >
-                  <CardHeader className="p-8 pb-2 text-left relative z-10">
-                    {level.highlight && (
-                      <span className="-rotate-1 absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-yellow-500 text-brand-blue-900 font-bold font-subheading text-xs tracking-wider px-4 py-1 rounded-full shadow-glow-yellow">
-                        RECOMENDADO
-                      </span>
-                    )}
-
-                    <div>
-                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-500 font-bold">
-                        {level.volume}
-                      </span>
-                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight text-brand-blue-900 font-bold">
-                        {level.name}
-                      </h3>
-                    </div>
-
-                    <div className="py-2">
-                      {isNumericPrice && numericValue ? (
-                        <div className="flex items-baseline">
-                          <span className="text-4xl sm:text-5xl font-mono tabular-nums uppercase font-bold tracking-tight text-brand-blue-900">
-                            $
-                            <NumberFlow
-                              value={numericValue}
-                              format={{ minimumFractionDigits: 0 }}
-                              className="inline-block font-mono tabular-nums"
-                            />
-                          </span>
-                        </div>
-                      ) : (
-                        <span className="text-3xl font-mono tabular-nums uppercase font-bold tracking-tight text-brand-blue-900">
-                          {level.price}
+                <DoubleBezelCard variant="dark" className="h-full" outerClassName="shadow-float hover:shadow-antigravity-deep transition-all duration-300">
+                  <div className="space-y-4 text-white flex flex-col justify-between h-full">
+                    <div className="space-y-3">
+                      {level.highlight && (
+                        <span className="-rotate-1 absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-yellow-500 text-brand-blue-900 font-bold font-subheading text-xs tracking-wider px-4 py-1 rounded-full shadow-glow-yellow">
+                          RECOMENDADO
                         </span>
                       )}
-                      <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-700 font-medium">/ liquidación quincenal</span>
+
+                      <div>
+                        <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-300">
+                          {level.volume}
+                        </span>
+                        <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight text-white">
+                          {level.name}
+                        </h3>
+                      </div>
+
+                      <div className="py-2">
+                        {isNumericPrice && numericValue ? (
+                          <div className="flex items-baseline">
+                            <span className="text-4xl sm:text-5xl font-mono tabular-nums uppercase font-bold tracking-tight text-white">
+                              $
+                              <NumberFlow
+                                value={numericValue}
+                                format={{ minimumFractionDigits: 0 }}
+                                className="inline-block font-mono tabular-nums"
+                              />
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="text-3xl font-mono tabular-nums uppercase font-bold tracking-tight text-white">
+                            {level.price}
+                          </span>
+                        )}
+                        <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-300">/ liquidación quincenal</span>
+                      </div>
+
+                      <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-brand-blue-100">
+                        {level.description}
+                      </p>
                     </div>
 
-                    <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-brand-ink/80">
-                      {level.description}
-                    </p>
-                  </CardHeader>
+                    <div className="pt-4">
+                      <ul className="space-y-2.5 pt-4 border-t border-brand-blue-800 mb-6">
+                        {level.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-center gap-2 text-xs text-brand-blue-100">
+                            <Check className="h-4 w-4 shrink-0 text-brand-yellow-500" />
+                            <span className="font-sans text-xs">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
 
-                  <CardContent className="p-8 pt-0 flex flex-col justify-between flex-grow relative z-10">
-                    {/* Bullets */}
-                    <ul className="space-y-2.5 pt-4 border-t border-brand-blue-100 mb-6">
-                      {level.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-center gap-2 text-xs text-brand-ink">
-                          <Check className="h-4 w-4 shrink-0 text-brand-blue-500" />
-                          <span className="font-sans text-xs">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div>
-                      <a
+                      <CTANestedPill
                         href="https://wa.me/542236602699"
+                        variant="primary"
+                        className="w-full justify-center"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group w-full inline-flex items-center justify-between gap-2 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-[48px] shadow-glow-yellow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                       >
-                        <span>Activar {level.name.split(' ')[0]}</span>
-                        <span className="w-7 h-7 rounded-full bg-brand-blue-900/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
-                          <ArrowRight className="h-4 w-4 shrink-0 text-brand-blue-900" />
-                        </span>
-                      </a>
+                        Activar {level.name.split(' ')[0]}
+                      </CTANestedPill>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </DoubleBezelCard>
               </TimelineContent>
             );
           })}
@@ -228,9 +234,9 @@ export default function FlexPricing() {
           timelineRef={pricingRef}
           customVariants={revealVariants}
           as="div"
-          className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float"
+          className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-2xl shadow-float"
         >
-          <div className="bg-brand-blue-900 text-white rounded-[20px] p-8 relative overflow-hidden text-left border border-white/10 shadow-sm">
+          <div className="bg-brand-blue-900 text-white rounded-xl p-8 relative overflow-hidden text-left border border-white/10 shadow-sm">
             {/* Background icon watermark */}
             <CloudRain className="absolute -bottom-8 -right-8 h-64 w-64 text-white/[0.04] pointer-events-none select-none" />
 
@@ -243,24 +249,22 @@ export default function FlexPricing() {
                 <h3 className="text-3xl font-display uppercase tracking-tight text-white">
                   <span className="font-mono tabular-nums">30%</span> adicional en caso de lluvia
                 </h3>
-                <p className="text-sm text-blue-100 leading-relaxed font-sans max-w-2xl">
+                <p className="text-sm text-brand-blue-100 leading-relaxed font-sans max-w-2xl">
                   Para todos nuestros clientes asociados al canal Flex, el recargo por días de lluvia es de solo un <span className="font-mono tabular-nums">30%</span> adicional sobre el valor del envío. Cuidamos tu rentabilidad operativa para que sigas vendiendo con tranquilidad.
                 </p>
               </div>
 
               <div className="lg:col-span-4 flex justify-start lg:justify-end">
-                <a
+                <CTANestedPill
                   href="https://wa.me/542236602699"
                   target="_blank"
                   rel="noopener noreferrer"
                   id="flex-pricing-cta-whatsapp"
-                  className="group inline-flex items-center justify-between gap-3 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-[48px] shadow-glow-yellow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 w-full sm:w-auto"
+                  variant="primary"
+                  className="w-full sm:w-auto"
                 >
-                  <span>Más Información Flex</span>
-                  <span className="w-8 h-8 rounded-full bg-brand-blue-900/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
-                    <MessageSquare className="h-4 w-4 shrink-0 text-brand-blue-900" />
-                  </span>
-                </a>
+                  Más Información Flex
+                </CTANestedPill>
               </div>
 
             </div>

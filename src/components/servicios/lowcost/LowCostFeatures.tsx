@@ -26,7 +26,7 @@ export default function LowCostFeatures() {
   return (
     <section
       id="lowcost-features"
-      className="py-24 bg-brand-white-50 relative z-10 overflow-hidden border-t border-brand-blue-100"
+      className="py-24 bg-brand-blue-50 relative z-10 overflow-hidden border-t border-brand-blue-100"
     >
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -35,7 +35,7 @@ export default function LowCostFeatures() {
         viewport={{ once: true, margin: "-100px" }}
         variants={{
           hidden: { opacity: 0, y: 40 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+          visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }
         }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -48,7 +48,7 @@ export default function LowCostFeatures() {
 
             <h2 className="text-brand-blue-700 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
               ENVÍOS LOWCOST: <br />
-              <span className="text-brand-blue-900 bg-brand-yellow-500 px-2 py-0.5 inline-block mt-1 font-bold -rotate-1">MÁXIMA EFICIENCIA</span>
+              <span className="text-brand-blue-900 bg-brand-yellow-500 px-2 py-0.5 inline-block mt-1 -rotate-1">MÁXIMA EFICIENCIA</span>
             </h2>
 
             <p className="text-brand-ink text-base leading-relaxed font-sans">
@@ -82,19 +82,19 @@ export default function LowCostFeatures() {
                   whileHover={{
                     y: -5,
                     x: 2,
-                    boxShadow: "0 20px 40px -15px rgba(6, 54, 165, 0.15), 0 0 25px -5px rgba(255, 236, 1, 0.2)"
+                    boxShadow: '0 20px 40px -15px rgba(9, 80, 246, 0.15), 0 0 25px -5px rgba(255, 236, 1, 0.2)'
                   }}
-                  className={`${spanClass} bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col group cursor-pointer relative overflow-hidden`}
+                  className={`${spanClass} bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col group cursor-pointer relative overflow-hidden`}
                 >
-                  <div className="bg-white p-6 rounded-[20px] border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row gap-5 items-start h-full relative overflow-hidden">
+                  <div className="bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-sm flex flex-col md:flex-row gap-5 items-start h-full relative overflow-hidden">
                     {/* Giant Watermark Icon */}
                     <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
 
-                    <div className="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl shrink-0 border border-brand-blue-500 shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors duration-300 relative z-10">
+                    <div className="p-3 bg-brand-blue-700 text-brand-yellow-500 rounded-xl shrink-0 border border-brand-blue-700 shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors duration-300 relative z-10">
                       <Icon className="h-6 w-6 shrink-0" />
                     </div>
                     <div className="space-y-1.5 relative z-10">
-                      <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight group-hover:text-brand-blue-900 transition-colors duration-300">
+                      <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue-700 leading-tight group-hover:text-brand-blue-900 transition-colors duration-300">
                         {feat.title}
                       </h4>
                       <p className="text-sm text-brand-ink/80 font-sans leading-relaxed">

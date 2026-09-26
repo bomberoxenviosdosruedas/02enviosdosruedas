@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 export interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  error?: string;
+  error?: string | null;
   helpText?: string;
   icon?: React.ReactNode;
   containerClassName?: string;

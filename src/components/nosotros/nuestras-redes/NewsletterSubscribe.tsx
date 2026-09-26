@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Mail, CheckCircle2, ShieldCheck } from 'lucide-react';
 import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
 import CTANestedPill from '@/src/components/ui/CTANestedPill';
+import InputField from '@/src/components/ui/InputField';
 
 export default function NewsletterSubscribe() {
   const [email, setEmail] = useState('');
@@ -19,19 +20,19 @@ export default function NewsletterSubscribe() {
   };
 
   return (
-    <section 
-      id="newsletter-subscribe" 
-      className="py-24 bg-[#0950F6] text-white relative overflow-hidden border-t border-white/10"
+    <section
+      id="newsletter-subscribe"
+      className="py-24 bg-brand-blue-700 text-white relative overflow-hidden border-t border-white/10"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto space-y-8 flex flex-col items-center">
-          
-          <div className="inline-flex p-3.5 bg-white/10 text-[#FFEC01] rounded-3xl mx-auto border border-white/15 shadow-glow-yellow">
-            <Mail className="h-6 w-6 text-[#FFEC01]" />
+
+          <div className="inline-flex p-3.5 bg-white/10 text-brand-yellow-500 rounded-3xl mx-auto border border-white/15 shadow-glow-yellow">
+            <Mail className="h-6 w-6 text-brand-yellow-500" />
           </div>
 
           <div className="space-y-3">
-            <span className="px-4 py-1.5 bg-[#FFEC01] text-[#0950F6] font-bold rounded-full text-xs font-subheading uppercase tracking-widest inline-block shadow-glow-yellow transform -rotate-1">
+            <span className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 font-bold rounded-full text-xs font-subheading uppercase tracking-widest inline-block shadow-glow-yellow transform -rotate-1">
               COMUNIDAD LOGÍSTICA
             </span>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05] text-white">
@@ -44,7 +45,7 @@ export default function NewsletterSubscribe() {
 
           {/* Form container with DoubleBezelCard */}
           <div className="w-full">
-            <DoubleBezelCard>
+            <DoubleBezelCard variant="dark">
               <AnimatePresence mode="wait">
                 {!submitted ? (
                   <motion.form
@@ -55,20 +56,17 @@ export default function NewsletterSubscribe() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <div className="flex-1 w-full space-y-1.5 text-left">
-                      <label htmlFor="newsletter-email" className="text-xs font-subheading uppercase tracking-wider font-bold text-[#0950F6]">
-                        CORREO ELECTRÓNICO
-                      </label>
-                      <input
-                        id="newsletter-email"
-                        type="email"
-                        required
-                        placeholder="Tu correo electrónico..."
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full h-11 bg-[#FFFFFF] border-[1.5px] border-[#D6E4FE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0950F6] focus-visible:border-[#0950F6] rounded-xl px-4 text-sm transition-all text-[#0950F6] placeholder:text-gray-400 font-sans shadow-sm"
-                      />
-                    </div>
+                    <InputField
+                      id="newsletter-email"
+                      type="email"
+                      label="CORREO ELECTRÓNICO"
+                      placeholder="Tu correo electrónico..."
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="flex-1 w-full"
+                      containerClassName="flex-1 w-full space-y-1.5 text-left"
+                    />
                     <div className="pt-5 sm:pt-0 shrink-0 w-full sm:w-auto">
                       <CTANestedPill
                         type="submit"
@@ -87,13 +85,13 @@ export default function NewsletterSubscribe() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="p-2.5 bg-[#E6EEFE] border border-[#D6E4FE] text-[#0950F6] rounded-full w-fit">
-                      <CheckCircle2 className="h-6 w-6 text-[#0950F6] animate-pulse" />
+                    <div className="p-2.5 bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 rounded-full w-fit">
+                      <CheckCircle2 className="h-6 w-6 text-brand-blue-700 animate-pulse" />
                     </div>
-                    <h3 className="text-2xl font-display uppercase tracking-tight text-[#0950F6] leading-none">
+                    <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue-700 leading-none">
                       ¡Suscripción Exitosa!
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#0950F6]/80 font-sans max-w-sm mx-auto">
+                    <p className="text-xs sm:text-sm text-brand-blue-700/80 font-sans max-w-sm mx-auto">
                       Ya formás parte de la lista prioritaria. Preparate para recibir las mejores novedades y descuentos.
                     </p>
                   </motion.div>
@@ -104,7 +102,7 @@ export default function NewsletterSubscribe() {
 
           {/* Disclaimer text */}
           <div className="flex items-center justify-center gap-2 text-xs text-white/80 font-sans pt-2">
-            <ShieldCheck className="h-4.5 w-4.5 text-[#FFEC01] shrink-0" />
+            <ShieldCheck className="h-4.5 w-4.5 text-brand-yellow-500 shrink-0" />
             <span>Garantizamos la privacidad de tus datos. Podés darte de baja con un solo clic en cualquier momento.</span>
           </div>
 

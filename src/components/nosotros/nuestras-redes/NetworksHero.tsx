@@ -58,9 +58,9 @@ export default function NetworksHero() {
   }, []);
 
   return (
-    <section 
-      id="networks-hero" 
-      className="relative min-h-[90dvh] flex items-center justify-center pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden bg-brand-blue-500 text-white border-b border-white/10"
+    <section
+      id="networks-hero"
+      className="relative min-h-[90dvh] flex items-center justify-center pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden bg-brand-blue-700 text-white border-b border-white/10"
     >
       {/* Halo glows */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-[140px] pointer-events-none" />
@@ -68,7 +68,7 @@ export default function NetworksHero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
+
           {/* Left Column: Headline & Channel Cards (7 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -77,7 +77,7 @@ export default function NetworksHero() {
             className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left"
           >
             {/* Speed Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-[#0950F6]/90 text-brand-yellow-500 text-xs sm:text-sm font-subheading uppercase tracking-widest shadow-md backdrop-blur-md transform -rotate-1">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-yellow-500/40 bg-brand-blue-700/90 text-brand-yellow-500 text-xs sm:text-sm font-subheading uppercase tracking-widest shadow-md backdrop-blur-md transform -rotate-1">
               <Share2 className="h-4 w-4 text-brand-yellow-500 animate-pulse shrink-0" />
               <span>COMUNIDAD EN MOVIMIENTO · SOCIAL MEDIA 2026</span>
             </div>
@@ -85,7 +85,7 @@ export default function NetworksHero() {
             {/* Monumental Headline */}
             <h1 className="text-5xl sm:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-display uppercase tracking-tight leading-[0.98] text-white">
               <span className="block">COMUNIDAD EN</span>
-              <span className="inline-block bg-brand-yellow-500 text-[#0950F6] px-3 py-1 rounded-md transform -rotate-1 mt-1 font-display tracking-tight shadow-glow-yellow">
+              <span className="inline-block bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 rounded-md transform -rotate-1 mt-1 font-display tracking-tight shadow-glow-yellow">
                 LÍNEA
               </span>
             </h1>
@@ -105,11 +105,11 @@ export default function NetworksHero() {
                     href={ch.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group block rounded-[28px] bg-white/10 backdrop-blur-md border border-white/20 p-1.5 shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:border-brand-yellow-500 cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500/50"
+                    className="group block rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-1.5 shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:border-brand-yellow-500 cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500/50"
                   >
-                    <div className="rounded-[20px] bg-white p-4 sm:p-4.5 border border-brand-blue-50/50 flex items-center justify-between gap-4 min-h-[44px]">
+                    <div className="rounded-xl bg-white p-4 sm:p-4.5 border border-brand-blue-50/50 flex items-center justify-between gap-4 min-h-[44px]">
                       <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
-                        <div className="w-11 h-11 rounded-xl bg-brand-blue-50 border border-brand-blue-100 flex items-center justify-center shrink-0 text-[#0950F6] group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 group-hover:border-brand-yellow-500 transition-colors">
+                        <div className="w-11 h-11 rounded-xl bg-brand-blue-50 border border-brand-blue-100 flex items-center justify-center shrink-0 text-brand-blue-700 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 group-hover:border-brand-yellow-500 transition-colors">
                           <IconComp className="w-5 h-5" />
                         </div>
                         <div className="text-left min-w-0">
@@ -117,7 +117,7 @@ export default function NetworksHero() {
                             <span className="font-display text-base sm:text-lg uppercase tracking-wide text-brand-blue-700 leading-none">
                               {ch.name}
                             </span>
-                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-brand-yellow-50 text-[10px] font-subheading font-bold uppercase text-brand-blue-900 border border-brand-yellow-200 transform -rotate-1">
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-brand-yellow-500/10 text-xs font-subheading font-bold uppercase text-brand-blue-900 border border-brand-yellow-500/20 transform -rotate-1">
                               <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow-500 animate-pulse" />
                               {ch.badge}
                             </span>
@@ -128,7 +128,7 @@ export default function NetworksHero() {
                         </div>
                       </div>
 
-                      <div className="shrink-0 flex items-center gap-1 text-xs font-subheading uppercase font-bold text-[#0950F6] group-hover:text-brand-blue-900 group-hover:translate-x-0.5 transition-all">
+                      <div className="shrink-0 flex items-center gap-1 text-xs font-subheading uppercase font-bold text-brand-blue-700 group-hover:text-brand-blue-900 group-hover:translate-x-0.5 transition-all">
                         <span className="hidden sm:inline">{ch.ctaText}</span>
                         <ArrowRight className="w-4 h-4 text-brand-yellow-500" />
                       </div>
@@ -147,7 +147,7 @@ export default function NetworksHero() {
             className="lg:col-span-5 relative w-full flex flex-col items-center justify-center"
           >
             {/* Ambient Backlight Glow */}
-            <div className="absolute -inset-6 bg-gradient-to-r from-brand-yellow-500/20 via-brand-blue-500/35 to-brand-yellow-500/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -inset-6 bg-gradient-to-r from-brand-yellow-500/20 via-brand-blue-700/35 to-brand-yellow-500/15 rounded-full blur-3xl pointer-events-none" />
 
             {/* Top Status Flag: Redes Activas & Seguidores */}
             <div className="flex items-center gap-2 mb-3 z-20">
@@ -156,18 +156,18 @@ export default function NetworksHero() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-yellow-500" />
                 </span>
-                <span className="font-subheading text-xs tracking-widest text-brand-yellow-400 font-bold uppercase">
+                <span className="font-subheading text-xs tracking-widest text-brand-yellow-400 uppercase">
                   REDES ACTIVAS · MDQ
                 </span>
               </div>
-              <span className="font-mono text-[11px] font-bold bg-brand-yellow-500 text-brand-blue-900 px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+              <span className="font-mono text-2xs font-bold bg-brand-yellow-500 text-brand-blue-900 px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
                 +{followers.toLocaleString('es-AR')} SEGUIDORES
               </span>
             </div>
 
             {/* Central Visual: Imagen Redes con Órbitas Cinemáticas */}
             <div className="relative w-80 h-80 sm:w-96 sm:h-96 flex items-center justify-center animate-float-slow z-10">
-              <div className="absolute inset-0 rounded-full bg-brand-blue-500/20 blur-2xl pointer-events-none" />
+              <div className="absolute inset-0 rounded-full bg-brand-blue-700/20 blur-2xl pointer-events-none" />
               <div className="relative z-10 w-72 h-72 sm:w-84 sm:h-84 flex items-center justify-center group">
                 <Image
                   src="/elementos/hero_faq.webp"
@@ -175,18 +175,18 @@ export default function NetworksHero() {
                   width={400}
                   height={400}
                   priority
-                  className="w-full h-full object-contain drop-shadow-[0_20px_35px_rgba(0,16,53,0.7)] group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain drop-shadow-[0_20px_35px_rgba(9,80,246,0.25)] group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
               {/* Orbiting Badges */}
               <div className="absolute -top-3 right-0 bg-white/10 backdrop-blur-md border border-brand-yellow-500/40 p-2 rounded-xl shadow-lg flex items-center gap-1.5 z-20 px-3 py-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-brand-yellow-400" />
-                <span className="font-subheading text-xs tracking-wider text-white uppercase font-bold">RUTAS EN VIVO</span>
+                <span className="font-subheading text-xs tracking-wider text-white uppercase">RUTAS EN VIVO</span>
               </div>
               <div className="absolute -bottom-2 -left-3 bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-xl shadow-lg flex items-center gap-1.5 z-20 px-3 py-1.5">
                 <Share2 className="w-3.5 h-3.5 text-brand-yellow-400" />
-                <span className="font-subheading text-xs tracking-wider text-blue-100 uppercase font-bold">TODO MAR DEL PLATA</span>
+                <span className="font-subheading text-xs tracking-wider text-blue-100 uppercase">TODO MAR DEL PLATA</span>
               </div>
             </div>
 
@@ -207,20 +207,20 @@ export default function NetworksHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-6 w-full max-w-sm bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[20px] shadow-float z-10"
+              className="mt-6 w-full max-w-sm bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-2xl shadow-float z-10"
             >
-              <div className="bg-[#0950F6] text-white p-4 rounded-[16px] border border-white/10 shadow-sm space-y-3">
+              <div className="bg-brand-blue-700 text-white p-4 rounded-xl border border-white/10 shadow-sm space-y-3">
                 <div className="flex items-center justify-between border-b border-white/15 pb-2.5">
                   <div className="flex items-center gap-2">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-yellow-500 opacity-75" />
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-yellow-500" />
                     </span>
-                    <span className="font-subheading text-xs uppercase tracking-wider font-bold text-brand-yellow-500">
+                    <span className="font-subheading text-xs uppercase tracking-wider text-brand-yellow-500">
                       MAR DEL PLATA
                     </span>
                   </div>
-                  <span className="font-mono text-[11px] font-bold text-white/80">
+                  <span className="font-mono text-2xs font-bold text-white/80">
                     BASE: FRIULI 1972
                   </span>
                 </div>

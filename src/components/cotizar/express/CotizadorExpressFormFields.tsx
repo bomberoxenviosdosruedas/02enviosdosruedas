@@ -6,12 +6,13 @@ import { MapPin, User, Phone, Package } from 'lucide-react';
 import AddressAutocomplete from '@/src/components/ui/AddressAutocomplete';
 import CTANestedPill from '@/src/components/ui/CTANestedPill';
 import type { UseCotizadorExpressReturn } from './hooks/useCotizadorExpress';
+import InputField from '@/src/components/ui/InputField';
 
 interface CotizadorExpressFormFieldsProps {
-  form: Pick<UseCotizadorExpressReturn, 
-    'origen' | 'setOrigen' | 'destino' | 'setDestino' | 
-    'nombre' | 'setNombre' | 'telefono' | 'setTelefono' | 
-    'producto' | 'setProducto' | 
+  form: Pick<UseCotizadorExpressReturn,
+    'origen' | 'setOrigen' | 'destino' | 'setDestino' |
+    'nombre' | 'setNombre' | 'telefono' | 'setTelefono' |
+    'producto' | 'setProducto' |
     'origenCoords' | 'setOrigenCoords' | 'destinoCoords' | 'setDestinoCoords' |
     'handleInputFocus' | 'handleCalculate'
   >;
@@ -30,8 +31,8 @@ export default function CotizadorExpressFormFields({
     <form onSubmit={form.handleCalculate} onFocus={form.handleInputFocus} className="space-y-6 relative z-10">
       {/* Origen */}
       <div className="space-y-1.5">
-        <label htmlFor="origen-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-[#0950F6] flex items-center gap-1.5">
-          <MapPin className="h-3.5 w-3.5 text-[#0950F6]" />
+        <label htmlFor="origen-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-brand-blue-700 flex items-center gap-1.5">
+          <MapPin className="h-3.5 w-3.5" />
           Dirección de Origen (Retiro)
         </label>
         <AddressAutocomplete
@@ -41,14 +42,14 @@ export default function CotizadorExpressFormFields({
           onChange={form.setOrigen}
           onSelectCoordinate={form.setOrigenCoords}
           required
-          className="w-full h-11 bg-[#FFFFFF] border-[1.5px] border-[#D6E4FE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0950F6] focus-visible:border-[#0950F6] rounded-xl px-4 text-sm transition-all text-[#0950F6] placeholder:text-gray-400 font-sans shadow-sm"
+          className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-700 focus-visible:border-brand-blue-700 rounded-xl px-4 text-sm transition-all text-brand-blue-900 placeholder:text-brand-blue-500 font-sans shadow-sm"
         />
       </div>
 
       {/* Destino */}
       <div className="space-y-1.5">
-        <label htmlFor="destino-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-[#0950F6] flex items-center gap-1.5">
-          <MapPin className="h-3.5 w-3.5 text-[#0950F6]" />
+        <label htmlFor="destino-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-brand-blue-700 flex items-center gap-1.5">
+          <MapPin className="h-3.5 w-3.5" />
           Dirección de Destino (Entrega)
         </label>
         <AddressAutocomplete
@@ -58,64 +59,51 @@ export default function CotizadorExpressFormFields({
           onChange={form.setDestino}
           onSelectCoordinate={form.setDestinoCoords}
           required
-          className="w-full h-11 bg-[#FFFFFF] border-[1.5px] border-[#D6E4FE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0950F6] focus-visible:border-[#0950F6] rounded-xl px-4 text-sm transition-all text-[#0950F6] placeholder:text-gray-400 font-sans shadow-sm"
+          className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-700 focus-visible:border-brand-blue-700 rounded-xl px-4 text-sm transition-all text-brand-blue-900 placeholder:text-brand-blue-500 font-sans shadow-sm"
         />
       </div>
 
       {/* Nombre y Teléfono en Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="space-y-1.5">
-          <label htmlFor="nombre-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-[#0950F6] flex items-center gap-1.5">
-            <User className="h-3.5 w-3.5 text-[#0950F6]" />
-            Nombre
-          </label>
-          <input
-            id="nombre-input"
-            type="text"
-            aria-label="Nombre"
-            placeholder="Tu nombre completo"
-            value={form.nombre}
-            onChange={(e) => form.setNombre(e.target.value)}
-            required
-            className="w-full h-11 bg-[#FFFFFF] border-[1.5px] border-[#D6E4FE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0950F6] focus-visible:border-[#0950F6] rounded-xl px-4 text-sm transition-all text-[#0950F6] placeholder:text-gray-400 font-sans shadow-sm"
-          />
-        </div>
+        <InputField
+          id="nombre-input"
+          label="Nombre"
+          placeholder="Tu nombre completo"
+          value={form.nombre}
+          onChange={(e) => form.setNombre(e.target.value)}
+          required
+          icon={<User className="h-3.5 w-3.5" />}
+          error={error}
+          containerClassName="space-y-1.5"
+        />
 
-        <div className="space-y-1.5">
-          <label htmlFor="telefono-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-[#0950F6] flex items-center gap-1.5">
-            <Phone className="h-3.5 w-3.5 text-[#0950F6]" />
-            Teléfono
-          </label>
-          <input
-            id="telefono-input"
-            type="tel"
-            aria-label="Teléfono"
-            placeholder="Tu teléfono de contacto"
-            value={form.telefono}
-            onChange={(e) => form.setTelefono(e.target.value)}
-            required
-            className="w-full h-11 bg-[#FFFFFF] border-[1.5px] border-[#D6E4FE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0950F6] focus-visible:border-[#0950F6] rounded-xl px-4 text-sm transition-all text-[#0950F6] placeholder:text-gray-400 font-mono tabular-nums shadow-sm"
-          />
-        </div>
+        <InputField
+          id="telefono-input"
+          label="Teléfono"
+          placeholder="Tu teléfono de contacto"
+          value={form.telefono}
+          onChange={(e) => form.setTelefono(e.target.value)}
+          required
+          type="tel"
+          icon={<Phone className="h-3.5 w-3.5" />}
+          error={error}
+          className="font-mono tabular-nums"
+          containerClassName="space-y-1.5"
+        />
       </div>
 
       {/* Producto */}
-      <div className="space-y-1.5">
-        <label htmlFor="producto-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-[#0950F6] flex items-center gap-1.5">
-          <Package className="h-3.5 w-3.5 text-[#0950F6]" />
-          Tipo de producto a trasladar
-        </label>
-        <input
-          id="producto-input"
-          type="text"
-          aria-label="Tipo de producto a trasladar"
-          placeholder="Ej: Documentos, Paquete pequeño..."
-          value={form.producto}
-          onChange={(e) => form.setProducto(e.target.value)}
-          required
-          className="w-full h-11 bg-[#FFFFFF] border-[1.5px] border-[#D6E4FE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0950F6] focus-visible:border-[#0950F6] rounded-xl px-4 text-sm transition-all text-[#0950F6] placeholder:text-gray-400 font-sans shadow-sm"
-        />
-      </div>
+      <InputField
+        id="producto-input"
+        label="Tipo de producto a trasladar"
+        placeholder="Ej: Documentos, Paquete pequeño..."
+        value={form.producto}
+        onChange={(e) => form.setProducto(e.target.value)}
+        required
+        icon={<Package className="h-3.5 w-3.5" />}
+        error={error}
+        containerClassName="space-y-1.5"
+      />
 
       {/* Botón de acción adaptado */}
       <div className="pt-2">
