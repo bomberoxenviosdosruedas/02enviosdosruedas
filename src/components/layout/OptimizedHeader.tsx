@@ -154,7 +154,7 @@ export default function OptimizedHeader() {
                             return (
                               <motion.div key={subItem.href} variants={dropdownItem}>
                                 <Link href={subItem.href} className="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors hover:bg-white/10 text-white hover:text-brand-yellow-500 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500">
-                                  <div className="p-1.5 rounded-lg bg-white/10 text-brand-blue-100 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-700 transition-colors shrink-0"><SubIcon className="h-4 w-4" /></div>
+                                  <div className="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-700 transition-colors shrink-0"><SubIcon className="h-4 w-4" /></div>
                                   <span className="text-sm sm:text-base font-bold uppercase font-subheading tracking-wider leading-none">{subItem.label}</span>
                                 </Link>
                               </motion.div>

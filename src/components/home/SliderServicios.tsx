@@ -323,7 +323,7 @@ export default function SliderServicios() {
                     className={cn(
                       'px-4 py-1.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider border flex items-center gap-1.5',
                       isDarkBlue
-                        ? 'bg-white/10 text-brand-yellow-400 border-white/15'
+                        ? 'bg-brand-blue-900 text-brand-yellow-400 border-brand-yellow-500/40'
                         : 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-200'
                     )}
                   >

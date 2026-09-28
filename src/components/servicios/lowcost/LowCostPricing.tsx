@@ -250,7 +250,7 @@ export default function LowCostPricing() {
                   className="group inline-flex items-center justify-between gap-3 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-[48px] shadow-glow-yellow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 w-full sm:w-auto"
                 >
                   <span>Consultar por WhatsApp</span>
-                  <span className="w-8 h-8 rounded-full bg-brand-blue-900/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
                     <MessageSquare className="h-4 w-4 shrink-0 text-brand-blue-900" />
                   </span>
                 </a>

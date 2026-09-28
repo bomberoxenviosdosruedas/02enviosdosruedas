@@ -196,7 +196,7 @@ export default function RecentPosts() {
                           className="group min-h-[44px] bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading tracking-wider text-sm uppercase font-bold py-2 px-4.5 rounded-full flex items-center justify-center gap-2 shadow-glow-yellow transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                         >
                           <span>Ver original</span>
-                          <span className="w-6 h-6 rounded-full bg-[#0950F6]/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 shrink-0">
+                          <span className="w-6 h-6 rounded-full bg-transparent flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 shrink-0">
                             <ExternalLink className="h-3.5 w-3.5 text-[#0950F6]" />
                           </span>
                         </a>

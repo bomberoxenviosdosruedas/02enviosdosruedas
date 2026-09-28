@@ -313,7 +313,7 @@ export default function EmprendedoresHome() {
                   className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-900 px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-sm hover:bg-brand-yellow-400"
                 >
                   <span>Abrir Cuenta Corriente</span>
-                  <span className="cta-nested-icon bg-brand-blue-900/10 w-6 h-6 rounded-full flex items-center justify-center">
+                  <span className="cta-nested-icon bg-transparent w-6 h-6 rounded-full flex items-center justify-center">
                     →
                   </span>
                 </Link>

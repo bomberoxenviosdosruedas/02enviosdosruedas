@@ -34,7 +34,7 @@ export default function CotizadorLowCostHelp() {
 
       <div className="relative z-10 flex flex-col lg:flex-row justify-between items-center gap-8">
         <div className="space-y-3 max-w-2xl text-center lg:text-left">
-          <span className="px-3.5 py-1 bg-white/10 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold tracking-wider uppercase inline-flex items-center gap-1.5 border border-white/20 -rotate-1 shadow-glow-yellow">
+          <span className="px-3.5 py-1 bg-brand-yellow-500/10 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold tracking-wider uppercase inline-flex items-center gap-1.5 border border-brand-yellow-500/40 -rotate-1 shadow-glow-yellow">
             <HelpCircle className="h-4 w-4 shrink-0 text-brand-yellow-500" />
             Cuentas Corrientes y PyMEs
           </span>
@@ -66,7 +66,7 @@ export default function CotizadorLowCostHelp() {
             className="group min-h-[52px] inline-flex items-center justify-between bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold tracking-wider text-sm uppercase px-6 py-3.5 rounded-full shadow-cta-glow transition-all"
           >
             <span>Llamanos: <span className="font-mono text-brand-blue-900 tabular-nums">223 660-2699</span></span>
-            <span className="w-8 h-8 rounded-full bg-brand-blue-900/10 text-brand-blue-900 flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
+            <span className="w-8 h-8 rounded-full bg-transparent text-brand-blue-900 flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
               <PhoneCall className="h-4 w-4" />
             </span>
           </motion.a>

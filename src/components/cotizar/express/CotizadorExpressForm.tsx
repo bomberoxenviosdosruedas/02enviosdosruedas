@@ -32,7 +32,7 @@ export default function CotizadorExpressForm() {
 
           {/* Header */}
           <div className="relative z-10 mb-6">
-            <span className="px-3.5 py-1 bg-white/10 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold tracking-wider uppercase border border-white/20 -rotate-1 shadow-[var(--shadow-glow-yellow)] inline-block">
+            <span className="px-3.5 py-1 bg-brand-yellow-500/10 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold tracking-wider uppercase border border-brand-yellow-500/40 -rotate-1 shadow-[var(--shadow-glow-yellow)] inline-block">
               Cotización Al Instante · Mar del Plata
             </span>
             <h2

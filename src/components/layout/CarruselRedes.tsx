@@ -105,7 +105,7 @@ export default function CarruselRedes() {
       handleColor: 'text-brand-yellow-400',
       watermarkColor: 'text-brand-yellow-500/10 group-hover:text-brand-yellow-500/20',
       btnBg: 'bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-bold shadow-md shadow-brand-yellow-500/30',
-      btnIconBg: 'bg-brand-blue-900/15 text-brand-blue-900',
+      btnIconBg: 'bg-transparent text-brand-blue-900',
       glow: 'from-brand-yellow-500/20 to-transparent',
     },
   ];

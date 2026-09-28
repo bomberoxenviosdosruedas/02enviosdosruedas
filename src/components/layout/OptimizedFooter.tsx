@@ -83,7 +83,7 @@ export default function OptimizedFooter() {
             <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
               ¿Tenés envíos para hoy? <span className="text-brand-yellow-500">Los entregamos a tiempo.</span>
             </h3>
-            <p className="text-sm text-brand-blue-100 font-light max-w-xl">
+            <p className="text-sm text-brand-blue-50 font-light max-w-xl">
               Cotizá online en segundos o coordiná directo con nuestro equipo logístico por WhatsApp.
             </p>
           </div>
@@ -140,7 +140,7 @@ export default function OptimizedFooter() {
                 <span className="font-display text-2xl sm:text-3xl tracking-tight uppercase select-none text-white">
                   Envíos <span className="text-brand-yellow-500">DosRuedas</span>
                 </span>
-                <span className="text-[10px] font-mono text-brand-blue-100 tracking-widest uppercase mt-0.5 opacity-90">
+                <span className="text-[10px] font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
                   Tu solución confiable · Mar del Plata
                 </span>
               </div>
@@ -289,7 +289,7 @@ export default function OptimizedFooter() {
                 </div>
                 <div>
                   <p className="font-bold text-white uppercase font-subheading tracking-wider">Centro de Distribución</p>
-                  <p className="font-sans text-[13px] text-brand-blue-100 mt-0.5">Friuli 1972, Mar del Plata</p>
+                  <p className="font-sans text-[13px] text-brand-blue-50 mt-0.5">Friuli 1972, Mar del Plata</p>
                 </div>
               </div>
 
@@ -311,7 +311,7 @@ export default function OptimizedFooter() {
                 </div>
                 <div>
                   <p className="font-bold text-white uppercase font-subheading tracking-wider">Atención Comercial</p>
-                  <a href="mailto:matiascejas@enviosdosruedas.com" className="font-sans text-[12px] text-brand-blue-100 hover:text-brand-yellow-500 transition-colors block mt-0.5 break-all">
+                  <a href="mailto:matiascejas@enviosdosruedas.com" className="font-sans text-[12px] text-brand-blue-50 hover:text-brand-yellow-500 transition-colors block mt-0.5 break-all">
                     matiascejas@enviosdosruedas.com
                   </a>
                 </div>
@@ -323,7 +323,7 @@ export default function OptimizedFooter() {
                 </div>
                 <div className="space-y-1">
                   <p className="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Despacho (Base Central)</p>
-                  <div className="text-[12px] font-sans text-brand-blue-100 space-y-0.5">
+                  <div className="text-[12px] font-sans text-brand-blue-50 space-y-0.5">
                     <div className="flex justify-between items-center gap-4">
                       <span>Lunes a Viernes:</span>
                       <span className="font-mono font-bold text-brand-yellow-500">09:00 - 18:00 hs</span>
@@ -364,20 +364,20 @@ export default function OptimizedFooter() {
         </div>
 
         {/* BOTTOM SECTION: Legal & Copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-blue-100 font-sans">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-blue-50 font-sans">
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6">
             <p className="font-medium text-white">© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</p>
-            <Link href="/nosotros/sobre-nosotros" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-100">
+            <Link href="/nosotros/sobre-nosotros" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
               Sobre Nosotros
             </Link>
-            <Link href="/nosotros/preguntas-frecuentes" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-100">
+            <Link href="/nosotros/preguntas-frecuentes" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
               Preguntas Frecuentes
             </Link>
-            <Link href="/nosotros/nuestras-redes" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-100">
+            <Link href="/nosotros/nuestras-redes" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
               Nuestras Redes
             </Link>
           </div>
-          <div className="flex flex-wrap justify-center gap-6 shrink-0 text-brand-blue-100">
+          <div className="flex flex-wrap justify-center gap-6 shrink-0 text-brand-blue-50">
             <Link href="/terminos-y-condiciones" className="hover:text-brand-yellow-500 transition-colors">
               Términos y Condiciones
             </Link>
