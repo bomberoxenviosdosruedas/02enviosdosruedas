@@ -247,8 +247,8 @@ export default function CotizadorLowCostForm() {
                 <div className="space-y-4">
                   {quoteId && (
                     <div className="flex items-center justify-between text-xs pb-2 border-b border-white/10">
-                      <span className="font-mono text-2xs text-white/80">ID de Seguimiento:</span>
-                      <span className="font-mono text-xs px-2.5 py-0.5 rounded-full bg-brand-yellow-500/20 text-brand-yellow-500 font-bold border border-brand-yellow-500/40 tabular-nums">
+                      <span className="font-mono text-2xs text-white/90">ID de Seguimiento:</span>
+                      <span className="font-mono text-xs px-2.5 py-0.5 rounded-full bg-brand-yellow-500/10 text-brand-yellow-500 font-bold border border-brand-yellow-500/40 tabular-nums">
                         #{quoteId}
                       </span>
                     </div>

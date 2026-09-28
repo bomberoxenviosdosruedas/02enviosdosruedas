@@ -131,7 +131,7 @@ export default function GuiaEnviosFlexPage() {
       <section className="relative z-10 bg-brand-blue-700 text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8 border-b border-brand-blue-800">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-400 text-xs font-subheading uppercase tracking-widest font-bold shadow-accent-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/10 border border-brand-yellow-500/40 text-brand-yellow-500 text-xs font-subheading uppercase tracking-widest font-bold shadow-accent-sm">
               <BookOpen className="w-3.5 h-3.5 text-brand-yellow-500" />
               <span>Guía Práctica para Vendedores MDQ 2026</span>
             </div>
@@ -140,7 +140,7 @@ export default function GuiaEnviosFlexPage() {
               CÓMO OPERAR <span className="text-brand-yellow-500">MERCADO ENVÍOS FLEX</span> EN MAR DEL PLATA
             </h1>
 
-            <p className="font-sans text-base sm:text-lg text-brand-blue-50/90 leading-relaxed font-light">
+            <p className="font-sans text-base sm:text-lg text-brand-blue-50 leading-relaxed font-light">
               Todo lo que necesitás saber para activar entregas en el mismo día, no perder ventas locales y mantener tu reputación de MercadoLíder al 100% sin complicaciones operativas.
             </p>
 
@@ -251,7 +251,7 @@ export default function GuiaEnviosFlexPage() {
             <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight leading-snug">
               DEJÁ LA LOGÍSTICA EN NUESTRAS MANOS Y DEDICATE A VENDER
             </h3>
-            <p className="font-sans text-sm sm:text-base text-brand-blue-50/90 leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-brand-blue-50 leading-relaxed">
               En Envíos DosRuedas contamos con más de 7 años de experiencia y flota propia en las calles de MDQ. Retiramos tus paquetes puntualmente y garantizamos el 100% de entregas en el día.
             </p>
             <div className="pt-2">

@@ -110,7 +110,7 @@ export default function EmpresasCuentaCorrientePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Columna Izquierda: Copys y Badges */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-400 text-xs font-subheading uppercase tracking-widest font-bold shadow-accent-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/10 border border-brand-yellow-500/40 text-brand-yellow-500 text-xs font-subheading uppercase tracking-widest font-bold shadow-accent-sm">
                 <Sparkles className="w-3.5 h-3.5 text-brand-yellow-500" />
                 <span>Logística Corporativa en Mar del Plata</span>
               </div>

@@ -126,7 +126,7 @@ export function FaqCategories() {
                       className={cn(
                         'text-xs font-mono font-bold px-2.5 py-0.5 rounded-full tabular-nums',
                         isActive
-                          ? 'bg-white/20 text-brand-yellow-500'
+                          ? 'bg-brand-yellow-500/10 text-brand-yellow-500 border border-brand-yellow-500/40'
                           : 'bg-brand-blue-50 text-brand-blue-700'
                       )}
                     >

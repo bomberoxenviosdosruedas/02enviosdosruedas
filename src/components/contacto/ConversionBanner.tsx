@@ -16,7 +16,7 @@ export default function ConversionBanner() {
           />
 
           <div className="relative z-10 max-w-4xl mx-auto space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 -rotate-1 shadow-glow-yellow">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/10 border border-brand-yellow-500/40 -rotate-1 shadow-glow-yellow">
               <span className="w-2.5 h-2.5 rounded-full bg-brand-yellow-500 animate-pulse" />
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-yellow-500 tabular-nums">
                 Operaciones Activas Mar del Plata 2026

@@ -115,7 +115,7 @@ export default function LowCostPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="p"
-            className="text-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
+            className="text-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
           >
             Eficiencia en ruteo masivo. Garantizamos entregas antes de las 19:00 hs para pedidos cargados antes de las 13:00 hs.
           </TimelineContent>
@@ -236,7 +236,7 @@ export default function LowCostPricing() {
                 <h3 className="text-3xl font-mono tabular-nums uppercase tracking-tight text-white font-bold">
                   +10 km: $700 por km total (redondeado al entero superior)
                 </h3>
-                <p className="text-sm text-blue-100 leading-relaxed font-sans max-w-2xl">
+                <p className="text-sm text-blue-50 leading-relaxed font-sans max-w-2xl">
                   Para envíos de larga distancia (+10 km hasta 20 km), se multiplican los kilómetros totales redondeados hacia arriba por <span className="font-mono tabular-nums">$700</span> (ej. 12 km = <span className="font-mono tabular-nums">$8.400</span>). Trayectos mayores a 20 km se cotizan a medida vía WhatsApp.
                 </p>
               </div>

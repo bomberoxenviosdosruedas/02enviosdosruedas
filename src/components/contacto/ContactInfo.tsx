@@ -150,7 +150,7 @@ export default function ContactInfo() {
                 BASE DE OPERACIONES MDQ
               </h3>
             </div>
-            <span className="font-mono text-xs text-white/90 font-bold px-3 py-1 rounded-full bg-white/10 border border-white/20 tabular-nums">
+            <span className="font-mono text-xs text-white font-bold px-3 py-1 rounded-full bg-white/10 border border-white/20 tabular-nums">
               Partido de General Pueyrredón
             </span>
           </div>
@@ -163,7 +163,7 @@ export default function ContactInfo() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="block text-xs font-subheading uppercase tracking-wider text-brand-yellow-500">
+                  <span className="block text-xs font-subheading uppercase tracking-wider text-white">
                     Centro de Distribución
                   </span>
                   <span className="block font-mono text-sm sm:text-base font-bold text-white mt-0.5 tabular-nums">
@@ -177,7 +177,7 @@ export default function ContactInfo() {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="block text-xs font-subheading uppercase tracking-wider text-brand-yellow-500">
+                  <span className="block text-xs font-subheading uppercase tracking-wider text-white">
                     Línea Directa y WhatsApp
                   </span>
                   <a
@@ -194,7 +194,7 @@ export default function ContactInfo() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="block text-xs font-subheading uppercase tracking-wider text-brand-yellow-500">
+                  <span className="block text-xs font-subheading uppercase tracking-wider text-white">
                     Atención Comercial
                   </span>
                   <a
@@ -219,13 +219,13 @@ export default function ContactInfo() {
 
                 <div className="space-y-4 font-sans text-sm">
                   <div className="flex items-center justify-between py-2 border-b border-white/10">
-                    <span className="text-white/90 font-mono tabular-nums">Lunes a Viernes: 09:00 - 18:00 hs</span>
+                    <span className="text-white font-mono tabular-nums">Lunes a Viernes: 09:00 - 18:00 hs</span>
                     <span className="px-2.5 py-0.5 text-2xs font-mono uppercase font-bold text-brand-blue-900 bg-brand-yellow-500 rounded-full shadow-xs tabular-nums">
                       Activo
                     </span>
                   </div>
                   <div className="flex items-center justify-between py-2 border-b border-white/10">
-                    <span className="text-white/90 font-mono tabular-nums">Sábados: 10:00 - 15:00 hs</span>
+                    <span className="text-white font-mono tabular-nums">Sábados: 10:00 - 15:00 hs</span>
                     <span className="px-2.5 py-0.5 text-2xs font-mono uppercase font-bold text-brand-blue-900 bg-brand-yellow-500 rounded-full shadow-xs tabular-nums">
                       Activo
                     </span>
@@ -233,9 +233,9 @@ export default function ContactInfo() {
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/15 text-xs text-white/90 flex items-center justify-between font-mono">
+              <div className="mt-6 pt-4 border-t border-white/15 text-xs text-white flex items-center justify-between font-mono">
                 <span>Atención presencial y retiro de cargas</span>
-                <span className="text-brand-yellow-500 font-bold tabular-nums">Friuli 1972</span>
+                <span className="text-white font-bold tabular-nums">Friuli 1972</span>
               </div>
             </div>
           </div>
@@ -255,7 +255,7 @@ export default function ContactInfo() {
                 href="https://share.google/ofw5wAQt3Fc1dArom"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-brand-yellow-500 text-xs font-subheading font-bold uppercase tracking-wider transition-all"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/10 hover:bg-brand-yellow-500/20 border border-brand-yellow-500/40 text-brand-yellow-500 text-xs font-subheading font-bold uppercase tracking-wider transition-all"
               >
                 <span>Abrir en Google Maps</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

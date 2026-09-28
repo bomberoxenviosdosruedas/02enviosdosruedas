@@ -107,12 +107,12 @@ export default function CotizadorExpressDetails() {
               </div>
             </div>
 
-            <div className="relative z-10 bg-white/10 border border-white/20 rounded-xl p-4 mt-4">
+            <div className="relative z-10 bg-brand-blue-900 border border-white/20 rounded-xl p-4 mt-4">
               <h4 className="text-[#FFEC01] font-subheading text-sm tracking-wider uppercase flex items-center gap-1.5 mb-1">
                 <Shield className="h-4 w-4 shrink-0 text-[#FFEC01]" />
                 Garantía DosRuedas MDQ
               </h4>
-              <p className="text-xs text-white/90 font-sans leading-relaxed">
+              <p className="text-xs text-white font-sans leading-relaxed">
                 Más de 7 años operando en las calles de Mar del Plata. Tu paquete viaja asegurado y con seguimiento directo de punta a punta.
               </p>
             </div>

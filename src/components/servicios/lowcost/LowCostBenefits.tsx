@@ -54,7 +54,7 @@ export default function LowCostBenefits() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white leading-[0.98]">
             BENEFICIOS LOWCOST
           </h2>
-          <p className="text-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             La combinación perfecta entre economía inteligente y máxima eficiencia logística para la consolidación de tu negocio.
           </p>
           <div className="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full" />

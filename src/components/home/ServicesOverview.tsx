@@ -421,7 +421,10 @@ export default function ServicesOverview() {
                   rotateY: transform.rotateY,
                   translateZ: transform.translateZ,
                   translateX: transform.translateX,
-                  opacity: transform.opacity,
+                  // Los cards laterales no se atenúan: el fade del ancestro (opacity < 1)
+                  // degradaba el contraste de los chips (URGENTE/ECONÓMICO/LOGÍSTICA INTEGRAL)
+                  // por debajo de AA 4.5. La profundidad se mantiene con rotateY/scale/translateZ.
+                  opacity: reduceMotion ? transform.opacity : 1,
                   scale: transform.scale,
                 }}
                 transition={

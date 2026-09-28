@@ -27,7 +27,7 @@ export default function CotizadorExpressHelp() {
 
           <div className="relative z-10 flex flex-col lg:flex-row justify-between items-center gap-8">
             <div className="space-y-3 max-w-2xl text-center lg:text-left">
-              <span className="px-3.5 py-1 bg-white/10 text-[#FFEC01] rounded-full text-xs font-subheading font-bold tracking-wider uppercase inline-flex items-center gap-1.5 border border-white/20 -rotate-1 shadow-glow-yellow">
+              <span className="px-3.5 py-1 bg-brand-yellow-500/10 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold tracking-wider uppercase inline-flex items-center gap-1.5 border border-brand-yellow-500/40 -rotate-1 shadow-glow-yellow">
                 <HelpCircle className="h-4 w-4 shrink-0 text-[#FFEC01]" />
                 ¿Dudas o Envíos Especiales?
               </span>

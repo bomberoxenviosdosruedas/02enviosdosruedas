@@ -39,7 +39,7 @@ export default function CotizadorLowCostDetails() {
               <h3 className="text-xl font-subheading uppercase tracking-wider text-[#FFEC01] font-bold">
                 Beneficios del Servicio LowCost
               </h3>
-              <span className="px-3 py-1 bg-white/10 text-[#FFEC01] border border-white/20 rounded-full text-xs font-mono font-bold uppercase tabular-nums">
+              <span className="px-3 py-1 bg-brand-yellow-500/10 text-brand-yellow-500 border border-brand-yellow-500/40 rounded-full text-xs font-mono font-bold uppercase tabular-nums">
                 Hasta 40% Ahorro
               </span>
             </div>
@@ -56,7 +56,7 @@ export default function CotizadorLowCostDetails() {
                       <h4 className="font-bold text-white font-sans text-sm uppercase tracking-wide">
                         {feat.title}
                       </h4>
-                      <p className="text-white/80 text-xs sm:text-sm font-sans mt-1 leading-relaxed">
+                      <p className="text-white/90 text-xs sm:text-sm font-sans mt-1 leading-relaxed">
                         {feat.desc}
                       </p>
                     </div>
@@ -107,12 +107,12 @@ export default function CotizadorLowCostDetails() {
               </div>
             </div>
 
-            <div className="relative z-10 bg-white/10 border border-white/20 rounded-xl p-4 mt-4">
+            <div className="relative z-10 bg-brand-blue-900 border border-white/20 rounded-xl p-4 mt-4">
               <h4 className="font-bold text-[#FFEC01] font-subheading text-sm tracking-wider uppercase flex items-center gap-1.5 mb-1">
                 <Shield className="h-4 w-4 shrink-0 text-[#FFEC01]" />
                 Garantía de Reparto Diario
               </h4>
-              <p className="text-xs text-white/80 font-sans leading-relaxed">
+              <p className="text-xs text-white font-sans leading-relaxed">
                 Optimizamos los circuitos viales de la ciudad para garantizar que cada paquete llegue a destino con seguridad y al menor costo por km.
               </p>
             </div>
