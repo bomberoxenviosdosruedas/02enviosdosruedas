@@ -5,8 +5,61 @@ import { MapPin, Zap, Clock, ShieldCheck, ArrowRight, CheckCircle2, Navigation, 
 import CTANestedPill from '@/src/components/ui/CTANestedPill';
 import CoberturaExplorer from '@/src/components/cobertura/CoberturaExplorer';
 import LogisticaNetworkCanvas from '@/src/components/home/LogisticaNetworkCanvas';
+import {
+  EXPRESS_PRICE_PER_KM,
+  EXPRESS_TIERS,
+  LOW_COST_PRICE_PER_KM,
+  LOW_COST_TIERS,
+} from '@/src/lib/pricing';
+import { CONSULT_THRESHOLD_KM } from '@/src/lib/promises';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
+
+const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
+
+/**
+ * Nombres de barrios por zona. Contenido editorial: NO contiene precios.
+ * Los importes salen de `pricing.ts` (fuente única) — nunca escribirlos a mano,
+ * o quedan desincronizados de `PriceRange` en BD.
+ */
+const ZONE_BARRIOS: readonly string[] = [
+  'Macrocentro, Centro, Güemes, Chauvín, San Juan, La Perla',
+  'Playa Grande, Los Troncos, Puerto, Parque Luro, Pompeya',
+  'Punta Mogotes, Caisamar, Constitución, Colinas, Las Avenidas',
+  'Faro, Alfar, Bosque Peralta Ramos, Parque Camet, Libertad',
+  'Acantilados, Batán, Sierra de los Padres, Camet Norte',
+];
+
+/**
+ * Filas de la tabla de radios. Los tramos fijos se toman de los `*_TIERS`;
+ * la última fila es el tramo por km, que aplica a partir del último tier
+ * y hasta `CONSULT_THRESHOLD_KM`.
+ */
+const ZONE_ROWS = ZONE_BARRIOS.map((barrios, i) => {
+  const express = EXPRESS_TIERS[i];
+  const lowCost = LOW_COST_TIERS[i];
+
+  if (express && lowCost) {
+    return {
+      zona: `Z${i + 1}`,
+      km: `${express.minKm} a ${express.maxKm} km`,
+      barrios,
+      express: formatArs(express.price),
+      lowCost: formatArs(lowCost.price),
+      isFormula: false,
+    };
+  }
+
+  const lastTier = EXPRESS_TIERS[EXPRESS_TIERS.length - 1];
+  return {
+    zona: `Z${i + 1}`,
+    km: `+${lastTier.maxKm} km (hasta ${CONSULT_THRESHOLD_KM} km)`,
+    barrios,
+    express: `${formatArs(EXPRESS_PRICE_PER_KM)}/km`,
+    lowCost: `${formatArs(LOW_COST_PRICE_PER_KM)}/km`,
+    isFormula: true,
+  };
+});
 
 export const metadata: Metadata = {
   title: 'Cobertura de Envíos en Mar del Plata y Zonas',
@@ -132,82 +185,81 @@ export default function CoberturaPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-          {[
-            {
-              radio: 'Z1',
-              km: '0 a 3 km',
-              desc: 'Macrocentro, Centro, Güemes, Chauvín, San Juan, La Perla',
-              express: '$3.700',
-              lowCost: '$3.000',
-            },
-            {
-              radio: 'Z2',
-              km: '3 a 5 km',
-              desc: 'Playa Grande, Los Troncos, Puerto, Parque Luro, Pompeya',
-              express: '$4.600',
-              lowCost: '$4.000',
-            },
-            {
-              radio: 'Z3',
-              km: '5 a 7 km',
-              desc: 'Punta Mogotes, Caisamar, Constitución, Colinas, Las Avenidas',
-              express: '$6.100',
-              lowCost: '$5.300',
-            },
-            {
-              radio: 'Z4',
-              km: '7 a 10 km',
-              desc: 'Faro, Alfar, Bosque Peralta Ramos, Parque Camet, Libertad',
-              express: '$8.200',
-              lowCost: '$7.000',
-            },
-            {
-              radio: 'Z5',
-              km: '+10 km (hasta 20 km)',
-              desc: 'Acantilados, Batán, Sierra de los Padres, Camet Norte',
-              express: '$1.000/km',
-              lowCost: '$700/km',
-              isFormula: true,
-            },
-          ].map((item) => (
-            <div
-              key={item.radio}
-              className="bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl flex flex-col justify-between"
-            >
-              <div className="bg-white p-4 rounded-xl border border-brand-blue-50/50 h-full flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-sm font-bold bg-brand-blue-700 text-white px-2 py-0.5 rounded">
-                      {item.radio}
-                    </span>
-                    <span className="font-mono text-xs font-bold text-brand-blue-600">
-                      {item.km}
-                    </span>
-                  </div>
-                  <p className="font-sans text-xs text-brand-ink leading-relaxed mb-4">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-brand-blue-50 space-y-2 font-mono">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-sans text-brand-blue-700 font-medium">Express:</span>
-                    <span className="font-bold text-brand-blue-900">{item.express}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-sans text-brand-blue-700 font-medium">LowCost:</span>
-                    <span className="font-bold text-brand-blue-900">{item.lowCost}</span>
-                  </div>
-                  {item.isFormula && (
-                    <p className="text-2xs text-brand-blue-500 font-sans italic pt-1">
-                      * Aplica Math.ceil(km) x valor por km
-                    </p>
-                  )}
-                </div>
-              </div>
+        <div className="bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-sm">
+          <div className="bg-white rounded-xl border border-brand-blue-50/50 overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-left">
+                <caption className="sr-only">
+                  Tarifas Express y LowCost por zona de cobertura en Mar del Plata, 2026.
+                </caption>
+                <thead>
+                  <tr className="border-b border-brand-blue-100">
+                    <th
+                      scope="col"
+                      className="px-4 py-3 font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-900"
+                    >
+                      Zona
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-4 py-3 font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-900"
+                    >
+                      Distancia
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-4 py-3 font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-900"
+                    >
+                      Barrios incluidos
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-4 py-3 text-right font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-900"
+                    >
+                      Express
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-4 py-3 text-right font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-900"
+                    >
+                      LowCost
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ZONE_ROWS.map((row) => (
+                    <tr
+                      key={row.zona}
+                      className="border-b border-brand-blue-50 align-top last:border-b-0"
+                    >
+                      <th scope="row" className="px-4 py-3.5">
+                        <span className="rounded bg-brand-blue-700 px-2 py-0.5 font-mono text-sm text-white tabular-nums">
+                          {row.zona}
+                        </span>
+                      </th>
+                      <td className="whitespace-nowrap px-4 py-3.5 font-mono text-xs font-medium text-brand-blue-600 tabular-nums">
+                        {row.km}
+                      </td>
+                      <td className="px-4 py-3.5 font-sans text-xs leading-relaxed text-brand-ink">
+                        {row.barrios}
+                        {row.isFormula && (
+                          <span className="mt-1 block font-sans text-2xs italic text-brand-blue-500">
+                            * Aplica Math.ceil(km) × valor por km
+                          </span>
+                        )}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-3.5 text-right font-mono text-sm font-bold text-brand-blue-900 tabular-nums">
+                        {row.express}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-3.5 text-right font-mono text-sm font-bold text-brand-blue-900 tabular-nums">
+                        {row.lowCost}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
