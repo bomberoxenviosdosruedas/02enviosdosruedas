@@ -187,18 +187,31 @@ function getRotation(id: string): number {
   return (h % 12) - 6; // -6deg a +5deg
 }
 
+// Contraste: todos los valores son tokens sólidos, nunca modificadores /NN.
+// Tailwind v4 mezcla la opacidad en oklab, así que un /NN no da un ratio
+// determinístico. El fondo interno de dark-blue es #0950F6, el tono más oscuro
+// de la paleta, y en las otras tres variantes es blanco: en ambos casos el texto
+// de 10px tiene un solo token que pasa AA. La jerarquía se marca por tratamiento
+// (font-mono 10px vs font-sans bold 13px), no por color.
 function getVariantClasses(variant: GoogleReview['variant']) {
   switch (variant) {
+    // dark-blue: el fondo interno es #0950F6, el tono más oscuro de la paleta.
+    // Por eso el texto de 10px sólo puede ir a blanco (6.02:1): la rampa clara
+    // (blue-100 = 3.82:1) no alcanza el 4.5:1 que exige WCAG AA.
     case 'dark-blue':
       return {
         outer: 'bg-brand-blue-700/90 border-white/15 shadow-ambient-elevation',
         inner: 'bg-brand-blue-700 text-white border-white/15',
         quote: 'text-brand-yellow-500',
-        badge: 'bg-white/10 text-brand-yellow-500 border-white/15',
-        mono: 'text-brand-blue-200',
+        // Badge invertido (4.94:1). Amarillo como texto sobre azul no pasa: el
+        // peor caso es 4.15:1 y ningún token de la paleta lo levanta.
+        badge: 'bg-brand-yellow-500 text-brand-blue-900 border-brand-blue-900',
+        mono: 'text-white',
         avatar: 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-400',
         divider: 'border-white/10',
-        response: 'bg-white/5 border-white/10 text-brand-blue-100',
+        response: 'bg-white/5 border-white/10 text-white',
+        // 4.55:1, pasa con poco margen. Si el fondo de `response` cambia,
+        // hay que volver a medir este token.
         responseLabel: 'text-brand-yellow-500',
       };
     case 'yellow-accent':
@@ -207,7 +220,7 @@ function getVariantClasses(variant: GoogleReview['variant']) {
         inner: 'bg-white text-brand-blue-700 border-brand-yellow-500/60',
         quote: 'text-brand-blue-700',
         badge: 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-100',
-        mono: 'text-brand-blue-400',
+        mono: 'text-brand-blue-500',
         avatar: 'bg-brand-blue-700 text-white border-brand-blue-700',
         divider: 'border-brand-blue-100/50',
         response: 'bg-brand-blue-50/80 border-brand-blue-100 text-brand-ink',
@@ -219,7 +232,7 @@ function getVariantClasses(variant: GoogleReview['variant']) {
         inner: 'bg-white text-brand-blue-700 border-brand-blue-100/60',
         quote: 'text-brand-blue-700',
         badge: 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-100',
-        mono: 'text-brand-blue-400',
+        mono: 'text-brand-blue-500',
         avatar: 'bg-brand-blue-700 text-white border-brand-blue-700',
         divider: 'border-brand-blue-100/50',
         response: 'bg-brand-blue-50/80 border-brand-blue-100 text-brand-ink',
@@ -231,7 +244,7 @@ function getVariantClasses(variant: GoogleReview['variant']) {
         inner: 'bg-white text-brand-blue-700 border-brand-blue-100/50',
         quote: 'text-brand-blue-700',
         badge: 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-100',
-        mono: 'text-brand-blue-400',
+        mono: 'text-brand-blue-500',
         avatar: 'bg-brand-blue-700 text-white border-brand-blue-700',
         divider: 'border-brand-blue-100/50',
         response: 'bg-brand-blue-50/80 border-brand-blue-100 text-brand-ink',
@@ -422,7 +435,9 @@ export default function SocialProofSection() {
               <br />
               <span className="bg-brand-yellow-500 px-2 -rotate-1 inline-block shadow-accent-sm">venden y envían</span> en MDQ
             </h2>
-            <p className="font-sans text-[15px] leading-relaxed text-brand-blue-700/80 max-w-2xl">
+            {/* /80 se mezclaba en oklab y daba 4.21:1, bajo AA. Token solido: 6.02:1.
+                La jerarquia frente al h2 display se sostiene por tamaño y peso. */}
+            <p className="font-sans text-[15px] leading-relaxed text-brand-blue-700 max-w-2xl">
               Cero filtros, cero bots. Marquee infinito transparente angulado. Pausa al hover. Como tus ejemplos de Pinterest.
             </p>
           </div>

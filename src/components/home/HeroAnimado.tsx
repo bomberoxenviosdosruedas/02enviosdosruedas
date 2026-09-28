@@ -117,7 +117,7 @@ export default function HeroAnimado() {
               <div className="rounded-[28px] bg-brand-blue-500/40 backdrop-blur-md border border-white/20 p-2.5 shadow-elevated">
                 <div className="relative w-full aspect-[4/3] rounded-[18px] overflow-hidden border border-white/15">
                   <Image
-                    src="/img/generales/repartidor.webp"
+                    src="/card_mapa.webp"
                     alt="Repartidor de Envíos DosRuedas con moto de reparto listo para salir en Mar del Plata"
                     fill
                     priority
