@@ -22,7 +22,7 @@ export default function AboutMissionVision() {
           <h2 className="text-[#0950F6] text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
             MISIÓN, VISIÓN & COMPROMISO
           </h2>
-          <p className="text-[#0950F6]/80 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-[#0950F6] font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Hacia dónde vamos y cuáles son las convicciones que guían cada entrega y ruteo diario en Mar del Plata.
           </p>
         </div>
@@ -49,13 +49,13 @@ export default function AboutMissionVision() {
                     NUESTRA MISIÓN
                   </h3>
 
-                  <p className="text-sm sm:text-base text-[#0950F6]/80 leading-relaxed font-sans">
+                  <p className="text-sm sm:text-base text-[#0950F6] leading-relaxed font-sans">
                     Brindar a cada negocio, e-commerce y particular de Mar del Plata una infraestructura de última milla confiable, accesible y ágil. Eliminamos las fricciones logísticas para que nuestros clientes puedan enfocarse en vender más y crecer.
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-[#D6E4FE] flex items-center gap-2 text-xs font-subheading font-bold uppercase tracking-wider text-[#0950F6]">
-                  <ShieldCheck className="h-4 w-4 text-[#FFEC01]" />
+                  <ShieldCheck className="h-4 w-4 text-[#0950F6]" />
                   <span>COMPROMISO OPERATIVO PERMANENTE</span>
                 </div>
               </div>
@@ -81,13 +81,13 @@ export default function AboutMissionVision() {
                     NUESTRA VISIÓN
                   </h3>
 
-                  <p className="text-sm sm:text-base text-[#0950F6]/80 leading-relaxed font-sans">
+                  <p className="text-sm sm:text-base text-[#0950F6] leading-relaxed font-sans">
                     Ser el estándar indiscutido de logística urbana y fulfillment 3PL en la Costa Atlántica, reconocidos por nuestra puntualidad, tecnología de ruteo y calidez en la atención humana.
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-[#D6E4FE] flex items-center gap-2 text-xs font-subheading font-bold uppercase tracking-wider text-[#0950F6]">
-                  <ShieldCheck className="h-4 w-4 text-[#FFEC01]" />
+                  <ShieldCheck className="h-4 w-4 text-[#0950F6]" />
                   <span>VISIÓN DE FUTURO 2026</span>
                 </div>
               </div>

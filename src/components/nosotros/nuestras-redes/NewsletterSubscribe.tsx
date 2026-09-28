@@ -88,10 +88,10 @@ export default function NewsletterSubscribe() {
                     <div className="p-2.5 bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 rounded-full w-fit">
                       <CheckCircle2 className="h-6 w-6 text-brand-blue-700 animate-pulse" />
                     </div>
-                    <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue-700 leading-none">
+                    <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue-50 leading-none">
                       ¡Suscripción Exitosa!
                     </h3>
-                    <p className="text-xs sm:text-sm text-brand-blue-700/80 font-sans max-w-sm mx-auto">
+                    <p className="text-xs sm:text-sm text-brand-blue-50 font-sans max-w-sm mx-auto">
                       Ya formás parte de la lista prioritaria. Preparate para recibir las mejores novedades y descuentos.
                     </p>
                   </motion.div>
@@ -101,7 +101,7 @@ export default function NewsletterSubscribe() {
           </div>
 
           {/* Disclaimer text */}
-          <div className="flex items-center justify-center gap-2 text-xs text-white/80 font-sans pt-2">
+          <div className="flex items-center justify-center gap-2 text-xs text-white/90 font-sans pt-2">
             <ShieldCheck className="h-4.5 w-4.5 text-brand-yellow-500 shrink-0" />
             <span>Garantizamos la privacidad de tus datos. Podés darte de baja con un solo clic en cualquier momento.</span>
           </div>

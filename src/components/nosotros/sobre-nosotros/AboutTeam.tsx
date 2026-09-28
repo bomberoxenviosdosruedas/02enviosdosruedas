@@ -53,7 +53,7 @@ export default function AboutTeam() {
           <h2 className="text-white text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
             NUESTRO EQUIPO EN CALLE
           </h2>
-          <p className="text-white/80 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
+          <p className="text-white/90 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
             Una estructura humana consolidada con base física en la ciudad, lista para responder al ritmo de tu negocio.
           </p>
         </div>
@@ -92,12 +92,12 @@ export default function AboutTeam() {
                         {stat.role}
                       </h3>
 
-                      <p className="text-xs sm:text-sm text-[#0950F6]/80 leading-relaxed font-sans">
+                      <p className="text-xs sm:text-sm text-[#0950F6] leading-relaxed font-sans">
                         {stat.desc}
                       </p>
                     </div>
 
-                    <div className="pt-4 border-t border-[#D6E4FE] flex items-center justify-between text-xs text-[#0950F6]/60 font-mono">
+                    <div className="pt-4 border-t border-[#D6E4FE] flex items-center justify-between text-xs text-[#0950F6] font-mono">
                       <span className="flex items-center gap-1.5">
                         <Image src="/logo-envios-simplified.webp" alt="Envíos DosRuedas" width={16} height={16} className="object-contain" />
                         Envíos DosRuedas

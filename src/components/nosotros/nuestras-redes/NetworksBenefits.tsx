@@ -58,7 +58,7 @@ export default function NetworksBenefits() {
           <h2 className="text-brand-blue-700 text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
             BENEFICIOS DE FORMAR PARTE
           </h2>
-          <p className="text-brand-ink/80 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-brand-ink font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Descubrí por qué cientos de marplatenses y PyMEs locales ya nos siguen activamente en nuestros canales de difusión oficiales.
           </p>
         </div>
@@ -93,7 +93,7 @@ export default function NetworksBenefits() {
 
                   <div className="pt-6 mt-6 border-t border-brand-blue-100/60 flex items-center justify-between text-xs font-mono font-bold uppercase text-brand-blue-500 tabular-nums">
                     <span className="flex items-center gap-1.5">
-                      <CheckCircle className="h-4.5 w-4.5 text-brand-yellow-500 shrink-0" />
+                      <CheckCircle className="h-4.5 w-4.5 text-brand-blue-700 shrink-0" />
                       <span>Beneficio Oficial</span>
                     </span>
                     <span>0{idx + 1}</span>

@@ -100,7 +100,7 @@ export default function ContactForm() {
               <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 mb-2 leading-tight">
                 ¿Listo para escalar la logística de tu e-commerce?
               </h2>
-              <p className="text-brand-blue-700/80 font-sans text-sm sm:text-base leading-relaxed">
+              <p className="text-brand-blue-700 font-sans text-sm sm:text-base leading-relaxed">
                 Olvidate de la gestión de paquetes en Mar del Plata. Completá tus datos y te respondemos por WhatsApp al instante.
               </p>
             </div>
@@ -122,7 +122,7 @@ export default function ContactForm() {
                     <h3 className="font-display text-2xl uppercase tracking-tight text-brand-blue-700">
                       ¡SOLICITUD ENVIADA!
                     </h3>
-                    <p className="font-sans text-sm text-brand-blue-700/80 max-w-sm mx-auto leading-relaxed">
+                    <p className="font-sans text-sm text-brand-blue-700 max-w-sm mx-auto leading-relaxed">
                       Se abrió WhatsApp para conectar directamente con nuestro equipo comercial en Mar del Plata.
                     </p>
                   </div>
@@ -221,7 +221,7 @@ export default function ContactForm() {
           </div>
 
           {/* Footer Guarantee */}
-          <div className="pt-4 mt-6 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-blue-700/80 font-sans relative z-10">
+          <div className="pt-4 mt-6 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-blue-700 font-sans relative z-10">
             <span>Respuesta garantizada</span>
             <span className="font-mono font-bold text-brand-blue-700 tabular-nums">Mar del Plata 2026</span>
           </div>

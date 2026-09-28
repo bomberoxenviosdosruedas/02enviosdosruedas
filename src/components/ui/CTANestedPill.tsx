@@ -63,9 +63,9 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
       primary:
         'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-500 shadow-accent-sm hover:shadow-cta-glow hover:bg-brand-yellow-400 active:scale-[.98] active:translate-y-[1px]',
       // Para fondos amarillos (#FFEC01): azul de marca, texto blanco, chip amarillo.
-      blue: 'bg-brand-blue-500 text-white border-brand-blue-500 shadow-[0_0_24px_rgba(9,80,246,0.28)] hover:bg-brand-blue-800 hover:border-brand-blue-800 active:scale-[.98] active:translate-y-[1px]',
+      blue: 'bg-brand-blue-500 text-white border-brand-blue-500 shadow-[0_0_24px_rgba(9,80,246,0.28)] hover:bg-brand-blue-700 hover:border-brand-blue-700 active:scale-[.98] active:translate-y-[1px]',
       elevated:
-        'bg-white text-brand-blue-700 border-brand-blue-100 shadow-elevated hover:shadow-hover-lift hover:border-brand-blue-300 hover:text-brand-blue-800 active:scale-[.98]',
+        'bg-white text-brand-blue-700 border-brand-blue-100 shadow-elevated hover:shadow-hover-lift hover:border-brand-blue-300 hover:text-brand-blue-900 active:scale-[.98]',
       outline:
         'bg-transparent text-brand-blue-700 border-2 border-brand-blue-700 hover:bg-brand-blue-50 active:scale-[.98]',
       ghost:

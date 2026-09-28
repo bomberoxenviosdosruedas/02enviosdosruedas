@@ -97,7 +97,7 @@ export default function FlexFeatures() {
                       <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight group-hover:text-brand-blue-900 transition-colors duration-300">
                         {feat.title}
                       </h4>
-                      <p className="text-sm text-brand-ink/80 font-sans leading-relaxed">
+                      <p className="text-sm text-brand-ink font-sans leading-relaxed">
                         {feat.desc}
                       </p>
                     </div>

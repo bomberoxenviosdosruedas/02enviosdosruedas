@@ -70,7 +70,7 @@ export default function CotizadorLowCostHero() {
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
             {/* Glowing Pill Badge with velocity tilt */}
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wider bg-brand-blue-700/90 text-brand-yellow-500 border-2 border-brand-yellow-500/50 -rotate-1 shadow-glow-yellow backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wider bg-brand-blue-700 text-brand-yellow-500 border-2 border-brand-yellow-500/50 -rotate-1 shadow-glow-yellow backdrop-blur-md">
               <ShoppingBag className="h-4 w-4 text-brand-yellow-500 shrink-0" />
               <span>SERVICIO ECONÓMICO Y PROGRAMADO</span>
             </div>
@@ -92,17 +92,17 @@ export default function CotizadorLowCostHero() {
             {/* Feature Pills & CTA Row */}
             <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
               <div className="flex flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start">
-                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-700/80 border border-white/20 text-white backdrop-blur-sm">
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-700 border border-white/20 text-white backdrop-blur-sm">
                   <Percent className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                   <span>Hasta 40% de Ahorro</span>
                 </div>
 
-                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-700/80 border border-white/20 text-white backdrop-blur-sm">
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-700 border border-white/20 text-white backdrop-blur-sm">
                   <Truck className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                   <span>Entrega Same-Day</span>
                 </div>
 
-                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-700/80 border border-white/20 text-white backdrop-blur-sm">
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wide bg-brand-blue-700 border border-white/20 text-white backdrop-blur-sm">
                   <ShieldCheck className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                   <span>Tarifa Plana PyME</span>
                 </div>

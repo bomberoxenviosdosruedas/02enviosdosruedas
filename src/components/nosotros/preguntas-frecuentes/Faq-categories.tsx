@@ -69,7 +69,7 @@ export function FaqCategories() {
             Buscar en preguntas frecuentes
           </label>
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-blue-700/60" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-blue-700" />
             <input
               id="faq-search-input"
               type="text"
@@ -83,7 +83,7 @@ export function FaqCategories() {
                 type="button"
                 onClick={() => setSearchQuery('')}
                 aria-label="Limpiar búsqueda"
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-brand-blue-700 hover:text-brand-blue-700/80 rounded-full cursor-pointer"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-brand-blue-700 hover:text-brand-blue-700 rounded-full cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -145,7 +145,7 @@ export function FaqCategories() {
                   <p
                     className={cn(
                       'text-xs line-clamp-2 leading-relaxed font-sans',
-                      isActive ? 'text-white/80' : 'text-brand-blue-700/80'
+                      isActive ? 'text-white/90' : 'text-brand-blue-700'
                     )}
                   >
                     {category.description}
@@ -169,7 +169,7 @@ export function FaqCategories() {
                   <h2 className="font-display text-2xl sm:text-3xl text-brand-blue-700 uppercase tracking-tight">
                     {searchResults ? `Resultados de búsqueda (${searchResults.length})` : activeGroup.label}
                   </h2>
-                  <p className="text-xs sm:text-sm text-brand-blue-700/80 font-sans">
+                  <p className="text-xs sm:text-sm text-brand-blue-700 font-sans">
                     {searchResults
                       ? `Mostrando coincidencias para "${searchQuery}" en todas las secciones`
                       : activeGroup.description}
@@ -177,7 +177,7 @@ export function FaqCategories() {
                 </div>
               </div>
               <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-brand-blue-700 self-start sm:self-center bg-brand-blue-50 px-3 py-1.5 rounded-full border border-brand-blue-100">
-                <Sparkles className="w-3.5 h-3.5 text-brand-yellow-500" />
+                <Sparkles className="w-3.5 h-3.5 text-brand-blue-700" />
                 <span className="tabular-nums">Mar del Plata 2026</span>
               </div>
             </div>
@@ -189,7 +189,7 @@ export function FaqCategories() {
                 <h3 className="font-subheading text-lg uppercase font-bold text-brand-blue-700">
                   No encontramos respuestas exactas para esa búsqueda
                 </h3>
-                <p className="text-sm font-sans text-brand-blue-700/80 max-w-md mx-auto mt-1 mb-4">
+                <p className="text-sm font-sans text-brand-blue-700 max-w-md mx-auto mt-1 mb-4">
                   Despejá tu consulta inmediatamente con un operador humano en nuestro WhatsApp.
                 </p>
                 <button
@@ -244,7 +244,7 @@ export function FaqCategories() {
                               'text-base sm:text-lg font-subheading font-bold uppercase tracking-wide leading-snug transition-colors',
                               isExpanded
                                 ? 'text-brand-blue-700'
-                                : 'text-brand-blue-700/90 group-hover:text-brand-blue-700'
+                                : 'text-brand-blue-700'
                             )}
                           >
                             {faq.question}
@@ -274,7 +274,7 @@ export function FaqCategories() {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.25, ease: [0.04, 0.62, 0.23, 0.98] }}
                           >
-                            <div className="px-4 pb-5 pt-1 sm:px-5 sm:pb-6 text-sm sm:text-base text-brand-blue-700/90 font-sans leading-relaxed border-t border-brand-blue-100 bg-white/70">
+                            <div className="px-4 pb-5 pt-1 sm:px-5 sm:pb-6 text-sm sm:text-base text-brand-blue-700 font-sans leading-relaxed border-t border-brand-blue-100 bg-white/70">
                               <p>{faq.answer}</p>
                             </div>
                           </motion.div>

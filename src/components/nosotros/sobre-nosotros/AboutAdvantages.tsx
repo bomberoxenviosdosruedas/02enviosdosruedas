@@ -22,7 +22,7 @@ export default function AboutAdvantages() {
           <h2 className="text-brand-blue-700 text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
             POR QUÉ CONFIAR EN DOSRUEDAS
           </h2>
-          <p className="text-brand-blue-700/80 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-brand-blue-700 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             Frente a aplicaciones automatizadas y plataformas impersonales, nosotros brindamos compromiso presencial, operadores locales y conocimiento metro a metro de Mar del Plata.
           </p>
         </div>
@@ -47,12 +47,12 @@ export default function AboutAdvantages() {
                   <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
                     Atención Humana y Directa
                   </h3>
-                  <p className="text-sm sm:text-base text-brand-blue-700/80 leading-relaxed font-sans">
+                  <p className="text-sm sm:text-base text-brand-blue-700 leading-relaxed font-sans">
                     Damos la cara siempre. Cuando surge una duda o reprogramación, te comunicás directamente por WhatsApp con operadores en Mar del Plata que gestionan y resuelven en el acto.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-blue-700">
-                  <Sparkles className="h-4 w-4 text-brand-yellow-500 fill-current" />
+                  <Sparkles className="h-4 w-4 text-brand-blue-700 fill-current" />
                   <span>COMUNICACIÓN DIRECTA VÍA WHATSAPP</span>
                 </div>
               </div>
@@ -76,12 +76,12 @@ export default function AboutAdvantages() {
                   <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 leading-tight">
                     Flota Propia Capacitada
                   </h3>
-                  <p className="text-sm sm:text-base text-brand-blue-700/80 leading-relaxed font-sans">
+                  <p className="text-sm sm:text-base text-brand-blue-700 leading-relaxed font-sans">
                     No tercerizamos de forma descontrolada. Nuestro equipo de cadetes está uniformado, capacitado en manejo de paquetes frágiles y con base física en <strong>Friuli 1972</strong>.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-blue-700">
-                  <Sparkles className="h-4 w-4 text-brand-yellow-500 fill-current animate-pulse" />
+                  <Sparkles className="h-4 w-4 text-brand-blue-700 fill-current animate-pulse" />
                   <span>COBERTURA TOTAL GENERAL PUEYRREDÓN</span>
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function AboutAdvantages() {
                       Garantía Operativa Sin Excusas
                     </h3>
                   </div>
-                  <p className="text-sm sm:text-base text-brand-blue-700/80 leading-relaxed font-sans">
+                  <p className="text-sm sm:text-base text-brand-blue-700 leading-relaxed font-sans">
                     Tu reputación comercial depende de la puntualidad de entrega. Si coordinamos un envío express en 2 horas o un ruteo programado, cumplimos la franja pactada sin desvíos.
                   </p>
                 </div>

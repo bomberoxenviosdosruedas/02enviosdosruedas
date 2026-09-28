@@ -49,7 +49,7 @@ export default function EmprendedoresFeatures() {
               <span className="text-[#0950F6] bg-[#FFEC01] px-2 py-0.5 inline-block mt-1 font-bold -rotate-1 shadow-glow-yellow">Y PAQUETERÍA E-COMMERCE</span>
             </h2>
 
-            <p className="text-[#0950F6]/80 text-base leading-relaxed font-sans">
+            <p className="text-[#0950F6] text-base leading-relaxed font-sans">
               Especialistas en paquetería e-commerce y logística 3PL en Mar del Plata. Almacenamos tus productos pequeños o medianos en Friuli 1972, realizamos picking por QR y despachamos en el día o 24hs con la tarifa más competitiva.
             </p>
 
@@ -82,7 +82,7 @@ export default function EmprendedoresFeatures() {
                         <h4 className="text-xl font-display uppercase tracking-wider text-[#0950F6] leading-tight">
                           {feat.title}
                         </h4>
-                        <p className="text-sm text-[#0950F6]/80 font-sans leading-relaxed">
+                        <p className="text-sm text-[#0950F6] font-sans leading-relaxed">
                           {feat.desc}
                         </p>
                       </div>

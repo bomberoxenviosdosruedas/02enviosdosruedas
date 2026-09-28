@@ -79,7 +79,7 @@ export default function Page() {
               <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
                 CALCULÁ TU ENVÍO EXPRESS EN 3 PASOS
               </h2>
-              <p className="text-white/80 font-sans leading-relaxed text-base sm:text-lg max-w-3xl">
+              <p className="text-white/90 font-sans leading-relaxed text-base sm:text-lg max-w-3xl">
                 Nuestro cotizador Express te da el precio exacto al instante según la distancia real en kilómetros.
                 Sin sorpresas, sin cargos ocultos. Tarifas 2026 oficiales publicadas y auditables.
               </p>
@@ -88,31 +88,31 @@ export default function Page() {
                   <span className="w-8 h-8 rounded-full bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center shrink-0 font-display text-lg font-bold">1</span>
                   <div>
                     <h3 className="font-subheading text-sm uppercase font-bold text-white">Ingresá Direcciones</h3>
-                    <p className="text-xs text-white/70 font-sans">Origen y destino en Mar del Plata. El sistema calcula la distancia óptima.</p>
+                    <p className="text-xs text-white/90 font-sans">Origen y destino en Mar del Plata. El sistema calcula la distancia óptima.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
                   <span className="w-8 h-8 rounded-full bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center shrink-0 font-display text-lg font-bold">2</span>
                   <div>
                     <h3 className="font-subheading text-sm uppercase font-bold text-white">Obtené Tarifa Exacta</h3>
-                    <p className="text-xs text-white/70 font-sans">Precio por zona (0-3km, 3-5km, 5-7km, 7-10km, +10km) sin redondeos.</p>
+                    <p className="text-xs text-white/90 font-sans">Precio por zona (0-3km, 3-5km, 5-7km, 7-10km, +10km) sin redondeos.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
                   <span className="w-8 h-8 rounded-full bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center shrink-0 font-display text-lg font-bold">3</span>
                   <div>
                     <h3 className="font-subheading text-sm uppercase font-bold text-white">Confirmá por WhatsApp</h3>
-                    <p className="text-xs text-white/70 font-sans">Un click y coordinás el retiro. Sin registro obligatorio, atención inmediata.</p>
+                    <p className="text-xs text-white/90 font-sans">Un click y coordinás el retiro. Sin registro obligatorio, atención inmediata.</p>
                   </div>
                 </div>
               </div>
               <div className="pt-4 border-t border-white/15 flex flex-wrap gap-3">
                 <span className="font-subheading text-xs uppercase tracking-wider text-brand-yellow-500 font-bold">COBERTURA:</span>
-                <span className="text-sm text-white/80 font-sans">Centro, Güemes, Puerto, Playa Grande, Punta Mogotes, Constitución, Chauvín, Batán y hasta 20 km (Sierra de los Padres).</span>
+                <span className="text-sm text-white/90 font-sans">Centro, Güemes, Puerto, Playa Grande, Punta Mogotes, Constitución, Chauvín, Batán y hasta 20 km (Sierra de los Padres).</span>
               </div>
               <div className="flex flex-wrap gap-3">
                 <span className="font-subheading text-xs uppercase tracking-wider text-brand-yellow-500 font-bold">LÍMITES:</span>
-                <span className="text-sm text-white/80 font-sans">Hasta 5 kg y 40x30 cm por bulto. Franja horaria de 3 hs (ej. 10 a 13 hs). Corte 15:00 hs con 2h anticipación.</span>
+                <span className="text-sm text-white/90 font-sans">Hasta 5 kg y 40x30 cm por bulto. Franja horaria de 3 hs (ej. 10 a 13 hs). Corte 15:00 hs con 2h anticipación.</span>
               </div>
             </div>
           </div>

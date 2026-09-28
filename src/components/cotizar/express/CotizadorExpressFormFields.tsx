@@ -31,7 +31,7 @@ export default function CotizadorExpressFormFields({
     <form onSubmit={form.handleCalculate} onFocus={form.handleInputFocus} className="space-y-6 relative z-10">
       {/* Origen */}
       <div className="space-y-1.5">
-        <label htmlFor="origen-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-brand-blue-700 flex items-center gap-1.5">
+        <label htmlFor="origen-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-white flex items-center gap-1.5">
           <MapPin className="h-3.5 w-3.5" />
           Dirección de Origen (Retiro)
         </label>
@@ -48,7 +48,7 @@ export default function CotizadorExpressFormFields({
 
       {/* Destino */}
       <div className="space-y-1.5">
-        <label htmlFor="destino-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-brand-blue-700 flex items-center gap-1.5">
+        <label htmlFor="destino-input" className="text-xs font-subheading uppercase tracking-wider font-bold text-white flex items-center gap-1.5">
           <MapPin className="h-3.5 w-3.5" />
           Dirección de Destino (Entrega)
         </label>
@@ -74,6 +74,7 @@ export default function CotizadorExpressFormFields({
           required
           icon={<User className="h-3.5 w-3.5" />}
           error={error}
+          labelClassName="text-white"
           containerClassName="space-y-1.5"
         />
 
@@ -88,6 +89,7 @@ export default function CotizadorExpressFormFields({
           icon={<Phone className="h-3.5 w-3.5" />}
           error={error}
           className="font-mono tabular-nums"
+          labelClassName="text-white"
           containerClassName="space-y-1.5"
         />
       </div>
@@ -102,6 +104,7 @@ export default function CotizadorExpressFormFields({
         required
         icon={<Package className="h-3.5 w-3.5" />}
         error={error}
+        labelClassName="text-white"
         containerClassName="space-y-1.5"
       />
 

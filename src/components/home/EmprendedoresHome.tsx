@@ -102,7 +102,7 @@ export default function EmprendedoresHome() {
           </h2>
 
           <motion.div className="pt-2" variants={wordContainerVariants}>
-            <p className="text-brand-blue-200 font-sans text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl font-medium tracking-tight">
+            <p className="text-brand-blue-50 font-sans text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl font-medium tracking-tight">
               <span className="sr-only">{descriptionText}</span>
               <span aria-hidden="true">
                 {words.map((word, i) => (
@@ -169,7 +169,7 @@ export default function EmprendedoresHome() {
                   >
                     Logística E-Commerce
                   </motion.h3>
-                  <p className="text-brand-blue-200 text-sm leading-relaxed font-sans">
+                  <p className="text-brand-blue-50 text-sm leading-relaxed font-sans">
                     Gestión de última milla pensada para PyMEs y marcas locales. Optimizamos tus costos de envío con retiros programados a domicilio y soporte post-venta.
                   </p>
                 </div>
@@ -193,7 +193,7 @@ export default function EmprendedoresHome() {
                   className="inline-flex items-center justify-between rounded-full min-h-[52px] px-8 py-3.5 bg-[#FFF12E] hover:bg-[#FFF44A] text-[#0950F6] font-subheading text-base font-bold uppercase tracking-wider shadow-glow-yellow transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
                 >
                   <span>Conocé más</span>
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#0950F6]/15 text-[#0950F6] ml-3 transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-transparent text-[#0950F6] ml-3 transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
                 </Link>
@@ -250,7 +250,7 @@ export default function EmprendedoresHome() {
               <div className="pt-4 mt-4 border-t border-[#BACEFD] relative z-10 flex justify-end">
                 <Link
                   href="/servicios/enviosflex"
-                  className="cta-nested-pill bg-brand-blue-700 text-white px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-md hover:bg-brand-blue-800"
+                  className="cta-nested-pill bg-brand-blue-700 text-white px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-md hover:bg-brand-blue-950"
                 >
                   <span>Configurar Flex</span>
                   <span className="cta-nested-icon bg-white/10 w-6 h-6 rounded-full flex items-center justify-center">
@@ -301,7 +301,7 @@ export default function EmprendedoresHome() {
                   <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-700 group-hover:text-brand-blue-900 transition-colors">
                     Soluciones Corporativas
                   </h3>
-                  <p className="text-brand-ink/75 text-xs sm:text-sm leading-relaxed font-sans">
+                  <p className="text-brand-ink text-xs sm:text-sm leading-relaxed font-sans">
                     Soporte a gran escala con facturación mensual, ruteos especiales para grandes volúmenes y entregas express coordinadas en Mar del Plata.
                   </p>
                 </div>
@@ -328,7 +328,7 @@ export default function EmprendedoresHome() {
           variants={itemVariants}
           className="mt-24 pt-12 border-t border-brand-blue-500/10"
         >
-          <p className="text-center font-subheading text-xs tracking-widest text-brand-blue-200 mb-6 uppercase">
+          <p className="text-center font-subheading text-xs tracking-widest text-brand-blue-50 mb-6 uppercase">
             Marcas locales que confían en nosotros
           </p>
           <div
@@ -340,7 +340,7 @@ export default function EmprendedoresHome() {
                 {partners.map((partner, index) => (
                   <span
                     key={index}
-                    className="font-display text-2xl tracking-wider text-brand-blue-200 uppercase cursor-default hover:text-brand-yellow-500 hover:scale-105 transition-all duration-300"
+                    className="font-display text-2xl tracking-wider text-brand-blue-50 uppercase cursor-default hover:text-brand-yellow-500 hover:scale-105 transition-all duration-300"
                   >
                     {partner}
                   </span>
@@ -351,7 +351,7 @@ export default function EmprendedoresHome() {
                 {partners.map((partner, index) => (
                   <span
                     key={`dup-${index}`}
-                    className="font-display text-2xl tracking-wider text-brand-blue-200 uppercase cursor-default hover:text-brand-yellow-500 hover:scale-105 transition-all duration-300"
+                    className="font-display text-2xl tracking-wider text-brand-blue-50 uppercase cursor-default hover:text-brand-yellow-500 hover:scale-105 transition-all duration-300"
                   >
                     {partner}
                   </span>

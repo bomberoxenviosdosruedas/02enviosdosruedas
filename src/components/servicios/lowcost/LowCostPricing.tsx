@@ -181,7 +181,7 @@ export default function LowCostPricing() {
                       <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-700 font-medium">/ despacho final</span>
                     </div>
 
-                    <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-brand-ink/80">
+                    <p className="text-sm leading-relaxed font-sans min-h-[48px] text-brand-ink">
                       {zone.description}
                     </p>
                   </CardHeader>

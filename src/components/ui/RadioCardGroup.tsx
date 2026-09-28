@@ -123,7 +123,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
                       'font-subheading text-[10px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-full',
                       isChecked && type.includes('EXPRESS')
                         ? 'bg-brand-yellow-500 text-brand-blue-900'
-                        : 'bg-brand-blue-100 text-brand-blue-800'
+                        : 'bg-brand-blue-50 text-brand-blue-700'
                     )}
                   >
                     {opt.badge}
@@ -159,8 +159,8 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
                   className={cn(
                     'text-xs font-sans leading-relaxed',
                     isChecked && type.includes('EXPRESS')
-                      ? 'text-brand-blue-100'
-                      : 'text-brand-blue-700/80'
+                      ? 'text-brand-blue-50'
+                      : 'text-brand-blue-700'
                   )}
                 >
                   {opt.description}
@@ -174,7 +174,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
                 <span
                   className={cn(
                     'text-[11px] font-subheading uppercase tracking-wider',
-                    isChecked && type.includes('EXPRESS') ? 'text-brand-blue-100' : 'text-brand-blue-500'
+                    isChecked && type.includes('EXPRESS') ? 'text-brand-blue-50' : 'text-brand-blue-500'
                   )}
                 >
                   DESDE

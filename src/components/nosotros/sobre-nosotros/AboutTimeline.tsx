@@ -59,7 +59,7 @@ export default function AboutTimeline() {
           <h2 className="text-[#0950F6] text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
             NUESTRA HISTORIA
           </h2>
-          <p className="text-[#0950F6]/80 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-[#0950F6] font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Más de 7 años transformando la última milla y la mensajería urbana en la ciudad de Mar del Plata.
           </p>
         </div>
@@ -112,7 +112,7 @@ export default function AboutTimeline() {
                         <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-[#0950F6] leading-tight">
                           {milestone.title}
                         </h3>
-                        <p className="text-xs sm:text-sm text-[#0950F6]/80 leading-relaxed font-sans">
+                        <p className="text-xs sm:text-sm text-[#0950F6] leading-relaxed font-sans">
                           {milestone.desc}
                         </p>
                       </div>

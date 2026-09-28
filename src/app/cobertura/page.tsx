@@ -127,7 +127,7 @@ export default function CoberturaPage() {
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-900">
             ESQUEMA DE RADIOS Y TARIFAS 2026
           </h2>
-          <p className="font-sans text-sm sm:text-base text-brand-ink/80 mt-2">
+          <p className="font-sans text-sm sm:text-base text-brand-ink mt-2">
             Tarifas transparentes calculadas según la distancia real en kilómetros desde el punto de retiro al de entrega.
           </p>
         </div>
@@ -185,7 +185,7 @@ export default function CoberturaPage() {
                       {item.km}
                     </span>
                   </div>
-                  <p className="font-sans text-xs text-brand-ink/70 leading-relaxed mb-4">
+                  <p className="font-sans text-xs text-brand-ink leading-relaxed mb-4">
                     {item.desc}
                   </p>
                 </div>
@@ -217,7 +217,7 @@ export default function CoberturaPage() {
           <h2 className="font-display text-2xl sm:text-3xl uppercase text-brand-blue-900">
             BUSCADOR DE BARRIOS Y ZONAS
           </h2>
-          <p className="font-sans text-sm text-brand-ink/80 mt-1">
+          <p className="font-sans text-sm text-brand-ink mt-1">
             Encontrá tu barrio en Mar del Plata y visualizá el radio y la tarifa estimada de forma inmediata.
           </p>
         </div>
@@ -235,7 +235,7 @@ export default function CoberturaPage() {
               <h3 className="font-subheading text-xl uppercase font-bold text-brand-blue-900">
                 BASE OPERATIVA CENTRAL
               </h3>
-              <p className="font-sans text-sm text-brand-ink/80 leading-relaxed">
+              <p className="font-sans text-sm text-brand-ink leading-relaxed">
                 Nuestra base física está ubicada en <strong>Friuli 1972, Barrio Chauvín</strong>. Esta posición estratégica en el corazón de Mar del Plata nos permite despachar a cualquier punto de la ciudad en minutos.
               </p>
             </div>
@@ -247,7 +247,7 @@ export default function CoberturaPage() {
               <h3 className="font-subheading text-xl uppercase font-bold text-brand-blue-900">
                 SERVICIO EXPRESS (60 A 90 MIN)
               </h3>
-              <p className="font-sans text-sm text-brand-ink/80 leading-relaxed">
+              <p className="font-sans text-sm text-brand-ink leading-relaxed">
                 Prioridad operativa directa con franja horaria de entrega a elección (ej. 10 a 13 hs). Solicitá antes de las 15:00 hs con 2 horas de anticipación.
               </p>
             </div>
@@ -259,7 +259,7 @@ export default function CoberturaPage() {
               <h3 className="font-subheading text-xl uppercase font-bold text-brand-blue-900">
                 REPARTO LOWCOST EN EL DÍA
               </h3>
-              <p className="font-sans text-sm text-brand-ink/80 leading-relaxed">
+              <p className="font-sans text-sm text-brand-ink leading-relaxed">
                 Entregas en el transcurso de la jornada antes de las 19:00 hs para compras online y comercios. Solicitá antes de las 13:00 hs con la tarifa más conveniente.
               </p>
             </div>

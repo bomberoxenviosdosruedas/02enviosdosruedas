@@ -155,7 +155,7 @@ export default function AddressAutocomplete({
           aria-controls={`${id}-suggestions`}
           aria-activedescendant={selectedIndex >= 0 ? `${id}-option-${selectedIndex}` : undefined}
         />
-        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-brand-blue-200 pointer-events-none" aria-hidden="true">
+        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-brand-blue-700 pointer-events-none" aria-hidden="true">
           {isLoading ? (
             <Loader2 className="h-4 w-4 animate-spin" />
           ) : (
@@ -168,7 +168,7 @@ export default function AddressAutocomplete({
         <ul
           id={`${id}-suggestions`}
           role="listbox"
-          className="absolute z-50 w-full mt-1 bg-brand-blue-800 border border-white/20 rounded-xl max-h-60 overflow-y-auto shadow-2xl text-white divide-y divide-white/10"
+          className="absolute z-50 w-full mt-1 bg-brand-blue-700 border border-white/20 rounded-xl max-h-60 overflow-y-auto shadow-2xl text-white divide-y divide-white/10"
         >
           {suggestions.map((s, idx) => {
             const isSelected = idx === selectedIndex;
@@ -180,7 +180,7 @@ export default function AddressAutocomplete({
                 aria-selected={isSelected}
                 onClick={() => handleSelect(s)}
                 className={`px-4 py-3 cursor-pointer flex items-start gap-3 transition-colors text-sm ${
-                  isSelected ? 'bg-white/20 ring-1 ring-brand-yellow-500' : 'hover:bg-white/10'
+                  isSelected ? 'bg-white/10 ring-1 ring-brand-yellow-500' : 'hover:bg-white/10'
                 }`}
               >
                 <MapPin className="h-5 w-5 text-brand-yellow-500 shrink-0 mt-0.5" aria-hidden="true" />
@@ -188,7 +188,7 @@ export default function AddressAutocomplete({
                   <p className="font-semibold text-white">
                     {s.description.split(',')[0]}
                   </p>
-                  <p className="text-xs text-brand-blue-100 mt-0.5 line-clamp-1 font-medium">
+                  <p className="text-xs text-brand-blue-50 mt-0.5 line-clamp-1 font-medium">
                     {s.description}
                   </p>
                 </div>

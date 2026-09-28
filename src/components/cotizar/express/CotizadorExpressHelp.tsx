@@ -43,6 +43,8 @@ export default function CotizadorExpressHelp() {
               <CTANestedPill
                 href="/contacto"
                 variant="outline"
+                iconClassName="text-white"
+                className="text-white hover:text-brand-blue-700"
               >
                 Formulario de Contacto
               </CTANestedPill>

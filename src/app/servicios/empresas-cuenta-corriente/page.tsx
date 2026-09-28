@@ -119,7 +119,7 @@ export default function EmpresasCuentaCorrientePage() {
                 LOGÍSTICA CON <span className="text-brand-yellow-500">CUENTA CORRIENTE</span> PARA EMPRESAS
               </h1>
 
-              <p className="font-sans text-base sm:text-lg text-brand-blue-50/90 max-w-xl leading-relaxed">
+              <p className="font-sans text-base sm:text-lg text-brand-blue-50 max-w-xl leading-relaxed">
                 Olvidate de pagar cada envío en efectivo. Abrí una cuenta corriente para tu comercio o empresa con Factura A, tarifas bonificadas y liquidaciones periódicas transparentes.
               </p>
 
@@ -146,7 +146,7 @@ export default function EmpresasCuentaCorrientePage() {
               </div>
 
               {/* Micro-badges */}
-              <div className="pt-4 flex flex-wrap gap-4 text-xs font-mono text-brand-blue-100">
+              <div className="pt-4 flex flex-wrap gap-4 text-xs font-mono text-brand-blue-50">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-brand-yellow-500 shrink-0" />
                   Factura A electrónica
@@ -274,7 +274,7 @@ export default function EmpresasCuentaCorrientePage() {
             <h2 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-blue-700">
               OPTIMIZÁ LA LOGÍSTICA DE TU EMPRESA
             </h2>
-            <p className="font-sans text-sm sm:text-base text-brand-blue-600/90">
+            <p className="font-sans text-sm sm:text-base text-brand-blue-600">
               Diseñado para simplificar tu administración con trazabilidad y respaldo fiscal completo.
             </p>
           </div>

@@ -40,7 +40,7 @@ export default function AboutValues() {
           <h2 className="text-white text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
             NUESTROS VALORES
           </h2>
-          <p className="text-white/80 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
+          <p className="text-white/90 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
             Los pilares innegociables que sostienen nuestra operativa diaria en cada rincón de General Pueyrredón.
           </p>
         </div>
@@ -69,7 +69,7 @@ export default function AboutValues() {
                   <h3 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-[#0950F6] leading-tight">
                     Cuidado del Paquete
                   </h3>
-                  <p className="text-[#0950F6]/80 font-sans leading-relaxed text-sm sm:text-base max-w-prose">
+                  <p className="text-[#0950F6] font-sans leading-relaxed text-sm sm:text-base max-w-prose">
                     Manipulación profesional de paquetería e-commerce, indumentaria, tecnología y repuestos. Cada envío viaja seguro y protegido de las inclemencias del clima marplatense.
                   </p>
                 </div>
@@ -102,7 +102,7 @@ export default function AboutValues() {
                           <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-[#0950F6] leading-tight">
                             {val.title}
                           </h3>
-                          <p className="text-xs sm:text-sm text-[#0950F6]/80 leading-relaxed font-sans">
+                          <p className="text-xs sm:text-sm text-[#0950F6] leading-relaxed font-sans">
                             {val.desc}
                           </p>
                         </div>

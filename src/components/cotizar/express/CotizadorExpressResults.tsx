@@ -59,7 +59,7 @@ export default function CotizadorExpressResults({ form, error }: CotizadorExpres
               <div className="bg-[#0950F6] p-5 sm:p-6 rounded-[20px] border border-white/20 space-y-4 text-white">
                 {quoteId && (
                   <div className="flex items-center justify-between text-xs pb-2 border-b border-white/10">
-                    <span className="font-mono text-[11px] text-white/80">ID de Seguimiento:</span>
+                    <span className="font-mono text-[11px] text-white/90">ID de Seguimiento:</span>
                     <span className="font-mono text-xs px-2.5 py-0.5 rounded-full bg-[#FFEC01]/20 text-[#FFEC01] font-bold border border-[#FFEC01]/40 tabular-nums">
                       #{quoteId}
                     </span>
@@ -99,6 +99,8 @@ export default function CotizadorExpressResults({ form, error }: CotizadorExpres
                     <CTANestedPill
                       href="/contacto"
                       variant="outline"
+                      iconClassName="text-white"
+                      className="text-white hover:text-brand-blue-700"
                     >
                       Pedir Cotización Especial
                     </CTANestedPill>

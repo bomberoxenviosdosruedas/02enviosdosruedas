@@ -28,7 +28,7 @@ export default function CotizadorExpressMap({ form }: CotizadorExpressMapProps) 
               Ruteador MDQ Activo
             </span>
           </div>
-          <span className="text-[10px] font-mono text-white/70 tabular-nums">
+          <span className="text-[10px] font-mono text-white/90 tabular-nums">
             OpenStreetMap + OSRM
           </span>
         </div>

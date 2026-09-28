@@ -83,7 +83,7 @@ export default function ContactInfo() {
                       <span className="text-2xs font-subheading uppercase tracking-wider text-brand-blue-700 px-2.5 py-0.5 rounded bg-brand-blue-50 border border-brand-blue-100">
                         {card.tag}
                       </span>
-                      <span className="text-2xs font-mono font-bold uppercase text-brand-blue-700/60 tabular-nums">
+                      <span className="text-2xs font-mono font-bold uppercase text-brand-blue-700 tabular-nums">
                         {card.subtag}
                       </span>
                     </div>
@@ -108,7 +108,7 @@ export default function ContactInfo() {
                       </h3>
                     </div>
 
-                    <p className="font-sans text-xs sm:text-sm text-brand-blue-700/80 leading-relaxed mb-6">
+                    <p className="font-sans text-xs sm:text-sm text-brand-blue-700 leading-relaxed mb-6">
                       {card.description}
                     </p>
                   </div>
@@ -150,7 +150,7 @@ export default function ContactInfo() {
                 BASE DE OPERACIONES MDQ
               </h3>
             </div>
-            <span className="font-mono text-xs text-white/80 font-bold px-3 py-1 rounded-full bg-white/10 border border-white/20 tabular-nums">
+            <span className="font-mono text-xs text-white/90 font-bold px-3 py-1 rounded-full bg-white/10 border border-white/20 tabular-nums">
               Partido de General Pueyrredón
             </span>
           </div>
@@ -233,7 +233,7 @@ export default function ContactInfo() {
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/15 text-xs text-white/60 flex items-center justify-between font-mono">
+              <div className="mt-6 pt-4 border-t border-white/15 text-xs text-white/90 flex items-center justify-between font-mono">
                 <span>Atención presencial y retiro de cargas</span>
                 <span className="text-brand-yellow-500 font-bold tabular-nums">Friuli 1972</span>
               </div>

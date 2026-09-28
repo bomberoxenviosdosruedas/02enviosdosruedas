@@ -349,7 +349,7 @@ export default function SliderServicios() {
                       <span
                         className={cn(
                           'text-xs font-subheading uppercase tracking-wider font-bold',
-                          isDarkBlue ? 'text-brand-blue-200' : 'text-brand-blue-500'
+                          isDarkBlue ? 'text-brand-blue-50' : 'text-brand-blue-500'
                         )}
                       >
                         {activeSlide.subtitle}
@@ -369,7 +369,7 @@ export default function SliderServicios() {
                   <p
                     className={cn(
                       'font-sans text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl',
-                      isDarkBlue ? 'text-brand-blue-100/90' : 'text-brand-ink/85'
+                      isDarkBlue ? 'text-brand-blue-50' : 'text-brand-ink'
                     )}
                   >
                     {activeSlide.desc}
@@ -414,7 +414,7 @@ export default function SliderServicios() {
                       <span
                         className={cn(
                           'inline-flex items-center justify-center w-8 h-8 rounded-full ml-3 transition-transform duration-300 group-hover:translate-x-1',
-                          isDarkBlue ? 'bg-[#0950F6]/15 text-[#0950F6]' : 'bg-white/20 text-white'
+                          isDarkBlue ? 'bg-transparent text-[#0950F6]' : 'bg-white/20 text-white'
                         )}
                       >
                         <ArrowRight className="w-4 h-4" />
@@ -425,7 +425,7 @@ export default function SliderServicios() {
                       href="/contacto"
                       className={cn(
                         'font-subheading text-xs sm:text-sm uppercase tracking-wider font-bold transition-colors underline-offset-4 hover:underline py-2',
-                        isDarkBlue ? 'text-brand-blue-200 hover:text-white' : 'text-brand-blue-600 hover:text-brand-blue-800'
+                        isDarkBlue ? 'text-brand-blue-50 hover:text-white' : 'text-brand-blue-600 hover:text-brand-blue-700'
                       )}
                     >
                       Consultar Cuenta Corriente Comercial →

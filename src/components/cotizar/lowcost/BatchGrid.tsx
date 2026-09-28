@@ -90,7 +90,7 @@ export default function BatchGrid() {
                   Planilla de Despachos Masivos (Batch)
                 </h3>
               </div>
-              <p className="text-xs sm:text-sm text-brand-blue-700/80 font-sans">
+              <p className="text-xs sm:text-sm text-brand-blue-700 font-sans">
                 Cargá múltiples destinos de Mar del Plata para ruteo agrupado del día y consultá por WhatsApp con un solo clic.
               </p>
             </div>
@@ -103,7 +103,7 @@ export default function BatchGrid() {
               <button
                 type="button"
                 onClick={addRow}
-                className="inline-flex items-center gap-1.5 bg-brand-blue-700 hover:bg-brand-blue-700/90 text-white font-subheading text-xs uppercase tracking-wider px-4 py-2.5 rounded-full shadow-sm transition-all cursor-pointer"
+                className="inline-flex items-center gap-1.5 bg-brand-blue-700 hover:bg-brand-blue-700 text-white font-subheading text-xs uppercase tracking-wider px-4 py-2.5 rounded-full shadow-sm transition-all cursor-pointer"
               >
                 <Plus className="h-4 w-4" />
                 <span>Agregar Fila</span>
@@ -163,7 +163,7 @@ export default function BatchGrid() {
                     onClick={() => removeRow(row.id)}
                     disabled={rows.length <= 1}
                     aria-label={`Eliminar fila ${index + 1} de la planilla de envíos`}
-                    className="p-2.5 min-w-11 min-h-11 flex items-center justify-center text-brand-blue-700/60 hover:text-red-600 disabled:opacity-30 rounded-lg transition-colors shrink-0 cursor-pointer"
+                    className="p-2.5 min-w-11 min-h-11 flex items-center justify-center text-brand-blue-700 hover:text-red-600 disabled:opacity-30 rounded-lg transition-colors shrink-0 cursor-pointer"
                     title="Eliminar fila"
                   >
                     <Trash2 className="h-4 w-4" />
@@ -175,7 +175,7 @@ export default function BatchGrid() {
 
           {/* Footer & Submit to WhatsApp */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-brand-blue-100">
-            <div className="flex items-center gap-2 text-xs text-brand-blue-700/80 font-sans">
+            <div className="flex items-center gap-2 text-xs text-brand-blue-700 font-sans">
               <Shield className="h-4 w-4 text-brand-blue-700 shrink-0" />
               <span className="font-mono tabular-nums">Tarifas LowCost vigentes 2026 ($3.000 a $7.000 + excedente por km).</span>
             </div>

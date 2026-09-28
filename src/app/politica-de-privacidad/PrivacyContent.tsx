@@ -231,7 +231,7 @@ export default function PrivacyContent() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="inline-flex items-center gap-1.5 text-xs text-brand-yellow-500 font-medium mt-6 bg-white/10 border border-white/10 px-4 py-2 rounded-full font-mono"
+            className="inline-flex items-center gap-1.5 text-xs text-brand-yellow-500 font-medium mt-6 bg-brand-blue-500 border border-white/10 px-4 py-2 rounded-full font-mono"
           >
             <Calendar className="h-3.5 w-3.5" />
             <span>Vigencia Operativa 2026</span>
@@ -268,7 +268,7 @@ export default function PrivacyContent() {
                           <IconComponent className={`h-4 w-4 shrink-0 ${isActive ? "text-brand-yellow-500" : "text-brand-blue-500"}`} />
                           <span className="truncate">{section.shortTitle}</span>
                         </div>
-                        <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow-500 translate-x-0.5" : "text-brand-blue-300"}`} />
+                        <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow-500 translate-x-0.5" : "text-brand-blue-700"}`} />
                       </button>
                     );
                   })}
@@ -322,7 +322,7 @@ export default function PrivacyContent() {
                           <IconComponent className="h-6 w-6" />
                         </div>
                         <div>
-                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-blue-400 block mb-0.5">
+                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-blue-700 block mb-0.5">
                             Sección {index + 1} de {SECTIONS.length}
                           </span>
                           <h2 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-700">
@@ -333,7 +333,7 @@ export default function PrivacyContent() {
 
                       {/* Section Content */}
                       <div>
-                        <p className="text-brand-ink/90 text-sm sm:text-base leading-relaxed font-sans">
+                        <p className="text-brand-ink text-sm sm:text-base leading-relaxed font-sans">
                           {section.content}
                         </p>
                       </div>
@@ -348,7 +348,7 @@ export default function PrivacyContent() {
                             {section.extraDetails.map((detail, idx) => (
                               <li
                                 key={idx}
-                                className="flex items-start gap-2 text-xs text-brand-ink/80 font-sans leading-relaxed"
+                                className="flex items-start gap-2 text-xs text-brand-ink font-sans leading-relaxed"
                               >
                                 <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-yellow-500 shrink-0" />
                                 <span>{detail}</span>
@@ -367,7 +367,7 @@ export default function PrivacyContent() {
                 variants={cardVariants}
                 className="double-bezel-outer bg-brand-blue-900/90 border border-brand-blue-700 p-2 rounded-3xl shadow-xl"
               >
-                <div className="double-bezel-inner bg-gradient-to-br from-brand-blue-800 to-brand-blue-950 text-white rounded-2xl p-8 sm:p-10 border border-brand-blue-700/60">
+                <div className="double-bezel-inner bg-gradient-to-br from-brand-blue-700 to-brand-blue-950 text-white rounded-2xl p-8 sm:p-10 border border-brand-blue-700/60">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                     <div className="space-y-2.5 max-w-lg">
                       <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-[10px] font-subheading font-bold uppercase tracking-widest inline-block">
@@ -376,7 +376,7 @@ export default function PrivacyContent() {
                       <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
                         ¿Tenés dudas de privacidad?
                       </h3>
-                      <p className="text-brand-blue-100 text-xs sm:text-sm leading-relaxed font-sans">
+                      <p className="text-brand-blue-50 text-xs sm:text-sm leading-relaxed font-sans">
                         Escribinos directamente o completá nuestro formulario para que podamos ayudarte de inmediato.
                       </p>
                     </div>
@@ -402,7 +402,7 @@ export default function PrivacyContent() {
         <button
           type="button"
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-brand-blue-700 hover:bg-brand-blue-800 border border-white/10 text-brand-yellow-500 rounded-full shadow-lg cursor-pointer transition-all"
+          className="fixed bottom-8 right-8 z-50 p-3 bg-brand-blue-700 hover:bg-brand-blue-950 border border-white/10 text-brand-yellow-500 rounded-full shadow-lg cursor-pointer transition-all"
           title="Volver Arriba"
           aria-label="Volver arriba"
         >

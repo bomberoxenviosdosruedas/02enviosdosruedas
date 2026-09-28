@@ -42,7 +42,7 @@ export default function FlexRequirements() {
           <h2 className="text-[#0950F6] text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight inline-block leading-[0.98]">
             ¿QUÉ NECESITÁS?
           </h2>
-          <p className="text-[#0950F6]/80 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-[#0950F6] font-sans text-sm sm:text-base max-w-lg mx-auto">
             Requisitos mínimos e indispensables para empezar a ofrecer envíos Same-Day y potenciar tu e-commerce hoy mismo.
           </p>
           <div className="h-1.5 w-16 bg-[#FFEC01] mx-auto rounded-full" />
@@ -71,7 +71,7 @@ export default function FlexRequirements() {
                       <h3 className="text-xl font-display uppercase tracking-wide text-[#0950F6] font-bold leading-tight">
                         {req.title}
                       </h3>
-                      <p className="text-sm text-[#0950F6]/80 font-sans leading-relaxed">
+                      <p className="text-sm text-[#0950F6] font-sans leading-relaxed">
                         {req.desc}
                       </p>
                     </div>

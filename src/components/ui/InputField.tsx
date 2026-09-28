@@ -63,7 +63,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
 
         <div className="relative flex items-center w-full">
           {icon && (
-            <div className="input-icon absolute left-3.5 text-brand-blue-400 pointer-events-none flex items-center justify-center w-5 h-5">
+            <div className="input-icon absolute left-3.5 text-brand-blue-700 pointer-events-none flex items-center justify-center w-5 h-5">
               {icon}
             </div>
           )}

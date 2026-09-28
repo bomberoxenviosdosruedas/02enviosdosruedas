@@ -56,7 +56,7 @@ export default function FlexHowItWorks() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-700 inline-block leading-[0.98]">
             LOGÍSTICA SIN FRICCIONES
           </h2>
-          <p className="text-brand-ink/80 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-ink font-sans text-sm sm:text-base max-w-lg mx-auto">
             Integramos tu flujo diario de ventas con nuestra red de distribución de última milla de forma directa.
           </p>
           <div className="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
@@ -100,7 +100,7 @@ export default function FlexHowItWorks() {
                     <h3 className="text-xl font-display uppercase tracking-wider text-brand-blue-500 font-bold leading-tight">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-brand-ink/80 font-sans leading-relaxed">
+                    <p className="text-sm text-brand-ink font-sans leading-relaxed">
                       {step.desc}
                     </p>
                   </div>

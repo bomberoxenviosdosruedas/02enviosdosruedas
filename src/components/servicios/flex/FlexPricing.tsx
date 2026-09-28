@@ -134,7 +134,7 @@ export default function FlexPricing() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
             as="p"
-            className="text-brand-blue-100 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
+            className="text-brand-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
           >
             Escalá tu negocio con MercadoLibre Flex. A mayor volumen diario de despachos, mejores beneficios y tarifas para tus envíos Same-Day.
           </TimelineContent>
@@ -168,7 +168,7 @@ export default function FlexPricing() {
                       )}
 
                       <div>
-                        <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-300">
+                        <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-50">
                           {level.volume}
                         </span>
                         <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight text-white">
@@ -193,10 +193,10 @@ export default function FlexPricing() {
                             {level.price}
                           </span>
                         )}
-                        <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-300">/ liquidación quincenal</span>
+                        <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-50">/ liquidación quincenal</span>
                       </div>
 
-                      <p className="text-sm opacity-90 leading-relaxed font-sans min-h-[48px] text-brand-blue-100">
+                      <p className="text-sm leading-relaxed font-sans min-h-[48px] text-brand-blue-50">
                         {level.description}
                       </p>
                     </div>
@@ -204,7 +204,7 @@ export default function FlexPricing() {
                     <div className="pt-4">
                       <ul className="space-y-2.5 pt-4 border-t border-brand-blue-800 mb-6">
                         {level.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-center gap-2 text-xs text-brand-blue-100">
+                          <li key={bullet} className="flex items-center gap-2 text-xs text-brand-blue-50">
                             <Check className="h-4 w-4 shrink-0 text-brand-yellow-500" />
                             <span className="font-sans text-xs">{bullet}</span>
                           </li>
@@ -249,7 +249,7 @@ export default function FlexPricing() {
                 <h3 className="text-3xl font-display uppercase tracking-tight text-white">
                   <span className="font-mono tabular-nums">30%</span> adicional en caso de lluvia
                 </h3>
-                <p className="text-sm text-brand-blue-100 leading-relaxed font-sans max-w-2xl">
+                <p className="text-sm text-brand-blue-50 leading-relaxed font-sans max-w-2xl">
                   Para todos nuestros clientes asociados al canal Flex, el recargo por días de lluvia es de solo un <span className="font-mono tabular-nums">30%</span> adicional sobre el valor del envío. Cuidamos tu rentabilidad operativa para que sigas vendiendo con tranquilidad.
                 </p>
               </div>

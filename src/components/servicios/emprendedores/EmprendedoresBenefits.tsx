@@ -51,7 +51,7 @@ export default function EmprendedoresBenefits() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white leading-[0.98]">
             POTENCIAMOS TU PYME
           </h2>
-          <p className="text-white/80 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-white/90 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Dedicá a vender, de la logística nos encargamos nosotros.
           </p>
           <div className="h-1.5 w-16 bg-[#FFEC01] mx-auto rounded-full" />
@@ -78,7 +78,7 @@ export default function EmprendedoresBenefits() {
                       {benefit.title}
                     </h3>
                     
-                    <p className="text-sm text-[#0950F6]/80 font-sans leading-relaxed relative z-10">
+                    <p className="text-sm text-[#0950F6] font-sans leading-relaxed relative z-10">
                       {benefit.desc}
                     </p>
                   </div>

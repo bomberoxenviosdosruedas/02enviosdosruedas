@@ -85,12 +85,12 @@ export default function ServicesOverview() {
       cardStyleSide: 'border-brand-blue-500/20 bg-brand-blue-700 text-white/90',
       textColor: 'text-white',
       titleColor: 'text-white group-hover:text-brand-yellow-500',
-      descColor: 'text-brand-blue-100',
+      descColor: 'text-brand-blue-50',
       imgBlend: 'opacity-25 mix-blend-overlay',
       badgeStyle: 'bg-brand-yellow-500 text-brand-blue-700 border-brand-yellow-400',
       statBoxStyle: 'bg-white/10 border border-white/10 text-white',
       statValStyle: 'text-brand-yellow-500',
-      statLabelStyle: 'text-brand-blue-200',
+      statLabelStyle: 'text-brand-blue-50',
       hintColor: 'text-brand-yellow-500',
       stats: {
         time: '60-90 min',
@@ -159,10 +159,10 @@ export default function ServicesOverview() {
       cardStyleSide: 'border-brand-yellow-500/30 bg-brand-yellow-500 text-brand-ink',
       textColor: 'text-brand-ink',
       titleColor: 'text-brand-ink group-hover:text-brand-blue-700',
-      descColor: 'text-brand-blue-700/80',
+      descColor: 'text-brand-blue-700',
       imgBlend: 'opacity-20 mix-blend-multiply',
       badgeStyle: 'bg-brand-blue-700 text-white border-brand-blue-700/30',
-      statBoxStyle: 'bg-brand-blue-700/10 border border-brand-blue-700/20 text-brand-ink',
+      statBoxStyle: 'bg-brand-yellow-500 border border-brand-blue-700/30 text-brand-ink',
       statValStyle: 'text-brand-blue-700',
       statLabelStyle: 'text-brand-blue-700',
       hintColor: 'text-brand-blue-700',
@@ -196,12 +196,12 @@ export default function ServicesOverview() {
       cardStyleSide: 'border-brand-blue-700/20 bg-brand-blue-700 text-white/90',
       textColor: 'text-white',
       titleColor: 'text-white group-hover:text-brand-yellow-500',
-      descColor: 'text-brand-blue-100',
+      descColor: 'text-brand-blue-50',
       imgBlend: 'opacity-25 mix-blend-overlay',
       badgeStyle: 'bg-brand-blue-700 text-white border-brand-blue-700/30',
       statBoxStyle: 'bg-white/10 border border-white/10 text-white',
       statValStyle: 'text-brand-yellow-500',
-      statLabelStyle: 'text-brand-blue-200',
+      statLabelStyle: 'text-brand-blue-50',
       hintColor: 'text-brand-yellow-500',
       stats: {
         time: '24 hs / Stock',
@@ -623,8 +623,8 @@ export default function ServicesOverview() {
                 </div>
 
                 {/* Description & Features Box */}
-                <div className="space-y-4 bg-brand-ink/40 p-5 rounded-2xl border border-brand-blue-500/10 text-left">
-                  <p className="text-sm sm:text-base leading-relaxed text-brand-blue-100 font-sans">
+                <div className="space-y-4 bg-brand-blue-900 p-5 rounded-2xl border border-brand-blue-500/10 text-left">
+                  <p className="text-sm sm:text-base leading-relaxed text-brand-blue-50 font-sans">
                     {selectedService.details.summary}
                   </p>
 
@@ -652,23 +652,23 @@ export default function ServicesOverview() {
                   transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.1 }}
                   className="grid grid-cols-3 gap-3 text-center"
                 >
-                  <div className="bg-brand-ink/60 border border-brand-blue-500/20 p-3 rounded-xl">
+                  <div className="bg-brand-blue-900 border border-brand-blue-500/20 p-3 rounded-xl">
                     <span className="text-xl font-bold font-subheading text-brand-yellow-500 block truncate">
                       {selectedService.stats.time}
                     </span>
-                    <span className="text-[10px] text-brand-blue-200 font-bold uppercase tracking-wider">Tiempos</span>
+                    <span className="text-[10px] text-brand-blue-50 font-bold uppercase tracking-wider">Tiempos</span>
                   </div>
-                  <div className="bg-brand-ink/60 border border-brand-blue-500/20 p-3 rounded-xl">
+                  <div className="bg-brand-blue-900 border border-brand-blue-500/20 p-3 rounded-xl">
                     <span className="text-xl font-bold font-subheading text-white block truncate">
                       {selectedService.stats.price}
                     </span>
-                    <span className="text-[10px] text-brand-blue-200 font-bold uppercase tracking-wider">Precio Base</span>
+                    <span className="text-[10px] text-brand-blue-50 font-bold uppercase tracking-wider">Precio Base</span>
                   </div>
-                  <div className="bg-brand-ink/60 border border-brand-blue-500/20 p-3 rounded-xl">
+                  <div className="bg-brand-blue-900 border border-brand-blue-500/20 p-3 rounded-xl">
                     <span className="text-xl font-bold font-subheading text-brand-yellow-500 block truncate">
                       {selectedService.stats.weight}
                     </span>
-                    <span className="text-[10px] text-brand-blue-200 font-bold uppercase tracking-wider">Capacidad</span>
+                    <span className="text-[10px] text-brand-blue-50 font-bold uppercase tracking-wider">Capacidad</span>
                   </div>
                 </motion.div>
 
@@ -679,7 +679,7 @@ export default function ServicesOverview() {
                     onClick={() => setSelectedService(null)}
                     whileHover={reduceMotion ? undefined : { x: -4, transition: springConfigSnappy }}
                     whileTap={reduceMotion ? undefined : { scale: 0.98 }}
-                    className="text-xs text-brand-blue-300 hover:text-white underline uppercase font-bold tracking-wider cursor-pointer"
+                    className="text-xs text-brand-blue-50 hover:text-white underline uppercase font-bold tracking-wider cursor-pointer"
                   >
                     Volver Atrás
                   </motion.button>
@@ -688,7 +688,7 @@ export default function ServicesOverview() {
                     className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-700 px-6 py-2.5 text-sm font-subheading font-bold uppercase hover:bg-brand-yellow-400"
                   >
                     <span>{selectedService.details.ctaText}</span>
-                    <span className="cta-nested-icon bg-brand-blue-700/10">→</span>
+                    <span className="cta-nested-icon bg-transparent">→</span>
                   </a>
                 </div>
               </div>

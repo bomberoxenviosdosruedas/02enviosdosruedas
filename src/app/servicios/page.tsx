@@ -233,7 +233,7 @@ export default function ServiciosPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white leading-none">
               NUESTROS <span className="text-brand-yellow-500">SERVICIOS</span>
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-brand-blue-50/90 font-sans leading-relaxed font-light max-w-2xl">
+            <p className="mt-4 text-base sm:text-lg text-brand-blue-50 font-sans leading-relaxed font-light max-w-2xl">
               Cobertura total en Mar del Plata y Partido de General Pueyrredón.
               Tarifas transparentes 2026. Flota propia, base en Friuli 1972.
             </p>
@@ -261,7 +261,7 @@ export default function ServiciosPage() {
                 href={service.href}
                 className={`group relative ${service.bgColor} ${service.borderColor} p-3 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col ${service.color}`}
               >
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[20px] shadow-sm flex flex-col justify-between h-full relative overflow-hidden">
+                <div className="border border-white/20 p-2 rounded-[20px] shadow-sm flex flex-col justify-between h-full relative overflow-hidden">
                   <div className="space-y-4 relative z-10">
                     <div className="flex items-center justify-between">
                       <span className="-rotate-1 absolute -top-3.5 left-6 bg-brand-yellow-500 text-brand-blue-900 font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-glow-yellow">
@@ -281,20 +281,20 @@ export default function ServiciosPage() {
                       </h3>
                     </div>
 
-                    <p className="text-sm opacity-90 leading-relaxed font-sans">
+                    <p className="text-sm leading-relaxed font-sans">
                       {service.description}
                     </p>
 
                     <div className="flex items-baseline gap-2 pt-2 border-t border-white/20">
                       <span className="text-2xl font-mono tabular-nums font-bold">{service.price}</span>
-                      <span className="text-xs font-subheading tracking-wider uppercase opacity-70">/ envío base</span>
+                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-50">/ envío base</span>
                     </div>
                   </div>
 
                   <div className="pt-4 border-t border-white/20 relative z-10 space-y-3">
                     <ul className="space-y-2">
                       {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-xs opacity-90">
+                        <li key={feature} className="flex items-center gap-2 text-xs">
                           <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-brand-yellow-500" />
                           <span className="font-sans">{feature}</span>
                         </li>
@@ -303,7 +303,7 @@ export default function ServiciosPage() {
 
                     <CTANestedPill
                       href={service.href}
-                      variant="outline"
+                      variant="elevated"
                       size="default"
                       className="w-full justify-center"
                     >
@@ -324,7 +324,7 @@ export default function ServiciosPage() {
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-900">
             COMPARATIVA RÁPIDA
           </h2>
-          <p className="font-sans text-sm sm:text-base text-brand-ink/80 mt-2">
+          <p className="font-sans text-sm sm:text-base text-brand-ink mt-2">
             Elegí el servicio que mejor se adapte a tu necesidad operativa y presupuesto.
           </p>
         </div>
@@ -344,10 +344,10 @@ export default function ServiciosPage() {
               {comparisonTable.map((row, idx) => (
                 <tr key={row.feature} className={idx % 2 === 0 ? 'bg-brand-blue-50/50' : 'bg-white'}>
                   <td className="p-4 font-medium text-brand-blue-900 border-t border-brand-blue-100">{row.feature}</td>
-                  <td className="p-4 text-center text-brand-ink/80 border-t border-brand-blue-100 font-mono">{row.express}</td>
-                  <td className="p-4 text-center text-brand-ink/80 border-t border-brand-blue-100 font-mono">{row.lowcost}</td>
-                  <td className="p-4 text-center text-brand-ink/80 border-t border-brand-blue-100 font-mono">{row.flex}</td>
-                  <td className="p-4 text-center text-brand-ink/80 border-t border-brand-blue-100 font-mono">{row.fulfillment}</td>
+                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.express}</td>
+                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.lowcost}</td>
+                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.flex}</td>
+                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.fulfillment}</td>
                 </tr>
               ))}
             </tbody>
@@ -355,7 +355,7 @@ export default function ServiciosPage() {
         </div>
 
         <div className="mt-6 text-center">
-          <p className="font-sans text-xs text-brand-ink/60">
+          <p className="font-sans text-xs text-brand-ink">
             * Tarifas vigentes 2026. Precios base 0-3 km. Consultá cobertura completa en
             <Link href="/cobertura" className="underline hover:text-brand-blue-700 font-medium">/cobertura</Link>
           </p>
@@ -368,7 +368,7 @@ export default function ServiciosPage() {
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-900">
             SERVICIOS COMPLEMENTARIOS
           </h2>
-          <p className="font-sans text-sm sm:text-base text-brand-ink/80 mt-2">
+          <p className="font-sans text-sm sm:text-base text-brand-ink mt-2">
             Soluciones específicas para necesidades comerciales avanzadas.
           </p>
         </div>
@@ -386,7 +386,7 @@ export default function ServiciosPage() {
                 <h3 className="font-subheading text-xl uppercase font-bold text-brand-blue-900 mb-1">
                   Envíos Contrareembolso
                 </h3>
-                <p className="font-sans text-sm text-brand-ink/80 leading-relaxed mb-3">
+                <p className="font-sans text-sm text-brand-ink leading-relaxed mb-3">
                   Cobro en efectivo en mano al destinatario. Sin comisión extra. Rinde de dinero en el día.
                 </p>
                 <CTANestedPill variant="outline" size="compact" href="/servicios/envios-contrareembolso">
@@ -409,7 +409,7 @@ export default function ServiciosPage() {
                 <h3 className="font-subheading text-xl uppercase font-bold text-brand-blue-900 mb-1">
                   Empresas Cuenta Corriente
                 </h3>
-                <p className="font-sans text-sm text-brand-ink/80 leading-relaxed mb-3">
+                <p className="font-sans text-sm text-brand-ink leading-relaxed mb-3">
                   Liquidación quincenal unificada, tarifas bonificadas por volumen y atención preferencial.
                 </p>
                 <CTANestedPill variant="outline" size="compact" href="/servicios/empresas-cuenta-corriente">
@@ -432,7 +432,7 @@ export default function ServiciosPage() {
             <h3 className="font-subheading text-2xl sm:text-3xl uppercase font-bold text-brand-blue-900 mb-3">
               ¿CUÁL ES EL SERVICIO IDEAL PARA VOS?
             </h3>
-            <p className="font-sans text-base sm:text-lg text-brand-ink/80 leading-relaxed max-w-2xl mx-auto mb-6">
+            <p className="font-sans text-base sm:text-lg text-brand-ink leading-relaxed max-w-2xl mx-auto mb-6">
               Te asesoramos sin compromiso. Contanos qué necesitás y te recomendamos la mejor opción.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

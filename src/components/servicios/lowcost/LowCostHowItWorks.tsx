@@ -41,7 +41,7 @@ export default function LowCostHowItWorks() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-[#0950F6] leading-[0.98]">
             ¿CÓMO FUNCIONA?
           </h2>
-          <p className="text-[#0950F6]/80 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-ink font-sans text-sm sm:text-base max-w-lg mx-auto">
             Un proceso simple, transparente y diseñado milimétricamente para maximizar tu productividad logística.
           </p>
           <div className="h-1.5 w-16 bg-[#FFEC01] mx-auto rounded-full" />
@@ -77,7 +77,7 @@ export default function LowCostHowItWorks() {
                       <h3 className="text-xl font-display uppercase tracking-wider text-[#0950F6] font-bold leading-tight">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-[#0950F6]/80 font-sans leading-relaxed">
+                      <p className="text-sm text-brand-ink font-sans leading-relaxed">
                         {step.desc}
                       </p>
                     </div>

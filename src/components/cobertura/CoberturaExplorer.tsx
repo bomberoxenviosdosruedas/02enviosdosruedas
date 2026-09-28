@@ -93,14 +93,14 @@ export default function CoberturaExplorer() {
               <label htmlFor="neighborhood-search" className="sr-only">
                 Buscá tu barrio o zona en Mar del Plata
               </label>
-              <Search className="w-5 h-5 text-brand-blue-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Search className="w-5 h-5 text-brand-blue-700 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
                 id="neighborhood-search"
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Buscá tu barrio (ej. Güemes, Mogotes, Batán)..."
-                className="w-full h-11 pl-11 pr-4 rounded-xl border-2 border-brand-blue-100 focus:border-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20 text-sm font-sans text-brand-blue-900 placeholder:text-brand-blue-400 transition-colors"
+                className="w-full h-11 pl-11 pr-4 rounded-xl border-2 border-brand-blue-100 focus:border-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20 text-sm font-sans text-brand-blue-900 placeholder:text-brand-blue-700 transition-colors"
               />
             </div>
 
@@ -135,7 +135,7 @@ export default function CoberturaExplorer() {
             <span>
               Mostrando <strong className="text-brand-blue-900">{filtered.length}</strong> de {NEIGHBORHOODS.length} barrios y zonas
             </span>
-            <span className="hidden sm:inline text-brand-ink/70">
+            <span className="hidden sm:inline text-brand-ink">
               Cálculo desde base central Friuli 1972
             </span>
           </div>
@@ -153,7 +153,7 @@ export default function CoberturaExplorer() {
               <div>
                 <div className="flex items-start justify-between gap-2 mb-1">
                   <span className="inline-flex items-center gap-1 font-mono text-xs font-bold px-2 py-0.5 rounded bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100">
-                    <MapPin className="w-3 h-3 text-brand-yellow-500" />
+                    <MapPin className="w-3 h-3 text-brand-blue-700" />
                     {item.zone} · {item.rangeKm}
                   </span>
                   <span className="font-mono text-xs font-bold text-brand-blue-900 bg-brand-yellow-500/20 px-2 py-0.5 rounded border border-brand-yellow-400">
@@ -174,7 +174,7 @@ export default function CoberturaExplorer() {
               <div className="pt-2 border-t border-brand-blue-50 space-y-1.5 font-mono text-xs">
                 <div className="flex items-center justify-between p-1.5 rounded-lg bg-brand-blue-50/50">
                   <span className="text-brand-blue-700 font-sans font-medium flex items-center gap-1">
-                    <Zap className="w-3 h-3 text-brand-yellow-500" /> Express:
+                    <Zap className="w-3 h-3 text-brand-blue-700" /> Express:
                   </span>
                   <span className="font-bold text-brand-blue-900 tabular-nums">
                     ${item.expressPrice.toLocaleString('es-AR')}
@@ -196,7 +196,7 @@ export default function CoberturaExplorer() {
                 className="inline-flex items-center justify-between text-xs font-subheading uppercase font-bold text-brand-blue-700 group-hover:text-brand-blue-900 pt-1"
               >
                 <span>Cotizar envío a {item.name.split('(')[0]}</span>
-                <ChevronRight className="w-4 h-4 text-brand-yellow-500 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-4 h-4 text-brand-blue-700 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
@@ -206,11 +206,11 @@ export default function CoberturaExplorer() {
       {/* No results message */}
       {filtered.length === 0 && (
         <div className="text-center py-12 bg-brand-blue-50/50 rounded-2xl border border-brand-blue-100 p-6">
-          <MapPin className="w-10 h-10 text-brand-blue-400 mx-auto mb-2" />
+          <MapPin className="w-10 h-10 text-brand-blue-700 mx-auto mb-2" />
           <h3 className="font-subheading text-lg uppercase font-bold text-brand-blue-900">
             No encontramos el barrio con ese nombre exacto
           </h3>
-          <p className="text-sm font-sans text-brand-ink/80 max-w-md mx-auto mt-1">
+          <p className="text-sm font-sans text-brand-ink max-w-md mx-auto mt-1">
             Cubrimos todo el Partido de General Pueyrredón hasta 20 km. Escribinos por WhatsApp y te confirmamos la tarifa exacta en segundos.
           </p>
           <div className="mt-4">

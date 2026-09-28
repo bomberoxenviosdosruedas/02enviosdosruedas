@@ -72,7 +72,7 @@ export default function SegmentosHome() {
           <h2 id="segmentos-home-title" className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-700">
             ¿CÓMO PODEMOS IMPULSAR TU LOGÍSTICA HOY?
           </h2>
-          <p className="font-sans text-sm sm:text-base text-brand-blue-600/90 max-w-xl mx-auto leading-relaxed">
+          <p className="font-sans text-sm sm:text-base text-brand-blue-700 max-w-xl mx-auto leading-relaxed">
             Seleccioná tu tipo de negocio o necesidad y descubrí el servicio ideal diseñado para las calles de Mar del Plata.
           </p>
         </div>
@@ -109,7 +109,7 @@ export default function SegmentosHome() {
                     {seg.title}
                   </h3>
 
-                  <p className="font-sans text-xs sm:text-sm text-brand-blue-600/90 leading-relaxed font-normal">
+                  <p className="font-sans text-xs sm:text-sm text-brand-blue-700 leading-relaxed font-normal">
                     {seg.description}
                   </p>
                 </div>

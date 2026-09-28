@@ -119,7 +119,7 @@ export default function CotizadorLowCostForm() {
               <h2 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-blue-700">
                 INGRESÁ LOS DATOS DEL ENVÍO
               </h2>
-              <p className="text-sm font-sans text-brand-blue-700/80 mt-1">
+              <p className="text-sm font-sans text-brand-blue-700 mt-1">
                 Completá los puntos de retiro y entrega en Mar del Plata para calcular la tarifa plana o escalonada Same-Day.
               </p>
             </header>

@@ -88,7 +88,7 @@ export default function LowCostBenefits() {
                     {benefit.title}
                   </h3>
                   
-                  <p className="text-sm text-brand-ink/80 font-sans leading-relaxed relative z-10">
+                  <p className="text-sm text-brand-ink font-sans leading-relaxed relative z-10">
                     {benefit.desc}
                   </p>
                 </div>

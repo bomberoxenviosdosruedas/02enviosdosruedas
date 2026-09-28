@@ -99,7 +99,7 @@ export default function VisionSection() {
               CONECTAMOS MAR DEL PLATA DE PUNTA A PUNTA
             </motion.h2>
 
-            <motion.p className="text-brand-blue-700/85 text-base sm:text-lg leading-relaxed font-sans max-w-prose font-medium">
+            <motion.p className="text-brand-blue-700 text-base sm:text-lg leading-relaxed font-sans max-w-prose font-medium">
               Nos especializamos en la distribucion de ultima milla para e-commerce locales y retailers nacionales, asegurando que tus productos lleguen al destino en tiempo record con flota propia y tarifas transparentes.
             </motion.p>
 
@@ -116,7 +116,7 @@ export default function VisionSection() {
                 </motion.div>
                 <div>
                   <h3 className="text-2xl font-subheading uppercase tracking-wider text-brand-blue-700 leading-none mb-2 font-bold">Entregas a Tiempo</h3>
-                  <p className="text-sm text-brand-blue-700/75 font-sans leading-relaxed">Puntualidad garantizada en cada envio. Optimizamos cada ruta mediante geolocalizacion avanzada en Mar del Plata.</p>
+                  <p className="text-sm text-brand-blue-700 font-sans leading-relaxed">Puntualidad garantizada en cada envio. Optimizamos cada ruta mediante geolocalizacion avanzada en Mar del Plata.</p>
                 </div>
               </motion.div>
 
@@ -132,7 +132,7 @@ export default function VisionSection() {
                 </motion.div>
                 <div>
                   <h3 className="text-2xl font-subheading uppercase tracking-wider text-brand-blue-700 leading-none mb-2 font-bold">Envios Seguros</h3>
-                  <p className="text-sm text-brand-blue-700/75 font-sans leading-relaxed">Proteccion total de tus paquetes. Despachos con custodia digital y confirmacion de entrega en el acto.</p>
+                  <p className="text-sm text-brand-blue-700 font-sans leading-relaxed">Proteccion total de tus paquetes. Despachos con custodia digital y confirmacion de entrega en el acto.</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -176,7 +176,7 @@ export default function VisionSection() {
                 </div>
                 <div>
                   <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue-700 leading-none mb-2 tabular-nums">0</h3>
-                  <p className="text-2xs text-brand-blue-700/80 font-sans uppercase tracking-widest font-bold">Paquetes extraviados</p>
+                  <p className="text-2xs text-brand-blue-700 font-sans uppercase tracking-widest font-bold">Paquetes extraviados</p>
                 </div>
               </div>
             </motion.div>
@@ -196,7 +196,7 @@ export default function VisionSection() {
                   <h3 className="text-6xl font-mono font-bold tracking-tighter text-brand-blue-700 leading-none mb-2 tabular-nums">
                     <CounterMetric value={50} prefix="+" />
                   </h3>
-                  <p className="text-2xs text-brand-blue-700/80 font-sans uppercase tracking-widest font-bold">Emprendedores confian</p>
+                  <p className="text-2xs text-brand-blue-700 font-sans uppercase tracking-widest font-bold">Emprendedores confian</p>
                 </div>
               </div>
             </motion.div>

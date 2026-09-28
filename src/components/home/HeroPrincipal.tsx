@@ -77,7 +77,7 @@ export default function HeroPrincipal() {
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-1">
               <a className="group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-wider font-bold px-8 py-3 text-base min-h-[44px] bg-brand-yellow-500 text-brand-blue-700 border border-brand-yellow-500 shadow-[0_0_28px_rgba(255,236,1,0.45)] hover:bg-brand-yellow-400 hover:scale-[1.02] active:scale-[.98] focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-blue-700" href="/cotizar/express">
                 <span>CotizÃ¡ Express</span>
-                <span className="w-8 h-8 rounded-full flex items-center justify-center bg-brand-blue-700/10 group-hover:bg-brand-blue-700 group-hover:text-brand-yellow-500 group-hover:translate-x-1 transition-all">
+                <span className="w-8 h-8 rounded-full flex items-center justify-center bg-transparent group-hover:bg-brand-blue-700 group-hover:text-brand-yellow-500 group-hover:translate-x-1 transition-all">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
@@ -154,7 +154,7 @@ export default function HeroPrincipal() {
                 <div className="bg-white rounded-lg p-4 sm:p-5 shadow-[inset_0_2px_8px_rgba(9,80,246,0.06)] overflow-hidden flex flex-col items-center">
                   <div className="w-full flex items-center justify-between gap-2 mb-3">
                     <span className="font-mono text-2xs font-bold text-brand-blue-700 bg-brand-blue-50 px-2 py-0.5 rounded-md border border-brand-blue-100">Friuli 1972</span>
-                    <span className="font-mono text-2xs text-brand-blue-400">Zona GÃ¼emes Â· MDQ</span>
+                    <span className="font-mono text-2xs text-brand-blue-700">Zona GÃ¼emes Â· MDQ</span>
                   </div>
 
                   {/* Hero Card Media */}
@@ -180,7 +180,7 @@ export default function HeroPrincipal() {
                       </div>
                       <div>
                         <p className="font-subheading text-[11px] font-bold uppercase text-brand-blue-700 leading-tight">EnvÃ­os Same-Day</p>
-                        <p className="font-mono text-[10px] text-brand-blue-400">Entrega en el DÃ­a</p>
+                        <p className="font-mono text-[10px] text-brand-blue-700">Entrega en el DÃ­a</p>
                       </div>
                     </div>
                     <div className="bg-brand-blue-50 border border-brand-blue-100 p-2.5 rounded-xl flex items-center gap-2.5">
@@ -192,7 +192,7 @@ export default function HeroPrincipal() {
                       </div>
                       <div>
                         <p className="font-subheading text-[11px] font-bold uppercase text-brand-blue-700 leading-tight">Flota Propia</p>
-                        <p className="font-mono text-[10px] text-brand-blue-400">Cero TercerizaciÃ³n</p>
+                        <p className="font-mono text-[10px] text-brand-blue-700">Cero TercerizaciÃ³n</p>
                       </div>
                     </div>
                   </div>

@@ -89,7 +89,7 @@ export default function RecentPosts() {
           <h2 className="text-white text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
             PUBLICACIONES RECIENTES
           </h2>
-          <p className="text-white/80 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
+          <p className="text-white/90 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
             Lo que está pasando ahora mismo en nuestras redes sociales oficiales de Mar del Plata. Seguinos para no perderte nada.
           </p>
         </div>
@@ -154,7 +154,7 @@ export default function RecentPosts() {
                             <h3 className="text-sm font-sans font-semibold uppercase tracking-wider text-brand-blue-700 leading-none">
                               Envíos DosRuedas
                             </h3>
-                            <span className="text-[10px] font-mono font-bold text-brand-blue-400 mt-1 block tabular-nums">
+                            <span className="text-[10px] font-mono font-bold text-brand-blue-700 mt-1 block tabular-nums">
                               {post.date}
                             </span>
                           </div>
@@ -167,7 +167,7 @@ export default function RecentPosts() {
 
                       {/* Post Text Description */}
                       <div className={`p-5 ${isFeatured ? 'md:p-8' : ''}`}>
-                        <p className={`text-sm md:text-base font-sans leading-relaxed text-brand-ink/90 ${
+                        <p className={`text-sm md:text-base font-sans leading-relaxed text-brand-ink ${
                           isFeatured ? 'line-clamp-6' : 'line-clamp-3'
                         }`}>
                           {post.text}

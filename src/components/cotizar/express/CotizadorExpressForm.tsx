@@ -41,7 +41,7 @@ export default function CotizadorExpressForm() {
             >
               Calculá tu Envío Express
             </h2>
-            <p className="text-white/80 text-sm font-sans mt-1 leading-relaxed">
+            <p className="text-white/90 text-sm font-sans mt-1 leading-relaxed">
               Ingresá las direcciones de origen y destino en Mar del Plata para obtener tarifa exacta
               y ruta OSRM en tiempo real.
             </p>

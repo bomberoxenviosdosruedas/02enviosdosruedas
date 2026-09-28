@@ -136,7 +136,7 @@ export default function NosotrosPage() {
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-[#0950F6]">
             LO QUE NOS DIFERENCIA
           </h2>
-          <p className="font-sans text-sm sm:text-base text-[#0950F6]/80 mt-2">
+          <p className="font-sans text-sm sm:text-base text-[#0950F6] mt-2">
             No somos una app. Somos vecinos que entregan con responsabilidad.
           </p>
         </div>
@@ -150,7 +150,7 @@ export default function NosotrosPage() {
               <h3 className="font-subheading text-lg uppercase font-bold text-[#0950F6] mb-2">
                 {value.title}
               </h3>
-              <p className="font-sans text-sm text-[#0950F6]/80 leading-relaxed">
+              <p className="font-sans text-sm text-[#0950F6] leading-relaxed">
                 {value.desc}
               </p>
             </DoubleBezelCard>
@@ -164,7 +164,7 @@ export default function NosotrosPage() {
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-[#0950F6]">
             EXPLORÁ NUESTRAS PÁGINAS
           </h2>
-          <p className="font-sans text-sm sm:text-base text-[#0950F6]/80 mt-2">
+          <p className="font-sans text-sm sm:text-base text-[#0950F6] mt-2">
             Profundizá en lo que te interese: nuestra historia, respuestas a tus dudas o contactanos directo.
           </p>
         </div>
@@ -187,7 +187,7 @@ export default function NosotrosPage() {
                         {section.title}
                       </h3>
                     </div>
-                    <p className="text-sm text-[#0950F6]/80 font-sans leading-relaxed">
+                    <p className="text-sm text-[#0950F6] font-sans leading-relaxed">
                       {section.description}
                     </p>
                   </div>
@@ -218,7 +218,7 @@ export default function NosotrosPage() {
             <h3 className="font-subheading text-2xl sm:text-3xl uppercase font-bold text-[#0950F6]">
               ¿TENÉS DUDAS O QUERÉS EMPEZAR?
             </h3>
-            <p className="font-sans text-base sm:text-lg text-[#0950F6]/80 leading-relaxed max-w-2xl mx-auto">
+            <p className="font-sans text-base sm:text-lg text-[#0950F6] leading-relaxed max-w-2xl mx-auto">
               Escríbinos por WhatsApp y te respondemos al instante. Sin bots, sin esperas.
               Cotizá tu envío o consultanos lo que necesites.
             </p>
