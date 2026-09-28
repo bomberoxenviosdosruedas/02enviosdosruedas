@@ -131,7 +131,18 @@ export default function OptimizedHeader() {
             <Link href="/" id="nav-logo-opt" className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
               <div className="flex items-center gap-2.5">
                 <motion.div className="relative w-10 h-10 shrink-0" whileHover={prefersReducedMotion ? {} : { rotate: 12, scale: 1.08 }} whileTap={prefersReducedMotion ? {} : { scale: 0.95 }} transition={{ type: 'spring', stiffness: 500, damping: 18 }}>
-                  <Image src="/logo-envios-simplified.webp" alt="Logo Envíos Dos Ruedas" fill className="object-contain" priority />
+                  {/* `sizes` es obligatorio con `fill`: sin él Next asume 100vw y el browser
+    descarga la variante de 1536px para una caja de 40x40. Medido en producción:
+    25.598 bytes de los cuales 25.534 eran desperdicio (99,7%). Como lleva
+    `priority`, se precarga en el critical path de todas las páginas. */}
+<Image
+  src="/logo-envios-simplified.webp"
+  alt="Logo Envíos Dos Ruedas"
+  fill
+  sizes="40px"
+  className="object-contain"
+  priority
+/>
                 </motion.div>
                 <span className="font-display text-2xl sm:text-3xl tracking-tight leading-none uppercase select-none flex flex-col sm:flex-row sm:gap-1 items-start sm:items-center">
                   <span className="text-white kinetic-font-stretch">Envíos</span>
