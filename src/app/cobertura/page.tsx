@@ -151,7 +151,7 @@ export default function CoberturaPage() {
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFEC01_1px,transparent_1px)] bg-size-[16px_16px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-xs uppercase font-bold tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-xs uppercase tracking-wider mb-4">
               <Compass className="w-3.5 h-3.5" />
               <span>PARTIDO DE GENERAL PUEYRREDÓN · VIGENCIA 2026</span>
             </div>
@@ -284,7 +284,7 @@ export default function CoberturaPage() {
               <div className="w-12 h-12 rounded-xl bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center font-bold">
                 <MapPin className="w-6 h-6" />
               </div>
-              <h3 className="font-subheading text-xl uppercase font-bold text-brand-blue-900">
+              <h3 className="font-subheading text-xl uppercase text-brand-blue-900">
                 BASE OPERATIVA CENTRAL
               </h3>
               <p className="font-sans text-sm text-brand-ink leading-relaxed">
@@ -296,7 +296,7 @@ export default function CoberturaPage() {
               <div className="w-12 h-12 rounded-xl bg-brand-blue-700 text-brand-yellow-500 flex items-center justify-center font-bold">
                 <Zap className="w-6 h-6" />
               </div>
-              <h3 className="font-subheading text-xl uppercase font-bold text-brand-blue-900">
+              <h3 className="font-subheading text-xl uppercase text-brand-blue-900">
                 SERVICIO EXPRESS (60 A 90 MIN)
               </h3>
               <p className="font-sans text-sm text-brand-ink leading-relaxed">
@@ -308,7 +308,7 @@ export default function CoberturaPage() {
               <div className="w-12 h-12 rounded-xl bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-200 flex items-center justify-center font-bold">
                 <Clock className="w-6 h-6" />
               </div>
-              <h3 className="font-subheading text-xl uppercase font-bold text-brand-blue-900">
+              <h3 className="font-subheading text-xl uppercase text-brand-blue-900">
                 REPARTO LOWCOST EN EL DÍA
               </h3>
               <p className="font-sans text-sm text-brand-ink leading-relaxed">

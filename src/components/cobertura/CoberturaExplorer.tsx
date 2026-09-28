@@ -5,69 +5,135 @@ import Link from 'next/link';
 import { Search, MapPin, Zap, Clock, ShieldCheck, ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 import CTANestedPill from '@/src/components/ui/CTANestedPill';
+import {
+  EXPRESS_PRICE_PER_KM,
+  EXPRESS_TIERS,
+  LOW_COST_PRICE_PER_KM,
+  LOW_COST_TIERS,
+} from '@/src/lib/pricing';
 
-interface ZoneNeighborhood {
+type ZoneId = 'Z1' | 'Z2' | 'Z3' | 'Z4' | 'Z5';
+
+interface ResolvedNeighborhood {
   name: string;
-  zone: 'Z1' | 'Z2' | 'Z3' | 'Z4' | 'Z5';
+  zone: ZoneId;
   rangeKm: string;
   expressPrice: number;
   lowCostPrice: number;
   note?: string;
 }
 
-const NEIGHBORHOODS: ZoneNeighborhood[] = [
-  // Z1: 0 - 3 km
-  { name: 'Chauvín (Base Friuli 1972)', zone: 'Z1', rangeKm: '0 a 3 km', expressPrice: 3700, lowCostPrice: 3000, note: 'Base operativa central' },
-  { name: 'Centro', zone: 'Z1', rangeKm: '0 a 3 km', expressPrice: 3700, lowCostPrice: 3000 },
-  { name: 'Macrocentro', zone: 'Z1', rangeKm: '0 a 3 km', expressPrice: 3700, lowCostPrice: 3000 },
-  { name: 'Plaza Mitre', zone: 'Z1', rangeKm: '0 a 3 km', expressPrice: 3700, lowCostPrice: 3000 },
-  { name: 'San José', zone: 'Z1', rangeKm: '0 a 3 km', expressPrice: 3700, lowCostPrice: 3000 },
-  { name: 'Güemes / Paseo Aldrey', zone: 'Z1', rangeKm: '0 a 3 km', expressPrice: 3700, lowCostPrice: 3000 },
-  { name: 'Terminal Vieja / Paseo Jesús de Galíndez', zone: 'Z1', rangeKm: '0 a 3 km', expressPrice: 3700, lowCostPrice: 3000 },
-  { name: 'La Perla', zone: 'Z1', rangeKm: '0 a 3 km', expressPrice: 3700, lowCostPrice: 3000 },
-  { name: 'San Juan Comercial', zone: 'Z1', rangeKm: '0 a 3 km', expressPrice: 3700, lowCostPrice: 3000 },
-  { name: 'Don Bosco', zone: 'Z1', rangeKm: '0 a 3 km', expressPrice: 3700, lowCostPrice: 3000 },
+/**
+ * Datos crudos: nombre del barrio y zona. SIN PRECIOS.
+ *
+ * Los importes no se escriben nunca a mano acá: salen de `pricing.ts` (fuente
+ * única — ver el comentario de `EXPRESS_TIERS`) o de `PriceRange` en BD.
+ * Duplicarlos a mano los desincroniza en silencio y nadie se entera.
+ *
+ * `distanceKm` es obligatorio en Z5 (tramo por km) y no se usa en Z1-Z4, donde
+ * el rango sale del propio tier. La unión discriminada lo exige en compilación.
+ */
+type NeighborhoodSeed =
+  | { name: string; zone: Exclude<ZoneId, 'Z5'>; note?: string }
+  | { name: string; zone: 'Z5'; distanceKm: number; note?: string };
 
-  // Z2: 3 - 5 km
-  { name: 'Playa Grande', zone: 'Z2', rangeKm: '3 a 5 km', expressPrice: 4600, lowCostPrice: 4000 },
-  { name: 'Los Troncos', zone: 'Z2', rangeKm: '3 a 5 km', expressPrice: 4600, lowCostPrice: 4000 },
-  { name: 'Stella Maris', zone: 'Z2', rangeKm: '3 a 5 km', expressPrice: 4600, lowCostPrice: 4000 },
-  { name: 'Puerto Mar del Plata', zone: 'Z2', rangeKm: '3 a 5 km', expressPrice: 4600, lowCostPrice: 4000 },
-  { name: 'Playa Varese / Cabo Corrientes', zone: 'Z2', rangeKm: '3 a 5 km', expressPrice: 4600, lowCostPrice: 4000 },
-  { name: 'Nueva Pompeya', zone: 'Z2', rangeKm: '3 a 5 km', expressPrice: 4600, lowCostPrice: 4000 },
-  { name: 'Villa Primera', zone: 'Z2', rangeKm: '3 a 5 km', expressPrice: 4600, lowCostPrice: 4000 },
-  { name: 'Parque Luro', zone: 'Z2', rangeKm: '3 a 5 km', expressPrice: 4600, lowCostPrice: 4000 },
-  { name: 'San Carlos', zone: 'Z2', rangeKm: '3 a 5 km', expressPrice: 4600, lowCostPrice: 4000 },
-  { name: 'Primera Junta', zone: 'Z2', rangeKm: '3 a 5 km', expressPrice: 4600, lowCostPrice: 4000 },
+const SEEDS: NeighborhoodSeed[] = [
+  // Z1
+  { name: 'Chauvín (Base Friuli 1972)', zone: 'Z1', note: 'Base operativa central' },
+  { name: 'Centro', zone: 'Z1' },
+  { name: 'Macrocentro', zone: 'Z1' },
+  { name: 'Plaza Mitre', zone: 'Z1' },
+  { name: 'San José', zone: 'Z1' },
+  { name: 'Güemes / Paseo Aldrey', zone: 'Z1' },
+  { name: 'Terminal Vieja / Paseo Jesús de Galíndez', zone: 'Z1' },
+  { name: 'La Perla', zone: 'Z1' },
+  { name: 'San Juan Comercial', zone: 'Z1' },
+  { name: 'Don Bosco', zone: 'Z1' },
 
-  // Z3: 5 - 7 km
-  { name: 'Punta Mogotes', zone: 'Z3', rangeKm: '5 a 7 km', expressPrice: 6100, lowCostPrice: 5300 },
-  { name: 'Caisamar', zone: 'Z3', rangeKm: '5 a 7 km', expressPrice: 6100, lowCostPrice: 5300 },
-  { name: 'Constitución (Zona Comercial)', zone: 'Z3', rangeKm: '5 a 7 km', expressPrice: 6100, lowCostPrice: 5300 },
-  { name: 'Zacagnini', zone: 'Z3', rangeKm: '5 a 7 km', expressPrice: 6100, lowCostPrice: 5300 },
-  { name: 'Colinas de Peralta Ramos', zone: 'Z3', rangeKm: '5 a 7 km', expressPrice: 6100, lowCostPrice: 5300 },
-  { name: 'Las Avenidas', zone: 'Z3', rangeKm: '5 a 7 km', expressPrice: 6100, lowCostPrice: 5300 },
-  { name: 'Florencio Sánchez', zone: 'Z3', rangeKm: '5 a 7 km', expressPrice: 6100, lowCostPrice: 5300 },
-  { name: 'El Martillo', zone: 'Z3', rangeKm: '5 a 7 km', expressPrice: 6100, lowCostPrice: 5300 },
-  { name: 'Termas Huinco', zone: 'Z3', rangeKm: '5 a 7 km', expressPrice: 6100, lowCostPrice: 5300 },
-  { name: 'Aeroparque', zone: 'Z3', rangeKm: '5 a 7 km', expressPrice: 6100, lowCostPrice: 5300 },
+  // Z2
+  { name: 'Playa Grande', zone: 'Z2' },
+  { name: 'Los Troncos', zone: 'Z2' },
+  { name: 'Stella Maris', zone: 'Z2' },
+  { name: 'Puerto Mar del Plata', zone: 'Z2' },
+  { name: 'Playa Varese / Cabo Corrientes', zone: 'Z2' },
+  { name: 'Nueva Pompeya', zone: 'Z2' },
+  { name: 'Villa Primera', zone: 'Z2' },
+  { name: 'Parque Luro', zone: 'Z2' },
+  { name: 'San Carlos', zone: 'Z2' },
+  { name: 'Primera Junta', zone: 'Z2' },
 
-  // Z4: 7 - 10 km
-  { name: 'Faro Punta Mogotes', zone: 'Z4', rangeKm: '7 a 10 km', expressPrice: 8200, lowCostPrice: 7000 },
-  { name: 'Alfar', zone: 'Z4', rangeKm: '7 a 10 km', expressPrice: 8200, lowCostPrice: 7000 },
-  { name: 'Bosque Peralta Ramos', zone: 'Z4', rangeKm: '7 a 10 km', expressPrice: 8200, lowCostPrice: 7000 },
-  { name: 'Parque Camet', zone: 'Z4', rangeKm: '7 a 10 km', expressPrice: 8200, lowCostPrice: 7000 },
-  { name: 'Libertad', zone: 'Z4', rangeKm: '7 a 10 km', expressPrice: 8200, lowCostPrice: 7000 },
-  { name: 'Virgen de Luján', zone: 'Z4', rangeKm: '7 a 10 km', expressPrice: 8200, lowCostPrice: 7000 },
-  { name: 'Estrada', zone: 'Z4', rangeKm: '7 a 10 km', expressPrice: 8200, lowCostPrice: 7000 },
-  { name: 'Autódromo', zone: 'Z4', rangeKm: '7 a 10 km', expressPrice: 8200, lowCostPrice: 7000 },
+  // Z3
+  { name: 'Punta Mogotes', zone: 'Z3' },
+  { name: 'Caisamar', zone: 'Z3' },
+  { name: 'Constitución (Zona Comercial)', zone: 'Z3' },
+  { name: 'Zacagnini', zone: 'Z3' },
+  { name: 'Colinas de Peralta Ramos', zone: 'Z3' },
+  { name: 'Las Avenidas', zone: 'Z3' },
+  { name: 'Florencio Sánchez', zone: 'Z3' },
+  { name: 'El Martillo', zone: 'Z3' },
+  { name: 'Termas Huinco', zone: 'Z3' },
+  { name: 'Aeroparque', zone: 'Z3' },
 
-  // Z5: +10 km (hasta 20 km)
-  { name: 'Acantilados', zone: 'Z5', rangeKm: '+10 km', expressPrice: 11000, lowCostPrice: 7700, note: 'Ejemplo 11 km (Math.ceil)' },
-  { name: 'San Patricio', zone: 'Z5', rangeKm: '+10 km', expressPrice: 12000, lowCostPrice: 8400, note: 'Ejemplo 12 km (Math.ceil)' },
-  { name: 'Batán', zone: 'Z5', rangeKm: '+10 km', expressPrice: 15000, lowCostPrice: 10500, note: 'Ejemplo 15 km (Math.ceil)' },
-  { name: 'Sierra de los Padres', zone: 'Z5', rangeKm: '+10 km', expressPrice: 20000, lowCostPrice: 14000, note: 'Límite operativo 20 km' },
-  { name: 'Estación Camet', zone: 'Z5', rangeKm: '+10 km', expressPrice: 14000, lowCostPrice: 9800, note: 'Ejemplo 14 km (Math.ceil)' },
+  // Z4
+  { name: 'Faro Punta Mogotes', zone: 'Z4' },
+  { name: 'Alfar', zone: 'Z4' },
+  { name: 'Bosque Peralta Ramos', zone: 'Z4' },
+  { name: 'Parque Camet', zone: 'Z4' },
+  { name: 'Libertad', zone: 'Z4' },
+  { name: 'Virgen de Luján', zone: 'Z4' },
+  { name: 'Estrada', zone: 'Z4' },
+  { name: 'Autódromo', zone: 'Z4' },
+
+  // Z5: tramo por km, redondeado hacia arriba
+  { name: 'Acantilados', zone: 'Z5', distanceKm: 11, note: 'Ejemplo 11 km (Math.ceil)' },
+  { name: 'San Patricio', zone: 'Z5', distanceKm: 12, note: 'Ejemplo 12 km (Math.ceil)' },
+  { name: 'Batán', zone: 'Z5', distanceKm: 15, note: 'Ejemplo 15 km (Math.ceil)' },
+  { name: 'Sierra de los Padres', zone: 'Z5', distanceKm: 20, note: 'Límite operativo 20 km' },
+  { name: 'Estación Camet', zone: 'Z5', distanceKm: 14, note: 'Ejemplo 14 km (Math.ceil)' },
+];
+
+/** Posición de cada zona dentro de los arrays de tiers. */
+const ZONE_TIER_INDEX: Record<ZoneId, number> = { Z1: 0, Z2: 1, Z3: 2, Z4: 3, Z5: 4 };
+
+const LAST_TIER = EXPRESS_TIERS[EXPRESS_TIERS.length - 1];
+
+function resolveNeighborhood(seed: NeighborhoodSeed): ResolvedNeighborhood {
+  if (seed.zone === 'Z5') {
+    // Z5 no tiene tier propio: se cobra por km con redondeo hacia arriba.
+    return {
+      name: seed.name,
+      zone: seed.zone,
+      rangeKm: `+${LAST_TIER.maxKm} km`,
+      expressPrice: Math.ceil(seed.distanceKm) * EXPRESS_PRICE_PER_KM,
+      lowCostPrice: Math.ceil(seed.distanceKm) * LOW_COST_PRICE_PER_KM,
+      note: seed.note,
+    };
+  }
+
+  const expressTier = EXPRESS_TIERS[ZONE_TIER_INDEX[seed.zone]];
+  const lowCostTier = LOW_COST_TIERS[ZONE_TIER_INDEX[seed.zone]];
+  return {
+    name: seed.name,
+    zone: seed.zone,
+    rangeKm: `${expressTier.minKm} a ${expressTier.maxKm} km`,
+    expressPrice: expressTier.price,
+    lowCostPrice: lowCostTier.price,
+    note: seed.note,
+  };
+}
+
+const NEIGHBORHOODS: ResolvedNeighborhood[] = SEEDS.map(resolveNeighborhood);
+
+/** Filtros de zona con el rango derivado de los tiers (no escrito a mano). */
+const ZONE_FILTERS: Array<{ id: 'ALL' | ZoneId; label: string }> = [
+  { id: 'ALL', label: 'Todos' },
+  ...(['Z1', 'Z2', 'Z3', 'Z4', 'Z5'] as const).map((zone) => {
+    const tier = EXPRESS_TIERS[ZONE_TIER_INDEX[zone]];
+    return {
+      id: zone,
+      label: tier ? `${zone} (${tier.minKm}-${tier.maxKm} km)` : `${zone} (+${LAST_TIER.maxKm} km)`,
+    };
+  }),
 ];
 
 export default function CoberturaExplorer() {
@@ -106,20 +172,13 @@ export default function CoberturaExplorer() {
 
             {/* Zone Badges Filter */}
             <div className="flex flex-wrap gap-1.5 w-full md:w-auto">
-              {[
-                { id: 'ALL', label: 'Todos' },
-                { id: 'Z1', label: 'Z1 (0-3 km)' },
-                { id: 'Z2', label: 'Z2 (3-5 km)' },
-                { id: 'Z3', label: 'Z3 (5-7 km)' },
-                { id: 'Z4', label: 'Z4 (7-10 km)' },
-                { id: 'Z5', label: 'Z5 (+10 km)' },
-              ].map((filter) => (
+              {ZONE_FILTERS.map((filter) => (
                 <button
                   key={filter.id}
                   type="button"
                   onClick={() => setSelectedZone(filter.id)}
                   className={cn(
-                    'px-3 py-1.5 rounded-lg text-xs font-subheading uppercase tracking-wider font-bold transition-colors cursor-pointer min-h-[36px]',
+                    'px-3 py-1.5 rounded-lg text-xs font-subheading uppercase tracking-wider transition-colors cursor-pointer min-h-[36px]',
                     selectedZone === filter.id
                       ? 'bg-brand-blue-700 text-brand-yellow-500 shadow-sm'
                       : 'bg-brand-blue-50 text-brand-blue-700 hover:bg-brand-blue-100'
@@ -160,7 +219,7 @@ export default function CoberturaExplorer() {
                     Tarifas 2026
                   </span>
                 </div>
-                <h3 className="font-subheading text-lg uppercase font-bold text-brand-blue-900 tracking-wide mt-2">
+                <h3 className="font-subheading text-lg uppercase text-brand-blue-900 tracking-wide mt-2">
                   {item.name}
                 </h3>
                 {item.note && (
@@ -193,7 +252,7 @@ export default function CoberturaExplorer() {
               {/* Action Link */}
               <Link
                 href={`/cotizar/express?destino=${encodeURIComponent(item.name)}`}
-                className="inline-flex items-center justify-between text-xs font-subheading uppercase font-bold text-brand-blue-700 group-hover:text-brand-blue-900 pt-1"
+                className="inline-flex items-center justify-between text-xs font-subheading uppercase text-brand-blue-700 group-hover:text-brand-blue-900 pt-1"
               >
                 <span>Cotizar envío a {item.name.split('(')[0]}</span>
                 <ChevronRight className="w-4 h-4 text-brand-blue-700 group-hover:translate-x-1 transition-transform" />
@@ -207,7 +266,7 @@ export default function CoberturaExplorer() {
       {filtered.length === 0 && (
         <div className="text-center py-12 bg-brand-blue-50/50 rounded-2xl border border-brand-blue-100 p-6">
           <MapPin className="w-10 h-10 text-brand-blue-700 mx-auto mb-2" />
-          <h3 className="font-subheading text-lg uppercase font-bold text-brand-blue-900">
+          <h3 className="font-subheading text-lg uppercase text-brand-blue-900">
             No encontramos el barrio con ese nombre exacto
           </h3>
           <p className="text-sm font-sans text-brand-ink max-w-md mx-auto mt-1">
