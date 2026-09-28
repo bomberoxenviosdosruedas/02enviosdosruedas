@@ -32,11 +32,6 @@ const nextConfig: NextConfig = {
         destination: '/servicios/deposito-fulfillment',
         permanent: true,
       },
-      {
-        source: '/servicios/plan-emprendedores',
-        destination: '/servicios/deposito-fulfillment',
-        permanent: true,
-      },
     ];
   },
 

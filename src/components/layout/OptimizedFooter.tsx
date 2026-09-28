@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion, useReducedMotion } from 'motion/react';
 import {
   Phone, MapPin, Mail, Clock, ShieldCheck, ArrowUpRight,
-  Zap, TrendingDown, ShoppingBag, ArrowUp
+  Zap, TrendingDown, ShoppingBag, ArrowUp, Rocket, Layers
 } from 'lucide-react';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
@@ -121,10 +121,10 @@ export default function OptimizedFooter() {
           viewport={{ once: true, margin: '-60px' }}
         >
 
-          {/* COLUMN 1: Brand details & Socials (5 Cols) */}
+          {/* COLUMN 1: Brand details & Socials (4 Cols) */}
           <motion.div
             variants={prefersReducedMotion ? {} : FOOTER_COL}
-            className="lg:col-span-5 space-y-6"
+            className="lg:col-span-4 space-y-6"
           >
             <Link href="/" className="flex items-center gap-3.5 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
               <div className="relative w-11 h-11 bg-white/10 p-1.5 rounded-xl border border-white/15 group-hover:scale-105 transition-all duration-300 shrink-0 flex items-center justify-center">
@@ -213,64 +213,120 @@ export default function OptimizedFooter() {
             </div>
           </motion.div>
 
-          {/* COLUMN 2: Services & Tools (3 Cols) */}
+          {/* COLUMN 2: Services & Tools */}
           <motion.div
             variants={prefersReducedMotion ? {} : FOOTER_COL}
-            className="lg:col-span-3 space-y-5"
+            className="lg:col-span-4 space-y-5"
           >
             <h4 className="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2 font-bold flex items-center gap-2">
               <span>Servicios y Cotizadores</span>
             </h4>
-            <ul className="space-y-3 text-sm font-sans">
-              <li>
-                <Link
-                  href="/cotizar/express"
-                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Zap className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-                    <span>Cotizador Express &lt; 2H</span>
-                  </div>
-                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/cotizar/lowcost"
-                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <TrendingDown className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-                    <span>Cotizador LowCost Batch</span>
-                  </div>
-                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/servicios/enviosflex"
-                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Clock className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-                    <span>Mercado Envíos Flex</span>
-                  </div>
-                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/servicios/deposito-fulfillment"
-                  className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <ShoppingBag className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-                    <span>Depósito & Fulfillment</span>
-                  </div>
-                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500" />
-                </Link>
-              </li>
-            </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+              {/* Grupo Cotizadores */}
+              <div>
+                <p className="text-[11px] font-bold text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                  Cotizadores online
+                </p>
+                <ul className="space-y-2.5 text-sm font-sans">
+                  <li>
+                    <Link
+                      href="/cotizar/express"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <Zap className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                        <span>Cotizador Express &lt; 2H</span>
+                      </div>
+                      <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500" />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/cotizar/lowcost"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <TrendingDown className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                        <span>Cotizador LowCost Batch</span>
+                      </div>
+                      <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500" />
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Grupo Servicios y Planes */}
+              <div>
+                <p className="text-[11px] font-bold text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                  Servicios y planes
+                </p>
+                <ul className="space-y-2.5 text-sm font-sans">
+                  <li>
+                    <Link
+                      href="/servicios/envios-express"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                    >
+                      <Zap className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                      <span>Envíos Express</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/servicios/envios-lowcost"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                    >
+                      <TrendingDown className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                      <span>Envíos LowCost</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/servicios/enviosflex"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                    >
+                      <Clock className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                      <span>Mercado Envíos Flex</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/servicios/envios-contrareembolso"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                    >
+                      <ShieldCheck className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                      <span>Contrareembolso</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/servicios/deposito-fulfillment"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                    >
+                      <ShoppingBag className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                      <span>Depósito &amp; Fulfillment</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/servicios/plan-emprendedores"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                    >
+                      <Rocket className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                      <span>Plan Emprendedores</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/servicios"
+                      className="text-brand-yellow-500 hover:text-brand-yellow-400 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1 font-bold"
+                    >
+                      <Layers className="h-4 w-4 shrink-0" />
+                      <span>Ver todos los servicios</span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </motion.div>
 
           {/* COLUMN 3: Contact & Hub Operations Info (4 Cols) */}
@@ -367,6 +423,15 @@ export default function OptimizedFooter() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-blue-50 font-sans">
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6">
             <p className="font-medium text-white">© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</p>
+            <Link href="/servicios" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
+              Servicios
+            </Link>
+            <Link href="/cobertura" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
+              Cobertura
+            </Link>
+            <Link href="/guias/envios-flex-mar-del-plata" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
+              Guía MercadoLibre Flex
+            </Link>
             <Link href="/nosotros/sobre-nosotros" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
               Sobre Nosotros
             </Link>

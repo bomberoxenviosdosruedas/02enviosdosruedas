@@ -8,7 +8,8 @@ import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion, type Variants } from 'motion/react';
 import {
   Menu, X, ChevronDown, Bike, ChevronRight, Phone,
-  Home, Zap, TrendingDown, Clock, ShoppingBag, Info, HelpCircle, Share2, Mail
+  Home, Zap, TrendingDown, Clock, ShoppingBag, Info, HelpCircle, Share2, Mail,
+  LayoutGrid, HandCoins, Building2, Rocket
 } from 'lucide-react';
 import { CTANestedPill } from '@/components/ui';
 
@@ -77,10 +78,14 @@ export default function OptimizedHeader() {
       label: 'Servicios',
       icon: Bike,
       dropdownItems: [
+        { label: 'Todos los Servicios', href: '/servicios', icon: LayoutGrid },
         { label: 'Envíos Express', href: '/servicios/envios-express', icon: Zap },
         { label: 'Envíos LowCost', href: '/servicios/envios-lowcost', icon: TrendingDown },
         { label: 'Envíos Flex (MeLi)', href: '/servicios/enviosflex', icon: Clock },
         { label: 'Depósito & Fulfillment', href: '/servicios/deposito-fulfillment', icon: ShoppingBag },
+        { label: 'Contrareembolso', href: '/servicios/envios-contrareembolso', icon: HandCoins },
+        { label: 'Empresas · Cuenta Corriente', href: '/servicios/empresas-cuenta-corriente', icon: Building2 },
+        { label: 'Plan Emprendedores (3PL)', href: '/servicios/plan-emprendedores', icon: Rocket },
       ],
     },
     {

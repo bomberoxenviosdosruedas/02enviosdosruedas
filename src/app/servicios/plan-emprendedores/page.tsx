@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import EmprendedoresHero from '@/src/components/servicios/emprendedores/EmprendedoresHero';
 import EmprendedoresFeatures from '@/src/components/servicios/emprendedores/EmprendedoresFeatures';
 import EmprendedoresBenefits from '@/src/components/servicios/emprendedores/EmprendedoresBenefits';
+import EmprendedoresDropoff from '@/src/components/servicios/emprendedores/EmprendedoresDropoff';
 import EmprendedoresPricing from '@/src/components/servicios/emprendedores/EmprendedoresPricing';
 
 export const metadata: Metadata = {
@@ -16,10 +17,13 @@ export const metadata: Metadata = {
     'paquetería same day mar del plata',
     'cadetería emprendedores mar del plata',
   ],
+  alternates: {
+    canonical: 'https://www.enviosdosruedas.com/servicios/plan-emprendedores',
+  },
   openGraph: {
     title: 'Plan Emprendedores y Fulfillment 3PL | Envíos DosRuedas MDQ',
     description: 'Almacená tu stock en nuestro Hub de Friuli 1972. Al vender, empaquetamos y entregamos en el día en Mar del Plata.',
-    url: 'https://enviosdosruedas.com.ar/servicios/plan-emprendedores',
+    url: 'https://www.enviosdosruedas.com/servicios/plan-emprendedores',
     type: 'website',
   },
 };
@@ -30,6 +34,7 @@ export default function PlanEmprendedoresPage() {
       <EmprendedoresHero />
       <EmprendedoresFeatures />
       <EmprendedoresBenefits />
+      <EmprendedoresDropoff />
       <EmprendedoresPricing />
     </main>
   );

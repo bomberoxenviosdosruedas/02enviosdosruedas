@@ -41,6 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/servicios/plan-emprendedores`,
+      lastModified: new Date('2026-09-21'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/cotizar/express`,
       lastModified: new Date('2026-09-21'),
       changeFrequency: 'weekly',

@@ -37,11 +37,12 @@ const geistMono = Geist_Mono({
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: {
-    default: 'Mensajería en moto y logística en Mar del Plata | Envíos DosRuedas',
+    default: 'Mensajería en moto en Mar del Plata | Envíos DosRuedas',
     template: '%s | Envíos DosRuedas',
   },
-  description: 'Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express en 60-90 min, Mercado Envíos Flex en el día y paquetería LowCost para comercios y particulares.',
+  description: 'Mensajería en moto y logística e-commerce en Mar del Plata. Express en 60-90 min, Mercado Envíos Flex en el día y LowCost para comercios y particulares.',
   authors: [{ name: 'Envíos DosRuedas' }],
   creator: 'Envíos DosRuedas',
   publisher: 'Envíos DosRuedas',
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
     locale: 'es_AR',
     url: baseUrl,
     siteName: 'Envíos DosRuedas',
-    title: 'Envíos DosRuedas - Mensajería & Logística en Mar del Plata',
+    title: 'Mensajería en moto en Mar del Plata | Envíos DosRuedas',
     description: 'La solución logística y última milla de mayor confianza en Mar del Plata. Envíos Express, MercadoLibre Flex, ruteo eficiente y cadetería inteligente.',
     images: [
       {
@@ -74,7 +75,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Envíos DosRuedas - Mensajería & Logística en Mar del Plata',
+    title: 'Mensajería en moto en Mar del Plata | Envíos DosRuedas',
     description: 'La solución logística y última milla de mayor confianza en Mar del Plata.',
     images: [`${baseUrl}/og-image.jpg`],
     creator: '@enviosdosruedas',
