@@ -105,7 +105,7 @@ export default function ServicesOverview() {
           'Notificación automática de entrega por WhatsApp.'
         ],
         ctaText: 'COTIZÁ TU EXPRESS',
-        ctaHref: '/cotizar/express'
+        ctaHref: '/cotizar'
       }
     },
     {
@@ -142,7 +142,7 @@ export default function ServicesOverview() {
           'Dos franjas horarias de entrega en el día.'
         ],
         ctaText: 'PROBÁ EL LOWCOST',
-        ctaHref: '/cotizar/lowcost'
+        ctaHref: '/cotizar'
       }
     },
     {

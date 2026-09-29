@@ -239,11 +239,8 @@ export default function ServiciosPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <CTANestedPill href="/cotizar/express" variant="primary" size="large">
-                Cotizá Express
-              </CTANestedPill>
-              <CTANestedPill href="/cotizar/lowcost" variant="elevated" size="large">
-                Cotizá LowCost
+              <CTANestedPill href="/cotizar" variant="primary" size="large">
+                Cotizá tu envío
               </CTANestedPill>
             </div>
           </div>

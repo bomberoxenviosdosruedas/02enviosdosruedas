@@ -88,8 +88,9 @@ src/
 │   ├── cobertura/page.tsx             # Guía completa de barrios y zonas MDQ
 │   ├── contacto/page.tsx              # Formulario y datos base Friuli 1972
 │   ├── cotizar/
-│   │   ├── express/page.tsx           # Cotizador Express punto a punto
-│   │   └── lowcost/page.tsx           # Cotizador masivo LowCost
+│   │   ├── page.tsx                   # Cotizador unificado: una carga, dos tarifas
+│   │   ├── express/page.tsx           # Ficha de servicio Express (deriva a /cotizar)
+│   │   └── lowcost/page.tsx           # Ficha de servicio LowCost + flujo por lotes
 │   ├── guias/
 │   │   └── envios-flex-mar-del-plata/ # Guía para vendedores Mercado Libre
 │   ├── nosotros/

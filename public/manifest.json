@@ -34,17 +34,10 @@
   "prefer_related_applications": false,
   "shortcuts": [
     {
-      "name": "Cotizar Envío Express",
-      "short_name": "Cotizar Express",
-      "description": "Calculá tu envío express en segundos",
-      "url": "/cotizar/express",
-      "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Cotizar Envío LowCost",
-      "short_name": "Cotizar LowCost",
-      "description": "Calculá tu envío económico",
-      "url": "/cotizar/lowcost",
+      "name": "Cotizar Envío",
+      "short_name": "Cotizar",
+      "description": "Compará tu envío Express y LowCost en segundos",
+      "url": "/cotizar",
       "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
     },
     {

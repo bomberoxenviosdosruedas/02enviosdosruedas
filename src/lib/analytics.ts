@@ -94,7 +94,8 @@ export function trackEvent(eventName: string, params?: Record<string, unknown>) 
 }
 
 export const trackAnalytics = {
-  quoteStart: (service: 'express' | 'lowcost') => {
+  /** `dual` = cotizador unificado de /cotizar, que devuelve las dos tarifas de una vez. */
+  quoteStart: (service: 'dual' | 'express' | 'lowcost') => {
     trackEvent('quote_start', { service });
   },
   quoteComplete: (data: {

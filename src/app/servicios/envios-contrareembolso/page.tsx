@@ -162,7 +162,7 @@ export default function EnviosContrareembolsoPage() {
                 </CTANestedPill>
 
                 <CTANestedPill
-                  href="/cotizar/express"
+                  href="/cotizar"
                   variant="elevated"
                   size="large"
                   icon={<ArrowRight className="w-4 h-4" />}

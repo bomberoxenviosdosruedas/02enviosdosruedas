@@ -199,7 +199,7 @@ export default function LowCostPricing() {
 
                     <div>
                       <Link
-                        href="/cotizar/lowcost"
+                        href="/cotizar"
                         className="group w-full inline-flex items-center justify-between gap-2 bg-brand-blue-500 hover:bg-brand-blue-700 text-white font-subheading font-bold uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-[48px] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500"
                       >
                         <span>Ver {zone.name}</span>

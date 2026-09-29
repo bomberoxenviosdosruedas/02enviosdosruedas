@@ -75,7 +75,7 @@ export default function HeroPrincipal() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-1">
-              <a className="group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-wider font-bold px-8 py-3 text-base min-h-[44px] bg-brand-yellow-500 text-brand-blue-700 border border-brand-yellow-500 shadow-[0_0_28px_rgba(255,236,1,0.45)] hover:bg-brand-yellow-400 hover:scale-[1.02] active:scale-[.98] focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-blue-700" href="/cotizar/express">
+              <a className="group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-wider font-bold px-8 py-3 text-base min-h-[44px] bg-brand-yellow-500 text-brand-blue-700 border border-brand-yellow-500 shadow-[0_0_28px_rgba(255,236,1,0.45)] hover:bg-brand-yellow-400 hover:scale-[1.02] active:scale-[.98] focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-blue-700" href="/cotizar">
                 <span>CotizÃ¡ Express</span>
                 <span className="w-8 h-8 rounded-full flex items-center justify-center bg-transparent group-hover:bg-brand-blue-700 group-hover:text-brand-yellow-500 group-hover:translate-x-1 transition-all">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

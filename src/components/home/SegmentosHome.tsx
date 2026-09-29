@@ -50,7 +50,7 @@ export default function SegmentosHome() {
       title: '¿Necesitás un envío ya?',
       description: 'Cadetería prioritaria punto a punto en moto. Tu paquete en destino en 60 a 90 minutos con cálculo de distancia en vivo.',
       ctaText: 'Cotizá tu Envío Express',
-      href: '/cotizar/express',
+      href: '/cotizar',
       icon: PackageCheck,
       highlight: false,
     },

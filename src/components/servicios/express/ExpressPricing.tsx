@@ -167,7 +167,7 @@ export default function ExpressPricing() {
                   </div>
 
                   <CTANestedPill
-                    href="/cotizar/express"
+                    href="/cotizar"
                     variant={isFeatured ? 'primary' : 'outline'}
                     size={isFeatured ? 'large' : 'default'}
                     className="w-full"
@@ -238,7 +238,7 @@ export default function ExpressPricing() {
               </span>
             </div>
 
-            <CTANestedPill href="/cotizar/express" variant="primary" className="w-full sm:w-auto">
+            <CTANestedPill href="/cotizar" variant="primary" className="w-full sm:w-auto">
               Cotizar trayecto extendido
             </CTANestedPill>
           </div>

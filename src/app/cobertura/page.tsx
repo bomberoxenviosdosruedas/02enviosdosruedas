@@ -163,11 +163,8 @@ export default function CoberturaPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <CTANestedPill href="/cotizar/express" variant="primary" size="large">
-                Cotizá tu Envío Express
-              </CTANestedPill>
-              <CTANestedPill href="/cotizar/lowcost" variant="elevated" size="large">
-                Cotizá Reparto LowCost
+              <CTANestedPill href="/cotizar" variant="primary" size="large">
+                Cotizá tu envío
               </CTANestedPill>
             </div>
           </div>

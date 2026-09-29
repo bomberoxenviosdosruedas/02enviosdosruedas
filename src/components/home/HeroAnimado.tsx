@@ -81,7 +81,7 @@ export default function HeroAnimado() {
 
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
               <CTANestedPill
-                href="/cotizar/express"
+                href="/cotizar"
                 id="hero-cta-cotizar"
                 variant="primary"
                 size="large"

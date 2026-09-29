@@ -119,7 +119,7 @@ export default function LowCostHero() {
 
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
                 <CTANestedPill
-                  href="/cotizar/lowcost"
+                  href="/cotizar"
                   id="lowcost-hero-cta-cotizar"
                   variant="blue"
                   size="large"

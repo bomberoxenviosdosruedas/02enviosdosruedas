@@ -90,7 +90,7 @@ export default function OptimizedFooter() {
 
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             <Link
-              href="/cotizar/express"
+              href="/cotizar"
               className="w-full sm:w-auto cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-all flex items-center justify-between group min-h-[48px]"
             >
               <span>Cotizá tu Envío</span>
@@ -225,29 +225,17 @@ export default function OptimizedFooter() {
               {/* Grupo Cotizadores */}
               <div>
                 <p className="text-[11px] font-bold text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
-                  Cotizadores online
+                  Cotizador online
                 </p>
                 <ul className="space-y-2.5 text-sm font-sans">
                   <li>
                     <Link
-                      href="/cotizar/express"
+                      href="/cotizar"
                       className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
                     >
                       <div className="flex items-center gap-2.5">
                         <Zap className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-                        <span>Cotizador Express &lt; 2H</span>
-                      </div>
-                      <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/cotizar/lowcost"
-                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <TrendingDown className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-                        <span>Cotizador LowCost Batch</span>
+                        <span>Cotizá Express o LowCost</span>
                       </div>
                       <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500" />
                     </Link>

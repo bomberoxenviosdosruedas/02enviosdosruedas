@@ -120,7 +120,7 @@ export default function AboutMissionVision() {
 
                 <div className="shrink-0 flex flex-wrap items-center gap-3">
                   <CTANestedPill
-                    href="/cotizar/express"
+                    href="/cotizar"
                     variant="primary"
                   >
                     Cotizar Envío

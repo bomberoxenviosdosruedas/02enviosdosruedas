@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import CotizadorExpressHero from '@/src/components/cotizar/express/CotizadorExpressHero';
-import CotizadorExpressForm from '@/src/components/cotizar/express/CotizadorExpressForm';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import CotizadorExpressDetails from '@/src/components/cotizar/express/CotizadorExpressDetails';
 import CotizadorExpressHelp from '@/src/components/cotizar/express/CotizadorExpressHelp';
 
@@ -8,25 +8,31 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const dynamic = 'force-dynamic';
 
+/**
+ * Ficha de servicio, no cotizador. El formulario vive en `/cotizar`, que devuelve
+ * las dos tarifas en una sola carga. Esta URL se conserva porque ya está indexada y
+ * porque sirve para búsquedas del tipo "envío express mar del plata".
+ */
 export const metadata: Metadata = {
-  title: 'Cotizá tu Envío Express en Moto',
+  title: 'Envío Express en Moto en Mar del Plata | Tarifas 2026',
   description:
-    'Calculá el costo exacto de tu envío prioritario en Mar del Plata. Tarifas transparentes por kilómetro, entrega en el día y coordinación en el acto.',
+    'Envío express en moto por Mar del Plata: entrega prioritaria en el día, tarifa por zona desde $3.700 y coordinación por WhatsApp. Conocé las pautas y las zonas.',
   alternates: {
     canonical: `${baseUrl}/cotizar/express`,
   },
   openGraph: {
-    title: 'Cotizá tu Envío Express en Moto | Envíos DosRuedas',
+    title: 'Envío Express en Moto en Mar del Plata | Envíos DosRuedas',
     description:
-      'Calculá al instante el valor de tu envío express en Mar del Plata. Tarifas transparentes 2026.',
+      'Entrega prioritaria en el día por Mar del Plata. Tarifa por zona desde $3.700, franja de 3 hs a coordinar.',
     url: `${baseUrl}/cotizar/express`,
-    type: 'website',
+    type: 'article',
     locale: 'es_AR',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cotizá tu Envío Express en Moto | Envíos DosRuedas',
-    description: 'Calculá al instante el valor de tu envío express en Mar del Plata. Tarifas transparentes 2026.',
+    title: 'Envío Express en Moto en Mar del Plata | Envíos DosRuedas',
+    description:
+      'Entrega prioritaria en el día por Mar del Plata. Tarifa por zona desde $3.700, franja de 3 hs a coordinar.',
     images: [`${baseUrl}/og-image.jpg`],
     creator: '@enviosdosruedas',
   },
@@ -34,13 +40,13 @@ export const metadata: Metadata = {
 
 const jsonLdSchema = {
   '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  name: 'Cotizador de Envíos Express Envíos DosRuedas',
-  applicationCategory: 'BusinessApplication',
-  operatingSystem: 'All',
+  '@type': 'Service',
+  name: 'Envío Express en Moto',
+  serviceType: 'Mensajería express en moto',
   url: `${baseUrl}/cotizar/express`,
   description:
-    'Herramienta interactiva para calcular tarifas y distancias de envíos express en moto en Mar del Plata.',
+    'Envío prioritario en moto dentro de Mar del Plata con entrega el mismo día y franja horaria a coordinar.',
+  areaServed: 'Mar del Plata y General Pueyrredón',
   provider: {
     '@type': 'LocalBusiness',
     '@id': `${baseUrl}#localbusiness`,
@@ -55,7 +61,21 @@ const jsonLdSchema = {
       addressCountry: 'AR',
     },
   },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'ARS',
+    price: '3700',
+    description: 'Tarifa por zona desde 0-3 km.',
+  },
 };
+
+const TARIFAS = [
+  { rango: '0 – 3 km', precio: '$3.700' },
+  { rango: '3 – 5 km', precio: '$4.600' },
+  { rango: '5 – 7 km', precio: '$6.100' },
+  { rango: '7 – 10 km', precio: '$8.200' },
+  { rango: '+ 10 km', precio: '$1.000 por km' },
+];
 
 export default function Page() {
   return (
@@ -64,75 +84,99 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-      {/* Main outer container */}
-      <div id="cotizar-express-page" className="w-full bg-brand-blue-500 text-white min-h-dvh relative overflow-hidden font-sans">
-        {/* Hero Section — Rendered and Streamed Immediately */}
-        <CotizadorExpressHero />
 
-        {/* Descriptive Content Section — SEO & User Context */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 relative z-10">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float">
-            <div className="bg-brand-blue-900 text-white p-6 sm:p-8 rounded-[20px] border border-white/10 shadow-sm space-y-4">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-yellow-500/10 border border-brand-yellow-500/30 text-brand-yellow-500 font-subheading text-xs uppercase tracking-widest w-fit">
-                <span>CÓMO FUNCIONA</span>
-              </div>
-              <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
-                CALCULÁ TU ENVÍO EXPRESS EN 3 PASOS
-              </h2>
-              <p className="text-white/90 font-sans leading-relaxed text-base sm:text-lg max-w-3xl">
-                Nuestro cotizador Express te da el precio exacto al instante según la distancia real en kilómetros.
-                Sin sorpresas, sin cargos ocultos. Tarifas 2026 oficiales publicadas y auditables.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/15">
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
-                  <span className="w-8 h-8 rounded-full bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center shrink-0 font-display text-lg font-bold">1</span>
-                  <div>
-                    <h3 className="font-subheading text-sm uppercase font-bold text-white">Ingresá Direcciones</h3>
-                    <p className="text-xs text-white/90 font-sans">Origen y destino en Mar del Plata. El sistema calcula la distancia óptima.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
-                  <span className="w-8 h-8 rounded-full bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center shrink-0 font-display text-lg font-bold">2</span>
-                  <div>
-                    <h3 className="font-subheading text-sm uppercase font-bold text-white">Obtené Tarifa Exacta</h3>
-                    <p className="text-xs text-white/90 font-sans">Precio por zona (0-3km, 3-5km, 5-7km, 7-10km, +10km) sin redondeos.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
-                  <span className="w-8 h-8 rounded-full bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center shrink-0 font-display text-lg font-bold">3</span>
-                  <div>
-                    <h3 className="font-subheading text-sm uppercase font-bold text-white">Confirmá por WhatsApp</h3>
-                    <p className="text-xs text-white/90 font-sans">Un click y coordinás el retiro. Sin registro obligatorio, atención inmediata.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="pt-4 border-t border-white/15 flex flex-wrap gap-3">
-                <span className="font-subheading text-xs uppercase tracking-wider text-brand-yellow-500 font-bold">COBERTURA:</span>
-                <span className="text-sm text-white/90 font-sans">Centro, Güemes, Puerto, Playa Grande, Punta Mogotes, Constitución, Chauvín, Batán y hasta 20 km (Sierra de los Padres).</span>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <span className="font-subheading text-xs uppercase tracking-wider text-brand-yellow-500 font-bold">LÍMITES:</span>
-                <span className="text-sm text-white/90 font-sans">Hasta 5 kg y 40x30 cm por bulto. Franja horaria de 3 hs (ej. 10 a 13 hs). Corte 15:00 hs con 2h anticipación.</span>
-              </div>
+      <div
+        id="cotizar-express-page"
+        className="w-full bg-brand-blue-500 text-white min-h-dvh relative overflow-hidden font-sans"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 lg:pt-32 lg:pb-20 relative z-10 space-y-12 lg:space-y-16">
+          <header className="max-w-3xl space-y-5">
+            <Link
+              href="/cotizar"
+              className="inline-flex items-center gap-1.5 font-subheading text-xs uppercase tracking-widest text-brand-yellow-500 hover:text-brand-yellow-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded"
+            >
+              <ArrowRight className="h-3.5 w-3.5 rotate-180" aria-hidden="true" />
+              Ir al cotizador
+            </Link>
+
+            <span className="inline-block px-3.5 py-1 bg-brand-yellow-500/10 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold tracking-wider uppercase border border-brand-yellow-500/40">
+              Servicio Express
+            </span>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[0.95] text-white">
+              Envío express en moto por{' '}
+              <span className="inline-block bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 rounded-lg -rotate-1">
+                Mar del Plata
+              </span>
+            </h1>
+
+            <p className="text-white/90 text-base sm:text-lg leading-relaxed font-light">
+              Para cuando el envío no puede esperar. Medimos la distancia real entre tu retiro y
+              tu entrega, coordinamos una franja de 3 horas y el cadete sale directo a buscarlo.
+            </p>
+
+            <Link
+              href="/cotizar"
+              className="inline-flex items-center gap-2.5 rounded-full font-subheading uppercase tracking-widest font-bold px-7 py-3 text-sm min-h-[44px] bg-brand-yellow-500 text-brand-blue-900 border border-brand-yellow-500 shadow-accent-sm hover:shadow-cta-glow hover:bg-brand-yellow-400 active:scale-[.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-700"
+            >
+              Cotizar mi envío
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </header>
+
+          {/* Tabla de tarifas: el respaldo textual para búsquedas de precio. */}
+          <section aria-labelledby="tarifas-express" className="space-y-4">
+            <h2
+              id="tarifas-express"
+              className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white"
+            >
+              Tarifas 2026
+            </h2>
+            <div className="overflow-x-auto rounded-[20px] border border-white/15 bg-white/5 backdrop-blur-md max-w-2xl">
+              <table className="w-full text-left border-collapse">
+                <caption className="sr-only">
+                  Tarifas por zona de distancia para el servicio Express
+                </caption>
+                <thead>
+                  <tr className="border-b border-white/15">
+                    <th
+                      scope="col"
+                      className="px-4 sm:px-5 py-3 font-subheading text-xs uppercase tracking-widest text-white/70 font-bold"
+                    >
+                      Zona
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-4 sm:px-5 py-3 font-subheading text-xs uppercase tracking-widest text-brand-yellow-500 font-bold"
+                    >
+                      Express
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {TARIFAS.map((fila) => (
+                    <tr key={fila.rango}>
+                      <th
+                        scope="row"
+                        className="px-4 sm:px-5 py-3 font-mono text-sm text-white/90 font-normal tabular-nums"
+                      >
+                        {fila.rango}
+                      </th>
+                      <td className="px-4 sm:px-5 py-3 font-mono text-sm font-bold text-brand-yellow-500 tabular-nums">
+                        {fila.precio}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          </div>
-        </section>
+            <p className="font-sans text-xs text-white/70 leading-relaxed max-w-2xl">
+              Distancia medida sobre la calle, no en línea recta. Radio estándar de 20 km.
+            </p>
+          </section>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 sm:mt-0 pt-2 lg:pt-8 space-y-10 pb-16 relative z-10">
-          {/* 1. Main Quote Form (tarifas leídas en el servidor por el Server Action) */}
-          <main className="w-full font-sans">
-            <CotizadorExpressForm />
-          </main>
-
-          {/* 2. Detail Guidelines */}
-          <div className="font-sans">
-            <CotizadorExpressDetails />
-          </div>
-
-          {/* 3. Help Contact Banner */}
-          <div className="font-sans">
-            <CotizadorExpressHelp />
-          </div>
+          <CotizadorExpressDetails />
+          <CotizadorExpressHelp />
         </div>
       </div>
     </>

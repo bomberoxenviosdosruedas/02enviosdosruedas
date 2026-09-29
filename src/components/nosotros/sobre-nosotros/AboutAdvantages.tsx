@@ -113,7 +113,7 @@ export default function AboutAdvantages() {
                 </div>
                 <div className="shrink-0 flex items-center">
                   <CTANestedPill
-                    href="/cotizar/express"
+                    href="/cotizar"
                     variant="primary"
                   >
                     Cotizar tu Envío

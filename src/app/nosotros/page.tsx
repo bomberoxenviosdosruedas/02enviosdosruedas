@@ -226,7 +226,7 @@ export default function NosotrosPage() {
               <CTANestedPill href="https://wa.me/542236602699" variant="primary">
                 Hablar por WhatsApp
               </CTANestedPill>
-              <CTANestedPill href="/cotizar/express" variant="outline">
+              <CTANestedPill href="/cotizar" variant="outline">
                 Cotizá Ahora
               </CTANestedPill>
             </div>

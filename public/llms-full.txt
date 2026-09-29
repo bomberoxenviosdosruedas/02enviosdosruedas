@@ -57,75 +57,81 @@ Completá el formulario y te responderemos a la brevedad.
 
 ---
 
-## Cotizador de Envíos Express en Mar del Plata | Envíos DosRuedas | Envíos DosRuedas
+## Cotizá tu Envío | Express y LowCost en un solo paso | Envíos DosRuedas
+
+URL: https://www.enviosdosruedas.com/cotizar
+
+Cotizador unificado. Un solo formulario.
+
+## COTIZÁ TU ENVÍO Y COMPARÁ
+Cargás el retiro y la entrega una sola vez y recibís las dos tarifas —Express y LowCost— para esa distancia exacta, medida sobre la calle. No hace falta registro, ni llamada, ni letra chica.
+
+## TARIFAS 2026 POR ZONA
+
+Zona | Express | LowCost
+0 – 3 km | $3.700 | $3.000
+3 – 5 km | $4.600 | $4.000
+5 – 7 km | $6.100 | $5.300
+7 – 10 km | $8.200 | $7.000
++ 10 km | Math.ceil(km) × $1.000 | Math.ceil(km) × $700
+
+Radio estándar de cobertura: 20 km. Más allá de eso la tarifa se conversa a medida.
+
+## CÓMO FUNCIONA EL COTIZADOR
+01 · Cargás retiro y entrega. Medimos la distancia real por calle.
+02 · Ves las dos tarifas. Precio y tiempo de cada servicio, lado a lado.
+03 · Elegís y confirmás. Te pasamos el pedido armado por WhatsApp.
+
+## LO QUE PAGÁS Y LO QUE ESPERÁS
+La diferencia de precio entre los dos servicios es pequeña. La diferencia de tiempo no.
+
+Express: entrega en menos de 2 h. Franja de 3 hs a coordinar, corte 15:00 hs con 2 h de anticipación.
+LowCost: hasta 6 h. Pedido antes de las 13:00 hs, entrega el mismo día antes de las 19:00 hs.
+
+Si ya tenés el precio de un envío y tenés más para mandar, el mismo cotizador ofrece el flujo de lotes por volumen de LowCost.
+
+---
+
+## Servicio Express | Ficha de servicio | Envíos DosRuedas
 
 URL: https://www.enviosdosruedas.com/cotizar/express
 
-Servicio Express Prioritario
+Página de servicio, no cotizador. Describe condiciones, límites y tarifas de Express y deriva al cotizador unificado.
 
 ## COTIZÁ TU ENVÍO EXPRESS
-Calculá el costo de tu envío prioritario al instante. Obtené la tarifa de entrega según la distancia y coordiná en el acto con nosotros por WhatsApp.
+Mensajería prioritaria en moto. Entrega en menos de 2 horas dentro de Mar del Plata, con franja horaria a coordinar.
 Entrega en < 2 Horas
 Ruta Optimizada
 Tarifa 100% Precisa
 
-## CÁLCULO AUTOMÁTICO
-SISTEMA EXPRESS MAPS
-
-ORIGEN Centro de Distribución
-DESTINO Zona Güemes
-DISTANCIA 4.2 km
-TARIFA FINAL $ 4.600 ARS
-
-SIN REGISTRO OBLIGATORIO
-
-Cotización Al Instante
-
 ## Calculá tu Envío Express
 Ingresá las direcciones de origen y destino en Mar del Plata para obtener una estimación de costo y tiempo inmediato.
 
-Ruteador MDQ Activo
-Real-time Routing
-Cargando mapa interactivo...
-
-Servicio: Envío Express 2H
+Servicio: Envío Express
 Rango Operativo: Mar del Plata Urbano
+Cotización: en el cotizador unificado (/cotizar).
 
 ---
 
-## Cotizador de Envíos LowCost en Mar del Plata | Envíos DosRuedas | Envíos DosRuedas
+## Servicio LowCost | Ficha de servicio | Envíos DosRuedas
 
 URL: https://www.enviosdosruedas.com/cotizar/lowcost
 
-Servicio Económico y Programado
+Página de servicio, no cotizador. Describe condiciones, límites y tarifas de LowCost y deriva al cotizador unificado.
 
 ## COTIZÁ TU ENVÍO LOWCOST
-Eficiencia y rentabilidad. Calculá tu envío con entrega garantizada en el día si es solicitado antes de 13hs.
+Eficiencia y rentabilidad. Entrega garantizada en el día si el pedido se solicita antes de las 13:00 hs.
 Hasta 40% de Ahorro
 Entrega Same-Day
 Tarifa Plana PyME
 
-## TARIFA OPTIMIZADA
-SISTEMA LOWCOST FLEX
-
-ORIGEN Centro de Distribución
-DESTINO Zona Güemes
-DISTANCIA 4.2 km
-COSTO UNITARIO $ 4.000 ARS
-
-ENTREGA INCLUIDA EN EL DÍA
-
-Programado y Económico
-
 ## Calculá tu Envío Low Cost
 Ingresá las direcciones de origen y destino en Mar del Plata para obtener una estimación de costo y tiempo inmediato.
 
-Ruteador MDQ Activo
-Real-time Routing
-Cargando mapa interactivo...
-
-Servicio: Envío Low Cost
+Servicio: Envío LowCost
 Rango Operativo: Mar del Plata Ruteo Diario
+Cotización: en el cotizador unificado (/cotizar).
+Ruteo por volumen: disponible desde el cotizador unificado, una vez obtenido el precio de un envío.
 
 ---
 
@@ -423,7 +429,7 @@ Operación 2026 · Mar del Plata
 ## Panel de Revisión de Contenidos
 ¡Hola! Desde este panel podés revisar todos los textos y componentes actuales de cada página de Envíos DosRuedas . Escribí tus comentarios, ajustes de títulos, propuestas de imágenes o modificaciones y guardalos directamente en la base de datos.
 
-Filtrar por Página Ver Todas Home (Inicio) Cotizador Express Cotizador LowCost Sobre Nosotros Preguntas Frecuentes Comunidad y Redes Servicio Express Servicio LowCost Servicio Flex Plan Emprendedores (3PL) Contacto Comercial Legales (Privacidad) Legales (Términos)
+Filtrar por Página Ver Todas Home (Inicio) Cotizador Sobre Nosotros Preguntas Frecuentes Comunidad y Redes Servicio Express Servicio LowCost Servicio Flex Plan Emprendedores (3PL) Contacto Comercial Legales (Privacidad) Legales (Términos)
 
 Buscar Componente o Contenido
 
@@ -503,8 +509,9 @@ PAUTAS DE REVISIÓN Título final Subtítulo secundario Textos de botones de acc
 
 ¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
 
-## Cotizador Express
+## Ficha de servicio Express
 4 componentes
+Estado: /cotizar/express dejó de ser un cotizador y pasó a ser una ficha de servicio. No renderiza formulario: describe condiciones, límites y tarifas, y deriva al cotizador unificado en /cotizar. Los componentes de formulario listados abajo ya no se montan en ninguna ruta.
 
 src/app/cotizar/express/page.tsx PENDIENTE
 
@@ -517,9 +524,10 @@ PAUTAS DE REVISIÓN Título principal Texto de descripción Badge superior
 
 ¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
 
-src/components/cotizar/express/CotizadorExpressForm.tsx PENDIENTE
+src/components/cotizar/express/CotizadorExpressForm.tsx PENDIENTE — huérfano, no se renderiza
 
 ## 2. Formulario Interactivo Express
+Estado: componente huérfano. El formulario vivo es src/components/cotizar/unified/CotizadorForm.tsx, único para los dos servicios.
 TEXTO ORIGINAL Campos de dirección: Calle y número de Origen / Calle y número de Destino.
 Inputs de datos: Nombre, Teléfono, Tipo de producto a trasladar.
 Respuestas: Tarifador de distancia dinámico con cálculo en pesos.
@@ -548,8 +556,9 @@ PAUTAS DE REVISIÓN Propuesta de plan prepago Botón de contacto de soporte
 
 ¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
 
-## Cotizador LowCost
+## Ficha de servicio LowCost
 4 componentes
+Estado: /cotizar/lowcost dejó de ser un cotizador y pasó a ser una ficha de servicio. Mantiene el flujo de lotes (BatchGrid), que igual se ofrece desde el cotizador unificado una vez obtenido el precio. No renderiza el formulario de un envío suelto: ese es src/components/cotizar/unified/CotizadorForm.tsx.
 
 src/app/cotizar/lowcost/page.tsx PENDIENTE
 
@@ -562,9 +571,10 @@ PAUTAS DE REVISIÓN Título principal Texto de descripción Badge superior
 
 ¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
 
-src/components/cotizar/lowcost/CotizadorLowCostForm.tsx PENDIENTE
+src/components/cotizar/lowcost/CotizadorLowCostForm.tsx PENDIENTE — huérfano, no se renderiza
 
 ## 2. Formulario Interactivo LowCost
+Estado: componente huérfano. El formulario vivo es src/components/cotizar/unified/CotizadorForm.tsx, único para los dos servicios.
 TEXTO ORIGINAL Campos: Dirección del local de retiro, Cantidad de paquetes diarios, Zonas de entrega en Mar del Plata.
 Tarifa sugerida: Descuentos progresivos basados en cantidad de entregas diarias.
 

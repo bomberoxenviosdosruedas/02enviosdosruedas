@@ -68,81 +68,94 @@ export const reviewCatalog: CatalogItem[] = [
   },
 
   // ==========================================
-  // COTIZADOR EXPRESS
+  // COTIZADOR UNIFICADO (/cotizar)
+  //
+  // Antes eran dos cotizadores separados (`/cotizar/express` y
+  // `/cotizar/lowcost`), cada uno con su formulario. Ahora hay UN solo
+  // formulario: una medición abre las dos tarifas y el usuario elige.
   // ==========================================
   {
-    id: "cotizar-express-hero",
-    page: "Cotizador Express",
-    componentName: "ExpressHeroHeader",
-    componentPath: "src/app/cotizar/express/page.tsx",
-    sectionTitle: "1. Presentación (Hero Header)",
-    currentText: "Título: Cotizador de Envíos Express\nCopete: Calculá el costo de tu envío prioritario al instante. Obtené alta precisión en la tarifa de entrega según la distancia y coordiná en el acto.\nBadge: Servicio Prioritario",
-    elementsToReview: ["Título principal", "Texto de descripción", "Badge superior"]
+    id: "cotizar-hero",
+    page: "Cotizador",
+    componentName: "CotizadorHero",
+    componentPath: "src/components/cotizar/unified/CotizadorHero.tsx",
+    sectionTitle: "1. Presentación (Hero)",
+    currentText: "Título: Cotizá tu envío\nBajada: Un solo cálculo, dos servicios. Te mostramos cuánto sale cada uno y en cuánto tiempo llega.",
+    elementsToReview: ["Título principal", "Bajada que explica la mecánica de una sola medición"]
   },
   {
-    id: "cotizar-express-form",
-    page: "Cotizador Express",
-    componentName: "CotizadorExpressForm",
-    componentPath: "src/components/cotizar/express/CotizadorExpressForm.tsx",
-    sectionTitle: "2. Formulario Interactivo Express",
-    currentText: "Campos de dirección: Calle y número de Origen / Calle y número de Destino.\nInputs de datos: Nombre, Teléfono, Tipo de producto a trasladar.\nRespuestas: Tarifador de distancia dinámico con cálculo en pesos.",
+    id: "cotizar-guia",
+    page: "Cotizador",
+    componentName: "CotizadorGuia",
+    componentPath: "src/components/cotizar/unified/CotizadorGuia.tsx",
+    sectionTitle: "2. Guía de 3 pasos",
+    currentText: "Pasos: 1. Contanos de dónde a dónde va. 2. Te cotizamos Express y LowCost con la misma distancia. 3. Elegís el que te sirve y te mandamos el detalle por WhatsApp.",
+    elementsToReview: ["Redacción de cada paso", "Consistencia de los verbos en imperativo"]
+  },
+  {
+    id: "cotizar-form",
+    page: "Cotizador",
+    componentName: "CotizadorForm",
+    componentPath: "src/components/cotizar/unified/CotizadorForm.tsx",
+    sectionTitle: "3. Formulario único de cotización",
+    currentText: "Campos de dirección: Origen y Destino (autocomplete con mapa).\nDatos: Nombre, Teléfono, Tipo de producto a trasladar.\nRespuesta: una sola medición alimenta las dos tarifas.",
     elementsToReview: ["Nombres de campos", "Instrucciones de ayuda", "Botonera del cotizador"]
   },
   {
+    id: "cotizar-comparativa",
+    page: "Cotizador",
+    componentName: "CotizadorComparativa",
+    componentPath: "src/components/cotizar/unified/CotizadorComparativa.tsx",
+    sectionTitle: "4. Comparativa Express / LowCost",
+    currentText: "Dos filas sobre escalas compartidas: 'Lo que pagás' (los dos precios, barras casi iguales porque se normalizan contra el más caro) y 'Lo que esperás' (Express menos de 2 h vs LowCost hasta 6 h, sobre un eje común de 0 a 8 h). Debajo, un botón por servicio que abre WhatsApp con ese servicio elegido.",
+    elementsToReview: ["Claridad de los rótulos de cada fila", "Texto de los dos botones de elección", "Orden en que se presentan las opciones"]
+  },
+  {
+    id: "cotizar-batch-oferta",
+    page: "Cotizador",
+    componentName: "CotizadorBatchOferta",
+    componentPath: "src/components/cotizar/unified/CotizadorBatchOferta.tsx",
+    sectionTitle: "5. Oferta de envío por lote (post-cotización)",
+    currentText: "Se revela sólo después de que el usuario ya tiene precio. Pregunta si tiene más envíos para mandar y ofrece el flujo Batch de LowCost.",
+    elementsToReview: ["Momento de aparición (nunca antes del precio)", "Tono de la pregunta", "Enlace al flujo Batch"]
+  },
+  {
     id: "cotizar-express-details",
-    page: "Cotizador Express",
+    page: "Cotizador",
     componentName: "CotizadorExpressDetails",
     componentPath: "src/components/cotizar/express/CotizadorExpressDetails.tsx",
-    sectionTitle: "3. Condiciones del Servicio Express",
+    sectionTitle: "6. Condiciones del Servicio Express",
     currentText: "Título: Pautas del Envío Express\nDetalles: Peso máximo por moto (hasta 15kg). Medidas máximas del bulto (caja estándar de 40x40x40cm). Garantía de entrega en el acto.",
     elementsToReview: ["Límites de peso y volumen", "Tipos de garantías"]
   },
   {
     id: "cotizar-express-help",
-    page: "Cotizador Express",
+    page: "Cotizador",
     componentName: "CotizadorExpressHelp",
     componentPath: "src/components/cotizar/express/CotizadorExpressHelp.tsx",
-    sectionTitle: "4. Bloque de Soporte Express",
+    sectionTitle: "7. Bloque de Soporte Express",
     currentText: "Título: ¿Necesitás un cadete recurrente?\nDescripción: Si realizás más de 5 envíos diarios express, consultá por nuestro plan prepago mensual con cadetería fija de marca en Mar del Plata.",
     elementsToReview: ["Propuesta de plan prepago", "Botón de contacto de soporte"]
   },
 
   // ==========================================
-  // COTIZADOR LOWCOST
+  // FIN DEL COTIZADOR UNIFICADO
   // ==========================================
   {
-    id: "cotizar-lowcost-hero",
-    page: "Cotizador LowCost",
-    componentName: "LowCostHeroHeader",
-    componentPath: "src/app/cotizar/lowcost/page.tsx",
-    sectionTitle: "1. Presentación (Hero Header)",
-    currentText: "Título: Cotizador de Envíos LowCost\nCopete: Eficiencia y rentabilidad. Calculá tu envío de ruteo diario masivo con entrega garantizada en el día en Mar del Plata.\nBadge: Servicio Económico y Programado",
-    elementsToReview: ["Título principal", "Texto de descripción", "Badge superior"]
-  },
-  {
-    id: "cotizar-lowcost-form",
-    page: "Cotizador LowCost",
-    componentName: "CotizadorLowCostForm",
-    componentPath: "src/components/cotizar/lowcost/CotizadorLowCostForm.tsx",
-    sectionTitle: "2. Formulario Interactivo LowCost",
-    currentText: "Campos: Dirección del local de retiro, Cantidad de paquetes diarios, Zonas de entrega en Mar del Plata.\nTarifa sugerida: Descuentos progresivos basados en cantidad de entregas diarias.",
-    elementsToReview: ["Mensajes informativos", "Precios simulados", "Checkboxes de zonas"]
-  },
-  {
     id: "cotizar-lowcost-details",
-    page: "Cotizador LowCost",
+    page: "Cotizador",
     componentName: "CotizadorLowCostDetails",
     componentPath: "src/components/cotizar/lowcost/CotizadorLowCostDetails.tsx",
-    sectionTitle: "3. Condiciones del Servicio LowCost",
+    sectionTitle: "8. Condiciones del Servicio LowCost",
     currentText: "Título: Regulación de Envíos Masivos\nDetalles: Retiro por la mañana (09:00 a 12:00) y entregas programadas durante la tarde del día siguiente (Next-Day) en toda la ciudad.",
     elementsToReview: ["Franjas horarias indicadas", "Condiciones de logística inversa"]
   },
   {
     id: "cotizar-lowcost-help",
-    page: "Cotizador LowCost",
+    page: "Cotizador",
     componentName: "CotizadorLowCostHelp",
     componentPath: "src/components/cotizar/lowcost/CotizadorLowCostHelp.tsx",
-    sectionTitle: "4. Bloque de Soporte LowCost",
+    sectionTitle: "9. Bloque de Soporte LowCost",
     currentText: "Título: ¿Tenés una cuenta corporativa?\nDescripción: Accedé a facturación tipo A mensual, importación de planillas de Excel masivas y panel de rastreo web multi-paquetes.",
     elementsToReview: ["Texto corporativo", "Beneficios del panel web"]
   },
