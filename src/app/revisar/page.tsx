@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { getFeedbackList } from './actions';
-import RevisarClient from './RevisarClient';
+import { getFeedbackList } from '@/actions/feedback';
+import RevisarClient from '@/components/revisar/RevisarClient';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Layers, X } from 'lucide-react';
-import BatchGrid from '@/src/components/cotizar/lowcost/BatchGrid';
+import BatchGrid from '@/components/cotizar/lowcost/BatchGrid';
 
 interface CotizadorBatchOfertaProps {
   abierto: boolean;

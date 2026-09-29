@@ -1,7 +1,7 @@
 # F13 — Extracción cruda del sistema de diseño (desde el código)
 
 **Envíos DosRuedas** · Mar del Plata, Argentina
-Fuente: código real del repo clonado (`src/app/globals.css`, `src/components/ui/`, `tailwind.config.ts` si aplica, componentes de página). **Esto no reemplaza ni reescribe `DESIGN.md`** — es la extracción independiente que pide esta fase, para comparar contra el contrato en `F13-design-system.md`.
+Fuente: código real del repo clonado (`src/app/globals.css`, `src/components/ui/`, (sin `tailwind.config.ts`: la paleta vive en `globals.css`), componentes de página). **Esto no reemplaza ni reescribe `DESIGN.md`** — es la extracción independiente que pide esta fase, para comparar contra el contrato en `F13-design-system.md`.
 
 ---
 
@@ -52,8 +52,8 @@ No se reescribe la escala completa de tokens (ya documentada en `DESIGN.md` §1-
 ## 4. Componentes fuera de `ui/` verificados en esta pasada
 
 - `src/components/home/LogisticaNetworkCanvas.tsx` (327 líneas): usa `#FFEC01` (9 veces) y `#ffffff` como colores de partículas en un canvas animado. **No tiene ningún punto de importación en ningún otro archivo del repo** — es código muerto, igual que los 8 de `ui/`.
-- `src/app/revisar/RevisarClient.tsx` (408 líneas): no contiene ningún color hexadecimal literal en todo el archivo.
-- `src/app/admin/imagenes/actions.ts`: contiene las cadenas de texto `#003399` y `#FFCC00` (líneas 165, 170, 242, 245) — pero como **texto dentro de un prompt para un generador de imágenes por IA** ("Brand Colors: Egyptian Blue (#003399) and Sunbeam Yellow (#FFCC00)..."), no como estilo aplicado a ningún elemento de la interfaz. Es una herramienta interna de administración, no una página que vean los clientes.
+- `src/components/revisar/RevisarClient.tsx` (408 líneas): no contiene ningún color hexadecimal literal en todo el archivo.
+- `src/actions/admin-imagenes.ts`: contiene las cadenas de texto `#003399` y `#FFCC00` (líneas 165, 170, 242, 245) — pero como **texto dentro de un prompt para un generador de imágenes por IA** ("Brand Colors: Egyptian Blue (#003399) and Sunbeam Yellow (#FFCC00)..."), no como estilo aplicado a ningún elemento de la interfaz. Es una herramienta interna de administración, no una página que vean los clientes.
 
 ## 5. Patrón "double-bezel" reimplementado a mano (hallazgo central de esta fase, ver DS-01)
 

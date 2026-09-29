@@ -1,8 +1,9 @@
 {
-  "name": "ai-studio-applet",
+  "name": "envios-dosruedas",
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.15.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "postinstall": "prisma generate",
     "test": "vitest",
+    "test:ci": "vitest run",
     "test:ui": "vitest --ui"
   },
   "dependencies": {

@@ -2,10 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import { Clock, Package, Tag, Zap } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { CTANestedPill, DoubleBezelCard, Knockout } from '@/src/components/ui';
-import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
-import { EXPRESS_TIERS } from '@/src/lib/pricing';
-import { EXPRESS_WINDOW, EXPRESS_WINDOW_SHORT, MAX_WEIGHT_KG } from '@/src/lib/promises';
+import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import { EXPRESS_TIERS } from '@/lib/pricing';
+import { EXPRESS_WINDOW, EXPRESS_WINDOW_SHORT, MAX_WEIGHT_KG } from '@/lib/promises';
 
 const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
 

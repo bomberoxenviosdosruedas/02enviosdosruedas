@@ -2,12 +2,12 @@ import React from 'react';
 import { Clock, MapPin, Route, ShieldCheck, Star, Zap } from 'lucide-react';
 import { Badge, CTANestedPill } from '@/components/ui';
 import { cn } from '@/lib/utils';
-import { calculateExpressPrice, EXPRESS_PRICE_PER_KM, EXPRESS_TIERS } from '@/src/lib/pricing';
+import { calculateExpressPrice, EXPRESS_PRICE_PER_KM, EXPRESS_TIERS } from '@/lib/pricing';
 import {
   CONSULT_THRESHOLD_KM,
   EXPRESS_WINDOW_SHORT,
   MAX_WEIGHT_KG,
-} from '@/src/lib/promises';
+} from '@/lib/promises';
 
 const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
 

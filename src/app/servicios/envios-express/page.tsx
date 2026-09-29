@@ -1,11 +1,11 @@
 import React from 'react';
 import { Metadata } from 'next';
-import ExpressHero from '@/src/components/servicios/express/ExpressHero';
-import ExpressFeatures from '@/src/components/servicios/express/ExpressFeatures';
-import ExpressPricing from '@/src/components/servicios/express/ExpressPricing';
-import ExpressUseCases from '@/src/components/servicios/express/ExpressUseCases';
-import { EXPRESS_PRICE_PER_KM, EXPRESS_TIERS } from '@/src/lib/pricing';
-import { CONSULT_THRESHOLD_KM, EXPRESS_WINDOW, MAX_WEIGHT_KG } from '@/src/lib/promises';
+import ExpressHero from '@/components/servicios/express/ExpressHero';
+import ExpressFeatures from '@/components/servicios/express/ExpressFeatures';
+import ExpressPricing from '@/components/servicios/express/ExpressPricing';
+import ExpressUseCases from '@/components/servicios/express/ExpressUseCases';
+import { EXPRESS_PRICE_PER_KM, EXPRESS_TIERS } from '@/lib/pricing';
+import { CONSULT_THRESHOLD_KM, EXPRESS_WINDOW, MAX_WEIGHT_KG } from '@/lib/promises';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 const lastTier = EXPRESS_TIERS[EXPRESS_TIERS.length - 1];

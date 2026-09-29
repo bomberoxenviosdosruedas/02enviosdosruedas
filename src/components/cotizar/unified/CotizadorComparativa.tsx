@@ -3,10 +3,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AlertTriangle, Zap, Layers, Check, ArrowRight } from 'lucide-react';
-import { trackAnalytics } from '@/src/lib/analytics';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
-import type { ServiceKey, UseCotizadorUnificadoReturn } from './hooks/useCotizadorUnified';
+import { trackAnalytics } from '@/lib/analytics';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/components/ui/CTANestedPill';
+import type { ServiceKey, UseCotizadorUnificadoReturn } from '@/hooks/cotizador/useCotizadorUnified';
 
 interface CotizadorComparativaProps {
   form: Pick<

@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Trash2, Layers, Shield } from 'lucide-react';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
-import InputField from '@/src/components/ui/InputField';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/components/ui/CTANestedPill';
+import InputField from '@/components/ui/InputField';
 
 interface BatchRow {
   id: string;

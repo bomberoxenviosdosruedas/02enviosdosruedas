@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Check, Copy, Phone } from 'lucide-react';
-import { SUPPORT_PHONE } from '@/src/lib/promises';
+import { SUPPORT_PHONE } from '@/lib/promises';
 
 const FEEDBACK_MS = 2000;
 

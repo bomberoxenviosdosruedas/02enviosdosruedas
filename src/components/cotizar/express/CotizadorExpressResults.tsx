@@ -3,10 +3,10 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AlertTriangle, ArrowRight } from 'lucide-react';
-import { trackAnalytics } from '@/src/lib/analytics';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
-import type { UseCotizadorExpressReturn } from './hooks/useCotizadorExpress';
+import { trackAnalytics } from '@/lib/analytics';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/components/ui/CTANestedPill';
+import type { UseCotizadorExpressReturn } from '@/hooks/cotizador/useCotizadorExpress';
 
 interface CotizadorExpressResultsProps {
   form: Pick<UseCotizadorExpressReturn, 

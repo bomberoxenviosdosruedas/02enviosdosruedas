@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getGeminiClient } from "@/src/lib/gemini";
+import { getGeminiClient } from "@/lib/gemini";
 
 // Force dynamic execution for API endpoints using system env vars
 export const dynamic = "force-dynamic";

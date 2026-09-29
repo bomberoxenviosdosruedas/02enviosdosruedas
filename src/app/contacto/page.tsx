@@ -1,9 +1,9 @@
 import React from 'react';
 import { Metadata } from 'next';
-import ContactHero from '@/src/components/contacto/ContactHero';
-import ContactForm from '@/src/components/contacto/ContactForm';
-import ContactInfo from '@/src/components/contacto/ContactInfo';
-import ConversionBanner from '@/src/components/contacto/ConversionBanner';
+import ContactHero from '@/components/contacto/ContactHero';
+import ContactForm from '@/components/contacto/ContactForm';
+import ContactInfo from '@/components/contacto/ContactInfo';
+import ConversionBanner from '@/components/contacto/ConversionBanner';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 

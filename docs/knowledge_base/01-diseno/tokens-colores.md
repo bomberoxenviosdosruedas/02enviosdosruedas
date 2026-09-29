@@ -230,4 +230,4 @@ background: linear-gradient(135deg, #0950f6 0%, #0950f6 55%, #3570f8 100%);
 /* Alias semánticos: --surface-*, --text-*, --border-subtle, --focus-ring, --action-* */
 ```
 
-> `tailwind.config.ts` se sigue cargando con `@config` y duplica colores, sombras y keyframes (`counter-up` solo existe ahí). Sus aliases `brand-ink` y `brand-dark` también valen `#0950F6`. Si un valor exacto importa, verificar el CSS compilado.
+> **Fuente única de verdad desde 2026-09-29:** `tailwind.config.ts` fue **eliminado**. Toda la paleta, el shadow set, la escala tipográfica y los keyframes viven en el bloque `@theme` de `src/app/globals.css`; ya no hay `@config` ni ruta relativa que cruce `src/` → raíz. El alias `brand-ink` y `brand-dark` siguen valiendo `#0950F6`. Para agregar un token, editar **solo** `globals.css`. Tailwind v4 descarta del bundle los tokens que no usa ninguna clase, así que un token nuevo no aparece en el CSS compilado hasta que se consume: eso es tree-shaking, no un token perdido.

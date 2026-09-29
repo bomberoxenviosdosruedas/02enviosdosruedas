@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import Page from './page';
-import CotizadorUnificado from '@/src/components/cotizar/unified/CotizadorUnificado';
+import CotizadorUnificado from '@/components/cotizar/unified/CotizadorUnificado';
 
 /**
  * El cotizador unificado reemplaza a los dos cotizadores por servicio. Estos tests
@@ -14,7 +14,7 @@ import CotizadorUnificado from '@/src/components/cotizar/unified/CotizadorUnific
  */
 
 const mockFetchRoute = vi.fn();
-vi.mock('@/src/hooks/useGoogleRoute', () => ({
+vi.mock('@/hooks/useGoogleRoute', () => ({
   useGoogleRoute: () => ({ fetchRoute: mockFetchRoute }),
 }));
 
@@ -31,7 +31,7 @@ const RANGOS = [
   { id: 10, serviceType: 'LOW_COST', distanciaMinKm: 10, distanciaMaxKm: 9999, precioRango: 700, descripcion: 'Excedente' },
 ];
 
-vi.mock('@/src/lib/prisma', () => ({
+vi.mock('@/lib/prisma', () => ({
   prisma: {
     priceRange: {
       findMany: vi.fn().mockImplementation(({ where }: { where: { serviceType: string } }) =>

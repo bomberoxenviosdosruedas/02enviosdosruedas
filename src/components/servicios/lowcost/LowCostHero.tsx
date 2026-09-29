@@ -2,10 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import { Clock, Tag, TrendingDown } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { CTANestedPill, DoubleBezelCard, Knockout } from '@/src/components/ui';
-import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
-import { LOW_COST_TIERS } from '@/src/lib/pricing';
-import { LOWCOST_CUTOFF_TIME, LOWCOST_DELIVERY_DEADLINE } from '@/src/lib/promises';
+import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import { LOW_COST_TIERS } from '@/lib/pricing';
+import { LOWCOST_CUTOFF_TIME, LOWCOST_DELIVERY_DEADLINE } from '@/lib/promises';
 
 const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
 

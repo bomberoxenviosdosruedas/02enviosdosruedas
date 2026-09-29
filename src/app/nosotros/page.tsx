@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { Users, HelpCircle, MessageSquare, ArrowRight, ShieldCheck, MapPin, Clock, Truck } from 'lucide-react';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/components/ui/CTANestedPill';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 
 export const metadata: Metadata = {
   title: 'Sobre Nosotros, FAQs y Redes | Envíos DosRuedas Mar del Plata',

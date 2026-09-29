@@ -1,10 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
-import EmprendedoresHero from '@/src/components/servicios/emprendedores/EmprendedoresHero';
-import EmprendedoresFeatures from '@/src/components/servicios/emprendedores/EmprendedoresFeatures';
-import EmprendedoresBenefits from '@/src/components/servicios/emprendedores/EmprendedoresBenefits';
-import EmprendedoresDropoff from '@/src/components/servicios/emprendedores/EmprendedoresDropoff';
-import EmprendedoresPricing from '@/src/components/servicios/emprendedores/EmprendedoresPricing';
+import EmprendedoresHero from '@/components/servicios/emprendedores/EmprendedoresHero';
+import EmprendedoresFeatures from '@/components/servicios/emprendedores/EmprendedoresFeatures';
+import EmprendedoresBenefits from '@/components/servicios/emprendedores/EmprendedoresBenefits';
+import EmprendedoresDropoff from '@/components/servicios/emprendedores/EmprendedoresDropoff';
+import EmprendedoresPricing from '@/components/servicios/emprendedores/EmprendedoresPricing';
 
 export const metadata: Metadata = {
   title: 'Plan Emprendedores y Fulfillment 3PL | Envíos DosRuedas Mar del Plata',

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Shield, Map, Zap, CheckCircle2, PackageCheck, Scale, Clock } from 'lucide-react';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 
 export default function CotizadorExpressDetails() {
   const features = [

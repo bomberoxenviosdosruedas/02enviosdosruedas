@@ -16,7 +16,7 @@ vi.mock('next/dynamic', () => ({
 }));
 
 // Mock HeroProceduralBackground
-vi.mock('@/src/components/ui/HeroProceduralBackground', () => ({
+vi.mock('@/components/ui/HeroProceduralBackground', () => ({
   default: () => <div data-testid="hero-procedural-bg" />,
 }));
 

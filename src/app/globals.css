@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@config "../../tailwind.config.ts";
 
 /* Tailwind CSS v4 Custom Variant */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -126,7 +125,14 @@
   --tracking-mega: 0.2em;
 
   --spacing-section-y: 6rem;
+  --spacing-section-y-tight: 3rem;
   --spacing-container-max: 80rem;
+  /* Escala de alto de control (touch targets 36-64px) */
+  --spacing-control-sm: 2.25rem;
+  --spacing-control: 2.5rem;
+  --spacing-control-lg: 2.75rem;
+  --spacing-control-xl: 3.5rem;
+  --spacing-control-2xl: 4rem;
 
   --radius-sm: 6px;
   --radius-md: 8px;
@@ -191,6 +197,7 @@
 @keyframes pulse-subtle { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
 @keyframes border-pulse { 0%, 100% { border-color: rgba(9,80,246,0.2); } 50% { border-color: rgba(9,80,246,0.4); } }
 @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes counter-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes logos-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 body {

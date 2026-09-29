@@ -3,8 +3,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MessageSquare, ShieldCheck, Truck, Sparkles } from 'lucide-react';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/components/ui/CTANestedPill';
 
 export default function AboutAdvantages() {
   return (

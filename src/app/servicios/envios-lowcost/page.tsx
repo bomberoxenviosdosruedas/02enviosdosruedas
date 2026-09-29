@@ -1,10 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
-import LowCostHero from '@/src/components/servicios/lowcost/LowCostHero';
-import LowCostFeatures from '@/src/components/servicios/lowcost/LowCostFeatures';
-import LowCostPricing from '@/src/components/servicios/lowcost/LowCostPricing';
-import LowCostBenefits from '@/src/components/servicios/lowcost/LowCostBenefits';
-import LowCostHowItWorks from '@/src/components/servicios/lowcost/LowCostHowItWorks';
+import LowCostHero from '@/components/servicios/lowcost/LowCostHero';
+import LowCostFeatures from '@/components/servicios/lowcost/LowCostFeatures';
+import LowCostPricing from '@/components/servicios/lowcost/LowCostPricing';
+import LowCostBenefits from '@/components/servicios/lowcost/LowCostBenefits';
+import LowCostHowItWorks from '@/components/servicios/lowcost/LowCostHowItWorks';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 

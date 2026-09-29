@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { Bike, CalendarClock, MapPin, Navigation, ShieldCheck } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { CTANestedPill, DoubleBezelCard, Knockout } from '@/src/components/ui';
-import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
-import { CONSULT_THRESHOLD_KM, OPERATING_HOURS, SUPPORT_PHONE } from '@/src/lib/promises';
+import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import { CONSULT_THRESHOLD_KM, OPERATING_HOURS, SUPPORT_PHONE } from '@/lib/promises';
 
 /**
  * El nodo: un único origen y siete direcciones.

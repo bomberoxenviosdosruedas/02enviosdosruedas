@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import DynamicRouteMap from '@/src/components/ui/DynamicRouteMap';
-import type { Coordinate } from '@/src/hooks/useGoogleRoute';
-import type { UseCotizadorExpressReturn } from './hooks/useCotizadorExpress';
+import DynamicRouteMap from '@/components/ui/DynamicRouteMap';
+import type { Coordinate } from '@/hooks/useGoogleRoute';
+import type { UseCotizadorExpressReturn } from '@/hooks/cotizador/useCotizadorExpress';
 
 interface CotizadorExpressMapProps {
   form: Pick<UseCotizadorExpressReturn, 

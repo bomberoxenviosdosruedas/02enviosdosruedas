@@ -3,10 +3,10 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
 import { Check, ArrowRight, MessageSquare, Landmark } from 'lucide-react';
-import { Card, CardContent, CardHeader } from '@/src/components/ui/card';
-import { Sparkles } from '@/src/components/ui/sparkles';
-import { TimelineContent } from '@/src/components/ui/timeline-animation';
-import { VerticalCutReveal } from '@/src/components/ui/vertical-cut-reveal';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Sparkles } from '@/components/ui/sparkles';
+import { TimelineContent } from '@/components/ui/timeline-animation';
+import { VerticalCutReveal } from '@/components/ui/vertical-cut-reveal';
 import { useReducedMotion } from 'motion/react';
 import NumberFlow from '@number-flow/react';
 

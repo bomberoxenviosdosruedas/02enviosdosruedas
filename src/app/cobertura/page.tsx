@@ -2,16 +2,16 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { MapPin, Zap, Clock, ShieldCheck, ArrowRight, CheckCircle2, Navigation, Compass } from 'lucide-react';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
-import CoberturaExplorer from '@/src/components/cobertura/CoberturaExplorer';
-import LogisticaNetworkCanvas from '@/src/components/home/LogisticaNetworkCanvas';
+import CTANestedPill from '@/components/ui/CTANestedPill';
+import CoberturaExplorer from '@/components/cobertura/CoberturaExplorer';
+import LogisticaNetworkCanvas from '@/components/home/LogisticaNetworkCanvas';
 import {
   EXPRESS_PRICE_PER_KM,
   EXPRESS_TIERS,
   LOW_COST_PRICE_PER_KM,
   LOW_COST_TIERS,
-} from '@/src/lib/pricing';
-import { CONSULT_THRESHOLD_KM } from '@/src/lib/promises';
+} from '@/lib/pricing';
+import { CONSULT_THRESHOLD_KM } from '@/lib/promises';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 

@@ -3,8 +3,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { GitCompareArrows, MapPin, MessageCircle } from 'lucide-react';
-import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import CTANestedPill from '@/components/ui/CTANestedPill';
 
 /**
  * Hero de la guía, no de un servicio. No vende Express ni LowCost: explica que

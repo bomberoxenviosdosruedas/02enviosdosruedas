@@ -1,8 +1,8 @@
 'use server';
 
 import { z } from 'zod';
-import { prisma } from '@/src/lib/prisma';
-import { calculateExpressPrice, calculateLowCostPrice, type PriceRangeProp } from '@/src/lib/pricing';
+import { prisma } from '@/lib/prisma';
+import { calculateExpressPrice, calculateLowCostPrice, type PriceRangeProp } from '@/lib/pricing';
 
 // Tope razonable para la distancia aceptada por el cotizador (km).
 const MAX_DISTANCE_KM = 200;

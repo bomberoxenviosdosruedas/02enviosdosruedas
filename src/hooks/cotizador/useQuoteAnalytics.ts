@@ -1,6 +1,6 @@
 'use client';
 
-import { trackAnalytics } from '@/src/lib/analytics';
+import { trackAnalytics } from '@/lib/analytics';
 
 /**
  * Hook para trackear eventos de analytics del cotizador

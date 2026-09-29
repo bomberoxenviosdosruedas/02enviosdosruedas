@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { Zap, MapPin, Package, Clock } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { CTANestedPill, FloatTiltCard, Knockout } from '@/src/components/ui';
-import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
-import { EXPRESS_TIERS, LOW_COST_TIERS } from '@/src/lib/pricing';
+import { CTANestedPill, FloatTiltCard, Knockout } from '@/components/ui';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import { EXPRESS_TIERS, LOW_COST_TIERS } from '@/lib/pricing';
 import {
   EXPRESS_WINDOW,
   EXPRESS_WINDOW_SHORT,
@@ -11,7 +11,7 @@ import {
   LOWCOST_DELIVERY_DEADLINE,
   FLEX_CUTOFF_TIME,
   MAX_WEIGHT_KG,
-} from '@/src/lib/promises';
+} from '@/lib/promises';
 
 const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
 

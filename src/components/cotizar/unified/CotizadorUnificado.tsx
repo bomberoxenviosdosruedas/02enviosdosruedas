@@ -7,7 +7,7 @@ import CotizadorComparativa from './CotizadorComparativa';
 import CotizadorMapa from './CotizadorMapa';
 import CotizadorGuia from './CotizadorGuia';
 import CotizadorBatchOferta from './CotizadorBatchOferta';
-import { useCotizadorUnificado } from './hooks/useCotizadorUnified';
+import { useCotizadorUnificado } from '@/hooks/cotizador/useCotizadorUnified';
 
 /**
  * Isla única del cotizador. Todo el estado vive acá: el formulario, la

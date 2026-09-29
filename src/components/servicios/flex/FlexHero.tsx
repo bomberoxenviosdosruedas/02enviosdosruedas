@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { BookOpen, PackageCheck, ShieldCheck, Tag, Timer } from 'lucide-react';
-import { CTANestedPill, DoubleBezelCard, Knockout } from '@/src/components/ui';
-import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
-import { LOW_COST_TIERS } from '@/src/lib/pricing';
-import { FLEX_CUTOFF_TIME, FLEX_DELIVERY_DEADLINE } from '@/src/lib/promises';
+import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import { LOW_COST_TIERS } from '@/lib/pricing';
+import { FLEX_CUTOFF_TIME, FLEX_DELIVERY_DEADLINE } from '@/lib/promises';
 
 const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
 

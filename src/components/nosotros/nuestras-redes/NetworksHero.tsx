@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { ChevronDown, Share2 } from 'lucide-react';
-import { CTANestedPill, DoubleBezelCard, Knockout } from '@/src/components/ui';
-import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
+import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 
 /** Los tres canales que el hero anuncia; el detalle vive en #redes-oficiales. */
 const CHANNELS = ['Instagram', 'Facebook', 'WhatsApp'] as const;

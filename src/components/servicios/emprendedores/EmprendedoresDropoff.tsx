@@ -1,8 +1,8 @@
 import { Tag, Clock, Receipt, MapPin } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { CTANestedPill } from '@/src/components/ui';
+import { CTANestedPill } from '@/components/ui';
 import DropoffCalculator from './DropoffCalculator';
-import { DROPOFF_DISCOUNT_PERCENT, OPERATING_HOURS } from '@/src/lib/promises';
+import { DROPOFF_DISCOUNT_PERCENT, OPERATING_HOURS } from '@/lib/promises';
 
 /** Condiciones operativas de la modalidad DropOFF (fuente: promises.ts, BL-03). */
 const conditions = [

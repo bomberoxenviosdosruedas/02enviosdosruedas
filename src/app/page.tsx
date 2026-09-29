@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import HeroAnimado from '@/src/components/home/HeroAnimado';
-import SegmentosHome from '@/src/components/home/SegmentosHome';
-import ServicesOverview from '@/src/components/home/ServicesOverview';
-import EmprendedoresHome from '@/src/components/home/EmprendedoresHome';
-import CtaSection from '@/src/components/home/CtaSection';
-import SocialProofSection from '@/src/components/home/SocialProofSection';
-import LogisticaNetworkCanvas from '@/src/components/home/LogisticaNetworkCanvas';
+import HeroAnimado from '@/components/home/HeroAnimado';
+import SegmentosHome from '@/components/home/SegmentosHome';
+import ServicesOverview from '@/components/home/ServicesOverview';
+import EmprendedoresHome from '@/components/home/EmprendedoresHome';
+import CtaSection from '@/components/home/CtaSection';
+import SocialProofSection from '@/components/home/SocialProofSection';
+import LogisticaNetworkCanvas from '@/components/home/LogisticaNetworkCanvas';
 
 export const metadata: Metadata = {
   alternates: {

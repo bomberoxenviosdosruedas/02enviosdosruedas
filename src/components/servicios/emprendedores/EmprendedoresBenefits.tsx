@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import { 
   Building2, Receipt, Info, Warehouse, UserCheck 
 } from 'lucide-react';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 
 export default function EmprendedoresBenefits() {
   const benefits = [

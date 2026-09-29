@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Users2, ShieldCheck, HeartHandshake, MapPin } from 'lucide-react';
 import Image from 'next/image';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 
 export default function AboutTeam() {
   const teamStats = [

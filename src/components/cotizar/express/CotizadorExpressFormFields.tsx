@@ -3,10 +3,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MapPin, User, Phone, Package } from 'lucide-react';
-import AddressAutocomplete from '@/src/components/ui/AddressAutocomplete';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
-import type { UseCotizadorExpressReturn } from './hooks/useCotizadorExpress';
-import InputField from '@/src/components/ui/InputField';
+import AddressAutocomplete from '@/components/ui/AddressAutocomplete';
+import CTANestedPill from '@/components/ui/CTANestedPill';
+import type { UseCotizadorExpressReturn } from '@/hooks/cotizador/useCotizadorExpress';
+import InputField from '@/components/ui/InputField';
 
 interface CotizadorExpressFormFieldsProps {
   form: Pick<UseCotizadorExpressReturn,

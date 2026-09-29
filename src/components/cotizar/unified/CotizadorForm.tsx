@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { MapPin, User, Phone, Package } from 'lucide-react';
-import AddressAutocomplete from '@/src/components/ui/AddressAutocomplete';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
-import InputField from '@/src/components/ui/InputField';
-import type { UseCotizadorUnificadoReturn } from './hooks/useCotizadorUnified';
+import AddressAutocomplete from '@/components/ui/AddressAutocomplete';
+import CTANestedPill from '@/components/ui/CTANestedPill';
+import InputField from '@/components/ui/InputField';
+import type { UseCotizadorUnificadoReturn } from '@/hooks/cotizador/useCotizadorUnified';
 
 interface CotizadorFormProps {
   form: UseCotizadorUnificadoReturn;

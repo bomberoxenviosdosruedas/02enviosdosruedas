@@ -13,8 +13,8 @@ import {
   X,
   Sparkles,
 } from 'lucide-react';
-import { cn } from '@/src/lib/utils';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
+import { cn } from '@/lib/utils';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 import { FAQ_DATA, type FaqCategoryGroup, type FaqQuestion } from './faqData';
 
 export { FAQ_DATA };

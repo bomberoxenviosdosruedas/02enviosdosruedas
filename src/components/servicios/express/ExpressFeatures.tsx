@@ -1,7 +1,7 @@
 import React from 'react';
 import { Clock, MapPinned, Package, Users } from 'lucide-react';
 import { DoubleBezelCard } from '@/components/ui';
-import { EXPRESS_WINDOW, MAX_WEIGHT_KG, OPERATING_HOURS } from '@/src/lib/promises';
+import { EXPRESS_WINDOW, MAX_WEIGHT_KG, OPERATING_HOURS } from '@/lib/promises';
 
 const features = [
   {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { OPERATING_HOURS } from '@/src/lib/promises';
+import { OPERATING_HOURS } from '@/lib/promises';
 import SobreNosotrosPage from './page';
 
 describe('SobreNosotrosPage — Tier 1 & 2', () => {

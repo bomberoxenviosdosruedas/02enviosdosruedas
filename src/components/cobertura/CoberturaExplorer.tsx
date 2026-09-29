@@ -3,14 +3,14 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Search, MapPin, Zap, Clock, ShieldCheck, ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react';
-import { cn } from '@/src/lib/utils';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
+import { cn } from '@/lib/utils';
+import CTANestedPill from '@/components/ui/CTANestedPill';
 import {
   EXPRESS_PRICE_PER_KM,
   EXPRESS_TIERS,
   LOW_COST_PRICE_PER_KM,
   LOW_COST_TIERS,
-} from '@/src/lib/pricing';
+} from '@/lib/pricing';
 
 type ZoneId = 'Z1' | 'Z2' | 'Z3' | 'Z4' | 'Z5';
 

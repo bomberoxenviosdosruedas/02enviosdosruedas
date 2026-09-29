@@ -1,8 +1,8 @@
 import { ImageResponse } from 'next/og';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { EXPRESS_TIERS } from '@/src/lib/pricing';
-import { EXPRESS_WINDOW, MAX_WEIGHT_KG } from '@/src/lib/promises';
+import { EXPRESS_TIERS } from '@/lib/pricing';
+import { EXPRESS_WINDOW, MAX_WEIGHT_KG } from '@/lib/promises';
 
 // Imagen para compartir la página en redes, generada con código en el build (sin APIs ni cuotas).
 export const alt = `Envíos Express en moto en Mar del Plata: entrega en ${EXPRESS_WINDOW}`;

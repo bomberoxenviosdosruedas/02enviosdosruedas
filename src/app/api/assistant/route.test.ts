@@ -3,7 +3,7 @@ import { NextRequest } from 'next/server';
 
 // ─── Mock del cliente Gemini ────────────────────────────────────────────────────
 const mockGenerateContent = vi.fn();
-vi.mock('@/src/lib/gemini', () => ({
+vi.mock('@/lib/gemini', () => ({
   getGeminiClient: () => ({
     models: {
       generateContent: mockGenerateContent,

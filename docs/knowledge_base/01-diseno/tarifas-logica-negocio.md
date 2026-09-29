@@ -188,7 +188,7 @@ model PriceRange {
 
 ```tsx
 // Derivar de constantes exportadas (NO hardcodear)
-import { EXPRESS_TIERS, LOW_COST_TIERS, EXPRESS_PRICE_PER_KM, LOW_COST_PRICE_PER_KM } from '@/src/lib/pricing';
+import { EXPRESS_TIERS, LOW_COST_TIERS, EXPRESS_PRICE_PER_KM, LOW_COST_PRICE_PER_KM } from '@/lib/pricing';
 
 <tbody>
   {EXPRESS_TIERS.map((tier, i) => (

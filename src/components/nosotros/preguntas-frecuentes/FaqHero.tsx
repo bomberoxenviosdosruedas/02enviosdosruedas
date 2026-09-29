@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { CTANestedPill, Knockout } from '@/src/components/ui';
-import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
-import { SUPPORT_PHONE } from '@/src/lib/promises';
+import { CTANestedPill, Knockout } from '@/components/ui';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import { SUPPORT_PHONE } from '@/lib/promises';
 import { FAQ_DATA } from './faqData';
 
 const TOTAL_QUESTIONS = FAQ_DATA.reduce((total, group) => total + group.questions.length, 0);

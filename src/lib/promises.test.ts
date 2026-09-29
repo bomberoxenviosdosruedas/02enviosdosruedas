@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { EXPRESS_WINDOW, CONSULT_THRESHOLD_KM, CONTACT_EMAIL, OPERATING_HOURS } from './promises';
 import { calculateExpressPrice, calculateLowCostPrice } from './pricing';
+// Excepción documentada al alias `@/*` (que solo resuelve dentro de `src/`):
+// este test valida los `redirects` y `headers` declarados en la config de Next,
+// que vive en la raíz del repo y no dentro de `src/`.
 import nextConfig from '../../next.config';
 
 describe('BL-01 & BL-03 — Enrutamiento, Promesas y Fórmulas 2026', () => {

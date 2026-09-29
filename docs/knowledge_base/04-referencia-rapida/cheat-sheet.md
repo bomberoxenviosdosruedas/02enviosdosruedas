@@ -230,7 +230,7 @@ import { Zap, MapPin, Clock, ShieldCheck, Phone, User, Package, CheckCircle2, Ch
 import { FaWhatsapp } from 'react-icons/fa'; // Solo WhatsApp
 
 // Utils
-import { cn } from '@/src/lib/utils';
+import { cn } from '@/lib/utils';
 import { motion, useReducedMotion, AnimatePresence } from 'motion/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

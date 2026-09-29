@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import CotizadorExpressDetails from '@/src/components/cotizar/express/CotizadorExpressDetails';
-import CotizadorExpressHelp from '@/src/components/cotizar/express/CotizadorExpressHelp';
+import CotizadorExpressDetails from '@/components/cotizar/express/CotizadorExpressDetails';
+import CotizadorExpressHelp from '@/components/cotizar/express/CotizadorExpressHelp';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 

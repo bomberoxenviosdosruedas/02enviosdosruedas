@@ -16,10 +16,10 @@ import {
   Briefcase,
   Layers,
 } from 'lucide-react';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
-import { InputField } from '@/src/components/ui/InputField';
-import { trackAnalytics } from '@/src/lib/analytics';
-import { buildWhatsAppUrl } from '@/src/lib/whatsapp';
+import CTANestedPill from '@/components/ui/CTANestedPill';
+import { InputField } from '@/components/ui/InputField';
+import { trackAnalytics } from '@/lib/analytics';
+import { buildWhatsAppUrl } from '@/lib/whatsapp';
 
 export default function EmpresasCuentaCorrientePage() {
   const [formData, setFormData] = useState({

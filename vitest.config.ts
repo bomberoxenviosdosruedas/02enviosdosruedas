@@ -24,8 +24,12 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@/src': resolve(__dirname, './src'),
-      '@': resolve(__dirname, './src'),
+      // Debe espejar exactamente `compilerOptions.paths` de tsconfig.json.
+      // `@generated/*` cubre el Prisma Client generado (fuera de `src/`).
+      // `import.meta.dirname` y no `__dirname`: el loader nativo de Vite (que
+      // será el default en la próxima major) no expone `__dirname`.
+      '@': resolve(import.meta.dirname, './src'),
+      '@generated': resolve(import.meta.dirname, './generated'),
     },
   },
 });

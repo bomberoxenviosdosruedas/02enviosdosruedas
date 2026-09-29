@@ -2,7 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Zap, Truck, Package, Warehouse, ArrowRight, MapPin, Clock, ShieldCheck, CreditCard, MessageSquare } from 'lucide-react';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
+import CTANestedPill from '@/components/ui/CTANestedPill';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 

@@ -10,7 +10,7 @@ import {
   ArrowRight,
   Sparkles,
 } from 'lucide-react';
-import { DoubleBezelCard } from '@/src/components/ui/DoubleBezelCard';
+import { DoubleBezelCard } from '@/components/ui/DoubleBezelCard';
 
 export default function SegmentosHome() {
   const segmentos = [

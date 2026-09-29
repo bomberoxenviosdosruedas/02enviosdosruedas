@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { HelpCircle, Mail, PhoneCall } from 'lucide-react';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/components/ui/CTANestedPill';
 
 export default function CotizadorExpressHelp() {
   return (

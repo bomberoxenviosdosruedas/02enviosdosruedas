@@ -1,8 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
-import NetworksHero from '@/src/components/nosotros/nuestras-redes/NetworksHero';
-import NetworksChannels from '@/src/components/nosotros/nuestras-redes/NetworksChannels';
-import RecentPosts from '@/src/components/nosotros/nuestras-redes/RecentPosts';
+import NetworksHero from '@/components/nosotros/nuestras-redes/NetworksHero';
+import NetworksChannels from '@/components/nosotros/nuestras-redes/NetworksChannels';
+import RecentPosts from '@/components/nosotros/nuestras-redes/RecentPosts';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 

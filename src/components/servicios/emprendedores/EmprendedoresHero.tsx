@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { Boxes, Receipt, Tag, Warehouse } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { CTANestedPill, DoubleBezelCard, Knockout } from '@/src/components/ui';
-import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
+import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import {
   CONTRAREEMBOLSO_COMMISSION_PERCENT,
   DROPOFF_DISCOUNT_PERCENT,
   OPERATING_HOURS,
-} from '@/src/lib/promises';
+} from '@/lib/promises';
 
 /** 7 celdas del rack. La del medio es la que se está "picking". */
 const BINS = 7;

@@ -69,7 +69,7 @@ A diferencia de lo que decía `DESIGN.md` §11, este componente no tiene colores
 
 ## 7. DS-06 (bajo) — Colores fuera de marca en una herramienta interna, no en el sitio público
 
-`src/app/admin/imagenes/actions.ts` (líneas 165, 170, 242, 245) tiene las cadenas `#003399` y `#FFCC00` como texto dentro de un prompt para un generador de imágenes por IA, no como estilo real de ningún componente visible. Impacto bajo porque es una herramienta de administración interna, no una página de cara al cliente — pero vale corregir el texto del prompt para que coincida con los colores de marca reales (`#0636A5`/`#FFEC01`), para que las imágenes que genere esa herramienta salgan con los colores correctos.
+`src/actions/admin-imagenes.ts` (líneas 165, 170, 242, 245) tiene las cadenas `#003399` y `#FFCC00` como texto dentro de un prompt para un generador de imágenes por IA, no como estilo real de ningún componente visible. Impacto bajo porque es una herramienta de administración interna, no una página de cara al cliente — pero vale corregir el texto del prompt para que coincida con los colores de marca reales (`#0636A5`/`#FFEC01`), para que las imágenes que genere esa herramienta salgan con los colores correctos.
 
 ## 8. Regla de lint/test propuesta, para prevenir reintroducción de colores fuera de marca
 
@@ -81,7 +81,7 @@ Ya que en esta pasada no se encontró ningún color fuera de marca aplicado a la
 // en cualquier archivo .tsx/.ts/.css bajo src/ — con una lista de excepciones explícita
 // (blanco/negro puro, y archivos de herramientas internas como admin/imagenes).
 const ALLOWED = ['#0636A5', '#FFEC01', '#ffffff', '#000000']; // + la escala completa de tokens
-const EXCEPT_FILES = ['src/app/admin/imagenes/actions.ts']; // prompts de IA, no estilo real
+const EXCEPT_FILES = ['src/actions/admin-imagenes.ts']; // prompts de IA, no estilo real
 // Recorre src/**/*.{ts,tsx,css}, busca /#[0-9A-Fa-f]{3,6}\b/g, reporta cualquier match
 // que no esté en ALLOWED y cuyo archivo no esté en EXCEPT_FILES.
 ```

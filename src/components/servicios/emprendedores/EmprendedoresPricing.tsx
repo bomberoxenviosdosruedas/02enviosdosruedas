@@ -3,8 +3,8 @@
 import React from 'react';
 import { Check, Briefcase } from 'lucide-react';
 import NumberFlow from '@number-flow/react';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/components/ui/CTANestedPill';
 
 const plans = [
   {

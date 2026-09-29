@@ -166,8 +166,8 @@ export default function ExpressPage() {
 import { Zap, MapPin } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { CTANestedPill, DoubleBezelCard, HeroProceduralBackground } from '@/components/ui';
-import { EXPRESS_TIERS } from '@/src/lib/pricing';
-import { EXPRESS_WINDOW, EXPRESS_WINDOW_SHORT, MAX_WEIGHT_KG } from '@/src/lib/promises';
+import { EXPRESS_TIERS } from '@/lib/pricing';
+import { EXPRESS_WINDOW, EXPRESS_WINDOW_SHORT, MAX_WEIGHT_KG } from '@/lib/promises';
 
 export default function ExpressHero() {
   const chips = [

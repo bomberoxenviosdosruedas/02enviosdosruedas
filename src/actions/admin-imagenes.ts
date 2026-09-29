@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/src/lib/prisma';
+import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 import fs from 'fs/promises';
 import path from 'path';
@@ -153,7 +153,7 @@ export async function suggestPromptBase(data: {
     throw new Error('Debe proporcionar una descripción o una imagen válida para generar un prompt.');
   }
 
-  const { ai } = await import('@/src/lib/genkit');
+  const { ai } = await import('@/lib/genkit');
   const { googleAI } = await import('@genkit-ai/google-genai');
 
   const systemInstruction = `
@@ -232,7 +232,7 @@ export async function improvePrompt(data: {
     throw new Error('El prompt actual no puede estar vacío');
   }
 
-  const { ai } = await import('@/src/lib/genkit');
+  const { ai } = await import('@/lib/genkit');
   const { googleAI } = await import('@genkit-ai/google-genai');
 
   const systemInstruction = `

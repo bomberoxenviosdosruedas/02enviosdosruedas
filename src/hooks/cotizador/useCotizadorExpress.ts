@@ -2,10 +2,10 @@
 
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { useReducedMotion } from 'motion/react';
-import { useGoogleRoute, type Coordinate } from '@/src/hooks/useGoogleRoute';
-import { calculateQuoteAction, type QuoteState } from '@/src/actions/quote';
-import { trackAnalytics } from '@/src/lib/analytics';
-import { buildWhatsAppUrl } from '@/src/lib/whatsapp';
+import { useGoogleRoute, type Coordinate } from '@/hooks/useGoogleRoute';
+import { calculateQuoteAction, type QuoteState } from '@/actions/quote';
+import { trackAnalytics } from '@/lib/analytics';
+import { buildWhatsAppUrl } from '@/lib/whatsapp';
 
 interface QuoteResult {
   distancia: number;

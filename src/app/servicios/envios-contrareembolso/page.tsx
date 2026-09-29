@@ -15,7 +15,7 @@ import {
   Receipt,
   TrendingUp,
 } from 'lucide-react';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
+import CTANestedPill from '@/components/ui/CTANestedPill';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { ChevronDown, MapPin, MessageCircle } from 'lucide-react';
-import { CTANestedPill, DoubleBezelCard, Knockout } from '@/src/components/ui';
-import HeroProceduralBackground from '@/src/components/ui/HeroProceduralBackground';
-import CopyPhone from '@/src/components/contacto/CopyPhone';
-import { WHATSAPP_PHONE } from '@/src/lib/whatsapp';
-import { OPERATING_HOURS } from '@/src/lib/promises';
+import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import CopyPhone from '@/components/contacto/CopyPhone';
+import { WHATSAPP_PHONE } from '@/lib/whatsapp';
+import { OPERATING_HOURS } from '@/lib/promises';
 
 /**
  * Dirección de la base central. No está en `promises.ts` porque no es una

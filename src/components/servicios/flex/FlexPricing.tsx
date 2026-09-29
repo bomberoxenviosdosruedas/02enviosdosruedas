@@ -2,14 +2,14 @@
 
 import React, { useRef } from 'react';
 import { Check, ArrowRight, MessageSquare, CloudRain } from 'lucide-react';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
-import { Sparkles } from '@/src/components/ui/sparkles';
-import { TimelineContent } from '@/src/components/ui/timeline-animation';
-import { VerticalCutReveal } from '@/src/components/ui/vertical-cut-reveal';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/components/ui/CTANestedPill';
+import { Sparkles } from '@/components/ui/sparkles';
+import { TimelineContent } from '@/components/ui/timeline-animation';
+import { VerticalCutReveal } from '@/components/ui/vertical-cut-reveal';
 import { useReducedMotion } from 'motion/react';
 import NumberFlow from '@number-flow/react';
-import { LOW_COST_TIERS, LOW_COST_PRICE_PER_KM } from '@/src/lib/pricing';
+import { LOW_COST_TIERS, LOW_COST_PRICE_PER_KM } from '@/lib/pricing';
 
 const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
 

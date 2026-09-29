@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { Minus, Plus } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import NumberFlow from '@number-flow/react';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
-import CTANestedPill from '@/src/components/ui/CTANestedPill';
-import { DROPOFF_DISCOUNT_PERCENT } from '@/src/lib/promises';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/components/ui/CTANestedPill';
+import { DROPOFF_DISCOUNT_PERCENT } from '@/lib/promises';
 
 /**
  * Calculadora de ahorro DropOFF — la isla interactiva del ticket.

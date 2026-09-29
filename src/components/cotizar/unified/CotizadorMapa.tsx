@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import DynamicRouteMap from '@/src/components/ui/DynamicRouteMap';
-import type { UseCotizadorUnificadoReturn } from './hooks/useCotizadorUnified';
+import DynamicRouteMap from '@/components/ui/DynamicRouteMap';
+import type { UseCotizadorUnificadoReturn } from '@/hooks/cotizador/useCotizadorUnified';
 
 interface CotizadorMapaProps {
   form: Pick<UseCotizadorUnificadoReturn, 'origenCoords' | 'destinoCoords' | 'routeCoords' | 'resultado'>;

@@ -57,14 +57,13 @@
 | **N0** | Docs, comentarios, assets | Nada | Todo |
 | **N1** | Solo `className`, textos, orden JSX, íconos | `pnpm exec eslint <archivos>` | typecheck, tests, build |
 | **N2** | Props, tipos, hooks, estado, componentes en `src/components/**` o `src/hooks/**` | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run` (si existe test) | build, lint completo, suite |
-| **N3** | `src/lib/pricing.ts`, `src/actions/**`, `src/app/api/**`, `src/proxy.ts`, `prisma/**`, `layout.tsx`, `globals.css`, `tailwind.config.ts`, `next.config.ts`, `eslint.config.mjs`, `package.json`, rutas/SEO, >10 archivos | **N2 +** tests del área + **cierre:** `pnpm build` + `pnpm run lint` | Suite entera (salvo configs transversales) |
+| **N3** | `src/lib/pricing.ts`, `src/actions/**`, `src/app/api/**`, `src/proxy.ts`, `prisma/**`, `layout.tsx`, `globals.css`, `next.config.ts`, `eslint.config.mjs`, `tsconfig.json`, `vitest.config.ts`, `package.json`, rutas/SEO, >10 archivos | **N2 +** tests del área + **cierre:** `pnpm build` + `pnpm run lint` | Suite entera (salvo configs transversales) |
 
-> **Baseline fallos previos (medido 2026-09-26, post-rediseño de los 9 heroes):**
+> **Baseline fallos previos (medido 2026-09-29, post-refactorización de arquitectura):**
 >
-> - `pnpm run lint`: **0 errores, 3 warnings** (la baseline del 2026-09-21 decía 57 errores).
-> - Suite completa (`pnpm exec vitest run`): **11 archivos, 117 tests → 106 pasan, 11 fallan.** Los 11 son preexistentes y **NO** del rediseño de heroes:
+> - `pnpm run lint`: **0 errores, 0 warnings** (se limpiaron los 3 warnings de los shims locales al añadirlos a `eslint.config.mjs` ignores).
+> - Suite completa (`pnpm exec vitest run`): **12 archivos, 121 tests → 119 pasan, 2 fallan.** Los 2 son preexistentes y **NO** son consecuencia de esta refactorización:
 >   - `contacto.test.tsx` test 3 espera la sección de redes (`Nuestra Comunidad Digital`), que vive en `CarruselRedes` (layout), no en `<ContactoPage />`. Test 6 espera un único mensaje de error de nombre y hoy lo renderizan dos elementos.
->   - `express.test.tsx` (3) y `lowcost.test.tsx` (6): asserts sobre labels/placeholders del formulario del cotizador (`Nombre`, `Ej: Documentos,`, botón deshabilitado, `/No se pudo calcular la ruta/` duplicado).
 >
 > **No perseguirlos** salvo que la tarea sea arreglarlos. `src/lib/pricing.ts` y la lógica de los cotizadores no se tocan.
 

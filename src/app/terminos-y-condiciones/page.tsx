@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
-import TermsContent from './TermsContent';
-import CarruselRedes from '@/src/components/layout/CarruselRedes';
+import TermsContent from '@/components/legal/TermsContent';
+import CarruselRedes from '@/components/layout/CarruselRedes';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 

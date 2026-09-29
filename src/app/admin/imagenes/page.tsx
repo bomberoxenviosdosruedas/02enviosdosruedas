@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { getImageList, getPageFolders } from './actions';
-import AdminImagenesClient from './AdminImagenesClient';
+import { getImageList, getPageFolders } from '@/actions/admin-imagenes';
+import AdminImagenesClient from '@/components/admin/AdminImagenesClient';
 
 export const dynamic = 'force-dynamic';
 

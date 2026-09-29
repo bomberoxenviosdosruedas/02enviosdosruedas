@@ -72,7 +72,7 @@
 | **N0 — Docs** | Markdown, comentarios, `public/`, `docs/` | Nada | Todo |
 | **N1 — Estilo/Copy** | Solo `className`, textos visibles, orden JSX, íconos | `pnpm exec eslint <archivos>` | typecheck, tests, build |
 | **N2 — Componente/Lógica Local** | Props, tipos, imports, hooks, estado, handlers, componentes en `src/components/**` o `src/hooks/**` | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run` (solo si existe test) | build, lint completo, suite entera |
-| **N3 — Crítico/Transversal** | `src/lib/pricing.ts`, `src/actions/**`, `src/app/api/**`, `src/proxy.ts`, `prisma/**`, `src/app/layout.tsx`, `globals.css`, `tailwind.config.ts`, `next.config.ts`, `eslint.config.mjs`, `package.json`, rutas/SEO, o >10 archivos | **N2 +** tests del área (`pnpm exec vitest run <carpeta>`) + **cierre:** `pnpm build` + `pnpm run lint` | Suite entera (salvo cambios transversales) |
+| **N3 — Crítico/Transversal** | `src/lib/pricing.ts`, `src/actions/**`, `src/app/api/**`, `src/proxy.ts`, `prisma/**`, `src/app/layout.tsx`, `globals.css`, `next.config.ts`, `eslint.config.mjs`, `package.json`, rutas/SEO, o >10 archivos | **N2 +** tests del área (`pnpm exec vitest run <carpeta>`) + **cierre:** `pnpm build` + `pnpm run lint` | Suite entera (salvo cambios transversales) |
 
 **Baseline de fallos previos (2026-09-21):** 57 errores lint en otros archivos; 5 tests fallan en `cotizar/express`, `cotizar/lowcost`, `preguntas-frecuentes` y `lib/promises.test.ts`. No perseguirlos salvo que la tarea sea arreglarlos.
 

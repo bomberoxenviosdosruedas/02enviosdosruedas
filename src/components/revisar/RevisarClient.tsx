@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useTransition } from 'react';
-import { reviewCatalog, CatalogItem } from '@/src/lib/reviewCatalog';
-import { saveFeedback } from './actions';
+import { reviewCatalog, CatalogItem } from '@/lib/reviewCatalog';
+import { saveFeedback } from '@/actions/feedback';
 import { 
   FileText, Save, CheckCircle2, RefreshCw, Layers, 
   ArrowRight, MessageSquare, Clock, MapPin, Search,

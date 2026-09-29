@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import CotizadorHero from '@/src/components/cotizar/unified/CotizadorHero';
-import CotizadorUnificado from '@/src/components/cotizar/unified/CotizadorUnificado';
+import CotizadorHero from '@/components/cotizar/unified/CotizadorHero';
+import CotizadorUnificado from '@/components/cotizar/unified/CotizadorUnificado';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 

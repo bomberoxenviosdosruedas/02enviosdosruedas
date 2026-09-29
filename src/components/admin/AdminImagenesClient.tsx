@@ -27,7 +27,7 @@ import {
   getFilesInFolder,
   suggestPromptBase,
   improvePrompt,
-} from './actions';
+} from '@/actions/admin-imagenes';
 
 interface PromptSuggestion {
   id: number;

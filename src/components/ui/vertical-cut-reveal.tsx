@@ -10,7 +10,7 @@ import {
   useState,
 } from "react"
 import { motion, type Transition, type Variants } from "motion/react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/lib/utils"
 
 interface TextProps {
   children: React.ReactNode

@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Compass, TrendingUp, Award, CheckCircle, Truck, MapPin } from 'lucide-react';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 
 export default function AboutTimeline() {
   const milestones = [

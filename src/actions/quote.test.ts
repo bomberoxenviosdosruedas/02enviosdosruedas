@@ -3,7 +3,7 @@ import { calculateQuoteAction, type QuoteState } from './quote';
 
 const { mockFindMany } = vi.hoisted(() => ({ mockFindMany: vi.fn() }));
 
-vi.mock('@/src/lib/prisma', () => ({
+vi.mock('@/lib/prisma', () => ({
   prisma: {
     priceRange: {
       findMany: mockFindMany,

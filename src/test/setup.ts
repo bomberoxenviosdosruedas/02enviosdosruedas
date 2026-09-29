@@ -128,14 +128,14 @@ vi.mock('leaflet', () => ({
 }));
 
 // Mock DynamicRouteMap
-vi.mock('@/src/components/ui/DynamicRouteMap', () => ({
+vi.mock('@/components/ui/DynamicRouteMap', () => ({
   default: function MockDynamicRouteMap() {
     return React.createElement('div', { 'data-testid': 'mock-route-map' }, 'Interactive Map Mock');
   },
 }));
 
 // Mock AddressAutocomplete
-vi.mock('@/src/components/ui/AddressAutocomplete', () => ({
+vi.mock('@/components/ui/AddressAutocomplete', () => ({
   default: function MockAddressAutocomplete({ value, onChange, onSelectCoordinate, placeholder, label }: any) {
     const labelEl = label ? React.createElement('label', null, label) : null;
     const inputEl = React.createElement('input', {

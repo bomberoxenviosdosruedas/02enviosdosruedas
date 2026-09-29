@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Outfit, Anton, Bebas_Neue, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
-import ClientLayout from '../components/ClientLayout';
+import ClientLayout from '@/components/ClientLayout';
 
 const outfit = Outfit({
   subsets: ['latin'],

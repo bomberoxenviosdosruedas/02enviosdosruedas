@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import CotizadorLowCostDetails from '@/src/components/cotizar/lowcost/CotizadorLowCostDetails';
-import CotizadorLowCostHelp from '@/src/components/cotizar/lowcost/CotizadorLowCostHelp';
-import BatchGrid from '@/src/components/cotizar/lowcost/BatchGrid';
+import CotizadorLowCostDetails from '@/components/cotizar/lowcost/CotizadorLowCostDetails';
+import CotizadorLowCostHelp from '@/components/cotizar/lowcost/CotizadorLowCostHelp';
+import BatchGrid from '@/components/cotizar/lowcost/BatchGrid';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 

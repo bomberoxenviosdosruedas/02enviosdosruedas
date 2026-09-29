@@ -5,8 +5,8 @@ import { Calculator } from 'lucide-react';
 import CotizadorExpressFormFields from './CotizadorExpressFormFields';
 import CotizadorExpressResults from './CotizadorExpressResults';
 import CotizadorExpressMap from './CotizadorExpressMap';
-import { useCotizadorExpress } from './hooks/useCotizadorExpress';
-import { useQuoteAnalytics } from './hooks/useQuoteAnalytics';
+import { useCotizadorExpress } from '@/hooks/cotizador/useCotizadorExpress';
+import { useQuoteAnalytics } from '@/hooks/cotizador/useQuoteAnalytics';
 
 export default function CotizadorExpressForm() {
   const form = useCotizadorExpress();

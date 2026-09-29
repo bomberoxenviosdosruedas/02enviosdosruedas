@@ -24,11 +24,12 @@
     ],
     "paths": {
       "@/*": [
-        "./src/*",
-        "./*"
+        "./src/*"
+      ],
+      "@generated/*": [
+        "./generated/*"
       ]
-    },
-    "types": ["@testing-library/jest-dom"]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -39,11 +40,20 @@
   ],
   "exclude": [
     "node_modules",
+    ".agent",
     ".agents",
     ".claude",
+    ".hermes",
+    ".impeccable",
+    ".opencode",
+    ".design-sync",
     ".od-skills",
+    ".scratch",
     ".stitch",
     ".vercel",
+    "coverage",
+    "generated",
+    "screenshots",
     "skills",
     "skills-lock.json"
   ]

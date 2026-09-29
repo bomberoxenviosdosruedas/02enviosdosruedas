@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Container, Landmark, BarChart3, Clock, Tag, Receipt } from 'lucide-react';
-import DoubleBezelCard from '@/src/components/ui/DoubleBezelCard';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 
 export default function EmprendedoresFeatures() {
   const features = [
