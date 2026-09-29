@@ -1,5 +1,7 @@
 # Tipografía — Envíos DosRuedas
 
+> `DESIGN.md` (raíz) manda; este archivo lo detalla. Si se contradicen, gana `DESIGN.md`.
+
 > **Fuente:** `src/app/globals.css` (`@theme`), `src/app/layout.tsx` (`next/font`), `DESIGN.md` §3.
 
 ---
@@ -165,7 +167,7 @@ Trazo `2px #0950F6`; slab inferior amarillo a −1° con texto `#0950F6`.
 
 ## 9. Voz y Tono (vinculante para el ritmo, no solo para el copy)
 
-> **Fuente:** `02-dominio/entrevista-dueno-2026-09-28.md` §11.2 (verbatim del cuestionario: *"Hablaría como una persona normal, trabajador, un tono medio formal pero sin exagerar"*) y `anti-patrones.md` §5.4.
+> **Fuente:** `02-dominio/entrevista-dueno-2026-09-28.md` §11.2 (verbatim del cuestionario: *"Hablaría como una persona normal, trabajador, un tono medio formal pero sin exagerar"*) y `00-negocio/voz-y-lineas-rojas.md` §12.
 
 La tipografía de marca es dura y de alto contraste. La voz **no** lo es. Las dos conviven solo si el texto se mantiene corto:
 

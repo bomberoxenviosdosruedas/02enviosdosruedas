@@ -1,5 +1,7 @@
 # Design System: Envíos DosRuedas (MDQ)
 
+> `DESIGN.md` (raíz) manda; este archivo lo detalla. Si se contradicen, gana `DESIGN.md`.
+
 **Versión:** 2026.09 — Ajuste Max `#0950F6` **aplicado en producción** (PR #21, commit `5d6588a`, 2026-09-24).
 **Project ID (Stitch):** `EnviosDosruedasDesignSystem_a2df0d`
 
@@ -218,7 +220,7 @@ Ver `deuda-adherencia.md` para tabla completa con 12 ítems priorizados.
 
 ## 11. Tarifas y Lógica de Negocio
 
-Ver `tarifas-logica-negocio.md` y `docs/knowledge_base/00-proyecto/servicios-tarifas-2026.md`.
+Ver `tarifas.md` y `docs/knowledge_base/00-negocio/tarifas.md`.
 
 **Regla crítica:** Server Action **nunca** calcula con tarifas del cliente. Obtiene `PriceRange` vía Prisma → fallback `src/lib/pricing.ts`.
 

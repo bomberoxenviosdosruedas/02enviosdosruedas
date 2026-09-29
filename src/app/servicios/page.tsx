@@ -91,7 +91,7 @@ const jsonLdSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Cuenta Corriente Flexible',
-          description: 'Para emprendedores y comercios sin volumen fijo: tarifas LowCost, franjas de 3 hs y Factura C consolidada semanal, quincenal o mensual.',
+          description: 'Para emprendedores y comercios sin volumen fijo: tarifas LowCost, franjas de 3 hs y pagos agrupados semanales, quincenales o mensuales.',
           url: `${baseUrl}/servicios/empresas-cuenta-corriente`,
         },
       },
@@ -210,7 +210,7 @@ const services = [
       'Sin mínimo de envíos',
       'Franja de 3 hs, corte 15:00 hs',
       'Paga quien envía o quien recibe',
-      'Factura C semanal, quincenal o mensual',
+      'Pagos semanales, quincenales o mensuales',
       'Contrareembolso sin comisión',
     ],
     bgColor: 'bg-brand-blue-700',

@@ -1,5 +1,7 @@
 # Primitivas UI — Envíos DosRuedas
 
+> `DESIGN.md` (raíz) manda; este archivo lo detalla. Si se contradicen, gana `DESIGN.md`.
+
 > **Fuente:** `src/components/ui/`, `DESIGN.md` §5.
 > **Regla:** Antes de escribir markup de tarjeta, botón, input, selector, stepper, badge o grilla, **usar la primitiva**.
 > **Alias import canónico:** `@/components/ui` (barril `index.ts`).
@@ -138,7 +140,7 @@ import { DoubleBezelCard } from '@/components/ui';
 import { CTANestedPill } from '@/components/ui';
 
 // Primario (CTA principal)
-<CTANestedPill href="/cotizar/express" size="large">Cotizá tu envío</CTANestedPill>
+<CTANestedPill href="/cotizar" size="large">Cotizá tu envío</CTANestedPill>
 
 // Secundario outline
 <CTANestedPill href="/servicios" variant="outline">Mirá los servicios</CTANestedPill>
@@ -539,9 +541,9 @@ import Image from 'next/image';
 - [ ] `CotizadorExpressFormFields` → `InputField` (4 inputs)
 - [ ] `CotizadorLowCostForm` → `InputField` (4 inputs) + `AddressAutocomplete` (2)
 - [ ] `ContactForm` → `InputField` (3 inputs + select)
-- [ ] `BatchGrid` → `InputField` (4 inputs por fila)
+- [x] ~~`BatchGrid` → `InputField`~~: `BatchGrid` se eliminó el 2026-09-29 (la cotización por lotes de LowCost la negó el dueño)
 - [ ] `NewsletterSubscribe` → `InputField` (1 input)
-- [ ] Tarjetas `ContactInfo`, `AboutAdvantages`, `BatchGrid`, `CotizadorDetails` → `DoubleBezelCard`
+- [ ] Tarjetas `ContactInfo`, `AboutAdvantages` → `DoubleBezelCard` (`BatchGrid` y `CotizadorDetails` ya no existen)
 - [ ] Steppers en cotizadores → `StepperHorizontal`
 - [ ] Grids asimétricas en `LowCostFeatures`, `AboutAdvantages` → `BentoGrid`
 - [ ] `LogosCarousel` → partners reales + animación real

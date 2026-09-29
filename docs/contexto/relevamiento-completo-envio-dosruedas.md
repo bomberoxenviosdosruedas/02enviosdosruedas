@@ -1,3 +1,5 @@
+> ⚠️ **No es transcripción fiel.** Este archivo agrega datos que el dueño no dijo y omite otros (ver `docs/knowledge_base/01-fuentes-dueno/fuentes.md`). Usar las extracciones de la KB: `docs/knowledge_base/01-fuentes-dueno/docx-2026-09.md` y `xlsx-2026-09.md`.
+
 # Relevamiento Completo Envíos DosRuedas (Plantilla de Auditoría)
 
 **Empresa:** Envíos DosRuedas – Mar del Plata  

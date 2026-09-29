@@ -6,7 +6,7 @@
  * public/llms.txt y public/llms-full.txt.
  *
  * Contexto del dueño (definiciones verbatim de servicio, recargos, protocolos y lo que
- * niega explícitamente): docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md
+ * niega explícitamente): docs/knowledge_base/00-negocio/servicios.md y voz-y-lineas-rojas.md
  */
 
 // Ventana de entrega Express.
@@ -42,7 +42,7 @@ export const FLEX_DELIVERY_DEADLINE = '20:00 hs';
 // servicio: 50 % para Express y LowCost, 30 % en todos los demás. Esta constante
 // modela SOLO el caso de 30 %, que es el único que hoy se muestra en el sitio.
 // Antes de usar este valor para Express o LowCost, agregar el desglose por servicio.
-// Ver docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md §3.
+// Ver docs/knowledge_base/00-negocio/tarifas.md §7.
 export const RAIN_SURCHARGE_PERCENT = 30;
 
 // Recargo por lluvia para Express y LowCost (el caso de 50 % del rango del dueño).
@@ -62,8 +62,9 @@ export const RETRY_CHARGE_PERCENT = 100; // Segunda visita por destinatario ause
 // Padres…). NO es el excedente de 10 a 20 km de `pricing.ts` ($1.000 / $700 por km):
 // es otra tarifa, por km de ruta, que se cotiza aparte. Ver entrevista §3.1.
 export const PERIPHERY_PRICE_PER_KM = 1200;
-// El recargo por bulto extra no tiene monto fijo: varía según el servicio. El
-// "$1.950 desde" de la planilla es texto de plantilla y no se publica.
+// Bulto extra: más de 5 kg o 40 × 40 cm. El dueño lo respondió en la planilla
+// (pestaña 03, celda C6: "Desde $1950"); el monto final varía según el servicio.
+export const BULK_EXTRA_FROM_ARS = 1950;
 
 // Umbrales de distancia y límites físicos
 export const CONSULT_THRESHOLD_KM = 20; // Hasta 20 km cálculo automático; > 20 km "A consultar"

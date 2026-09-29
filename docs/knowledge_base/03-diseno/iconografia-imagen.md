@@ -1,5 +1,7 @@
 # Iconografía e Imagen — Envíos DosRuedas
 
+> `DESIGN.md` (raíz) manda; este archivo lo detalla. Si se contradicen, gana `DESIGN.md`.
+
 > **Fuente:** `DESIGN.md` §9, `src/components/ui/`, `public/elementos/`.
 
 ---

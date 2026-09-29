@@ -1,5 +1,7 @@
 # Deuda de Adherencia — Envíos DosRuedas
 
+> `DESIGN.md` (raíz) manda; este archivo lo detalla. Si se contradicen, gana `DESIGN.md`.
+
 > **Fuente:** `DESIGN.md` §11, auditoría commit `5d6588a` (2026-09-24).
 > **Estado:** Deuda conocida, priorizada y con plan de remediación en `plan-remediacion.md`.
 

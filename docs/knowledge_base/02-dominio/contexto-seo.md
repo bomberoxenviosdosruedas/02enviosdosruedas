@@ -25,14 +25,14 @@
 |---|---|---|---|---|---|---|
 | **envios flex** | 3.600 | Media (62) | 🟢 Alta | Comercial/Transaccional | Landing + Guía vendedor | `/servicios/enviosflex` |
 | **mensajeria en moto** | 1.900 | Baja (28) | 🟢 Muy Alta | Transaccional/Local | Hero + Tarjetas Express | `/servicios/envios-express` |
-| **paqueteria ecommerce** | 1.600 | Baja (31) | 🟢 Muy Alta | Comercial/B2B | Landing 3PL + Comparador | `/servicios/plan-emprendedores` |
-| **envios express** | 1.300 | Media (59) | 🟢 Alta | Transaccional | Cotizador + Mapa | `/cotizar/express` |
+| **paqueteria ecommerce** | 1.600 | Baja (31) | 🟢 Muy Alta | Comercial/B2B | Landing Same Day / 24HS | `/servicios/deposito-fulfillment` |
+| **envios express** | 1.300 | Media (59) | 🟢 Alta | Transaccional | Cotizador + Mapa | `/cotizar` |
 | **servicios de mensajerias** | 1.000 | Baja (9) | 🟢 Muy Alta | Informativa/Comercial | Home + Sobre Nosotros | `/`, `/nosotros/sobre-nosotros` |
-| **envios ecommerce** | 880 | Baja (32) | 🟢 Muy Alta | Comercial/PyME | Landing Soluciones | `/servicios/plan-emprendedores` |
+| **envios ecommerce** | 880 | Baja (32) | 🟢 Muy Alta | Comercial/PyME | Landing Soluciones | `/servicios/empresas-cuenta-corriente` |
 | **reparto mercadolibre** | 720 | Media (48) | 🟢 Alta | Comercial/Vendedores | Landing Flex + FAQ Reputación | `/servicios/enviosflex` |
 | **entregas inmediatas** | 590 | Baja (2) | 🟢 Muy Alta | Transaccional Urgente | Landing Express + CTA WhatsApp | `/servicios/envios-express` |
 | **logistica mercado flex** | 590 | Alta (86) | 🟡 Media | Comercial/B2B | Guía Técnica Flex | `/servicios/enviosflex` |
-| **envios a domicilio** | 390 | Baja (33) | 🟢 Alta | Transaccional Local | Cotizadores Express/LowCost | `/cotizar/express`, `/cotizar/lowcost` |
+| **envios a domicilio** | 390 | Baja (33) | 🟢 Alta | Transaccional Local | Cotizador único Express/LowCost | `/cotizar` |
 
 > **Dataset completo:** `docs/contexto/Keyword Stats 2026-08-18 at 03_09_45.csv` (52 keywords).
 
@@ -43,9 +43,9 @@
 | Página | Issue Detectado | Severidad | Optimización Requerida |
 |---|---|---|---|
 | `/servicios/envios-express` | Falta destacar rango 3hs y corte 15:00 hs | **Alta** | Integrar en H2/H3 y metadatos: *"Envíos Express con rango de 3hs y corte 15hs en Mar del Plata"* |
-| `/servicios/envios-lowcost` | Servicio más rentable, falta énfasis en corte 13:00 hs y entregas < 19:00 hs | **Alta** | Optimizar Title/Meta con `paqueteria economica`, `entregas programadas en el dia` |
+| `/servicios/envios-lowcost` | Falta énfasis en corte 13:00 hs y entregas < 19:00 hs | **Alta** | Optimizar Title/Meta con `paqueteria economica`, `entregas programadas en el dia` |
 | `/servicios/enviosflex` | Vendedores buscan mínimos y horario límite de retiro | **Alta** | FAQ/badges: *"Sin mínimo · Retiros múltiples · Corte 15:00 · Entregas < 20:00"* |
-| `/servicios/plan-emprendedores` | No se comunicaba DropOFF 20% OFF ni Contrareembolso sin costo | **Crítica** | Cards: E-Commerce Same Day, Next Day 24hs, DropOFF 20% Descuento |
+| `/servicios/plan-emprendedores` (redirige a `/servicios/empresas-cuenta-corriente` desde 2026-09-29) | No se comunicaba DropOFF 20% OFF ni Contrareembolso sin costo | **Crítica** | Resuelto por reestructura: Same Day y 24HS tienen tarjeta propia en `/servicios`; DropOFF va solo con 24HS |
 | Metadatos globales (`layout.tsx`) | Faltaba eslogan oficial *"Tu Partner Logístico en Mar del Plata"* | **Media** | Actualizar `defaultTitle` y `description` con keywords mensajería/paquetería |
 
 ---
@@ -54,7 +54,7 @@
 
 | Brecha | Keyword Objetivo | Justificación Comercial | Formato Recomendado |
 |---|---|---|---|
-| **Modalidad DropOFF 20% Descuento** | `drop off envios mar del plata`, `despacho encomiendas mar del plata` | Captar emprendedores que llevan paquetes a Friuli 1972 y ahorran 20% | Bloque interactivo en `/servicios/plan-emprendedores` + calculadora ahorro |
+| **Modalidad DropOFF 20% Descuento** | `drop off envios mar del plata`, `despacho encomiendas mar del plata` | Captar emprendedores que llevan paquetes a Friuli 1972 y ahorran 20% | Bloque en la tarjeta E-commerce 24HS (DropOFF aplica solo ahí) |
 | **Contrareembolso Sin Costo Extra** | `envios contrareembolso mar del plata`, `cobro contra entrega cadeteria` | Diferencial brutal: competencia cobra 5-10% comisión; DosRuedas = $0 extra | Badge destacado + sección FAQ global |
 | **E-Commerce Same Day vs Next Day (24hs)** | `fulfillment mar del plata`, `almacenamiento y empaquetado ecommerce` | Explicar flujo: stock en Friuli 1972 → picking QR → embala → entrega en el día | Comparativa visual 2 columnas (Same Day vs Next Day) |
 | **Horarios de Corte Inquebrantables** | — | Express: 2hs antelación, antes 15:00, rango 3hs. LowCost: antes 13:00, entrega < 19:00. Flex: corte 15:00, entrega < 20:00. | Badges + FAQ + metadatos en cada landing |

@@ -117,7 +117,7 @@ export const reviewCatalog: CatalogItem[] = [
     componentName: "CotizadorRecargos",
     componentPath: "src/components/cotizar/unified/CotizadorRecargos.tsx",
     sectionTitle: "5. Lo que puede sumar al precio",
-    currentText: "Lluvia +50 % (30 % en Flex y cuentas corrientes). Espera: 10 min sin cargo, después $2.100 cada 10 min. Parada extra sobre la ruta (hasta 2 km): +50 %. Destinatario ausente: 100 %. Bulto de más de 5 kg o 40 × 40 cm: recargo según el servicio, tope 15 kg. Fuera de la ciudad: $1.200 por km de ruta.",
+    currentText: "Lluvia +50 % (30 % en Flex y cuentas corrientes). Espera: 10 min sin cargo, después $2.100 cada 10 min. Parada extra sobre la ruta (hasta 2 km): +50 %. Destinatario ausente: 100 %. Bulto de más de 5 kg o 40 × 40 cm: desde $1.950 según el servicio, tope 15 kg. Reintento: 100 %, a veces sin cargo en zonas cercanas. Fuera de la ciudad: $1.200 por km de ruta.",
     elementsToReview: ["Montos contra la entrevista del dueño", "Redacción de cada situación"]
   },
 

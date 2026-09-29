@@ -74,7 +74,7 @@
 | **N2 — Componente/Lógica Local** | Props, tipos, imports, hooks, estado, handlers, componentes en `src/components/**` o `src/hooks/**` | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run` (solo si existe test) | build, lint completo, suite entera |
 | **N3 — Crítico/Transversal** | `src/lib/pricing.ts`, `src/actions/**`, `src/app/api/**`, `src/proxy.ts`, `prisma/**`, `src/app/layout.tsx`, `globals.css`, `next.config.ts`, `eslint.config.mjs`, `package.json`, rutas/SEO, o >10 archivos | **N2 +** tests del área (`pnpm exec vitest run <carpeta>`) + **cierre:** `pnpm build` + `pnpm run lint` | Suite entera (salvo cambios transversales) |
 
-**Baseline de fallos previos (2026-09-21):** 57 errores lint en otros archivos; 5 tests fallan en `cotizar/express`, `cotizar/lowcost`, `preguntas-frecuentes` y `lib/promises.test.ts`. No perseguirlos salvo que la tarea sea arreglarlos.
+**Baseline de fallos previos:** ver `comandos-verificacion.md` §4 (único baseline de la KB).
 
 ---
 
@@ -83,8 +83,8 @@
 ```
 src/
 ├── app/                    # Rutas App Router
-│   ├── cotizar/           # Express, LowCost
-│   ├── servicios/         # 7 servicios
+│   ├── cotizar/           # Cotizador único (Express + LowCost en una carga)
+│   ├── servicios/         # 6 servicios en la vista (+2 fichas detrás de redirect)
 │   ├── nosotros/          # Sobre nosotros, FAQ, Redes
 │   ├── contacto/          # Formulario + info
 │   ├── api/               # Webhooks
@@ -98,7 +98,8 @@ src/
 │   └── contacto/
 ├── hooks/                 # Hooks de cliente
 ├── lib/
-│   ├── pricing.ts         # Cálculo puro de tarifas (fuente de verdad)
+│   ├── pricing.ts         # Cálculo puro de tarifas por distancia (fuente de verdad)
+│   ├── promises.ts        # Cortes, ventanas, pesos, tarifas fijas y recargos
 │   ├── analytics.ts       # GA4 + UTMs
 │   ├── whatsapp.ts        # Generador links WhatsApp
 │   └── utils.ts           # cn(), helpers

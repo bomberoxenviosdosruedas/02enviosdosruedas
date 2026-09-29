@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  BULK_EXTRA_FROM_ARS,
   EXTRA_STOP_MAX_DETOUR_KM,
   EXTRA_STOP_SURCHARGE_PERCENT,
   MAX_WEIGHT_KG,
@@ -40,12 +41,12 @@ const RECARGOS: { situacion: string; costo: string; detalle: string }[] = [
   {
     situacion: 'Destinatario ausente',
     costo: `${RETRY_CHARGE_PERCENT} % del envío`,
-    detalle: 'La segunda visita se cobra como un envío nuevo.',
+    detalle: 'La segunda visita se cobra como un envío nuevo. En zonas cercanas, a veces la hacemos sin cargo.',
   },
   {
     situacion: `Bulto de más de ${STANDARD_WEIGHT_KG} kg o ${STANDARD_BULLET_DIMENSIONS_CM}`,
-    costo: 'Según el servicio',
-    detalle: `Se suma un recargo por bulto extra. El máximo que lleva la moto es ${MAX_WEIGHT_KG} kg.`,
+    costo: `Desde ${formatArs(BULK_EXTRA_FROM_ARS)}`,
+    detalle: `El monto final depende del servicio. El máximo que lleva la moto es ${MAX_WEIGHT_KG} kg.`,
   },
   {
     situacion: 'Destino fuera de la ciudad',

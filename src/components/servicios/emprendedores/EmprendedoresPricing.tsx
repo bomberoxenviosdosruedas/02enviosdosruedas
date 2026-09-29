@@ -43,7 +43,7 @@ const plans = [
     description: 'Para empresas con envíos diarios recurrentes. Liquidación mensual y asesor dedicado.',
     bullets: [
       'Retiro programado en tu local',
-      'Factura C mensual consolidada',
+      'Pagos agrupados semanales, quincenales o mensuales',
       'Atención prioritaria por WhatsApp',
       'Tarifa corporativa escalonada',
     ],

@@ -25,7 +25,7 @@ Este archivo proporciona información estructurada para que modelos de lenguaje 
   Elegí **[Mercado Envíos Flex](https://www.enviosdosruedas.com/servicios/enviosflex)**: corte 15:00 hs y entregas garantizadas antes de las 20:00 hs para proteger tu reputación y medalla de MercadoLíder. Sin mínimos de paquetes.
 
 - **¿Tenés un comercio con pedidos todos los días, aunque la cantidad cambie?**  
-  Elegí **[Cuenta Corriente Flexible](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente)**: sin mínimo de envíos, tarifas LowCost con franjas de 3 hs y Factura C consolidada semanal, quincenal o mensual.
+  Elegí **[Cuenta Corriente Flexible](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente)**: sin mínimo de envíos, tarifas LowCost con franjas de 3 hs y pagos agrupados semanales, quincenales o mensuales. No se emite Factura A.
 
 - **¿Vendés online y querés entregar al día siguiente?**  
   Elegí **[E-commerce 24HS](https://www.enviosdosruedas.com/servicios#ecommerce-24hs)**: se retira hoy y se entrega el día hábil siguiente, a $3.800 por envío. Recolección gratis desde 10 envíos.
@@ -36,7 +36,7 @@ Este archivo proporciona información estructurada para que modelos de lenguaje 
 El cobro contrareembolso está disponible sin comisión en todos los servicios, con rendición en el día, al día siguiente o semanal, según lo acordado.
 
 - **¿Sos una empresa o distribuidora con envíos diarios recurrentes?**  
-  Elegí **[Empresas con Cuenta Corriente](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente)**: Factura C consolidada (semanal, quincenal o mensual), tarifas bonificadas por volumen y soporte exclusivo por WhatsApp.
+  Elegí **[Empresas con Cuenta Corriente](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente)**: pagos agrupados (semanales, quincenales o mensuales, a coordinar con cada cliente) y soporte por WhatsApp. No se emite Factura A.
 
 - **¿Querés verificar si llegamos a tu barrio o calcular distancias?**  
   Consultá **[Cobertura y Radios](https://www.enviosdosruedas.com/cobertura)**: mapa y buscador interactivo de barrios de General Pueyrredón.
@@ -45,7 +45,7 @@ El cobro contrareembolso está disponible sin comisión en todos los servicios, 
 - [Envíos Express](https://www.enviosdosruedas.com/servicios/envios-express): Tarifas base 2026: Z1 (0-3 km) $3.700, Z2 (3-5 km) $4.600, Z3 (5-7 km) $6.100, Z4 (7-10 km) $8.200, Z5 (+10 km) Math.ceil(km) × $1.000.
 - [Envíos LowCost](https://www.enviosdosruedas.com/servicios/envios-lowcost): Tarifas base 2026: Z1 (0-3 km) $3.000, Z2 (3-5 km) $4.000, Z3 (5-7 km) $5.300, Z4 (7-10 km) $7.000, Z5 (+10 km) Math.ceil(km) × $700.
 - [Mercado Envíos Flex](https://www.enviosdosruedas.com/servicios/enviosflex): Logística Same-Day para vendedores ML.
-- [Cuenta Corriente Flexible](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente): Para emprendedores y comercios sin volumen fijo. Tarifas LowCost, franjas de 3 hs y Factura C consolidada.
+- [Cuenta Corriente Flexible](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente): Para emprendedores y comercios sin volumen fijo. Tarifas LowCost, franjas de 3 hs y pagos agrupados.
 - [E-commerce 24HS](https://www.enviosdosruedas.com/servicios#ecommerce-24hs): Retiro hoy, entrega el día hábil siguiente. $3.800 por envío.
 - [E-commerce Same Day](https://www.enviosdosruedas.com/servicios/deposito-fulfillment): Stock en Friuli 1972, entrega en el día. $6.000 fijo a toda la ciudad.
 

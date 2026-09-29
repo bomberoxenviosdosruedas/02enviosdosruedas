@@ -127,9 +127,9 @@ Se preservó el string exacto `/revisar` **sin barra final**, para no abrir por 
 
 Los ejemplos de código de la knowledge base usaban `@/src/…`: copiarlos reintroducía el anti-patrón que acabamos de eliminar. 3 docs corregidas:
 
-- `docs/knowledge_base/01-diseno/hero-layout.md`
-- `docs/knowledge_base/01-diseno/tarifas-logica-negocio.md`
-- `docs/knowledge_base/04-referencia-rapida/cheat-sheet.md`
+- `docs/knowledge_base/03-diseno/hero-layout.md`
+- `docs/knowledge_base/00-negocio/tarifas.md`
+- `docs/knowledge_base/06-referencia/cheat-sheet.md`
 
 Además:
 

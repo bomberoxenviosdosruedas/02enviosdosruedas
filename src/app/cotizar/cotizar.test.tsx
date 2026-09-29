@@ -199,8 +199,8 @@ describe('Cotizador unificado /cotizar', () => {
     expect(recargos).toHaveTextContent('100 % del envío');
     expect(recargos).toHaveTextContent('Bulto de más de 5 kg o 40 × 40 cm');
     expect(recargos).toHaveTextContent('$1.200 por km de ruta');
-    // El "$1.950 desde" de la planilla es texto de plantilla: no se publica.
-    expect(recargos).not.toHaveTextContent('1.950');
+    // Bulto extra: respuesta del dueño en la planilla (pestaña 03, C6).
+    expect(recargos).toHaveTextContent('Desde $1.950');
   });
 
   it('ofrece un botón por servicio y cada uno abre WhatsApp con ese servicio elegido', async () => {

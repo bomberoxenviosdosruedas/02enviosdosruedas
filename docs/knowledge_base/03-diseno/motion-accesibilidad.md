@@ -1,5 +1,7 @@
 # Motion & Accesibilidad — Envíos DosRuedas
 
+> `DESIGN.md` (raíz) manda; este archivo lo detalla. Si se contradicen, gana `DESIGN.md`.
+
 > **Fuente:** `DESIGN.md` §6-8, `src/app/globals.css` (keyframes, `@media prefers-reduced-motion`), `motion/react` usage.
 
 ---

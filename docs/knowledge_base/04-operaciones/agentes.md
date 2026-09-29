@@ -69,7 +69,7 @@ Mapeadas al estado de `docs/marketing/TASKS.md`.
 
 **Archivo:** `docs/agents/prompts-remediacion.md`
 
-Contiene un prompt detallado por cada ítem del **Plan de Remediación** (`docs/knowledge_base/01-diseno/plan-remediacion.md`), con:
+Contiene un prompt detallado por cada ítem del **Plan de Remediación** (`docs/knowledge_base/03-diseno/plan-remediacion.md`), con:
 - Contexto del problema.
 - Archivos a tocar.
 - Fix específico paso a paso.
@@ -91,13 +91,19 @@ Contiene un prompt detallado por cada ítem del **Plan de Remediación** (`docs/
 - `vercel-optimize` — (Solo si la tarea es optimización Vercel).
 
 ### Contexto Obligatorio (Leer Antes)
-- `docs/knowledge_base/00-proyecto/identidad-negocio.md`
-- `docs/knowledge_base/01-diseno/design-system.md` (o archivo temático específico)
-- `docs/knowledge_base/01-diseno/anti-patrones.md`
-- `docs/knowledge_base/03-operaciones/comandos-verificacion.md`
+- `docs/knowledge_base/00-negocio/identidad.md`
+- `docs/knowledge_base/03-diseno/design-system.md` (o archivo temático específico)
+- `docs/knowledge_base/03-diseno/anti-patrones.md`
+- `docs/knowledge_base/04-operaciones/comandos-verificacion.md`
 
 ### Nivel de Verificación
 [N1/N2/N3 según tabla en comandos-verificacion.md]
 ```
 
-> **Regla:** Antes de tocar UI, **siempre** leer la sección de `DESIGN.md` (o archivo temático en `docs/knowledge_base/01-diseno/`) que corresponda y usar las primitivas de `src/components/ui/`.
+> **Regla:** Antes de tocar UI, **siempre** leer la sección de `DESIGN.md` (o archivo temático en `docs/knowledge_base/03-diseno/`) que corresponda y usar las primitivas de `src/components/ui/`.
+
+---
+
+## 7. Issue tracker y triage labels
+
+Las guías canónicas son las de `docs/agents/` (las cita `CLAUDE.md`): `docs/agents/issue-tracker.md`, `docs/agents/triage-labels.md` y `docs/agents/domain.md`. Las copias que vivían en `03-operaciones/` se eliminaron el 2026-09-29 para no mantener dos versiones.

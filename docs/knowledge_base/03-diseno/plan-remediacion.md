@@ -1,5 +1,7 @@
 # Plan de Remediación — Envíos DosRuedas
 
+> `DESIGN.md` (raíz) manda; este archivo lo detalla. Si se contradicen, gana `DESIGN.md`.
+
 > **Fuente:** `DESIGN.md` §15, auditoría commit `5d6588a` (2026-09-24).
 > **Metodología:** Un ítem por tarea y por PR, con nivel de verificación según `AGENTS.md`. Prompts en `docs/agents/prompts-remediacion.md`.
 
@@ -157,8 +159,8 @@
 - **Fase 2 — Migración por Carpeta (PRs separados):**
   | Carpeta | Primitivas a Aplicar |
   |---|---|
-  | `src/components/cotizar/express/` | `InputField` (4), `DoubleBezelCard` (1), `CTANestedPill` (1) |
-  | `src/components/cotizar/lowcost/` | `InputField` (4), `AddressAutocomplete` (2), `DoubleBezelCard` (1), `CTANestedPill` (1) |
+  | ~~`src/components/cotizar/express/`~~ | Eliminado el 2026-09-29 (cotizador único en `src/components/cotizar/unified/`) |
+  | ~~`src/components/cotizar/lowcost/`~~ | Eliminado el 2026-09-29 |
   | `src/components/contacto/` | `InputField` (3 + select), `CTANestedPill` (2), `DoubleBezelCard` (2) |
   | `src/components/nosotros/` | `DoubleBezelCard` (5+), `Badge` (3), `CTANestedPill` (2) |
   | `src/components/servicios/` | `DoubleBezelCard` (pricing), `CTANestedPill` (CTAs), `BentoGrid` (features) |
@@ -231,7 +233,7 @@
 ## Referencias
 
 - **Prompts detallados por ítem:** `docs/agents/prompts-remediacion.md`
-- **Design System canónico:** `docs/knowledge_base/01-diseno/design-system.md`
-- **Anti-patrones:** `docs/knowledge_base/01-diseno/anti-patrones.md`
-- **Deuda detallada:** `docs/knowledge_base/01-diseno/deuda-adherencia.md`
-- **Tarifas y lógica:** `docs/knowledge_base/01-diseno/tarifas-logica-negocio.md`
+- **Design System canónico:** `docs/knowledge_base/03-diseno/design-system.md`
+- **Anti-patrones:** `docs/knowledge_base/03-diseno/anti-patrones.md`
+- **Deuda detallada:** `docs/knowledge_base/03-diseno/deuda-adherencia.md`
+- **Tarifas y lógica:** `docs/knowledge_base/00-negocio/tarifas.md`

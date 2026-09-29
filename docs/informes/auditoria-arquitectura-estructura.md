@@ -144,8 +144,8 @@ Duplicados semánticos confirmados:
 
 | Legacy (`docs/`) | Canónico (`docs/knowledge_base/`) |
 |---|---|
-| `docs/agents/issue-tracker.md` | `03-operaciones/issue-tracker.md` |
-| `docs/agents/triage-labels.md` | `03-operaciones/triage-labels.md` |
+| `docs/agents/issue-tracker.md` | `docs/agents/issue-tracker.md` |
+| `docs/agents/triage-labels.md` | `docs/agents/triage-labels.md` |
 | `docs/marketing/glosario.md` | `02-dominio/glosario.md` |
 | `docs/marketing/decisiones.md` | `02-dominio/decisiones.md` |
 
@@ -253,7 +253,7 @@ Cada archivo se verificó contra **todas** las formas de importación presentes 
 | `src/components/ui/BentoGrid.tsx` | 2.734 | `ui/index.ts:10` |
 | **Subtotal** | **24.170** | |
 
-> ⚠️ **No se propone borrado inmediato.** `AGENTS.md` y `docs/knowledge_base/01-diseno/primitivas-ui.md` los documentan como primitivas canónicas del sistema de diseño; eliminarlas es una **decisión de producto, no de arquitectura**. Se dejan listadas para decisión del propietario.
+> ⚠️ **No se propone borrado inmediato.** `AGENTS.md` y `docs/knowledge_base/03-diseno/primitivas-ui.md` los documentan como primitivas canónicas del sistema de diseño; eliminarlas es una **decisión de producto, no de arquitectura**. Se dejan listadas para decisión del propietario.
 >
 > Dato técnico: borrarlas **no rompe** `typecheck` ni `lint` (los exports no usados no los reportan), pero reduce el payload potencial de la librería de primitivas.
 

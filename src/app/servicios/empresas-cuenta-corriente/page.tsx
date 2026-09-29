@@ -58,8 +58,8 @@ export default function EmpresasCuentaCorrientePage() {
 
   const benefits = [
     {
-      title: 'Factura C Consolidada',
-      desc: 'Centralizá todos los envíos de tu empresa en una sola Factura C semanal, quincenal o mensual, con detalle de remitos.',
+      title: 'Pagos Agrupados',
+      desc: 'Pagás todos los envíos juntos, por semana, quincena o mes, con el resumen de cada envío. No emitimos Factura A.',
       icon: Receipt,
     },
     {
@@ -120,7 +120,7 @@ export default function EmpresasCuentaCorrientePage() {
               </h1>
 
               <p className="font-sans text-base sm:text-lg text-brand-blue-50 max-w-xl leading-relaxed">
-                Olvidate de pagar cada envío en efectivo. Abrí una cuenta corriente para tu comercio o empresa con Factura C consolidada, tarifas bonificadas y liquidaciones periódicas transparentes.
+                Olvidate de pagar cada envío en efectivo. Abrí una cuenta corriente para tu comercio o empresa con pagos agrupados por semana, quincena o mes y el resumen de todos tus envíos.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">
@@ -149,7 +149,7 @@ export default function EmpresasCuentaCorrientePage() {
               <div className="pt-4 flex flex-wrap gap-4 text-xs font-mono text-brand-blue-50">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-brand-yellow-500 shrink-0" />
-                  Factura C electrónica
+                  Pagos semanales, quincenales o mensuales
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-brand-yellow-500 shrink-0" />

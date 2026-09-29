@@ -1,5 +1,7 @@
 # Tokens de Color — Envíos DosRuedas
 
+> `DESIGN.md` (raíz) manda; este archivo lo detalla. Si se contradicen, gana `DESIGN.md`.
+
 > **Fuente:** `src/app/globals.css` (`@theme` Tailwind v4) — **Este documento refleja el código compilado.** Si hay discrepancia, gana `globals.css`.
 
 ---

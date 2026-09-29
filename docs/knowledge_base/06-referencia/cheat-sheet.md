@@ -121,7 +121,7 @@
           COTIZÁ TU <span className="inline-block bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 rounded-lg -rotate-1 shadow-glow-yellow mx-1">ENVÍO</span> EXPRESS
         </h1>
         <p className="text-lg text-white/85 max-w-prose font-sans leading-relaxed">Calculá en segundos y coordiná por WhatsApp.</p>
-        <CTANestedPill href="/cotizar/express" variant="primary" size="large">Cotizá tu envío</CTANestedPill>
+        <CTANestedPill href="/cotizar" variant="primary" size="large">Cotizá tu envío</CTANestedPill>
         <ul className="grid grid-cols-3 gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
           {chips.map(c => <li key={c.label} className="p-3 rounded-xl bg-white/10 border border-white/20 text-center"><span className="font-mono text-xl text-brand-yellow-500 tabular-nums">{c.value}</span><span className="font-subheading text-xs uppercase text-white/90">{c.label}</span></li>)}
         </ul>
@@ -139,50 +139,9 @@
 
 ---
 
-## 8. Tarifas 2026 (Resumen)
+## 8. Tarifas, tarifas fijas y recargos
 
-| Servicio | 0-3km | 3-5km | 5-7km | 7-10km | +10km (excedente) | >20km |
-|---|---|---|---|---|---|---|
-| **EXPRESS** | $3.700 | $4.600 | $6.100 | $8.200 | `Math.ceil(km) × $1.000` | Consultar |
-| **LOW_COST** | $3.000 | $4.000 | $5.300 | $7.000 | `Math.ceil(km) × $700` | Consultar |
-
-> **Constantes:** `EXPRESS_TIERS`, `LOW_COST_TIERS`, `EXPRESS_PRICE_PER_KM=1000`, `LOW_COST_PRICE_PER_KM=700` desde `src/lib/pricing.ts`.
-
-**Precios que NO están en esa tabla** (son fijos por servicio, no por distancia) — todos en `src/lib/promises.ts`:
-
-| Concepto | Valor |
-|---|---|
-| E-Commerce Same Day | `$6.000` fijos a toda la ciudad |
-| DropOFF (paquete listo en el hub, corte 13:00 hs) | `-20 %` sobre la tarifa final |
-| Contrareembolso | `$0` comisión |
-| Periferia (fuera de la urbana de MDQ) | `$1.200 × km` de km ruta |
-| Bulto extra (>5 kg o >40×40 cm) | **Sin monto fijo.** Varía según servicio |
-| E-Commerce 24HS (Next Day) | `$3.800` ✅ **confirmado por Matías el 2026-09-29.** Recolección gratis desde 10 envíos |
-| Flex nivel 2 Pro (Z4/Z5) | `$6.500` tope · publicado, **sin confirmar** 🔴 |
-| Flex nivel 3 Elite | `$4.500` planos · publicado, **sin confirmar** 🔴 |
-
-> ✅ El `$3.800` del 24HS está confirmado. El CSV de mayo decía `$4.000`: el precio bajó cuando se agregó la recolección gratis desde 10 envíos. **El CSV es la fuente más antigua del archivo, no la más nueva.**
->
-> 🔴 Los dos niveles de Flex **ya están publicados** y sus cifras **no las respalda ninguna fuente del dueño**. El dueño sí validó el concepto (volumen a mejor precio, base LowCost, sin mínimo), no los números. Están hardcodeados en el componente, no en `PriceRange`. Ver `02-dominio/entrevista-dueno-2026-09-28.md` §1.3.1.
-
----
-
-## 8bis. Promesas Operativas (SSoT: `src/lib/promises.ts`)
-
-| Constante | Valor | Regla de uso |
-|---|---|---|
-| `EXPRESS_WINDOW` | `franja horaria de 3 hs` | **Siempre** después de "en" o "Entrega en" |
-| `EXPRESS_WINDOW_SHORT` | `Franja de 3 hs` | Rótulo suelto. **Nunca** dentro de oración con "en" |
-| `EXPRESS_LEAD_TIME` | `2 hs de anticipación` | Mínimo para coordinar franja |
-| `STANDARD_WEIGHT_KG` | `5` | Lo que va sin recargo. **Es el número del copy** |
-| `STANDARD_BULLET_DIMENSIONS_CM` | `40 × 40 cm` | Mismo umbral, en volumen. ⚠️ El CSV dice 40 × 30: sin resolver, sigue 40 × 40 |
-| `MAX_WEIGHT_KG` | `15` | **Techo absoluto.** No es "hasta 15 kg" |
-| `LOWCOST_CUTOFF_TIME` | `13:00 hs` | |
-| `LOWCOST_DELIVERY_DEADLINE` | `19:00 hs` | |
-| `FLEX_CUTOFF_TIME` / `_DEADLINE` | `15:00 hs` / `20:00 hs` | Todo Mar del Plata, **no** zonas aledañas |
-| `CONSULT_THRESHOLD_KM` | `20` | Más allá, deriva a WhatsApp |
-
-> La trampa semántica: **franja de 3 hs es una ventana, no una duración.** "Entrega en 3 hs" sería una promesa falsa nueva. De ahí las dos constantes separadas.
+Copia única en `../00-negocio/tarifas.md` (tabla por distancia §1, fijas §1.1, recargos §7). Constantes: `src/lib/pricing.ts` (`*_TIERS`, `*_PRICE_PER_KM`) y `src/lib/promises.ts` (cortes, ventanas, pesos, recargos, `SAME_DAY_FIXED_PRICE`, `BULK_EXTRA_FROM_ARS`, `PERIPHERY_PRICE_PER_KM`). No copiar números acá.
 
 ---
 
@@ -204,21 +163,21 @@
 | `prefers-reduced-motion` ignorado | Gate en todo Motion/GSAP/CSS |
 | Touch targets < 44px | `min-h-[44px]` CTA, `h-11` input |
 | **"Rendición inmediata"** | "En el día, al día siguiente o semanal, según acordado" |
-| **"Factura A"** | "Factura C" |
+| **"Factura A"** | "No emitimos Factura A" (el tipo de factura no está confirmado: no escribir "Factura C") |
 | **"60-90 min" / "en 3 hs"** | `EXPRESS_WINDOW` (ventana, no duración) |
 | **"Hasta 15 kg"** | `STANDARD_WEIGHT_KG` = 5 kg sin recargo |
 | **"LowCost agrupado"** | Programado. Consolidación es de rutas entre envíos distintos |
 | **"Friuli como punto de retiro"** | Base logística y depósito |
 | **Flex "y Batán", "y zonas aledañas"** | Todo Mar del Plata, **no** las aledañas |
 | **"Tarifa nocturna"** | No se trabaja fuera del horario laboral |
-| **"Seguro de envío" / "70 % de indemnización"** | No existe. El "70 %" es texto de plantilla que el dueño desmintió |
+| **"Seguro de envío" / "70 % de indemnización"** | No publicar. El 70 % es respuesta del dueño que choca con su "No" (conflicto abierto #1) |
 | **Testimonios o logos inventados** | Solo 5.0 estrellas +120 valoraciones. MailAmericas existe pero **no está autorizada** |
 | **Nombrar competidores** (CDI, MMDP, Retorno) | Son FX internas. No se publican |
 | **Superlativos** ("los mejores de MDQ", "#1") | 100 % de cumplimiento del horario de MercadoLibre |
 | **Jerga de agencia** ("ecosistema", "soluciones integrales") | "Mensajería en moto con flota propia". Tono medio formal, sin exagerar |
 | **"El servicio más rentable es X"** | Contradicción entre fuentes. No se publica un favorito |
-| **Precios de datos de plantilla** (`$1.950`, `+50 % nocturno`, `70 % indemnización`) | No son del dueño. Ver `anti-patrones.md` §5.2 |
-| **Flex `$6.500` / `$4.500`** | Publicados sin confirmar. No cambiarlos sin su respuesta. `entrevista-dueno-2026-09-28.md` §1.3.1 |
+| **Datos de plantilla** (`+50 % nocturno`, "Típico: …") | No son del dueño. Ver `../00-negocio/voz-y-lineas-rojas.md` §12. Ojo: `$1.950` de bulto **sí** es del dueño |
+| **Flex `$6.500` / `$4.500`** | Publicados sin confirmar. No cambiarlos sin su respuesta. `../00-negocio/servicios.md` §1.3.1 |
 
 ---
 

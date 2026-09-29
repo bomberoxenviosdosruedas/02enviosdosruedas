@@ -1,5 +1,7 @@
 # Hero Section — Envíos DosRuedas
 
+> `DESIGN.md` (raíz) manda; este archivo lo detalla. Si se contradicen, gana `DESIGN.md`.
+
 > **Fuente:** `DESIGN.md` §4, `src/components/ui/HeroProceduralBackground.tsx`, páginas en `src/app/*/page.tsx`.
 
 ---
@@ -82,7 +84,7 @@ Cualquier otro hero centrado en desktop es un error, no una excepción.
 | **Badge de contexto** | `inline-flex px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 font-subheading text-xs uppercase tracking-widest -rotate-1 shadow-glow-yellow` | "Mar del Plata · 15+ años · 2026" |
 | **Titular (H1)** | `font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-tight leading-[0.92] text-white` + **un** knockout rotado | `COTIZÁ TU <span className="bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 rounded -rotate-1">ENVÍO</span> EXPRESS` |
 | **Promesa (voseo)** | `text-lg text-white/85 max-w-prose font-sans leading-relaxed` | "Calculá tu envío en segundos y coordiná por WhatsApp al instante." |
-| **CTA Primario** | `<CTANestedPill href="/cotizar/express" size="large">Cotizá tu envío</CTANestedPill>` | Un solo CTA primario amarillo por pantalla |
+| **CTA Primario** | `<CTANestedPill href="/cotizar" size="large">Cotizá tu envío</CTANestedPill>` | Un solo CTA primario amarillo por pantalla |
 | **CTA Secundario (opcional)** | Link texto `underline decoration-brand-yellow-500` o `CTANestedPill variant="outline"` | "O escribinos por WhatsApp" |
 | **Chips Factuales (3)** | `grid grid-cols-3 gap-3` → cards `p-3 rounded-xl bg-white/10 border border-white/20` | "15:00 hs", "100% Mismo Día", "Sin Mínimos" |
 
@@ -145,10 +147,9 @@ servicio donde el vendedor va a buscarlas.
 | Azul | Inicio, Express, Flex, Sobre nosotros, FAQ, Redes, Contacto, Cotizador | — |
 | Amarillo | LowCost, Emprendedores + Depósito | `LowCostHero`, `EmprendedoresHero` |
 
-`/servicios/deposito-fulfillment` y `/servicios/plan-emprendedores` **comparten**
-`EmprendedoresHero`. Son páginas hermanas sobre el mismo hub: dos heroes
-amarillos casi idénticos serían duplicación, no personalización. La
-diferenciación de cada página va en la sección siguiente al hero.
+`/servicios/deposito-fulfillment` usa `EmprendedoresHero`. `/servicios/plan-emprendedores`
+lo compartía, pero desde 2026-09-29 redirige a `/servicios/empresas-cuenta-corriente`
+(el archivo de la página sigue en disco, detrás del redirect).
 
 ---
 
@@ -156,10 +157,10 @@ diferenciación de cada página va en la sección siguiente al hero.
 
 | Variant | Uso | Gráficos Vectoriales Específicos |
 |---|---|---|
-| `"express"` | `/cotizar/express`, `/servicios/envios-express` | Arterias de velocidad (paths amarillos/azules animados) + nodos |
-| `"lowcost"` | `/cotizar/lowcost`, `/servicios/envios-lowcost` | Anillos concéntricos de ruteo batch + línea central |
+| `"express"` | `/cotizar` (hero del cotizador), `/servicios/envios-express` | Arterias de velocidad (paths amarillos/azules animados) + nodos |
+| `"lowcost"` | `/servicios/envios-lowcost` | Anillos concéntricos de ruteo + línea central |
 | `"flex"` | `/servicios/enviosflex` | Corredor matriz dispatch verificado + rectángulos dash |
-| `"3pl"` | `/servicios/deposito-fulfillment`, `/servicios/plan-emprendedores` | Nodos hub inventario (polígono + círculos) |
+| `"3pl"` | `/servicios/deposito-fulfillment` | Nodos hub inventario (polígono + círculos) |
 | `"contact"` | `/contacto` | Radar GPS beacon (círculos pulsantes) |
 | `"community"` | `/nosotros/nuestras-redes` | Red social nodos + enlaces |
 | `"default"` | `/nosotros/sobre-nosotros`, fallback | Solo gradiente + halos + grilla base |
@@ -242,7 +243,7 @@ export default function ExpressHero() {
               Retiramos tu paquete y lo entregamos en {EXPRESS_WINDOW} en todo Mar del Plata. Flota propia de motos, tarifa fija por distancia y coordinación directa por WhatsApp.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-2">
-              <CTANestedPill href="/cotizar/express" variant="primary" size="large">Cotizá tu envío Express</CTANestedPill>
+              <CTANestedPill href="/cotizar" variant="primary" size="large">Cotizá tu envío</CTANestedPill>
               <a href="https://wa.me/542236602699?text=Hola!%20Quiero%20hacer%20un%20env%C3%ADo%20Express" target="_blank" rel="noopener noreferrer"
                 className="inline-flex min-h-[44px] items-center gap-2 font-subheading text-base uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-700 rounded-md">
                 <FaWhatsapp className="h-5 w-5 shrink-0" aria-hidden="true" /> O escribinos por WhatsApp

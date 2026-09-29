@@ -308,7 +308,7 @@ export default function EmprendedoresHome() {
                     Soluciones Corporativas
                   </h3>
                   <p className="text-brand-ink text-xs sm:text-sm leading-relaxed font-sans">
-                    Soporte a gran escala con Factura C consolidada (semanal, quincenal o mensual), ruteos
+                    Soporte a gran escala con pagos agrupados (semanales, quincenales o mensuales), ruteos
                     especiales para grandes volúmenes y entregas express coordinadas en Mar del Plata.
                   </p>
                 </div>

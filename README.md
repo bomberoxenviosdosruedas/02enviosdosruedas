@@ -140,11 +140,14 @@ Toda la documentación técnica, de diseño, negocio y operativa vive en **`docs
 
 ```
 docs/knowledge_base/
-├── 00-proyecto/           # Identidad, stack, tarifas 2026
-├── 01-diseno/             # Design system completo (tokens, tipografía, hero, primitivas, motion, iconos, anti-patrones, deuda, plan)
-├── 02-dominio/            # Glosario, decisiones, contexto SEO
-├── 03-operaciones/        # Comandos, verificación, agents skills, issue tracker, triage
-└── 04-referencia-rapida/  # Cheat sheet
+├── README.md              # Índice, orden de autoridad de fuentes, baseline
+├── 00-negocio/            # Identidad, servicios, tarifas y recargos, operaciones, voz y líneas rojas
+├── 01-fuentes-dueno/      # Extracción fiel del .docx y .xlsx del dueño, conflictos abiertos
+├── 02-dominio/            # Glosario, decisiones, contexto SEO, marca visual
+├── 03-diseno/             # Detalle del design system (DESIGN.md manda)
+├── 04-operaciones/        # Comandos, verificación, stack, agentes
+├── 05-auditoria/          # Estado del sitio frente a lo que pidió el dueño
+└── 06-referencia/         # Cheat sheet
 ```
 
 > **Para agentes de IA:** Leer `AGENTS.md` (índice normativo) y la documentación correspondiente en `docs/knowledge_base/` antes de actuar.

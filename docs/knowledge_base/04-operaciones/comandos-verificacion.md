@@ -53,14 +53,16 @@ Elegir el nivel **más alto** que aplique a cualquier archivo tocado.
 
 ---
 
-## 4. Baseline de Fallos Previos (2026-09-21)
+## 4. Baseline de fallos previos (medido 2026-09-29)
 
-| Tipo | Cantidad | Detalle | Acción |
+| Tipo | Resultado | Detalle | Acción |
 |---|---|---|---|
-| **Lint** | 57 errores | En archivos **no tocados** por la tarea actual | No perseguirlos salvo que la tarea sea arreglarlos. Si un fallo aparece en archivo no tocado y está en baseline, no es tuyo. |
-| **Tests** | 5 fallan | `cotizar/express`, `cotizar/lowcost`, `preguntas-frecuentes`, `lib/promises.test.ts` | No perseguirlos salvo que la tarea sea arreglarlos. |
+| **Lint** (`pnpm run lint`) | 0 errores, 0 warnings | — | Cualquier error nuevo es tuyo |
+| **Suite** (`pnpm exec vitest run --reporter=dot`) | 10 archivos, 113 tests: 111 pasan, 2 fallan | `src/app/contacto/contacto.test.tsx` tests 3 (espera la sección de redes, que vive en `CarruselRedes` del layout) y 6 (espera un único mensaje de error de nombre y hay dos) | No perseguirlos salvo que la tarea sea arreglarlos |
 
-> **Uso de `git stash`:** solo si el fallo es nuevo y dudás de su origen. Cuando el lint quede limpio, el criterio pasa a ser "0 warnings ESLint".
+> Este es el **único** baseline de la KB. Si lo volvés a medir, actualizá la fecha y los números acá.
+
+> **Uso de `git stash`:** solo si el fallo es nuevo y dudás de su origen.
 
 ---
 

@@ -1,161 +1,71 @@
-# AGENTS.md — Envíos DosRuedas (Índice Normativo)
+# AGENTS.md — Envíos DosRuedas
 
-> **Este archivo es el anclaje operativo.** No asumas nada: lee la documentación completa en `docs/knowledge_base/` antes de actuar.
+Sitio Next.js de una mensajería en moto de Mar del Plata. Dueño: Matías Cejas. **Antes de actuar, abrí `docs/knowledge_base/README.md`**: es el índice, el orden de autoridad de las fuentes y el baseline de verificación. Este archivo solo guarda lo que tiene que estar cargado siempre.
 
----
+## Dónde buscar
 
-## 🎯 Acceso Rápido a la Verdad
-
-| Qué Necesitas | Dónde Está (Fuente Canónica) |
+| Necesitás | Archivo |
 |---|---|
-| **Identidad, negocio, stack, servicios, tarifas** | `docs/knowledge_base/00-proyecto/identidad-negocio.md` |
-| **Stack tecnológico, comandos, verificación, mapa de código** | `docs/knowledge_base/03-operaciones/comandos-verificacion.md` |
-| **Sistema de diseño completo (tokens, tipografía, hero, primitivas, motion, iconos, anti-patrones, deuda, plan)** | `docs/knowledge_base/01-diseno/design-system.md` |
-| **Tokens de color (paleta, sombras, contraste, reglas cromáticas)** | `docs/knowledge_base/01-diseno/tokens-colores.md` |
-| **Tipografía (familias, escala, utilities, tratamientos, anti-patrones)** | `docs/knowledge_base/01-diseno/tipografia.md` |
-| **Hero Section (estructura 7/5, variantes, ejemplo canónico)** | `docs/knowledge_base/01-diseno/hero-layout.md` |
-| **Primitivas UI (DoubleBezelCard, CTANestedPill, InputField, Badge, RadioCardGroup, Stepper, BentoGrid, HeroProceduralBackground, FloatTiltCard, Card, AddressAutocomplete, DynamicRouteMap, helpers)** | `docs/knowledge_base/01-diseno/primitivas-ui.md` |
-| **Motion & Accesibilidad (springs, reduced-motion, GSAP, a11y checklist)** | `docs/knowledge_base/01-diseno/motion-accesibilidad.md` |
-| **Iconografía e Imagen (librerías, logo, fotografía, hero card media, ilustraciones)** | `docs/knowledge_base/01-diseno/iconografia-imagen.md` |
-| **Anti-Patrones (lista completa de prohibidos con fixes)** | `docs/knowledge_base/01-diseno/anti-patrones.md` |
-| **Deuda de Adherencia (12 ítems priorizados con métricas)** | `docs/knowledge_base/01-diseno/deuda-adherencia.md` |
-| **Tarifas y Lógica de Negocio (fuente de verdad, flujo server-side, testing, recargos, protocolos)** | `docs/knowledge_base/01-diseno/tarifas-logica-negocio.md` |
-| **Contexto del dueño (entrevista 2026-09-28): definiciones verbatim, recargos, protocolos, lo que NIEGA, visión de foto, auditoría de claims** | `docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md` |
-| **Voz de marca, líneas rojas, cliente estrella y FAQs del dueño (cuestionario de 31 preguntas, 25/5/2026)** | `docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md` §11 y §12 |
-| **Quick Reference / Cheat Sheet (tokens, spacing, primitivas, hero, tarifas, reglas, comandos)** | `docs/knowledge_base/04-referencia-rapida/cheat-sheet.md` |
-| **Plan de Remediación (12 ítems con prompts, orden, criterios de cierre)** | `docs/knowledge_base/01-diseno/plan-remediacion.md` |
-| **Glosario de Dominio (términos, prefijos DS/COPY/MARCA/BL, siglas)** | `docs/knowledge_base/02-dominio/glosario.md` |
-| **Decisiones (dueño + método, formato inmutable)** | `docs/knowledge_base/02-dominio/decisiones.md` |
-| **Contexto SEO (keywords, on-page, content gaps, benchmark, plan acción)** | `docs/knowledge_base/02-dominio/contexto-seo.md` |
-| **Comandos y Verificación (niveles N0-N3, baseline, reporte)** | `docs/knowledge_base/03-operaciones/comandos-verificacion.md` |
-| **Agent Skills (issue tracker, triage labels, domain docs, skills internas, prompts)** | `docs/knowledge_base/03-operaciones/agentes-skills.md` |
-| **Issue Tracker (state machine, template, backlog, flujo semanal, reglas de oro)** | `docs/knowledge_base/03-operaciones/issue-tracker.md` |
-| **Triage Labels (5 estados, transiciones, políticas, sync TASKS.md)** | `docs/knowledge_base/03-operaciones/triage-labels.md` |
+| Qué es cada servicio (los 6 del sitio), cortes, URLs | `docs/knowledge_base/00-negocio/servicios.md` |
+| Tarifas, tarifas fijas, recargos (copia única) | `docs/knowledge_base/00-negocio/tarifas.md` |
+| Lo que el dueño niega, líneas rojas, voz de marca | `docs/knowledge_base/00-negocio/voz-y-lineas-rojas.md` |
+| Lo que dijo el dueño, textual (celda por celda) | `docs/knowledge_base/01-fuentes-dueno/` |
+| Dudas sin resolver con el dueño (no las decidas vos) | `docs/knowledge_base/01-fuentes-dueno/conflictos-abiertos.md` |
+| Qué del sitio ya cumple y qué falta | `docs/knowledge_base/05-auditoria/estado-sitio.md` |
+| Diseño (tokens, tipografía, hero, primitivas, motion) | `DESIGN.md` (manda) y `docs/knowledge_base/03-diseno/` |
+| Comandos, niveles N0-N3, baseline de tests | `docs/knowledge_base/04-operaciones/comandos-verificacion.md` |
 
----
+## Precios: nunca inventar ni copiar
 
-## ⚡ Reglas de Oro (Memorizar)
+- **Fuente única:** `PriceRange` (BD) → `src/lib/pricing.ts` (fallback) para tarifas por distancia; `src/lib/promises.ts` para tarifas fijas y recargos. **Nunca** un literal nuevo en un componente, nunca un precio calculado en el cliente.
+- **`Math.ceil(km)`** en el excedente de 10 a 20 km (`$1.000` Express, `$700` LowCost). Periferia fuera de la ciudad es otra tarifa: `$1.200` por km de ruta.
+- **No tocar sin confirmación del dueño:** Flex Nivel 2 `$6.500` y Nivel 3 `$4.500` (hardcodeados en `FlexPricing.tsx`, sin respaldo de cifras) y E-commerce 24HS `$3.800` (confirmado de palabra el 2026-09-29; hoy en `src/app/servicios/page.tsx:230` y `:274`).
+- **Orden de fuentes:** `.docx`/`.xlsx` de sep-2026 > informe estratégico > CSV de may-2026. Nada marcado **[PLANTILLA]** o **[SIN CONFIRMAR]** se publica. Una celda de respuesta del dueño en la planilla no es plantilla.
 
-| Regla | Descripción |
-|---|---|
-| **Fuente única de tarifas** | `PriceRange` (BD) → `src/lib/pricing.ts` (fallback). **Nunca** del cliente. **Nunca** un literal en un componente. |
-| **Tarifas publicadas sin respaldo del dueño** | Quedan **dos**: Flex Nivel 2 `$6.500` y Nivel 3 `$4.500`, hardcodeadas en `FlexPricing.tsx`. **No tocarlas ni replicarlas** hasta que Matías confirme. El dueño validó el *concepto* (base LowCost, descuento por volumen, sin mínimo) pero **no las cifras**. Ver `02-dominio/entrevista-dueno-2026-09-28.md` §1.3.1 |
-| **24HS confirmado, implementación pendiente** | `$3.800`/envío **es correcto** (Matías, 2026-09-29), más **recolección gratis desde 10 envíos**. El número está bien; lo que falta es la centralización: vive hardcodeado en `app/servicios/page.tsx:183`, sin `PriceRange`, sin función de cálculo, con CTA que no lleva a ningún cotizador. **No cambiar el valor.** Ver §1.5 |
-| **El CSV es la fuente más antigua, no la más nueva** | `docs/contexto/respuestas_dueno_enviosdosruedas.csv` está firmado el **25/5/2026**, ~4 meses antes que las otras tres. Para **voz, tono, líneas rojas y nombres propios** es la fuente más literal. Para **precios** no: dio `$4.000` para el 24HS y el vigente es `$3.800`. **Orden: `.docx`/planilla > informe estratégico > CSV** |
-| **Voz de marca: persona normal, trabajador, sin exagerar** | Del cuestionario del dueño. Tono medio formal, sin superlativo, prueba de laurreta antes de escribir. Contrapeso: la escena visual es de alto contraste y la marca **no** es informal. No aligerar el diseño sin tocar el copy. Ver `anti-patrones.md` §5.4 |
-| **Tres líneas rojas del dueño** | No se transportan productos ilegales · no se tolera falta de respeto al repartidor · **"preferimos decir que no podemos, a fallar"**. La tercera es la más valiosa y hoy **no está publicada**. Ver §4.7-§4.9 y §11.1 |
-| **No publicar clientes, competidores ni rentabilidad** | MailAmericas (2.500-4.000 envíos/semana) existe pero **sin autorización**: publicar el volumen expone la capacidad de la flota. CDI, MMDP y Retorno Mensajería son **información interna**: no se nombran. Y las fuentes se contradicen sobre cuál servicio es "más rentable". Ver `anti-patrones.md` §5.1 |
-| **Paleta 3 colores** | `#0950F6` (azul, techo oscuridad), `#FFEC01` (amarillo, ≤15% CTA), `#FFFFFF` (blanco). **Nada más oscuro que `#0950F6`**. |
-| **Tipografía** | Anton/Bebas **solo peso 400** (no `font-bold`). Outfit body. Geist Mono `tabular-nums` obligatorio en precios. |
-| **Server Components por defecto** | `'use client'` solo para hooks, motion, GSAP, Leaflet, localStorage. Islas lo más abajo posible. |
-| **Server Actions para mutaciones** | En `src/actions/`. Route Handlers solo webhooks/consumo externo. |
-| **Primitivas primero** | Antes de escribir markup: `DoubleBezelCard`, `CTANestedPill`, `InputField`, `Badge`, `HeroProceduralBackground`, `Stepper`, `BentoGrid`, `RadioCardGroup`. |
-| **Voseo rioplatense obligatorio** | "Cotizá", "Enviá", "Calculá", "Contactanos". NUNCA "usted/su". |
-| **Nada que el dueño haya negado** | Ver `anti-patrones.md` §5.1. Afirmaciones que él desmintió por nombre (rendición inmediata, Factura A, 60-90 min, "hasta 15 kg" sin recargo, LowCost "agrupado", punto de retiro, "entregas en 24hs" como duración) son **bugs de contenido**, no preferencias. Ojo: el **servicio** E-Commerce 24HS existe y su precio `$3.800` está confirmado (ver fila propia). |
-| **Franja ≠ duración** | `EXPRESS_WINDOW` ("franja horaria de 3 hs") es ventana; `EXPRESS_WINDOW_SHORT` ("Franja de 3 hs") es rótulo. **Nunca** "en 3 hs": sería entrega en 3 horas. |
-| **5 kg ≠ 15 kg** | `STANDARD_WEIGHT_KG` (5) es lo que va sin recargo y es el número del copy. `MAX_WEIGHT_KG` (15) es el techo absoluto. No intercambiables. |
-| **`Math.ceil(km)` obligatorio** | En excedentes >10km. Nunca `Math.floor/round`. |
-| **`prefers-reduced-motion` en TODO** | `useReducedMotion()` en componentes + gate GSAP + bloque `prefers-reduced-motion` en `globals.css`. **Ojo:** el `MotionConfig` global que se pidió en `design-system.md` **todavía no existe**. Lo que sí existe hoy es el gate por componente y el bloque CSS. |
-| **Touch targets ≥ 44px** | `min-h-[44px]` CTA, `h-11` input. Focus visible `ring-2 brand-blue-500`. |
-| **Gestor de paquetes: solo `pnpm`** | Nunca `npm` ni `yarn`. |
+## Lo que el sitio no puede decir (el dueño lo negó)
 
----
+Cada línea es un bug de contenido, no una preferencia. Detalle y citas en `voz-y-lineas-rojas.md`.
 
-## 📋 Protocolo de Verificación (Niveles N0–N3)
+- Entrega en **60-90 min**, "menos de 2 h" o cualquier duración. Express es una **franja de 3 hs** a elección (`EXPRESS_WINDOW`), pedida con 2 hs de anticipación, corte 15:00 hs. **Nunca** "en 3 hs".
+- LowCost **"agrupado"** o por lote de un mismo cliente. Es reparto programado en el día, sin franja: corte 13:00, entrega antes de 19:00.
+- **Factura A** (no la emiten). Tampoco afirmar "Factura C": el dueño no lo dijo (ver `conflictos-abiertos.md`).
+- **Rendición inmediata** en contrareembolso. Es en el día, al día siguiente o semanal, según lo acordado.
+- **"Hasta 15 kg" sin recargo.** Sin recargo va hasta **5 kg o 40 × 40 cm** (`STANDARD_WEIGHT_KG`); 15 kg (`MAX_WEIGHT_KG`) es el techo de la moto.
+- Friuli 1972 como **punto de retiro**, envíos **fuera del horario laboral**, Flex **fuera de Mar del Plata**.
+- DropOFF -20 % es **solo para E-commerce 24HS**.
 
-| Nivel | Qué Tocaste | Qué Correr | Qué NO |
-|---|---|---|---|
-| **N0** | Docs, comentarios, assets | Nada | Todo |
-| **N1** | Solo `className`, textos, orden JSX, íconos | `pnpm exec eslint <archivos>` | typecheck, tests, build |
-| **N2** | Props, tipos, hooks, estado, componentes en `src/components/**` o `src/hooks/**` | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run` (si existe test) | build, lint completo, suite |
-| **N3** | `src/lib/pricing.ts`, `src/actions/**`, `src/app/api/**`, `src/proxy.ts`, `prisma/**`, `layout.tsx`, `globals.css`, `next.config.ts`, `eslint.config.mjs`, `tsconfig.json`, `vitest.config.ts`, `package.json`, rutas/SEO, >10 archivos | **N2 +** tests del área + **cierre:** `pnpm build` + `pnpm run lint` | Suite entera (salvo configs transversales) |
+**Líneas rojas del dueño:** no se transportan productos ilegales · no se tolera falta de respeto al repartidor · "preferimos decir que no podemos, a fallar".
+**No publicar** clientes con volumen (MailAmericas), competidores (CDI, MMDP, Retorno Mensajería) ni qué servicio es más rentable.
+**Voz:** voseo rioplatense obligatorio ("Cotizá", "Enviá"; nunca "usted"), tono medio formal, sin superlativos.
 
-> **Baseline fallos previos (medido 2026-09-29, post-refactorización de arquitectura):**
->
-> - `pnpm run lint`: **0 errores, 0 warnings** (se limpiaron los 3 warnings de los shims locales al añadirlos a `eslint.config.mjs` ignores).
-> - Suite completa (`pnpm exec vitest run`): **12 archivos, 121 tests → 119 pasan, 2 fallan.** Los 2 son preexistentes y **NO** son consecuencia de esta refactorización:
->   - `contacto.test.tsx` test 3 espera la sección de redes (`Nuestra Comunidad Digital`), que vive en `CarruselRedes` (layout), no en `<ContactoPage />`. Test 6 espera un único mensaje de error de nombre y hoy lo renderizan dos elementos.
->
-> **No perseguirlos** salvo que la tarea sea arreglarlos. `src/lib/pricing.ts` y la lógica de los cotizadores no se tocan.
+## Diseño (no negociable)
 
----
+- Paleta de 3 colores: `#0950F6` (azul, **el más oscuro permitido**), `#FFEC01` (amarillo, ≤15 % de la superficie, CTA), `#FFFFFF`. Cualquier `#0636A5`, `#052C87`, `#04236B`, `#021440` o `#00277C` en el código es deuda.
+- Anton/Bebas **solo peso 400**; Outfit en cuerpo; Geist Mono `tabular-nums` en todo precio.
+- Primitivas de `src/components/ui/` antes que markup nuevo.
+- `prefers-reduced-motion` en todo lo que se mueva (`useReducedMotion()` + gate GSAP). El `MotionConfig` global **todavía no existe**.
+- Touch targets ≥ 44 px; foco visible `ring-2` `brand-blue-500`.
 
-## 🚀 Comandos Esenciales
+## Arquitectura
 
-```bash
-# Typecheck (obligatorio antes de PR)
-pnpm typecheck
+- Server Components por defecto; `'use client'` solo para hooks, motion, GSAP, Leaflet o localStorage, lo más abajo posible.
+- Mutaciones con Server Actions en `src/actions/`; Route Handlers solo para webhooks o consumo externo.
+- **Solo `pnpm`**, nunca `npm` ni `yarn`.
 
-# Lint archivos tocados
-pnpm exec eslint <archivos>
+## Verificación por nivel
 
-# Tests relacionados
-pnpm exec vitest related <archivos> --run --reporter=dot
+Informá siempre el nivel elegido. Nunca `pnpm test` a secas (queda en modo watch). Re-corré solo lo que falló.
 
-# Build (solo N3 o si usuario lo pide)
-pnpm build  # Windows: powershell -ExecutionPolicy Bypass -Command "pnpm build"
+| Nivel | Qué tocaste | Qué correr |
+|---|---|---|
+| **N0** | Docs, comentarios, assets | Nada |
+| **N1** | Solo `className`, textos, orden JSX, íconos | `pnpm exec eslint <archivos>` |
+| **N2** | Props, tipos, hooks, estado, `src/components/**`, `src/hooks/**` | `pnpm typecheck` + eslint de los archivos + `pnpm exec vitest related <archivos> --run` |
+| **N3** | `pricing.ts`, `src/actions/**`, `src/app/api/**`, `src/proxy.ts`, `prisma/**`, `layout.tsx`, `globals.css`, `next.config.ts`, configs, `package.json`, rutas/SEO, >10 archivos | N2 + tests del área, cierre con `pnpm build` y `pnpm run lint` |
 
-# Dev
-pnpm dev  # Windows hot-reload fix: pnpm dev --webpack
+En Windows: `pnpm build` puede necesitar `powershell -ExecutionPolicy Bypass -Command "pnpm build"`, y `pnpm dev --webpack` si falla el hot-reload.
 
-# Prisma
-pnpm prisma generate && pnpm prisma db push
-```
-
----
-
-## 📁 Estructura `docs/knowledge_base/`
-
-```
-docs/knowledge_base/
-├── 00-proyecto/
-│   ├── identidad-negocio.md
-│   ├── stack-tecnologico.md
-│   └── servicios-tarifas-2026.md
-├── 01-diseno/
-│   ├── design-system.md           # Canónico (fuente de verdad)
-│   ├── tokens-colores.md
-│   ├── tipografia.md
-│   ├── hero-layout.md
-│   ├── primitivas-ui.md
-│   ├── motion-accesibilidad.md
-│   ├── iconografia-imagen.md
-│   ├── anti-patrones.md
-│   ├── deuda-adherencia.md
-│   ├── tarifas-logica-negocio.md
-│   ├── quick-reference.md
-│   └── plan-remediacion.md
-├── 02-dominio/
-│   ├── glosario.md
-│   ├── decisiones.md
-│   ├── entrevista-dueno-2026-09-28.md
-│   └── contexto-seo.md
-├── 03-operaciones/
-│   ├── comandos-verificacion.md
-│   ├── agentes-skills.md
-│   ├── issue-tracker.md
-│   └── triage-labels.md
-└── 04-referencia-rapida/
-    └── cheat-sheet.md
-```
-
----
-
-## 🔗 Referencias Clave del Código
-
-| Archivo | Qué Es |
-|---|---|
-| `src/app/globals.css` | `@theme` Tailwind v4 (tokens, sombras, keyframes, tipografía) |
-| `src/app/layout.tsx` | Root layout, `next/font`, metadata. **No** tiene `MotionConfig`: es deuda abierta, ver `deuda-adherencia.md` y `DESIGN.md` §8.4 |
-| `src/lib/pricing.ts` | Funciones puras `calculateExpressPrice` / `calculateLowCostPrice` + constantes `*_TIERS` |
-| `src/actions/quote.ts` | Server Action de cotización (debe leer `PriceRange` vía Prisma) |
-| `src/components/ui/index.ts` | Barril de primitivas (alias `@/components/ui`) |
-| `prisma/schema.prisma` | `PriceRange` + `ServiceType` (modelos productivos) |
-| `src/proxy.ts` | Middleware Next.js 16 (runtime Node.js) |
-
----
-
-**Última actualización:** 2026-09-26 — Reestructuración `docs/knowledge_base/` completada.
+**Última actualización:** 2026-09-29 — reestructurado contra el `.docx` y el `.xlsx` del dueño.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
