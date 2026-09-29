@@ -43,6 +43,12 @@
       "skillPath": "skills/aso/SKILL.md",
       "computedHash": "097df8564f6818af20e846cd0a00ce950b94b59153eaf212a5a57c98672d5af3"
     },
+    "async-python-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/async-python-patterns/SKILL.md",
+      "computedHash": "15eb61c8d5c4870d57044cfb199d0aa028d8e1e73e9bb8cb6122da32c76efb77"
+    },
     "attribution": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
@@ -138,6 +144,12 @@
       "sourceType": "github",
       "skillPath": "skills/customer-research/SKILL.md",
       "computedHash": "4e55be83e7d9ccdee4a15faef7532dcab16f8f564c8047baa40737894bf11e1d"
+    },
+    "dataverse-python-production-code": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "skillPath": "skills/dataverse-python-production-code/SKILL.md",
+      "computedHash": "7299422fdb42dcede45a761921656a6450c476388731288a6e5afb0303f1d25d"
     },
     "deploy-to-vercel": {
       "source": "vercel-labs/agent-skills",
@@ -367,6 +379,12 @@
       "skillPath": "skills/programmatic-seo/SKILL.md",
       "computedHash": "a53dc8741b0df338766ef8fc7d704bdfc75b8c8e7e1b1b2a5947d81d8c9508ff"
     },
+    "prompt-engineering-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/llm-application-dev/skills/prompt-engineering-patterns/SKILL.md",
+      "computedHash": "3cfeff53f7cbc7b33a5ea1624c1d38563f22c6f7e52ad00b5c9a8b822a763a44"
+    },
     "prospecting": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
@@ -384,6 +402,90 @@
       "sourceType": "github",
       "skillPath": "skills/public-relations/SKILL.md",
       "computedHash": "bd30782ecf2f14dd3e9bbdae3542633a1f4d4a292a9155a57951e101c6543ebf"
+    },
+    "python-anti-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-anti-patterns/SKILL.md",
+      "computedHash": "6aad22ecbc1546927f2d2c6cac7ac793aa8256a6b47ded75d8c628c5fe491259"
+    },
+    "python-background-jobs": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-background-jobs/SKILL.md",
+      "computedHash": "76c69e28428aa23acdf0b8275c9954bfbf7084d22c5cf45cb2ebf19de55cf8f2"
+    },
+    "python-code-style": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-code-style/SKILL.md",
+      "computedHash": "c375dffa8d94962e10193079af1527b149f43b68d60043830d89cbce1228cec7"
+    },
+    "python-configuration": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-configuration/SKILL.md",
+      "computedHash": "ef7a247041c495f7166645f35cb004e8ed5736ba6a844496dee4c09785bda336"
+    },
+    "python-design-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-design-patterns/SKILL.md",
+      "computedHash": "a8f1eebda28a169f366da393b6a2f836583022b4ca3f2c330eabde1e5cccb08b"
+    },
+    "python-error-handling": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-error-handling/SKILL.md",
+      "computedHash": "f584c575cae258110b6ab249fdce5301eed101d7001caa21510c99fb36f23e9c"
+    },
+    "python-observability": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-observability/SKILL.md",
+      "computedHash": "08bae7ce0b5bfccb6c882345969d0e7cd87ff5b72f14f65a6b2ace019189076f"
+    },
+    "python-packaging": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-packaging/SKILL.md",
+      "computedHash": "5881fecc67af2d0d7acd22f8f4b2f116c4ed665e5f9790cfdfecfcd4dd1ce8d4"
+    },
+    "python-performance-optimization": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-performance-optimization/SKILL.md",
+      "computedHash": "c06f6f2167d2062f3bf286cba96e46a4160bce4ed959f31b18453cb1ce3a694a"
+    },
+    "python-project-structure": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-project-structure/SKILL.md",
+      "computedHash": "a9c8b41e1a906a59d574c34e889d655c5dcc5137d13528ba02e5da3943d87f5b"
+    },
+    "python-resilience": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-resilience/SKILL.md",
+      "computedHash": "5141bd0eb323ea160151895db8a3c3cd5ab96a5188f05f671407d75585c2ec63"
+    },
+    "python-resource-management": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-resource-management/SKILL.md",
+      "computedHash": "c6d65e3189acde73125dda679a1defbbbe455695579960121b59442737b818a8"
+    },
+    "python-testing-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-testing-patterns/SKILL.md",
+      "computedHash": "66b0f13c33ca5689ce6d59dfc6c441bacf3d017299d8ee3c30a028299e5d28e9"
+    },
+    "python-type-safety": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-type-safety/SKILL.md",
+      "computedHash": "6162b7a7f1c86888a818833eb4801e348a85fc59a5f15125542ae2d89db67b5a"
     },
     "react-vite-dashboard": {
       "source": "google-labs-code/stitch-skills",

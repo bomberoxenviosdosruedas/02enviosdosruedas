@@ -120,3 +120,4 @@ test-results/
 # Turbo / pnpm cache
 .turbo/
 .pnpm-store/
+docs/paginas_en_txt/*

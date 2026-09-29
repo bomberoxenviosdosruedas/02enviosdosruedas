@@ -148,22 +148,36 @@ Además:
 
 ---
 
-## 5. Hallazgos que quedan abiertos
+## 5. Hallazgos abiertos y decisiones tomadas
 
-Ninguno bloquea. Ninguno se resolvió por iniciativa propia porque excede lo autorizado.
+Ninguno bloquea el desarrollo. Ninguno se resolvió por iniciativa propia porque excedía lo autorizado.
 
-1. **2 tests de `contacto.test.tsx` siguen rojos.** Test 3 espera `Nuestra Comunidad Digital`, que vive en `CarruselRedes` dentro de `ClientLayout`, no en `<ContactoPage />`. Test 6 espera un único mensaje de error de nombre y hoy lo renderizan dos elementos (un `<span>` y un `<p class="font-mono …">`). Acordado para commit posterior.
+### 5.1 Decisiones tomadas por el propietario (2026-09-29)
 
-2. **`reviewCatalog.ts` está desactualizado (preexistente).** Documenta como secciones de la home `VisionSection` y `SliderServicios`, que son código muerto: esas secciones no se renderizan. Es un problema de contenido, no de imports.
+| # | Hallazgo | Decisión | Estado |
+|---|---|---|---|
+| 5 | `public/*.html` huérfanos, sin referenciar desde el código | **Se mantienen.** No se borran: son assets desplegables y su eliminación requiere sign-off explícito | `wontfix` |
+| 6 | Las 5 primitivas del barrel (`RadioCardGroup`, `StepperVertical`, `LogosCarousel`, …) sin consumidores | **Se mantienen** en el catálogo de diseño para features futuras | `wontfix` |
+| 7 | Vitest crea `jsdom` 12 veces (38% del tiempo: 34.57s) | **Se difiere.** Evaluar `pool: 'vmThreads'` en un sprint posterior, por cambiar la semántica de aislamiento de la suite | `needs-triage` |
 
-3. **`src/lib/analytics` vs `src/app/api/assistant` usan Genkit/Gemini** sin que quede claro si hay una sola instancia de cliente. No se tocó.
+Los ítems 5 y 6 quedan como deuda **aceptada a propósito**, no como olvidos. Conviene que un barrido futuro no los vuelva a reportar como hallazgo: son ruido conocido.
 
-4. **`SchemaMarkup.tsx` está archivado pero el JSON-LD sigue inline en `layout.tsx`.** Cuando se quiera reintroducir el componente, hay que decidir cuál gana.
+### 5.2 Pendientes sin decisión
 
-5. **`public/*.html` huérfanos** sin referenciar desde el código. No se borraron: son assets desplegables y su eliminación merece sign-off explícito.
+| # | Hallazgo | Detalle | Estado |
+|---|---|---|---|
+| 1 | 2 tests de `contacto.test.tsx` siguen rojos | Test 3 espera `Nuestra Comunidad Digital`, que vive en `CarruselRedes` dentro de `ClientLayout`, no en `<ContactoPage />`. Test 6 espera un único mensaje de error de nombre y hoy lo renderizan dos elementos (un `<span>` y un `<p class="font-mono …">`) | `ready-for-agent` |
+| 2 | `reviewCatalog.ts` desactualizado (preexistente) | Documenta como secciones de la home `VisionSection` y `SliderServicios`, que son código muerto: no se renderizan. Problema de contenido, no de imports | `needs-triage` |
+| 3 | Genkit/Gemini sin instancia única clara | `src/lib/analytics` y `src/app/api/assistant` crean su propio cliente. No se tocó | `needs-triage` |
+| 4 | `SchemaMarkup.tsx` archivado, JSON-LD inline en `layout.tsx` | Al reintroducir el componente hay que decidir cuál de las dos copias gana | `needs-triage` |
+| 8 | `tsconfig.tsbuildinfo` reaparece en la raíz | Gitignored; borrarlo es cosmético | `wontfix` |
 
-6. **Las 5 primitivas del barrel** (`RadioCardGroup`, `StepperVertical`, `LogosCarousel`, …) siguen sin consumidores. Decisión consciousa: son catálogo de diseño reservado. Cuando el barrel crezca, `bundle-barrel-imports` va a empezar a costar.
+### 5.3 Hallazgo nuevo, detectado al cerrar
 
-7. **Vitest crea `jsdom` 12 veces** (38% del tiempo: 34.57s de 22.77s de duración medida en la última corrida). Sugiere `pool: 'vmThreads'`. No se tocó porque cambia la semántica de aislamiento de la suite.
+**El issue tracker del proyecto no es durable.** La convención de `docs/agents/issue-tracker.md` manda guardar cada issue en `.scratch/<feature-slug>/issues/NN-<slug>.md` — pero `.scratch/` está en `.gitignore:77`. Todo issue abierto siguiendo la propia convención:
 
-8. **`tsconfig.tsbuildinfo`** reaparece en la raíz tras cada `typecheck`. Está gitignored; borrarlo es cosmético.
+- desaparece en un clon limpio,
+- es invisible para otro agente o para CI,
+- y en este refactor lo usa también `.scratch/deprecated/` como archivo de código muerto.
+
+No se reestructuró porque cambiar dónde viven los issues es una decisión de gobernanza del propietario. Pero mientras siga así, el tracker sirve como cuaderno de notas local, no como fuente de verdad. Alternativa a evaluar: versionar la convención bajo `docs/informes/issues/` o `docs/agents/issues/`, y dejar `.scratch/` solo para trabajo en curso.
