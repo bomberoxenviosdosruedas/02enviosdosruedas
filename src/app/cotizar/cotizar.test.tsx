@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, within } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import Page from './page';
 import CotizadorUnificado from '@/components/cotizar/unified/CotizadorUnificado';
@@ -115,7 +115,7 @@ describe('Cotizador unificado /cotizar', () => {
   it('no muestra ninguna tarifa hasta que el usuario calcula', () => {
     render(<CotizadorUnificado />);
     expect(screen.queryByText(/Lo que pagás/)).not.toBeInTheDocument();
-    expect(screen.queryByText(/Lo que esperás/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Cuándo llega/)).not.toBeInTheDocument();
   });
 
   it('con una sola medición devuelve las dos tarifas de la misma distancia', async () => {
@@ -140,7 +140,7 @@ describe('Cotizador unificado /cotizar', () => {
     expect(screen.getByText('$5.300')).toBeInTheDocument(); // LowCost, 5-7 km
   });
 
-  it('compara precio y tiempo sobre filas separadas, con las dos escalas', async () => {
+  it('compara precio y horario de entrega sobre filas separadas', async () => {
     mockFetchRoute.mockResolvedValueOnce({
       distanceKm: 2.5,
       durationMin: 7,
@@ -158,15 +158,49 @@ describe('Cotizador unificado /cotizar', () => {
     expect(screen.getByText('$3.000')).toBeInTheDocument();
     expect(screen.getByText(/La diferencia entre uno y otro es de/)).toBeInTheDocument();
 
-    // Fila 2: lo que esperás. Misma escala, tiempos distintos.
-    expect(screen.getByText('Lo que esperás')).toBeInTheDocument();
-    expect(screen.getByText('menos de 2 h')).toBeInTheDocument();
-    expect(screen.getByText('hasta 6 h')).toBeInTheDocument();
+    // Fila 2: cuándo llega. Franja elegida contra entrega en el día.
+    const cuando = screen.getByRole('region', { name: 'Cuándo llega' });
+    expect(within(cuando).getByText('Elegís una franja de 3 hs')).toBeInTheDocument();
+    expect(within(cuando).getByText('En el día, antes de las 19:00 hs')).toBeInTheDocument();
+    expect(cuando).toHaveTextContent('2 hs de anticipación y hasta las 15:00 hs');
+    expect(cuando).toHaveTextContent('Sin elección de horario. Pedido antes de las 13:00 hs');
+  });
 
-    // La firma del bloque: el precio casi no se mueve, el tiempo sí. Si esto
-    // desaparece, la comparación queda en dos gráficas que el lector descifra solo.
-    expect(screen.getByText(/El precio casi no se mueve/)).toBeInTheDocument();
-    expect(screen.getByText(/Esa es toda la decisión/)).toBeInTheDocument();
+  it('no promete una duración de entrega ni cotiza lotes de un mismo cliente', async () => {
+    mockFetchRoute.mockResolvedValueOnce({
+      distanceKm: 2.5,
+      durationMin: 7,
+      routeCoords: [[-38.002, -57.55], [-38.005, -57.555]],
+    });
+
+    const { container } = render(<CotizadorUnificado />);
+    completarFormulario();
+    cotizar();
+
+    await waitFor(() => expect(screen.getByText('Lo que pagás')).toBeInTheDocument());
+
+    // Promesas que el dueño desmintió el 2026-09-29.
+    const texto = container.textContent!;
+    expect(texto).not.toMatch(/menos de 2 h|60 ?(a|-) ?90|120 min|hasta 6 h/i);
+    expect(texto).not.toMatch(/lote|agrupad/i);
+    expect(screen.queryByRole('button', { name: /Tenés más envíos para cotizar/ })).not.toBeInTheDocument();
+    expect(document.getElementById('batch-grid')).not.toBeInTheDocument();
+
+    // En su lugar, el aviso de que hay recargos que el precio no incluye.
+    expect(screen.getByRole('link', { name: /Ver cuáles y cuánto/ })).toHaveAttribute('href', '#recargos');
+  });
+
+  it('publica los recargos que el cotizador no suma solo', async () => {
+    render(await Page());
+    const recargos = screen.getByRole('region', { name: /Lo que puede sumar al precio/ });
+    expect(recargos).toHaveTextContent('+50 %');
+    expect(recargos).toHaveTextContent('$2.100 cada 10 min');
+    expect(recargos).toHaveTextContent('+50 % por parada');
+    expect(recargos).toHaveTextContent('100 % del envío');
+    expect(recargos).toHaveTextContent('Bulto de más de 5 kg o 40 × 40 cm');
+    expect(recargos).toHaveTextContent('$1.200 por km de ruta');
+    // El "$1.950 desde" de la planilla es texto de plantilla: no se publica.
+    expect(recargos).not.toHaveTextContent('1.950');
   });
 
   it('ofrece un botón por servicio y cada uno abre WhatsApp con ese servicio elegido', async () => {
@@ -195,28 +229,6 @@ describe('Cotizador unificado /cotizar', () => {
       expect(href).toContain(tarifa);
       expect(href).toContain('Alberto');
     }
-  });
-
-  it('no ofrece el ruteo por lotes hasta que hay un envío cotizado', async () => {
-    render(<CotizadorUnificado />);
-    expect(screen.queryByRole('button', { name: /Tenés más envíos para cotizar/ })).not.toBeInTheDocument();
-
-    mockFetchRoute.mockResolvedValueOnce({
-      distanceKm: 2.5,
-      durationMin: 7,
-      routeCoords: [[-38.002, -57.55], [-38.005, -57.555]],
-    });
-    completarFormulario();
-    cotizar();
-
-    const pedirLotes = await screen.findByRole('button', { name: /Tenés más envíos para cotizar/ });
-    fireEvent.click(pedirLotes);
-
-    // Recién ahí aparece la planilla de lotes.
-    await waitFor(() => {
-      expect(screen.getByRole('region', { name: /Cotización por lotes LowCost/ })).toBeInTheDocument();
-    });
-    expect(document.getElementById('batch-grid')).toBeInTheDocument();
   });
 
   // ─── LÍMITES Y CASOS BORDE ────────────────────────────────────────────────
@@ -254,7 +266,7 @@ describe('Cotizador unificado /cotizar', () => {
     expect(cta).toHaveAttribute('href', '/contacto');
     // Sin barras ni botones de servicio: no hay tarifa que comparar.
     expect(screen.queryByText('Lo que pagás')).not.toBeInTheDocument();
-    expect(screen.queryByText('Lo que esperás')).not.toBeInTheDocument();
+    expect(screen.queryByText('Cuándo llega')).not.toBeInTheDocument();
   });
 
   it('avisa que hay que elegir dirección de la lista cuando faltan coordenadas', async () => {

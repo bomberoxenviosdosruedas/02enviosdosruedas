@@ -97,7 +97,8 @@ export default function ExpressPricing() {
 
           <p className="text-brand-blue-900 font-sans text-base sm:text-lg max-w-xl mx-auto leading-relaxed text-pretty">
             Tarifa fija según los kilómetros exactos entre retiro y entrega.
-            Sabés el precio final antes de confirmar el pedido, sin sorpresas ni recargos.
+            Sabés el precio del viaje antes de confirmar. Lluvia, espera en puerta, paradas
+            extra o un bulto de más de 5 kg se suman aparte.
           </p>
         </div>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import CotizadorHero from '@/components/cotizar/unified/CotizadorHero';
 import CotizadorUnificado from '@/components/cotizar/unified/CotizadorUnificado';
+import CotizadorRecargos from '@/components/cotizar/unified/CotizadorRecargos';
 import {
   EXPRESS_PRICE_PER_KM,
   EXPRESS_TIERS,
@@ -9,8 +10,12 @@ import {
 } from '@/lib/pricing';
 import {
   CONSULT_THRESHOLD_KM,
+  EXPRESS_CUTOFF_TIME,
+  EXPRESS_LEAD_TIME,
   LOWCOST_CUTOFF_TIME,
   LOWCOST_DELIVERY_DEADLINE,
+  MAX_WEIGHT_KG,
+  PERIPHERY_PRICE_PER_KM,
   STANDARD_BULLET_DIMENSIONS_CM,
   STANDARD_WEIGHT_KG,
 } from '@/lib/promises';
@@ -137,9 +142,8 @@ export default function Page() {
               </h2>
               <p className="font-sans text-white/90 leading-relaxed max-w-3xl text-sm sm:text-base">
                 Las dos columnas usan la misma distancia, medida sobre la calle y no ida y vuelta
-                en línea recta. Express llega en la franja horaria que elijas; LowCost agrupa tu
-                envío en una ruta programada antes de las {LOWCOST_DELIVERY_DEADLINE}. La diferencia
-                en pesos está en la última columna de cada fila.
+                en línea recta. Express se entrega en la franja de 3 hs que elijas; LowCost, en el
+                día y sin elección de horario, antes de las {LOWCOST_DELIVERY_DEADLINE}.
               </p>
             </div>
 
@@ -200,8 +204,9 @@ export default function Page() {
                   Peso y medidas
                 </dt>
                 <dd className="font-sans text-sm text-white/85 leading-relaxed mt-1">
-                  Hasta {STANDARD_WEIGHT_KG} kg y {STANDARD_BULLET_DIMENSIONS_CM} por bulto sin
-                  recargo.
+                  Hasta {STANDARD_WEIGHT_KG} kg o {STANDARD_BULLET_DIMENSIONS_CM} por bulto sin
+                  recargo. Más que eso suma recargo por bulto extra; la moto lleva hasta{' '}
+                  {MAX_WEIGHT_KG} kg.
                 </dd>
               </div>
               <div>
@@ -209,12 +214,15 @@ export default function Page() {
                   Cortes
                 </dt>
                 <dd className="font-sans text-sm text-white/85 leading-relaxed mt-1">
-                  LowCost: pedidos antes de las {LOWCOST_CUTOFF_TIME}, entrega antes de las{' '}
+                  Express: con {EXPRESS_LEAD_TIME}, hasta las {EXPRESS_CUTOFF_TIME}. LowCost:
+                  pedidos antes de las {LOWCOST_CUTOFF_TIME}, entrega antes de las{' '}
                   {LOWCOST_DELIVERY_DEADLINE}.
                 </dd>
               </div>
             </dl>
           </section>
+
+          <CotizadorRecargos />
 
           <section aria-labelledby="cobertura-guia" className="space-y-4">
             <h2
@@ -226,8 +234,10 @@ export default function Page() {
             <p className="font-sans text-white/90 leading-relaxed max-w-3xl text-sm sm:text-base">
               Llegamos a todo Mar del Plata: Centro, Güemes, Chauvín, Los Troncos, Puerto, Playa
               Grande, Punta Mogotes, Constitución y Camet, entre otros barrios. Más allá de los 10
-              km de ruta cotizamos por kilómetro. Si tu destino está fuera de ese radio, el
-              cotizador te lo dice y lo vemos por WhatsApp.
+              km de ruta cotizamos por kilómetro, y el cálculo automático llega hasta los{' '}
+              {CONSULT_THRESHOLD_KM} km. Los destinos fuera de la ciudad, como Batán o Sierra de los
+              Padres, van a {formatArs(PERIPHERY_PRICE_PER_KM)} por km de ruta y los vemos por
+              WhatsApp.
             </p>
           </section>
         </div>

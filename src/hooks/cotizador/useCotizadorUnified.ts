@@ -179,8 +179,8 @@ export function useCotizadorUnificado() {
 
       const timing =
         service === 'express'
-          ? 'Entrega prioritaria: coordinamos una franja de 3 hs en el día (corte 15:00 hs).'
-          : 'Entrega programada: pedido antes de las 13:00 hs, entrega en el día antes de las 19:00 hs.';
+          ? 'Entrega en una franja de 3 hs a elección, en el día (pedido con 2 hs de anticipación, corte 15:00 hs).'
+          : 'Entrega programada sin elección de horario: pedido antes de las 13:00 hs, entrega en el día antes de las 19:00 hs.';
 
       const message = [
         `¡Hola Envíos DosRuedas! Elegí el servicio ${SOURCE_LABEL[service]} en el cotizador web:`,

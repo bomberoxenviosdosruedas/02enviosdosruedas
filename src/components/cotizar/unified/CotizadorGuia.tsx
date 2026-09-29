@@ -14,7 +14,7 @@ const PASOS = [
     n: '02',
     icon: GitCompareArrows,
     titulo: 'Compará las dos tarifas',
-    detalle: 'Precio y tiempo de cada servicio, lado a lado.',
+    detalle: 'Precio y horario de entrega de cada servicio, lado a lado.',
   },
   {
     n: '03',

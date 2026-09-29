@@ -9,6 +9,7 @@ import {
   PackageCheck,
   ArrowRight,
   Sparkles,
+  Store,
 } from 'lucide-react';
 import { DoubleBezelCard } from '@/components/ui/DoubleBezelCard';
 import {
@@ -36,12 +37,12 @@ export default function SegmentosHome() {
     },
     {
       id: 'ecommerce',
-      tag: 'E-COMMERCE & TIENDAS',
-      title: '¿Tenés tienda online?',
-      description: `Guardamos tu stock en Friuli 1972 y lo despachamos el mismo día. E-Commerce Same Day con tarifa fija de ${ars(SAME_DAY_FIXED_PRICE)} a toda la ciudad, o E-Commerce 24HS con ${DROPOFF_DISCOUNT_PERCENT}% OFF si traés los envíos listos con DropOFF.`,
-      ctaText: 'Ver E-Commerce Same Day',
-      href: '/servicios/deposito-fulfillment',
-      icon: ShoppingBag,
+      tag: 'E-COMMERCE 24HS / SAME-DAY',
+      title: '¿Tenés tienda online con stock en depósito?',
+      description: `E-Commerce 24hs: despacho garantizado en 24hs. E-Commerce Same-Day: entrega antes de 19hs con corte 13:00. Stock en Friuli 1972, picking QR, empaque incluido.`,
+      ctaText: 'Ver planes E-Commerce',
+      href: '/servicios',
+      icon: Store,
       highlight: false,
     },
     {

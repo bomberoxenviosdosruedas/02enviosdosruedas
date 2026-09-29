@@ -250,7 +250,7 @@ export default function CoberturaExplorer() {
 
               {/* Action Link */}
               <Link
-                href={`/cotizar/express?destino=${encodeURIComponent(item.name)}`}
+                href="/cotizar"
                 className="inline-flex items-center justify-between text-xs font-subheading uppercase text-brand-blue-700 group-hover:text-brand-blue-900 pt-1"
               >
                 <span>Cotizar envío a {item.name.split('(')[0]}</span>

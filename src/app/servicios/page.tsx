@@ -1,20 +1,23 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Zap, Truck, Package, Warehouse, ArrowRight, MapPin, Clock, ShieldCheck, CreditCard, MessageSquare } from 'lucide-react';
+import { Zap, Truck, Package, Building2, Clock, ShieldCheck, CreditCard, MessageSquare, Store, Shield, RotateCcw } from 'lucide-react';
 import CTANestedPill from '@/components/ui/CTANestedPill';
+import { SAME_DAY_FIXED_PRICE } from '@/lib/promises';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
+const SAME_DAY_PRICE = `$${SAME_DAY_FIXED_PRICE.toLocaleString('es-AR')}`;
+
 export const metadata: Metadata = {
-  title: 'Servicios - Express, LowCost, Flex y Fulfillment',
-  description: 'Todos los servicios de Envíos DosRuedas en Mar del Plata: Envíos Express en franja de 3 hs a elección, LowCost en el día, Mercado Envíos Flex Same-Day y Depósito & Fulfillment en Friuli 1972.',
+  title: 'Servicios - Express, LowCost, Flex, Cuenta Corriente y E-commerce 24hs/Same-Day',
+  description: 'Servicios de Envíos DosRuedas en Mar del Plata: Envíos Express (franja 3hs), LowCost (día), Mercado Envíos Flex, Cuenta Corriente Flexible, E-commerce 24hs y Same-Day con stock en depósito.',
   alternates: {
     canonical: `${baseUrl}/servicios`,
   },
   openGraph: {
     title: 'Servicios | Envíos DosRuedas',
-    description: 'Mensajería Express, paquetería LowCost, MercadoLibre Flex y logística e-commerce en todo Mar del Plata.',
+    description: 'Mensajería Express, paquetería LowCost, MercadoLibre Flex, Cuenta Corriente y logística e-commerce 24hs/Same-Day en Mar del Plata.',
     url: `${baseUrl}/servicios`,
     type: 'website',
     locale: 'es_AR',
@@ -22,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Servicios | Envíos DosRuedas',
-    description: 'Envíos Express, LowCost, Flex y Fulfillment en Mar del Plata. Tarifas 2026 publicadas.',
+    description: 'Envíos Express, LowCost, Flex, Cuenta Corriente y E-commerce 24hs/Same-Day en Mar del Plata. Tarifas 2026 publicadas.',
     images: [`${baseUrl}/og-image.jpg`],
     creator: '@enviosdosruedas',
   },
@@ -32,7 +35,7 @@ const jsonLdSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Servicios de Logística y Mensajería Envíos DosRuedas',
-  description: 'Envíos Express, LowCost, Mercado Envíos Flex y Depósito & Fulfillment en Mar del Plata. Flota propia, base en Friuli 1972.',
+  description: 'Envíos Express, LowCost, Mercado Envíos Flex, Cuenta Corriente Flexible, E-commerce 24hs y Same-Day con stock en depósito. Flota propia, base en Friuli 1972.',
   url: `${baseUrl}/servicios`,
   provider: {
     '@type': 'LocalBusiness',
@@ -87,8 +90,26 @@ const jsonLdSchema = {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Centro de Depósito y Logística',
-          description: 'Almacenamiento, preparación y despacho directo en Friuli 1972.',
+          name: 'Cuenta Corriente Flexible',
+          description: 'Para emprendedores y comercios sin volumen fijo: tarifas LowCost, franjas de 3 hs y Factura C consolidada semanal, quincenal o mensual.',
+          url: `${baseUrl}/servicios/empresas-cuenta-corriente`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'E-Commerce 24hs (Next Day)',
+          description: 'Se retira hoy y se entrega al día hábil siguiente. Recolección gratis desde 10 envíos.',
+          url: `${baseUrl}/servicios/deposito-fulfillment`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'E-Commerce Same-Day (con stock en depósito)',
+          description: 'Stock en nuestro depósito de Friuli 1972: las ventas hasta las 15:00 hs se entregan en el día, con tarifa fija a toda la ciudad.',
           url: `${baseUrl}/servicios/deposito-fulfillment`,
         },
       },
@@ -109,12 +130,13 @@ const services = [
   {
     id: 'envios-express',
     label: 'ENVÍOS EXPRESS',
-    title: 'Prioridad Inmediata 3 hs',
+    title: 'Franja Horaria a Elección',
     description: 'Mensajería en moto con franja horaria de 3 horas a elección. Ideal para trámites urgentes, repuestos, documentos y gestiones que no pueden esperar.',
     icon: Zap,
     href: '/servicios/envios-express',
     cta: 'Ver detalle y tarifas',
     price: 'Desde $3.700',
+    priceNote: '/ envío base',
     features: [
       'Franja de 3 hs (ej. 10 a 13 hs)',
       'Corte 15:00 hs con 2h anticipación',
@@ -132,17 +154,18 @@ const services = [
     id: 'envios-lowcost',
     label: 'ENVÍOS LOWCOST',
     title: 'Máxima Rentabilidad en el Día',
-    description: 'Paquetería e-commerce y cadetería programada. Pedidos antes de 13:00 hs se entregan antes de 19:00 hs. Ruteo optimizado para bajar costos.',
+    description: 'Reparto económico programado en el día, sin elección de horario. Pedidos antes de 13:00 hs se entregan antes de 19:00 hs, para e-commerce y comercio local.',
     icon: Truck,
     href: '/servicios/envios-lowcost',
     cta: 'Ver detalle y tarifas',
     price: 'Desde $3.000',
+    priceNote: '/ envío base',
     features: [
-      'Entrega garantizada antes de 19:00 hs',
+      'Entrega antes de 19:00 hs',
       'Corte 13:00 hs mismo día',
       'Sin elección de franja horaria',
-      'Ruteo masivo consolidado',
-      'Ideal para volúmenes recurrentes',
+      'Hasta 5 kg / 40 x 40 cm',
+      'Ideal para envíos esporádicos',
     ],
     bgColor: 'bg-brand-blue-900',
     borderColor: 'border-brand-blue-800',
@@ -158,7 +181,8 @@ const services = [
     icon: Package,
     href: '/servicios/enviosflex',
     cta: 'Ver planes Flex',
-    price: 'Desde $3.000/envío',
+    price: 'Desde $3.000',
+    priceNote: '/ envío base',
     features: [
       '100% entregas Same-Day < 20:00 hs',
       'Sin mínimos: retiramos desde 1 paquete',
@@ -173,35 +197,82 @@ const services = [
     color: 'text-white',
   },
   {
-    id: 'deposito-fulfillment',
-    label: 'DEPÓSITO & FULFILLMENT',
-    title: 'Logística 3PL Integral en Friuli 1972',
-    description: 'Almacenamiento, picking QR, empaquetado y despacho Same-Day o Next-Day. Opción DropOFF con 20% OFF. Contrareembolso sin cargo extra.',
-    icon: Warehouse,
-    href: '/servicios/deposito-fulfillment',
-    cta: 'Ver planes 3PL',
-    price: 'Desde $3.800/envío',
+    id: 'cuenta-corriente-flexible',
+    label: 'CUENTA CORRIENTE FLEXIBLE',
+    title: 'Tu Equipo de Entregas sin Volumen Fijo',
+    description: 'Para emprendedores y comercios cuya cantidad de pedidos cambia cada día. Tarifas LowCost con franjas de 3 hs como en Express, y pagos agrupados.',
+    icon: Building2,
+    href: '/servicios/empresas-cuenta-corriente',
+    cta: 'Ver condiciones',
+    price: 'Tarifas LowCost',
+    priceNote: '',
     features: [
-      'Stock en Friuli 1972 con picking QR',
-      'E-Commerce Same Day (fijo toda la ciudad)',
-      'E-Commerce Next Day 24hs',
-      'DropOFF: traé tus paquetes -20%',
+      'Sin mínimo de envíos',
+      'Franja de 3 hs, corte 15:00 hs',
+      'Paga quien envía o quien recibe',
+      'Factura C semanal, quincenal o mensual',
+      'Contrareembolso sin comisión',
+    ],
+    bgColor: 'bg-brand-blue-700',
+    borderColor: 'border-brand-blue-800',
+    highlightColor: 'text-brand-yellow-500',
+    badge: 'EMPRESAS',
+    color: 'text-white',
+  },
+  {
+    id: 'ecommerce-24hs',
+    label: 'E-COMMERCE 24HS',
+    title: 'Se Retira Hoy, Se Entrega Mañana',
+    description: 'Retiramos tus envíos hoy y los entregamos el día hábil siguiente en todo Mar del Plata. La recolección es gratis desde 10 envíos.',
+    icon: RotateCcw,
+    href: '/servicios/deposito-fulfillment',
+    cta: 'Ver planes 24hs',
+    price: '$3.800',
+    priceNote: 'por envío',
+    features: [
+      'Entrega al día hábil siguiente',
+      'Recolección gratis desde 10 envíos',
+      'DropOFF en Friuli 1972: -20%',
+      'Hasta 5 kg / 40 x 40 cm',
       'Contrareembolso sin comisión',
     ],
     bgColor: 'bg-brand-blue-500',
     borderColor: 'border-brand-blue-600',
     highlightColor: 'text-brand-yellow-500',
-    badge: 'E-COMMERCE 3PL',
+    badge: 'E-COMMERCE 24HS',
+    color: 'text-white',
+  },
+  {
+    id: 'ecommerce-sameday',
+    label: 'E-COMMERCE SAME-DAY',
+    title: 'Entrega en el Día · Stock en Friuli 1972',
+    description: 'Dejás stock en nuestro depósito y nos ocupamos del picking, el empaque y la entrega. Las ventas hasta las 15:00 hs se entregan en el día.',
+    icon: Store,
+    href: '/servicios/deposito-fulfillment',
+    cta: 'Ver planes Same-Day',
+    price: SAME_DAY_PRICE,
+    priceNote: 'fijo a toda la ciudad',
+    features: [
+      'Stock en Friuli 1972 con picking QR',
+      'Corte 15:00 hs, entrega antes de 20:00 hs',
+      'Rango horario a coordinar',
+      'Tarifa fija a toda la ciudad',
+      'Productos chicos y medianos',
+    ],
+    bgColor: 'bg-brand-blue-900',
+    borderColor: 'border-brand-blue-800',
+    highlightColor: 'text-brand-yellow-500',
+    badge: 'E-COMMERCE SAME-DAY',
     color: 'text-white',
   },
 ];
 
 const comparisonTable = [
-  { feature: 'Tiempo de entrega', express: 'Franja de 3 hs', lowcost: 'Antes de 19:00 hs', flex: 'Antes de 20:00 hs', fulfillment: 'Same-Day / 24hs' },
-  { feature: 'Horario de corte', express: '15:00 hs (2h ant.)', lowcost: '13:00 hs', flex: '15:00 hs', fulfillment: 'Según modalidad' },
-  { feature: 'Elección de franja', express: 'Sí (3 hs)', lowcost: 'No', flex: 'No (estándar ML)', fulfillment: 'Según modalidad' },
-  { feature: 'Precio base 0-3 km', express: '$3.700', lowcost: '$3.000', flex: '$3.000 (Nivel 1)', fulfillment: '$6.000 (Same Day)' },
-  { feature: 'Ideal para', express: 'Urgencias, trámites, repuestos', lowcost: 'E-commerce, PyMEs, volúmenes', flex: 'Vendedores MercadoLibre', fulfillment: 'Marcas con stock propio' },
+  { feature: 'Tiempo de entrega', express: 'Franja de 3 hs', lowcost: 'Antes de 19:00 hs', flex: 'Antes de 20:00 hs', cuentaCorriente: 'Franja de 3 hs', ecom24: 'Día hábil siguiente', ecomSameDay: 'Antes de 20:00 hs' },
+  { feature: 'Horario de corte', express: '15:00 hs (2h ant.)', lowcost: '13:00 hs', flex: '15:00 hs', cuentaCorriente: '15:00 hs (2h ant.)', ecom24: 'Retiro en el día', ecomSameDay: '15:00 hs' },
+  { feature: 'Elección de franja', express: 'Sí (3 hs)', lowcost: 'No', flex: 'No (estándar ML)', cuentaCorriente: 'Sí (3 hs)', ecom24: 'No', ecomSameDay: 'A coordinar' },
+  { feature: 'Precio', express: '$3.700 (0-3 km)', lowcost: '$3.000 (0-3 km)', flex: '$3.000 (Nivel 1)', cuentaCorriente: 'Tarifa LowCost', ecom24: '$3.800 por envío', ecomSameDay: `${SAME_DAY_PRICE} fijo` },
+  { feature: 'Ideal para', express: 'Urgencias, trámites, repuestos', lowcost: 'Emprendedores, envíos esporádicos', flex: 'Vendedores MercadoLibre', cuentaCorriente: 'Comercios con pedidos diarios', ecom24: 'Tiendas online sin apuro', ecomSameDay: 'Marcas con stock en depósito' },
 ];
 
 export default function ServiciosPage() {
@@ -228,7 +299,7 @@ export default function ServiciosPage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-xs uppercase font-bold tracking-wider mb-4">
               <Package className="w-3.5 h-3.5" />
-              <span>CUATRO SOLUCIONES · UNA FLOTA · MDQ 2026</span>
+              <span>SEIS SOLUCIONES · UNA FLOTA · MDQ 2026</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white leading-none">
               NUESTROS <span className="text-brand-yellow-500">SERVICIOS</span>
@@ -247,16 +318,17 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid - 6 cards: 3 cols on lg for 6 items = 2 rows */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 -mt-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <Link
                 key={service.id}
+                id={service.id}
                 href={service.href}
-                className={`group relative ${service.bgColor} ${service.borderColor} p-3 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col ${service.color}`}
+                className={`group relative scroll-mt-28 ${service.bgColor} ${service.borderColor} p-3 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col ${service.color}`}
               >
                 <div className="border border-white/20 p-2 rounded-[20px] shadow-sm flex flex-col justify-between h-full relative overflow-hidden">
                   <div className="space-y-4 relative z-10">
@@ -284,7 +356,9 @@ export default function ServiciosPage() {
 
                     <div className="flex items-baseline gap-2 pt-2 border-t border-white/20">
                       <span className="text-2xl font-mono tabular-nums font-bold">{service.price}</span>
-                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-50">/ envío base</span>
+                      {service.priceNote && (
+                        <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-50">{service.priceNote}</span>
+                      )}
                     </div>
                   </div>
 
@@ -305,7 +379,6 @@ export default function ServiciosPage() {
                       className="w-full justify-center"
                     >
                       {service.cta}
-                      <ArrowRight className="w-4 h-4" />
                     </CTANestedPill>
                   </div>
                 </div>
@@ -315,7 +388,7 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* Comparison Table */}
+      {/* Comparison Table - 7 columns */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-900">
@@ -334,7 +407,9 @@ export default function ServiciosPage() {
                 <th className="p-4 text-center font-subheading uppercase tracking-wider">EXPRESS</th>
                 <th className="p-4 text-center font-subheading uppercase tracking-wider">LOWCOST</th>
                 <th className="p-4 text-center font-subheading uppercase tracking-wider">FLEX</th>
-                <th className="p-4 text-center font-subheading uppercase tracking-wider">FULFILLMENT</th>
+                <th className="p-4 text-center font-subheading uppercase tracking-wider">CTA FLEXIBLE</th>
+                <th className="p-4 text-center font-subheading uppercase tracking-wider">E-COM 24HS</th>
+                <th className="p-4 text-center font-subheading uppercase tracking-wider">E-COM SAME-DAY</th>
               </tr>
             </thead>
             <tbody>
@@ -344,7 +419,9 @@ export default function ServiciosPage() {
                   <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.express}</td>
                   <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.lowcost}</td>
                   <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.flex}</td>
-                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.fulfillment}</td>
+                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.cuentaCorriente}</td>
+                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.ecom24}</td>
+                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.ecomSameDay}</td>
                 </tr>
               ))}
             </tbody>
@@ -356,66 +433,6 @@ export default function ServiciosPage() {
             * Tarifas vigentes 2026. Precios base 0-3 km. Consultá cobertura completa en
             <Link href="/cobertura" className="underline hover:text-brand-blue-700 font-medium">/cobertura</Link>
           </p>
-        </div>
-      </section>
-
-      {/* Additional Services */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-900">
-            SERVICIOS COMPLEMENTARIOS
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-brand-ink mt-2">
-            Soluciones específicas para necesidades comerciales avanzadas.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link
-            href="/servicios/envios-contrareembolso"
-            className="bg-white p-6 rounded-2xl border border-brand-blue-100 shadow-sm hover:shadow-md hover:border-brand-blue-300 transition-all"
-          >
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-brand-blue-50 text-brand-blue-700 flex items-center justify-center shrink-0 border border-brand-blue-200">
-                <CreditCard className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="font-subheading text-xl uppercase font-bold text-brand-blue-900 mb-1">
-                  Envíos Contrareembolso
-                </h3>
-                <p className="font-sans text-sm text-brand-ink leading-relaxed mb-3">
-                  Cobro en efectivo en mano al destinatario. Sin comisión extra. Rinde de dinero en el día.
-                </p>
-                <CTANestedPill variant="outline" size="compact" href="/servicios/envios-contrareembolso">
-                  Ver detalle
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </CTANestedPill>
-              </div>
-            </div>
-          </Link>
-
-          <Link
-            href="/servicios/empresas-cuenta-corriente"
-            className="bg-white p-6 rounded-2xl border border-brand-blue-100 shadow-sm hover:shadow-md hover:border-brand-blue-300 transition-all"
-          >
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-brand-blue-50 text-brand-blue-700 flex items-center justify-center shrink-0 border border-brand-blue-200">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="font-subheading text-xl uppercase font-bold text-brand-blue-900 mb-1">
-                  Empresas Cuenta Corriente
-                </h3>
-                <p className="font-sans text-sm text-brand-ink leading-relaxed mb-3">
-                  Liquidación quincenal unificada, tarifas bonificadas por volumen y atención preferencial.
-                </p>
-                <CTANestedPill variant="outline" size="compact" href="/servicios/empresas-cuenta-corriente">
-                  Ver detalle
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </CTANestedPill>
-              </div>
-            </div>
-          </Link>
         </div>
       </section>
 

@@ -32,6 +32,31 @@ const nextConfig: NextConfig = {
         destination: '/servicios/deposito-fulfillment',
         permanent: true,
       },
+      // Servicios fuera de la vista pública (2026-09-29). Plan Emprendedores es la
+      // misma propuesta que Cuenta Corriente Flexible; Contrareembolso sigue
+      // existiendo, pero como condición incluida en los servicios, no como ficha.
+      {
+        source: '/servicios/plan-emprendedores',
+        destination: '/servicios/empresas-cuenta-corriente',
+        permanent: true,
+      },
+      {
+        source: '/servicios/envios-contrareembolso',
+        destination: '/servicios',
+        permanent: true,
+      },
+      // Cotizadores separados retirados (decisión del dueño 2026-09-29): tenerlos
+      // aparte le resultaba incómodo al usuario. Todo cotiza en /cotizar.
+      {
+        source: '/cotizar/express',
+        destination: '/cotizar',
+        permanent: true,
+      },
+      {
+        source: '/cotizar/lowcost',
+        destination: '/cotizar',
+        permanent: true,
+      },
     ];
   },
 

@@ -13,12 +13,12 @@ export default function LowCostFeatures() {
     },
     {
       title: 'Corte y Entrega',
-      desc: 'Pedidos ingresados antes de las 13:00 hs se entregan de forma totalmente garantizada antes de las 19:00 hs del mismo día.',
+      desc: 'Pedidos ingresados antes de las 13:00 hs se entregan en el transcurso del día, antes de las 19:00 hs. No se elige horario.',
       icon: Clock,
     },
     {
       title: 'Tarifa Económica',
-      desc: 'La mejor tarifa de Mar del Plata para envíos masivos agrupados, ruteos continuos y entregas a clientes finales.',
+      desc: 'Más barato que Express, sobre todo en distancias largas. Pensado para emprendedores y tiendas online con envíos esporádicos.',
       icon: Coins,
     },
   ];

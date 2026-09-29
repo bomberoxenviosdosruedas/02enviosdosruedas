@@ -39,14 +39,7 @@ const routes: Array<{
   { path: '/servicios/envios-lowcost', changeFrequency: 'weekly', priority: 0.95 },
   { path: '/servicios/enviosflex', changeFrequency: 'weekly', priority: 0.95 },
   { path: '/servicios/deposito-fulfillment', changeFrequency: 'weekly', priority: 0.9 },
-  { path: '/servicios/plan-emprendedores', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/cotizar', changeFrequency: 'weekly', priority: 0.9 },
-  // Fichas de servicio. Ya NO son cotizadores: no tienen formulario propio y su
-  // CTA va a /cotizar. Conservan su URL indexada (no queremos perder rankings)
-  // y la priority baja porque el objetivo de búsqueda es el cotizador unificado.
-  { path: '/cotizar/express', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/cotizar/lowcost', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/servicios/envios-contrareembolso', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/servicios/empresas-cuenta-corriente', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/cobertura', changeFrequency: 'weekly', priority: 0.9 },
   {

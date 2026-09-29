@@ -218,7 +218,7 @@ export default function LeafletRouteMap({
               DosRuedas <span className="text-brand-yellow-500">Live</span>
             </span>
             <span className="text-[8px] font-mono text-brand-blue-50">
-              {serviceType === 'EXPRESS' ? 'Ruta Prioritaria < 2H' : 'Ruteo Batch Económico'}
+              {serviceType === 'EXPRESS' ? 'Franja de 3 hs' : 'Reparto programado'}
             </span>
           </div>
         </div>

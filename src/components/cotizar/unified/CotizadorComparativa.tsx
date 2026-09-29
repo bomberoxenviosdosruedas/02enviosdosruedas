@@ -2,11 +2,18 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { AlertTriangle, Zap, Layers, Check, ArrowRight } from 'lucide-react';
+import { AlertTriangle, Zap, Package, Check, ArrowRight, CloudRain } from 'lucide-react';
 import { trackAnalytics } from '@/lib/analytics';
 import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 import CTANestedPill from '@/components/ui/CTANestedPill';
 import type { ServiceKey, UseCotizadorUnificadoReturn } from '@/hooks/cotizador/useCotizadorUnified';
+import {
+  EXPRESS_CUTOFF_TIME,
+  EXPRESS_LEAD_TIME,
+  LOWCOST_CUTOFF_TIME,
+  LOWCOST_DELIVERY_DEADLINE,
+  STANDARD_WEIGHT_KG,
+} from '@/lib/promises';
 
 interface CotizadorComparativaProps {
   form: Pick<
@@ -14,41 +21,54 @@ interface CotizadorComparativaProps {
     'resultado' | 'quoteId' | 'getWhatsAppLink' | 'shouldReduceMotion'
   >;
   error: string | null;
-  onAskBatch: () => void;
 }
 
 /**
  * Reglas de entrega de cada servicio. No son decoración: son el compromiso real
  * que el negocio publica y lo que el visitante está eligiendo entre servicios.
+ *
+ * Ninguno de los dos promete una duración. Express vende una franja de 3 hs que
+ * elige el cliente; LowCost, una entrega en el día sin elección de horario. Por eso
+ * la comparación de tiempo es una línea del día, no una cuenta regresiva.
  */
 const REGLAS: Record<
   ServiceKey,
-  { nombre: string; entrega: string; horasTexto: string; horasValor: number; detalle: string }
+  {
+    nombre: string;
+    entrega: string;
+    detalle: string;
+    /** Horas del día (24 h) que pinta la línea del día. */
+    banda: { desde: number; hasta: number; rotulo: string };
+    corte: number;
+  }
 > = {
   express: {
     nombre: 'Express',
-    entrega: 'En el día, franja a coordinar',
-    horasTexto: 'menos de 2 h',
-    horasValor: 2,
-    detalle: 'Franja de 3 hs a coordinar. Corte 15:00 hs con 2 h de anticipación.',
+    entrega: 'Elegís una franja de 3 hs',
+    detalle: `Pedido con ${EXPRESS_LEAD_TIME} y hasta las ${EXPRESS_CUTOFF_TIME}. La franja la elegís vos, por ejemplo de 10 a 13 hs.`,
+    banda: { desde: 10, hasta: 13, rotulo: 'Tu franja' },
+    corte: 15,
   },
   lowcost: {
     nombre: 'LowCost',
-    entrega: 'Hoy, antes de las 19 hs',
-    horasTexto: 'hasta 6 h',
-    horasValor: 6,
-    detalle: 'Pedido antes de las 13:00 hs, entrega el mismo día antes de las 19:00 hs.',
+    entrega: `En el día, antes de las ${LOWCOST_DELIVERY_DEADLINE}`,
+    detalle: `Sin elección de horario. Pedido antes de las ${LOWCOST_CUTOFF_TIME}, se entrega en el transcurso del día antes de las ${LOWCOST_DELIVERY_DEADLINE}.`,
+    banda: { desde: 9, hasta: 19, rotulo: 'En algún momento del día' },
+    corte: 13,
   },
 };
 
-/** Escala de horas compartida por las dos filas de tiempo: 0 → 8 h. */
-const HORAS_MAX = 8;
+/** Escala de la línea del día, compartida por los dos servicios: 9 → 19 hs. */
+const DIA_DESDE = 9;
+const DIA_HASTA = 19;
+const MARCAS = [9, 11, 13, 15, 17, 19];
+const posicion = (hora: number) => ((hora - DIA_DESDE) / (DIA_HASTA - DIA_DESDE)) * 100;
 
 function precioTexto(precio: number | 'consultar'): string {
   return precio === 'consultar' ? 'A consultar' : `$${precio.toLocaleString('es-AR')}`;
 }
 
-export default function CotizadorComparativa({ form, error, onAskBatch }: CotizadorComparativaProps) {
+export default function CotizadorComparativa({ form, error }: CotizadorComparativaProps) {
   const { resultado, quoteId, getWhatsAppLink, shouldReduceMotion } = form;
   const [elegido, setElegido] = useState<ServiceKey | null>(null);
 
@@ -197,53 +217,85 @@ export default function CotizadorComparativa({ form, error, onAskBatch }: Cotiza
                     </section>
 
                     {/* ─────────────────────────────────────────────────────────────
-                        FILA 2 — LO QUE ESPERÁS. Escala 0 → 8 h compartida por los
-                        dos servicios: acá la diferencia se ve de verdad.
+                        FILA 2 — CUÁNDO LLEGA. Una línea del día (9 → 19 hs) para
+                        los dos: Express ocupa la franja que elegís; LowCost, el día
+                        entero. No hay duración que prometer, y no se muestra una.
                         ───────────────────────────────────────────────────────────── */}
                     <section aria-labelledby="fila-tiempo" className="pt-4 border-t border-brand-blue-100">
                       <h3
                         id="fila-tiempo"
                         className="font-subheading text-xs uppercase tracking-widest font-bold text-brand-blue-500 mb-3"
                       >
-                        Lo que esperás
+                        Cuándo llega
                       </h3>
 
-                      <div className="space-y-3">
+                      <div className="space-y-4">
                         {(['express', 'lowcost'] as const).map((key) => {
                           const regla = REGLAS[key];
+                          const esExpress = key === 'express';
+                          const izquierda = posicion(regla.banda.desde);
+                          const ancho = posicion(regla.banda.hasta) - izquierda;
+
                           return (
                             <div key={key} className="space-y-1.5">
                               <div className="flex items-baseline justify-between gap-3">
                                 <span className="font-sans text-xs text-brand-blue-500">{regla.nombre}</span>
-                                <span className="font-mono text-sm font-bold text-brand-blue-700 tabular-nums">
-                                  {regla.horasTexto}
+                                <span className="font-sans text-sm font-bold text-brand-blue-700 text-right">
+                                  {regla.entrega}
                                 </span>
                               </div>
-                              <div role="presentation" className="h-2.5 w-full rounded-full bg-brand-blue-50 overflow-hidden">
+
+                              {/* Resumen visual del texto de abajo: el lector de
+                                  pantalla ya tiene la regla en palabras. */}
+                              <div aria-hidden="true" className="relative h-6 rounded-md bg-brand-blue-50">
                                 <div
-                                  className={`h-full rounded-full ${
-                                    key === 'express' ? 'bg-brand-yellow-500' : 'bg-brand-blue-500'
+                                  className={`absolute inset-y-0 rounded-md flex items-center px-2 overflow-hidden ${
+                                    esExpress
+                                      ? 'bg-brand-yellow-500 text-brand-blue-900'
+                                      : 'bg-[repeating-linear-gradient(135deg,var(--color-brand-blue-500)_0_6px,var(--color-brand-blue-400)_6px_12px)] text-white'
                                   }`}
-                                  style={{ width: `${(regla.horasValor / HORAS_MAX) * 100}%` }}
+                                  style={{ left: `${izquierda}%`, width: `${ancho}%` }}
+                                >
+                                  <span className="font-subheading text-2xs uppercase tracking-wider font-bold whitespace-nowrap">
+                                    {regla.banda.rotulo}
+                                  </span>
+                                </div>
+                                <div
+                                  className="absolute -inset-y-1 w-0.5 -translate-x-1/2 bg-brand-blue-700 ring-2 ring-white"
+                                  style={{ left: `${posicion(regla.corte)}%` }}
                                 />
                               </div>
+
                               <p className="font-sans text-2xs text-brand-blue-400 leading-snug">
                                 {regla.detalle}
                               </p>
                             </div>
                           );
                         })}
+
+                        <div aria-hidden="true" className="relative h-4 font-mono text-2xs text-brand-blue-400 tabular-nums">
+                          {MARCAS.map((hora) => (
+                            <span
+                              key={hora}
+                              className="absolute -translate-x-1/2 first:translate-x-0 last:-translate-x-full whitespace-nowrap"
+                              style={{ left: `${posicion(hora)}%` }}
+                            >
+                              {hora} hs
+                            </span>
+                          ))}
+                        </div>
+                        <p className="font-sans text-2xs text-brand-blue-400 flex items-center gap-1.5">
+                          <span aria-hidden="true" className="inline-block h-3 w-0.5 bg-brand-blue-700" />
+                          Horario de corte para pedir en el día.
+                        </p>
                       </div>
 
-                      {/* Cierre de la fila: dice en palabras lo que las dos barras
-                          ya mostraron en la pantalla. Sin esto el lector tiene que
-                          deducir solo que acá está la diferencia real. */}
+                      {/* Cierre de la fila: dice en palabras lo que la línea del día
+                          ya mostró en pantalla. */}
                       <p className="mt-3 pt-3 border-t border-brand-blue-100 font-sans text-xs text-brand-blue-500">
-                        El precio casi no se mueve. El tiempo, sí:{' '}
-                        <span className="font-mono font-bold text-brand-blue-700 tabular-nums">
-                          {REGLAS.express.horasTexto} contra {REGLAS.lowcost.horasTexto}
-                        </span>
-                        . Esa es toda la decisión.
+                        Los dos llegan en el día. La diferencia es si elegís el horario: con Express
+                        sabés en qué franja de 3 hs lo recibís; con LowCost, solo que llega antes de
+                        las {LOWCOST_DELIVERY_DEADLINE}.
                       </p>
                     </section>
 
@@ -290,7 +342,7 @@ export default function CotizadorComparativa({ form, error, onAskBatch }: Cotiza
                                 {esExpress ? (
                                   <Zap className="h-4 w-4 text-brand-blue-900" aria-hidden="true" />
                                 ) : (
-                                  <Layers className="h-4 w-4 text-brand-blue-500" aria-hidden="true" />
+                                  <Package className="h-4 w-4 text-brand-blue-500" aria-hidden="true" />
                                 )}
                               </span>
 
@@ -327,25 +379,22 @@ export default function CotizadorComparativa({ form, error, onAskBatch }: Cotiza
                       </div>
                     </div>
 
-                    {/* Volume: only offered once there's a single quote on the table. */}
-                    <button
-                      type="button"
-                      onClick={onAskBatch}
-                      className="w-full flex items-center justify-between gap-3 rounded-xl border border-dashed border-brand-blue-200 bg-brand-blue-50/50 px-4 py-3.5 min-h-[44px] text-left transition-colors duration-200 hover:border-brand-blue-400 hover:bg-brand-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 cursor-pointer"
-                    >
-                      <span className="flex items-center gap-3 min-w-0">
-                        <Layers className="h-4 w-4 shrink-0 text-brand-blue-500" aria-hidden="true" />
-                        <span className="min-w-0">
-                          <span className="block font-subheading text-xs uppercase font-bold tracking-wider text-brand-blue-700">
-                            ¿Tenés más envíos para cotizar?
-                          </span>
-                          <span className="block font-sans text-xs text-brand-blue-500">
-                            Cargá tu planilla y armamos un ruteo LowCost por volumen.
-                          </span>
-                        </span>
-                      </span>
-                      <ArrowRight className="h-4 w-4 shrink-0 text-brand-blue-500" aria-hidden="true" />
-                    </button>
+                    {/* El precio de arriba es por distancia. Lo que pasa en el viaje
+                        (lluvia, espera, paradas, bulto grande) suma aparte, y se avisa
+                        antes de confirmar, no después. */}
+                    <div className="flex items-start gap-3 rounded-xl border border-brand-blue-100 bg-brand-blue-50/60 px-4 py-3.5">
+                      <CloudRain className="h-4 w-4 shrink-0 mt-0.5 text-brand-blue-500" aria-hidden="true" />
+                      <p className="font-sans text-xs text-brand-blue-700 leading-relaxed">
+                        El precio es por distancia, con bulto de hasta {STANDARD_WEIGHT_KG} kg. Lluvia,
+                        espera en puerta, paradas extra o un bulto más grande suman recargo.{' '}
+                        <a
+                          href="#recargos"
+                          className="font-bold underline underline-offset-2 decoration-brand-blue-300 hover:decoration-brand-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 rounded-sm"
+                        >
+                          Ver cuáles y cuánto
+                        </a>
+                      </p>
+                    </div>
                   </>
                 )}
               </div>

@@ -29,13 +29,14 @@ INFORMACIÓN CORPORATIVA CLAVE:
 - Fundador / Contacto Comercial: Matías Cejas
 
 SERVICIOS OFRECIDOS:
-1. Envíos Express (Máxima Prioridad):
-   - Entrega puerta a puerta en menos de 2 horas (120 minutos) dentro de la cuadrícula urbana.
-   - Ideal para trámites de escribanos, repuestos urgentes o mercaderías de delivery inmediato.
-   - Asignación prioritaria y exclusiva de un mensajero en moto.
+1. Envíos Express (Franja horaria a elección):
+   - El cliente elige una franja horaria de 3 hs para la entrega (por ejemplo, de 10 a 13 hs). No se promete una duración: NUNCA digas "en 2 horas", "60 a 90 minutos" ni similares.
+   - Se pide con un mínimo de 2 hs de anticipación. Pedidos hasta las 15:00 hs se entregan en el día.
+   - Ideal para trámites, documentos, repuestos, medicamentos y envíos con horario límite.
 2. Envíos LowCost (Ahorro con Planificación):
-   - Tarifa plana super barata para entregas programadas.
-   - Hora límite de corte (Cut-off): 13:00 hs. Despachando antes del mediodía, se consolida, rutea y entrega por la tarde del mismo día.
+   - Tarifa económica por distancia, más barata que Express (sobre todo en distancias largas).
+   - Reparto programado en el día, sin elección de horario: pedidos antes de las 13:00 hs se entregan en el transcurso del día, antes de las 19:00 hs.
+   - No es un precio por agrupar envíos de un mismo cliente: cada envío se cotiza por su distancia.
    - Ideal para emprendedores y e-commerce locales.
 3. MercadoLibre Flex (Expertos en SLAs):
    - Solución clave para vendedores que ofrecen "Llega Hoy" en MercadoLibre.
@@ -51,7 +52,7 @@ Llegamos a todo Mar del Plata: Centro, La Perla, Constitución, Chauvín, San Ca
 
 POLÍTICAS O REGLAS OPERATIVAS:
 - Clima: No suspendemos por llovizna costera suave. Contamos con mochilas estancas e impermeables para cuidar la paquetería. En caso de temporal extremo severo (alerta meteorológica de viento costero o granizo), se prioriza la seguridad física de los cadetes y se reprograman los repartos avisando al cliente inmediatamente.
-- Formas de pago: Efectivo, Cuenta DNI (muy solicitada en la provincia de Buenos Aires), Mercado Pago o Transferencia Bancaria (CBU con entrega inmediata de comprobante). Para PyMEs afiliadas, facturación mensual consolidada.
+- Formas de pago: Efectivo, Cuenta DNI (muy solicitada en la provincia de Buenos Aires), Mercado Pago o Transferencia Bancaria (CBU con entrega inmediata de comprobante). Para PyMEs afiliadas, Factura C consolidada semanal, quincenal o mensual. No se emite Factura A.
 - Objetos no permitidos: Dinero en efectivo sin declarar, mercancías peligrosas, inflamables, corrosivos, y drogas u objetos ilícitos bajo leyes argentinas.
 - Peso y tamaño por bulto: La capacidad estándar sin recargo es de hasta 5 kg o dimensiones de hasta 40 x 40 cm por bulto. Superarlo se coordina como bulto especial. Más de 15 kg requiere coordinación previa (flete / utilitario).
 

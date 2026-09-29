@@ -26,6 +26,10 @@ export const EXPRESS_WINDOW_SHORT = 'Franja de 3 hs';
 // Anticipación mínima para coordinar una franja de Express.
 export const EXPRESS_LEAD_TIME = '2 hs de anticipación';
 
+// Corte Express: pedido hasta esta hora para entregar en el día. El último rango
+// posible es 17 a 19 hs (entrevista 2026-09-28 §1.1).
+export const EXPRESS_CUTOFF_TIME = '15:00 hs';
+
 // Ventanas operativas LowCost
 export const LOWCOST_CUTOFF_TIME = '13:00 hs';
 export const LOWCOST_DELIVERY_DEADLINE = '19:00 hs';
@@ -40,6 +44,26 @@ export const FLEX_DELIVERY_DEADLINE = '20:00 hs';
 // Antes de usar este valor para Express o LowCost, agregar el desglose por servicio.
 // Ver docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md §3.
 export const RAIN_SURCHARGE_PERCENT = 30;
+
+// Recargo por lluvia para Express y LowCost (el caso de 50 % del rango del dueño).
+export const RAIN_SURCHARGE_PERCENT_EXPRESS_LOWCOST = 50;
+
+// Recargos operativos de Express y LowCost (entrevista 2026-09-28 §3). Se informan
+// en el cotizador pero no entran en el cálculo automático: dependen de lo que pase
+// en el viaje (lluvia, espera, paradas, destinatario ausente).
+export const WAIT_TOLERANCE_MIN = 10; // Espera en puerta sin cargo
+export const WAIT_CHARGE_ARS = 2100; // Por cada bloque de espera, desde el minuto 11
+export const WAIT_CHARGE_BLOCK_MIN = 10;
+export const EXTRA_STOP_SURCHARGE_PERCENT = 50; // Por parada intermedia sobre la ruta
+export const EXTRA_STOP_MAX_DETOUR_KM = 2; // Más desvío que esto es un envío aparte
+export const RETRY_CHARGE_PERCENT = 100; // Segunda visita por destinatario ausente
+
+// Periferia: destinos fuera de la urbana de Mar del Plata (Batán, Sierra de los
+// Padres…). NO es el excedente de 10 a 20 km de `pricing.ts` ($1.000 / $700 por km):
+// es otra tarifa, por km de ruta, que se cotiza aparte. Ver entrevista §3.1.
+export const PERIPHERY_PRICE_PER_KM = 1200;
+// El recargo por bulto extra no tiene monto fijo: varía según el servicio. El
+// "$1.950 desde" de la planilla es texto de plantilla y no se publica.
 
 // Umbrales de distancia y límites físicos
 export const CONSULT_THRESHOLD_KM = 20; // Hasta 20 km cálculo automático; > 20 km "A consultar"

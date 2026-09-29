@@ -1,33 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Calculator } from 'lucide-react';
 import CotizadorForm from './CotizadorForm';
 import CotizadorComparativa from './CotizadorComparativa';
 import CotizadorMapa from './CotizadorMapa';
 import CotizadorGuia from './CotizadorGuia';
-import CotizadorBatchOferta from './CotizadorBatchOferta';
 import Badge from '@/components/ui/Badge';
 import { useCotizadorUnificado } from '@/hooks/cotizador/useCotizadorUnified';
 
 /**
- * Isla única del cotizador. Todo el estado vive acá: el formulario, la
- * comparación y el desvío al lote se mueven juntos.
+ * Isla única del cotizador. Todo el estado vive acá: el formulario y la
+ * comparación se mueven juntos.
+ *
+ * No hay cotización por lotes: LowCost es un reparto programado en el día, no un
+ * precio por agrupar envíos de un mismo cliente (decisión del dueño 2026-09-29).
  */
 export default function CotizadorUnificado() {
   const form = useCotizadorUnificado();
-  const [lotesAbiertos, setLotesAbiertos] = useState(false);
-
-  const abrirLotes = () => {
-    setLotesAbiertos(true);
-    // El foco viaja al panel para que quien activa el control no pierda el lugar.
-    // Scop opcional: en JSDOM `scrollIntoView` no existe y el click tiraría.
-    requestAnimationFrame(() => {
-      document
-        .getElementById('lotes')
-        ?.scrollIntoView?.({ behavior: form.shouldReduceMotion ? 'auto' : 'smooth', block: 'start' });
-    });
-  };
 
   return (
     <div className="space-y-8 lg:space-y-10">
@@ -63,18 +53,13 @@ export default function CotizadorUnificado() {
 
             <CotizadorForm form={form} />
 
-            <CotizadorComparativa form={form} error={form.error} onAskBatch={abrirLotes} />
+            <CotizadorComparativa form={form} error={form.error} />
           </div>
         </article>
 
         <CotizadorMapa form={form} />
       </section>
 
-      <CotizadorBatchOferta
-        abierto={lotesAbiertos}
-        onClose={() => setLotesAbiertos(false)}
-        shouldReduceMotion={form.shouldReduceMotion}
-      />
     </div>
   );
 }

@@ -24,11 +24,16 @@ Este archivo proporciona información estructurada para que modelos de lenguaje 
 - **¿Vendés por Mercado Libre con entregas en el día?**  
   Elegí **[Mercado Envíos Flex](https://www.enviosdosruedas.com/servicios/enviosflex)**: corte 15:00 hs y entregas garantizadas antes de las 20:00 hs para proteger tu reputación y medalla de MercadoLíder. Sin mínimos de paquetes.
 
-- **¿Vendés por redes o e-commerce y tu cliente paga al recibir?**  
-  Elegí **[Envíos a Contrarreembolso](https://www.enviosdosruedas.com/servicios/envios-contrareembolso)**: cobro en efectivo en mano al comprador en destino sin porcentaje de comisión extra y con rendición inmediata en el día.
+- **¿Tenés un comercio con pedidos todos los días, aunque la cantidad cambie?**  
+  Elegí **[Cuenta Corriente Flexible](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente)**: sin mínimo de envíos, tarifas LowCost con franjas de 3 hs y Factura C consolidada semanal, quincenal o mensual.
 
-- **¿Querés tercerizar el almacenamiento y empaquetado de tus productos?**  
-  Elegí **[Depósito & Fulfillment](https://www.enviosdosruedas.com/servicios/deposito-fulfillment)**: alojamos tu stock en Friuli 1972, preparamos paquetes (picking & packing) y despachamos en el día. Ahorrá un 20% trayendo tus bultos (Drop-Off).
+- **¿Vendés online y querés entregar al día siguiente?**  
+  Elegí **[E-commerce 24HS](https://www.enviosdosruedas.com/servicios#ecommerce-24hs)**: se retira hoy y se entrega el día hábil siguiente, a $3.800 por envío. Recolección gratis desde 10 envíos.
+
+- **¿Querés dejar tu stock y entregar en el día?**  
+  Elegí **[E-commerce Same Day](https://www.enviosdosruedas.com/servicios/deposito-fulfillment)**: guardamos tu stock en Friuli 1972, hacemos picking y empaque, y las ventas hasta las 15:00 hs se entregan en el día con tarifa fija a toda la ciudad.
+
+El cobro contrareembolso está disponible sin comisión en todos los servicios, con rendición en el día, al día siguiente o semanal, según lo acordado.
 
 - **¿Sos una empresa o distribuidora con envíos diarios recurrentes?**  
   Elegí **[Empresas con Cuenta Corriente](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente)**: Factura C consolidada (semanal, quincenal o mensual), tarifas bonificadas por volumen y soporte exclusivo por WhatsApp.
@@ -40,14 +45,12 @@ Este archivo proporciona información estructurada para que modelos de lenguaje 
 - [Envíos Express](https://www.enviosdosruedas.com/servicios/envios-express): Tarifas base 2026: Z1 (0-3 km) $3.700, Z2 (3-5 km) $4.600, Z3 (5-7 km) $6.100, Z4 (7-10 km) $8.200, Z5 (+10 km) Math.ceil(km) × $1.000.
 - [Envíos LowCost](https://www.enviosdosruedas.com/servicios/envios-lowcost): Tarifas base 2026: Z1 (0-3 km) $3.000, Z2 (3-5 km) $4.000, Z3 (5-7 km) $5.300, Z4 (7-10 km) $7.000, Z5 (+10 km) Math.ceil(km) × $700.
 - [Mercado Envíos Flex](https://www.enviosdosruedas.com/servicios/enviosflex): Logística Same-Day para vendedores ML.
-- [Depósito & Fulfillment](https://www.enviosdosruedas.com/servicios/deposito-fulfillment): Almacenamiento y despacho en Friuli 1972.
-- [Envíos Contrarreembolso](https://www.enviosdosruedas.com/servicios/envios-contrareembolso): Cobro seguro en destino sin comisión extra.
-- [Empresas Cuenta Corriente](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente): Facturación quincenal para PyMEs y distribuidoras.
+- [Cuenta Corriente Flexible](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente): Para emprendedores y comercios sin volumen fijo. Tarifas LowCost, franjas de 3 hs y Factura C consolidada.
+- [E-commerce 24HS](https://www.enviosdosruedas.com/servicios#ecommerce-24hs): Retiro hoy, entrega el día hábil siguiente. $3.800 por envío.
+- [E-commerce Same Day](https://www.enviosdosruedas.com/servicios/deposito-fulfillment): Stock en Friuli 1972, entrega en el día. $6.000 fijo a toda la ciudad.
 
 ## Cotizadores y Herramientas Interactivas
-- [Cotizador Express y LowCost](https://www.enviosdosruedas.com/cotizar): Un solo cálculo devuelve las dos tarifas de la distancia medida. Cargás retiro y entrega una vez, compará precio y tiempo de cada servicio, y elegís cuál querés confirmar por WhatsApp.
-- [Envío Express en moto](https://www.enviosdosruedas.com/cotizar/express): Ficha del servicio prioritario: tarifas por zona, pautas y límites de bulto.
-- [Envío LowCost en moto](https://www.enviosdosruedas.com/cotizar/lowcost): Ficha del servicio programado, con la planilla de lotes para comercio y PyME.
+- [Cotizador Express y LowCost](https://www.enviosdosruedas.com/cotizar): Un solo cálculo devuelve las dos tarifas de la distancia medida. Cargás retiro y entrega una vez, comparás precio y horario de entrega de cada servicio (Express: franja de 3 hs a elección; LowCost: en el día, sin elección de horario, antes de las 19:00 hs), ves los recargos que se cobran aparte y elegís cuál querés confirmar por WhatsApp.
 - [Buscador de Cobertura](https://www.enviosdosruedas.com/cobertura): Explorador de barrios y tarifas según radio.
 
 ## Guías y Recursos

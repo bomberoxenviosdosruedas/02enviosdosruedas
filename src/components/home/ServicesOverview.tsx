@@ -86,7 +86,7 @@ export default function ServicesOverview() {
     {
       id: 'express',
       title: 'Envíos Express',
-      description: 'Mensajería en moto con entregas inmediatas de alta prioridad.',
+      description: 'Mensajería en moto con franja horaria de 3 hs a elección.',
       href: '/servicios/envios-express',
       icon: Zap,
       badge: 'URGENTE',
@@ -110,7 +110,7 @@ export default function ServicesOverview() {
         weight: `Hasta ${STANDARD_WEIGHT_KG} kg`,
       },
       details: {
-        summary: `Servicio de mensajería urbana inmediata, ideal para trámites urgentes, despacho de encomiendas y entrega de documentación. Coordinás la franja horaria que te conviene y se asigna un repartidor exclusivo para tu envío.`,
+        summary: `Servicio de mensajería urbana con horario a elección, ideal para trámites urgentes, despacho de encomiendas y entrega de documentación. Coordinás la franja horaria que te conviene y se asigna un repartidor exclusivo para tu envío.`,
         features: [
           'Tarifa base de $3.700 hasta 3 km.',
           `Entrega en franja de 3 hs a elección, pedido con ${EXPRESS_LEAD_TIME} mínima.`,
@@ -123,7 +123,7 @@ export default function ServicesOverview() {
     {
       id: 'lowcost',
       title: 'Envíos LowCost',
-      description: 'Envíos económicos planificados con retiro y entrega coordinados.',
+      description: 'Envíos económicos programados en el día, sin elección de horario.',
       href: '/servicios/envios-lowcost',
       icon: Package,
       badge: 'ECONÓMICO',

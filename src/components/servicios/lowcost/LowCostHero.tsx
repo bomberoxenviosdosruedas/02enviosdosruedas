@@ -245,7 +245,7 @@ export default function LowCostHero() {
                   size="large"
                   className="focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-yellow-500"
                 >
-                  Cotizá tu lote LowCost
+                  Cotizá tu envío LowCost
                 </CTANestedPill>
                 <a
                   href="https://wa.me/542236602699?text=Hola!%20Quiero%20hacer%20un%20env%C3%ADo%20LowCost"

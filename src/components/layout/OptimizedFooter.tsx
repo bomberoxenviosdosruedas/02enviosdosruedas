@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion, useReducedMotion } from 'motion/react';
 import {
   Phone, MapPin, Mail, Clock, ShieldCheck, ArrowUpRight,
-  Zap, TrendingDown, ShoppingBag, ArrowUp, Rocket, Layers
+  Zap, TrendingDown, ShoppingBag, ArrowUp, Rocket, Layers, Building2, Package, Store
 } from 'lucide-react';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
@@ -278,11 +278,20 @@ export default function OptimizedFooter() {
                   </li>
                   <li>
                     <Link
-                      href="/servicios/envios-contrareembolso"
+                      href="/servicios/empresas-cuenta-corriente"
                       className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
                     >
-                      <ShieldCheck className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-                      <span>Contrareembolso</span>
+                      <Building2 className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                      <span>Cuenta Corriente Flexible</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/servicios#ecommerce-24hs"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                    >
+                      <Package className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                      <span>E-commerce 24HS</span>
                     </Link>
                   </li>
                   <li>
@@ -290,17 +299,8 @@ export default function OptimizedFooter() {
                       href="/servicios/deposito-fulfillment"
                       className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
                     >
-                      <ShoppingBag className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-                      <span>Depósito &amp; Fulfillment</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/servicios/plan-emprendedores"
-                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
-                    >
-                      <Rocket className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-                      <span>Plan Emprendedores</span>
+                      <Store className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                      <span>E-commerce Same Day</span>
                     </Link>
                   </li>
                   <li>

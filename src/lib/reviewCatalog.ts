@@ -72,7 +72,8 @@ export const reviewCatalog: CatalogItem[] = [
   //
   // Antes eran dos cotizadores separados (`/cotizar/express` y
   // `/cotizar/lowcost`), cada uno con su formulario. Ahora hay UN solo
-  // formulario: una medición abre las dos tarifas y el usuario elige.
+  // formulario: una medición abre las dos tarifas y el usuario elige. Las dos
+  // URLs viejas redirigen a /cotizar (next.config.ts).
   // ==========================================
   {
     id: "cotizar-hero",
@@ -107,57 +108,17 @@ export const reviewCatalog: CatalogItem[] = [
     componentName: "CotizadorComparativa",
     componentPath: "src/components/cotizar/unified/CotizadorComparativa.tsx",
     sectionTitle: "4. Comparativa Express / LowCost",
-    currentText: "Dos filas sobre escalas compartidas: 'Lo que pagás' (los dos precios, barras casi iguales porque se normalizan contra el más caro) y 'Lo que esperás' (Express menos de 2 h vs LowCost hasta 6 h, sobre un eje común de 0 a 8 h). Debajo, un botón por servicio que abre WhatsApp con ese servicio elegido.",
+    currentText: "Dos filas: 'Lo que pagás' (los dos precios, barras normalizadas contra el más caro) y 'Cuándo llega' (línea del día de 9 a 19 hs: Express ocupa la franja de 3 hs que elige el cliente, con corte 15:00 hs; LowCost, el día entero sin elección de horario, con corte 13:00 hs y entrega antes de las 19:00 hs). Debajo, un botón por servicio que abre WhatsApp y un aviso que lleva a los recargos.",
     elementsToReview: ["Claridad de los rótulos de cada fila", "Texto de los dos botones de elección", "Orden en que se presentan las opciones"]
   },
   {
-    id: "cotizar-batch-oferta",
+    id: "cotizar-recargos",
     page: "Cotizador",
-    componentName: "CotizadorBatchOferta",
-    componentPath: "src/components/cotizar/unified/CotizadorBatchOferta.tsx",
-    sectionTitle: "5. Oferta de envío por lote (post-cotización)",
-    currentText: "Se revela sólo después de que el usuario ya tiene precio. Pregunta si tiene más envíos para mandar y ofrece el flujo Batch de LowCost.",
-    elementsToReview: ["Momento de aparición (nunca antes del precio)", "Tono de la pregunta", "Enlace al flujo Batch"]
-  },
-  {
-    id: "cotizar-express-details",
-    page: "Cotizador",
-    componentName: "CotizadorExpressDetails",
-    componentPath: "src/components/cotizar/express/CotizadorExpressDetails.tsx",
-    sectionTitle: "6. Condiciones del Servicio Express",
-    currentText: "Título: Pautas del Envío Express\nDetalles: Peso máximo por moto (hasta 15kg). Medidas máximas del bulto (caja estándar de 40x40x40cm). Garantía de entrega en el acto.",
-    elementsToReview: ["Límites de peso y volumen", "Tipos de garantías"]
-  },
-  {
-    id: "cotizar-express-help",
-    page: "Cotizador",
-    componentName: "CotizadorExpressHelp",
-    componentPath: "src/components/cotizar/express/CotizadorExpressHelp.tsx",
-    sectionTitle: "7. Bloque de Soporte Express",
-    currentText: "Título: ¿Necesitás un cadete recurrente?\nDescripción: Si realizás más de 5 envíos diarios express, consultá por nuestro plan prepago mensual con cadetería fija de marca en Mar del Plata.",
-    elementsToReview: ["Propuesta de plan prepago", "Botón de contacto de soporte"]
-  },
-
-  // ==========================================
-  // FIN DEL COTIZADOR UNIFICADO
-  // ==========================================
-  {
-    id: "cotizar-lowcost-details",
-    page: "Cotizador",
-    componentName: "CotizadorLowCostDetails",
-    componentPath: "src/components/cotizar/lowcost/CotizadorLowCostDetails.tsx",
-    sectionTitle: "8. Condiciones del Servicio LowCost",
-    currentText: "Título: Regulación de Envíos Masivos\nDetalles: Retiro por la mañana (09:00 a 12:00) y entregas programadas durante la tarde del día siguiente (Next-Day) en toda la ciudad.",
-    elementsToReview: ["Franjas horarias indicadas", "Condiciones de logística inversa"]
-  },
-  {
-    id: "cotizar-lowcost-help",
-    page: "Cotizador",
-    componentName: "CotizadorLowCostHelp",
-    componentPath: "src/components/cotizar/lowcost/CotizadorLowCostHelp.tsx",
-    sectionTitle: "9. Bloque de Soporte LowCost",
-    currentText: "Título: ¿Tenés una cuenta corporativa?\nDescripción: Accedé a facturación tipo A mensual, importación de planillas de Excel masivas y panel de rastreo web multi-paquetes.",
-    elementsToReview: ["Texto corporativo", "Beneficios del panel web"]
+    componentName: "CotizadorRecargos",
+    componentPath: "src/components/cotizar/unified/CotizadorRecargos.tsx",
+    sectionTitle: "5. Lo que puede sumar al precio",
+    currentText: "Lluvia +50 % (30 % en Flex y cuentas corrientes). Espera: 10 min sin cargo, después $2.100 cada 10 min. Parada extra sobre la ruta (hasta 2 km): +50 %. Destinatario ausente: 100 %. Bulto de más de 5 kg o 40 × 40 cm: recargo según el servicio, tope 15 kg. Fuera de la ciudad: $1.200 por km de ruta.",
+    elementsToReview: ["Montos contra la entrevista del dueño", "Redacción de cada situación"]
   },
 
   // ==========================================

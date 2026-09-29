@@ -82,56 +82,13 @@ Radio estándar de cobertura: 20 km. Más allá de eso la tarifa se conversa a m
 02 · Ves las dos tarifas. Precio y tiempo de cada servicio, lado a lado.
 03 · Elegís y confirmás. Te pasamos el pedido armado por WhatsApp.
 
-## LO QUE PAGÁS Y LO QUE ESPERÁS
-La diferencia de precio entre los dos servicios es pequeña. La diferencia de tiempo no.
+## LO QUE PAGÁS Y CUÁNDO LLEGA
+Los dos servicios llegan en el día. La diferencia es si elegís el horario.
 
-Express: entrega en menos de 2 h. Franja de 3 hs a coordinar, corte 15:00 hs con 2 h de anticipación.
-LowCost: hasta 6 h. Pedido antes de las 13:00 hs, entrega el mismo día antes de las 19:00 hs.
-
-Si ya tenés el precio de un envío y tenés más para mandar, el mismo cotizador ofrece el flujo de lotes por volumen de LowCost.
+Express se entrega en una franja de 3 hs que elegís (pedido con 2 hs de anticipación, corte 15:00 hs). LowCost se entrega en el día sin elección de horario (pedido antes de las 13:00 hs, entrega antes de las 19:00 hs). El precio es por distancia: lluvia (+50 %), espera en puerta ($2.100 cada 10 min desde el minuto 11), paradas extra (+50 %), destinatario ausente (100 %), bulto de más de 5 kg o 40 × 40 cm y destinos fuera de la ciudad ($1.200 por km de ruta) se cobran aparte.
 
 ---
 
-## Servicio Express | Ficha de servicio | Envíos DosRuedas
-
-URL: https://www.enviosdosruedas.com/cotizar/express
-
-Página de servicio, no cotizador. Describe condiciones, límites y tarifas de Express y deriva al cotizador unificado.
-
-## COTIZÁ TU ENVÍO EXPRESS
-Mensajería prioritaria en moto. Entrega en menos de 2 horas dentro de Mar del Plata, con franja horaria a coordinar.
-Entrega en < 2 Horas
-Ruta Optimizada
-Tarifa 100% Precisa
-
-## Calculá tu Envío Express
-Ingresá las direcciones de origen y destino en Mar del Plata para obtener una estimación de costo y tiempo inmediato.
-
-Servicio: Envío Express
-Rango Operativo: Mar del Plata Urbano
-Cotización: en el cotizador unificado (/cotizar).
-
----
-
-## Servicio LowCost | Ficha de servicio | Envíos DosRuedas
-
-URL: https://www.enviosdosruedas.com/cotizar/lowcost
-
-Página de servicio, no cotizador. Describe condiciones, límites y tarifas de LowCost y deriva al cotizador unificado.
-
-## COTIZÁ TU ENVÍO LOWCOST
-Eficiencia y rentabilidad. Entrega garantizada en el día si el pedido se solicita antes de las 13:00 hs.
-Hasta 40% de Ahorro
-Entrega Same-Day
-Tarifa Plana PyME
-
-## Calculá tu Envío Low Cost
-Ingresá las direcciones de origen y destino en Mar del Plata para obtener una estimación de costo y tiempo inmediato.
-
-Servicio: Envío LowCost
-Rango Operativo: Mar del Plata Ruteo Diario
-Cotización: en el cotizador unificado (/cotizar).
-Ruteo por volumen: disponible desde el cotizador unificado, una vez obtenido el precio de un envío.
 
 ---
 
@@ -509,99 +466,6 @@ PAUTAS DE REVISIÓN Título final Subtítulo secundario Textos de botones de acc
 
 ¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
 
-## Ficha de servicio Express
-4 componentes
-Estado: /cotizar/express dejó de ser un cotizador y pasó a ser una ficha de servicio. No renderiza formulario: describe condiciones, límites y tarifas, y deriva al cotizador unificado en /cotizar. Los componentes de formulario listados abajo ya no se montan en ninguna ruta.
-
-src/app/cotizar/express/page.tsx PENDIENTE
-
-## 1. Presentación (Hero Header)
-TEXTO ORIGINAL Título: Cotizador de Envíos Express
-Copete: Calculá el costo de tu envío prioritario al instante. Obtené alta precisión en la tarifa de entrega según la distancia y coordiná en el acto.
-Badge: Servicio Prioritario
-
-PAUTAS DE REVISIÓN Título principal Texto de descripción Badge superior
-
-¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
-
-src/components/cotizar/express/CotizadorExpressForm.tsx PENDIENTE — huérfano, no se renderiza
-
-## 2. Formulario Interactivo Express
-Estado: componente huérfano. El formulario vivo es src/components/cotizar/unified/CotizadorForm.tsx, único para los dos servicios.
-TEXTO ORIGINAL Campos de dirección: Calle y número de Origen / Calle y número de Destino.
-Inputs de datos: Nombre, Teléfono, Tipo de producto a trasladar.
-Respuestas: Tarifador de distancia dinámico con cálculo en pesos.
-
-PAUTAS DE REVISIÓN Nombres de campos Instrucciones de ayuda Botonera del cotizador
-
-¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
-
-src/components/cotizar/express/CotizadorExpressDetails.tsx PENDIENTE
-
-## 3. Condiciones del Servicio Express
-TEXTO ORIGINAL Título: Pautas del Envío Express
-Detalles: Capacidad estándar sin recargo por moto (hasta 5 kg o 40 x 40 cm por bulto); el techo absoluto de 15 kg se coordina como bulto especial. Garantía de entrega en el acto.
-
-PAUTAS DE REVISIÓN Límites de peso y volumen Tipos de garantías
-
-¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
-
-src/components/cotizar/express/CotizadorExpressHelp.tsx PENDIENTE
-
-## 4. Bloque de Soporte Express
-TEXTO ORIGINAL Título: ¿Necesitás un cadete recurrente?
-Descripción: Si realizás más de 5 envíos diarios express, consultá por nuestro plan prepago mensual con cadetería fija de marca en Mar del Plata.
-
-PAUTAS DE REVISIÓN Propuesta de plan prepago Botón de contacto de soporte
-
-¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
-
-## Ficha de servicio LowCost
-4 componentes
-Estado: /cotizar/lowcost dejó de ser un cotizador y pasó a ser una ficha de servicio. Mantiene el flujo de lotes (BatchGrid), que igual se ofrece desde el cotizador unificado una vez obtenido el precio. No renderiza el formulario de un envío suelto: ese es src/components/cotizar/unified/CotizadorForm.tsx.
-
-src/app/cotizar/lowcost/page.tsx PENDIENTE
-
-## 1. Presentación (Hero Header)
-TEXTO ORIGINAL Título: Cotizador de Envíos LowCost
-Copete: Eficiencia y rentabilidad. Calculá tu envío de ruteo diario masivo con entrega garantizada en el día en Mar del Plata.
-Badge: Servicio Económico y Programado
-
-PAUTAS DE REVISIÓN Título principal Texto de descripción Badge superior
-
-¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
-
-src/components/cotizar/lowcost/CotizadorLowCostForm.tsx PENDIENTE — huérfano, no se renderiza
-
-## 2. Formulario Interactivo LowCost
-Estado: componente huérfano. El formulario vivo es src/components/cotizar/unified/CotizadorForm.tsx, único para los dos servicios.
-TEXTO ORIGINAL Campos: Dirección del local de retiro, Cantidad de paquetes diarios, Zonas de entrega en Mar del Plata.
-Tarifa sugerida: Descuentos progresivos basados en cantidad de entregas diarias.
-
-PAUTAS DE REVISIÓN Mensajes informativos Precios simulados Checkboxes de zonas
-
-¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
-
-src/components/cotizar/lowcost/CotizadorLowCostDetails.tsx PENDIENTE
-
-## 3. Condiciones del Servicio LowCost
-TEXTO ORIGINAL Título: Regulación de Envíos Masivos
-Detalles: Retiro por la mañana (09:00 a 12:00) y entregas programadas durante la tarde del día siguiente (Next-Day) en toda la ciudad.
-
-PAUTAS DE REVISIÓN Franjas horarias indicadas Condiciones de logística inversa
-
-¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
-
-src/components/cotizar/lowcost/CotizadorLowCostHelp.tsx PENDIENTE
-
-## 4. Bloque de Soporte LowCost
-TEXTO ORIGINAL Título: ¿Tenés una cuenta corporativa?
-Descripción: Accedé a facturación tipo A mensual, importación de planillas de Excel masivas y panel de rastreo web multi-paquetes.
-
-PAUTAS DE REVISIÓN Texto corporativo Beneficios del panel web
-
-¿Qué querés ajustar, agregar o modificar? (voseo) Guardar
-
 ## Sobre Nosotros
 6 componentes
 
@@ -758,7 +622,7 @@ src/components/servicios/express/ExpressHero.tsx PENDIENTE
 
 ## 1. Envíos Express Hero
 TEXTO ORIGINAL Título: Envíos Express al Instante
-Copete: Prioridad total. Tu paquete entregado en menos de 90 minutos en zonas céntricas de Mar del Plata con rastreo satelital.
+Copete: Entrega en la franja horaria de 3 hs que elegís, pedida con 2 hs de anticipación.
 
 PAUTAS DE REVISIÓN Título principal Copete explicativo Botones
 
@@ -844,8 +708,8 @@ Disponible en Mar del Plata
 Prioridad total. Tu paquete entregado en el día si es solicitado antes de 15hs.
 Cotizá tu Envío Express Hablar por WhatsApp
 
-Entregas en
-Menos de 2 Horas
+Entrega en
+Franja de 3 hs
 
 Despacho con
 Custodia Digital
@@ -1033,13 +897,13 @@ Nuestro servicio LowCost está diseñado para el ruteo diario masivo. Optimizamo
 LOGÍSTICA PREDECIBLE PARA NEGOCIOS
 
 ## Eficiencia en Ruteo
-Ruteo diario masivo optimizado de última milla. No se elige rango horario para maximizar la eficiencia logística y bajar costos.
+Reparto programado en el día. No se elige rango horario.
 
 ## Corte y Entrega
-Pedidos ingresados antes de las 13:00 hs se entregan de forma totalmente garantizada antes de las 19:00 hs del mismo día.
+Pedidos ingresados antes de las 13:00 hs se entregan en el transcurso del día, antes de las 19:00 hs. No se elige horario.
 
 ## Tarifa Económica
-La mejor tarifa de Mar del Plata para envíos masivos agrupados, ruteos continuos y entregas a clientes finales.
+Más barato que Express, sobre todo en distancias largas. Pensado para emprendedores y tiendas online con envíos esporádicos.
 
 Tarifario Inteligente
 

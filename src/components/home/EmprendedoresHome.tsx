@@ -167,11 +167,11 @@ export default function EmprendedoresHome() {
                     className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white group-hover:text-brand-yellow-500 transition-colors"
                     whileHover={reduceMotion ? undefined : { x: 4, transition: snappySpring }}
                   >
-                    Plan Emprendedores
+                    Cuenta Corriente Flexible
                   </motion.h3>
                   <p className="text-brand-blue-50 text-sm leading-relaxed font-sans">
-                    Gestión de última milla pensada para PyMEs y marcas locales. Guardamos tu stock,
-                    lo despachamos el día que vendés y coordinamos la entrega con vos.
+                    Tu equipo de entregas de confianza, aunque la cantidad de pedidos cambie cada
+                    día. Pagás los envíos juntos, por semana, quincena o mes.
                   </p>
                 </div>
 
@@ -179,7 +179,7 @@ export default function EmprendedoresHome() {
                   {[
                     'Sin volumen mínimo de envíos: entrás con la cantidad que tengas',
                     'Accedés a tarifas LowCost con franjas horarias de 3 hs, como Express',
-                    'Exclusividad denosotros como único operador de tus envíos',
+                    'Trabajás de forma exclusiva con nosotros para tus envíos',
                     'Entregas contrareembolso integradas sin cargo extra',
                   ].map((feat) => (
                     <li
@@ -195,7 +195,7 @@ export default function EmprendedoresHome() {
 
               <div className="pt-6 mt-6 border-t border-white/10 relative z-10 flex justify-end">
                 <Link
-                  href="/servicios/deposito-fulfillment"
+                  href="/servicios/empresas-cuenta-corriente"
                   className="inline-flex items-center justify-between rounded-full min-h-[52px] px-8 py-3.5 bg-[#FFF12E] hover:bg-[#FFF44A] text-[#0950F6] font-subheading text-base font-bold uppercase tracking-wider shadow-glow-yellow transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
                 >
                   <span>Conocé más</span>
