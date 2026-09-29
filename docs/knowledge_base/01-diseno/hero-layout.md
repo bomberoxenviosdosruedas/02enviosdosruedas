@@ -44,6 +44,10 @@ es la puerta de entrada, es el índice.
 - El H1 sigue siendo único y en Anton; sólo cambia la alineación del contenedor.
 - La firma visual (las barras por categoría) va en la banda inferior, nunca en el
   eje de lectura.
+- **No se porta el buscador del prototipo**: `Faq-categories` (400px más abajo)
+  ya tiene input + botón limpiar + estado vacío + botones de categoría.
+  Duplicarlo sería regresión UX. El lead ahora dice "Buscá por palabra o elegí
+  un tema" para que la persona sepa que la respuesta es encontrable.
 
 Cualquier otro hero centrado en desktop es un error, no una excepción.
 
@@ -159,6 +163,15 @@ diferenciación de cada página va en la sección siguiente al hero.
 | `"contact"` | `/contacto` | Radar GPS beacon (círculos pulsantes) |
 | `"community"` | `/nosotros/nuestras-redes` | Red social nodos + enlaces |
 | `"default"` | `/nosotros/sobre-nosotros`, fallback | Solo gradiente + halos + grilla base |
+
+#### Excepción documentada: Redes (`NetworksHero`)
+
+El prototipo proponía un mosaico de 3 tiles (Instagram / Facebook / WhatsApp) en
+la columna derecha. **No se portó**. `NetworksChannels` (la sección inmediatamente
+debajo) ya expone los tres canales con descripción y CTA cada uno. Un segundo
+mosaico redundante sería ruido. En su lugar el hero muestra la imagen
+`redes-celular.webp` y una celda amarilla con el dato nuevo: "Instagram y
+Facebook con el mismo nombre". Badge → "Comunidad DosRuedas".
 
 ---
 
