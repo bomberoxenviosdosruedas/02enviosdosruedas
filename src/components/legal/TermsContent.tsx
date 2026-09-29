@@ -47,9 +47,9 @@ const SECTIONS: TermSection[] = [
     title: "2. Descripción del Servicio",
     shortTitle: "Descripción",
     icon: Truck,
-    content: "Envíos DosRuedas proporciona servicios de mensajería urbana y paquetería local en todo el ejido urbano de Mar del Plata (no cubrimos zonas aledañas no especificadas). Los detalles específicos de cada modalidad (Express inmediato, LowCost programado, MercadoLibre Flex y 3PL) se rigen según la tabla tarifaria oficial 2026.",
+    content: "Envíos DosRuedas proporciona servicios de mensajería urbana y paquetería local en todo Mar del Plata (no cubrimos zonas aledañas no especificadas). Los detalles específicos de cada modalidad (Express en franja horaria, LowCost programado, MercadoLibre Flex y 3PL) se rigen según la tabla tarifaria oficial 2026.",
     bullets: [
-      "Operación activa y cobertura integral en Mar del Plata",
+      "Operación activa en todo Mar del Plata",
       "Diversas modalidades de envío (Express, LowCost y Flex)",
       "Soporte logístico adaptado para eCommerce y PyMEs locales"
     ]

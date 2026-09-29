@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { ChevronDown, MapPin, MessageCircle } from 'lucide-react';
 import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import CopyPhone from '@/components/contacto/CopyPhone';
 import { WHATSAPP_PHONE } from '@/lib/whatsapp';
@@ -13,7 +14,22 @@ import { OPERATING_HOURS } from '@/lib/promises';
  * página y en `ContactInfo`. Se replica acá para que el hero no dependa de
  * un bloque que está 600px más abajo.
  */
-const BASE_ADDRESS = 'Friuli 1972 · MDQ';
+const BASE_ADDRESS = 'Friuli 1972 · Mar del Plata';
+
+/**
+ * Los dos canales, tal como los ofrece el prototipo: el conmutador.
+ *
+ * No es una lista de datos: es la decisión que la persona tiene que tomar
+ * ("¿escribo o voy?"). Por eso cada fila es un objeto con glifo, título y
+ * acción, y no una línea de texto.
+ *
+ * DELIBERADO: el prototipo sube un formulario de tres campos al hero. No se
+ * hizo. `ContactForm`, justo debajo, ya pide nombre, empresa y volumen y abre
+ * WhatsApp con eso precargado; dos formularios idénticos en la misma pantalla
+ * obligan a la persona a decidir cuál está activo, y el que no lo está no hace
+ * nada. El hero mantiene el enlace al formulario de abajo y en cambio presenta
+ * los canales, que es lo que no estaba.
+ */
 
 /**
  * Geometría de la banda. El SVG tiene 96 de alto y el riel va en y=30, o sea
@@ -111,10 +127,14 @@ export default function ContactHero() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-500 shadow-accent-sm -rotate-1">
-                <MessageCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
-                Conexión directa · Mar del Plata
-              </span>
+              <Badge
+                variant="accent"
+                size="lg"
+                className="-rotate-1"
+                icon={<MessageCircle className="h-4 w-4" aria-hidden="true" />}
+              >
+                Conexión directa
+              </Badge>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white text-balance">
                 <span className="block">Escribinos</span>
@@ -148,13 +168,43 @@ export default function ContactHero() {
                 </a>
               </div>
 
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-7 gap-y-1 pt-6 border-t border-white/15">
-                <span className="inline-flex items-center gap-2 font-mono text-sm sm:text-base text-white/85 tabular-nums">
-                  <MapPin className="h-4 w-4 shrink-0 text-brand-yellow-500" aria-hidden="true" />
-                  {BASE_ADDRESS}
-                </span>
-                <CopyPhone />
-              </div>
+              {/* El conmutador: dos canales, y cada uno con su acción. En móvil
+                  la acción baja a una segunda fila porque 44px de glifo + número
+                  + botón no entran en 320px. */}
+              <ul className="grid gap-2.5 border-t border-white/15 pt-6">
+                <li className="grid grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-white/15 bg-white/[0.08] p-3 sm:grid-cols-[44px_1fr_auto] sm:pr-4">
+                  {/* Amarillo de fondo con el glifo verde: la única excepción
+                      cromática que autoriza `tokens-colores.md` §7.6. El verde
+                      va en el `fill` del SVG y no en una clase, porque las
+                      clases con hex están prohibidas (§7.3). */}
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-yellow-500">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
+                      <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Z" />
+                    </svg>
+                  </span>
+                  <span className="font-subheading text-lg uppercase leading-none tracking-[0.06em] text-white">
+                    WhatsApp comercial
+                  </span>
+                  <CopyPhone className="col-start-2 justify-self-start sm:col-start-3 sm:justify-self-end" />
+                </li>
+
+                <li className="grid grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-white/15 bg-white/[0.08] p-3 sm:grid-cols-[44px_1fr_auto] sm:pr-4">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white">
+                    <MapPin className="h-5 w-5 text-brand-blue-500" aria-hidden="true" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block font-subheading text-lg uppercase leading-none tracking-[0.06em] text-white">
+                      Hub central
+                    </span>
+                    <span className="mt-1 block font-mono text-sm tabular-nums text-white/85">
+                      {BASE_ADDRESS}
+                    </span>
+                  </span>
+                  <span className="col-start-2 justify-self-start rounded-md bg-brand-yellow-500 px-2 py-1.5 font-subheading text-xs uppercase tracking-[0.08em] text-brand-blue-500 sm:col-start-3 sm:justify-self-end">
+                    Lun a sáb
+                  </span>
+                </li>
+              </ul>
             </div>
 
             {/* RIGHT 5 — bezel doble con la pieza de la base central. */}
@@ -169,12 +219,12 @@ export default function ContactHero() {
 
                 <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/20">
                   <Image
-                    src="/elementos/hero_contacto.webp"
-                    alt="Pieza de marca de Envíos DosRuedas para la base central de contacto en Mar del Plata"
+                    src="/heroes/contacto-mensaje.webp"
+                    alt="Teléfono y sobre con el mensaje Escribinos hoy, de Envíos DosRuedas en Mar del Plata"
                     fill
                     priority
                     sizes="(min-width: 1024px) 420px, 90vw"
-                    className="object-contain"
+                    className="object-cover"
                   />
                 </div>
 

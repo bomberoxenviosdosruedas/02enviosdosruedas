@@ -75,7 +75,7 @@ export function FaqCategories() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Buscar por palabra clave (ej: MercadoLibre, tarifas, Batán)..."
+              placeholder="Buscar por palabra clave (ej: MercadoLibre, tarifas, cobertura)..."
               className="w-full h-11 pl-12 pr-10 bg-white border-2 border-brand-blue-100 focus:border-brand-blue-700 rounded-xl text-sm font-sans text-brand-blue-700 placeholder:text-brand-blue-500 outline-none shadow-sm transition-all"
             />
             {searchQuery && (

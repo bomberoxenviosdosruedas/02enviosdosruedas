@@ -1,9 +1,15 @@
-import Image from 'next/image';
 import { Bike, CalendarClock, MapPin, Navigation, ShieldCheck } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import { CTANestedPill, Knockout } from '@/components/ui';
+import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
-import { CONSULT_THRESHOLD_KM, OPERATING_HOURS, SUPPORT_PHONE } from '@/lib/promises';
+import {
+  CONSULT_THRESHOLD_KM,
+  LOWCOST_CUTOFF_TIME,
+  LOWCOST_DELIVERY_DEADLINE,
+  OPERATING_HOURS,
+  SUPPORT_PHONE,
+} from '@/lib/promises';
 
 /**
  * El nodo: un único origen y siete direcciones.
@@ -47,6 +53,21 @@ const hours = [
 ];
 
 /**
+ * Credenciales de la empresa, para la ficha lateral.
+ *
+ * "Operando +7 años" y "flota 100 % propia" son claims de identidad: ya están
+ * en el metadata y el JSON-LD de esta página, así que repetirlos no inventa.
+ * El corte y la última entrega sí salen de `promises.ts` — son los del servicio
+ * LowCost, que es el que define la jornada.
+ */
+const credenciales = [
+  { dt: 'Operando', dd: '+7 años' },
+  { dt: 'Flota propia', dd: '100%' },
+  { dt: 'Corte diario', dd: LOWCOST_CUTOFF_TIME },
+  { dt: 'Última entrega', dd: LOWCOST_DELIVERY_DEADLINE },
+];
+
+/**
  * Hero Sobre Nosotros — concepto "el nodo".
  *
  * Esta página no vende un servicio: vende una empresa. La firma visual es una
@@ -70,6 +91,16 @@ export default function AboutHero() {
       className="relative isolate flex min-h-[90dvh] w-full flex-col overflow-hidden bg-brand-blue-500 text-white"
     >
       <HeroProceduralBackground variant="default" tone="blue" />
+
+      {/* Palabra fantasma. Es lo único del hero que no es información: da la
+          escala de un muro pintado y evita que el azul se lea como un bloque
+          vacío. Va en z-0 y `aria-hidden` — el texto real es el H1. */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-[8%] left-[-1%] z-0 whitespace-nowrap font-display text-[clamp(90px,17vw,230px)] uppercase leading-[0.8] text-white/[0.06]"
+      >
+        Dos Ruedas
+      </span>
 
       <div className="relative flex-1 flex items-center overflow-hidden">
         {/* Firma visual: el nodo. */}
@@ -119,10 +150,14 @@ export default function AboutHero() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest border border-brand-yellow-500/60 text-brand-yellow-500 -rotate-1">
-                <ShieldCheck className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <Badge
+                variant="outline"
+                size="lg"
+                className="-rotate-1 border-brand-yellow-500/60 text-brand-yellow-500"
+                icon={<ShieldCheck className="h-4 w-4" aria-hidden="true" />}
+              >
                 Identidad · Mar del Plata
-              </span>
+              </Badge>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white text-balance">
                 <span className="block">Más que cadetería,</span>
@@ -132,7 +167,7 @@ export default function AboutHero() {
 
               <p className="text-base sm:text-lg font-sans text-white/85 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-light">
                 Una base física en Friuli 1972 y flota motorizada 100% propia. Conectamos
-                tiendas online, PyMEs y emprendedores de General Pueyrredón con soporte en
+                tiendas online, PyMEs y emprendedores de todo Mar del Plata con soporte en
                 tiempo real y cumplimiento estricto de horarios.
               </p>
 
@@ -168,46 +203,60 @@ export default function AboutHero() {
               </ul>
             </div>
 
-            {/* RIGHT 5 — ficha de la base central. */}
-            <div className="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
-              <DoubleBezelCard className="w-full max-w-md" innerClassName="space-y-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-brand-yellow-500 motion-safe:animate-pulse" aria-hidden="true" />
-                  <span className="font-subheading text-sm tracking-widest text-brand-blue-500 uppercase">
-                    Base central
-                  </span>
-                </div>
+            {/* RIGHT 5 — ficha de la empresa: sello de la base + credenciales.
+                El marco blanco hace de bisel y el panel azul interior repite el
+                color del hero, así el bloque se apoya en la página en vez de
+                flotar como un recorte. */}
+            <div className="relative flex w-full flex-col items-center justify-center lg:col-span-5">
+              <div className="w-full max-w-md rounded-[20px] border border-brand-blue-100 bg-white p-2.5 shadow-[0_25px_50px_-12px_rgba(9,80,246,0.18)]">
+                <div className="flex flex-col gap-4 rounded-[14px] bg-brand-blue-500 p-5">
+                  {/* Sello de la base. El ladeo de 1,5° es lo que lo hace leer
+                      como sello y no como un encabezado más. */}
+                  <div className="-rotate-[1.5deg] self-start rounded-xl border-2 border-brand-yellow-500 px-3.5 py-3">
+                    <span className="block font-display text-3xl uppercase leading-none tracking-[-0.01em] text-brand-yellow-500">
+                      Friuli 1972
+                    </span>
+                    <span className="mt-1 block font-mono text-xs font-medium leading-snug text-brand-blue-50">
+                      Base central
+                    </span>
+                  </div>
 
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-brand-blue-500/15">
-                  <Image
-                    src="/img/generales/moto_fija.webp"
-                    alt="Motocicleta de la flota propia de Envíos DosRuedas en Mar del Plata"
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 420px, 90vw"
-                    className="object-cover"
-                  />
-                </div>
+                  <dl className="grid gap-2.5">
+                    {credenciales.map(({ dt, dd }) => (
+                      <div
+                        key={dt}
+                        className="flex items-baseline justify-between gap-3 border-t border-white/[0.18] pt-2.5"
+                      >
+                        <dt className="font-subheading text-base uppercase tracking-[0.08em] text-brand-blue-50">
+                          {dt}
+                        </dt>
+                        <dd className="font-mono text-xl font-bold tabular-nums text-white">
+                          {dd}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
 
-                <div className="pt-3 border-t border-brand-blue-500/15 space-y-1.5 font-mono text-xs sm:text-sm text-brand-blue-500 tabular-nums">
-                  {hours.map((row) => (
-                    <div key={row.label} className="flex items-baseline justify-between gap-3">
-                      <span className="font-subheading text-[11px] uppercase tracking-wider text-brand-blue-500 shrink-0">
-                        {row.label}
-                      </span>
-                      <span className="truncate text-right">{row.value}</span>
-                    </div>
-                  ))}
-                </div>
+                  <dl className="grid gap-1.5 border-t border-white/[0.18] pt-3 font-mono text-xs tabular-nums text-brand-blue-50">
+                    {hours.map((row) => (
+                      <div key={row.label} className="flex items-baseline justify-between gap-3">
+                        <dt className="font-subheading text-xs uppercase tracking-wider">
+                          {row.label}
+                        </dt>
+                        <dd className="truncate text-right text-white">{row.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
 
-                <div className="flex items-center justify-between gap-3 border-t border-brand-blue-500/15 pt-3 font-mono text-xs sm:text-sm text-brand-blue-500 tabular-nums">
-                  <span className="flex items-center gap-1.5 truncate">
-                    <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                    Friuli 1972
-                  </span>
-                  <span className="shrink-0">{SUPPORT_PHONE}</span>
+                  <p className="flex items-center justify-between gap-3 border-t border-white/[0.18] pt-3 font-mono text-xs tabular-nums text-brand-blue-50">
+                    <span className="flex items-center gap-1.5 truncate">
+                      <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                      Mar del Plata
+                    </span>
+                    <span className="shrink-0 text-white">{SUPPORT_PHONE}</span>
+                  </p>
                 </div>
-              </DoubleBezelCard>
+              </div>
             </div>
           </div>
         </div>

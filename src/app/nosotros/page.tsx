@@ -87,7 +87,7 @@ const values = [
   { icon: ShieldCheck, title: 'Flota Propia', desc: 'Cadetes de confianza, no apps ni intermediarios. Cada envío lo cuida alguien que conocemos.' },
   { icon: MapPin, title: 'Base Física', desc: 'Friuli 1972, Barrio Chauvín. Operamos desde un punto real, no virtual.' },
   { icon: Clock, title: 'Transparencia Total', desc: 'Tarifas publicadas 2026, sin costos ocultos. "Preferimos decir que no podemos, a fallar".' },
-  { icon: Truck, title: 'Cobertura Real', desc: 'Todo Mar del Plata + 20 km (Batán, Sierra de los Padres). Llegamos donde otros no.' },
+  { icon: Truck, title: 'Cobertura Real', desc: 'Llegamos a todo Mar del Plata, barrio por barrio, con tarifa publicada.' },
 ];
 
 export default function NosotrosPage() {

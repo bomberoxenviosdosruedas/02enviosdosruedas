@@ -57,8 +57,8 @@ export default function ExpressFeatures() {
             </h2>
 
             <p className="text-brand-blue-900 text-base leading-relaxed font-sans">
-              Cubrimos todo el Partido de General Pueyrredón: Centro, Güemes, Chauvín, Los Troncos, Puerto, Playa
-              Grande, Punta Mogotes, Constitución, Camet y Batán.
+              Llegamos a todo Mar del Plata: Centro, Güemes, Chauvín, Los Troncos, Puerto, Playa
+              Grande, Punta Mogotes, Constitución y Camet.
             </p>
 
             <p className="flex items-center gap-3 text-sm text-brand-blue-900 uppercase tracking-wider font-subheading">

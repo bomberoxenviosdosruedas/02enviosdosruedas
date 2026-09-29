@@ -68,12 +68,12 @@ export default function LogisticaNetworkCanvas() {
       { id: 'playa_grande', label: 'Playa Grande',          size: 4, xRatio: 0.77, yRatio: 0.63 },
       { id: 'puerto',       label: 'Puerto',                size: 4, xRatio: 0.72, yRatio: 0.76 },
       { id: 'bosque',       label: 'Bosque Peralta Ramos',  size: 4, xRatio: 0.64, yRatio: 0.88 },
-      { id: 'batan',        label: 'Batán / P. Industrial', size: 5, xRatio: 0.22, yRatio: 0.72 },
+      { id: 'martillo',     label: 'El Martillo / P. Ind.', size: 5, xRatio: 0.22, yRatio: 0.72 },
     ];
 
     // Conexiones de ruteo (avenidas / costanera de MDQ)
     const connections: { from: string; to: string }[] = [
-      { from: 'cd',          to: 'batan' },
+      { from: 'cd',          to: 'martillo' },
       { from: 'cd',          to: 'centro' },
       { from: 'cd',          to: 'guemes' },
       { from: 'cd',          to: 'puerto' },

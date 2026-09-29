@@ -15,8 +15,8 @@ export default function CotizadorExpressMap({ form }: CotizadorExpressMapProps) 
   const { origenCoords, destinoCoords, routeCoords, result } = form;
 
   return (
-    <div className="lg:col-span-5 min-h-[360px] lg:min-h-full rounded-[28px] sm:rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl transition-all duration-300">
-      <div className="bg-brand-blue-900 p-6 rounded-[20px] border border-white/10 flex flex-col justify-between h-full relative overflow-hidden text-white">
+    <div className="lg:col-span-5 min-h-[360px] lg:min-h-full rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl transition-all duration-300">
+      <div className="bg-brand-blue-900 p-6 rounded-2xl border border-white/10 flex flex-col justify-between h-full relative overflow-hidden text-white">
         {/* Subtle grid pattern */}
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
@@ -48,11 +48,11 @@ export default function CotizadorExpressMap({ form }: CotizadorExpressMapProps) 
         <div className="relative z-10 text-[11px] font-mono text-white/90 space-y-1.5 border-t border-white/15 pt-3 mt-3 tabular-nums">
           <div className="flex justify-between">
             <span>Servicio:</span>
-            <span className="text-brand-yellow-500 font-bold uppercase">Envío Express {'<'} 2H</span>
+            <span className="text-brand-yellow-500 font-bold uppercase">Envío Express</span>
           </div>
           <div className="flex justify-between">
             <span>Cobertura:</span>
-            <span className="text-white">Partido de General Pueyrredón</span>
+            <span className="text-white">Todo Mar del Plata</span>
           </div>
         </div>
       </div>

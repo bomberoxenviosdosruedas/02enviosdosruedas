@@ -36,7 +36,12 @@ describe('NuestrasRedesPage — Tier 1 & 2', () => {
 
   it('T1.5: renderiza las tarjetas de canales de comunicación', () => {
     render(<NuestrasRedesPage />);
-    expect(screen.getByText(/SOCIAL MEDIA/i)).toBeInTheDocument();
+    // Antes se verificaba el rótulo decorativo del hero ("SOCIAL MEDIA"), que
+    // pasó a ser "Comunidad DosRuedas". Ahora se verifica lo que la prueba
+    // dice verificar: que existan los tres canales.
+    for (const canal of ['WhatsApp', 'Instagram', 'Facebook']) {
+      expect(screen.getAllByAltText(canal).length).toBeGreaterThan(0);
+    }
   });
 
   // ─── TIER 2: BOUNDARY & CORNER CASES (5 tests) ─────────────────────────────

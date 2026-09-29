@@ -31,7 +31,7 @@ describe('PreguntasFrecuentesPage — Tier 1 & 2', () => {
     const questionButton = screen.getByText('¿Cuáles son las zonas de cobertura?');
     fireEvent.click(questionButton);
 
-    const answerText = await screen.findByText(/Cubrimos de forma integral todo el ejido urbano/);
+    const answerText = await screen.findByText(/Llegamos a todo Mar del Plata/);
     expect(answerText).toBeInTheDocument();
   });
 
@@ -84,7 +84,7 @@ describe('PreguntasFrecuentesPage — Tier 1 & 2', () => {
 
     // Click question 2
     fireEvent.click(question2);
-    expect(await screen.findByText(/Cubrimos de forma integral todo el ejido urbano/)).toBeInTheDocument();
+    expect(await screen.findByText(/Llegamos a todo Mar del Plata/)).toBeInTheDocument();
     
     // Question 1 answer should be closed
     expect(screen.queryByText(/Ofrecemos mensajería urbana/)).not.toBeInTheDocument();

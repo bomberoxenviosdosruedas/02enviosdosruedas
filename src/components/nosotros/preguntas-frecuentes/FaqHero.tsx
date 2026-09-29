@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { CTANestedPill, Knockout } from '@/components/ui';
+import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { SUPPORT_PHONE } from '@/lib/promises';
 import { FAQ_DATA } from './faqData';
@@ -50,6 +51,14 @@ const bars = FAQ_DATA.map((group, i) => ({
  * La página ya tiene buscador y acordeón en `Faq-categories`, así que el hero
  * no repite ninguno de los dos: sólo anuncia cuántas preguntas hay, en cuántas
  * categorías, y ofrece el canal humano para lo que no esté.
+ *
+ * DELIBERADO: el prototipo de este hero traía un campo de búsqueda y una fila de
+ * filtros por tema. No se implementaron. `Faq-categories` ya tiene el buscador
+ * completo (input, botón de limpiar, estado vacío) y los filtros por categoría;
+ * un segundo buscador 400 px más abajo obliga a elegir cuál de los dos está
+ * activo, y el que no está activo no filtra nada. El hero en cambio lo dice: la
+ * bajada ahora indica que abajo se busca por palabra o por tema, que es la
+ * información que el visitante necesita para saber que la respuesta existe.
  *
  * Todo el contenido sale de `FAQ_DATA` y `promises.ts`; el fallback es el
  * teléfono de soporte, no un SLA inventado.
@@ -103,10 +112,14 @@ export default function FaqHero() {
               className="h-24 w-auto object-contain sm:h-32 lg:h-36"
             />
 
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-500 shadow-accent-sm -rotate-1">
-              <HelpCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
-              Centro de soporte · MDQ
-            </span>
+            <Badge
+              variant="accent"
+              size="lg"
+              className="-rotate-1"
+              icon={<HelpCircle className="h-4 w-4" aria-hidden="true" />}
+            >
+              Centro de ayuda · Mar del Plata
+            </Badge>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white text-balance">
               <span className="block">¿Tenés dudas?</span>
@@ -115,8 +128,8 @@ export default function FaqHero() {
 
             <p className="text-base sm:text-lg font-sans text-white/85 max-w-[56ch] leading-relaxed font-light">
               {TOTAL_QUESTIONS} respuestas sobre servicios, tiempos, tarifas y confianza, escritas
-              por el equipo que opera en Mar del Plata. Si la tuya no está, preguntanos y te la
-              respondemos.
+              por el equipo que opera en Mar del Plata. Buscá por palabra o elegí un tema; si tu
+              duda no está, preguntanos y te la respondemos.
             </p>
 
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">

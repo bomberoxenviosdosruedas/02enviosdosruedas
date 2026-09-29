@@ -90,7 +90,7 @@ export default function ServicesOverview() {
       href: '/servicios/envios-express',
       icon: Zap,
       badge: 'URGENTE',
-      city: 'Cobertura MDQ',
+      city: 'Todo Mar del Plata',
       founded: '+7 Años de Trayectoria',
       imageUrl: '/cards/fondo_express.webp',
       cardStyleCenter: 'border-brand-yellow-500 bg-gradient-to-br from-[#0950F6] to-[#0950F6] shadow-cta-glow text-white',

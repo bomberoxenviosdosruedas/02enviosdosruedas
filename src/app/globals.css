@@ -318,6 +318,13 @@ body {
   from { stroke-dashoffset: var(--draw-len, 1200); }
   to { stroke-dashoffset: 0; }
 }
+/* Anillos que salen del pin (Inicio). Escalan desde el nodo y se apagan: leen
+ * como cobertura expansiva sin poner un número en pantalla. El `translate(-50%)`
+ * va en el keyframe porque el anillo se posiciona con `left/top` sobre el pin. */
+@keyframes pulse-ring {
+  0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(3.2); opacity: 0; }
+}
 /* Motion del ida y vuelta (Contacto). El token sale, se entrega en la base y
  * vuelve: 44% de ida, 12% de espera en el destino, 44% de vuelta. El wrapper
  * mide todo el recorrido para que `translateX(100%)` sea el 100% real. Sin
@@ -336,13 +343,30 @@ body {
   animation: shuttle 5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
 }
 @utility animate-draw { animation: draw 2.4s cubic-bezier(0.25,1,0.5,1) forwards; }
+@utility animate-pulse-ring {
+  animation: pulse-ring 3.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
 @utility animate-roundtrip {
   animation: roundtrip 4.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
+/* Crecimiento en X desde el origen (barra de la jornada, LowCost). Escala y no
+ * anima `width`: cambiar `width` fuerza reflow en cada frame. Sin animación
+ * queda completo, que es el estado legible por defecto. */
+@keyframes grow-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@utility animate-grow-x {
+  animation: grow-x 1.1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transform-origin: left center;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-radar, .animate-floaty, .animate-road, .animate-shuttle, .animate-draw, .animate-roundtrip { animation: none !important; }
+  .animate-radar, .animate-floaty, .animate-road, .animate-shuttle, .animate-draw, .animate-roundtrip, .animate-pulse-ring, .animate-grow-x { animation: none !important; }
   .animate-draw { stroke-dashoffset: 0 !important; }
+  .animate-grow-x { transform: scaleX(1) !important; }
+  /* Sin animación los anillos quedarían todos encimados sobre el pin. */
+  .animate-pulse-ring { opacity: 0 !important; }
 }
 
 @utility animate-marquee-left { animation: marquee-left 36s linear infinite; }

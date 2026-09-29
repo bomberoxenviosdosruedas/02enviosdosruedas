@@ -55,7 +55,7 @@
 | **Franja ≠ duración** | `EXPRESS_WINDOW` ("franja horaria de 3 hs") es ventana; `EXPRESS_WINDOW_SHORT` ("Franja de 3 hs") es rótulo. **Nunca** "en 3 hs": sería entrega en 3 horas. |
 | **5 kg ≠ 15 kg** | `STANDARD_WEIGHT_KG` (5) es lo que va sin recargo y es el número del copy. `MAX_WEIGHT_KG` (15) es el techo absoluto. No intercambiables. |
 | **`Math.ceil(km)` obligatorio** | En excedentes >10km. Nunca `Math.floor/round`. |
-| **`prefers-reduced-motion` en TODO** | MotionConfig global + `useReducedMotion()` en componentes + gate GSAP. |
+| **`prefers-reduced-motion` en TODO** | `useReducedMotion()` en componentes + gate GSAP + bloque `prefers-reduced-motion` en `globals.css`. **Ojo:** el `MotionConfig` global que se pidió en `design-system.md` **todavía no existe**. Lo que sí existe hoy es el gate por componente y el bloque CSS. |
 | **Touch targets ≥ 44px** | `min-h-[44px]` CTA, `h-11` input. Focus visible `ring-2 brand-blue-500`. |
 | **Gestor de paquetes: solo `pnpm`** | Nunca `npm` ni `yarn`. |
 
@@ -146,7 +146,7 @@ docs/knowledge_base/
 | Archivo | Qué Es |
 |---|---|
 | `src/app/globals.css` | `@theme` Tailwind v4 (tokens, sombras, keyframes, tipografía) |
-| `src/app/layout.tsx` | Root layout, `next/font`, metadata, `MotionConfig` |
+| `src/app/layout.tsx` | Root layout, `next/font`, metadata. **No** tiene `MotionConfig`: es deuda abierta, ver `deuda-adherencia.md` y `DESIGN.md` §8.4 |
 | `src/lib/pricing.ts` | Funciones puras `calculateExpressPrice` / `calculateLowCostPrice` + constantes `*_TIERS` |
 | `src/actions/quote.ts` | Server Action de cotización (debe leer `PriceRange` vía Prisma) |
 | `src/components/ui/index.ts` | Barril de primitivas (alias `@/components/ui`) |

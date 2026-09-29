@@ -203,8 +203,8 @@ export default function ExpressPricing() {
               </div>
 
               <p className="text-base font-sans leading-relaxed text-brand-blue-900 max-w-2xl">
-                Para Batán, Camet, Sierra de los Padres o la periferia de General Pueyrredón
-                hasta <strong className="font-mono tabular-nums">{CONSULT_THRESHOLD_KM} km</strong>.
+                Para recorridos largos dentro de Mar del Plata, hasta{' '}
+                <strong className="font-mono tabular-nums">{CONSULT_THRESHOLD_KM} km</strong>.
                 Ejemplo:{' '}
                 <span className="underline decoration-brand-yellow-500 decoration-2 underline-offset-4">
                   {EXAMPLE_KM} km ={' '}

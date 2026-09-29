@@ -55,7 +55,7 @@ export default function CotizadorMapa({ form }: CotizadorMapaProps) {
           </div>
           <div className="flex justify-between gap-3">
             <span>Cobertura:</span>
-            <span className="text-white">Partido de General Pueyrredón</span>
+            <span className="text-white">Todo Mar del Plata</span>
           </div>
         </div>
       </div>

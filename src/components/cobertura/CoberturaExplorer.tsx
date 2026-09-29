@@ -87,9 +87,8 @@ const SEEDS: NeighborhoodSeed[] = [
   // Z5: tramo por km, redondeado hacia arriba
   { name: 'Acantilados', zone: 'Z5', distanceKm: 11, note: 'Ejemplo 11 km (Math.ceil)' },
   { name: 'San Patricio', zone: 'Z5', distanceKm: 12, note: 'Ejemplo 12 km (Math.ceil)' },
-  { name: 'Batán', zone: 'Z5', distanceKm: 15, note: 'Ejemplo 15 km (Math.ceil)' },
-  { name: 'Sierra de los Padres', zone: 'Z5', distanceKm: 20, note: 'Límite operativo 20 km' },
   { name: 'Estación Camet', zone: 'Z5', distanceKm: 14, note: 'Ejemplo 14 km (Math.ceil)' },
+  { name: 'Camet Norte', zone: 'Z5', distanceKm: 15, note: 'Ejemplo 15 km (Math.ceil)' },
 ];
 
 /** Posición de cada zona dentro de los arrays de tiers. */
@@ -165,7 +164,7 @@ export default function CoberturaExplorer() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Buscá tu barrio (ej. Güemes, Mogotes, Batán)..."
+                placeholder="Buscá tu barrio (ej. Güemes, Mogotes, Puerto)..."
                 className="w-full h-11 pl-11 pr-4 rounded-xl border-2 border-brand-blue-100 focus:border-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20 text-sm font-sans text-brand-blue-900 placeholder:text-brand-blue-700 transition-colors"
               />
             </div>
@@ -270,7 +269,8 @@ export default function CoberturaExplorer() {
             No encontramos el barrio con ese nombre exacto
           </h3>
           <p className="text-sm font-sans text-brand-ink max-w-md mx-auto mt-1">
-            Cubrimos todo el Partido de General Pueyrredón hasta 20 km. Escribinos por WhatsApp y te confirmamos la tarifa exacta en segundos.
+            Cubrimos todo Mar del Plata. Más allá de 10 km de ruta te cotizamos el envío por
+            kilómetro. Escribinos por WhatsApp y te confirmamos la tarifa exacta.
           </p>
           <div className="mt-4">
             <CTANestedPill

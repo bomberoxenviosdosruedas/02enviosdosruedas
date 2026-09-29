@@ -1,16 +1,19 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { GitCompareArrows, MapPin, MessageCircle } from 'lucide-react';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import CTANestedPill from '@/components/ui/CTANestedPill';
+import Badge from '@/components/ui/Badge';
 
 /**
  * Hero de la guía, no de un servicio. No vende Express ni LowCost: explica que
  * cargás un envío una vez y recibís las dos tarifas. La promesa es la del flujo.
  */
 export default function CotizadorHero() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section
       id="cotizador-hero"
@@ -21,15 +24,19 @@ export default function CotizadorHero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={reduceMotion ? undefined : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-wider bg-brand-blue-700 text-brand-yellow-500 border-2 border-brand-yellow-500/50 -rotate-1 shadow-glow-yellow backdrop-blur-md">
-              <GitCompareArrows className="h-4 w-4 text-brand-yellow-500 shrink-0" />
-              <span>Dos servicios · Una sola carga</span>
-            </div>
+            <Badge
+              variant="accent"
+              size="lg"
+              className="-rotate-1"
+              icon={<GitCompareArrows className="h-4 w-4" />}
+            >
+              Dos servicios · Una sola carga
+            </Badge>
 
             <h1 className="text-5xl sm:text-6xl lg:text-[4.75rem] xl:text-[5.25rem] font-display uppercase tracking-tight leading-[0.92] text-white">
               <span>COTIZÁ TU </span>
@@ -59,7 +66,7 @@ export default function CotizadorHero() {
 
           {/* El flujo en tres líneas: es la guía completa de la página, en miniatura. */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
+            initial={reduceMotion ? undefined : { opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 w-full max-w-lg mx-auto"
@@ -77,10 +84,10 @@ export default function CotizadorHero() {
                     </span>
                     <paso.icon className="h-4 w-4 text-white/60 shrink-0" aria-hidden="true" />
                     <span className="min-w-0">
-                      <span className="block font-subheading text-sm uppercase font-bold tracking-wider text-white">
+                      <span className="block font-subheading text-sm uppercase tracking-wider text-white">
                         {paso.t}
                       </span>
-                      <span className="block font-sans text-xs text-white/70 mt-0.5">{paso.s}</span>
+                      <span className="block font-sans text-xs text-white/85 mt-0.5">{paso.s}</span>
                     </span>
                   </div>
                 ))}

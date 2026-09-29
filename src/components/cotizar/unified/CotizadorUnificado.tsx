@@ -7,6 +7,7 @@ import CotizadorComparativa from './CotizadorComparativa';
 import CotizadorMapa from './CotizadorMapa';
 import CotizadorGuia from './CotizadorGuia';
 import CotizadorBatchOferta from './CotizadorBatchOferta';
+import Badge from '@/components/ui/Badge';
 import { useCotizadorUnificado } from '@/hooks/cotizador/useCotizadorUnified';
 
 /**
@@ -37,17 +38,21 @@ export default function CotizadorUnificado() {
         aria-label="Cotizador de envíos"
         className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch scroll-mt-20"
       >
-        <article className="lg:col-span-7 flex flex-col rounded-[28px] sm:rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl">
-          <div className="bg-brand-blue-700 p-6 sm:p-8 rounded-[20px] border border-white/10 flex flex-col h-full text-white relative overflow-hidden">
+        <article className="lg:col-span-7 flex flex-col rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl">
+          <div className="bg-brand-blue-700 p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col h-full text-white relative overflow-hidden">
             <Calculator
               className="absolute -bottom-10 -right-10 w-64 h-64 text-white/[0.04] pointer-events-none"
               aria-hidden="true"
             />
 
             <header className="relative z-10 mb-6">
-              <span className="px-3.5 py-1 bg-brand-yellow-500/10 text-brand-yellow-500 rounded-full text-xs font-subheading font-bold tracking-wider uppercase border border-brand-yellow-500/40 -rotate-1 shadow-[var(--shadow-glow-yellow)] inline-block">
+              <Badge
+                variant="outline"
+                size="sm"
+                className="border-brand-yellow-500/40 text-brand-yellow-500 -rotate-1"
+              >
                 Mar del Plata · Sin registro
-              </span>
+              </Badge>
               <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white mt-3">
                 Contanos del envío
               </h2>

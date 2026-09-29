@@ -24,8 +24,8 @@ export default function FlexBenefits() {
       icon: RefreshCw,
     },
     {
-      title: 'Cobertura MDP',
-      desc: 'Cubrimos absolutamente todas las zonas de entrega habilitadas por MercadoLibre Flex en la ciudad de Mar del Plata.',
+      title: 'Todo Mar del Plata',
+      desc: 'Cubrimos todas las zonas de entrega habilitadas por MercadoLibre Flex en la ciudad de Mar del Plata.',
       icon: Compass,
     },
     {

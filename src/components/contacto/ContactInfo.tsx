@@ -151,7 +151,7 @@ export default function ContactInfo() {
               </h3>
             </div>
             <span className="font-mono text-xs text-white font-bold px-3 py-1 rounded-full bg-white/10 border border-white/20 tabular-nums">
-              Partido de General Pueyrredón
+              Mar del Plata
             </span>
           </div>
 

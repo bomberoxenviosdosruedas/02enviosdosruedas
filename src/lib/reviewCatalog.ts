@@ -196,7 +196,7 @@ export const reviewCatalog: CatalogItem[] = [
     componentName: "AboutTimeline",
     componentPath: "src/components/nosotros/sobre-nosotros/AboutTimeline.tsx",
     sectionTitle: "4. Hitos Históricos",
-    currentText: "Cronología:\n- 2020: Lanzamiento inicial con 5 motos de reparto.\n- 2023: Mudanza a depósito central Friuli 1972 y automatización de tracking.\n- 2026: Cobertura total de última milla Flex y servicios 3PL avanzados.",
+    currentText: "Cronología:\n- 2020: Lanzamiento inicial con 5 motos de reparto.\n- 2023: Mudanza a depósito central Friuli 1972 y automatización de tracking.\n- 2026: Cobertura en todo Mar del Plata para última milla Flex y servicios 3PL avanzados.",
     elementsToReview: ["Textos de los años", "Descripciones de los logros alcanzados"]
   },
   {

@@ -46,7 +46,7 @@ export const FAQ_DATA: FaqCategoryGroup[] = [
       {
         question: '¿Cuáles son las zonas de cobertura?',
         answer:
-          'Cubrimos de forma integral todo el ejido urbano de Mar del Plata (Centro, Güemes, Puerto, Mogotes, Constitución, San Juan, La Perla, etc.) y extendemos radios operativos hasta 20 km para llegar a Batán y Sierra de los Padres.',
+          'Llegamos a todo Mar del Plata: Centro, Güemes, Puerto, Mogotes, Constitución, San Juan, La Perla, Camet y el resto de los barrios. Más allá de los 10 km de ruta, la tarifa se calcula por kilómetro: hasta 20 km la calcula el cotizador en el momento y más allá la coordinamos con el equipo.',
       },
       {
         question: '¿Cuáles son los límites de peso y tamaño por paquete?',

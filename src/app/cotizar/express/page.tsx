@@ -46,7 +46,7 @@ const jsonLdSchema = {
   url: `${baseUrl}/cotizar/express`,
   description:
     'Envío prioritario en moto dentro de Mar del Plata con entrega el mismo día y franja horaria a coordinar.',
-  areaServed: 'Mar del Plata y General Pueyrredón',
+  areaServed: 'Mar del Plata',
   provider: {
     '@type': 'LocalBusiness',
     '@id': `${baseUrl}#localbusiness`,

@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { ChevronDown, Share2 } from 'lucide-react';
 import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 
 /** Los tres canales que el hero anuncia; el detalle vive en #redes-oficiales. */
@@ -118,10 +119,14 @@ export default function NetworksHero() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-500 shadow-accent-sm -rotate-1">
-                <Share2 className="h-4 w-4 shrink-0" aria-hidden="true" />
-                Social media · Comunidad MDQ
-              </span>
+              <Badge
+                variant="accent"
+                size="lg"
+                className="-rotate-1"
+                icon={<Share2 className="h-4 w-4" aria-hidden="true" />}
+              >
+                Comunidad DosRuedas
+              </Badge>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white text-balance">
                 <span className="block">Comunidad en</span>
@@ -155,8 +160,14 @@ export default function NetworksHero() {
               </div>
             </div>
 
-            {/* RIGHT 5 — bezel doble con la pieza de marca de la comunidad. */}
-            <div className="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
+            {/* RIGHT 5 — mosaico de dos celdas: la foto y el handle.
+                DELIBERADO: el prototipo propone una celda por canal (Instagram,
+                WhatsApp, y una con la foto). No se hizo: `NetworksChannels`, justo
+                debajo, ya trae los tres canales completos con descripción y CTA.
+                Tres tarjetas aquí serían la misma información a 400 px de distancia.
+                Lo que sí faltaba era el dato de que Instagram y Facebook usan el
+                mismo nombre, y eso vive en la celda amarilla. */}
+            <div className="relative flex w-full flex-col items-center justify-center gap-4 lg:col-span-5">
               <DoubleBezelCard variant="dark" className="w-full max-w-md" innerClassName="space-y-4">
                 <div className="flex items-center gap-2">
                   <span className="h-2.5 w-2.5 rounded-full bg-brand-yellow-500 motion-safe:animate-pulse" aria-hidden="true" />
@@ -165,22 +176,26 @@ export default function NetworksHero() {
                   </span>
                 </div>
 
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/20">
+                <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-white/20">
                   <Image
-                    src="/elementos/seguinos_transparent.webp"
-                    alt="Pieza de marca de Envíos DosRuedas con la consigna de seguir sus canales oficiales en redes sociales"
+                    src="/heroes/redes-celular.webp"
+                    alt="Celular con las aplicaciones de Instagram, Facebook y WhatsApp abiertas, representing los canales oficiales de Envíos DosRuedas"
                     fill
                     priority
                     sizes="(min-width: 1024px) 420px, 90vw"
-                    className="object-contain"
+                    className="object-cover"
                   />
                 </div>
-
-                <div className="pt-3 border-t border-white/15 flex items-center justify-between gap-3 font-mono text-xs sm:text-sm text-white/85 tabular-nums">
-                  <span className="truncate">{HANDLE}</span>
-                  <span className="text-brand-yellow-500 shrink-0">MDQ</span>
-                </div>
               </DoubleBezelCard>
+
+              <div className="w-full max-w-md rounded-2xl bg-brand-yellow-500 px-5 py-4 shadow-[0_14px_30px_rgba(255,236,1,0.25)]">
+                <p className="font-mono text-base font-bold tracking-tight text-brand-blue-500">
+                  {HANDLE}
+                </p>
+                <p className="mt-1 font-sans text-sm leading-snug text-brand-blue-500">
+                  Instagram y Facebook con el mismo nombre.
+                </p>
+              </div>
             </div>
           </div>
         </div>

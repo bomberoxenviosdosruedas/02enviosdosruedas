@@ -3,6 +3,13 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import Page from './page';
 import CotizadorUnificado from '@/components/cotizar/unified/CotizadorUnificado';
+import {
+  EXPRESS_PRICE_PER_KM,
+  EXPRESS_TIERS,
+  LOW_COST_TIERS,
+} from '@/lib/pricing';
+
+const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
 /**
  * El cotizador unificado reemplaza a los dos cotizadores por servicio. Estos tests
@@ -83,9 +90,11 @@ describe('Cotizador unificado /cotizar', () => {
     render(await Page());
     const tabla = screen.getByRole('table');
     // Cada fila declara las dos columnas: no hay tabla de un solo servicio.
-    expect(tabla).toHaveTextContent('0 – 3 km');
-    expect(tabla).toHaveTextContent('$3.700');
-    expect(tabla).toHaveTextContent('$3.000');
+    // Los rótulos y los importes se derivan de `pricing.ts`, no se escriben a mano.
+    expect(tabla).toHaveTextContent(`${EXPRESS_TIERS[0].minKm} a ${EXPRESS_TIERS[0].maxKm} km`);
+    expect(tabla).toHaveTextContent(formatArs(EXPRESS_TIERS[0].price));
+    expect(tabla).toHaveTextContent(formatArs(LOW_COST_TIERS[0].price));
+    expect(tabla).toHaveTextContent(`${formatArs(EXPRESS_PRICE_PER_KM)} por km`);
     expect(screen.getAllByRole('columnheader').map((th) => th.textContent)).toEqual([
       'Zona',
       'Express',

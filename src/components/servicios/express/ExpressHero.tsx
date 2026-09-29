@@ -1,16 +1,11 @@
 import React from 'react';
-import Image from 'next/image';
 import { Clock, Package, Tag, Zap } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { EXPRESS_TIERS } from '@/lib/pricing';
-import {
-  EXPRESS_LEAD_TIME,
-  EXPRESS_WINDOW,
-  EXPRESS_WINDOW_SHORT,
-  STANDARD_WEIGHT_KG,
-} from '@/lib/promises';
+import { EXPRESS_WINDOW, EXPRESS_WINDOW_SHORT, STANDARD_WEIGHT_KG } from '@/lib/promises';
 
 const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
@@ -20,6 +15,89 @@ const chips = [
   { icon: Tag, value: ars(EXPRESS_TIERS[0].price), label: 'Tarifa desde' },
   { icon: Package, value: `${STANDARD_WEIGHT_KG} kg`, label: 'Por bulto' },
 ];
+
+/**
+ * El cronómetro: el argumento del servicio dibujado como reloj.
+ *
+ * El dial son 12 horas. Sobre él se pintan las dos únicas horas que el dueño
+ * garantizó: primero la anticipación (amarillo) y después la franja de entrega
+ * (azul). Nunca "60 a 90 minutos": esa promesa se retiró por inexacta, y un
+ * reloj que marka minutos invites a volver a leer un número que no prometimos.
+ */
+const RADIO_DIAL = 86;
+/** Perímetro del dial: 2 × π × 86 ≈ 540. */
+const PERIMETRO_DIAL = 2 * Math.PI * RADIO_DIAL;
+/** Una hora sobre el dial. */
+const HORA_DIAL = PERIMETRO_DIAL / 12;
+const LEN_ANTICIPACION = Math.round(HORA_DIAL * 2);
+const LEN_FRANJA = Math.round(HORA_DIAL * 3);
+/** La anticipación arranca a las 12; la franja sigue justo donde termina. */
+const GRADO_INICIO_FRANJA = -90 + (LEN_ANTICIPACION / PERIMETRO_DIAL) * 360;
+
+function CronometroExpress() {
+  return (
+    <div className="relative mx-auto w-full max-w-[320px]">
+      <svg
+        viewBox="0 0 200 200"
+        aria-hidden="true"
+        className="h-auto w-full overflow-visible"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="100" cy="100" r="100" fill="#FFFFFF" />
+        <circle
+          cx="100"
+          cy="100"
+          r={RADIO_DIAL}
+          fill="none"
+          stroke="#E6EEFE"
+          strokeWidth="14"
+        />
+        {/* Marcas de las 12, 3, 6 y 9: el dial se lee como reloj, no como anillo. */}
+        <g stroke="#BACEFD" strokeWidth="2">
+          <line x1="100" y1="6" x2="100" y2="16" />
+          <line x1="194" y1="100" x2="184" y2="100" />
+          <line x1="100" y1="194" x2="100" y2="184" />
+          <line x1="6" y1="100" x2="16" y2="100" />
+        </g>
+        <circle
+          className="motion-safe:animate-draw"
+          cx="100"
+          cy="100"
+          r={RADIO_DIAL}
+          fill="none"
+          stroke="#FFEC01"
+          strokeWidth="14"
+          strokeLinecap="round"
+          strokeDasharray={LEN_ANTICIPACION}
+          transform={`rotate(-90 100 100)`}
+          style={{ '--draw-len': LEN_ANTICIPACION } as React.CSSProperties}
+        />
+        <circle
+          className="motion-safe:animate-draw"
+          cx="100"
+          cy="100"
+          r={RADIO_DIAL}
+          fill="none"
+          stroke="#0950F6"
+          strokeWidth="14"
+          strokeLinecap="round"
+          strokeDasharray={LEN_FRANJA}
+          transform={`rotate(${GRADO_INICIO_FRANJA} 100 100)`}
+          style={{ '--draw-len': LEN_FRANJA, animationDelay: '0.5s' } as React.CSSProperties}
+        />
+      </svg>
+
+      <div className="absolute inset-0 flex flex-col items-center justify-center pb-[10%] text-center">
+        <span className="font-mono text-[2.75rem] font-bold leading-[0.9] tracking-[-0.05em] tabular-nums text-brand-blue-500 sm:text-5xl">
+          3 hs
+        </span>
+        <span className="font-subheading text-[13px] uppercase tracking-[0.12em] text-brand-blue-500 sm:text-base">
+          Franja a elección
+        </span>
+      </div>
+    </div>
+  );
+}
 
 /**
  * Hero Express — concepto "la traza directa".
@@ -103,21 +181,40 @@ export default function ExpressHero() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-500 shadow-accent-sm -rotate-1">
-                <Zap className="h-4 w-4 shrink-0" aria-hidden="true" />
-                Mar del Plata · Flota propia de motos
-              </span>
+              <Badge
+                variant="accent"
+                size="lg"
+                className="-rotate-1"
+                icon={<Zap className="h-4 w-4" aria-hidden="true" />}
+              >
+                Mensajería en moto · Flota propia
+              </Badge>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white text-balance">
-                <span className="block">Retiro y entrego</span>
-                <Knockout>en tu franja</Knockout>
-                <span className="block">de 3 horas</span>
+                <span className="block">Envíos Express,</span>
+                <Knockout className="whitespace-nowrap">puerta a puerta</Knockout>
               </h1>
 
               <p className="text-base sm:text-lg font-sans text-white/85 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-light">
-                Retiramos tu paquete y lo entregamos en {EXPRESS_WINDOW} a elección en todo Mar del Plata,
-                con {EXPRESS_LEAD_TIME} mínima. Sin agrupar ni esperar: tarifa fija por distancia y
-                coordinación directa por WhatsApp.
+                Retiramos tu paquete y lo entregamos en {EXPRESS_WINDOW} a elección en todo Mar del
+                Plata. Sin agrupar ni esperar: tarifa fija por distancia y coordinación directa por
+                WhatsApp.
+              </p>
+
+              {/* Recorrido directo: el servicio es punto a punto, sin desvíos. */}
+              <p className="flex items-center gap-2.5 font-subheading text-base uppercase tracking-[0.08em] text-white">
+                <span className="inline-flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-brand-blue-500 font-mono text-xs font-bold">
+                  A
+                </span>
+                Retiro
+                <span
+                  className="h-0 min-w-10 flex-1 border-t-[3px] border-dashed border-brand-yellow-500"
+                  aria-hidden="true"
+                />
+                Entrega
+                <span className="inline-flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-brand-yellow-500 font-mono text-xs font-bold text-brand-blue-500">
+                  B
+                </span>
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
@@ -162,18 +259,22 @@ export default function ExpressHero() {
                   </span>
                 </div>
 
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/20">
-                  <Image
-                    src="/elementos/icono_express.webp"
-                    alt="Pieza de marca del servicio Express de Envíos DosRuedas para envíos en moto por Mar del Plata"
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 420px, 90vw"
-                    className="object-cover"
-                  />
+                <div className="relative w-full rounded-xl bg-brand-blue-700 p-4 sm:p-5">
+                  <CronometroExpress />
                 </div>
 
-                <div className="pt-3 border-t border-white/15 flex items-center justify-between gap-3 font-mono text-xs sm:text-sm text-white/85 tabular-nums">
+                <ul className="flex items-center justify-center gap-3 text-center font-sans text-xs text-white/85">
+                  <li className="inline-flex items-center gap-2">
+                    <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-brand-yellow-500" aria-hidden="true" />
+                    2 hs de anticipación
+                  </li>
+                  <li className="inline-flex items-center gap-2">
+                    <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-white" aria-hidden="true" />
+                    3 hs de franja
+                  </li>
+                </ul>
+
+                <div className="border-t border-white/15 pt-3 flex items-center justify-between gap-3 font-mono text-xs sm:text-sm text-white/85 tabular-nums">
                   <span className="truncate">{EXPRESS_WINDOW_SHORT} a elección</span>
                   <span className="text-brand-yellow-500 shrink-0">Punto a punto</span>
                 </div>

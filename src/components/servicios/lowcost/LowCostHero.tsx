@@ -1,15 +1,23 @@
 import React from 'react';
-import Image from 'next/image';
 import { Clock, Tag, TrendingDown } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
-import { LOW_COST_TIERS } from '@/lib/pricing';
+import { EXPRESS_TIERS, LOW_COST_TIERS } from '@/lib/pricing';
 import { LOWCOST_CUTOFF_TIME, LOWCOST_DELIVERY_DEADLINE } from '@/lib/promises';
 
 const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
 const firstTier = LOW_COST_TIERS[0];
+
+/**
+ * Cuánto más barato es LowCost que Express en la base, en pesos.
+ *
+ * El sitio solía compararlo como "−30 % vs Express", pero $3.000 contra $3.700
+ * es −19 %. El número en pesos sale de las dos tarifas: no hay forma de que se
+ * desincronice si mañana cambian los precios.
+ */
+const DIFERENCIA_BASE = EXPRESS_TIERS[0].price - LOW_COST_TIERS[0].price;
 
 /** La hora de corte y la de entrega son TODO el servicio: van en chips, no en prosa. */
 const chips = [
@@ -17,6 +25,118 @@ const chips = [
   { icon: Clock, value: LOWCOST_DELIVERY_DEADLINE, label: 'Entrega el mismo día' },
   { icon: Tag, value: ars(firstTier.price), label: `Base ${firstTier.minKm}-${firstTier.maxKm} km` },
 ];
+
+/**
+ * Geometría de la barra de la jornada.
+ *
+ * El eje va de 8 a 20 h porque es la ventana en que el servicio opera: antes no
+ * hay carga y después no hay reparto. Las posiciones se derivan de las horas que
+ * ya viven en `@/lib/promises` en vez de escribirlas a mano, así que si Matías
+ * mueve el corte o la entrega, la barra se mueve con el número.
+ */
+const HORA_APERTURA = 8;
+const HORA_CIERRE = 20;
+
+/** Lee la hora de una marca "HH:MM hs" y la devuelve como número decimal. */
+const horaDe = (marca: string): number => {
+  const [horas, minutos] = marca.split(':');
+  return Number(horas) + Number(minutos) / 60;
+};
+
+const SPAN_HORAS = HORA_CIERRE - HORA_APERTURA;
+const pctCorte = ((horaDe(LOWCOST_CUTOFF_TIME) - HORA_APERTURA) / SPAN_HORAS) * 100;
+const pctEntrega = ((horaDe(LOWCOST_DELIVERY_DEADLINE) - HORA_APERTURA) / SPAN_HORAS) * 100;
+/** Una marca cada dos horas, de 8 a 20. */
+const marcas = Array.from({ length: 7 }, (_, i) => HORA_APERTURA + i * 2);
+
+/** Hatched: la carga entra; sólido: el reparto sale. Se lee sin leyenda también. */
+const TRAMA_CARGA =
+  'bg-[repeating-linear-gradient(90deg,#0950F6_0_3px,transparent_3px_7px)]';
+
+const HORA_REPARTOS = (horaDe(LOWCOST_DELIVERY_DEADLINE) - horaDe(LOWCOST_CUTOFF_TIME)).toFixed(
+  0
+);
+
+/**
+ * La barra de la jornada — el LowCost no se explica con una reloj de 12 h, sino
+ * con las dos horas que importan: hasta cuándo cargás y desde cuándo salimos.
+ *
+ * Se dibuja con `left`/`width` en porcentaje del track, y el tramo de reparto
+ * entra con `animate-grow-x` desde el origen izquierdo. Sin animación el tramo
+ * ya está completo: es el estado final legible.
+ */
+function BarraJornada() {
+  return (
+    <div className="w-full space-y-4">
+      <div className="flex items-baseline justify-between gap-3">
+        <h3 className="font-subheading text-sm uppercase tracking-widest text-brand-blue-500">
+          Tu jornada LowCost
+        </h3>
+        <span className="font-mono text-xs tabular-nums text-brand-blue-500/70">
+          8 a 20 hs
+        </span>
+      </div>
+
+      {/* Barra + marcas. `min-w` porque en móvil las 7 marcas no entran en 300 px. */}
+      <div className="-mx-1 overflow-x-auto px-1 pb-1">
+        <div className="min-w-[340px]">
+          <div className="relative h-11 overflow-hidden rounded-lg bg-brand-blue-50">
+            {/* Carga: desde la apertura hasta el corte. */}
+            <div
+              className={`absolute inset-y-0 left-0 ${TRAMA_CARGA}`}
+              style={{ width: `${pctCorte}%` }}
+              aria-hidden="true"
+            />
+            {/* Reparto: desde el corte hasta la entrega. */}
+            <div
+              className="animate-grow-x absolute inset-y-0 bg-brand-blue-500"
+              style={{ left: `${pctCorte}%`, width: `${pctEntrega - pctCorte}%` }}
+              aria-hidden="true"
+            />
+            {/* Bandera del corte. */}
+            <div
+              className="absolute inset-y-0 w-0.5 bg-brand-blue-500"
+              style={{ left: `${pctCorte}%` }}
+              aria-hidden="true"
+            />
+            <div
+              className="absolute inset-y-0 w-0.5 bg-brand-blue-500"
+              style={{ left: `${pctEntrega}%` }}
+              aria-hidden="true"
+            />
+          </div>
+
+          <div className="relative mt-2 h-4">
+            {marcas.map((hora) => (
+              <span
+                key={hora}
+                className="absolute -translate-x-1/2 font-mono text-[11px] tabular-nums text-brand-blue-500/70"
+                style={{ left: `${((hora - HORA_APERTURA) / SPAN_HORAS) * 100}%` }}
+              >
+                {String(hora).padStart(2, '0')}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Los dos hitos, en la misma fila que la leyenda para que la barra no crezca. */}
+      <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 font-sans text-xs text-brand-blue-500">
+        <li className="inline-flex items-center gap-2">
+          <span className="h-[3px] w-6 bg-brand-blue-500" aria-hidden="true" />
+          <span className="font-mono tabular-nums">{LOWCOST_CUTOFF_TIME}</span> cortás
+        </li>
+        <li className="inline-flex items-center gap-2">
+          <span className="h-3 w-6 rounded-sm bg-brand-blue-500" aria-hidden="true" />
+          <span className="font-mono tabular-nums">{LOWCOST_DELIVERY_DEADLINE}</span> entregamos
+        </li>
+        <li className="inline-flex items-center gap-2 text-brand-blue-500/70">
+          {HORA_REPARTOS} hs en la calle
+        </li>
+      </ul>
+    </div>
+  );
+}
 
 /**
  * Hero LowCost — concepto "el reloj de la ventana".
@@ -152,29 +272,28 @@ export default function LowCostHero() {
             {/* RIGHT 5 — bezel claro con la pieza del servicio. */}
             <div className="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
               <DoubleBezelCard className="w-full max-w-md" innerClassName="space-y-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-brand-blue-500 motion-safe:animate-pulse" aria-hidden="true" />
-                  <span className="font-subheading text-sm tracking-widest text-brand-blue-500 uppercase">
-                    Mismo día, sin agrupar
+                <div className="flex items-center justify-between gap-3">
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-2.5 w-2.5 rounded-full bg-brand-blue-500 motion-safe:animate-pulse" aria-hidden="true" />
+                    <span className="font-subheading text-sm tracking-widest text-brand-blue-500 uppercase">
+                      Mismo día, sin agrupar
+                    </span>
+                  </span>
+                  {/* La diferencia va en pesos, no en porcentaje: sobre la tarifa
+                      base un porcentaje se distorsiona al redondear y deja de
+                      decir la verdad. */}
+                  <span className="shrink-0 rounded-md bg-brand-blue-500 px-2 py-1 font-mono text-[11px] tabular-nums text-white">
+                    −{ars(DIFERENCIA_BASE)}
                   </span>
                 </div>
 
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-brand-blue-500/15">
-                  <Image
-                    src="/elementos/envios_lowcost.webp"
-                    alt="Pieza de marca del servicio LowCost de Envíos DosRuedas para paquetería y cadetería en Mar del Plata"
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 420px, 90vw"
-                    className="object-cover"
-                  />
-                </div>
+                <BarraJornada />
 
-                <div className="pt-3 border-t border-brand-blue-500/15 flex items-center justify-between gap-3 font-mono text-xs sm:text-sm text-brand-blue-500 tabular-nums">
+                <div className="border-t border-brand-blue-500/15 pt-3 flex items-center justify-between gap-3 font-mono text-xs sm:text-sm text-brand-blue-500 tabular-nums">
                   <span className="truncate">
                     {LOWCOST_CUTOFF_TIME} → {LOWCOST_DELIVERY_DEADLINE}
                   </span>
-                  <span className="shrink-0">Todo MDQ</span>
+                  <span className="shrink-0">Todo Mar del Plata</span>
                 </div>
               </DoubleBezelCard>
             </div>

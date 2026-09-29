@@ -27,7 +27,7 @@ const ZONE_BARRIOS: readonly string[] = [
   'Playa Grande, Los Troncos, Puerto, Parque Luro, Pompeya',
   'Punta Mogotes, Caisamar, Constitución, Colinas, Las Avenidas',
   'Faro, Alfar, Bosque Peralta Ramos, Parque Camet, Libertad',
-  'Acantilados, Batán, Sierra de los Padres, Camet Norte',
+  'Acantilados, San Patricio, Estación Camet, Camet Norte',
 ];
 
 /**
@@ -64,14 +64,14 @@ const ZONE_ROWS = ZONE_BARRIOS.map((barrios, i) => {
 export const metadata: Metadata = {
   title: 'Cobertura de Envíos en Mar del Plata y Zonas',
   description:
-    'Zonas y radios de cobertura de mensajería y paquetería en Mar del Plata. Desde Friuli 1972 a todos los barrios: Centro, Güemes, Puerto, Mogotes, Constitución y hasta 20 km.',
+    'Zonas y radios de cobertura de mensajería y paquetería en todo Mar del Plata. Desde Friuli 1972 a cada barrio: Centro, Güemes, Puerto, Mogotes y Constitución.',
   alternates: {
     canonical: `${baseUrl}/cobertura`,
   },
   openGraph: {
     title: 'Cobertura de Envíos en Mar del Plata y Zonas | Envíos DosRuedas',
     description:
-      'Mapa y radios de cobertura para entregas Express y LowCost en Mar del Plata y Partido de General Pueyrredón.',
+      'Mapa y radios de cobertura para entregas Express y LowCost en todo Mar del Plata.',
     url: `${baseUrl}/cobertura`,
     type: 'website',
     locale: 'es_AR',
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Cobertura de Envíos en Mar del Plata y Zonas | Envíos DosRuedas',
-    description: 'Mapa y radios de cobertura para entregas Express y LowCost en Mar del Plata y Partido de General Pueyrredón.',
+    description: 'Mapa y radios de cobertura para entregas Express y LowCost en todo Mar del Plata.',
     images: [`${baseUrl}/og-image.jpg`],
     creator: '@enviosdosruedas',
   },
@@ -91,7 +91,7 @@ const jsonLdSchema = {
   '@id': `${baseUrl}#localbusiness`,
   name: 'Envíos DosRuedas - Cobertura Mar del Plata',
   description:
-    'Mensajería, paquetería urbana y distribución e-commerce con cobertura integral en Mar del Plata y Partido de General Pueyrredón.',
+    'Mensajería, paquetería urbana y distribución e-commerce en todo Mar del Plata, desde la base de Friuli 1972.',
   url: `${baseUrl}/cobertura`,
   telephone: '+54-223-660-2699',
   address: {
@@ -108,7 +108,6 @@ const jsonLdSchema = {
     longitude: -57.5683,
   },
   areaServed: [
-    { '@type': 'AdministrativeArea', name: 'Partido de General Pueyrredón' },
     { '@type': 'City', name: 'Mar del Plata' },
     { '@type': 'Place', name: 'Chauvín' },
     { '@type': 'Place', name: 'Centro Mar del Plata' },
@@ -117,8 +116,6 @@ const jsonLdSchema = {
     { '@type': 'Place', name: 'Puerto Mar del Plata' },
     { '@type': 'Place', name: 'Punta Mogotes' },
     { '@type': 'Place', name: 'Constitución' },
-    { '@type': 'Place', name: 'Batán' },
-    { '@type': 'Place', name: 'Sierra de los Padres' },
   ],
 };
 
@@ -153,13 +150,15 @@ export default function CoberturaPage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-xs uppercase tracking-wider mb-4">
               <Compass className="w-3.5 h-3.5" />
-              <span>PARTIDO DE GENERAL PUEYRREDÓN · VIGENCIA 2026</span>
+              <span>TODO MAR DEL PLATA · VIGENCIA 2026</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white leading-none">
-              COBERTURA TOTAL EN <span className="text-brand-yellow-500">MAR DEL PLATA</span>
+              LLEGAMOS A <span className="text-brand-yellow-500">TODO MAR DEL PLATA</span>
             </h1>
             <p className="mt-4 text-base sm:text-lg text-brand-blue-50/90 font-sans leading-relaxed">
-              Operamos con base logística central en <strong>Friuli 1972</strong>. Llegamos a todos los barrios del ejido urbano marplatense y extendemos nuestra cobertura hasta un radio de 20 km para llegar a Batán y Sierra de los Padres.
+              Operamos con base logística central en <strong>Friuli 1972</strong>. Llegamos a todos
+              los barrios de Mar del Plata. Más allá de los 10 km de ruta, la tarifa se calcula por
+              kilómetro: escribinos y te la confirmamos.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">

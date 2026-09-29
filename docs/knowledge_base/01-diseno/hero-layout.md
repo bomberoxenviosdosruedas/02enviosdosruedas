@@ -113,6 +113,39 @@ Cualquier otro hero centrado en desktop es un error, no una excepción.
 </DoubleBezelCard>
 ```
 
+#### Excepción autorizada: la etiqueta de envío (`FlexHero`)
+
+`src/components/servicios/flex/FlexHero.tsx` conserva el grid 7/5 — **no** se
+centró — pero reemplaza el `DoubleBezelCard` de la columna derecha por una
+**etiqueta de envío**: tarjeta blanca con borde de puntos, los dos orificios
+laterales, un `-rotate-2` y un código de barras. Sin marco doble alrededor.
+
+**Por qué se autoriza:** un marco blanco conteniendo otra tarjeta blanca deja de
+leerse como objeto. Y el objeto correcto acá no es una foto de marca sino la
+etiqueta que el vendedor de Flex ya tiene en la cabeza: pone las condiciones del
+servicio donde el vendedor va a buscarlas.
+
+**Condiciones para que la excepción siga siendo válida:**
+
+- Sigue dentro de la columna de 5 del grid 7/5. El hero **no** se centró.
+- La etiqueta es el único elemento de la columna: no se le suma un
+  `DoubleBezelCard` atrás, porque eso es exactamente lo que la hace ilegible.
+- Todas las filas de datos salen de `@/lib/promises` o `@/lib/pricing`. No se
+  publican condiciones comerciales sin respaldo del dueño, y por eso no están
+  "Mínimo de envíos: sin mínimos" ni "Retiros: múltiples".
+
+### 3.3 Inventario de tonos de hero
+
+| Tono | Heroes | Archivo |
+|---|---|---|
+| Azul | Inicio, Express, Flex, Sobre nosotros, FAQ, Redes, Contacto, Cotizador | — |
+| Amarillo | LowCost, Emprendedores + Depósito | `LowCostHero`, `EmprendedoresHero` |
+
+`/servicios/deposito-fulfillment` y `/servicios/plan-emprendedores` **comparten**
+`EmprendedoresHero`. Son páginas hermanas sobre el mismo hub: dos heroes
+amarillos casi idénticos serían duplicación, no personalización. La
+diferenciación de cada página va en la sección siguiente al hero.
+
 ---
 
 ## 4. Variantes de `HeroProceduralBackground`

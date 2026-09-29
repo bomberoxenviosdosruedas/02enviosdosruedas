@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import { BookOpen, PackageCheck, ShieldCheck, Tag, Timer } from 'lucide-react';
-import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import { CTANestedPill, Knockout } from '@/components/ui';
+import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { LOW_COST_TIERS } from '@/lib/pricing';
 import { FLEX_CUTOFF_TIME, FLEX_DELIVERY_DEADLINE } from '@/lib/promises';
@@ -15,6 +15,89 @@ const chips = [
   { icon: PackageCheck, value: FLEX_DELIVERY_DEADLINE, label: 'Entrega garantizada' },
   { icon: Tag, value: ars(firstTier.price), label: `Base ${firstTier.minKm}-${firstTier.maxKm} km` },
 ];
+
+/** El circuito completo en tres pasos: es lo único que hay que recordar del canal. */
+const pasos = [
+  { n: '1', texto: 'Vendés' },
+  { n: '2', texto: 'Retiramos' },
+  { n: '3', texto: 'Entregamos' },
+];
+
+/**
+ * Filas de la etiqueta. Cada valor sale de `@/lib/promises` o `@/lib/pricing`.
+ *
+ * Deliberadamente NO están "Mínimo de envíos: sin mínimos" ni "Retiros:
+ * múltiples": son las dos filas que el prototipo pedía y que hoy no están
+ * respaldadas por el dueño. Publicarlas sin su OK sería justo el tipo de
+ * promesa que después hay que retirar.
+ */
+const filas: ReadonlyArray<{ k: string; v: string }> = [
+  { k: 'Corte de retiro', v: FLEX_CUTOFF_TIME },
+  { k: 'Base tarifa', v: `${ars(firstTier.price)} · ${firstTier.minKm}-${firstTier.maxKm} km` },
+  { k: 'Retiro', v: 'Depósito o domicilio' },
+  { k: 'Destino', v: 'Todo Mar del Plata' },
+];
+
+/**
+ * La etiqueta de envío.
+ *
+ * Es el objeto que el vendedor de Flex ya tiene en la cabeza: la etiqueta que
+ * imprime todas las mañanas. Poner las condiciones ahí, en lugar de en tres
+ * chips sueltos, hace que se lean como una etiqueta y no como una lista de
+ * funciones.
+ *
+ * No usa `DoubleBezelCard`: un marco blanco conteniendo otra tarjeta blanca deja
+ * de leerse como objeto. La etiqueta trae su propio borde — línea de puntos y
+ * los dos orificios del lateral — que es lo que la identifica.
+ */
+function EtiquetaFlex() {
+  return (
+    <div className="relative w-full max-w-sm -rotate-2">
+      {/* Los dos orificios: son los que hacen que el rectángulo se lea etiqueta. */}
+      <span
+        aria-hidden="true"
+        className="absolute left-[-11px] top-1/2 h-[18px] w-[18px] -translate-y-1/2 rounded-full bg-brand-blue-500"
+      />
+      <span
+        aria-hidden="true"
+        className="absolute right-[-11px] top-1/2 h-[18px] w-[18px] -translate-y-1/2 rounded-full bg-brand-blue-500"
+      />
+
+      <div className="rounded-2xl border-2 border-dashed border-brand-blue-200 bg-white px-5 py-4 text-left shadow-[0_24px_48px_-16px_rgba(255,255,255,0.18)]">
+        <div className="flex items-center justify-between gap-3 border-b-2 border-brand-blue-500 pb-2.5">
+          <span className="font-display text-3xl uppercase leading-none tracking-[-0.01em] text-brand-blue-500">
+            Entrega hoy
+          </span>
+          <span className="shrink-0 rounded-md bg-brand-yellow-500 px-2 py-1.5 font-subheading text-xs uppercase tracking-[0.1em] text-brand-blue-500">
+            Same-day
+          </span>
+        </div>
+
+        <dl>
+          {filas.map(({ k, v }) => (
+            <div
+              key={k}
+              className="flex items-baseline justify-between gap-3 border-b border-dashed border-brand-blue-100 py-2 last:border-b-0"
+            >
+              <dt className="font-subheading text-sm uppercase tracking-[0.1em] text-brand-blue-400">
+                {k}
+              </dt>
+              <dd className="text-right font-mono text-sm font-bold tabular-nums text-brand-blue-500">
+                {v}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        {/* Barcode decorativo: cierra el objeto. No codifica nada real. */}
+        <div
+          aria-hidden="true"
+          className="mt-2.5 h-10 w-full rounded bg-[repeating-linear-gradient(90deg,#0950F6_0_2px,transparent_2px_4px,#0950F6_4px_7px,transparent_7px_9px,#0950F6_9px_10px,transparent_10px_13px)]"
+        />
+      </div>
+    </div>
+  );
+}
 
 /**
  * Hero Mercado Envíos Flex — concepto "el corredor de despacho".
@@ -105,10 +188,14 @@ export default function FlexHero() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-500 shadow-accent-sm -rotate-1">
-                <ShieldCheck className="h-4 w-4 shrink-0" aria-hidden="true" />
-                Integración oficial Mercado Envíos · MDQ
-              </span>
+              <Badge
+                variant="accent"
+                size="lg"
+                className="-rotate-1"
+                icon={<ShieldCheck className="h-4 w-4" aria-hidden="true" />}
+              >
+                Integración oficial Mercado Envíos
+              </Badge>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white text-balance">
                 <span className="block">Entregamos tu venta Flex</span>
@@ -143,6 +230,24 @@ export default function FlexHero() {
                 </a>
               </div>
 
+              {/* El circuito completo: vender, retirar, entregar. */}
+              <ol
+                aria-label="Cómo funciona Mercado Envíos Flex"
+                className="flex flex-wrap items-center justify-center gap-2 lg:justify-start"
+              >
+                {pasos.map((paso) => (
+                  <li
+                    key={paso.n}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 font-subheading text-base uppercase tracking-[0.07em] text-white"
+                  >
+                    <span className="inline-flex h-[22px] w-[22px] items-center justify-center rounded-full bg-brand-yellow-500 font-mono text-[12px] font-bold text-brand-blue-500">
+                      {paso.n}
+                    </span>
+                    {paso.texto}
+                  </li>
+                ))}
+              </ol>
+
               <ul className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
                 {chips.map((chip) => (
                   <li key={chip.label} className="p-3 rounded-xl bg-white/10 border border-white/20 text-center">
@@ -154,34 +259,9 @@ export default function FlexHero() {
               </ul>
             </div>
 
-            {/* RIGHT 5 — bezel claro con la pieza del servicio. */}
-            <div className="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
-              <DoubleBezelCard className="w-full max-w-md" innerClassName="space-y-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-brand-blue-500 motion-safe:animate-pulse" aria-hidden="true" />
-                  <span className="font-subheading text-sm tracking-widest text-brand-blue-500 uppercase">
-                    Despacho verificado
-                  </span>
-                </div>
-
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-brand-blue-500/15">
-                  <Image
-                    src="/elementos/envios_flex.webp"
-                    alt="Pieza de marca del servicio Mercado Envíos Flex de Envíos DosRuedas para vendedores de Mar del Plata"
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 420px, 90vw"
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="pt-3 border-t border-brand-blue-500/15 flex items-center justify-between gap-3 font-mono text-xs sm:text-sm text-brand-blue-500 tabular-nums">
-                  <span className="truncate">
-                    {FLEX_CUTOFF_TIME} → {FLEX_DELIVERY_DEADLINE}
-                  </span>
-                  <span className="shrink-0">Toda la ciudad</span>
-                </div>
-              </DoubleBezelCard>
+            {/* RIGHT 5 — la etiqueta: el objeto que el vendedor ya conoce. */}
+            <div className="relative flex w-full flex-col items-center justify-center lg:col-span-5">
+              <EtiquetaFlex />
             </div>
           </div>
         </div>

@@ -28,7 +28,7 @@ export default function AboutTimeline() {
     {
       year: '2024',
       title: 'Pioneros MercadoLibre Flex en MDQ',
-      desc: 'Nos convertimos en el socio logístico de referencia para entregas Same-Day de Mercado Libre en todo General Pueyrredón.',
+      desc: 'Nos convertimos en el socio logístico de referencia para entregas Same-Day de Mercado Libre en todo Mar del Plata.',
       icon: CheckCircle,
     },
     {
@@ -39,7 +39,7 @@ export default function AboutTimeline() {
     },
     {
       year: '2026',
-      title: 'Infraestructura 3PL y Cobertura Total',
+      title: 'Infraestructura 3PL en todo Mar del Plata',
       desc: 'Más de 7 años de trayectoria consolidada con flota propia, cotizadores en tiempo real y fulfillment integral para tiendas online.',
       icon: Award,
     },

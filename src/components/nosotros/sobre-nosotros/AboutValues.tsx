@@ -41,7 +41,7 @@ export default function AboutValues() {
             NUESTROS VALORES
           </h2>
           <p className="text-white/90 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
-            Los pilares innegociables que sostienen nuestra operativa diaria en cada rincón de General Pueyrredón.
+            Los pilares innegociables que sostienen nuestra operativa diaria en cada barrio de Mar del Plata.
           </p>
         </div>
 

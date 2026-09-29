@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Servicios | Envíos DosRuedas',
-    description: 'Mensajería Express, paquetería LowCost, MercadoLibre Flex y logística e-commerce. Cobertura total Mar del Plata.',
+    description: 'Mensajería Express, paquetería LowCost, MercadoLibre Flex y logística e-commerce en todo Mar del Plata.',
     url: `${baseUrl}/servicios`,
     type: 'website',
     locale: 'es_AR',
@@ -234,7 +234,7 @@ export default function ServiciosPage() {
               NUESTROS <span className="text-brand-yellow-500">SERVICIOS</span>
             </h1>
             <p className="mt-4 text-base sm:text-lg text-brand-blue-50 font-sans leading-relaxed font-light max-w-2xl">
-              Cobertura total en Mar del Plata y Partido de General Pueyrredón.
+              Llegamos a todo Mar del Plata.
               Tarifas transparentes 2026. Flota propia, base en Friuli 1972.
             </p>
 

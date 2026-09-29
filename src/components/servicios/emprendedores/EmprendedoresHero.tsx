@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import { Boxes, Receipt, Tag, Warehouse } from 'lucide-react';
+import { Boxes, Warehouse } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
+import { CTANestedPill, Knockout } from '@/components/ui';
+import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import {
   CONTRAREEMBOLSO_COMMISSION_PERCENT,
@@ -13,12 +14,36 @@ import {
 const BINS = 7;
 const PICKED = 3;
 
-/** Las dos condiciones comerciales del plan + el horario del hub, todo desde promesas.ts. */
-const chips = [
-  { icon: Tag, value: `-${DROPOFF_DISCOUNT_PERCENT}%`, label: 'Si lo traés vos' },
-  { icon: Receipt, value: `$${CONTRAREEMBOLSO_COMMISSION_PERCENT}`, label: 'Cobro en entrega' },
-  { icon: Warehouse, value: OPERATING_HOURS.weekdays, label: 'Atención en el hub' },
+/**
+ * El circuito del hub, en tres pasos.
+ *
+ * Antes iban tres chips con las condiciones comerciales. Se reemplazaron por el
+ * flujo porque el cliente de depósito no compra un descuento: compra entender
+ * qué pasa con su caja desde que la deja hasta que llega. Las condiciones
+ * comerciales bajaron a los dos sellos sobre la foto, que es donde un número
+ * grande se lee sin esfuerzo.
+ */
+const pasos = [
+  { n: '01', titulo: 'Almacenamos', texto: 'Tu stock en Friuli 1972.' },
+  { n: '02', titulo: 'Preparamos', texto: 'Picking y embalaje por pedido.' },
+  { n: '03', titulo: 'Entregamos', texto: 'En el día, en todo Mar del Plata.' },
 ];
+
+/** Los dos números comerciales, como sellos sobre la foto del local. */
+const ofertas = [
+  {
+    id: 'dropoff',
+    valor: `-${DROPOFF_DISCOUNT_PERCENT}%`,
+    texto: 'Con DropOFF',
+    posicion: 'left-[-2%] top-[8%] -rotate-3',
+  },
+  {
+    id: 'comision',
+    valor: `$${CONTRAREEMBOLSO_COMMISSION_PERCENT}`,
+    texto: 'Comisión contrarreembolso',
+    posicion: 'right-[-2%] bottom-[10%] rotate-2',
+  },
+] as const;
 
 /**
  * Hero Plan Emprendedores / 3PL — concepto "el picking".
@@ -92,10 +117,14 @@ export default function EmprendedoresHero() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest bg-brand-blue-500 text-white -rotate-1">
-                <Boxes className="h-4 w-4 shrink-0" aria-hidden="true" />
-                Fulfillment 3PL e-commerce · MDQ
-              </span>
+              <Badge
+                variant="primary"
+                size="lg"
+                className="-rotate-1"
+                icon={<Boxes className="h-4 w-4" aria-hidden="true" />}
+              >
+                Fulfillment 3PL e-commerce
+              </Badge>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-brand-blue-500 text-balance">
                 <span className="block">Vos vendés, nosotros</span>
@@ -130,43 +159,78 @@ export default function EmprendedoresHero() {
                 </a>
               </div>
 
-              <ul className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
-                {chips.map((chip) => (
-                  <li key={chip.label} className="p-3 rounded-xl bg-white/45 border border-brand-blue-500/30 text-center">
-                    <chip.icon className="w-4 h-4 mx-auto text-brand-blue-500" aria-hidden="true" />
-                    <span className="block font-mono text-lg sm:text-2xl text-brand-blue-500 tabular-nums mt-1.5">{chip.value}</span>
-                    <span className="block font-subheading text-[11px] sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">{chip.label}</span>
+              {/* El circuito del hub. En móvil las tres celdas se apilan: leídas
+                  en columna el orden 01→02→03 es explícito. */}
+              <ol
+                aria-label="Cómo funciona el depósito y fulfillment"
+                className="grid max-w-xl gap-0 overflow-hidden rounded-2xl border border-brand-blue-200 bg-white shadow-[0_20px_40px_-16px_rgba(9,80,246,0.3)] mx-auto lg:mx-0 sm:grid-cols-3"
+              >
+                {pasos.map((paso, i) => (
+                  <li
+                    key={paso.n}
+                    className={`flex flex-col gap-1.5 p-4 ${
+                      i > 0 ? 'border-t border-dashed border-brand-blue-100 sm:border-t-0 sm:border-l' : ''
+                    }`}
+                  >
+                    <span className="font-mono text-xs font-bold tabular-nums text-brand-blue-400">
+                      {paso.n}
+                    </span>
+                    <span className="font-subheading text-xl uppercase leading-none tracking-[0.05em] text-brand-blue-500">
+                      {paso.titulo}
+                    </span>
+                    <span className="text-[13.5px] leading-snug text-brand-blue-400">
+                      {paso.texto}
+                    </span>
                   </li>
                 ))}
-              </ul>
+              </ol>
+
+              <p className="text-center font-mono text-xs tabular-nums text-brand-blue-500 lg:text-left">
+                <Warehouse className="mr-1.5 inline h-3.5 w-3.5 -translate-y-px" aria-hidden="true" />
+                Atención en el hub: {OPERATING_HOURS.weekdays}
+              </p>
             </div>
 
-            {/* RIGHT 5 — bezel claro con la pieza del servicio. */}
-            <div className="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
-              <DoubleBezelCard className="w-full max-w-md" innerClassName="space-y-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-brand-blue-500 motion-safe:animate-pulse" aria-hidden="true" />
-                  <span className="font-subheading text-sm tracking-widest text-brand-blue-500 uppercase">
-                    Picking por código QR
-                  </span>
-                </div>
+            {/* RIGHT 5 — el local con los dos sellos comerciales encima. */}
+            <div className="relative flex w-full flex-col items-center justify-center lg:col-span-5">
+              <div className="relative w-full max-w-[420px]">
+                {/* Panel blanco ladeado detrás de la foto: da la separación que
+                    en azul plano no existe, porque la imagen es de la misma
+                    paleta que el fondo. */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-[6%] bottom-[4%] top-[8%] -z-10 rotate-3 rounded-3xl bg-white opacity-55"
+                />
 
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-brand-blue-500/15">
-                  <Image
-                    src="/elementos/envios_emprendedores.webp"
-                    alt="Pieza de marca del Plan Emprendedores y Fulfillment 3PL de Envíos DosRuedas en Friuli 1972, Mar del Plata"
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 420px, 90vw"
-                    className="object-cover"
-                  />
-                </div>
+                <Image
+                  src="/heroes/deposito-local.webp"
+                  alt="Local de Envíos DosRuedas en Mar del Plata con toldo azul y mercadería preparada para despacho"
+                  width={520}
+                  height={520}
+                  priority
+                  sizes="(min-width: 1024px) 420px, 90vw"
+                  className="relative h-auto w-full"
+                />
 
-                <div className="pt-3 border-t border-brand-blue-500/15 flex items-center justify-between gap-3 font-mono text-xs sm:text-sm text-brand-blue-500 tabular-nums">
-                  <span className="truncate">Hub Friuli 1972</span>
-                  <span className="shrink-0">Stock + Same Day</span>
-                </div>
-              </DoubleBezelCard>
+                {ofertas.map((oferta) => (
+                  <div
+                    key={oferta.id}
+                    className={`absolute z-[2] flex flex-col gap-0.5 rounded-xl bg-brand-blue-500 px-3.5 py-2.5 shadow-[0_14px_30px_rgba(9,80,246,0.3)] ${oferta.posicion}`}
+                  >
+                    <span className="font-mono text-xl font-bold leading-none tabular-nums text-brand-yellow-500">
+                      {oferta.valor}
+                    </span>
+                    <span className="font-subheading text-sm uppercase leading-none tracking-[0.07em] text-white">
+                      {oferta.texto}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-5 flex w-full max-w-[420px] items-center justify-between gap-3 border-t border-brand-blue-500/20 pt-3 font-mono text-xs tabular-nums text-brand-blue-500">
+                <span className="truncate">Hub Friuli 1972</span>
+                <span className="shrink-0">Stock + Same Day</span>
+              </p>
             </div>
           </div>
         </div>

@@ -47,7 +47,7 @@ const jsonLdSchema = {
   url: `${baseUrl}/cotizar/lowcost`,
   description:
     'Envío programado en moto dentro de Mar del Plata con entrega el mismo día, agrupado en un ruteo consolidado.',
-  areaServed: 'Mar del Plata y General Pueyrredón',
+  areaServed: 'Mar del Plata',
   provider: {
     '@type': 'LocalBusiness',
     '@id': `${baseUrl}#localbusiness`,

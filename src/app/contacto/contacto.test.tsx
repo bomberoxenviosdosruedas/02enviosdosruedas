@@ -11,7 +11,15 @@ describe('ContactoPage — Verbatim & Functionality Tests', () => {
   it('1. Renderiza el contenedor principal y el hero de la página', () => {
     const { container } = render(<ContactoPage />);
     expect(container.querySelector('main')).toBeInTheDocument();
-    expect(screen.getByText(/Conexión Directa.*Mar del Plata/i)).toBeInTheDocument();
+    // El badge del hero ya no incluye el lugar: pasó a ser sólo "Conexión
+    // directa". El topónimo que importaba sigue en la bajada y en la fila del
+    // conmutador ("Base central · Mar del Plata"), y "Conexión directa · MDQ"
+    // era justamente una cobertura que la pasada de cobertura tenía que sacar.
+    expect(screen.getByText(/Conexión directa/i)).toBeInTheDocument();
+    // El conmutador del hero publica los dos canales con su topónimo.
+    expect(screen.getByText('Hub central')).toBeInTheDocument();
+    // Sale dos veces: en la fila del conmutador y en la banda del ida y vuelta.
+    expect(screen.getAllByText(/Friuli 1972 · Mar del Plata/).length).toBeGreaterThan(0);
   });
 
   it('2. Verifica los textos literales y campos de la sección Formulario de Contacto', () => {

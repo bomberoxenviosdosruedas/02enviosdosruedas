@@ -47,7 +47,7 @@ SERVICIOS OFRECIDOS:
    - Flexibilidad con Cuenta Corriente corporativa PyME mensual.
 
 ZONAS DE COBERTURA EN MAR DEL PLATA:
-Cubrimos toda la cuadrícula y zonas extendidas de Mar del Plata: Centro, La Perla, Constitución, Chauvín, San Carlos, Playa Grande, Güemes, Puerto, Punta Mogotes, Terminal/Sarmiento, Pompeya, Caisamar, Los Troncos, Stella Maris, Alfar, Bosque Peralta Ramos, Sierra de los Padres, Batán y Camet.
+Llegamos a todo Mar del Plata: Centro, La Perla, Constitución, Chauvín, San Carlos, Playa Grande, Güemes, Puerto, Punta Mogotes, Terminal/Sarmiento, Pompeya, Caisamar, Los Troncos, Stella Maris, Alfar, Bosque Peralta Ramos y Camet. Más allá de los 10 km de ruta, la tarifa se calcula por kilómetro.
 
 POLÍTICAS O REGLAS OPERATIVAS:
 - Clima: No suspendemos por llovizna costera suave. Contamos con mochilas estancas e impermeables para cuidar la paquetería. En caso de temporal extremo severo (alerta meteorológica de viento costero o granizo), se prioriza la seguridad física de los cadetes y se reprograman los repartos avisando al cliente inmediatamente.

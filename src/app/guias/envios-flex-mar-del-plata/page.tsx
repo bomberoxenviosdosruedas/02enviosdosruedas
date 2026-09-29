@@ -40,7 +40,7 @@ const jsonLdSchema = {
   '@type': 'Article',
   headline: 'Guía Completa Mercado Envíos Flex en Mar del Plata 2026',
   description:
-    'Guía práctica y operativa para configurar y gestionar entregas en el mismo día con Mercado Envíos Flex en General Pueyrredón.',
+    'Guía práctica y operativa para configurar y gestionar entregas en el mismo día con Mercado Envíos Flex en todo Mar del Plata.',
   mainEntityOfPage: `${baseUrl}/guias/envios-flex-mar-del-plata`,
   author: {
     '@type': 'Organization',
@@ -179,7 +179,7 @@ export default function GuiaEnviosFlexPage() {
               ¿Por qué activar Flex si vendés en Mar del Plata?
             </h2>
             <p className="font-sans text-base text-brand-blue-600 leading-relaxed">
-              En Mar del Plata, más del 65% de los compradores de Mercado Libre prefieren publicaciones con la insignia <strong>&quot;Llega hoy&quot;</strong>. Activar Envíos Flex posiciona tus publicaciones en los primeros lugares de búsqueda para usuarios ubicados en el Partido de General Pueyrredón, multiplicando tu tasa de conversión sin costos adicionales de comisión.
+              En Mar del Plata, más del 65% de los compradores de Mercado Libre prefieren publicaciones con la insignia <strong>&quot;Llega hoy&quot;</strong>. Activar Envíos Flex posiciona tus publicaciones en los primeros lugares de búsqueda para compradores de la ciudad, multiplicando tu tasa de conversión sin costos adicionales de comisión.
             </p>
           </div>
 
