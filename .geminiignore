@@ -22,7 +22,7 @@ $RECYCLE.BIN/
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/tasks.json
-
+docs/paginas_en_txt/*
 .idea/
 *.iml
 .history/

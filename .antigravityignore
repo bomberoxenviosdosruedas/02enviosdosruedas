@@ -175,7 +175,7 @@ skills-lock.json
 .agents/**/bin/
 .agents/**/font-index.json
 .agents/**/node_modules/
-
+docs/paginas_en_txt/*
 # ──────────────────────────────────────────────────────────────────────────────
 # 9. SISTEMA OPERATIVO E IDEs
 # ──────────────────────────────────────────────────────────────────────────────

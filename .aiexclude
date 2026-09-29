@@ -24,7 +24,7 @@ build/
 out/
 .output/
 generated/
-
+docs/paginas_en_txt/*
 # TypeScript incremental build cache
 tsconfig.tsbuildinfo
 *.tsbuildinfo
