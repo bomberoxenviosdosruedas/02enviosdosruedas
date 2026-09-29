@@ -58,8 +58,8 @@ export default function EmpresasCuentaCorrientePage() {
 
   const benefits = [
     {
-      title: 'Factura A y Liquidación Quincenal',
-      desc: 'Centralizá todos los envíos de tu empresa en una sola factura quincenal o mensual deducible con detalle de remitos.',
+      title: 'Factura C Consolidada',
+      desc: 'Centralizá todos los envíos de tu empresa en una sola Factura C semanal, quincenal o mensual, con detalle de remitos.',
       icon: Receipt,
     },
     {
@@ -120,7 +120,7 @@ export default function EmpresasCuentaCorrientePage() {
               </h1>
 
               <p className="font-sans text-base sm:text-lg text-brand-blue-50 max-w-xl leading-relaxed">
-                Olvidate de pagar cada envío en efectivo. Abrí una cuenta corriente para tu comercio o empresa con Factura A, tarifas bonificadas y liquidaciones periódicas transparentes.
+                Olvidate de pagar cada envío en efectivo. Abrí una cuenta corriente para tu comercio o empresa con Factura C consolidada, tarifas bonificadas y liquidaciones periódicas transparentes.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">
@@ -149,7 +149,7 @@ export default function EmpresasCuentaCorrientePage() {
               <div className="pt-4 flex flex-wrap gap-4 text-xs font-mono text-brand-blue-50">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-brand-yellow-500 shrink-0" />
-                  Factura A electrónica
+                  Factura C electrónica
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-brand-yellow-500 shrink-0" />

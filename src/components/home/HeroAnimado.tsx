@@ -5,12 +5,14 @@ import { CTANestedPill, FloatTiltCard, Knockout } from '@/components/ui';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { EXPRESS_TIERS, LOW_COST_TIERS } from '@/lib/pricing';
 import {
+  EXPRESS_LEAD_TIME,
   EXPRESS_WINDOW,
   EXPRESS_WINDOW_SHORT,
   LOWCOST_CUTOFF_TIME,
   LOWCOST_DELIVERY_DEADLINE,
   FLEX_CUTOFF_TIME,
-  MAX_WEIGHT_KG,
+  STANDARD_BULLET_DIMENSIONS_CM,
+  STANDARD_WEIGHT_KG,
 } from '@/lib/promises';
 
 const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
@@ -19,17 +21,18 @@ const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
 const chips = [
   { icon: Clock, value: EXPRESS_WINDOW_SHORT, label: 'Entrega Express' },
   { icon: Zap, value: ars(EXPRESS_TIERS[0].price), label: 'Tarifa desde' },
-  { icon: Package, value: `${MAX_WEIGHT_KG} kg`, label: 'Por bulto' },
+  { icon: Package, value: `${STANDARD_WEIGHT_KG} kg`, label: 'Por bulto' },
 ];
 
 /** Barra inferior: reemplaza la franja #E6EEFE que estaba entre el hero y SegmentosHome. */
 const bar = [
-  { icon: Zap, text: `Express · ${EXPRESS_WINDOW_SHORT}` },
+  { icon: Zap, text: `Express · ${EXPRESS_WINDOW_SHORT} a elección` },
+  { icon: Clock, text: `Express · ${EXPRESS_LEAD_TIME} mínima` },
   { icon: Zap, text: `LowCost · desde ${ars(LOW_COST_TIERS[0].price)}` },
   { icon: Clock, text: `Corte LowCost ${LOWCOST_CUTOFF_TIME}` },
   { icon: Clock, text: `Entrega antes de las ${LOWCOST_DELIVERY_DEADLINE}` },
   { icon: Clock, text: `Flex · corte ${FLEX_CUTOFF_TIME}` },
-  { icon: Package, text: `Hasta ${MAX_WEIGHT_KG} kg por bulto` },
+  { icon: Package, text: `Hasta ${STANDARD_WEIGHT_KG} kg o ${STANDARD_BULLET_DIMENSIONS_CM} por bulto` },
   { icon: MapPin, text: 'Flota propia · Cero tercerización' },
 ];
 
@@ -68,15 +71,16 @@ export default function HeroAnimado() {
             </span>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white text-balance">
-              <span className="block">Mensajería en moto</span>
-              <Knockout>E-commerce</Knockout>
-              <span className="block">que llega hoy</span>
+              <span className="block">El motor de tu</span>
+              <Knockout>última milla</Knockout>
+              <span className="block">Somos la solución a tus envíos</span>
             </h1>
 
             <p className="text-base sm:text-lg font-sans text-white/85 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-light">
-              Somos tu partner de mensajería urbana y última milla en Mar del Plata.
-              Cotizás por distancia, retiramos el paquete y lo entregamos en {EXPRESS_WINDOW}.
-              Sin tercerizar: los repartidores son nuestros.
+              Una logística pensada para tu comercio: un equipo de confianza, entregas coordinadas
+              y la información que necesitás para tener todo bajo control. Cotizás por distancia,
+              retiramos el paquete y lo entregamos en {EXPRESS_WINDOW} a elección, con{' '}
+              {EXPRESS_LEAD_TIME} mínima. Sin tercerizar: los repartidores son nuestros.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">

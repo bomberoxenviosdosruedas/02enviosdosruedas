@@ -16,10 +16,12 @@
 5. **Horarios de atención unificados:** Lunes a Viernes 09:00 a 18:00 hs y Sábados 10:00 a 15:00 hs para Schema JSON-LD, Footer y Contacto.
 6. **Email público oficial:** Se adopta `matiascejas@enviosdosruedas.com` (retirando correos de desarrollo `dev@...`).
 7. **Tarifas Flex / Depósito / Emprendedores:** Se ratifica la tabla de `AGENTS.md` (2026) volcada a `docs/contexto/precios.md`.
-8. **Promesa Express y Cobertura:** Franja de entrega de 60 a 90 min y cálculo automático en cotizador hasta 20 km (después deriva a WhatsApp).
-9. **Medios de pago en Contrareembolso:** Efectivo, Transferencia y QR en el momento de entrega. Facturación: Factura C.
-10. **Tipografía de cuerpo:** `IBM Plex Sans` como tipografía primaria (secundaria `Outfit`).
-11. **Componentes insignia:** Opción A (Integrar): reutilizar `DoubleBezelCard` y `CTANestedPill` en cotizadores y vistas principales.
+8. **Promesa Express y Cobertura:** Cálculo automático en cotizador hasta 20 km (después deriva a WhatsApp).
+    - **Revocado 2026-09-29:** la franja de entrega de 60 a 90 min se retiró por inexacta. Express coordina hoy una franja horaria acotada a elección, con 2 hs de anticipación mínima (corte 15:00 hs). Fuente de verdad: `EXPRESS_WINDOW` / `EXPRESS_WINDOW_SHORT` en `src/lib/promises.ts`.
+9. **Capacidad por bulto:** 5 kg o 40 x 40 cm sin recargo; el techo absoluto de 15 kg se coordina como bulto extra. Son dos umbrales distintos: `STANDARD_WEIGHT_KG` y `MAX_WEIGHT_KG` en `src/lib/promises.ts`.
+10. **Medios de pago en Contrareembolso:** Efectivo, Transferencia y QR en el momento de entrega. Facturación: Factura C.
+11. **Tipografía de cuerpo:** `IBM Plex Sans` como tipografía primaria (secundaria `Outfit`).
+12. **Componentes insignia:** Opción A (Integrar): reutilizar `DoubleBezelCard` y `CTANestedPill` en cotizadores y vistas principales.
     - *Motivo:* Desbloquear el inicio inmediato del Sprint 1 técnico, la respuesta a las 9 reseñas de Google y la prospección comercial B2B.
 
 ---

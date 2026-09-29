@@ -87,7 +87,7 @@ export default function CotizadorExpressDetails() {
                 <div className="flex items-start gap-2.5">
                   <Scale className="h-4 w-4 text-brand-yellow-500 shrink-0 mt-0.5" />
                   <p>
-                    <strong className="text-white">Capacidad Máxima:</strong> Hasta <span className="font-mono text-brand-yellow-500 tabular-nums">15 kg</span> por viaje en caja / mochila de moto.
+                    <strong className="text-white">Capacidad estándar:</strong> Hasta <span className="font-mono text-brand-yellow-500 tabular-nums">5 kg</span> o <span className="font-mono text-brand-yellow-500 tabular-nums">40 x 40 cm</span> por bulto sin recargo. Superarlo se coordina como bulto especial.
                   </p>
                 </div>
 

@@ -29,10 +29,15 @@ describe('Home Page', () => {
 
     // Check Hero section title text. El H1 se compone de varios spans
     // (texto + Knockout), así que se valida contra el textContent completo.
+    // El slogan del dueño (2026-09-29) es "El motor de tu última milla"; ya no
+    // promete un tiempo de entrega en el H1, ese dato vive en el chip de la barra.
     const heroTitle = document.getElementById('hero-animado')?.querySelector('h1');
     expect(heroTitle).toBeInTheDocument();
-    expect(heroTitle).toHaveTextContent(/Mensajería en moto/i);
-    expect(heroTitle).toHaveTextContent(/que llega hoy/i);
+    expect(heroTitle).toHaveTextContent(/El motor de tu/i);
+    expect(heroTitle).toHaveTextContent(/última milla/i);
+    expect(heroTitle).toHaveTextContent(/solución a tus envíos/i);
+    // El H1 no debe volver a colar la promesa retirada de "60-90 min".
+    expect(heroTitle).not.toHaveTextContent(/60\s*[-–a]+\s*90/i);
     expect(screen.getAllByText(/E-Commerce/i).length).toBeGreaterThan(0);
 
     // Check Vision section heading

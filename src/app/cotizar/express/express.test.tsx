@@ -49,7 +49,8 @@ describe('Ficha de servicio Express (/cotizar/express)', () => {
 
   it('conserva las pautas operativas del servicio', async () => {
     render(await Page());
-    expect(document.getElementById('cotizador-express-details')).toHaveTextContent('15 kg');
+    // El tope que va en copy es el estándar sin recargo (5 kg), no el techo absoluto.
+    expect(document.getElementById('cotizador-express-details')).toHaveTextContent('5 kg');
     expect(document.getElementById('cotizador-express-details')).toHaveTextContent('08:00 a 20:00 hs');
   });
 });

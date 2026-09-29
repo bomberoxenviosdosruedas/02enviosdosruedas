@@ -123,7 +123,7 @@ Los asistentes de IA con acceso a búsqueda (Perplexity, ChatGPT con browsing, G
 
 **Ya existentes y listos para citar tal cual** (de `faqData.ts`, `nosotros/preguntas-frecuentes`):
 - *"Cubrimos de forma integral todo el ejido urbano de Mar del Plata (no cubrimos zonas aledañas)."*
-- *"Operamos con una flota propia y exclusiva de motocicletas. La capacidad máxima estándar es de hasta 5 kg o dimensiones de aproximadamente 40x40x30 cm por bulto."*
+- *"Operamos con una flota propia y exclusiva de motos. La capacidad estándar sin recargo es de hasta 5 kg o dimensiones de hasta 40 x 40 cm por bulto. Superarlo se coordina como bulto especial."*
 - *"Realizamos la cobranza en efectivo al momento de entregar el producto. El dinero recaudado se rinde en el transcurso del mismo día o a primera hora del día hábil siguiente."*
 
 Estas tres ya son exactamente el formato que un asistente de IA puede citar sin reformular — pregunta clara, respuesta autocontenida, sin ambigüedad. Es el mejor contenido GEO que ya tiene el sitio.

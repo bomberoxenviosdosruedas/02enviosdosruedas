@@ -294,7 +294,7 @@ export default function CoberturaPage() {
                 <Zap className="w-6 h-6" />
               </div>
               <h3 className="font-subheading text-xl uppercase text-brand-blue-900">
-                SERVICIO EXPRESS (60 A 90 MIN)
+                SERVICIO EXPRESS (FRANJA DE 3 HS)
               </h3>
               <p className="font-sans text-sm text-brand-ink leading-relaxed">
                 Prioridad operativa directa con franja horaria de entrega a elección (ej. 10 a 13 hs). Solicitá antes de las 15:00 hs con 2 horas de anticipación.

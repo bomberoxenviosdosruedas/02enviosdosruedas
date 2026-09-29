@@ -2,10 +2,10 @@ import { ImageResponse } from 'next/og';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { EXPRESS_TIERS } from '@/lib/pricing';
-import { EXPRESS_WINDOW, MAX_WEIGHT_KG } from '@/lib/promises';
+import { EXPRESS_WINDOW_SHORT, STANDARD_WEIGHT_KG } from '@/lib/promises';
 
 // Imagen para compartir la página en redes, generada con código en el build (sin APIs ni cuotas).
-export const alt = `Envíos Express en moto en Mar del Plata: entrega en ${EXPRESS_WINDOW}`;
+export const alt = `Envíos Express en moto en Mar del Plata: entrega en ${EXPRESS_WINDOW_SHORT.toLowerCase()} a elección`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -115,7 +115,7 @@ export default async function Image() {
                   transform: 'rotate(-1deg)',
                 }}
               >
-                {`EN ${EXPRESS_WINDOW.toUpperCase()}`}
+                {`${EXPRESS_WINDOW_SHORT.toUpperCase()} A ELEGIR`}
               </span>
             </div>
           </div>
@@ -123,7 +123,7 @@ export default async function Image() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
             <div style={{ display: 'flex', flexDirection: 'column', fontFamily: 'Bebas Neue' }}>
               <span style={{ fontSize: 40, letterSpacing: 2 }}>
-                {`DESDE ${fromPrice} · HASTA ${MAX_WEIGHT_KG} KG`}
+                {`DESDE ${fromPrice} · HASTA ${STANDARD_WEIGHT_KG} KG`}
               </span>
               <span style={{ fontSize: 30, letterSpacing: 2, color: BRAND.yellow }}>
                 FLOTA PROPIA · ENVIOSDOSRUEDAS.COM

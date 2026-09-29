@@ -1,5 +1,13 @@
 import { describe, it, expect } from 'vitest';
-import { EXPRESS_WINDOW, CONSULT_THRESHOLD_KM, CONTACT_EMAIL, OPERATING_HOURS } from './promises';
+import {
+  EXPRESS_WINDOW,
+  CONSULT_THRESHOLD_KM,
+  CONTACT_EMAIL,
+  OPERATING_HOURS,
+  STANDARD_WEIGHT_KG,
+  MAX_WEIGHT_KG,
+  SAME_DAY_FIXED_PRICE,
+} from './promises';
 import { calculateExpressPrice, calculateLowCostPrice } from './pricing';
 // Excepción documentada al alias `@/*` (que solo resuelve dentro de `src/`):
 // este test valida los `redirects` y `headers` declarados en la config de Next,
@@ -24,11 +32,25 @@ describe('BL-01 & BL-03 — Enrutamiento, Promesas y Fórmulas 2026', () => {
   });
 
   it('BL-03: Promesas unificadas exportan constantes oficiales', () => {
-    expect(EXPRESS_WINDOW).toBe('60 a 90 min');
+    // La promesa de "60 a 90 min" se retiró por inexacta (decisión del dueño 2026-09-29).
+    // Express coordina una franja horaria a elección con 2 hs de anticipación mínima.
+    expect(EXPRESS_WINDOW).toBe('franja horaria de 3 hs');
     expect(CONSULT_THRESHOLD_KM).toBe(20);
     expect(CONTACT_EMAIL).toBe('matiascejas@enviosdosruedas.com');
     expect(OPERATING_HOURS.weekdays).toBe('09:00 a 18:00 hs');
     expect(OPERATING_HOURS.saturdays).toBe('10:00 a 15:00 hs');
+  });
+
+  it('BL-03: el tope estándar sin recargo es 5 kg, distinto del techo absoluto de 15 kg', () => {
+    // Son dos umbrales y no pueden intercambiarse: lo que pasa los 5 kg se coordina
+    // como bulto extra, así que 15 kg no es lo que se promete en el copy.
+    expect(STANDARD_WEIGHT_KG).toBe(5);
+    expect(MAX_WEIGHT_KG).toBe(15);
+    expect(STANDARD_WEIGHT_KG).toBeLessThan(MAX_WEIGHT_KG);
+  });
+
+  it('BL-03: la tarifa fija Same Day vive en promises.ts, no hardcodeada en el copy', () => {
+    expect(SAME_DAY_FIXED_PRICE).toBe(6000);
   });
 
   it('BL-03: Express calcula Math.ceil(km) * 1000 para +10 km hasta 20 km', () => {

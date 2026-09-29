@@ -8,7 +8,7 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
   title: 'Servicios - Express, LowCost, Flex y Fulfillment',
-  description: 'Todos los servicios de Envíos DosRuedas en Mar del Plata: Envíos Express 60-90 min, LowCost en el día, Mercado Envíos Flex Same-Day y Depósito & Fulfillment en Friuli 1972.',
+  description: 'Todos los servicios de Envíos DosRuedas en Mar del Plata: Envíos Express en franja de 3 hs a elección, LowCost en el día, Mercado Envíos Flex Same-Day y Depósito & Fulfillment en Friuli 1972.',
   alternates: {
     canonical: `${baseUrl}/servicios`,
   },
@@ -61,7 +61,7 @@ const jsonLdSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Envíos Express',
-          description: 'Entregas prioritarias en franja de 60 a 90 min en Mar del Plata.',
+          description: 'Entregas prioritarias en franja horaria de 3 hs a elección en Mar del Plata.',
           url: `${baseUrl}/servicios/envios-express`,
         },
       },
@@ -109,7 +109,7 @@ const services = [
   {
     id: 'envios-express',
     label: 'ENVÍOS EXPRESS',
-    title: 'Prioridad Inmediata 60-90 min',
+    title: 'Prioridad Inmediata 3 hs',
     description: 'Mensajería en moto con franja horaria de 3 horas a elección. Ideal para trámites urgentes, repuestos, documentos y gestiones que no pueden esperar.',
     icon: Zap,
     href: '/servicios/envios-express',
@@ -118,7 +118,7 @@ const services = [
     features: [
       'Franja de 3 hs (ej. 10 a 13 hs)',
       'Corte 15:00 hs con 2h anticipación',
-      'Hasta 5 kg / 40x30 cm',
+      'Hasta 5 kg / 40 x 40 cm',
       'Ruteo directo sin escalas',
       'Confirmación al instante por WhatsApp',
     ],
@@ -197,7 +197,7 @@ const services = [
 ];
 
 const comparisonTable = [
-  { feature: 'Tiempo de entrega', express: '60-90 min (franja 3 hs)', lowcost: 'Antes de 19:00 hs', flex: 'Antes de 20:00 hs', fulfillment: 'Same-Day / 24hs' },
+  { feature: 'Tiempo de entrega', express: 'Franja de 3 hs', lowcost: 'Antes de 19:00 hs', flex: 'Antes de 20:00 hs', fulfillment: 'Same-Day / 24hs' },
   { feature: 'Horario de corte', express: '15:00 hs (2h ant.)', lowcost: '13:00 hs', flex: '15:00 hs', fulfillment: 'Según modalidad' },
   { feature: 'Elección de franja', express: 'Sí (3 hs)', lowcost: 'No', flex: 'No (estándar ML)', fulfillment: 'Según modalidad' },
   { feature: 'Precio base 0-3 km', express: '$3.700', lowcost: '$3.000', flex: '$3.000 (Nivel 1)', fulfillment: '$6.000 (Same Day)' },

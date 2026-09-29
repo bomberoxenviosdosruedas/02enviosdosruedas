@@ -167,15 +167,21 @@ export default function EmprendedoresHome() {
                     className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white group-hover:text-brand-yellow-500 transition-colors"
                     whileHover={reduceMotion ? undefined : { x: 4, transition: snappySpring }}
                   >
-                    Logística E-Commerce
+                    Plan Emprendedores
                   </motion.h3>
                   <p className="text-brand-blue-50 text-sm leading-relaxed font-sans">
-                    Gestión de última milla pensada para PyMEs y marcas locales. Optimizamos tus costos de envío con retiros programados a domicilio y soporte post-venta.
+                    Gestión de última milla pensada para PyMEs y marcas locales. Guardamos tu stock,
+                    lo despachamos el día que vendés y coordinamos la entrega con vos.
                   </p>
                 </div>
 
                 <ul className="space-y-2.5 pt-2">
-                  {['Soporte comercial dedicado vía WhatsApp', 'Entregas contrareembolso integradas sin cargo extra', 'Rastreo digital transparente para tus clientes'].map((feat) => (
+                  {[
+                    'Sin volumen mínimo de envíos: entrás con la cantidad que tengas',
+                    'Accedés a tarifas LowCost con franjas horarias de 3 hs, como Express',
+                    'Exclusividad denosotros como único operador de tus envíos',
+                    'Entregas contrareembolso integradas sin cargo extra',
+                  ].map((feat) => (
                     <li
                       key={feat}
                       className="flex items-start gap-2 text-xs sm:text-sm text-white font-sans"
@@ -302,7 +308,8 @@ export default function EmprendedoresHome() {
                     Soluciones Corporativas
                   </h3>
                   <p className="text-brand-ink text-xs sm:text-sm leading-relaxed font-sans">
-                    Soporte a gran escala con facturación mensual, ruteos especiales para grandes volúmenes y entregas express coordinadas en Mar del Plata.
+                    Soporte a gran escala con Factura C consolidada (semanal, quincenal o mensual), ruteos
+                    especiales para grandes volúmenes y entregas express coordinadas en Mar del Plata.
                   </p>
                 </div>
               </div>

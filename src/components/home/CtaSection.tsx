@@ -86,7 +86,7 @@ export default function CtaSection() {
               whileHover={reduceMotion ? undefined : { x: 4, transition: springConfigSnappy }}
             >
               <p className="text-xs font-mono tracking-widest text-[#0950F6] font-bold uppercase leading-none">
-                Atención comercial <span className="text-brand-yellow-400 bg-[#0950F6] px-2 py-0.5 rounded font-mono">{'<'} 2 MIN</span>
+                Atención comercial <span className="text-brand-yellow-400 bg-[#0950F6] px-2 py-0.5 rounded font-mono">{'<'} 5 MIN</span>
               </p>
             </motion.div>
           </motion.div>

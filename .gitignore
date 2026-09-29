@@ -121,3 +121,7 @@ test-results/
 .turbo/
 .pnpm-store/
 docs/paginas_en_txt/*
+
+# Python (scripts/ y sus tests)
+__pycache__/
+*.py[cod]

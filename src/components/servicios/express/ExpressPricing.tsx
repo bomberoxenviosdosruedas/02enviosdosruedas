@@ -6,7 +6,8 @@ import { calculateExpressPrice, EXPRESS_PRICE_PER_KM, EXPRESS_TIERS } from '@/li
 import {
   CONSULT_THRESHOLD_KM,
   EXPRESS_WINDOW_SHORT,
-  MAX_WEIGHT_KG,
+  STANDARD_BULLET_DIMENSIONS_CM,
+  STANDARD_WEIGHT_KG,
 } from '@/lib/promises';
 
 const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
@@ -54,8 +55,8 @@ const PRICING_FACTS = [
   },
   {
     icon: Clock,
-    title: 'Entrega en 60 a 90 minutos',
-    body: 'Cadetería prioritaria con entrega asegurada dentro de esa ventana.',
+    title: `Entrega en franja de 3 hs a elección`,
+    body: 'Cadetería prioritaria con entrega asegurada dentro de la franja que coordinamos con vos.',
   },
   {
     icon: ShieldCheck,
@@ -154,7 +155,7 @@ export default function ExpressPricing() {
                     {/* Ventana operativa: mismo SLA para todos los tramos urbanos */}
                     <dl className="flex items-center justify-between gap-2 rounded-lg bg-brand-blue-50 px-3 py-2 ring-1 ring-brand-blue-100">
                       <dt className="font-mono text-[11px] uppercase tracking-wider text-brand-blue-700">
-                        Ventana
+                        Ventana a elegir
                       </dt>
                       <dd className="font-mono text-xs font-semibold text-brand-blue-900 tabular-nums">
                         {EXPRESS_WINDOW_SHORT}
@@ -234,7 +235,7 @@ export default function ExpressPricing() {
                 <span className="font-mono text-xs text-brand-blue-700">ARS / km</span>
               </p>
               <span className="mt-1 font-mono text-xs text-brand-blue-700">
-                Cálculo automático hasta {CONSULT_THRESHOLD_KM} km · bultos hasta {MAX_WEIGHT_KG} kg
+                Cálculo automático hasta {CONSULT_THRESHOLD_KM} km · bultos estándar hasta {STANDARD_WEIGHT_KG} kg o {STANDARD_BULLET_DIMENSIONS_CM}
               </span>
             </div>
 

@@ -21,7 +21,7 @@ export const FAQ_DATA: FaqCategoryGroup[] = [
       {
         question: '¿Qué tipo de servicios y soluciones logísticas realizan en Mar del Plata?',
         answer:
-          'Ofrecemos mensajería urbana y paquetería especializada en e-commerce: Envíos Flex para MercadoLibre con 100% cumplimiento en el día, Envíos Express prioritarios en 60-90 min, reparto LowCost económico antes de las 19:00 hs, cadetería corporativa, cobro contrarreembolso y servicio integral de depósito & fulfillment (picking, packing y despacho).',
+          'Ofrecemos mensajería urbana y paquetería especializada en e-commerce: Envíos Flex para MercadoLibre con 100% cumplimiento en el día, Envíos Express prioritarios en franja horaria de 3 hs a elección, reparto LowCost económico antes de las 19:00 hs, cadetería corporativa, cobro contrarreembolso y servicio integral de depósito & fulfillment (picking, packing y despacho).',
       },
       {
         question: '¿Se puede entregar en un horario puntual específico?',
@@ -51,7 +51,7 @@ export const FAQ_DATA: FaqCategoryGroup[] = [
       {
         question: '¿Cuáles son los límites de peso y tamaño por paquete?',
         answer:
-          'Operamos con una flota propia y exclusiva de motos. La capacidad estándar es de hasta 5 kg o dimensiones de aproximadamente 40x30 cm por bulto. Paquetes que superen este peso o volumen pueden tener un adicional por bulto especial.',
+          'Operamos con una flota propia y exclusiva de motos. La capacidad estándar sin recargo es de hasta 5 kg o dimensiones de hasta 40 x 40 cm por bulto. Paquetes que superen este peso o volumen pueden tener un adicional por bulto especial.',
       },
       {
         question: '¿Realizan entregas a contrareembolso? ¿Cobran comisión extra?',

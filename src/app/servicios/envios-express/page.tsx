@@ -5,20 +5,20 @@ import ExpressFeatures from '@/components/servicios/express/ExpressFeatures';
 import ExpressPricing from '@/components/servicios/express/ExpressPricing';
 import ExpressUseCases from '@/components/servicios/express/ExpressUseCases';
 import { EXPRESS_PRICE_PER_KM, EXPRESS_TIERS } from '@/lib/pricing';
-import { CONSULT_THRESHOLD_KM, EXPRESS_WINDOW, MAX_WEIGHT_KG } from '@/lib/promises';
+import { CONSULT_THRESHOLD_KM, EXPRESS_LEAD_TIME, EXPRESS_WINDOW, STANDARD_WEIGHT_KG } from '@/lib/promises';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 const lastTier = EXPRESS_TIERS[EXPRESS_TIERS.length - 1];
 
 export const metadata: Metadata = {
-  title: 'Envíos Express en Moto en Mar del Plata (60-90 min)',
-  description: `Mensajería en moto con entrega en ${EXPRESS_WINDOW} en Mar del Plata. Tarifa fija por distancia desde $${EXPRESS_TIERS[0].price.toLocaleString('es-AR')}, bultos de hasta ${MAX_WEIGHT_KG} kg. Cotizá online en segundos.`,
+  title: 'Envíos Express en Moto en Mar del Plata (franja de 3 hs)',
+  description: `Mensajería en moto con entrega en ${EXPRESS_WINDOW} a elección, pedido con ${EXPRESS_LEAD_TIME}. Tarifa fija por distancia desde $${EXPRESS_TIERS[0].price.toLocaleString('es-AR')}, bultos de hasta ${STANDARD_WEIGHT_KG} kg. Cotizá online en segundos.`,
   alternates: {
     canonical: `${baseUrl}/servicios/envios-express`,
   },
   openGraph: {
     title: 'Envíos Express en Moto en Mar del Plata | Envíos DosRuedas',
-    description: `Cadetería en moto con entrega en ${EXPRESS_WINDOW} en todo Mar del Plata. Flota propia y tarifas 2026 por distancia.`,
+    description: `Cadetería en moto con entrega en ${EXPRESS_WINDOW} a elección, pedido con ${EXPRESS_LEAD_TIME}. Flota propia y tarifas 2026 por distancia.`,
     url: `${baseUrl}/servicios/envios-express`,
     type: 'website',
     locale: 'es_AR',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Envíos Express en Moto en Mar del Plata | Envíos DosRuedas',
-    description: `Cadetería en moto con entrega en ${EXPRESS_WINDOW} en todo Mar del Plata. Flota propia y tarifas 2026 por distancia.`,
+    description: `Cadetería en moto con entrega en ${EXPRESS_WINDOW} a elección, pedido con ${EXPRESS_LEAD_TIME}. Flota propia y tarifas 2026 por distancia.`,
     // Sin `images`: X usa og:image, que genera ./opengraph-image.tsx (public/og-image.jpg no existe).
     creator: '@enviosdosruedas',
   },
@@ -37,7 +37,7 @@ const jsonLdSchema = {
   '@type': 'Service',
   name: 'Mensajería en Moto y Envíos Express en Mar del Plata',
   serviceType: 'Mensajería en moto',
-  description: `Servicio prioritario de mensajería en moto con entrega en ${EXPRESS_WINDOW} en Mar del Plata. Bultos de hasta ${MAX_WEIGHT_KG} kg.`,
+  description: `Servicio prioritario de mensajería en moto con entrega en ${EXPRESS_WINDOW} a elección en Mar del Plata. Bultos estándar de hasta ${STANDARD_WEIGHT_KG} kg.`,
   url: `${baseUrl}/servicios/envios-express`,
   provider: {
     '@type': 'LocalBusiness',

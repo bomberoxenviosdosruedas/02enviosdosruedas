@@ -11,6 +11,16 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { DoubleBezelCard } from '@/components/ui/DoubleBezelCard';
+import {
+  DROPOFF_DISCOUNT_PERCENT,
+  EXPRESS_LEAD_TIME,
+  FLEX_CUTOFF_TIME,
+  LOWCOST_CUTOFF_TIME,
+  LOWCOST_DELIVERY_DEADLINE,
+  SAME_DAY_FIXED_PRICE,
+} from '@/lib/promises';
+
+const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
 export default function SegmentosHome() {
   const segmentos = [
@@ -18,7 +28,7 @@ export default function SegmentosHome() {
       id: 'flex',
       tag: 'MERCADO LIBRE',
       title: '¿Vendés en Mercado Libre?',
-      description: 'Entregá en el mismo día con Mercado Envíos Flex. Horario de corte 15:00 hs y múltiples retiros para cuidar tu reputación.',
+      description: `Entregá en el mismo día con Mercado Envíos Flex en Mar del Plata urbana. Horario de corte ${FLEX_CUTOFF_TIME} y múltiples retiros para cuidar tu reputación.`,
       ctaText: 'Ver Solución Flex',
       href: '/servicios/enviosflex',
       icon: Zap,
@@ -28,8 +38,8 @@ export default function SegmentosHome() {
       id: 'ecommerce',
       tag: 'E-COMMERCE & TIENDAS',
       title: '¿Tenés tienda online?',
-      description: 'Almacená tu stock en nuestro centro de Friuli 1972. Hacemos picking, empaque, entregas en el día y cobro contra reembolso.',
-      ctaText: 'Ver Depósito & Fulfillment',
+      description: `Guardamos tu stock en Friuli 1972 y lo despachamos el mismo día. E-Commerce Same Day con tarifa fija de ${ars(SAME_DAY_FIXED_PRICE)} a toda la ciudad, o E-Commerce 24HS con ${DROPOFF_DISCOUNT_PERCENT}% OFF si traés los envíos listos con DropOFF.`,
+      ctaText: 'Ver E-Commerce Same Day',
       href: '/servicios/deposito-fulfillment',
       icon: ShoppingBag,
       highlight: false,
@@ -38,7 +48,7 @@ export default function SegmentosHome() {
       id: 'empresas',
       tag: 'COMERCIOS & EMPRESAS',
       title: '¿Tenés envíos diarios?',
-      description: 'Reducí costos con nuestra paquetería LowCost agrupada. Tarifas fijas por distancia, ruteo inteligente y remito digital.',
+      description: `Reparto económico programado para el día: pedís antes de las ${LOWCOST_CUTOFF_TIME} y se entrega antes de las ${LOWCOST_DELIVERY_DEADLINE}, sin franja horaria fija. Tarifa fija por distancia y remito digital.`,
       ctaText: 'Ver Paquetería LowCost',
       href: '/servicios/envios-lowcost',
       icon: Building2,
@@ -48,7 +58,7 @@ export default function SegmentosHome() {
       id: 'urgente',
       tag: 'PARTICULARES & URGENTES',
       title: '¿Necesitás un envío ya?',
-      description: 'Cadetería prioritaria punto a punto en moto. Tu paquete en destino en 60 a 90 minutos con cálculo de distancia en vivo.',
+      description: `Cadetería prioritaria punto a punto en moto. Entregas prioritarias en el día con elección de franja horaria de 3 horas, pedido con ${EXPRESS_LEAD_TIME} mínima.`,
       ctaText: 'Cotizá tu Envío Express',
       href: '/cotizar',
       icon: PackageCheck,

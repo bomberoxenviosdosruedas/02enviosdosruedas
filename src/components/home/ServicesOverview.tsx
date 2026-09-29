@@ -4,6 +4,18 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Zap, Package, Truck, Warehouse, Info, X, MapPin, ShieldCheck } from 'lucide-react';
+import {
+  DROPOFF_DISCOUNT_PERCENT,
+  EXPRESS_LEAD_TIME,
+  EXPRESS_WINDOW_SHORT,
+  FLEX_CUTOFF_TIME,
+  LOWCOST_CUTOFF_TIME,
+  LOWCOST_DELIVERY_DEADLINE,
+  SAME_DAY_FIXED_PRICE,
+  STANDARD_WEIGHT_KG,
+} from '@/lib/promises';
+
+const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
 interface ServiceDetails {
   summary: string;
@@ -93,15 +105,15 @@ export default function ServicesOverview() {
       statLabelStyle: 'text-brand-blue-50',
       hintColor: 'text-brand-yellow-500',
       stats: {
-        time: '60-90 min',
+        time: EXPRESS_WINDOW_SHORT,
         price: '$3.700 Base',
-        weight: 'Hasta 15 kg',
+        weight: `Hasta ${STANDARD_WEIGHT_KG} kg`,
       },
       details: {
-        summary: 'Servicio de mensajería urbana inmediata, ideal para trámites urgentes, despacho de encomiendas y entrega de documentación. Se asigna un repartidor exclusivo para tu envío.',
+        summary: `Servicio de mensajería urbana inmediata, ideal para trámites urgentes, despacho de encomiendas y entrega de documentación. Coordinás la franja horaria que te conviene y se asigna un repartidor exclusivo para tu envío.`,
         features: [
           'Tarifa base de $3.700 hasta 3 km.',
-          'Entrega garantizada puerta a puerta en tiempo récord.',
+          `Entrega en franja de 3 hs a elección, pedido con ${EXPRESS_LEAD_TIME} mínima.`,
           'Notificación automática de entrega por WhatsApp.'
         ],
         ctaText: 'COTIZÁ TU EXPRESS',
@@ -130,16 +142,16 @@ export default function ServicesOverview() {
       statLabelStyle: 'text-brand-blue-600',
       hintColor: 'text-brand-blue-700',
       stats: {
-        time: 'Same / Next Day',
+        time: 'Programado en el día',
         price: '$3.000 Base',
-        weight: 'Hasta 15 kg',
+        weight: `Hasta ${STANDARD_WEIGHT_KG} kg`,
       },
       details: {
-        summary: 'La alternativa ideal para e-commerce locales que buscan optimizar costos de envío. Agrupamos los repartos en rutas inteligentes diarias para ofrecer la tarifa más baja de la ciudad.',
+        summary: 'La alternativa ideal para comercios y e-commerce que buscan optimizar costos de envío. Es un reparto económico programado para el día, no un agrupamiento de tus propios envíos: lo pedís antes del corte y se entrega a lo largo de la jornada.',
         features: [
           'Tarifa base de $3.000 hasta 3 km.',
-          'Retiro gratis a domicilio a partir de 5 envíos diarios.',
-          'Dos franjas horarias de entrega en el día.'
+          `Pedí antes de las ${LOWCOST_CUTOFF_TIME} y se entrega antes de las ${LOWCOST_DELIVERY_DEADLINE}.`,
+          'Sin elección de franja horaria: la tarifa más baja de la ciudad.'
         ],
         ctaText: 'PROBÁ EL LOWCOST',
         ctaHref: '/cotizar'
@@ -152,8 +164,8 @@ export default function ServicesOverview() {
       href: '/servicios/enviosflex',
       icon: Truck,
       badge: 'MERCADOLIBRE FLEX',
-      city: 'Mar del Plata y Batán',
-      founded: 'Corte extendido 15hs',
+      city: 'Mar del Plata urbana',
+      founded: `Corte extendido ${FLEX_CUTOFF_TIME}`,
       imageUrl: '/cards/fondo_flex.webp',
       cardStyleCenter: 'border-brand-blue-700 bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-[8px_8px_0px_rgba(255,236,1,0.25)] text-brand-ink',
       cardStyleSide: 'border-brand-yellow-500/30 bg-brand-yellow-500 text-brand-ink',
@@ -184,13 +196,13 @@ export default function ServicesOverview() {
     },
     {
       id: '3pl',
-      title: 'Depósito & Fulfillment',
-      description: 'Logística integral: almacenamiento, preparación y despacho de pedidos.',
+      title: 'E-Commerce Same Day',
+      description: 'Guardamos tu stock y lo despachamos el mismo día, o E-Commerce 24HS si lo necesitás al día siguiente.',
       href: '/servicios/deposito-fulfillment',
       icon: Warehouse,
-      badge: 'LOGÍSTICA INTEGRAL',
+      badge: 'E-COMMERCE',
       city: 'Depósito Friuli 1972',
-      founded: 'Depósito Inteligente',
+      founded: 'Stock guardado',
       imageUrl: '/cards/fondo_emprendedores.webp',
       cardStyleCenter: 'border-brand-blue-500 bg-gradient-to-br from-brand-blue-700 to-brand-blue-700 shadow-2xl text-white',
       cardStyleSide: 'border-brand-blue-700/20 bg-brand-blue-700 text-white/90',
@@ -204,16 +216,16 @@ export default function ServicesOverview() {
       statLabelStyle: 'text-brand-blue-50',
       hintColor: 'text-brand-yellow-500',
       stats: {
-        time: '24 hs / Stock',
-        price: 'Planes a Medida',
+        time: 'Same Day / 24 hs',
+        price: `${formatArs(SAME_DAY_FIXED_PRICE)} fijo`,
         weight: 'Sin límite',
       },
       details: {
-        summary: 'Almacená tus productos en nuestro depósito central en Mar del Plata y olvidate del empaque y los despachos. Nosotros nos encargamos de todo el proceso logístico para que te dediques a vender.',
+        summary: 'Almacená tus productos en nuestro depósito central de Friuli 1972 y olvidate del empaque y los despachos. Nosotros nos encargamos de todo el proceso logístico para que te dediques a vender.',
         features: [
-          'Control de stock digital por sistema QR/barras.',
-          'Embalaje profesional (packing personalizado y seguro).',
-          'Distribución de pedidos Same-Day y Next-Day.'
+          `E-Commerce Same Day con tarifa fija de ${formatArs(SAME_DAY_FIXED_PRICE)} a toda la ciudad.`,
+          `E-Commerce 24HS con ${DROPOFF_DISCOUNT_PERCENT}% OFF si traés los envíos listos (DropOFF).`,
+          'Control de stock digital por sistema QR/barras y picking con embalaje profesional.'
         ],
         ctaText: 'CONSULTÁ PLANES',
         ctaHref: '/servicios/deposito-fulfillment'

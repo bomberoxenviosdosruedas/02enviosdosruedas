@@ -5,9 +5,22 @@
  * Nota: Si se modifican estas promesas, recordar actualizar sincronizadamente también public/llms.txt.
  */
 
-// Ventana de entrega Express (aprobado en Fase 0)
-export const EXPRESS_WINDOW = '60 a 90 min';
-export const EXPRESS_WINDOW_SHORT = '60-90 min';
+// Ventana de entrega Express.
+// Cambio 2026-09-29 (decisión del dueño, relevamiento con Matías Cejas): la promesa de
+// "60 a 90 min" se retiró por inexacta. Express coordina hoy una franja horaria acotada
+// a elección del cliente, con 2 hs de anticipación mínima.
+//
+// Contrato de las dos formas, porque se interpolan en oraciones distintas:
+//   EXPRESS_WINDOW       → forma larga. SIEMPRE después de "en" o "Entrega en":
+//                          "Entrega en franja horaria de 3 hs".
+//   EXPRESS_WINDOW_SHORT → forma compacta, para chips, tablas y rótulos sueltos:
+//                          "Franja de 3 hs". NUNCA dentro de una oración con "en",
+//                          porque "en 3 hs" se leería como duración de la entrega.
+export const EXPRESS_WINDOW = 'franja horaria de 3 hs';
+export const EXPRESS_WINDOW_SHORT = 'Franja de 3 hs';
+
+// Anticipación mínima para coordinar una franja de Express.
+export const EXPRESS_LEAD_TIME = '2 hs de anticipación';
 
 // Ventanas operativas LowCost
 export const LOWCOST_CUTOFF_TIME = '13:00 hs';
@@ -20,15 +33,28 @@ export const RAIN_SURCHARGE_PERCENT = 30; // +30% recargo por lluvia
 
 // Umbrales de distancia y límites físicos
 export const CONSULT_THRESHOLD_KM = 20; // Hasta 20 km cálculo automático; > 20 km "A consultar"
-export const MAX_WEIGHT_KG = 15; // Bultos hasta 15 kg
+
+// Capacidad por bulto. Son DOS umbrales distintos y no son intercambiables:
+//   STANDARD_WEIGHT_KG          → lo que entra sin recargo. Es el número que va en el
+//                                 copy y en las tarjetas de servicio ("hasta 5 kg").
+//   STANDARD_BULLET_DIMENSIONS_CM → equivalente en volumen para el bulto.
+//   MAX_WEIGHT_KG               → techo absoluto de la moto. Solo se menciona como
+//                                 tal: pasarse se coordina como bulto extra y no entra
+//                                 en el cálculo automático del cotizador.
+export const STANDARD_WEIGHT_KG = 5;
+export const STANDARD_BULLET_DIMENSIONS_CM = '40 × 40 cm';
+export const MAX_WEIGHT_KG = 15; // Techo absoluto. Superarlo se trata como bulto extra.
 
 // Condiciones comerciales Depósito & Fulfillment (servicio para empresas)
-// A VERIFICAR: no figuran en docs/contexto/precios.md ni en la BD (PriceRange).
-// Fuente textual: src/components/nosotros/preguntas-frecuentes/faqData.ts
-// ("obtenés un 20% de descuento sobre la tarifa final" / "no cobramos ningún
-// extra ni porcentaje de comisión"). Prometidas al cliente: NO hardcodearlas.
+// No figuran en la tabla `PriceRange` ni en docs/contexto/precios.md: son tarifas
+// cerradas definidas por el dueño. El 20 % de DropOFF quedó confirmado en el relevamiento
+// del 2026-09-29; SAME_DAY_FIXED_PRICE se suma ese mismo día.
 export const DROPOFF_DISCOUNT_PERCENT = 20; // Descuento por traer envíos listos al depósito
 export const CONTRAREEMBOLSO_COMMISSION_PERCENT = 0; // Sin extra ni comisión por cobro en entrega
+
+// Tarifa fija del plan E-Commerce Same Day para toda la ciudad. Fuera de `PriceRange`
+// a propósito: es un precio cerrado por servicio, no un rango por distancia.
+export const SAME_DAY_FIXED_PRICE = 6000;
 
 // Horarios de atención oficiales en base central Friuli 1972 (Decisión 5 aprobada)
 export const OPERATING_HOURS = {

@@ -21,7 +21,7 @@ Archivo dedicado al render 3D de la columna derecha de **`/servicios/envios-expr
 | Bloque visual (líneas 142–195) | SVG de ruta punteada origen→destino con beacon animado + labels "RETIRO EN ORIGEN / ENTREGA DESTINO"                           | **El render reemplaza este SVG** (ver §5): muestra la misma idea en volumen, sin labels |
 | ETA                            | "RANGO HORARIO PROGRAMADO · 3 HS RANGO"                                                                                        | Traducir a imagen sin números: reloj con **un cuarto** en amarillo (3 h de 12)          |
 | Chips                          | Ruteo DIRECTO · Custodia 100% EXCLUSIVA · Confirmación AL INSTANTE                                                             | Ruta recta sin paradas · un solo paquete con precinto · check al llegar                 |
-| Copy izquierdo                 | "Todo lo que entre en moto (hasta 5 kg y 40x30 cm)", corte 15:00 hs                                                            | Paquete compacto que entra en la top box; nada de cifras en la imagen                   |
+| Copy izquierdo                 | "Todo lo que entre en moto (hasta 5 kg y 40 x 40 cm)", corte 15:00 hs                                                         | Paquete compacto que entra en la top box; nada de cifras en la imagen                   |
 
 ## 2. Referencias de marca (imágenes de entrada)
 

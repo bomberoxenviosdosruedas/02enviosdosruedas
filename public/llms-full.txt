@@ -242,7 +242,7 @@ Despejá tus dudas sobre los envíos, coberturas, métodos de pago y dudas frecu
 
 ## Límites de Carga y Seguridad
 
-Transportamos paquetes ligeros de hasta 5 kg con medidas de 40x40x30 cm. Esto garantiza la agilidad del tránsito urbano y resguarda la seguridad vial de nuestros repartidores.
+Transportamos paquetes ligeros de hasta 5 kg con medidas de hasta 40 x 40 cm. Esto garantiza la agilidad del tránsito urbano y resguarda la seguridad vial de nuestros repartidores.
 
 ## HORARIO OPERATIVO
 ATENCIÓN EN CALLE
@@ -540,7 +540,7 @@ src/components/cotizar/express/CotizadorExpressDetails.tsx PENDIENTE
 
 ## 3. Condiciones del Servicio Express
 TEXTO ORIGINAL Título: Pautas del Envío Express
-Detalles: Peso máximo por moto (hasta 15kg). Medidas máximas del bulto (caja estándar de 40x40x40cm). Garantía de entrega en el acto.
+Detalles: Capacidad estándar sin recargo por moto (hasta 5 kg o 40 x 40 cm por bulto); el techo absoluto de 15 kg se coordina como bulto especial. Garantía de entrega en el acto.
 
 PAUTAS DE REVISIÓN Límites de peso y volumen Tipos de garantías
 
@@ -1394,7 +1394,7 @@ Más que un simple servicio de envío, nos convertimos en tu depósito estratég
 Esquemas ágiles de facturación mensual consolidada adaptados al flujo de caja financiero de tu negocio (Factura C disponible de forma directa).
 
 ## Límites Claros y Seguros
-Flota exclusiva de motos. Llevamos bultos de hasta 5 kg (con dimensiones máximas de 40x40x30 cm). Control y seguimiento centralizado vía WhatsApp.
+Flota exclusiva de motos. Llevamos bultos de hasta 5 kg (con dimensiones de hasta 40 x 40 cm). Control y seguimiento centralizado vía WhatsApp.
 
 ## Almacenaje Seguro
 Contamos con depósitos propios modernos en Mar del Plata, equipados con alta seguridad integral para el resguardo de tu stock o mercadería.

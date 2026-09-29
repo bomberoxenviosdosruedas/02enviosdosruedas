@@ -14,7 +14,7 @@
 - **Anclaje Local Mar del Plata:** Chauvín, Friuli 1972, costa marplatense. Elementos visuales costeros y urbanos locales identificables. (_Fuente: sitemap.ts, CSV Respuestas del Dueño_).
 - **Trato humano y confianza:** Respuesta personalizada ante imprevistos frente a la despersonalización de apps masivas. (_Fuente: Reseñas Google, CSV Respuestas del Dueño_).
 - **Preferencia por Flota Real / Renders 3D Limpios:** Engagement superior en contenidos con motos con top-box amarillo y cadetes. (_Fuente: Auditoría Marketing F8-1_).
-- **Transparencia en Horarios y Precios:** Datos dinámicos (Express 60-90m, LowCost corte 13:00 hs, Flex corte 15:00 hs) mostrados en UI, nunca congelados en la imagen. (_Fuente: pricing.ts, promises.ts_).
+- **Transparencia en Horarios y Precios:** Datos dinámicos (Express franja de 3 hs a elección, LowCost corte 13:00 hs, Flex corte 15:00 hs) mostrados en UI, nunca congelados en la imagen. (_Fuente: pricing.ts, promises.ts_).
 
 ### 1.2 Radar de Tendencias 2026
 
@@ -191,7 +191,7 @@ text, letters, words, numbers, captions, logos, watermarks, brand marks of other
   [Negative] text, letters, words, numbers, captions, logos, watermarks, brand marks of other companies, realistic human faces, photographs mixed with 3D, dark navy, black, grey, green, purple, neon gradients, harsh black shadows, clutter, busy background, cropped subject.
   ```
 - **Ratio y tamaño:** 4:3, 1200 px
-- **Texto superpuesto (HTML):** "TELEMETRÍA EN VIVO · PRIORIDAD 1", "Ventana de entrega 60-90 min".
+- **Texto superpuesto (HTML):** "TELEMETRÍA EN VIVO · PRIORIDAD 1", "Ventana de entrega: franja de 3 hs".
 - **Alt (es):** Scooter 3D en tramo directo express con cronómetro de entrega.
 - **Archivo:** `public/img/heroes/servicio-express.webp`
 - **Cómo generarlo:** `python docs/imagenes/hero-derecha/generate.py servicio-express`
@@ -479,7 +479,7 @@ text, letters, words, numbers, captions, logos, watermarks, brand marks of other
 - **Objetivo:** Captación urgente de envíos Same-Day / Tramites express.
 - **Superficie / Fondo:** Fondo sólido azul `#0950F6`.
 - **Decisión:** Pieza vertical limpia con zonas seguras superior e inferior.
-- **Se basa en:** Señal 6 (Entrega 60-90m) · Tendencia 7 (Formato 9:16 vertical).
+- **Se basa en:** Señal 6 (Entrega en franja de 3 hs) · Tendencia 7 (Formato 9:16 vertical).
 - **Concepto:** Cronómetro 3D flotante con moto en velocidad sobre canaleta amarilla, dejando 250px arriba y 340px abajo libres.
 - **Composición:** Isometría vertical centrada en los tercios medios.
 - **Prompt:**
@@ -495,7 +495,7 @@ text, letters, words, numbers, captions, logos, watermarks, brand marks of other
   ```
 - **Texto superpuesto (Canva/Instagram Story):**
   - Arriba: "ENVIÁ EN EL DÍA DENTRO DE MAR DEL PLATA"
-  - Centro (sobre el render): "RANGO DE 60 A 90 MINUTOS"
+  - Centro (sobre el render): "FRANJA DE 3 HS A ELECCIÓN"
   - Abajo (CTA): "PEDÍ TU MOTO AHORA POR WHATSAPP"
 - **Alt (es):** Historia vertical con cronómetro 3D y moto express.
 - **Archivo:** `public/img/redes/ad_express_story_9x16.webp`
@@ -507,7 +507,7 @@ text, letters, words, numbers, captions, logos, watermarks, brand marks of other
 
 1. **Datos o afirmaciones a verificar:**
    - Cifra de "+5.000 seguidores en redes": Mantener como copy estimativo pero verificar métrica real en cuentas oficiales antes de campañas pagas ("A VERIFICAR").
-   - Límite de peso por bulto (15 kg en `promises.ts` vs 5 kg en respuestas del dueño): SSoT en código es `MAX_WEIGHT_KG = 15`.
+   - ~~Límite de peso por bulto~~ **Resuelto 2026-09-29:** eran dos umbrales distintos, no una contradicción. `STANDARD_WEIGHT_KG = 5` (lo que va al copy, sin recargo, hasta 40 x 40 cm) y `MAX_WEIGHT_KG = 15` (techo absoluto, se coordina como bulto extra). Ambos en `src/lib/promises.ts`.
 
 2. **Canales con relevamiento indirecto:**
    - **Instagram / Facebook Business Suite (@enviosdosruedas):** Se requiere solicitar export de estadísticas oficiales del último trimestre al dueño para ajustar los test A/B del backlog publicitario.

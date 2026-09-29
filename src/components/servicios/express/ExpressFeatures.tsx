@@ -1,18 +1,24 @@
 import React from 'react';
 import { Clock, MapPinned, Package, Users } from 'lucide-react';
 import { DoubleBezelCard } from '@/components/ui';
-import { EXPRESS_WINDOW, MAX_WEIGHT_KG, OPERATING_HOURS } from '@/lib/promises';
+import {
+  EXPRESS_LEAD_TIME,
+  EXPRESS_WINDOW,
+  OPERATING_HOURS,
+  STANDARD_BULLET_DIMENSIONS_CM,
+  STANDARD_WEIGHT_KG,
+} from '@/lib/promises';
 
 const features = [
   {
-    title: `Entrega en ${EXPRESS_WINDOW}`,
-    desc: 'Pedís, retiramos y vamos directo al destino. Ideal para trámites, documentos y ventas que no pueden esperar.',
+    title: `Entrega en ${EXPRESS_WINDOW} a elección`,
+    desc: `Pedís, retiramos y vamos directo al destino, con ${EXPRESS_LEAD_TIME} mínima. Ideal para trámites, documentos y ventas que no pueden esperar.`,
     icon: Clock,
     span: 'sm:col-span-7',
   },
   {
-    title: `Bultos de hasta ${MAX_WEIGHT_KG} kg`,
-    desc: 'Todo lo que viaja seguro en moto: sobres, cajas, repuestos, pedidos de tu tienda.',
+    title: `Bultos de hasta ${STANDARD_WEIGHT_KG} kg`,
+    desc: `Todo lo que viaja seguro en moto: sobres, cajas, repuestos, pedidos de tu tienda, hasta ${STANDARD_BULLET_DIMENSIONS_CM} por bulto.`,
     icon: Package,
     span: 'sm:col-span-5',
   },

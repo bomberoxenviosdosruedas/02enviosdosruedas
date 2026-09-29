@@ -5,7 +5,12 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { CTANestedPill, DoubleBezelCard, Knockout } from '@/components/ui';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { EXPRESS_TIERS } from '@/lib/pricing';
-import { EXPRESS_WINDOW, EXPRESS_WINDOW_SHORT, MAX_WEIGHT_KG } from '@/lib/promises';
+import {
+  EXPRESS_LEAD_TIME,
+  EXPRESS_WINDOW,
+  EXPRESS_WINDOW_SHORT,
+  STANDARD_WEIGHT_KG,
+} from '@/lib/promises';
 
 const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
@@ -13,7 +18,7 @@ const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
 const chips = [
   { icon: Clock, value: EXPRESS_WINDOW_SHORT, label: 'Entrega' },
   { icon: Tag, value: ars(EXPRESS_TIERS[0].price), label: 'Tarifa desde' },
-  { icon: Package, value: `${MAX_WEIGHT_KG} kg`, label: 'Por bulto' },
+  { icon: Package, value: `${STANDARD_WEIGHT_KG} kg`, label: 'Por bulto' },
 ];
 
 /**
@@ -32,7 +37,7 @@ export default function ExpressHero() {
   return (
     <section
       id="express-hero"
-      aria-label="Envíos Express en moto con entrega en 60 a 90 minutos en Mar del Plata"
+      aria-label="Envíos Express en moto con entrega en franja horaria de 3 horas a elección en Mar del Plata"
       className="relative isolate flex min-h-[90dvh] w-full flex-col overflow-hidden bg-brand-blue-500 text-white"
     >
       <HeroProceduralBackground variant="express" tone="blue" />
@@ -105,13 +110,14 @@ export default function ExpressHero() {
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white text-balance">
                 <span className="block">Retiro y entrego</span>
-                <Knockout>en {EXPRESS_WINDOW_SHORT}</Knockout>
-                <span className="block">sin paradas</span>
+                <Knockout>en tu franja</Knockout>
+                <span className="block">de 3 horas</span>
               </h1>
 
               <p className="text-base sm:text-lg font-sans text-white/85 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-light">
-                Retiramos tu paquete y lo entregamos en {EXPRESS_WINDOW} en todo Mar del Plata.
-                Sin agrupar ni esperar: tarifa fija por distancia y coordinación directa por WhatsApp.
+                Retiramos tu paquete y lo entregamos en {EXPRESS_WINDOW} a elección en todo Mar del Plata,
+                con {EXPRESS_LEAD_TIME} mínima. Sin agrupar ni esperar: tarifa fija por distancia y
+                coordinación directa por WhatsApp.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
@@ -168,7 +174,7 @@ export default function ExpressHero() {
                 </div>
 
                 <div className="pt-3 border-t border-white/15 flex items-center justify-between gap-3 font-mono text-xs sm:text-sm text-white/85 tabular-nums">
-                  <span className="truncate">Ventana {EXPRESS_WINDOW_SHORT}</span>
+                  <span className="truncate">{EXPRESS_WINDOW_SHORT} a elección</span>
                   <span className="text-brand-yellow-500 shrink-0">Punto a punto</span>
                 </div>
               </DoubleBezelCard>

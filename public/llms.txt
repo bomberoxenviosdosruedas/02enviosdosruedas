@@ -11,12 +11,12 @@ Este archivo proporciona información estructurada para que modelos de lenguaje 
 - **Email:** matiascejas@enviosdosruedas.com
 - **Horarios:** Lunes a Viernes de 09:00 a 18:00 hs | Sábados de 10:00 a 15:00 hs (Base operativa Friuli 1972)
 - **Zona de Cobertura:** Todo el ejido urbano de Mar del Plata hasta 20 km (Batán, Sierra de los Padres, Camet bajo cotización)
-- **Capacidad Estándar por Moto:** Hasta 5 kg estándar (máximo 15 kg con recargo) o dimensiones de aproximadamente 40x30 cm por bulto
+- **Capacidad Estándar por Moto:** Hasta 5 kg estándar (máximo 15 kg con recargo) o dimensiones de hasta 40 x 40 cm por bulto
 
 ## Guía Rápida para Clientes (¿Qué servicio necesitás?)
 
 - **¿Tenés una urgencia o trámite puntual con horario límite?**  
-  Elegí **[Envíos Express](https://www.enviosdosruedas.com/servicios/envios-express)**: entrega prioritaria en 60 a 90 minutos con franja horaria acotada de 3 hs a elección. Pedilo antes de las 15:00 hs con 2 hs de anticipación.
+  Elegí **[Envíos Express](https://www.enviosdosruedas.com/servicios/envios-express)**: entrega prioritaria con franja horaria acotada de 3 hs a elección. Pedilo antes de las 15:00 hs con 2 hs de anticipación.
 
 - **¿Tenés una tienda online o hacés envíos en el día a bajo costo?**  
   Elegí **[Envíos LowCost](https://www.enviosdosruedas.com/servicios/envios-lowcost)**: la tarifa más económica de la ciudad. Pedilo antes de las 13:00 hs y se entrega en el transcurso del día antes de las 19:00 hs.
@@ -31,7 +31,7 @@ Este archivo proporciona información estructurada para que modelos de lenguaje 
   Elegí **[Depósito & Fulfillment](https://www.enviosdosruedas.com/servicios/deposito-fulfillment)**: alojamos tu stock en Friuli 1972, preparamos paquetes (picking & packing) y despachamos en el día. Ahorrá un 20% trayendo tus bultos (Drop-Off).
 
 - **¿Sos una empresa o distribuidora con envíos diarios recurrentes?**  
-  Elegí **[Empresas con Cuenta Corriente](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente)**: liquidación quincenal unificada, Factura A, tarifas bonificadas por volumen y soporte exclusivo por WhatsApp.
+  Elegí **[Empresas con Cuenta Corriente](https://www.enviosdosruedas.com/servicios/empresas-cuenta-corriente)**: Factura C consolidada (semanal, quincenal o mensual), tarifas bonificadas por volumen y soporte exclusivo por WhatsApp.
 
 - **¿Querés verificar si llegamos a tu barrio o calcular distancias?**  
   Consultá **[Cobertura y Radios](https://www.enviosdosruedas.com/cobertura)**: mapa y buscador interactivo de barrios de General Pueyrredón.
