@@ -1,7 +1,9 @@
 # Anti-Patrones (Prohibidos) — Envíos DosRuedas
 
-> **Fuente:** `DESIGN.md` §10, `AGENTS.md` "Errores conocidos", auditorías 2026-09.
+> **Fuente:** `DESIGN.md` §10, `AGENTS.md` "Errores conocidos", auditorías 2026-09, entrevista al dueño 2026-09-28 (§5.1 y §5.2).
 > **Cualquier ocurrencia en código nuevo es bloqueo de PR.**
+>
+> §5.1 y §5.2 son de otra categoría: no son preferencias de estilo sino **afirmaciones que el dueño desmintió por nombre**. Aparecer en el sitio es un bug de contenido.
 
 ---
 
@@ -71,6 +73,7 @@
 | Mostrar precios para Flex / Emprendedores sin fila en `PriceRange` | CTA "Cotización a medida por WhatsApp" | 🔴 Crítico |
 | `Math.floor(km)`, `Math.round(km)`, truncar decimales | **Siempre** `Math.ceil(km)` en excedentes >10km | 🔴 Crítico |
 | Copiar tablas de precios a mano en componentes | Derivar de `EXPRESS_TIERS`, `LOW_COST_TIERS` exportadas por `pricing.ts` | 🟠 Alto |
+| Cambiar `EXPRESS_PRICE_PER_KM` a 1200 por un informe sin confirmar | Dejarlo en 1000 hasta que el dueño lo diga. Ver `02-dominio/entrevista-dueno-2026-09-28.md` §3.1 | 🔴 Crítico |
 
 ---
 
@@ -85,6 +88,79 @@
 | Emojis en UI (🚀, 📦, ✅, ⭐) | Íconos `lucide-react` | 🟠 Alto |
 | Rayas (—) en texto visible | Punto, coma, dos puntos, salto de línea | 🟡 Medio |
 | Texto < 12px legible (párrafos, labels) | Mínimo `text-xs` (12px); `text-2xs` (10px) solo metadato mono/Bebas UPPERCASE | 🟠 Alto |
+
+### 5.1 Promesas que el dueño NIEGA
+
+> **Fuente:** `docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md` §4.
+> Estas no son preferencias de estilo: son afirmaciones que el dueño **desmintió por nombre** en la entrevista del 2026-09-28. Aparecer en el sitio es un bug de contenido, no una decisión editorial.
+
+| ❌ Prohibido | ✅ Correcto | Severidad |
+|---|---|---|
+| "Rendición inmediata", "rendimos en mano el mismo día" | "Rendición en el día, al día siguiente o semanal, según lo acordado" | 🔴 Crítico |
+| "Factura A", "facturación A" | "Factura C" (consolidada en cuenta corriente) | 🔴 Crítico |
+| "60-90 min", "en 60 minutos", "llegamos en 1 hora" | `EXPRESS_WINDOW` = franja horaria de 3 hs a elección | 🔴 Crítico |
+| "hasta 15 kg" como capacidad sin recargo | `STANDARD_WEIGHT_KG` = 5 kg / 40 × 40 cm sin recargo; 15 kg es techo absoluto | 🔴 Crítico |
+| LowCost "agrupado", "consolidamos tus envíos", "unificamos tu carga" | LowCost es programado. Consolidación es de rutas entre envíos distintos | 🔴 Crítico |
+| Flex "Mar del Plata y Batán", "y zonas aledañas" | Flex es **todo Mar del Plata, explícitamente no las zonas aledañas** | 🟠 Alto |
+| "Friuli 1972 como punto de retiro / entrega" | Base logística y depósito. **No** es punto de retiro | 🔴 Crítico |
+| "Cobertura garantizada", "llegamos a todas partes" | Radio 20 km por km de ruta. Fuera del partido: $1.200 × km ruta, a consultar | 🟠 Alto |
+| "Entregas en 24hs" como **duración** | El 24HS es retiro hoy, entrega mañana. Es un plazo, no una promesa de entrega en 24 horas | 🟠 Alto |
+| "Seguro de envío", "indemnización", "reposición de paquete", "70 % del valor declarado" | No existe seguro de paquete. El dueño lo negó por escrito. El "70 % de indemnización" de la planilla es **[PLANTILLA]** | 🔴 Crítico |
+| "Recargo desde $1.950" por bulto extra | El extra varía según servicio. **No hay monto fijo publicado** | 🔴 Crítico |
+| Niveles de Flex ($4.500 Elite, $6.500 Pro) | El dueño validó el **concepto** (volumen a mejor precio, base LowCost) pero **no los números**. No publicar cifras | 🔴 Crítico |
+| Badge "< 2 MIN" de respuesta | "< 5 MIN". El dueño no garantiza menos de 2 minutos | 🟠 Alto |
+| "Flota más rápida de MDQ" / superlativos de velocidad | 100 % de cumplimiento del horario de MercadoLibre. Eso es lo verificable | 🟠 Alto |
+| Testimonios, casos de éxito o logos de clientes inventados | Solo 5.0 estrellas con +120 valoraciones. El cliente estrella existe (MailAmericas) pero **no está autorizado para publicar** | 🔴 Crítico |
+| Nombrar competidores (CDI, MMDP, Retorno) en copy o publicidad | El dueño los mencionó en un formulario interno. **No se publican** | 🔴 Crítico |
+| "La IA nos recomienda primero que a todos" | Es una observación interna de posicionamiento, no un claim | 🟠 Alto |
+| Declarar cuál servicio "da más margen" o "es más rentable" | Contradicción entre fuentes (§12 del doc canónico). No se publica un favorito | 🟠 Alto |
+| "Tarifa nocturna", "+50 % por delivery nocturno" | **No se trabaja fuera del horario laboral.** Sin excepción | 🟠 Alto |
+| "El mismo día" como plazo de rendición de contrareembolso | Ver primera fila. El plazo real es acordado, no garantizado | 🔴 Crítico |
+| "Preferimos decir que no podemos, a fallar" ausente del sitio | Es la línea roja del dueño (§11.1) y el argumento de fiabilidad más fuerte. **Debería estar publicado** | 🟠 Alto |
+
+### 5.2 Datos de plantilla que NO son del dueño
+
+> La planilla `Relevamiento completo envío dosruedas.xlsx` trae columnas con texto de la plantilla original que el dueño **no** respondió. Publicar esos valores es inventar política comercial.
+
+| Dato tentador en la planilla | Estado real |
+|---|---|
+| Bulto extra "desde $1.950" | **[PLANTILLA]**. El dueño respondió "tiene un extra según el servicio", sin monto |
+| Recargo de lluvia "+20 % a +30 % típico" | **[PLANTILLA]**. El dueño respondió 30 % a 50 % según servicio |
+| Horario nocturno "+50 % sobre tarifa base" | **[PLANTILLA]**. El dueño respondió que no se trabaja fuera de horario |
+| "Zonas cercanas, 2ª visita sin costo" | **[PLANTILLA]**. El dueño respondió que varía según plan y servicio |
+| **"Garantía e Indemnización: 70 % del valor declarado"** | **[PLANTILLA]**, y además **desmentida**. A la pregunta *"¿Existe alguna política de reintentos o seguro de paquete?"* el dueño respondió **"No"**. Prohibido publicar cualquier indemnización |
+| "Productos prohibidos: líquidos, tortas, mal embalados, sustancias ilegales, animales" | **[PLANTILLA]** en su parte de lista. El dueño sí dijo que no se transportan productos ilegales; la lista completa no es suya |
+
+### 5.3 Precios publicados que el dueño nunca confirmó
+
+> No son hipótesis: **ya están en el sitio**. El "Informe de Estrategia, Auditoría y Visión de Marca" (2026-09-28) los auditó, no los inventó. Estado completo en `02-dominio/entrevista-dueno-2026-09-28.md` §1.3.1 y §1.5.
+
+| Dato | Dónde vive | Estado |
+|---|---|---|
+| E-Commerce 24HS a `"Desde $3.800/envío"` | `app/servicios/page.tsx:183`, hardcodeado | 🟠 **Precio confirmado por Matías el 2026-09-29.** El defecto ya no es el número: es que vive hardcodeado, sin `ServiceType` ni rango en `PriceRange` ni función en `pricing.ts`, con CTA activo que no lleva a ningún cotizador |
+| Flex Nivel 2 Pro: tope `$6.500` en Z4/Z5 | `FlexPricing.tsx:50`, hardcodeado | 🔴 **[SIN CONFIRMAR]** |
+| Flex Nivel 3 Elite: `$4.500` planos, 2ª visita y retiro sin cargo | `FlexPricing.tsx:59-66`, hardcodeado | 🔴 **[SIN CONFIRMAR]** |
+| DropOFF con corte a las 13:00 hs | Solo en el informe | 🟡 **[PARCIAL]**. El 20 % y el alcance general los confirmó el dueño por escrito; el corte horario no |
+| `$1.200`/km aplicado al excedente de Express | ~~[CONFLICTO]~~ | ✅ **Resuelto el 2026-09-29.** `$1.000` es correcto; `$1.200` es solo periferia. `EXPRESS_PRICE_PER_KM` no se toca |
+| Límite de bulto **40 × 30 cm** | Solo en el CSV | 🟠 **[CONFLICTO]** con las otras tres fuentes y con el código, que usan 40 × 40 cm. Hasta que el dueño lo diga, sigue 40 × 40 |
+
+> **Los tres primeros violan la regla de fuente única:** están escritos a mano en los componentes, no salen de `PriceRange` ni de `pricing.ts`. Si mañana el dueño cambia un precio, ninguno de los tres se mueve solo. Es el mismo defecto que ya marca `anti-patrones.md` §7 para las tablas copiadas a mano. **El de 24HS ya no es un problema de precio** (el dueño lo confirmó): es un problema de centralización, y es el que hay que arreglar primero porque es plata que el visitante ya puede pagar.
+
+### 5.4 Tono: lo que el dueño escribió sobre cómo habla la marca
+
+> Pregunta 30 del CSV: *"Hablaria como una persona normal, trabajador, un tono medio formal pero sin exagerar"*. Esto no es una preferencia: es la instrucción de voz de la marca.
+
+| ❌ No escribir | ✅ Escribir | Severidad |
+|---|---|---|
+| "¡Hola! 🎉 ¡Tenemos la mejor solución de logística!" | "Cotizá tu envío" | 🔴 Crítico |
+| "los mejores de MDQ", "líderes del mercado", "#1" | Lo verificable: 100 % de cumplimiento del horario de MercadoLibre | 🔴 Crítico |
+| Jerga de agencia: "soluciones integrales", "ecosistema", "transformación digital" | "Mensajería en moto con flota propia" | 🟠 Alto |
+| "Creemos que juntos llegamos más lejos" | "Tu solución logística o tu partner logístico" (frase del dueño) | 🟠 Alto |
+| Adjetivos sin sustantivo: "rápido, seguro y confiable" | "Elegís el rango horario de 3 horas" | 🟠 Alto |
+| Frases de más de 25 palabras en un hero | Una idea por frase | 🟡 Medio |
+
+> La contracara visual: la marca es amarilla y azul con mucho contraste tipográfico y **no** es una empresa informal. Tono medio formal es correcto para un B2B que factura contrareembolso. No aligerar la escena visual sin tocar el copy.
+
 
 ---
 
@@ -143,4 +219,5 @@
 - [ ] Test Vitest: verifica presencia de `brand-*` tokens en componentes críticos.
 - [ ] Test Vitest: verifica `InputField` / `CTANestedPill` / `DoubleBezelCard` en formularios y CTAs.
 - [ ] Test Vitest: verifica `Math.ceil` en `pricing.ts` y ausencia de precios hardcodeados en Flex/Emprendedores.
+- [ ] Test Vitest: **guard de copy** que falla si aparece cualquiera de los términos prohibidos de §5.1 ("rendición inmediata", "Factura A", "60-90", "15 kg" como capacidad sin recargo, "punto de retiro", "70 %" de indemnización, "entregas en 24hs"). Hay precedents en `src/app/page.test.tsx` y `src/lib/promises.test.ts`.
 - [ ] CI gate: `pnpm typecheck` + `pnpm exec eslint` + `pnpm exec vitest run` obligatorios en PR.

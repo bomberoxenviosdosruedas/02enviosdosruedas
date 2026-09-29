@@ -1,0 +1,20 @@
+/* Hero Flex · Etiqueta de envío · usa shared/base.css */
+/* ================= 4 · FLEX: etiqueta ================= */
+.h-flex{display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px}
+.h-flex .lead{margin-inline:auto}
+.label-stage{display:flex;align-items:center;justify-content:center;gap:clamp(8px,3vw,32px);flex-wrap:wrap;margin-top:8px;width:100%}
+.label-stage img{width:min(300px,70%)}
+.label{background:#fff;color:var(--b500);border-radius:14px;padding:18px 20px;width:min(360px,100%);text-align:left;transform:rotate(-2deg);box-shadow:0 24px 48px -16px rgba(255,255,255,.18);border:2px dashed var(--b200);position:relative}
+.label::before,.label::after{content:"";position:absolute;top:50%;width:18px;height:18px;border-radius:999px;background:var(--b500);transform:translateY(-50%)}
+.label::before{left:-11px}
+.label::after{right:-11px}
+.label .row{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding-block:8px;border-bottom:1px dashed var(--b100)}
+.label .row:last-of-type{border-bottom:0}
+.label .k{font:400 14px/1 var(--f-sub);letter-spacing:.1em;text-transform:uppercase;color:var(--b450)}
+.label .v{font:700 17px/1.1 var(--f-mono);text-align:right}
+.label .big{font:400 34px/1 var(--f-display);text-transform:uppercase;letter-spacing:-.01em;padding-bottom:10px;border-bottom:2px solid var(--b500);margin-bottom:4px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.label .big em{font-style:normal;font:400 13px/1 var(--f-sub);letter-spacing:.1em;background:var(--y500);padding:6px 8px;border-radius:6px}
+.barcode{height:40px;margin-top:10px;border-radius:4px;background:repeating-linear-gradient(90deg,var(--b500) 0 2px,transparent 2px 4px,var(--b500) 4px 7px,transparent 7px 9px,var(--b500) 9px 10px,transparent 10px 13px)}
+.steps-inline{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.steps-inline span{display:inline-flex;align-items:center;gap:8px;font:400 16px/1 var(--f-sub);letter-spacing:.07em;text-transform:uppercase;padding:9px 12px;border-radius:999px;background:#ffffff1a;border:1px solid #ffffff33}
+.steps-inline b{font:700 12px/1 var(--f-mono);width:22px;height:22px;border-radius:999px;background:var(--y500);color:var(--b500);display:inline-flex;align-items:center;justify-content:center}

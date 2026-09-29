@@ -22,14 +22,14 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 export const metadata: Metadata = {
   title: 'Envíos Contra Reembolso en Mar del Plata | Cobro en Destino',
   description:
-    'Servicio seguro de cobro contra reembolso y entrega en Mar del Plata. Rendición de efectivo y transferencias en el día para tu comercio o emprendimiento.',
+    'Servicio seguro de cobro contra reembolso y entrega en Mar del Plata. Rendición de efectivo y transferencias en el día, al día siguiente o semanal, según lo acordado, para tu comercio o emprendimiento.',
   alternates: {
     canonical: `${baseUrl}/servicios/envios-contrareembolso`,
   },
   openGraph: {
     title: 'Envíos Contra Reembolso en Mar del Plata | Envíos DosRuedas',
     description:
-      'Entregá tus paquetes y cobrá en mano en Mar del Plata. Rendición en el día con total seguridad y flota propia.',
+      'Entregá tus paquetes y cobrá en mano en Mar del Plata. Rendición en el día, al día siguiente o semanal, según lo acordado, con total seguridad y flota propia.',
     url: `${baseUrl}/servicios/envios-contrareembolso`,
     type: 'website',
     locale: 'es_AR',
@@ -41,7 +41,7 @@ const jsonLdSchema = {
   '@type': 'Service',
   name: 'Envíos Contra Reembolso y Cobro en Destino en Mar del Plata',
   description:
-    'Servicio de cobro contra entrega y rendición inmediata en Mar del Plata para comercios y emprendedores.',
+    'Servicio de cobro contra entrega y rendición en el día, al día siguiente o semanal, según lo acordado, en Mar del Plata para comercios y emprendedores.',
   url: `${baseUrl}/servicios/envios-contrareembolso`,
   provider: {
     '@type': 'LocalBusiness',
@@ -89,16 +89,16 @@ export default function EnviosContrareembolsoPage() {
     },
     {
       step: '03',
-      title: 'Rendición en el día',
-      desc: 'Te transferimos la recaudación a tu CBU/CVU o te entregamos el efectivo en mano con comprobante firmado.',
+      title: 'Rendición acordada',
+      desc: 'Te transferimos la recaudación a tu CBU/CVU o te entregamos el efectivo en mano con comprobante firmado, en el día, al día siguiente o semanal, según lo acordado.',
       icon: Receipt,
     },
   ];
 
   const benefits = [
     {
-      title: 'Rendición inmediata',
-      desc: 'El dinero de tus ventas no queda retenido semanas. Te transferimos o rendimos en mano el mismo día de la entrega.',
+      title: 'Rendición acordada',
+      desc: 'El dinero de tus ventas no queda retenido semanas. Te transferimos o rendimos en mano en el día, al día siguiente o semanal, según lo acordado.',
       icon: Clock,
     },
     {
@@ -145,7 +145,7 @@ export default function EnviosContrareembolsoPage() {
               </h1>
 
               <p className="font-sans text-base sm:text-lg text-brand-blue-50 max-w-xl leading-relaxed">
-                Vendé más en Mar del Plata brindándole a tus clientes la tranquilidad de pagar al recibir el paquete. Cobramos en efectivo o transferencia y te rendimos el dinero en el día.
+                Vendé más en Mar del Plata brindándole a tus clientes la tranquilidad de pagar al recibir el paquete. Cobramos en efectivo o transferencia y te rendimos el dinero en el día, al día siguiente o semanal, según lo acordado.
               </p>
 
               {/* CTAs */}
@@ -175,7 +175,7 @@ export default function EnviosContrareembolsoPage() {
               <div className="pt-4 flex flex-wrap gap-4 text-xs font-mono text-brand-blue-50">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-brand-yellow-500 shrink-0" />
-                  Rendición en el día
+                  Rendición acordada
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-brand-yellow-500 shrink-0" />

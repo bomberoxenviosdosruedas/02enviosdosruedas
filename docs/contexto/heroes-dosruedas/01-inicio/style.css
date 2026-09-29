@@ -1,0 +1,23 @@
+/* Hero Inicio · Mapa en vivo · usa shared/base.css */
+/* ================= 1 · INICIO: mapa en vivo ================= */
+.h-home{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,56px);align-items:center}
+.h-home .txt{display:flex;flex-direction:column;gap:22px}
+.map{position:relative;aspect-ratio:1;max-width:460px;width:100%;justify-self:center}
+.map img{position:relative;z-index:2;width:100%;filter:drop-shadow(0 24px 40px rgba(255,255,255,.12))}
+.ring{position:absolute;left:50%;top:44%;width:30%;aspect-ratio:1;border-radius:50%;border:2px solid #ffec0199;transform:translate(-50%,-50%) scale(1);animation:radar 3.2s var(--ease) infinite;z-index:1}
+.ring:nth-child(2){animation-delay:1.06s}
+.ring:nth-child(3){animation-delay:2.13s}
+@keyframes radar{0%{transform:translate(-50%,-50%) scale(.6);opacity:.9}100%{transform:translate(-50%,-50%) scale(3.2);opacity:0}}
+.chip-float{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:12px;background:#fff;color:var(--b500);font:500 12.5px/1.2 var(--f-mono);box-shadow:0 12px 30px rgba(9,80,246,.25)}
+.chip-float b{font:400 15px/1 var(--f-sub);letter-spacing:.06em;text-transform:uppercase;display:block}
+.chip-float.a{left:-4%;bottom:14%}
+.chip-float.b{right:-2%;top:10%;background:var(--y500)}
+.ticker{border-top:1px solid #ffffff2e;background:#ffffff0f;overflow:hidden;white-space:nowrap}
+.ticker .track{display:inline-flex;gap:36px;padding:14px 0;animation:tick 32s linear infinite}
+.ticker span{font:400 17px/1 var(--f-sub);letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:36px}
+.ticker span::after{content:"";width:7px;height:7px;border-radius:2px;background:var(--y500);transform:rotate(45deg)}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (max-width:880px){
+  .h-home{grid-template-columns:1fr}
+  .map{max-width:340px}
+}

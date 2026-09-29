@@ -56,7 +56,7 @@ export const FAQ_DATA: FaqCategoryGroup[] = [
       {
         question: '¿Realizan entregas a contrareembolso? ¿Cobran comisión extra?',
         answer:
-          'Sí, realizamos el cobro en efectivo en mano al destinatario en el momento de la entrega. Lo más importante: no cobramos ningún extra ni porcentaje de comisión por este servicio. El dinero recaudado se rinde en el transcurso del mismo día.',
+          'Sí, realizamos el cobro en efectivo en mano al destinatario en el momento de la entrega. Lo más importante: no cobramos ningún extra ni porcentaje de comisión por este servicio. El dinero recaudado se rinde en el día, al día siguiente o semanal, según lo acordado.',
       },
     ],
   },

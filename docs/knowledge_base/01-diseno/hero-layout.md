@@ -94,7 +94,7 @@ Cualquier otro hero centrado en desktop es un error, no una excepción.
 </FloatTiltCard>
 ```
 
-- Tilt 3D suave تتبع mouse (`motion/react`).
+- Tilt 3D suave que sigue el mouse (`motion/react`).
 - Imagen real de courier o diorama 3D isométrico clay mate + satin plastic.
 
 ### 3.2 Hero Card Media / DoubleBezelCard (Para landings de servicio)

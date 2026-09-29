@@ -19,7 +19,9 @@
 | **Iconografía e Imagen (librerías, logo, fotografía, hero card media, ilustraciones)** | `docs/knowledge_base/01-diseno/iconografia-imagen.md` |
 | **Anti-Patrones (lista completa de prohibidos con fixes)** | `docs/knowledge_base/01-diseno/anti-patrones.md` |
 | **Deuda de Adherencia (12 ítems priorizados con métricas)** | `docs/knowledge_base/01-diseno/deuda-adherencia.md` |
-| **Tarifas y Lógica de Negocio (fuente de verdad, flujo server-side, testing)** | `docs/knowledge_base/01-diseno/tarifas-logica-negocio.md` |
+| **Tarifas y Lógica de Negocio (fuente de verdad, flujo server-side, testing, recargos, protocolos)** | `docs/knowledge_base/01-diseno/tarifas-logica-negocio.md` |
+| **Contexto del dueño (entrevista 2026-09-28): definiciones verbatim, recargos, protocolos, lo que NIEGA, visión de foto, auditoría de claims** | `docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md` |
+| **Voz de marca, líneas rojas, cliente estrella y FAQs del dueño (cuestionario de 31 preguntas, 25/5/2026)** | `docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md` §11 y §12 |
 | **Quick Reference / Cheat Sheet (tokens, spacing, primitivas, hero, tarifas, reglas, comandos)** | `docs/knowledge_base/04-referencia-rapida/cheat-sheet.md` |
 | **Plan de Remediación (12 ítems con prompts, orden, criterios de cierre)** | `docs/knowledge_base/01-diseno/plan-remediacion.md` |
 | **Glosario de Dominio (términos, prefijos DS/COPY/MARCA/BL, siglas)** | `docs/knowledge_base/02-dominio/glosario.md` |
@@ -36,13 +38,22 @@
 
 | Regla | Descripción |
 |---|---|
-| **Fuente única de tarifas** | `PriceRange` (BD) → `src/lib/pricing.ts` (fallback). **Nunca** del cliente. |
+| **Fuente única de tarifas** | `PriceRange` (BD) → `src/lib/pricing.ts` (fallback). **Nunca** del cliente. **Nunca** un literal en un componente. |
+| **Tarifas publicadas sin respaldo del dueño** | Quedan **dos**: Flex Nivel 2 `$6.500` y Nivel 3 `$4.500`, hardcodeadas en `FlexPricing.tsx`. **No tocarlas ni replicarlas** hasta que Matías confirme. El dueño validó el *concepto* (base LowCost, descuento por volumen, sin mínimo) pero **no las cifras**. Ver `02-dominio/entrevista-dueno-2026-09-28.md` §1.3.1 |
+| **24HS confirmado, implementación pendiente** | `$3.800`/envío **es correcto** (Matías, 2026-09-29), más **recolección gratis desde 10 envíos**. El número está bien; lo que falta es la centralización: vive hardcodeado en `app/servicios/page.tsx:183`, sin `PriceRange`, sin función de cálculo, con CTA que no lleva a ningún cotizador. **No cambiar el valor.** Ver §1.5 |
+| **El CSV es la fuente más antigua, no la más nueva** | `docs/contexto/respuestas_dueno_enviosdosruedas.csv` está firmado el **25/5/2026**, ~4 meses antes que las otras tres. Para **voz, tono, líneas rojas y nombres propios** es la fuente más literal. Para **precios** no: dio `$4.000` para el 24HS y el vigente es `$3.800`. **Orden: `.docx`/planilla > informe estratégico > CSV** |
+| **Voz de marca: persona normal, trabajador, sin exagerar** | Del cuestionario del dueño. Tono medio formal, sin superlativo, prueba de laurreta antes de escribir. Contrapeso: la escena visual es de alto contraste y la marca **no** es informal. No aligerar el diseño sin tocar el copy. Ver `anti-patrones.md` §5.4 |
+| **Tres líneas rojas del dueño** | No se transportan productos ilegales · no se tolera falta de respeto al repartidor · **"preferimos decir que no podemos, a fallar"**. La tercera es la más valiosa y hoy **no está publicada**. Ver §4.7-§4.9 y §11.1 |
+| **No publicar clientes, competidores ni rentabilidad** | MailAmericas (2.500-4.000 envíos/semana) existe pero **sin autorización**: publicar el volumen expone la capacidad de la flota. CDI, MMDP y Retorno Mensajería son **información interna**: no se nombran. Y las fuentes se contradicen sobre cuál servicio es "más rentable". Ver `anti-patrones.md` §5.1 |
 | **Paleta 3 colores** | `#0950F6` (azul, techo oscuridad), `#FFEC01` (amarillo, ≤15% CTA), `#FFFFFF` (blanco). **Nada más oscuro que `#0950F6`**. |
 | **Tipografía** | Anton/Bebas **solo peso 400** (no `font-bold`). Outfit body. Geist Mono `tabular-nums` obligatorio en precios. |
 | **Server Components por defecto** | `'use client'` solo para hooks, motion, GSAP, Leaflet, localStorage. Islas lo más abajo posible. |
 | **Server Actions para mutaciones** | En `src/actions/`. Route Handlers solo webhooks/consumo externo. |
 | **Primitivas primero** | Antes de escribir markup: `DoubleBezelCard`, `CTANestedPill`, `InputField`, `Badge`, `HeroProceduralBackground`, `Stepper`, `BentoGrid`, `RadioCardGroup`. |
 | **Voseo rioplatense obligatorio** | "Cotizá", "Enviá", "Calculá", "Contactanos". NUNCA "usted/su". |
+| **Nada que el dueño haya negado** | Ver `anti-patrones.md` §5.1. Afirmaciones que él desmintió por nombre (rendición inmediata, Factura A, 60-90 min, "hasta 15 kg" sin recargo, LowCost "agrupado", punto de retiro, "entregas en 24hs" como duración) son **bugs de contenido**, no preferencias. Ojo: el **servicio** E-Commerce 24HS existe y su precio `$3.800` está confirmado (ver fila propia). |
+| **Franja ≠ duración** | `EXPRESS_WINDOW` ("franja horaria de 3 hs") es ventana; `EXPRESS_WINDOW_SHORT` ("Franja de 3 hs") es rótulo. **Nunca** "en 3 hs": sería entrega en 3 horas. |
+| **5 kg ≠ 15 kg** | `STANDARD_WEIGHT_KG` (5) es lo que va sin recargo y es el número del copy. `MAX_WEIGHT_KG` (15) es el techo absoluto. No intercambiables. |
 | **`Math.ceil(km)` obligatorio** | En excedentes >10km. Nunca `Math.floor/round`. |
 | **`prefers-reduced-motion` en TODO** | MotionConfig global + `useReducedMotion()` en componentes + gate GSAP. |
 | **Touch targets ≥ 44px** | `min-h-[44px]` CTA, `h-11` input. Focus visible `ring-2 brand-blue-500`. |
@@ -117,6 +128,7 @@ docs/knowledge_base/
 ├── 02-dominio/
 │   ├── glosario.md
 │   ├── decisiones.md
+│   ├── entrevista-dueno-2026-09-28.md
 │   └── contexto-seo.md
 ├── 03-operaciones/
 │   ├── comandos-verificacion.md

@@ -2,7 +2,11 @@
  * Constantes únicas de promesas de servicio y umbrales operativos (BL-03).
  * Fuente de verdad unificada para cotizadores, páginas informativas, JSON-LD y llms.txt.
  *
- * Nota: Si se modifican estas promesas, recordar actualizar sincronizadamente también public/llms.txt.
+ * Nota: Si se modifican estas promesas, recordar actualizar sincronizadamente también
+ * public/llms.txt y public/llms-full.txt.
+ *
+ * Contexto del dueño (definiciones verbatim de servicio, recargos, protocolos y lo que
+ * niega explícitamente): docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md
  */
 
 // Ventana de entrega Express.
@@ -29,7 +33,13 @@ export const LOWCOST_DELIVERY_DEADLINE = '19:00 hs';
 // Mercado Envíos Flex
 export const FLEX_CUTOFF_TIME = '15:00 hs';
 export const FLEX_DELIVERY_DEADLINE = '20:00 hs';
-export const RAIN_SURCHARGE_PERCENT = 30; // +30% recargo por lluvia
+
+// Recargo por lluvia. El dueño (entrevista 2026-09-28) define un rango según el
+// servicio: 50 % para Express y LowCost, 30 % en todos los demás. Esta constante
+// modela SOLO el caso de 30 %, que es el único que hoy se muestra en el sitio.
+// Antes de usar este valor para Express o LowCost, agregar el desglose por servicio.
+// Ver docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md §3.
+export const RAIN_SURCHARGE_PERCENT = 30;
 
 // Umbrales de distancia y límites físicos
 export const CONSULT_THRESHOLD_KM = 20; // Hasta 20 km cálculo automático; > 20 km "A consultar"

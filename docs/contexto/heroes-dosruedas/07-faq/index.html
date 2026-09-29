@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Preguntas frecuentes · Buscador · Envíos DosRuedas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="stage wrap">
+  <div class="frame">
+    <div class="s-blue glow">
+      <div class="hero">
+        <div class="h-faq">
+          <div class="faq-ill" aria-hidden="true"><span>?</span><span>¿?</span><span>!</span></div>
+          <span class="eyebrow" style="align-self:center">Centro de ayuda</span>
+          <h1 class="h-lg">¿Tenés <span class="knock">dudas?</span></h1>
+          <p class="lead" style="margin-inline:auto">Buscá por palabra o elegí un tema. Si no está, te respondemos por WhatsApp.</p>
+          <div class="search">
+            <label for="faq-q" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Buscar una pregunta</label>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="faq-q" type="search" placeholder="Ej: horario de corte, rastreo, zonas" autocomplete="off">
+          </div>
+          <div class="topics" role="group" aria-label="Temas">
+            <button type="button" data-t="express" aria-pressed="false">Express</button>
+            <button type="button" data-t="lowcost" aria-pressed="false">LowCost</button>
+            <button type="button" data-t="flex" aria-pressed="false">Flex</button>
+            <button type="button" data-t="3pl" aria-pressed="false">3PL</button>
+            <button type="button" data-t="pagos" aria-pressed="false">Pagos</button>
+          </div>
+          <ul class="qlist" id="qlist">
+            <li data-t="flex lowcost"><a href="#faq">¿Cuál es el horario de corte para same-day? <small>Flex · LowCost</small></a></li>
+            <li data-t="express lowcost flex"><a href="#faq">¿Cómo rastreo mi paquete en tiempo real? <small>Envíos</small></a></li>
+            <li data-t="express lowcost"><a href="#faq">¿Qué pasa si no hay nadie en el domicilio? <small>Entregas</small></a></li>
+            <li data-t="express"><a href="#faq">¿Se puede entregar en un horario puntual? <small>Express</small></a></li>
+            <li data-t="flex"><a href="#faq">¿Tienen mínimo de envíos para vendedores? <small>Flex</small></a></li>
+            <li data-t="3pl"><a href="#faq">¿Cómo funciona el depósito y fulfillment? <small>3PL</small></a></li>
+            <li data-t="express lowcost flex 3pl"><a href="#faq">¿Cuáles son las zonas de cobertura? <small>General</small></a></li>
+          </ul>
+          <p class="qempty" id="qempty" hidden>No encontramos esa pregunta. Escribinos por WhatsApp al 223 660-2699.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

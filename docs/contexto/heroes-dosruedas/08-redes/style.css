@@ -1,0 +1,29 @@
+/* Hero Nuestras redes · Mosaico · usa shared/base.css */
+/* ================= 8 · REDES: mosaico ================= */
+.h-net{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(24px,4vw,56px);align-items:center}
+.h-net .txt{display:flex;flex-direction:column;gap:22px}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
+.mosaic .tile{border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px;border:1px solid var(--b100);background:#fff;box-shadow:0 20px 40px -18px rgba(9,80,246,.25);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.mosaic .tile:hover{transform:translateY(-3px);box-shadow:0 28px 50px -18px rgba(9,80,246,.35)}
+.tile .gl{width:44px;height:44px;border-radius:12px;background:var(--b50);display:inline-flex;align-items:center;justify-content:center}
+.tile b{font:400 24px/1 var(--f-sub);letter-spacing:.05em;text-transform:uppercase}
+.tile p{font-size:14.5px;color:var(--b450)}
+.tile .go{margin-top:auto;font:400 15px/1 var(--f-sub);letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px}
+.tile.photo{grid-row:span 2;background:var(--b500);color:#fff;border-color:var(--b500);justify-content:flex-end;overflow:hidden;position:relative;min-height:320px}
+.tile.photo img{position:absolute;top:-4%;left:50%;transform:translateX(-50%);width:108%;max-width:none}
+.tile.photo .cap{position:relative;z-index:1;background:linear-gradient(to top,var(--b500) 60%,transparent);margin:-18px;padding:40px 18px 18px}
+.tile.photo b{color:#fff;font-size:20px;overflow-wrap:anywhere}
+.tile.photo p{color:var(--b50)}
+.tile.acc{background:var(--y500);border-color:var(--y500)}
+.tile.acc p{color:var(--b500)}
+.tile.acc .gl{background:#fff}
+.s-accent .tile.acc{background:#fff;border-color:#fff}
+.s-accent .tile.acc p{color:var(--b450)}
+.s-accent .mosaic .tile{border-color:#0950f62e}
+@media (max-width:880px){
+  .h-net{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .mosaic{grid-template-columns:1fr}
+  .tile.photo{grid-row:auto}
+}

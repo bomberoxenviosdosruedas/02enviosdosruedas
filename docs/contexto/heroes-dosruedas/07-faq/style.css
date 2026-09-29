@@ -1,0 +1,22 @@
+/* Hero Preguntas frecuentes · Buscador · usa shared/base.css */
+/* ================= 7 · FAQ: buscador ================= */
+.h-faq{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;max-width:760px;margin-inline:auto}
+.search{width:100%;position:relative}
+.search input{width:100%;min-height:60px;border-radius:999px;border:2px solid transparent;background:#fff;color:var(--b500);font:500 18px/1.2 var(--f-body);padding:0 22px 0 56px;box-shadow:0 18px 40px rgba(255,255,255,.12)}
+.search input::placeholder{color:var(--b400);opacity:1}
+.search input:focus{outline:none;border-color:var(--y500);box-shadow:0 0 0 5px #ffec0159}
+.search svg{position:absolute;left:20px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--b500)}
+.topics{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.topics button{font:400 15px/1 var(--f-sub);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:#ffffff14;border:1px solid #ffffff4d;border-radius:999px;padding:10px 14px;min-height:40px;cursor:pointer}
+.topics button:hover,.topics button[aria-pressed="true"]{background:var(--y500);color:var(--b500);border-color:var(--y500)}
+.qlist{width:100%;list-style:none;margin:0;padding:0;display:grid;gap:8px;text-align:left}
+.qlist a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-radius:14px;background:#ffffff14;border:1px solid #ffffff2e;color:#fff;text-decoration:none;font-weight:500;min-height:52px}
+.qlist a:hover{background:#ffffff24;border-color:#ffffff66}
+.qlist a small{font:400 12px/1 var(--f-sub);letter-spacing:.1em;text-transform:uppercase;padding:5px 7px;border-radius:6px;background:var(--y500);color:var(--b500);flex:none}
+.qempty{font-size:15px;color:var(--b50)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.faq-ill{display:flex;gap:10px;justify-content:center;align-items:flex-end}
+.faq-ill span{display:inline-flex;align-items:center;justify-content:center;border-radius:14px 14px 14px 4px;font:400 22px/1 var(--f-display);background:#ffffff1f;border:1px solid #ffffff40;color:#fff}
+.faq-ill span:nth-child(1){width:46px;height:46px;animation:floaty 5s ease-in-out infinite}
+.faq-ill span:nth-child(2){width:62px;height:62px;background:var(--y500);color:var(--b500);border-color:var(--y500);border-radius:16px 16px 4px 16px;animation:floaty 5s .8s ease-in-out infinite;font-size:30px}
+.faq-ill span:nth-child(3){width:40px;height:40px;animation:floaty 5s 1.6s ease-in-out infinite}

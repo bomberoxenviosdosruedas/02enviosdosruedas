@@ -1,0 +1,28 @@
+/* Hero Depósito y Fulfillment · Hub amarillo · usa shared/base.css */
+/* ================= 5 · DEPÓSITO: hub amarillo ================= */
+.h-dep{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,48px);align-items:center}
+.h-dep .txt{display:flex;flex-direction:column;gap:22px}
+.h-dep .lead{color:var(--b500)}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 20px 40px -16px rgba(9,80,246,.3)}
+.flow div{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px;border-right:1px dashed var(--b100);position:relative}
+.flow div:last-child{border-right:0}
+.flow small{font:700 12px/1 var(--f-mono);color:var(--b450)}
+.flow b{font:400 21px/1 var(--f-sub);letter-spacing:.05em;text-transform:uppercase}
+.flow p{font-size:13.5px;color:var(--b450)}
+.dep-art{position:relative;justify-self:center;max-width:420px;width:100%}
+.dep-art img{position:relative;z-index:1}
+.dep-art::before{content:"";position:absolute;inset:8% 6% 4%;border-radius:32px;background:#fff;opacity:.55;transform:rotate(3deg)}
+.offer{position:absolute;z-index:2;background:var(--b500);color:#fff;border-radius:14px;padding:10px 14px;display:flex;flex-direction:column;gap:2px;box-shadow:0 14px 30px rgba(9,80,246,.3)}
+.offer b{font:700 22px/1 var(--f-mono);color:var(--y500)}
+.offer span{font:400 14px/1 var(--f-sub);letter-spacing:.07em;text-transform:uppercase}
+.offer.a{left:-2%;top:8%;transform:rotate(-3deg)}
+.offer.b{right:-2%;bottom:10%;transform:rotate(2deg)}
+@media (max-width:880px){
+  .h-dep{grid-template-columns:1fr}
+  .dep-art{max-width:320px}
+}
+@media (max-width:560px){
+  .flow{grid-template-columns:1fr}
+  .flow div{border-right:0;border-bottom:1px dashed var(--b100)}
+  .flow div:last-child{border-bottom:0}
+}

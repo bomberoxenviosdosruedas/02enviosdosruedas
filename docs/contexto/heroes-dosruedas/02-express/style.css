@@ -1,0 +1,25 @@
+/* Hero Express · Cronómetro · usa shared/base.css */
+/* ================= 2 · EXPRESS: cronómetro ================= */
+.h-exp{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.h-exp .txt{display:flex;flex-direction:column;gap:22px}
+.clock{position:relative;max-width:440px;width:100%;justify-self:center;aspect-ratio:1}
+.clock svg{width:100%;height:100%;overflow:visible}
+.clock .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;padding-bottom:10%}
+.clock .num{font:700 clamp(46px,7vw,84px)/.9 var(--f-mono);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.clock .unit{font:400 20px/1 var(--f-sub);letter-spacing:.12em;text-transform:uppercase}
+.clock img{position:absolute;width:66%;left:17%;bottom:-6%;filter:drop-shadow(0 18px 24px rgba(9,80,246,.2))}
+.arc{stroke-dasharray:0 999;animation:arc 1.4s .2s var(--ease) forwards}
+@keyframes arc{to{stroke-dasharray:var(--len) 999}}
+.route{display:flex;align-items:center;gap:10px;font:400 16px/1 var(--f-sub);letter-spacing:.08em;text-transform:uppercase}
+.route .line{flex:1;height:0;border-top:3px dashed var(--y600);min-width:40px;position:relative}
+.route .pin{width:30px;height:30px;border-radius:999px;background:var(--b500);color:#fff;display:inline-flex;align-items:center;justify-content:center;font:700 12px/1 var(--f-mono)}
+.route .pin.y{background:var(--y500);color:var(--b500)}
+.s-accent .route .line{border-top-color:var(--b500)}
+.s-accent .route .pin.y{background:#fff}
+@media (max-width:880px){
+  .h-exp{grid-template-columns:1fr}
+  .h-exp .clock{order:-1;max-width:320px}
+}
+@media (prefers-reduced-motion:reduce){
+  .arc{stroke-dasharray:var(--len) 999}
+}

@@ -160,3 +160,20 @@ Trazo `2px #0950F6`; slab inferior amarillo a −1° con texto `#0950F6`.
 | Sentence case en badges/CTA labels | UPPERCASE obligatorio |
 | `font-mono` sin `tabular-nums` en precios | `font-mono tabular-nums` siempre |
 | `leading-none` en párrafos | `leading-relaxed` (1.625) |
+
+---
+
+## 9. Voz y Tono (vinculante para el ritmo, no solo para el copy)
+
+> **Fuente:** `02-dominio/entrevista-dueno-2026-09-28.md` §11.2 (verbatim del cuestionario: *"Hablaría como una persona normal, trabajador, un tono medio formal pero sin exagerar"*) y `anti-patrones.md` §5.4.
+
+La tipografía de marca es dura y de alto contraste. La voz **no** lo es. Las dos conviven solo si el texto se mantiene corto:
+
+| Regla | Qué implica en el layout |
+|---|---|
+| Una idea por frase | Un titular, un bloque de Anton/Bebas, un párrafo de apoyo. Nunca dos titulares compitiendo en el mismo bloque |
+| Frase de hero ≤ 25 palabras | Si no entra en dos líneas de display, sobra texto |
+| Sin superlativo | No hay bloque de tipografía que justifique "el mejor de MDQ". El peso lo da el tamaño, no el adjetivo |
+| Tono medio formal | Se mantiene el UPPERCASE de marca; **no** se agregan signos de exclamación ni emojis para "compensar" la dureza |
+
+> **Contrapeso explícito:** la marca **no** es informal. La escena visual fuerte (amarillo + azul, bloques duros) es correcta y no se aligera. Lo que se ajusta es el **copy**, no el sistema visual. No aligerar el diseño sin tocar también el copy.

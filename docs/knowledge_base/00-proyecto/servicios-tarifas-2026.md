@@ -1,8 +1,10 @@
 # Servicios y Tarifas Oficiales 2026 — Envíos DosRuedas
 
-> **Fuente consolidada:** `docs/contexto/precios.md`, `PROJECT.md` §3, `src/lib/pricing.ts`, `prisma/schema.prisma`
+> **Fuente consolidada:** `docs/contexto/precios.md`, `PROJECT.md` §3, `src/lib/pricing.ts`, `prisma/schema.prisma`, y la entrevista al dueño del 2026-09-28 (`docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md`).
 >
 > **⚠️ DOCUMENTO CRÍTICO Y FUENTE DE VERDAD:** Ningún componente, cotizador o texto comercial debe mostrar precios distintos a los aquí consignados.
+>
+> **Alcance:** §1 cubre **solo las tarifas por distancia**. Los servicios con tarifa fija por servicio (E-Commerce Same Day, DropOFF, Contrareembolso) y los recargos viven en `src/lib/promises.ts` y se documentan en `01-diseno/tarifas-logica-negocio.md` §4bis. No buscar precios de servicios sin rango aquí.
 
 ---
 
@@ -24,6 +26,37 @@
 | **LOW_COST** | > 20 km | `20.0` | `∞` | *Consultar* | Derivación directa a WhatsApp |
 
 > **Flex y Emprendedores:** No tienen fila en `PriceRange`. **No mostrar números** para estos servicios (hoy `FlexPricing`, `FlexHero`, `EmprendedoresPricing` los muestran: deuda pendiente de decisión del dueño, ver `DESIGN.md` §12.2).
+>
+> **Servicios con tarifa fija** (tienen precio pero no dependen de la distancia, así que no están en esta tabla): E-Commerce Same Day `$6.000 fijos` a toda la ciudad; DropOFF `-20 %` con corte 13:00 hs; Contrareembolso `$0` de comisión. Definidos por el dueño el 2026-09-28, centralizados en `src/lib/promises.ts`.
+>
+> **E-Commerce 24HS (Next Day):** **precio confirmado = `$3.800`/envío** (Matías, 2026-09-29). Además, **recolección gratis desde 10 envíos**; por debajo de 10, la recolección tiene costo. El sitio lo publica correctamente en `app/servicios/page.tsx:183`, pero el número vive **hardcodeado**: no hay `ServiceType`, ni rango en `PriceRange`, ni función en `pricing.ts`, y el botón "Seleccionar 24HS" no lleva a ningún cotizador. **El defecto es la implementación, no el precio.** Ver `02-dominio/entrevista-dueno-2026-09-28.md` §1.5.
+>
+> ⚠️ El CSV de mayo (25/5/2026) decía `$4.000`. **El CSV es la fuente más antigua del archivo, no la más nueva:** el precio bajó después. No usar el CSV para el 24HS.
+>
+> **Tarifa de periferia:** `$1.200 × km` de **km ruta**, para destinos fuera de la urbana de MDQ (Félix U. Camet, La Florida, Camet, 2 de Abril, El Retazo, Estación Camet, Acantilados, San Patricio, San Jacinto). Se liquida aparte del excedente dentro del radio de 20 km.
+>
+> ✅ **Conflicto resuelto el 2026-09-29.** El informe estratégico del 2026-09-28 mencionaba `$1.200`/km también para el excedente de Express en el rango +10 km. **No es así:** son dos tarifas distintas. `$1.200 × km` es **periferia** (fuera de MDQ urbana, lista cerrada de barrios). `$1.000`/km es el **excedente dentro del radio** de Express (10 → 20 km), y `$700`/km el de LowCost. Confirmado por Matías: **`EXPRESS_PRICE_PER_KM = 1000` queda como está y `pricing.ts` no se toca.** Ver `02-dominio/entrevista-dueno-2026-09-28.md` §3.1.
+>
+> **Escalas de Flex por volumen** (Nivel 1/2/3): **ya publicadas** en `components/servicios/flex/FlexPricing.tsx`. El Nivel 1 se deriva de `LOW_COST_TIERS`; los **Niveles 2 y 3 tienen los precios hardcodeados** en el componente (`$6.500` y `$4.500`).
+>
+> El dueño **sí validó el concepto**, por escrito en el CSV de mayo: *"El valor del envios es el mismo que el LowCost"* y *"No se solicita minimos de envios, pero a mayor cantidad de envios diarios, mejor valor va a obtener"*. O sea: base LowCost, descuento por volumen, sin mínimo. **Los números concretos no los respalda ninguna fuente.** No tocar los valores sin su respuesta. Ver `02-dominio/entrevista-dueno-2026-09-28.md` §1.3.1.
+
+### 1.1 Tarifas fijas (no dependen de la distancia)
+
+Viven en `src/lib/promises.ts`, no en `PriceRange`. Mismo criterio de fuente única: **el componente importa la constante, nunca escribe el número.**
+
+| Concepto | Constante | Valor | Respaldo |
+|---|---|---|---|
+| E-Commerce Same Day (Friuli 1972) | `SAME_DAY_FIXED_PRICE` | `$6.000` fijos a toda la ciudad | `.docx` ("tarifa fija a toda la ciudad ($6.000)"). El CSV dice "plana" sin número |
+| E-Commerce 24HS (Next Day) | — | **`$3.800`/envío** | ✅ Confirmado por Matías el 2026-09-29. **Recolección gratis desde 10 envíos** |
+| DropOFF | `DROPOFF_DISCOUNT_PERCENT` | **`-20 %`** sobre la tarifa final | ✅ CSV verbatim: *"obtene un 20% de descuento en la tarifa final"*. Aplica a **cualquier servicio**, no solo 24HS. Corte 13:00 hs (del informe, no del dueño) |
+| Contrareembolso | — | **`$0`** comisión | `.docx` y CSV (pregunta 21) coinciden |
+| Periferia | — | **`$1.200 × km`** de km ruta | `.docx` §5. Destinos fuera de la urbana de MDQ |
+| Bulto extra | — | **Sin monto fijo.** Varía según servicio | `.docx`; el "$1.950 desde" de la planilla es **[PLANTILLA]** |
+| Flex Nivel 2 Pro (Z4/Z5) | — | `$6.500` tope | 🔴 Hardcodeado, **sin confirmar** |
+| Flex Nivel 3 Elite | — | `$4.500` planos | 🔴 Hardcodeado, **sin confirmar** |
+
+> **Same Day, 24HS, DropOFF, Contrareembolso y Periferia son tarifas fijas, no tablas por distancia.** No tienen fila en `PriceRange` porque el modelo es otro. Eso no las exime de la regla: su valor va en `promises.ts` y el componente lo importa. **El 24HS es la excepción:** todavía no tiene constante propia, y por eso está hardcodeado en el JSX.
 
 ---
 

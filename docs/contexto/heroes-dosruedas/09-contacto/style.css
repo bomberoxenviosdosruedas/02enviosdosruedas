@@ -1,0 +1,35 @@
+/* Hero Contacto · Conmutador · usa shared/base.css */
+/* ================= 9 · CONTACTO: conmutador ================= */
+.h-con{display:grid;grid-template-columns:1fr minmax(0,420px);gap:clamp(24px,4vw,56px);align-items:center}
+.h-con .txt{display:flex;flex-direction:column;gap:22px}
+.chan{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.chan li{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border-radius:16px;background:#ffffff14;border:1px solid #ffffff2e}
+.chan .gl{width:44px;height:44px;border-radius:12px;background:#fff;display:inline-flex;align-items:center;justify-content:center}
+.chan b{font:400 19px/1 var(--f-sub);letter-spacing:.06em;text-transform:uppercase;display:block}
+.chan span{font:500 14px/1.3 var(--f-mono);color:var(--b50)}
+.chan .live{display:inline-flex;align-items:center;gap:6px;font:400 13px/1 var(--f-sub);letter-spacing:.08em;text-transform:uppercase;background:var(--y500);color:var(--b500);padding:6px 8px;border-radius:6px}
+.copy{font:400 14px/1 var(--f-sub);letter-spacing:.08em;text-transform:uppercase;background:#fff;color:var(--b500);border:0;border-radius:8px;padding:9px 10px;min-height:36px;cursor:pointer}
+.copy:hover{background:var(--y500)}
+.form-card{background:#fff;color:var(--b500);border-radius:24px;padding:10px;box-shadow:0 30px 60px -20px rgba(255,255,255,.2);position:relative}
+.form-card .in{border:1px solid var(--b50);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.form-card h3{font:400 30px/.95 var(--f-display);text-transform:uppercase;letter-spacing:-.01em}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld label{font:400 15px/1 var(--f-sub);letter-spacing:.07em;text-transform:uppercase}
+.fld input,.fld select{min-height:46px;border:2px solid var(--b300);border-radius:12px;padding:10px 14px;font:400 16px/1.2 var(--f-body);color:var(--b500);background:#fff;width:100%}
+.fld input::placeholder{color:var(--b400);opacity:1}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--b500);box-shadow:0 0 0 4px rgba(9,80,246,.15)}
+.fld input[aria-invalid="true"]{border-color:var(--danger);box-shadow:0 0 0 4px rgba(220,38,38,.12)}
+.err{font-size:13.5px;font-weight:500;color:var(--danger)}
+.ok-msg{font-size:14px;padding:10px 12px;border-radius:10px;background:var(--b50)}
+.form-card .pill{width:100%}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.con-art{position:relative;padding-top:88px}
+.con-art > img{position:absolute;top:0;left:50%;transform:translateX(-50%);width:150px;z-index:2;animation:floaty 6s ease-in-out infinite}
+.con-art .form-card .in{padding-top:56px}
+@media (max-width:880px){
+  .h-con{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .chan li{grid-template-columns:44px 1fr}
+  .chan li > :last-child{grid-column:2;justify-self:start}
+}

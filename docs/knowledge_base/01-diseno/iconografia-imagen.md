@@ -133,7 +133,31 @@ import { FaWhatsapp } from 'react-icons/fa';
   - `hero_emprendedores.webp` — Emprendedores
   - `hero_sobre_nosotros.webp` — Sobre Nosotros
 
-### 3.4 Grilla Vectorial Procedural (Hero Background)
+### 3.4 Escenarios Fotográficos: Whitelist y Blacklist
+
+> **Fuente:** `docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md` §6.3. El dueño marcó explícitamente qué locaciones marplatenses pueden y no pueden aparecer en publicidad.
+
+**✅ Whitelist (postal autorizada):**
+
+| Escenario | Enfoque |
+|---|---|
+| Las ramblas y los Lobos de Mar, con motos en circulación | Postal de marca por excelencia |
+| La costa de Playa Grande / Varese, en trayecto de entrega | Ruta real, no postal genérico |
+| Centro comercial Güemes y zona comercial San Juan | Contexto de comercio: el cliente atendiendo mientras el reparto pasa |
+| Otras locaciones marplatenses | Casilla abierta a propuestas del equipo |
+
+**❌ Blacklist (no usar como postal):**
+
+| Escenario | Por qué |
+|---|---|
+| La base de Friuli 1972 como edificio | El dueño lo marcó **No**. El depósito se nombra en texto, no es postal publicitaria |
+| Ingresos a Batán y Sierra de los Padres | Marcado **No**, y además casi no hay consultas de esos destinos |
+
+> **Tensión entre fuentes:** el `.docx` pide "las motos saliendo en caravana a repartir" para mostrar volumen, pero la planilla marca la base de Friuli como no-usable. La lectura que reconcilia ambas: **la caravana de motos saliendo sí es la escena; la base como edificio no es postal.** Si hay que elegir una postal de marca, es la rambla con los lobos de mar.
+
+**Sensación rectora de toda la fotografía:** **confianza y seguridad**. Ese es el sentiment principal que el dueño quiere transmitir, por encima de velocidad o calidez.
+
+### 3.5 Grilla Vectorial Procedural (Hero Background)
 
 - SVG inline en `HeroProceduralBackground`: trama punteada 48px blanca (`opacity-[0.07]`) + nodos amarillos en cruces.
 - **Sin raster**, **sin imagen externa**, 0 KB.
@@ -153,14 +177,16 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 | ✅ | Verificación |
 |---|---|
-| [ ] Solo `lucide-react` + `react-icons/fa` (WhatsApp) en todo el proyecto |
-| [ ] `strokeWidth` consistente (1.5 o 2.0) |
-| [ ] Tamaños: 16px inline, 20px botones, 24px cards |
-| [ ] Colores por token (`brand-blue-700`, `brand-yellow-500`, `white`) |
-| [ ] `aria-hidden="true"` en todos los íconos decorativos |
-| [ ] Logo único: `/logo-envios-simplified.webp` ≥ 120px, sin recolorear |
-| [ ] Hero con imagen real (generada / Picsum / stock) — no gradiente solo |
-| [ ] `next/image` con `fill`, `sizes`, `priority` (above fold) |
-| [ ] Logos partners: `simple-icons` CDN o npm — no texto plano |
-| [ ] Sin div-based fake screenshots |
-| [ ] Sin ilustraciones decorativas hand-rolled sin justificación |
+| [ ] | Solo `lucide-react` + `react-icons/fa` (WhatsApp) en todo el proyecto |
+| [ ] | `strokeWidth` consistente (1.5 o 2.0) |
+| [ ] | Tamaños: 16px inline, 20px botones, 24px cards |
+| [ ] | Colores por token (`brand-blue-700`, `brand-yellow-500`, `white`) |
+| [ ] | `aria-hidden="true"` en todos los íconos decorativos |
+| [ ] | Logo único: `/logo-envios-simplified.webp` ≥ 120px, sin recolorear |
+| [ ] | Hero con imagen real (generada / Picsum / stock) — no gradiente solo |
+| [ ] | `next/image` con `fill`, `sizes`, `priority` (above fold) |
+| [ ] | Logos partners: `simple-icons` CDN o npm — no texto plano |
+| [ ] | Sin div-based fake screenshots |
+| [ ] | Sin ilustraciones decorativas hand-rolled sin justificación |
+| [ ] | Toda postal fotográfica viene de la whitelist §3.4 (ni Friuli como edificio, ni Batán/Sierra) |
+| [ ] | La sensación que transmite la imagen es confianza y seguridad, no velocidad |

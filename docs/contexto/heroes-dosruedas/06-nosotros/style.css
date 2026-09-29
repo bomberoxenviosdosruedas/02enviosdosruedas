@@ -1,0 +1,32 @@
+/* Hero Sobre nosotros · Editorial · usa shared/base.css */
+/* ================= 6 · NOSOTROS: editorial ================= */
+.h-about{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(24px,4vw,56px);align-items:end;position:relative;overflow:hidden}
+.h-about .ghostw{position:absolute;left:-1%;bottom:-8%;font:400 clamp(90px,17vw,230px)/.8 var(--f-display);text-transform:uppercase;color:var(--b500);opacity:.05;white-space:nowrap;pointer-events:none;z-index:0}
+.h-about .txt{display:flex;flex-direction:column;gap:22px;position:relative;z-index:1}
+.h-about .h-xl{font-size:clamp(44px,6.8vw,92px)}
+.h-about .h-xl .l2{display:block;margin-top:.08em}
+.cred{position:relative;z-index:1;background:#fff;border:1px solid var(--b100);border-radius:20px;padding:10px;box-shadow:0 25px 50px -12px rgba(9,80,246,.18)}
+.cred .in{border-radius:14px;background:var(--b500);color:#fff;padding:20px;display:flex;flex-direction:column;gap:14px}
+.stamp{border:2px solid var(--y500);border-radius:12px;padding:12px 14px;transform:rotate(-1.5deg);align-self:flex-start}
+.stamp b{display:block;font:400 30px/1 var(--f-display);text-transform:uppercase;letter-spacing:-.01em;color:var(--y500)}
+.stamp span{font:500 12.5px/1.3 var(--f-mono);color:var(--b50)}
+.cred dl{margin:0;display:grid;gap:10px}
+.cred dl div{display:flex;justify-content:space-between;gap:10px;align-items:baseline;border-top:1px solid #ffffff2e;padding-top:10px}
+.cred dt{font:400 15px/1 var(--f-sub);letter-spacing:.08em;text-transform:uppercase;color:var(--b50)}
+.cred dd{margin:0;font:700 22px/1 var(--f-mono);font-variant-numeric:tabular-nums}
+@keyframes draw{to{stroke-dashoffset:0}}
+.route-row{grid-column:1 / -1;position:relative;z-index:1}
+.route-band{width:100%;height:auto;display:block;overflow:visible}
+.route-band .rt-path{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 3.2s .2s var(--ease) forwards}
+.route-band .lbl{font:600 13px var(--f-mono);fill:var(--b500)}
+.route-band .lbl2{font:400 15px var(--f-sub);letter-spacing:.08em;fill:var(--b450)}
+.s-blue .ghostw{color:#fff;opacity:.06}
+.s-blue .route-band .lbl{fill:#fff}
+.s-blue .route-band .lbl2{fill:var(--b50)}
+@media (max-width:880px){
+  .h-about{grid-template-columns:1fr}
+  .cred{max-width:420px}
+}
+@media (prefers-reduced-motion:reduce){
+  .route-band .rt-path{stroke-dashoffset:0}
+}

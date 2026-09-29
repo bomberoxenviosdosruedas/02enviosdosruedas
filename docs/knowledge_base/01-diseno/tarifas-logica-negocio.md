@@ -133,20 +133,79 @@ model PriceRange {
 
 ---
 
-## 5. Reglas de Integridad (No Negociables)
+## 5. Capas de Precio y Claims Legales
+
+> **Fuente:** `docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md` §1 y §2.
+
+La tabla de §1 (tarifas por distancia) es **una** de las tres capas de precio. Los servicios con tarifa fija por servicio no están en `PriceRange` y por eso viven en `src/lib/promises.ts`.
+
+| Capa | Dónde vive | Qué cubre |
+|---|---|---|
+| **1. Por distancia** | `PriceRange` (BD) → fallback `pricing.ts` | Express y LowCost |
+| **2. Fija por servicio** | `src/lib/promises.ts` | Same Day `$6.000`, DropOFF `-20 %`, Contrareembolso `$0`, Periferia `$1.200 × km` |
+| **3. En el componente, sin centralizar** | **Defecto a corregir** | E-Commerce 24HS `$3.800`. El precio **está confirmado por el dueño** (2026-09-29), pero vive hardcodeado en `app/servicios/page.tsx:183`, sin `ServiceType`, sin rango en `PriceRange`, sin función en `pricing.ts`, y con un CTA que no lleva a ningún cotizador |
+
+> La capa 2 está **deliberadamente** fuera de `PriceRange`: son precios cerrados por servicio, no rangos por distancia. La regla de "fuente única de tarifas" sigue intacta — lo que se prohíbe es hardcodear en el **componente**, no centralizar en `promises.ts`.
+>
+> **La capa 3 es exactamente el mismo defecto que la capa 2, pero sin la centralización.** El 24HS no necesita un rango por distancia: necesita una constante. Es el único servicio con precio confirmado y sin calculadora.
+
+### 5.1 Regla de claims legales y de servicio
+
+| Claim | Correcto | Por qué |
+|---|---|---|
+| Rendición de contrareembolso | "En el día, al día siguiente o semanal, **según acordado**" | El dueño niega que exista garantía de rendición inmediata |
+| Tipo de factura | **Factura C** consolidada | Factura A no se emite |
+| Punto de retiro | Friuli 1972 es **base logística y depósito**, no punto de retiro | Negado explícitamente por el dueño |
+| Bulto extra | "Varía según el servicio" | Sin monto fijo publicado. **No** usar el `$1.950` de la planilla (dato de plantilla) |
+| Dimensión del bulto | `40 × 40 cm` o `+5 kg` | ⚠️ El CSV del dueño dice 40 × 30 cm. Conflicto abierto: **el sitio sigue con 40 × 40** hasta que confirme |
+| Fuera de Mar del Plata | `$1.200 × km` de **km ruta** | Tarifa de **periferia**, distinta del excedente dentro del radio de 20 km (`$1.000`/km Express, `$700`/km LowCost) |
+| Cobertura Flex | **Todo Mar del Plata, no las zonas aledañas** | Verbatim del dueño. Sin Batán y sin periferia: Flex es más restrictivo que Express y LowCost |
+| Indemnización por pérdida | **No existe** | El dueño respondió "No" a la pregunta de seguro. El "70 % del valor declarado" de la planilla es **[PLANTILLA]**. Prohibido publicar |
+| Límite de stock del 3PL | **"Solo productos pequeños y medianos, en un stock limitado"** | Restricción real del dueño. El sitio publica el servicio sin esta aclaración |
+| Servicio "más rentable" | **No se declara ninguno** | Las dos fuentes se contradicen y no preguntan lo mismo (§12 del doc canónico). Lo que ambas confirman: hay que escalar Cuenta Corriente |
+| Prueba social | Solo **5.0 estrellas con +120 valoraciones** | MailAmericas existe pero **no está autorizado para publicar**. No inventar testimonios |
+
+---
+
+## 6. Protocolos Operativos (No son Promesas, Son Reglas Internas)
+
+> **Fuente:** `docs/knowledge_base/02-dominio/entrevista-dueno-2026-09-28.md` §5.
+
+| Situación | Protocolo | Exponer en el sitio |
+|---|---|---|
+| Paquete Flex no entregado en el primer intento | Se avisa al comercio; con su autorización se hace la nueva visita al día siguiente | Sí, en la guía Flex. Es lo que cuida la reputación |
+| Comprador rechaza el producto en puerta | El retorno **no tiene costo**; se rinde generalmente al día siguiente | Falta explicitarlo en TyC (pendiente) |
+| Reclamo de trato de un cadete | Se charla con el repartidor para que mejore su actitud | Sí, es argumento de "flota propia, cero tercerización" |
+| Dinero cobrado por contrareembolso | El cadete rinde en la base; el comercio lo recibe al día siguiente o se le transfiere | Sí, con el matiz de §5.1 |
+| Época de alta congestión (verano, centro, Güemes) | **No hay diferencias** de operativa | No publicar márgenes estacionales |
+| Destinos con desvío de routing | Félix U. Camet, La Florida, Camet, 2 de abril, El Retazo, Estación Camet; en el sur acantilados, San Patricio, San Jacinto | No publicar como "zonas lentas" |
+| **No hay disponibilidad para cubrir un envío** | **Se rechaza el envío.** *"Preferimos decir que no podemos, a fallar"* (línea roja del dueño) | **Sí, y debería estar publicado.** Es la promesa de fiabilidad más fuerte del archivo: la competencia promete llegar siempre, DosRuedas tiene permiso explícito del dueño para decir que no |
+| **El comercio falta el respeto al cadete** | No se toleró. *"No toleramos faltas de respeto hacia nuestros repartidores"* | No es una nota de TyC: es una **regla de relación**. El comercio que abruma al repartidor deja de ser cliente |
+| **Mercadería ilegal o no declarada** | No se transporta | Falta la lista completa en TyC (pendiente) |
+
+**Zona de fricción de routing** es la razón por la que las tarifas usan **km de ruta** y no distancia en línea recta: la medición por routing puede subestimar el tiempo real en esos barrios.
+
+> Las tres últimas filas salen del cuestionario de 31 preguntas del dueño (25/5/2026), no de la entrevista de septiembre. Son **líneas rojas**, no preferencias. Ver `02-dominio/entrevista-dueno-2026-09-28.md` §4.7, §4.8, §4.9 y §11.1.
+
+---
+
+## 7. Reglas de Integridad (No Negociables)
 
 | Regla | Descripción |
 |---|---|
 | **Fuente única servidor** | Tarifas SIEMPRE desde `PriceRange` (BD) → fallback `pricing.ts`. Nunca del cliente. |
 | **No copiar a mano** | Cualquier precio en código, copy, seed, marketing = tabla maestra exacta. |
 | **Derivar, no duplicar** | UI deriva de `EXPRESS_TIERS`, `LOW_COST_TIERS`, `*_PRICE_PER_KM` exportadas por `pricing.ts`. |
-| **Flex / Emprendedores** | **Sin fila en `PriceRange`** → NO mostrar números. CTA: "Cotización a medida por WhatsApp". |
+| **Flex / Emprendedores** | **Sin fila en `PriceRange`** → NO mostrar números. CTA: "Cotización a medida por WhatsApp". ⚠️ Excepción ya presente en el sitio y **pendiente de decisión**: `FlexPricing.tsx` publica tres niveles con números. Los del Nivel 1 salen de `LOW_COST_TIERS`; los de los Niveles 2 y 3 están **hardcodeados y sin confirmar por el dueño** |
 | **Redondeo excedentes** | **Siempre** `Math.ceil(km)` en tramo +10km. Nunca `Math.floor`, `Math.round`, truncar. |
 | **Límite operativo** | > 20 km → `'consultar'` + WhatsApp precompletado. |
+| **Franja ≠ duración** | `EXPRESS_WINDOW` ("franja horaria de 3 hs") es ventana. `EXPRESS_WINDOW_SHORT` ("Franja de 3 hs") es rótulo. **Nunca** "en 3 hs" |
+| **5 kg ≠ 15 kg** | `STANDARD_WEIGHT_KG` (5) es lo que va sin recargo y es el número del copy. `MAX_WEIGHT_KG` (15) es el techo absoluto. No intercambiables |
+| **Tarifa fija ≠ tabla por distancia** | Same Day, DropOFF, Periferia y 24HS no tienen fila en `PriceRange` **porque el modelo es otro**. Eso no las exime: su valor va en `promises.ts` y el componente lo importa |
 
 ---
 
-## 6. Ejemplos Validados (No Inventar Otros)
+## 8. Ejemplos Validados (No Inventar Otros)
 
 | Distancia | Servicio | Cálculo | Resultado |
 |---|---|---|---|
@@ -166,9 +225,9 @@ model PriceRange {
 
 ---
 
-## 7. UI: Cómo Mostrar Tarifas
+## 9. UI: Cómo Mostrar Tarifas
 
-### 7.1 Cotizadores (Express / LowCost)
+### 9.1 Cotizadores (Express / LowCost)
 
 ```tsx
 // En componente resultado (tras Server Action)
@@ -184,7 +243,7 @@ model PriceRange {
 )}
 ```
 
-### 7.2 Páginas de Servicios (Pricing Tables)
+### 9.2 Páginas de Servicios (Pricing Tables)
 
 ```tsx
 // Derivar de constantes exportadas (NO hardcodear)
@@ -206,7 +265,7 @@ import { EXPRESS_TIERS, LOW_COST_TIERS, EXPRESS_PRICE_PER_KM, LOW_COST_PRICE_PER
 </tbody>
 ```
 
-### 7.3 Flex / Emprendedores (Sin `PriceRange`)
+### 9.3 Flex / Emprendedores (Sin `PriceRange`)
 
 ```tsx
 // ❌ PROHIBIDO: hardcodear precios
@@ -222,7 +281,7 @@ import { EXPRESS_TIERS, LOW_COST_TIERS, EXPRESS_PRICE_PER_KM, LOW_COST_PRICE_PER
 
 ---
 
-## 8. Server Action Correcta (`src/actions/quote.ts`)
+## 10. Server Action Correcta (`src/actions/quote.ts`)
 
 ```typescript
 // ❌ ACTUAL (VIOLA REGLA): confía en price del FormData
@@ -245,7 +304,7 @@ await prisma.quote.create({ data: { ..., price: typeof price === 'number' ? pric
 
 ---
 
-## 9. Testing de Tarifas
+## 11. Testing de Tarifas
 
 ```typescript
 // src/lib/pricing.test.ts
@@ -282,7 +341,7 @@ describe('Constants match seed', () => {
 
 ---
 
-## 10. Referencias Cruzadas
+## 12. Referencias Cruzadas
 
 | Documento | Ubicación |
 |---|---|
