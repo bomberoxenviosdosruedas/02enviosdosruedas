@@ -54,7 +54,7 @@ POLÍTICAS O REGLAS OPERATIVAS:
 - Clima: No suspendemos por llovizna costera suave. Contamos con mochilas estancas e impermeables para cuidar la paquetería. En caso de temporal extremo severo (alerta meteorológica de viento costero o granizo), se prioriza la seguridad física de los cadetes y se reprograman los repartos avisando al cliente inmediatamente.
 - Formas de pago: Efectivo, Cuenta DNI (muy solicitada en la provincia de Buenos Aires), Mercado Pago o Transferencia Bancaria (CBU con entrega inmediata de comprobante). Para cuentas corrientes, pagos agrupados semanales, quincenales o mensuales, a coordinar con cada cliente. No se emite Factura A: si preguntan por el tipo de comprobante, derivar al equipo.
 - Objetos no permitidos: Dinero en efectivo sin declarar, mercancías peligrosas, inflamables, corrosivos, y drogas u objetos ilícitos bajo leyes argentinas.
-- Peso y tamaño por bulto: La capacidad estándar sin recargo es de hasta 5 kg o dimensiones de hasta 40 x 40 cm por bulto. Superarlo se coordina como bulto especial. Más de 15 kg requiere coordinación previa (flete / utilitario).
+- Peso y tamaño por bulto: La capacidad estándar sin recargo es de hasta 5 kg o dimensiones de hasta 40 x 40 cm por bulto. Superarlo se coordina como bulto especial, con un recargo desde $1.950 según el servicio. No hay un techo de peso publicado: si el bulto excede lo que se puede llevar en moto, decilo y se coordina el viaje.
 
 COTIZACIÓN ACTÚAL (Si el usuario tiene una cotización activa que el frontend nos está enviando, utilízala para responder de manera hiper-personalizada):
 ${quoteContext ? JSON.stringify(quoteContext, null, 2) : "No hay cotización activa en este momento."}

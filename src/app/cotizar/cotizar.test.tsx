@@ -198,7 +198,9 @@ describe('Cotizador unificado /cotizar', () => {
     expect(recargos).toHaveTextContent('+50 % por parada');
     expect(recargos).toHaveTextContent('100 % del envío');
     expect(recargos).toHaveTextContent('Bulto de más de 5 kg o 40 × 40 cm');
-    expect(recargos).toHaveTextContent('$1.200 por km de ruta');
+    // Periferia: $1.000 por km de ruta, confirmado por el dueño el 2026-09-30.
+    // El $1.200 que aparece en el cuestionario y la planilla (sep-2026) no se aplica.
+    expect(recargos).toHaveTextContent('$1.000 por km de ruta');
     // Bulto extra: respuesta del dueño en la planilla (pestaña 03, C6).
     expect(recargos).toHaveTextContent('Desde $1.950');
   });

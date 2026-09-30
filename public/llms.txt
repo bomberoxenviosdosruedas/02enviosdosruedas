@@ -11,7 +11,7 @@ Este archivo proporciona información estructurada para que modelos de lenguaje 
 - **Email:** matiascejas@enviosdosruedas.com
 - **Horarios:** Lunes a Viernes de 09:00 a 18:00 hs | Sábados de 10:00 a 15:00 hs (Base operativa Friuli 1972)
 - **Zona de Cobertura:** Todo el ejido urbano de Mar del Plata hasta 20 km (Batán, Sierra de los Padres, Camet bajo cotización)
-- **Capacidad Estándar por Moto:** Hasta 5 kg estándar (máximo 15 kg con recargo) o dimensiones de hasta 40 x 40 cm por bulto
+- **Capacidad Estándar por Moto:** Hasta 5 kg o dimensiones de hasta 40 x 40 cm por bulto sin recargo. Pasado ese umbral, el bulto se coordina aparte con un recargo desde $1.950 según el servicio. No hay techo de peso publicado
 
 ## Guía Rápida para Clientes (¿Qué servicio necesitás?)
 

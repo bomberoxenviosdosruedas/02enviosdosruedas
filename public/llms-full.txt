@@ -85,7 +85,7 @@ Radio estándar de cobertura: 20 km. Más allá de eso la tarifa se conversa a m
 ## LO QUE PAGÁS Y CUÁNDO LLEGA
 Los dos servicios llegan en el día. La diferencia es si elegís el horario.
 
-Express se entrega en una franja de 3 hs que elegís (pedido con 2 hs de anticipación, corte 15:00 hs). LowCost se entrega en el día sin elección de horario (pedido antes de las 13:00 hs, entrega antes de las 19:00 hs). El precio es por distancia: lluvia (+50 %), espera en puerta ($2.100 cada 10 min desde el minuto 11), paradas extra (+50 %), destinatario ausente (100 %), bulto de más de 5 kg o 40 × 40 cm y destinos fuera de la ciudad ($1.200 por km de ruta) se cobran aparte.
+Express se entrega en una franja de 3 hs que elegís (pedido con 2 hs de anticipación, corte 15:00 hs). LowCost se entrega en el día sin elección de horario (pedido antes de las 13:00 hs, entrega antes de las 19:00 hs). El precio es por distancia: lluvia (+50 %), espera en puerta ($2.100 cada 10 min desde el minuto 11), paradas extra (+50 %), destinatario ausente (100 %), bulto de más de 5 kg o 40 × 40 cm y destinos fuera de la ciudad ($1.000 por km de ruta) se cobran aparte.
 
 ---
 

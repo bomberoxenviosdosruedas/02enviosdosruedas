@@ -46,5 +46,7 @@
 | Fecha | Dato | Quién |
 |---|---|---|
 | 2026-09-29 | E-commerce 24HS `$3.800`/envío | Matías Cejas (relevamiento) |
-| 2026-09-29 | Excedente +10 km: `$1.000`/km Express, `$700`/km LowCost; `$1.200`/km es solo periferia | Matías Cejas |
+| 2026-09-29 | Excedente +10 km: `$1.000`/km Express, `$700`/km LowCost. La segunda mitad de esta frase ("`$1.200`/km es solo periferia") **quedó desmentida el 2026-09-30** | Matías Cejas |
+| 2026-09-30 | Periferia: **`$1.000` por km de ruta**, no `$1.200` | Matías Cejas |
+| 2026-09-30 | Capacidad por bulto: **5 kg** es el valor correcto; **no hay techo de peso publicado** | Matías Cejas |
 | 2026-09-29 | DropOFF 20 % vigente | Matías Cejas |

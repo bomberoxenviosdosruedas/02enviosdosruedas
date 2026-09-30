@@ -18,7 +18,7 @@ Sitio Next.js de una mensajería en moto de Mar del Plata. Dueño: Matías Cejas
 ## Precios: nunca inventar ni copiar
 
 - **Fuente única:** `PriceRange` (BD) → `src/lib/pricing.ts` (fallback) para tarifas por distancia; `src/lib/promises.ts` para tarifas fijas y recargos. **Nunca** un literal nuevo en un componente, nunca un precio calculado en el cliente.
-- **`Math.ceil(km)`** en el excedente de 10 a 20 km (`$1.000` Express, `$700` LowCost). Periferia fuera de la ciudad es otra tarifa: `$1.200` por km de ruta.
+- **`Math.ceil(km)`** en el excedente de 10 a 20 km (`$1.000` Express, `$700` LowCost). Periferia fuera de la ciudad es otra tarifa: **`$1.000` por km de ruta** (`PERIPHERY_PRICE_PER_KM`, confirmado por el dueño el 2026-09-30). El `$1.200` del cuestionario y la planilla (sep-2026) **no se aplica**: no abras esa discusión con un informe, ver `tarifas.md` §7.1.
 - **No tocar sin confirmación del dueño:** Flex Nivel 2 `$6.500` y Nivel 3 `$4.500` (hardcodeados en `FlexPricing.tsx`, sin respaldo de cifras) y E-commerce 24HS `$3.800` (confirmado de palabra el 2026-09-29; hoy en `src/app/servicios/page.tsx:230` y `:274`).
 - **Orden de fuentes:** `.docx`/`.xlsx` de sep-2026 > informe estratégico > CSV de may-2026. Nada marcado **[PLANTILLA]** o **[SIN CONFIRMAR]** se publica. Una celda de respuesta del dueño en la planilla no es plantilla.
 
@@ -30,7 +30,7 @@ Cada línea es un bug de contenido, no una preferencia. Detalle y citas en `voz-
 - LowCost **"agrupado"** o por lote de un mismo cliente. Es reparto programado en el día, sin franja: corte 13:00, entrega antes de 19:00.
 - **Factura A** (no la emiten). Tampoco afirmar "Factura C": el dueño no lo dijo (ver `conflictos-abiertos.md`).
 - **Rendición inmediata** en contrareembolso. Es en el día, al día siguiente o semanal, según lo acordado.
-- **"Hasta 15 kg" sin recargo.** Sin recargo va hasta **5 kg o 40 × 40 cm** (`STANDARD_WEIGHT_KG`); 15 kg (`MAX_WEIGHT_KG`) es el techo de la moto.
+- **Cualquier techo de peso.** Sin recargo va hasta **5 kg o 40 × 40 cm** (`STANDARD_WEIGHT_KG`, un solo umbral). **No se publica techo de peso** (decisión del dueño 2026-09-30): `MAX_WEIGHT_KG = 15` no lo respaldaba ninguna fuente suya y se eliminó. `src/lib/copy-guard.test.ts` bloquea el número.
 - Friuli 1972 como **punto de retiro**, envíos **fuera del horario laboral**, Flex **fuera de Mar del Plata**.
 - DropOFF -20 % es **solo para E-commerce 24HS**.
 

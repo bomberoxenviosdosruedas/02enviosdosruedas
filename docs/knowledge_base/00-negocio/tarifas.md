@@ -35,9 +35,11 @@
 >
 > ⚠️ El CSV de mayo (25/5/2026) decía `$4.000`. **El CSV es la fuente más antigua del archivo, no la más nueva:** el precio bajó después. No usar el CSV para el 24HS.
 >
-> **Tarifa de periferia:** `$1.200 × km` de **km ruta** (`PERIPHERY_PRICE_PER_KM`), para envíos fuera de Mar del Plata (D §6). **No hay lista cerrada de barrios:** *"No hay zonas establecidas con limites"* (X `01!E18`). Los barrios Félix U. Camet, La Florida, Camet, 2 de Abril, El Retazo, Estación Camet, Acantilados, San Patricio y San Jacinto son los que el dueño nombró como **fricción del mapa** (D §2), no como zona tarifaria. Se liquida aparte del excedente dentro del radio de 20 km.
+> **Tarifa de periferia:** `$1.000 × km` de **km ruta** (`PERIPHERY_PRICE_PER_KM`, confirmado por el dueño el 2026-09-30), para envíos fuera de Mar del Plata. **No hay lista cerrada de barrios:** *"No hay zonas establecidas con limites"* (X `01!E18`). Los barrios Félix U. Camet, La Florida, Camet, 2 de Abril, El Retazo, Estación Camet, Acantilados, San Patricio y San Jacinto son los que el dueño nombró como **fricción del mapa** (D §2), no como zona tarifaria. Se liquida aparte del excedente dentro del radio de 20 km. El `$1.200` que figura en el cuestionario y la planilla **no se aplica**: ver §7.1.
 >
-> ✅ **Conflicto resuelto el 2026-09-29.** El informe estratégico del 2026-09-28 mencionaba `$1.200`/km también para el excedente de Express en el rango +10 km. **No es así:** son dos tarifas distintas. `$1.200 × km` es **periferia** (fuera de Mar del Plata, sin lista de barrios). `$1.000`/km es el **excedente dentro del radio** de Express (10 → 20 km), y `$700`/km el de LowCost. Confirmado por Matías: **`EXPRESS_PRICE_PER_KM = 1000` queda como está y `pricing.ts` no se toca.** Ver `02-dominio/entrevista-dueno-2026-09-28.md` §3.1.
+> ✅ **Excedente: cerrado el 2026-09-29.** `$1.000`/km es el **excedente dentro del radio** de Express (10 → 20 km) y `$700`/km el de LowCost. `EXPRESS_PRICE_PER_KM = 1000` y `pricing.ts` no se tocan.
+>
+> 🔴 **Periferia: corregido el 2026-09-30.** El 2026-09-29, al cerrar el excedente, se había dado por hecho que `$1.200` era la tarifa de periferia, tomándola del cuestionario y de la planilla y bajando el código para que casara. **Ese fue el error:** la periferia es `$1.000` por km de ruta. Ver §7.1, que explica por qué el `$1.200` de las fuentes no se aplica.
 >
 > **Escalas de Flex por volumen** (Nivel 1/2/3): **ya publicadas** en `components/servicios/flex/FlexPricing.tsx`. El Nivel 1 se deriva de `LOW_COST_TIERS`; los **Niveles 2 y 3 tienen los precios hardcodeados** en el componente (`$6.500` y `$4.500`).
 >
@@ -53,7 +55,7 @@ Viven en `src/lib/promises.ts`, no en `PriceRange`. Mismo criterio de fuente ún
 | E-Commerce 24HS (Next Day) | — | **`$3.800`/envío** | ✅ Confirmado por Matías el 2026-09-29. **Recolección gratis desde 10 envíos** |
 | DropOFF | `DROPOFF_DISCOUNT_PERCENT` | **`-20 %`** sobre la tarifa final | ✅ **Solo E-commerce 24HS** (X `01!E13`). El CSV de mayo lo decía general; manda la planilla. Sin horario de corte del dueño |
 | Contrareembolso | — | **`$0`** comisión | `.docx` y CSV (pregunta 21) coinciden |
-| Periferia | `PERIPHERY_PRICE_PER_KM` | **`$1.200 × km`** de km ruta | D §6. Fuera de Mar del Plata, sin lista de barrios |
+| Periferia | `PERIPHERY_PRICE_PER_KM` | **`$1.000 × km`** de km ruta | Confirmado por el dueño 2026-09-30. Fuera de Mar del Plata, sin lista de barrios. El `$1.200` del cuestionario y la planilla no se aplica (§7.1) |
 | Bulto extra | `BULK_EXTRA_FROM_ARS` | **Desde `$1.950`**, el monto final varía según el servicio | ✅ Respuesta del dueño, X `03!C6` (celda de respuesta). La KB lo marcaba como [PLANTILLA] por error hasta el 2026-09-29 |
 | Flex Nivel 2 Pro (Z4/Z5) | — | `$6.500` tope | 🔴 Hardcodeado, **sin confirmar** |
 | Flex Nivel 3 Elite | — | `$4.500` planos | 🔴 Hardcodeado, **sin confirmar** |
@@ -204,34 +206,39 @@ Fuente: pestaña 03 de la planilla (X `03!*`) y respuestas del `.docx`. **Public
 | **Reintento de entrega** | Sí | **100 %** en Express y LowCost (`RETRY_CHARGE_PERCENT`) | El destinatario no está | En los demás, *"50% o sin cargo"* (D). *"Zonas cercanas a veces realizamos 2da visita sin costo"* (X `03!D10`). El "bonificado al 100 % en el nivel máximo" sale de `FlexPricing.tsx`, no del dueño |
 | **Logística inversa (Flex)** | Sí | **$0** | El comprador rechaza el paquete en puerta | El paquete vuelve al local del vendedor sin cargo |
 | **Gestión de cobranza / depósito bancario** | **No** | **Sin costo, sin límite** | — | No hay porcentaje por montos elevados cobrados en contrareembolso |
-| **Periferia / larga distancia** | Sí | **`$1.200` por km de ruta** (`PERIPHERY_PRICE_PER_KM`) | Envíos **fuera de Mar del Plata**. Sin lista de barrios (X `01!E18`) | Tarifa aparte, no es el excedente dentro del radio (§7.1) |
+| **Periferia / larga distancia** | Sí | **`$1.000` por km de ruta** (`PERIPHERY_PRICE_PER_KM`) | Envíos **fuera de Mar del Plata**. Sin lista de barrios (X `01!E18`) | Tarifa aparte, no es el excedente dentro del radio (§7.1) |
 | **Mercadería excluida** | — | **No se acepta** | *"Liquidos, tortas, productos mal embalados, cosas ilegales, animales"* (X `01!E22`, respuesta del dueño) | Debe estar en `/terminos-y-condiciones`. Ausente hoy |
 
-**Los dos umbrales de bulto no se contradicen:** 5 kg y 40 × 40 cm son el mismo umbral expresado en masa y en volumen. El techo de 15 kg es un dato distinto (capacidad absoluta de la moto) y **no** es el umbral sin recargo.
+**El umbral de bulto es uno solo, expresado de dos formas:** 5 kg y 40 × 40 cm son lo mismo en masa y en volumen. Pasado ese umbral, el bulto se coordina aparte y entra el recargo desde `$1.950` según el servicio.
+
+> **No hay techo de peso publicado, y es una decisión del dueño (2026-09-30).** Existió una constante `MAX_WEIGHT_KG = 15` que el sitio llegó a publicar como *"el máximo que lleva la moto es 15 kg"*. **Ningún documento del dueño lo respalda:** el 15 kg venía solo del `.docx`, siempre como pregunta sin respuesta registrada o como aserción del propio `.docx` — la misma clase de número viejo que el dueño ya corrigió ahí ("60-90 min: ESTO ES FALSO"). Lo que el dueño **sí** respondió, textual, fue *"todo lo que pueda ser llevado en moto"* (CSV, pregunta 4), **sin cifra**. La constante se eliminó. El número queda bloqueado en `src/lib/copy-guard.test.ts`, junto con "60-90 min" y "rendición inmediata".
 
 > **🔴 La única dimensión en disputa es la del bulto.** El CSV, contestando *"¿Cuál es el límite de tamaño y peso?"*, escribió *"mayor a 5kg y mas de **40x30cm**"*. El resto de las fuentes y todo el código usan **40 × 40 cm**. Diez centímetros en el umbral que dispara el recargo. **Mientras el dueño no lo diga, el sitio sigue con 40 × 40** (es el valor que el código ya usa y el que aparece en el copy publicado), pero queda anotado en `../01-fuentes-dueno/conflictos-abiertos.md` #5.
 
-### 7.1 ✅ Resuelto el 2026-09-29: el km de periferia es `$1.200`, el excedente dentro del radio es `$1.000`
+### 7.1 🔴 Sin resolver: ¿el km de periferia es `$1.000` o `$1.200`?
 
-> **Confirmado por Matías el 2026-09-29: `$1.000`.** El código no cambia. Este párrafo existe para que nadie vuelva a abrir la discusión.
+> **Matías confirmó el 2026-09-30: la periferia se cobra a `$1.000` por km de ruta.** `PERIPHERY_PRICE_PER_KM = 1000`, el código no cambia, y esta KB y el test de `/cotizar` se corrigieron para dejar de decir `$1.200`.
+>
+> **⚠️ Contradicción viva con las fuentes, y es deliberada.** El cuestionario (`.docx` §6) y la planilla (`01!E10`, `01!E19`) dicen `$1.200 × km` **literal y dos veces**. Sobrevivieron a la contradicción porque el 2026-09-29 se resolvió el tema al revés (se tomó el `$1.200` de las fuentes y se bajó el código, que es exactamente lo que este párrafo advertía que no había que hacer). Ese error ya está corregido. **No vuelvas a "armonizar" el código con las fuentes:** la respuesta del dueño del 2026-09-30 es posterior a ellas y manda.
+>
+> Este párrafo existe porque el mismo número aparece en dos fuentes del dueño con `$1.200` y en un test con `$1.000`. La próxima vez que aparezca, ya está contestado.
 
-El informe estratégico §5 decía dos cosas que no podían ser ciertas a la vez. Ya se resolvieron:
+El informe estratégico §5 usaba el `$1.200` para argumentar que la tarifa canónica era esa. Lo que en realidad había:
 
-| Fuente | Afirmación | Lectura correcta |
+| Fuente | Afirmación | Estado |
 |---|---|---|
-| Informe §5 (recargos) | "`$1.200 / km de ruta`" para periferia, y que esto *"invalida cualquier texto web heredado anterior (que mencionaba `$1.000`/km) como la regla canónica oficial 2026"* | Se refiere **solo a destinos fuera de la urbana de MDQ**. El dueño lo dijo dos veces, con las mismas palabras: en el cuestionario por página (*"los envíos fuera de Mar del Plata se cobran a `$1.200 × km`"*) y en la planilla (*"KM Ruta a `$1.200` por km"*). |
-| Informe §4 (tarifario Express) | *"Zona 4 (7-10 km) $8.200. Periferia (+10 km): `$1.200` por km de ruta"* | El "+10 km" es una **abreviatura imprecisa del redactor**: metió el rótulo de periferia dentro de la fila de Express. Contradicho por Matías el 2026-09-29. |
-| **Planilla, pestaña 02** | Express *"Z5 (+10km): `$1.000` x km"* · LowCost *"Z5 (+10km): `$700` x km"* | Coincide exactamente con el código. Es la fuente que zanja la discusión. |
-| **Código en producción** | `EXPRESS_PRICE_PER_KM = 1000`, de 10 a 20 km | **Correcto. Se mantiene sin cambios.** |
+| Cuestionario `.docx` §6 | *"los envíos fuera de Mar del Plata, se cobran a $1200 x km (KM RUTA)"* | ⚠️ **No se aplica.** Confirmado por Matías el 2026-09-30 |
+| Planilla `01!E10` y `01!E19` | *"el valor se calcula a KM Ruta a $1200 para localidades aledañas de mar del plata"* | ⚠️ **No se aplica.** Misma confirmación |
+| Informe §4 / §5 | *"$1.200 por km de ruta"* | Informe derivado de las fuentes anteriores. **Descartado** |
+| **Planilla, pestaña 02** | Express *"Z5 (+10km): `$1.000` x km"* · LowCost *"Z5 (+10km): `$700` x km"* | Coincide con el código |
+| **Dueño, 2026-09-30** | Periferia a `$1.000` por km de ruta | ✅ **Manda.** `PERIPHERY_PRICE_PER_KM = 1000` |
 
-**Por qué el informe se confundió:** dice invalidar un "`$1.000`/km" que estaba "en un texto web heredado". Ese texto **nunca existió en el sitio**: `pricing.ts` siempre tuvo el valor como constante de código, y lo único publicado era la tabla por zonas. El informe invalidó una cita de sí mismo.
+**Regla operativa:** siguen siendo dos tarifas distintas —no hay que confundirlas aunque hoy coincidan en el número—, porque se calculan sobre bases distintas y se cobran por canales distintos.
 
-**Regla operativa para el futuro:** son dos tarifas distintas que se cruzan en los papeles.
-
-| | Tarifa | Cuándo aplica |
-|---|---|---|
-| **Excedente dentro del radio** | Express `$1.000`/km · LowCost `$700`/km | Pasados los 10 km, **hasta los 20 km**, dentro del cálculo automático |
-| **Periferia** | `$1.200` × km de ruta | **Fuera de Mar del Plata**, sin lista de barrios. Se cotiza por separado |
+| | Tarifa | Base de cálculo | Cuándo aplica |
+|---|---|---|---|
+| **Excedente dentro del radio** | Express `$1.000`/km · LowCost `$700`/km | km (`Math.ceil`) | Pasados los 10 km, **hasta los 20 km**, dentro del cálculo automático |
+| **Periferia** | `$1.000` × km de ruta | km de ruta | **Fuera de Mar del Plata**, sin lista de barrios. Se cotiza por separado |
 
 ---
 
@@ -277,7 +284,7 @@ La tabla de §1 (tarifas por distancia) es **una** de las tres capas de precio. 
 | Capa | Dónde vive | Qué cubre |
 |---|---|---|
 | **1. Por distancia** | `PriceRange` (BD) → fallback `pricing.ts` | Express y LowCost |
-| **2. Fija por servicio** | `src/lib/promises.ts` | Same Day `$6.000`, DropOFF `-20 %` (solo 24HS), Contrareembolso `$0`, Periferia `$1.200 × km`, Bulto extra desde `$1.950`, recargos (§7) |
+| **2. Fija por servicio** | `src/lib/promises.ts` | Same Day `$6.000`, DropOFF `-20 %` (solo 24HS), Contrareembolso `$0`, Periferia `$1.000 × km`, Bulto extra desde `$1.950`, recargos (§7) |
 | **3. En el componente, sin centralizar** | **Defecto a corregir** | E-Commerce 24HS `$3.800` (confirmación verbal 2026-09-29), hardcodeado en `src/app/servicios/page.tsx:230` y `:274`, sin constante ni función de cálculo |
 
 > La capa 2 está **deliberadamente** fuera de `PriceRange`: son precios cerrados por servicio, no rangos por distancia. La regla de "fuente única de tarifas" sigue intacta — lo que se prohíbe es hardcodear en el **componente**, no centralizar en `promises.ts`.
@@ -293,7 +300,7 @@ La tabla de §1 (tarifas por distancia) es **una** de las tres capas de precio. 
 | Punto de retiro | Friuli 1972 es **base logística y depósito**, no punto de retiro | Negado explícitamente por el dueño |
 | Bulto extra | "Desde `$1.950`, según el servicio" | Respuesta del dueño (X `03!C6`). Publicado en `/cotizar` |
 | Dimensión del bulto | `40 × 40 cm` o `+5 kg` | ⚠️ El CSV del dueño dice 40 × 30 cm. Conflicto abierto: **el sitio sigue con 40 × 40** hasta que confirme |
-| Fuera de Mar del Plata | `$1.200 × km` de **km ruta** | Tarifa de **periferia**, distinta del excedente dentro del radio de 20 km (`$1.000`/km Express, `$700`/km LowCost). Sin lista de barrios |
+| Fuera de Mar del Plata | `$1.000 × km` de **km ruta** | Tarifa de **periferia**, distinta del excedente dentro del radio de 20 km (que es también `$1.000`/km en Express y `$700`/km en LowCost, pero se calcula sobre km, no km de ruta). Sin lista de barrios |
 | Cobertura Flex | **Todo Mar del Plata, no las zonas aledañas** | Verbatim del dueño. Sin Batán y sin periferia: Flex es más restrictivo que Express y LowCost |
 | Indemnización por pérdida | **No publicar** | Conflicto abierto #1: en la planilla respondió *"el 70% del valor del producto"* (X `01!E21`); en el `.docx` respondió "No" a redactar política de seguro. Hasta que lo aclare, nada de porcentajes |
 | Límite de stock del 3PL | **"Solo productos pequeños y medianos, en un stock limitado"** | Restricción real del dueño. El sitio publica el servicio sin esta aclaración |
@@ -314,7 +321,7 @@ La tabla de §1 (tarifas por distancia) es **una** de las tres capas de precio. 
 | **Redondeo excedentes** | **Siempre** `Math.ceil(km)` en tramo +10km. Nunca `Math.floor`, `Math.round`, truncar. |
 | **Límite operativo** | > 20 km → `'consultar'` + WhatsApp precompletado. |
 | **Franja ≠ duración** | `EXPRESS_WINDOW` ("franja horaria de 3 hs") es ventana. `EXPRESS_WINDOW_SHORT` ("Franja de 3 hs") es rótulo. **Nunca** "en 3 hs" |
-| **5 kg ≠ 15 kg** | `STANDARD_WEIGHT_KG` (5) es lo que va sin recargo y es el número del copy. `MAX_WEIGHT_KG` (15) es el techo absoluto. No intercambiables |
+| **Un solo umbral de bulto** | `STANDARD_WEIGHT_KG` (5) y `STANDARD_BULLET_DIMENSIONS_CM` (40 × 40 cm) son el mismo umbral en masa y volumen. Es lo que va sin recargo y es el único número de peso del copy. **No hay techo publicado**: el 15 kg que se publicaba hasta el 2026-09-30 no lo respaldaba ninguna fuente del dueño y se eliminó. Ver §7 |
 | **Tarifa fija ≠ tabla por distancia** | Same Day, DropOFF, Periferia y 24HS no tienen fila en `PriceRange` **porque el modelo es otro**. Eso no las exime: su valor va en `promises.ts` y el componente lo importa |
 
 ---

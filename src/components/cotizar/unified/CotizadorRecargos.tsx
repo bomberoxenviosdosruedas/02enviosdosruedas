@@ -3,7 +3,6 @@ import {
   BULK_EXTRA_FROM_ARS,
   EXTRA_STOP_MAX_DETOUR_KM,
   EXTRA_STOP_SURCHARGE_PERCENT,
-  MAX_WEIGHT_KG,
   PERIPHERY_PRICE_PER_KM,
   RAIN_SURCHARGE_PERCENT,
   RAIN_SURCHARGE_PERCENT_EXPRESS_LOWCOST,
@@ -46,7 +45,7 @@ const RECARGOS: { situacion: string; costo: string; detalle: string }[] = [
   {
     situacion: `Bulto de más de ${STANDARD_WEIGHT_KG} kg o ${STANDARD_BULLET_DIMENSIONS_CM}`,
     costo: `Desde ${formatArs(BULK_EXTRA_FROM_ARS)}`,
-    detalle: `El monto final depende del servicio. El máximo que lleva la moto es ${MAX_WEIGHT_KG} kg.`,
+    detalle: 'El monto final depende del servicio. Si el bulto excede ese tamaño, escribinos y lo coordinamos.',
   },
   {
     situacion: 'Destino fuera de la ciudad',

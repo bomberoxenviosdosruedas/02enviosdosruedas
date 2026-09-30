@@ -69,16 +69,26 @@ export const BULK_EXTRA_FROM_ARS = 1950;
 // Umbrales de distancia y límites físicos
 export const CONSULT_THRESHOLD_KM = 20; // Hasta 20 km cálculo automático; > 20 km "A consultar"
 
-// Capacidad por bulto. Son DOS umbrales distintos y no son intercambiables:
-//   STANDARD_WEIGHT_KG          → lo que entra sin recargo. Es el número que va en el
-//                                 copy y en las tarjetas de servicio ("hasta 5 kg").
-//   STANDARD_BULLET_DIMENSIONS_CM → equivalente en volumen para el bulto.
-//   MAX_WEIGHT_KG               → techo absoluto de la moto. Solo se menciona como
-//                                 tal: pasarse se coordina como bulto extra y no entra
-//                                 en el cálculo automático del cotizador.
+// Capacidad por bulto. UN umbral, dos formas de expresarlo:
+//   STANDARD_WEIGHT_KG            → lo que entra sin recargo. Es el único número de
+//                                   peso que va al copy y a las tarjetas de servicio.
+//   STANDARD_BULLET_DIMENSIONS_CM → el mismo umbral en volumen.
+//
+// Sobrepasado el umbral, el bulto se coordina aparte y entra un recargo desde
+// `BULK_EXTRA_FROM_ARS`, cuyo monto final depende del servicio. No entra en el
+// cálculo automático del cotizador.
+//
+// SIN TECHO NUMÉRICO PUBLICADO, y es deliberado (decisión del dueño 2026-09-30).
+// Existió una constante `MAX_WEIGHT_KG = 15` que ningún fuente del dueño respalda:
+// el 15 kg venía solo del `.docx`, siempre como pregunta sin respuesta registrada
+// o como aserción del propio `.docx` — la misma clase de número viejo que el
+// dueño ya corrigió ahí ("60-90 min: ESTO ES FALSO"). Lo que el dueño sí
+// respondió, textual, fue "todo lo que pueda ser llevado en moto" (CSV pregunta
+// 4), sin cifra. Publicar un techo inventado además rompía el recargo por bulto
+// extra: si el máximo fuera 5 kg, "más de 5 kg suma $1.950" sería imposible.
+// Constante eliminada; el guard de `src/lib/copy-guard.test.ts` la bloquea.
 export const STANDARD_WEIGHT_KG = 5;
 export const STANDARD_BULLET_DIMENSIONS_CM = '40 × 40 cm';
-export const MAX_WEIGHT_KG = 5; // Techo absoluto. Superarlo se trata como bulto extra.
 
 // Condiciones comerciales Depósito & Fulfillment (servicio para empresas)
 // No figuran en la tabla `PriceRange` ni en docs/contexto/precios.md: son tarifas

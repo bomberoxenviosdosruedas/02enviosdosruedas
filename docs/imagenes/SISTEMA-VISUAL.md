@@ -507,7 +507,7 @@ text, letters, words, numbers, captions, logos, watermarks, brand marks of other
 
 1. **Datos o afirmaciones a verificar:**
    - Cifra de "+5.000 seguidores en redes": Mantener como copy estimativo pero verificar métrica real en cuentas oficiales antes de campañas pagas ("A VERIFICAR").
-   - ~~Límite de peso por bulto~~ **Resuelto 2026-09-29:** eran dos umbrales distintos, no una contradicción. `STANDARD_WEIGHT_KG = 5` (lo que va al copy, sin recargo, hasta 40 x 40 cm) y `MAX_WEIGHT_KG = 15` (techo absoluto, se coordina como bulto extra). Ambos en `src/lib/promises.ts`.
+   - ~~Límite de peso por bulto~~ **Resuelto el 2026-09-30, y no como decía la resolución del 2026-09-29.** La lectura de "dos umbrales distintos" era falsa: el supuesto techo de 15 kg (`MAX_WEIGHT_KG`) no lo respaldaba ninguna fuente del dueño. **Un solo umbral:** `STANDARD_WEIGHT_KG = 5` (lo que va al copy, sin recargo, hasta 40 × 40 cm) y **nada más**. Pasado el umbral, el bulto se coordina aparte con recargo desde `$1.950` según el servicio. Constante `MAX_WEIGHT_KG` eliminada de `src/lib/promises.ts`. Ver `docs/knowledge_base/00-negocio/tarifas.md` §7.
 
 2. **Canales con relevamiento indirecto:**
    - **Instagram / Facebook Business Suite (@enviosdosruedas):** Se requiere solicitar export de estadísticas oficiales del último trimestre al dueño para ajustar los test A/B del backlog publicitario.

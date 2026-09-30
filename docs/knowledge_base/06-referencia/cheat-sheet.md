@@ -165,7 +165,7 @@ Copia única en `../00-negocio/tarifas.md` (tabla por distancia §1, fijas §1.1
 | **"Rendición inmediata"** | "En el día, al día siguiente o semanal, según acordado" |
 | **"Factura A"** | "No emitimos Factura A" (el tipo de factura no está confirmado: no escribir "Factura C") |
 | **"60-90 min" / "en 3 hs"** | `EXPRESS_WINDOW` (ventana, no duración) |
-| **"Hasta 15 kg"** | `STANDARD_WEIGHT_KG` = 5 kg sin recargo |
+| **Cualquier techo de peso** (el 15 kg que se publicaba hasta el 2026-09-30) | `STANDARD_WEIGHT_KG` = 5 kg / 40 × 40 cm sin recargo, sin techo. Ver `tarifas.md` §7 |
 | **"LowCost agrupado"** | Programado. Consolidación es de rutas entre envíos distintos |
 | **"Friuli como punto de retiro"** | Base logística y depósito |
 | **Flex "y Batán", "y zonas aledañas"** | Todo Mar del Plata, **no** las aledañas |

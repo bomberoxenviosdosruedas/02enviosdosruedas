@@ -11,7 +11,7 @@
 | 3 | Cotizador único (X `01!E7`: *"aparte les parece incómodo"*) | Resuelto 2026-09-29: `/cotizar` único; `/cotizar/express` y `/cotizar/lowcost` redirigen (308, `next.config.ts`) |
 | 4 | Recargos visibles antes de confirmar (X `03!*`, D) | Resuelto 2026-09-29: `src/components/cotizar/unified/CotizadorRecargos.tsx` con constantes de `src/lib/promises.ts` |
 | 5 | Bulto extra *"Desde $1950"*, +5 kg o 40 × 40 cm (X `03!C6`, `03!D6`) | Resuelto 2026-09-29: `BULK_EXTRA_FROM_ARS` en `promises.ts`, publicado en `CotizadorRecargos.tsx` |
-| 6 | 5 kg estándar, 15 kg techo | `STANDARD_WEIGHT_KG` / `MAX_WEIGHT_KG` |
+| 6 | 5 kg o 40 × 40 cm por bulto, sin techo de peso publicado | `STANDARD_WEIGHT_KG` / `STANDARD_BULLET_DIMENSIONS_CM` |
 | 7 | Dividir el 3PL en E-commerce 24HS y Same Day (X `01!E11`) | Resuelto 2026-09-29: dos tarjetas en `/servicios` (`src/app/servicios/page.tsx`), header y footer |
 | 8 | "NO REALIZAMOS FACTURA A!" (D §4) | Resuelto: "Factura A" solo aparece como negación ("No emitimos Factura A") y "Factura C" ya no se afirma en `src/` |
 | 9 | "Garantía de rendición inmediata no existe" (D §4) | Resuelto: la frase no aparece en `src/`; la ficha `/servicios/envios-contrareembolso` redirige a `/servicios` |

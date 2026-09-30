@@ -10,7 +10,7 @@
 |---|---|
 | **Nombre** | Envíos DosRuedas |
 | **Actividad** | Mensajería en moto, logística urbana de última milla y logística e-commerce |
-| **Cobertura** | Mar del Plata. Cálculo automático hasta 20 km de ruta (`CONSULT_THRESHOLD_KM`). Fuera de la ciudad, `$1.200` por km de ruta, a consultar. *"No hay zonas establecidas con limites"* (X `01!E18`) |
+| **Cobertura** | Mar del Plata. Cálculo automático hasta 20 km de ruta (`CONSULT_THRESHOLD_KM`). Fuera de la ciudad, `$1.000` por km de ruta (`PERIPHERY_PRICE_PER_KM`), a consultar. *"No hay zonas establecidas con limites"* (X `01!E18`) |
 | **Base operativa** | Friuli 1972, Mar del Plata. **No** es punto de retiro ni de entrega para el público (D §6) |
 | **Flota** | Propia, en moto, sin tercerización. Repartidores *"desde el día 1"* |
 | **Trayectoria** | Más de 7 años (decisión 2026-09-18: "+7 años", por Ley 24.240) |

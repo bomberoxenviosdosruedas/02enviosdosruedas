@@ -14,7 +14,6 @@ import {
   EXPRESS_LEAD_TIME,
   LOWCOST_CUTOFF_TIME,
   LOWCOST_DELIVERY_DEADLINE,
-  MAX_WEIGHT_KG,
   PERIPHERY_PRICE_PER_KM,
   STANDARD_BULLET_DIMENSIONS_CM,
   STANDARD_WEIGHT_KG,
@@ -205,8 +204,8 @@ export default function Page() {
                 </dt>
                 <dd className="font-sans text-sm text-white/85 leading-relaxed mt-1">
                   Hasta {STANDARD_WEIGHT_KG} kg o {STANDARD_BULLET_DIMENSIONS_CM} por bulto sin
-                  recargo. Más que eso suma recargo por bulto extra; la moto lleva hasta{' '}
-                  {MAX_WEIGHT_KG} kg.
+                  recargo. Más que eso suma un recargo por bulto extra, que se calcula según el
+                  servicio.
                 </dd>
               </div>
               <div>

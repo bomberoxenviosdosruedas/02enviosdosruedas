@@ -76,6 +76,8 @@
 | `Math.floor(km)`, `Math.round(km)`, truncar decimales | **Siempre** `Math.ceil(km)` en excedentes >10km | 🔴 Crítico |
 | Copiar tablas de precios a mano en componentes | Derivar de `EXPRESS_TIERS`, `LOW_COST_TIERS` exportadas por `pricing.ts` | 🟠 Alto |
 | Cambiar `EXPRESS_PRICE_PER_KM` a 1200 por un informe sin confirmar | Dejarlo en 1000 hasta que el dueño lo diga. Ver `02-dominio/entrevista-dueno-2026-09-28.md` §3.1 | 🔴 Crítico |
+| Bajar `PERIPHERY_PRICE_PER_KM` a 1000 para "armonizar" con el código, cuando el `.docx` y la planilla dicen `$1.200` | Ya se hizo una vez, el 2026-09-29, y fue el error. El dueño confirmó **`$1.000`** el 2026-09-30 (`decisiones.md` #70, `tarifas.md` §7.1). Las fuentes van atrasadas, no el código | 🔴 Crítico |
+| Reintroducir un techo de peso (el 15 kg de `MAX_WEIGHT_KG`) | No hay techo publicado. Solo `STANDARD_WEIGHT_KG` = 5 kg. `copy-guard.test.ts` lo bloquea | 🔴 Crítico |
 
 ---
 
@@ -150,5 +152,6 @@
 - [ ] Test Vitest: verifica presencia de `brand-*` tokens en componentes críticos.
 - [ ] Test Vitest: verifica `InputField` / `CTANestedPill` / `DoubleBezelCard` en formularios y CTAs.
 - [ ] Test Vitest: verifica `Math.ceil` en `pricing.ts` y ausencia de precios hardcodeados en Flex/Emprendedores.
-- [ ] Test Vitest: **guard de copy** que falla si aparece cualquiera de los términos prohibidos de §5.1 ("rendición inmediata", "Factura A", "60-90", "15 kg" como capacidad sin recargo, "punto de retiro", "70 %" de indemnización, "entregas en 24hs"). Hay precedents en `src/app/page.test.tsx` y `src/lib/promises.test.ts`.
+- [x] Test Vitest: **guard de copy** → `src/lib/copy-guard.test.ts` (creado 2026-09-30, después de que "15 kg" se publicara meses sin fuente). Escanea `src/**` y falla si aparece un techo de peso, "60-90 min" o "rendición inmediata"; ignora comentarios para que el código pueda *nombrar* el término. El motivo de cada hallazgo va en el mensaje de error.
+  - [ ] Ampliar a los términos que hoy **no** cubre: "Factura A", "punto de retiro", "70 %" de indemnización, "entregas en 24hs". Está deliberadamente fuera: los tres primeros aparecen en el sitio **negados** ("No emitimos Factura A"), así que un guard ingenuo daría falsos positivos. Blindarlos exige parsear negación, y un guard que miente se desactiva.
 - [ ] CI gate: `pnpm typecheck` + `pnpm exec eslint` + `pnpm exec vitest run` obligatorios en PR.

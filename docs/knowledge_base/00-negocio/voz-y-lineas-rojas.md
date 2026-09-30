@@ -85,7 +85,7 @@ Palabras que el dueño usa con un significado específico. Usarlas mal es un err
 | "Reintento" | Segunda visita por destinatario ausente | Servicio de garantía |
 | "Exclusivo" | Que el comercio no trabaja con otra transportista | Exclusividad de zona |
 | "Termómetro verde" | El indicador de reputación de Mercado Libre. El 100 % de cumplimiento de las 21 hs es lo que lo mantiene | Un sello o una certificación propia |
-| "Periferia" | Envíos fuera de Mar del Plata, a `$1.200` por km de ruta. Sin lista de barrios (X `01!E18`) | Los barrios del ejido que cubre el radio de 20 km |
+| "Periferia" | Envíos fuera de Mar del Plata, a `$1.000` por km de ruta (`PERIPHERY_PRICE_PER_KM`, confirmado el 2026-09-30). Sin lista de barrios (X `01!E18`) | Los barrios del ejido que cubre el radio de 20 km. **Y jamás `$1.200`**, que es lo que dicen el cuestionario y la planilla: ver `tarifas.md` §7.1 |
 | "Línea roja" | Algo que la empresa no hace bajo ninguna circunstancia, aunque cueste plata | Una política subjetiva |
 | "Una persona normal, trabajador" | Cómo habla la marca si fuera una persona (CSV 30) | "Amigable" o "cercano" |
 | "Preferimos decir que no podemos, a fallar" | Criterio de capacidad: antes admitir límites que incumplir (CSV 31) | Exceso de capacidad |
@@ -190,11 +190,11 @@ Tres metas, sin número ni plazo por cada una:
 | "Rendición inmediata", "rendimos en mano el mismo día" | "Rendición en el día, al día siguiente o semanal, según lo acordado" | 🔴 Crítico |
 | "Factura A", "facturación A" | "No emitimos Factura A". No afirmar "Factura C" hasta que el dueño lo confirme | 🔴 Crítico |
 | "60-90 min", "en 60 minutos", "llegamos en 1 hora" | `EXPRESS_WINDOW` = franja horaria de 3 hs a elección | 🔴 Crítico |
-| "hasta 15 kg" como capacidad sin recargo | `STANDARD_WEIGHT_KG` = 5 kg / 40 × 40 cm sin recargo; 15 kg es techo absoluto | 🔴 Crítico |
+| Cualquier techo de peso distinto de 5 kg (el 15 kg que se publicaba hasta el 2026-09-30) | `STANDARD_WEIGHT_KG` = 5 kg / 40 × 40 cm sin recargo. No se publica techo: ver `tarifas.md` §7 | 🔴 Crítico |
 | LowCost "agrupado", "consolidamos tus envíos", "unificamos tu carga" | LowCost es programado. Consolidación es de rutas entre envíos distintos | 🔴 Crítico |
 | Flex "Mar del Plata y Batán", "y zonas aledañas" | Flex es **todo Mar del Plata, explícitamente no las zonas aledañas** | 🟠 Alto |
 | "Friuli 1972 como punto de retiro / entrega" | Base logística y depósito. **No** es punto de retiro | 🔴 Crítico |
-| "Cobertura garantizada", "llegamos a todas partes" | Radio 20 km por km de ruta. Fuera del partido: $1.200 × km ruta, a consultar | 🟠 Alto |
+| "Cobertura garantizada", "llegamos a todas partes" | Radio 20 km por km de ruta. Fuera del partido: $1.000 × km ruta, a consultar | 🟠 Alto |
 | "Entregas en 24hs" como **duración** | El 24HS es retiro hoy, entrega mañana. Es un plazo, no una promesa de entrega en 24 horas | 🟠 Alto |
 | "Seguro de envío", "indemnización", "reposición de paquete", "70 % del valor" | No publicar hasta resolver el conflicto #1 (planilla: 70 %; `.docx`: "No") | 🔴 Crítico |
 | Bulto extra sin monto ni condición | "Desde $1.950, según el servicio", más de 5 kg o 40 × 40 cm (X `03!C6`, `BULK_EXTRA_FROM_ARS`) | 🟠 Alto |
@@ -234,7 +234,8 @@ Tres metas, sin número ni plazo por cada una:
 | Flex Nivel 2 Pro: tope `$6.500` en Z4/Z5 | `FlexPricing.tsx:50`, hardcodeado | 🔴 **[SIN CONFIRMAR]** |
 | Flex Nivel 3 Elite: `$4.500` planos, 2ª visita y retiro sin cargo | `FlexPricing.tsx:59-66`, hardcodeado | 🔴 **[SIN CONFIRMAR]** |
 | DropOFF con corte a las 13:00 hs | Solo en el informe | 🟡 **[SIN CONFIRMAR]**. El 20 % y su alcance (solo 24HS, X `01!E13`) son del dueño; el corte horario no |
-| `$1.200`/km aplicado al excedente de Express | ~~[CONFLICTO]~~ | ✅ **Resuelto el 2026-09-29.** `$1.000` es correcto; `$1.200` es solo periferia. `EXPRESS_PRICE_PER_KM` no se toca |
+| `$1.200`/km para el **excedente** de Express | ~~[CONFLICTO]~~ | ✅ **Resuelto el 2026-09-29.** `$1.000` es correcto. `EXPRESS_PRICE_PER_KM` no se toca |
+| `$1.200`/km para la **periferia** | ~~[CONFLICTO]~~ | ✅ **Resuelto el 2026-09-30.** Tampoco: la periferia es `$1.000`/km. El `$1.200` de la KB venía del cuestionario y la planilla; se bajó a `$1.000` en el código, la KB y el test. `PERIPHERY_PRICE_PER_KM` no se toca. Ver `tarifas.md` §7.1 |
 | Límite de bulto **40 × 30 cm** | Solo en el CSV | 🟠 **[CONFLICTO]** con las otras tres fuentes y con el código, que usan 40 × 40 cm. Hasta que el dueño lo diga, sigue 40 × 40 |
 
 > **Los tres primeros violan la regla de fuente única:** están escritos a mano en los componentes, no salen de `PriceRange` ni de `pricing.ts`. Si mañana el dueño cambia un precio, ninguno de los tres se mueve solo. Es el mismo defecto que ya marca `anti-patrones.md` §7 para las tablas copiadas a mano. **El de 24HS ya no es un problema de precio** (el dueño lo confirmó): es un problema de centralización, y es el que hay que arreglar primero porque es plata que el visitante ya puede pagar.

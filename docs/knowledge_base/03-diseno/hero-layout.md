@@ -214,13 +214,14 @@ import { Zap, MapPin } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { CTANestedPill, DoubleBezelCard, HeroProceduralBackground } from '@/components/ui';
 import { EXPRESS_TIERS } from '@/lib/pricing';
-import { EXPRESS_WINDOW, EXPRESS_WINDOW_SHORT, MAX_WEIGHT_KG } from '@/lib/promises';
+import { EXPRESS_WINDOW, EXPRESS_WINDOW_SHORT, STANDARD_WEIGHT_KG } from '@/lib/promises';
 
 export default function ExpressHero() {
   const chips = [
     { value: EXPRESS_WINDOW_SHORT.replace('-', '–'), label: 'Entrega' },
     { value: `$${EXPRESS_TIERS[0].price.toLocaleString('es-AR')}`, label: 'Tarifa desde' },
-    { value: `${MAX_WEIGHT_KG} kg`, label: 'Por bulto' },
+    // Sin techo de peso: 5 kg es el umbral sin recargo, no una capacidad máxima.
+    { value: `${STANDARD_WEIGHT_KG} kg`, label: 'Por bulto' },
   ];
 
   return (

@@ -37,6 +37,8 @@ El cálculo por routing puede **subestimar** el tiempo real en estas zonas porqu
 ### 5.6 Fuera de Mar del Plata (tarifa de periferia)
 
 > "Muy pocas consultas, salen algunos envíos pero muy pocos; los envíos fuera de Mar del Plata se cobran a **$1.200 × km (km de ruta)**"
+>
+> 🔴 **La cifra de esa cita no se aplica.** El dueño confirmó el **2026-09-30** que la periferia se cobra a **`$1.000` por km de ruta** (`PERIPHERY_PRICE_PER_KM`). La cita se conserva porque es la transcripción de la fuente y ahí queda el `$1.200` original, pero **nadie debe publicarlo ni tomarlo como tarifa**. Ver `tarifas.md` §7.1.
 
 **No hay lista de barrios de periferia.** El dueño: *"No hay zonas establecidas con limites"* (X `01!E18`) y *"Si no tenemos cobertura… le explicamos"* (X `01!E10`). La lista Félix U. Camet · La Florida · Camet · 2 de Abril · El Retazo · Estación Camet · Acantilados · San Patricio · San Jacinto es la de **fricción del mapa** (§5.5); el informe estratégico la reinterpretó como zona tarifaria, y eso es un error.
 

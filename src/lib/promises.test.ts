@@ -5,7 +5,7 @@ import {
   CONTACT_EMAIL,
   OPERATING_HOURS,
   STANDARD_WEIGHT_KG,
-  MAX_WEIGHT_KG,
+  STANDARD_BULLET_DIMENSIONS_CM,
   SAME_DAY_FIXED_PRICE,
 } from './promises';
 import { calculateExpressPrice, calculateLowCostPrice } from './pricing';
@@ -41,12 +41,20 @@ describe('BL-01 & BL-03 — Enrutamiento, Promesas y Fórmulas 2026', () => {
     expect(OPERATING_HOURS.saturdays).toBe('10:00 a 15:00 hs');
   });
 
-  it('BL-03: el tope estándar sin recargo es 5 kg, distinto del techo absoluto de 15 kg', () => {
-    // Son dos umbrales y no pueden intercambiarse: lo que pasa los 5 kg se coordina
-    // como bulto extra, así que 15 kg no es lo que se promete en el copy.
+  it('BL-03: el bulto sin recargo es 5 kg o 40 × 40 cm, sin techo numérico', async () => {
+    // Un solo umbral, dos formas de expresarlo. Sobrepasado, el bulto se coordina
+    // aparte con un recargo desde BULK_EXTRA_FROM_ARS.
     expect(STANDARD_WEIGHT_KG).toBe(5);
-    expect(MAX_WEIGHT_KG).toBe(15);
-    expect(STANDARD_WEIGHT_KG).toBeLessThan(MAX_WEIGHT_KG);
+    expect(STANDARD_BULLET_DIMENSIONS_CM).toBe('40 × 40 cm');
+
+    // No se publica techo de peso. El de 15 kg que se publicaba hasta el
+    // 2026-09-30 no lo respaldaba ninguna fuente del dueño: el CSV responde
+    // "todo lo que pueda ser llevado en moto", sin cifra (ver promises.ts).
+    // Que el módulo no exporte ninguna capacidad máxima es lo que impide que el
+    // copy vuelva a prometer un techo; copy-guard.test.ts bloquea además que
+    // reaparezca el número escrito a mano en un componente.
+    const promises = await import('./promises');
+    expect(Object.keys(promises)).not.toContain('MAX_WEIGHT_KG');
   });
 
   it('BL-03: la tarifa fija Same Day vive en promises.ts, no hardcodeada en el copy', () => {
