@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useReducedMotion } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { EXPRESS_CUTOFF_TIME } from '@/lib/promises';
-import { EXPRESS_TIERS } from '@/lib/pricing';
 
 /**
  * Collage del hero Express (propuesta "figma").
@@ -76,17 +75,25 @@ const tiles: Tile[] = [
   },
   {
     key: 'word',
+    // "Servicio Express" en dos líneas: en una sola no entra en el ancho de la
+    // tesela sin romper el ritmo de las otras. Anton es condensada, ~0.52em por
+    // carácter en mayúscula.
     className: cn(
       wordClass,
-      'left-[2%] top-[250px] h-[72px] w-[42%] rounded-sm bg-brand-blue-400 text-[30px] text-white lg:left-[26%] lg:top-[70%] lg:h-[100px] lg:w-[28%] lg:text-[54px]'
+      'flex-col left-[2%] top-[248px] h-[104px] w-[46%] rounded-sm bg-brand-blue-400 text-[26px] text-white lg:left-[24%] lg:top-[60%] lg:h-[184px] lg:w-[32%] lg:text-[42px]'
     ),
     r: -3,
     d: 10,
     i: 2,
-    content: 'Express',
+    content: (
+      <>
+        <span>Servicio</span>
+        <span>Express</span>
+      </>
+    ),
   },
   {
-    key: 'price',
+    key: 'desde',
     className: cn(
       wordClass,
       'hidden lg:flex left-[58%] top-[80%] h-[84px] w-[22%] rounded-md bg-brand-yellow-500 text-[40px] text-brand-blue-500'
@@ -94,7 +101,7 @@ const tiles: Tile[] = [
     r: 4,
     d: 9,
     i: 6,
-    content: `$${EXPRESS_TIERS[0].price.toLocaleString('es-AR')}`,
+    content: 'Desde',
   },
   {
     key: 'soft',
