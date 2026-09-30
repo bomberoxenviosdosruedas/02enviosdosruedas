@@ -1,0 +1,1212 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto · Propuesta figma</title>
+<meta name="description" content="Contacto de Envíos DosRuedas en Mar del Plata: WhatsApp +54 223 660-2699, email, redes y horarios de la base de operaciones.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<!--
+  Propuesta "figma" adaptada a Envíos DosRuedas: página interna.
+  Ley visual: docs/propuestas/disenos_adaptados_envios/figma/DESIGN.md
+  :root, tipografías, header, menú mobile, footer, botones, foco, reveal y JS utilitario copiados tal cual de figma.html (home).
+-->
+<style>
+/* Variables copiadas de figma/variables.css (paleta DosRuedas únicamente) */
+:root {
+  --color-ink: #0950F6;
+  --color-paper: #FFFFFF;
+  --color-mist: #E6EEFE;
+  --color-ink-muted: #0950F6;
+  --color-signal: #FFEC01;
+  --color-signal-hover: #FFF12E;
+  --color-signal-pressed: #E6D400;
+  --color-collage-blue-bright: #3570F8;
+  --color-collage-blue-soft: #628FF9;
+  --color-collage-spark: #FFEC01;
+  --color-wash-yellow: #FFFAB8;
+  --color-wash-blue-100: #BACEFD;
+  --color-wash-blue-200: #8EAFFB;
+  --color-wash-blue-50: #E6EEFE;
+  --color-border: #BACEFD;
+  --color-border-input: #628FF9;
+  --color-border-hover: #8EAFFB;
+  --color-on-inverted: #FFFFFF;
+  --color-on-inverted-muted: rgba(255, 255, 255, 0.85);
+  --color-inverted-border: rgba(255, 255, 255, 0.12);
+  --color-inverted-glass: rgba(255, 255, 255, 0.06);
+  --color-error: #EF4444;
+  --color-error-text: #DC2626;
+
+  --font-display: 'Anton', Impact, sans-serif;
+  --font-subheading: 'Bebas Neue', sans-serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  --text-caption: 12px;
+  --text-body-sm: 16px;
+  --text-body: 18px;
+  --text-label: 16px;
+  --text-heading: 28px;
+  --text-heading-lg: 64px;
+  --text-heading-lg-mobile: 44px;
+  --text-mono-price: 24px;
+  --tracking-mono: 0.03em;
+
+  --page-max-width: 1280px;
+  --section-gap: 96px;
+  --nav-height: 64px;
+  --touch-target-min: 44px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-xl: 16px;
+  --radius-collage-max: 24px;
+  --radius-full: 9999px;
+
+  --shadow-float: rgba(9, 80, 246, 0.12) 0px 24px 70px 0px;
+
+  --surface-canvas: #FFFFFF;
+  --surface-muted: #E6EEFE;
+  --surface-inverted: #0950F6;
+
+  --motion-collage-duration: 400ms;
+  --motion-collage-stagger: 60ms;
+  --motion-collage-offset: 12px;
+  --motion-ring-duration: 24s;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-collage-duration: 0ms;
+    --motion-collage-stagger: 0ms;
+    --motion-collage-offset: 0px;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--nav-height) + 16px); }
+body {
+  margin: 0;
+  background: var(--surface-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  line-height: 1.5;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3, p, ul, ol, figure, blockquote { margin: 0; }
+ul { padding: 0; list-style: none; }
+
+.display, h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-synthesis: none;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+.sub {
+  font-family: var(--font-subheading);
+  font-weight: 400;
+  font-synthesis: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+.mono {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-mono);
+}
+
+:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2px; }
+.band-inverted :focus-visible { outline-color: var(--color-paper); }
+
+.container {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+@media (min-width: 768px) { .container { padding-inline: 32px; } }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: 16px; top: -64px; z-index: 100;
+  background: var(--color-ink); color: var(--color-paper);
+  padding: 12px 20px; border-radius: var(--radius-md);
+  font-family: var(--font-sans); font-weight: 500; text-decoration: none;
+  transition: transform 200ms ease;
+}
+.skip-link:focus { transform: translateY(80px); outline-color: var(--color-signal); }
+
+/* Botones */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: var(--touch-target-min);
+  font-family: var(--font-subheading); font-weight: 400; font-synthesis: none;
+  text-transform: uppercase; letter-spacing: 0.08em; line-height: 1;
+  text-decoration: none; cursor: pointer; border: 0;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+.btn-signal {
+  background: var(--color-signal); color: var(--color-ink);
+  border-radius: var(--radius-full); padding: 10px 24px; font-size: 18px;
+}
+.btn-signal:hover { background: var(--color-signal-hover); }
+.btn-signal:active { background: var(--color-signal-pressed); }
+.btn-ghost {
+  background: transparent; color: var(--color-ink);
+  border: 1px solid var(--color-ink); border-radius: var(--radius-md);
+  padding: 10px 18px; font-size: 16px;
+}
+.btn-ghost:hover { background: var(--color-mist); }
+.btn-pill-blue {
+  background: var(--color-ink); color: var(--color-paper);
+  border-radius: var(--radius-full); padding: 10px 20px; font-size: 16px;
+}
+.btn-pill-blue:hover { background: var(--color-collage-blue-bright); }
+.btn-ghost-inverted {
+  background: transparent; color: var(--color-paper);
+  border: 1px solid rgba(255, 255, 255, 0.85); border-radius: var(--radius-md);
+  padding: 10px 18px; font-size: 16px;
+}
+.btn-ghost-inverted:hover { background: rgba(255, 255, 255, 0.12); }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 6px; min-height: var(--touch-target-min);
+  font-family: var(--font-subheading); font-weight: 400; font-synthesis: none;
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 16px;
+  color: var(--color-ink); text-decoration: underline; text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+.link-arrow i { transition: transform 160ms ease; }
+.link-arrow:hover i { transform: translateX(3px); }
+
+/* Duotono azul: grayscale + screen sobre #0950F6 o #3570F8.
+   El negro de la foto queda en el azul de fondo y el blanco en blanco:
+   nada más oscuro que #0950F6 en pantalla. */
+.duo { position: relative; overflow: hidden; background: var(--color-ink); isolation: isolate; }
+.duo.duo-bright { background: var(--color-collage-blue-bright); }
+.duo img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+  mix-blend-mode: screen;
+}
+
+/* Header */
+.sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 24px; pointer-events: none; }
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  height: var(--nav-height);
+  background: var(--color-paper);
+  border-bottom: 1px solid transparent;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+.site-header.is-scrolled {
+  border-bottom-color: var(--color-border);
+  box-shadow: rgba(9, 80, 246, 0.08) 0 8px 24px 0;
+}
+.header-inner {
+  height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; min-height: var(--touch-target-min); }
+.brand img { width: 32px; height: 32px; border-radius: var(--radius-full); }
+.brand-word { font-family: var(--font-display); font-weight: 400; font-synthesis: none; text-transform: uppercase; font-size: 22px; letter-spacing: 0; line-height: 1; }
+.nav-desktop { display: none; }
+.nav-desktop > ul { display: flex; align-items: center; gap: 4px; }
+.nav-link, .nav-toggle {
+  display: inline-flex; align-items: center; gap: 4px;
+  min-height: var(--touch-target-min); padding: 0 12px;
+  background: none; border: 0; cursor: pointer; color: var(--color-ink);
+  font-family: var(--font-subheading); font-weight: 400; font-synthesis: none;
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 16px; text-decoration: none;
+  position: relative; border-radius: var(--radius-md);
+}
+.nav-link[aria-current="page"]::after {
+  content: ""; position: absolute; left: 12px; right: 12px; bottom: 8px; height: 3px;
+  background: var(--color-signal);
+}
+.nav-toggle i { transition: transform 160ms ease; }
+.nav-toggle[aria-expanded="true"] i { transform: rotate(180deg); }
+.has-menu { position: relative; }
+.submenu {
+  position: absolute; top: calc(100% + 4px); left: 0; min-width: 260px;
+  background: var(--color-paper); border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl); padding: 8px;
+  box-shadow: rgba(9, 80, 246, 0.1) 0 16px 40px 0;
+}
+.submenu[hidden] { display: none; }
+.submenu a {
+  display: flex; align-items: center; min-height: var(--touch-target-min); padding: 0 12px;
+  border-radius: var(--radius-md); text-decoration: none; font-size: 16px;
+}
+.submenu a:hover { background: var(--color-mist); }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+.phone-link {
+  display: none; align-items: center; gap: 8px; min-height: var(--touch-target-min);
+  text-decoration: none; font-size: 15px; padding: 0 8px;
+}
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: var(--radius-md);
+  border: 1px solid var(--color-ink); background: var(--color-paper); color: var(--color-ink);
+  cursor: pointer; font-size: 22px; text-decoration: none;
+}
+.header-cta { display: none; }
+@media (min-width: 1024px) {
+  .nav-desktop { display: block; }
+  .phone-link { display: inline-flex; }
+  .header-cta { display: inline-flex; }
+  .mobile-only { display: none; }
+}
+
+.mobile-panel {
+  position: fixed; inset: var(--nav-height) 0 0 0; z-index: 49;
+  background: var(--color-paper); overflow-y: auto; padding: 24px 0 48px;
+  border-top: 1px solid var(--color-border);
+}
+.mobile-panel[hidden] { display: none; }
+.mobile-panel h2 {
+  font-family: var(--font-mono); text-transform: none; letter-spacing: var(--tracking-mono);
+  font-size: var(--text-caption); line-height: 1.3; margin: 24px 0 4px;
+}
+.mobile-panel a.m-link {
+  display: flex; align-items: center; min-height: 48px; text-decoration: none;
+  border-bottom: 1px solid var(--color-border); font-size: 18px;
+}
+.mobile-panel .m-actions { display: grid; gap: 12px; margin-top: 32px; }
+
+main { padding-top: var(--nav-height); }
+
+/* Reveal de secciones */
+html.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity 500ms ease, transform 500ms ease; }
+html.js .reveal.is-in { opacity: 1; transform: none; }
+
+/* HERO: tarjeta flotante sobre collage */
+.hero {
+  position: relative;
+  min-height: calc(100dvh - var(--nav-height));
+  display: grid; align-items: center;
+  padding-top: 32px; padding-bottom: 48px;
+}
+.hero-inner { position: relative; display: grid; gap: 24px; }
+.hero-card {
+  position: relative; z-index: 2;
+  background: var(--color-paper); border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-float);
+  padding: 24px; max-width: 600px;
+}
+.hero-card h1 { font-size: clamp(44px, 11vw, 56px); line-height: 1.08; }
+.hero-card h1 span { display: block; }
+.hero-lead { margin-top: 16px; font-size: var(--text-body); line-height: 1.55; max-width: 34ch; }
+.hero-ctas { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+.collage {
+  position: relative; height: 380px; pointer-events: none;
+  --mx: 0; --my: 0;
+}
+.tile {
+  position: absolute;
+  --d: 6;
+  --enter: 0px;
+  transform: translate3d(calc(var(--mx) * var(--d) * 1px), calc(var(--my) * var(--d) * 1px + var(--enter)), 0) rotate(var(--r, 0deg));
+  transition: transform 500ms cubic-bezier(.2,.7,.2,1), opacity var(--motion-collage-duration) ease;
+  transition-delay: 0ms, calc(var(--i, 0) * var(--motion-collage-stagger));
+}
+html.js .collage:not(.is-in) .tile { opacity: 0; --enter: var(--motion-collage-offset); }
+.tile-word {
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 400; font-synthesis: none; text-transform: uppercase;
+  line-height: 0.85; letter-spacing: -0.01em;
+}
+.tile-note {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  font-family: var(--font-mono); font-variant-numeric: tabular-nums; letter-spacing: 0.05em;
+  font-size: var(--text-caption); line-height: 1.3; padding: 8px 12px;
+}
+.sticker {
+  font-family: var(--font-subheading); font-weight: 400; font-synthesis: none; text-transform: uppercase;
+  letter-spacing: 0.08em; font-size: 18px; line-height: 1;
+  background: var(--color-collage-spark); color: var(--color-ink);
+  border-radius: var(--radius-full); padding: 10px 16px; white-space: nowrap;
+}
+
+
+/* Secciones: banda de 96 px */
+.section { padding-block: 80px; }
+@media (min-width: 1024px) { .section { padding-block: var(--section-gap); } }
+.section-title { font-size: var(--text-heading-lg-mobile); max-width: 16ch; line-height: 1; }
+@media (min-width: 768px) { .section-title { font-size: var(--text-heading-lg); } }
+.lead { font-size: var(--text-body); line-height: 1.55; max-width: 52ch; margin-top: 16px; }
+.eyebrow { font-size: 16px; margin-bottom: 16px; display: block; }
+/* CTA FINAL: banda azul invertida */
+.band-inverted { background: var(--surface-inverted); color: var(--color-on-inverted); position: relative; overflow: hidden; }
+.cta-grid { position: relative; z-index: 1; display: grid; gap: 40px; }
+@media (min-width: 1024px) { .cta-grid { grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: center; } .cta-copy { grid-column: 1 / span 6; } .cta-form { grid-column: 8 / span 5; } }
+.cta-copy h2 { font-size: var(--text-heading-lg-mobile); color: var(--color-on-inverted); max-width: 14ch; line-height: 1; }
+@media (min-width: 768px) { .cta-copy h2 { font-size: var(--text-heading-lg); } }
+.cta-copy .lead { color: var(--color-on-inverted-muted); }
+.cta-copy .hero-ctas { margin-top: 32px; }
+.ring-decor {
+  position: absolute; width: 520px; height: 520px; right: -140px; top: -160px; border-radius: var(--radius-full);
+  background: conic-gradient(from 0deg, #0950F6 0deg, #3570F8 120deg, #628FF9 220deg, transparent 300deg, #FFEC01 324deg, #FFEC01 342deg, transparent 342deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #FFFFFF calc(100% - 2px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #FFFFFF calc(100% - 2px));
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ring-decor { animation: ring-spin var(--motion-ring-duration) linear infinite; }
+}
+@keyframes ring-spin { to { transform: rotate(360deg); } }
+
+.form-card { background: var(--color-paper); color: var(--color-ink); border-radius: var(--radius-xl); padding: 24px; }
+@media (min-width: 768px) { .form-card { padding: 32px; } }
+.form-card h3 { font-size: var(--text-heading); letter-spacing: 0.05em; line-height: 1.1; }
+.form-card .form-note { margin-top: 6px; font-size: 16px; line-height: 1.5; }
+.field { margin-top: 20px; display: grid; gap: 8px; }
+.field label { font-family: var(--font-sans); font-weight: 500; font-size: 16px; }
+.input-wrap { position: relative; }
+.input-wrap i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 20px; pointer-events: none; }
+.field input, .field select {
+  width: 100%; min-height: 48px; padding: 10px 14px 10px 44px;
+  font: inherit; font-size: 16px; color: var(--color-ink);
+  background: var(--color-paper); border: 1px solid var(--color-border-input); border-radius: var(--radius-md);
+  appearance: none; -webkit-appearance: none;
+}
+.field select { background-image: none; }
+.field input::placeholder { color: var(--color-collage-blue-soft); opacity: 1; }
+.field input:focus-visible, .field select:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2px; }
+.field [aria-invalid="true"] { border-color: var(--color-error); }
+.field-error { color: var(--color-error-text); font-size: 14px; line-height: 1.4; display: flex; gap: 6px; align-items: center; }
+.field-error[hidden] { display: none; }
+.form-card .btn-pill-blue { margin-top: 24px; width: 100%; font-size: 18px; min-height: 52px; }
+
+/* FOOTER */
+.site-footer { background: var(--surface-inverted); color: var(--color-on-inverted); border-top: 6px solid var(--color-signal); }
+.band-inverted + .site-footer { border-top-width: 6px; }
+.footer-top { display: grid; gap: 48px; padding-block: 72px 48px; }
+@media (min-width: 1024px) { .footer-top { grid-template-columns: 4fr 3fr 3fr 2fr; gap: 32px; } }
+.footer-brand .brand { color: var(--color-on-inverted); }
+.footer-brand .brand-word .y { color: var(--color-signal); }
+.footer-brand p { margin-top: 16px; color: var(--color-on-inverted-muted); font-size: 16px; line-height: 1.6; max-width: 40ch; }
+.footer-tag { margin-top: 12px; font-size: var(--text-caption); color: #FFF45C; }
+.site-footer h2 {
+  font-family: var(--font-subheading); font-size: 20px; letter-spacing: 0.08em; line-height: 1; color: var(--color-on-inverted);
+  margin-bottom: 16px;
+}
+.f-list a, .f-list span {
+  display: flex; align-items: center; gap: 10px; min-height: var(--touch-target-min);
+  color: var(--color-on-inverted-muted); text-decoration: none; font-size: 16px; line-height: 1.4;
+}
+.f-list a:hover { color: var(--color-on-inverted); text-decoration: underline; text-underline-offset: 4px; }
+.f-list i { font-size: 20px; color: var(--color-on-inverted); }
+.f-hours { margin-top: 8px; font-size: 14px; line-height: 1.7; color: var(--color-on-inverted); }
+.socials { display: flex; gap: 10px; margin-top: 20px; }
+.socials a {
+  width: 44px; height: 44px; display: grid; place-items: center; border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.85); color: var(--color-on-inverted); font-size: 22px; text-decoration: none;
+}
+.socials a:hover { background: rgba(255, 255, 255, 0.12); }
+.footer-legal {
+  border-top: 1px solid var(--color-inverted-border); padding-block: 24px 32px;
+  display: grid; gap: 12px; font-size: 14px; color: var(--color-on-inverted-muted);
+}
+@media (min-width: 1024px) { .footer-legal { grid-template-columns: auto 1fr; align-items: center; } }
+.footer-legal ul { display: flex; flex-wrap: wrap; gap: 0 20px; }
+@media (min-width: 1024px) { .footer-legal ul { justify-content: flex-end; } }
+.footer-legal a { display: inline-flex; align-items: center; min-height: var(--touch-target-min); color: var(--color-on-inverted-muted); text-decoration: none; }
+.footer-legal a:hover { color: var(--color-on-inverted); text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+  html.js .reveal { opacity: 1; transform: none; }
+  html.js .collage .tile { opacity: 1; --enter: 0px; }
+  .note:hover { transform: rotate(var(--r, 0deg)); }
+}
+
+ol { margin: 0; padding: 0; list-style: none; }
+/* Layout desktop del hero, copiado de la home (figma.html) sin las posiciones propias de su collage */
+@media (min-width: 768px) { .collage { height: 460px; } }
+@media (min-width: 1024px) {
+  /* Hero no centrado: tarjeta a la izquierda, collage ocupa ~60 % a la derecha, por detrás */
+  .hero { padding-top: 56px; padding-bottom: 56px; }
+  .hero-inner { grid-template-columns: repeat(12, 1fr); align-items: center; min-height: 560px; }
+  .hero-card { grid-column: 1 / span 6; grid-row: 1; padding: 40px; }
+  .hero-card h1 { font-size: clamp(60px, 5.4vw, 76px); }
+  .collage { grid-column: 5 / span 8; grid-row: 1; height: 600px; z-index: 1; }
+}
+/* Ítem activo de la propuesta (subrayado amarillo de 3 px) también para padres de submenú, submenú y menú mobile */
+.nav-toggle.is-active::after {
+  content: ""; position: absolute; left: 12px; right: 30px; bottom: 8px; height: 3px;
+  background: var(--color-signal);
+}
+.submenu a[aria-current="page"] { background: var(--color-mist); box-shadow: inset 3px 0 0 var(--color-signal); }
+.mobile-panel a.m-link[aria-current="page"] { box-shadow: inset 4px 0 0 var(--color-signal); padding-left: 14px; }
+.header-cta[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--color-signal); }
+
+/* ===== Estilos propios de esta página ===== */
+
+/* Collage del hero Contacto */
+.c-msg    { left: 0; top: 0; width: 48%; aspect-ratio: 1; background: var(--color-wash-blue-50); border-radius: var(--radius-xl); overflow: hidden; --r: -3deg; --i: 0; --d: 8; }
+.c-msg img { width: 100%; height: 100%; object-fit: contain; }
+.c-rider  { right: 0; top: 60px; width: 50%; aspect-ratio: 1408 / 768; border-radius: var(--radius-collage-max); --r: 3deg; --i: 1; --d: 12; }
+.c-word   { right: 6%; top: 230px; width: 34%; height: 72px; background: var(--color-collage-blue-bright); color: var(--color-paper); border-radius: var(--radius-sm); font-size: 32px; --r: 2deg; --i: 2; --d: 10; }
+.c-note   { left: 4%; top: 290px; background: var(--color-paper); color: var(--color-ink); border: 1px solid var(--color-border); border-radius: var(--radius-md); --r: -1deg; --i: 3; --d: 3; }
+.c-soft   { left: 50%; top: 320px; width: 56px; height: 56px; background: var(--color-wash-blue-100); border-radius: var(--radius-sm); --r: 6deg; --i: 4; --d: 4; }
+.c-pale, .c-ink { display: none; }
+.c-sticker { left: 30%; top: 200px; --r: -4deg; --i: 5; --d: 14; }
+@media (min-width: 1024px) {
+  .c-msg    { left: 30%; top: 4%; width: 36%; }
+  .c-rider  { right: 0; top: 46%; width: 40%; }
+  .c-word   { left: 30%; right: auto; top: 76%; width: 20%; height: 96px; font-size: 52px; }
+  .c-note   { left: 56%; top: 90%; }
+  .c-soft   { left: 62%; top: 86%; width: 72px; height: 72px; }
+  .c-pale   { display: block; left: 10%; top: 44%; width: 120px; height: 150px; background: var(--color-wash-blue-200); border-radius: var(--radius-collage-max); --r: -6deg; --i: 6; --d: 3; }
+  .c-ink    { display: flex; left: 70%; top: 6%; width: 18%; height: 84px; background: var(--color-ink); color: var(--color-paper); border-radius: var(--radius-md); font-size: 40px; --r: 5deg; --i: 7; --d: 9; }
+  .c-sticker { left: 40%; top: 56%; }
+}
+
+/* CANALES + FORMULARIO */
+.contact-grid { display: grid; gap: 48px; }
+@media (min-width: 1024px) {
+  .contact-grid { grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: start; }
+  .contact-form-col { grid-column: 1 / span 5; }
+  .contact-channels { grid-column: 7 / span 6; }
+}
+.contact-card { border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 24px; background: var(--color-paper); }
+@media (min-width: 768px) { .contact-card { padding: 32px; } }
+.contact-card h2 { font-size: 40px; line-height: 0.95; }
+.contact-card .form-note { margin-top: 12px; font-size: var(--text-body-sm); line-height: 1.5; }
+.field .helper { font-size: 14px; line-height: 1.4; }
+.field .optional { font-weight: 400; font-size: 14px; }
+.field select { padding-right: 40px; }
+.select-caret { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: 18px; }
+.contact-card .btn-pill-blue { margin-top: 24px; width: 100%; font-size: 18px; min-height: 52px; }
+.contact-card .btn-pill-blue[disabled] { cursor: progress; background: var(--color-collage-blue-bright); }
+.form-alert {
+  margin-top: 20px; display: flex; gap: 10px; align-items: flex-start;
+  border: 1px solid var(--color-error); border-radius: var(--radius-md); padding: 12px 14px;
+  color: var(--color-error-text); font-size: 16px; line-height: 1.45; background: var(--color-paper);
+}
+.form-alert[hidden] { display: none; }
+.form-alert i { font-size: 20px; margin-top: 1px; }
+.success { text-align: left; }
+.success[hidden] { display: none; }
+.success .ok-ico { width: 56px; height: 56px; border-radius: var(--radius-full); background: var(--color-mist); display: grid; place-items: center; font-size: 30px; }
+.success h3 { margin-top: 16px; font-size: var(--text-heading); letter-spacing: 0.05em; line-height: 1.1; }
+.success p { margin-top: 8px; font-size: var(--text-body-sm); line-height: 1.6; }
+.success .actions { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; }
+.contact-card .foot { margin-top: 20px; font-size: var(--text-caption); }
+
+.ch-list { margin-top: 32px; border-top: 1px solid var(--color-ink); }
+.ch-row { display: grid; grid-template-columns: 52px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--color-border); align-items: start; }
+@media (min-width: 640px) { .ch-row { grid-template-columns: 52px 1fr auto; align-items: center; } }
+.ch-icon { width: 52px; height: 52px; border-radius: var(--radius-sm); display: grid; place-items: center; font-size: 26px; background: var(--color-wash-blue-100); color: var(--color-ink); transform: rotate(-3deg); }
+.ch-row:nth-child(2n) .ch-icon { background: var(--color-wash-blue-50); transform: rotate(3deg); }
+.ch-row.wa .ch-icon { background: var(--color-signal); color: var(--color-ink); }
+.ch-row h3 { font-size: 24px; letter-spacing: 0.05em; line-height: 1.1; }
+.ch-row .val { display: block; margin-top: 4px; font-size: 16px; overflow-wrap: anywhere; }
+.ch-row p { margin-top: 4px; font-size: 16px; line-height: 1.5; }
+.ch-row .btn { grid-column: 2; justify-self: start; }
+@media (min-width: 640px) { .ch-row .btn { grid-column: 3; } }
+
+/* BASE: banda muted con mapa estático rotado */
+.base { display: grid; gap: 40px; }
+@media (min-width: 1024px) {
+  .base { grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: center; }
+  .base-copy { grid-column: 1 / span 6; }
+  .base-media { grid-column: 8 / span 5; }
+}
+.map-tile { background: var(--color-paper); overflow: hidden; }
+.map-tile img { width: 100%; height: 100%; object-fit: contain; padding: 24px; }
+.base-media { border-radius: var(--radius-xl); aspect-ratio: 1; max-width: 460px; transform: rotate(2deg); }
+.base-copy .addr { margin-top: 24px; font-size: var(--text-mono-price); line-height: 1.3; }
+.base-copy .addr-note { margin-top: 12px; font-size: var(--text-body-sm); line-height: 1.6; max-width: 52ch; }
+.hours { margin-top: 32px; width: 100%; max-width: 520px; border-collapse: collapse; }
+.hours caption { text-align: left; font-family: var(--font-subheading); font-weight: 400; text-transform: uppercase; letter-spacing: 0.08em; font-size: 20px; padding-bottom: 8px; }
+.hours th, .hours td { padding: 12px 0; border-top: 1px solid var(--color-border-input); text-align: left; font-weight: 400; }
+.hours td { text-align: right; }
+.base-copy .btn { margin-top: 24px; }
+
+/* REDES (equivalente a src/components/layout/CarruselRedes.tsx):
+   índice editorial con hairlines, cabecera con mini collage multivalor.
+   Sin colores de terceros: azul, blanco y una sola tesela amarilla (WhatsApp). */
+.redes-grid { display: grid; gap: 40px; }
+@media (min-width: 1024px) {
+  .redes-grid { grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: start; }
+  .redes-head { grid-column: 1 / span 5; }
+  .redes-list { grid-column: 7 / span 6; }
+}
+.redes-collage { position: relative; height: 124px; margin-top: 40px; max-width: 280px; }
+.rc { position: absolute; display: grid; place-items: center; transform: rotate(var(--r, 0deg)); }
+.rc-at {
+  left: 0; top: 10px; width: 96px; height: 96px; --r: -5deg;
+  background: var(--color-ink); color: var(--color-paper); border-radius: var(--radius-xl);
+  font-family: var(--font-display); font-weight: 400; font-synthesis: none; font-size: 56px; line-height: 1;
+}
+.rc-soft { left: 82px; top: 48px; width: 68px; height: 68px; --r: 6deg; background: var(--color-wash-blue-100); border-radius: var(--radius-sm); }
+.rc-arrow {
+  left: 164px; top: 0; width: 88px; height: 64px; --r: 3deg;
+  background: var(--color-wash-blue-50); color: var(--color-ink); border-radius: var(--radius-md); font-size: 32px;
+}
+.redes-row {
+  display: grid; grid-template-columns: 52px 1fr; column-gap: 20px; row-gap: 16px;
+  padding: 24px 0; border-top: 1px solid var(--color-border);
+  --r: -4deg; --i: 0;
+}
+.redes-row:nth-child(2) { --r: 3deg; --i: 1; }
+.redes-row:nth-child(3) { --r: -2deg; --i: 2; }
+.redes-row.is-featured {
+  background: var(--color-mist); border-radius: var(--radius-xl);
+  padding: 24px 20px; margin-top: 8px; border-top-color: transparent;
+}
+.redes-row:not(.is-featured):last-child { border-bottom: 1px solid var(--color-border); }
+.redes-ico {
+  width: 52px; height: 52px; border-radius: var(--radius-sm);
+  display: grid; place-items: center; font-size: 28px;
+  background: var(--color-wash-blue-100); color: var(--color-ink);
+  transform: rotate(var(--r)); transition: transform 300ms cubic-bezier(.2,.7,.2,1);
+}
+.redes-ico.is-ink { background: var(--color-ink); color: var(--color-paper); }
+.redes-ico.is-spark { background: var(--color-signal); color: var(--color-ink); }
+.redes-row:hover .redes-ico, .redes-row:focus-within .redes-ico { transform: rotate(0deg) scale(1.06); }
+.redes-body h3 { font-size: var(--text-heading); letter-spacing: 0.05em; line-height: 1.1; }
+.redes-handle { margin-top: 6px; font-size: 16px; font-weight: 500; line-height: 1.4; }
+.redes-handle.mono { font-weight: 400; font-size: 18px; }
+.redes-desc { margin-top: 8px; font-size: var(--text-body-sm); line-height: 1.6; max-width: 46ch; }
+.redes-cta { grid-column: 2; justify-self: start; }
+.redes-cta i { transition: transform 160ms ease; }
+.redes-cta:hover i { transform: translate(2px, -2px); }
+.redes-row.is-featured .btn-ghost:hover { background: var(--color-paper); }
+@media (min-width: 768px) {
+  .redes-row { grid-template-columns: 64px 1fr auto; column-gap: 24px; align-items: center; }
+  .redes-cta { grid-column: 3; }
+}
+html.js #redes .redes-row {
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 500ms ease, transform 500ms cubic-bezier(.2,.7,.2,1);
+  transition-delay: calc(120ms + var(--i) * 90ms);
+}
+html.js #redes .reveal.is-in .redes-row { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html.js #redes .redes-row { opacity: 1; transform: none; transition: none; }
+  .redes-ico, .redes-row:hover .redes-ico, .redes-row:focus-within .redes-ico { transform: rotate(var(--r)); transition: none; }
+  .redes-cta:hover i { transform: none; }
+}
+
+/* ===== Ritmo de color de Contacto: navbar y footer siempre azules; secciones alternadas
+   hero azul, canales blanco, base azul, CTA blanco, redes azul (la franja amarilla de 6 px separa redes del footer). ===== */
+.site-header { background: var(--surface-inverted); color: var(--color-on-inverted); }
+.site-header.is-scrolled { border-bottom-color: var(--color-inverted-border); box-shadow: rgba(9, 80, 246, 0.25) 0 8px 24px 0; }
+.site-header .brand-word, .site-header .nav-link, .site-header .nav-toggle, .site-header .phone-link { color: var(--color-on-inverted); }
+.site-header .nav-link:hover, .site-header .nav-toggle:hover { background: rgba(255, 255, 255, 0.12); }
+.site-header :focus-visible { outline-color: var(--color-paper); }
+.site-header .icon-btn { background: transparent; border-color: rgba(255, 255, 255, 0.85); color: var(--color-on-inverted); }
+.site-header .icon-btn:hover { background: rgba(255, 255, 255, 0.12); }
+.site-header .header-cta { background: var(--color-paper); color: var(--color-ink); }
+.site-header .header-cta:hover { background: var(--color-mist); }
+.site-header .submenu a { color: var(--color-ink); }
+.site-header .submenu :focus-visible { outline-color: var(--color-ink); }
+
+.mobile-panel { background: var(--surface-inverted); color: var(--color-on-inverted); border-top-color: var(--color-inverted-border); }
+.mobile-panel h2 { color: var(--color-on-inverted-muted); }
+.mobile-panel a.m-link { color: var(--color-on-inverted); border-bottom-color: var(--color-inverted-border); }
+.mobile-panel :focus-visible { outline-color: var(--color-paper); }
+.mobile-panel .btn-pill-blue { background: var(--color-paper); color: var(--color-ink); }
+.mobile-panel .btn-ghost { color: var(--color-on-inverted); border-color: rgba(255, 255, 255, 0.85); }
+.mobile-panel .btn-ghost:hover { background: rgba(255, 255, 255, 0.12); }
+
+/* Hero azul: la tarjeta toma el mismo azul del fondo, así el copy se lee blanco sobre azul
+   y sigue tapando las teselas del collage que pasan por detrás en desktop. */
+#hero .hero-card { background: var(--surface-inverted); box-shadow: none; color: var(--color-on-inverted); }
+#hero .hero-lead { color: rgba(255, 255, 255, 0.9); }
+#hero .c-ink { background: var(--color-paper); color: var(--color-ink); }
+#hero .c-note { border-color: transparent; }
+/* La tesela pálida quedaba cortada detrás del bloque de texto azul: se oculta en este hero */
+#hero .c-pale { display: none; }
+
+/* Base azul */
+#base .addr-note { color: var(--color-on-inverted-muted); }
+#base .hours th, #base .hours td { border-top-color: rgba(255, 255, 255, 0.24); }
+#base .map-tile { box-shadow: rgba(9, 80, 246, 0.25) 0 24px 60px 0; }
+
+/* CTA final en blanco */
+#cta { position: relative; overflow: hidden; background: var(--surface-canvas); color: var(--color-ink); }
+#cta .cta-copy h2, #cta .cta-copy .lead { color: var(--color-ink); }
+
+/* Redes azul */
+#redes .lead { color: rgba(255, 255, 255, 0.9); }
+#redes .redes-row { border-top-color: var(--color-inverted-border); }
+#redes .redes-row:not(.is-featured):last-child { border-bottom-color: var(--color-inverted-border); }
+#redes .redes-ico.is-ink, #redes .rc-at { background: var(--color-paper); color: var(--color-ink); }
+#redes .redes-row:not(.is-featured) .btn-ghost { color: var(--color-on-inverted); border-color: rgba(255, 255, 255, 0.85); }
+#redes .redes-row:not(.is-featured) .btn-ghost:hover { background: rgba(255, 255, 255, 0.12); }
+#redes .redes-row.is-featured { color: var(--color-ink); }
+#redes .redes-row.is-featured :focus-visible { outline-color: var(--color-ink); }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+<div class="sentinel" id="top-sentinel" aria-hidden="true"></div>
+
+<!-- HEADER: igual a la home (barra plana de 64 px, píldora azul en el header). Links entre prototipos de la propuesta figma. -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="figma.html" aria-label="Envíos DosRuedas, ir al inicio">
+      <img src="../../../../public/logo-envios-simplified.webp" width="32" height="32" alt="Logo Envíos Dos Ruedas">
+      <span class="brand-word" aria-hidden="true">Envíos DosRuedas</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Principal">
+      <ul>
+        <li><a class="nav-link" href="figma.html">Inicio</a></li>
+        <li class="has-menu">
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-servicios">Servicios <i class="ph ph-caret-down" aria-hidden="true"></i></button>
+          <ul class="submenu" id="menu-servicios" hidden>
+            <li><a href="/servicios">Todos los servicios</a></li>
+            <li><a href="figma-envios-express.html">Envíos Express</a></li>
+            <li><a href="/servicios/envios-lowcost">Envíos LowCost</a></li>
+            <li><a href="/servicios/enviosflex">Envíos Flex (MeLi)</a></li>
+            <li><a href="/servicios/empresas-cuenta-corriente">Cuenta Corriente Flexible</a></li>
+            <li><a href="/servicios#ecommerce-24hs">E-commerce 24HS</a></li>
+            <li><a href="/servicios/deposito-fulfillment">E-commerce Same Day</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-nosotros">Nosotros <i class="ph ph-caret-down" aria-hidden="true"></i></button>
+          <ul class="submenu" id="menu-nosotros" hidden>
+            <li><a href="figma-sobre-nosotros.html">Sobre nosotros</a></li>
+            <li><a href="/nosotros/preguntas-frecuentes">Preguntas frecuentes</a></li>
+            <li><a href="/nosotros/nuestras-redes">Nuestras redes</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="figma-contacto.html" aria-current="page">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="phone-link mono" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i>223 660-2699</a>
+      <a class="btn btn-pill-blue header-cta" href="figma-cotizar.html">Cotizá tu envío</a>
+      <a class="icon-btn mobile-only" href="tel:+542236602699" aria-label="Llamar al 223 660-2699"><i class="ph ph-phone" aria-hidden="true"></i></a>
+      <button class="icon-btn mobile-only" id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-panel" aria-label="Abrir menú"><i class="ph ph-list" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobile-panel" hidden role="dialog" aria-modal="true" aria-label="Menú principal">
+  <div class="container">
+    <nav aria-label="Principal móvil">
+      <a class="m-link" href="figma.html">Inicio</a>
+      <h2>Servicios</h2>
+      <a class="m-link" href="/servicios">Todos los servicios</a>
+      <a class="m-link" href="figma-envios-express.html">Envíos Express</a>
+      <a class="m-link" href="/servicios/envios-lowcost">Envíos LowCost</a>
+      <a class="m-link" href="/servicios/enviosflex">Envíos Flex (MeLi)</a>
+      <a class="m-link" href="/servicios/empresas-cuenta-corriente">Cuenta Corriente Flexible</a>
+      <a class="m-link" href="/servicios#ecommerce-24hs">E-commerce 24HS</a>
+      <a class="m-link" href="/servicios/deposito-fulfillment">E-commerce Same Day</a>
+      <h2>Nosotros</h2>
+      <a class="m-link" href="figma-sobre-nosotros.html">Sobre nosotros</a>
+      <a class="m-link" href="/nosotros/preguntas-frecuentes">Preguntas frecuentes</a>
+      <a class="m-link" href="/nosotros/nuestras-redes">Nuestras redes</a>
+      <a class="m-link" href="figma-contacto.html" aria-current="page">Contacto</a>
+    </nav>
+    <div class="m-actions">
+      <a class="btn btn-pill-blue" href="figma-cotizar.html">Cotizá tu envío</a>
+      <a class="btn btn-ghost mono" href="tel:+542236602699" style="font-family: var(--font-mono); text-transform: none; letter-spacing: var(--tracking-mono);">+54 223 660-2699</a>
+    </div>
+  </div>
+</div>
+
+<main id="main-content" tabindex="-1">
+
+  <!-- HERO: Tarjeta flotante + Capa de collage. Tiempo de respuesta: "menos de 5 minutos, generalmente" (D §1, identidad.md);
+       corrige el [DUDOSO] "< 2 MIN" y "al instante" del sitio actual. -->
+  <section class="hero band-inverted" id="hero" aria-labelledby="hero-title">
+    <div class="container hero-inner">
+      <div class="hero-card">
+        <h1 id="hero-title"><span>Escribinos,</span> <span>te respondemos</span></h1>
+        <p class="hero-lead">Por WhatsApp respondemos en menos de 5 min, generalmente. De lunes a sábado.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-signal" href="https://wa.me/542236602699?text=Hola!%20Quiero%20cotizar%20mis%20env%C3%ADos" target="_blank" rel="noopener" id="contact-hero-cta-whatsapp"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Escribinos por WhatsApp</a>
+          <a class="btn btn-ghost-inverted" href="#contact-form">Completá el formulario</a>
+        </div>
+      </div>
+
+      <div class="collage" id="hero-collage" aria-hidden="true">
+        <div class="tile c-pale"></div>
+        <div class="tile c-msg"><img src="../../../../public/heroes/contacto-mensaje.webp" width="400" height="400" alt=""></div>
+        <div class="tile c-rider duo duo-bright"><img src="../../../../public/img/generales/repartidor.webp" width="1408" height="768" alt=""></div>
+        <div class="tile c-word tile-word">MDQ</div>
+        <div class="tile c-ink tile-word">HOLA</div>
+        <div class="tile c-soft"></div>
+        <div class="tile c-note tile-note">+54 223 660-2699</div>
+        <div class="tile c-sticker sticker">Lun a sáb</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANALES + FORMULARIO. El formulario no envía nada a un servidor: valida y abre WhatsApp con el mensaje armado,
+       igual que src/components/contacto/ContactForm.tsx (nombre obligatorio; empresa y volumen opcionales).
+       Número: se usa 542236602699 (WHATSAPP_PHONE de src/lib/whatsapp.ts, el que usa hoy el formulario real vía buildWhatsAppUrl).
+       INCONSISTENCIA: la home (src/components/home/CtaSection.tsx y el prototipo figma.html) usa wa.me/5492236602699 (con 9)
+       y el asistente dice "+54 9 223 660-2699". Unificar en una constante y decidir con el dueño. -->
+  <section class="section" id="canales" aria-labelledby="canales-title">
+    <div class="container contact-grid reveal">
+      <div class="contact-form-col">
+        <div class="contact-card" id="contact-form" tabindex="-1">
+          <form id="contact-lead" novalidate aria-labelledby="form-title">
+            <h2 id="form-title">Contanos qué necesitás</h2>
+            <p class="form-note">Completá tus datos y se abre WhatsApp con el mensaje listo para mandar.</p>
+
+            <div class="field">
+              <label for="c-nombre">Tu nombre</label>
+              <p class="helper" id="h-nombre">Para saber cómo saludarte.</p>
+              <div class="input-wrap">
+                <i class="ph ph-user" aria-hidden="true"></i>
+                <input id="c-nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej: Laura" required aria-describedby="h-nombre e-nombre">
+              </div>
+              <p class="field-error" id="e-nombre" role="alert" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span>Escribí tu nombre para iniciar el contacto.</span></p>
+            </div>
+
+            <div class="field">
+              <label for="c-empresa">Empresa o negocio <span class="optional">(opcional)</span></label>
+              <div class="input-wrap">
+                <i class="ph ph-storefront" aria-hidden="true"></i>
+                <input id="c-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Nombre de tu emprendimiento">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="c-volumen">Volumen estimado mensual <span class="optional">(opcional)</span></label>
+              <p class="helper" id="h-volumen">Nos ayuda a proponerte el servicio que te conviene.</p>
+              <div class="input-wrap">
+                <i class="ph ph-package" aria-hidden="true"></i>
+                <select id="c-volumen" name="volumen" aria-describedby="h-volumen">
+                  <option value="">Seleccioná una opción</option>
+                  <option value="1 a 50 envíos">1 a 50 envíos</option>
+                  <option value="51 a 200 envíos">51 a 200 envíos</option>
+                  <option value="Más de 200 envíos">Más de 200 envíos</option>
+                </select>
+                <i class="ph ph-caret-down select-caret" aria-hidden="true" style="left:auto"></i>
+              </div>
+            </div>
+
+            <p class="form-alert" id="form-alert" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span>Revisá el campo marcado para seguir.</span></p>
+
+            <button class="btn btn-pill-blue" type="submit" id="c-submit"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i><span>Hablar por WhatsApp</span></button>
+            <p class="foot mono">Sin registro · Mar del Plata</p>
+          </form>
+
+          <div class="success" id="c-success" hidden role="status" tabindex="-1">
+            <span class="ok-ico"><i class="ph ph-check" aria-hidden="true"></i></span>
+            <h3 class="sub">Listo, abrimos WhatsApp</h3>
+            <p>Se abrió WhatsApp con tu mensaje para el equipo en Mar del Plata. Mandalo y seguimos la charla ahí.</p>
+            <div class="actions">
+              <a class="btn btn-ghost" id="c-wa-fallback" href="https://wa.me/542236602699" target="_blank" rel="noopener">Si no se abrió, tocá acá</a>
+              <button class="btn btn-ghost" type="button" id="c-reset">Completar otro formulario</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Canales reales (inventario §3.5): SUPPORT_PHONE y CONTACT_EMAIL de src/lib/promises.ts; WHATSAPP_PHONE de src/lib/whatsapp.ts;
+           Instagram y Facebook de ContactInfo.tsx. Sin "seguimiento en vivo" ni "cotizaciones instantáneas". -->
+      <div class="contact-channels">
+        <h2 class="section-title" id="canales-title">Elegí cómo comunicarte</h2>
+        <ul class="ch-list">
+          <li class="ch-row wa">
+            <span class="ch-icon"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></span>
+            <div>
+              <h3 class="sub">WhatsApp comercial</h3>
+              <span class="val mono">+54 223 660-2699</span>
+              <p>En general respondemos en menos de 5 minutos.</p>
+            </div>
+            <a class="btn btn-ghost" href="https://wa.me/542236602699?text=Hola!%20Vengo%20desde%20la%20p%C3%A1gina%20de%20Contacto." target="_blank" rel="noopener">Chatear <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </li>
+          <li class="ch-row">
+            <span class="ch-icon"><i class="ph ph-phone" aria-hidden="true"></i></span>
+            <div>
+              <h3 class="sub">Teléfono</h3>
+              <span class="val mono">+54 223 660-2699</span>
+            </div>
+            <a class="btn btn-ghost" href="tel:+542236602699">Llamar</a>
+          </li>
+          <li class="ch-row">
+            <span class="ch-icon"><i class="ph ph-envelope-simple" aria-hidden="true"></i></span>
+            <div>
+              <h3 class="sub">Email</h3>
+              <span class="val mono">matiascejas@enviosdosruedas.com</span>
+            </div>
+            <a class="btn btn-ghost" href="mailto:matiascejas@enviosdosruedas.com">Escribir</a>
+          </li>
+          <li class="ch-row">
+            <span class="ch-icon"><i class="ph ph-instagram-logo" aria-hidden="true"></i></span>
+            <div>
+              <h3 class="sub">Instagram</h3>
+              <span class="val mono">@enviosdosruedas</span>
+            </div>
+            <a class="btn btn-ghost" href="https://instagram.com/enviosdosruedas" target="_blank" rel="noopener">Seguir <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </li>
+          <li class="ch-row">
+            <span class="ch-icon"><i class="ph ph-facebook-logo" aria-hidden="true"></i></span>
+            <div>
+              <h3 class="sub">Facebook</h3>
+              <span class="val mono">Envíos DosRuedas</span>
+            </div>
+            <a class="btn btn-ghost" href="https://facebook.com/enviosdosruedas" target="_blank" rel="noopener">Visitar <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BASE DE OPERACIONES: dirección, horarios (OPERATING_HOURS de promises.ts) y mapa estático (public/card_mapa.webp).
+       Sin Leaflet ni iframes. Friuli 1972 es base logística y depósito: NO es punto de atención al público ni de retiro
+       ("tampoco ofrecemos Friuli como punto de retiro", D §6); se quita "Atención presencial y retiro de cargas". -->
+  <section class="section band-inverted" id="base" aria-labelledby="base-title">
+    <div class="container base reveal">
+      <div class="base-copy">
+        <h2 class="section-title" id="base-title">Base de operaciones</h2>
+        <p class="addr mono">Friuli 1972, Mar del Plata</p>
+        <p class="addr-note">Es nuestra base logística y depósito. No atendemos al público en la base: los envíos se coordinan por WhatsApp y los retiramos donde nos digas.</p>
+        <table class="hours mono">
+          <caption>Horario de atención</caption>
+          <tbody>
+            <tr><th scope="row">Lunes a viernes</th><td>09:00 a 18:00 hs</td></tr>
+            <tr><th scope="row">Sábados</th><td>10:00 a 15:00 hs</td></tr>
+            <tr><th scope="row">Domingos</th><td>Cerrado</td></tr>
+          </tbody>
+        </table>
+        <p class="addr-note">No hacemos envíos fuera de este horario.</p>
+        <a class="btn btn-ghost-inverted" href="https://share.google/ofw5wAQt3Fc1dArom" target="_blank" rel="noopener">Abrir en Google Maps <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="base-media map-tile"><img src="../../../../public/card_mapa.webp" width="1024" height="1024" loading="lazy" alt="Ilustración de un pin de Envíos DosRuedas sobre un mapa isométrico de Mar del Plata"></div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL: banda invertida + anillo. Cortes: EXPRESS_CUTOFF_TIME, EXPRESS_LEAD_TIME, LOWCOST_CUTOFF_TIME, LOWCOST_DELIVERY_DEADLINE (promises.ts). -->
+  <section class="section" id="cta" aria-labelledby="cta-title">
+    <div class="ring-decor" aria-hidden="true"></div>
+    <div class="container reveal">
+      <div class="cta-copy">
+        <h2 id="cta-title">¿Tenés envíos para hoy?</h2>
+        <p class="lead">Express: pedilo con 2 hs de anticipación, hasta las 15:00 hs. LowCost: antes de las 13:00 hs y se entrega antes de las 19:00 hs.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-signal" href="figma-cotizar.html">Cotizá tu envío</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- REDES: equivalente a src/components/layout/CarruselRedes.tsx, que el sitio monta en todas las páginas
+     entre </main> y el footer. Índice editorial con hairlines (patrón de #segmentos), sin colores de terceros.
+     Los CTAs van en fantasma azul: arriba (CTA final) y abajo (footer) ya hay amarillo. -->
+<section class="section band-inverted" id="redes" aria-labelledby="redes-title">
+  <div class="container redes-grid reveal">
+    <div class="redes-head">
+      <span class="eyebrow sub">Nuestra comunidad digital</span>
+      <h2 class="section-title" id="redes-title">Seguí nuestro movimiento</h2>
+      <p class="lead">Sumate a nuestros canales y enterate de las novedades operativas en Mar del Plata.</p>
+      <div class="redes-collage" aria-hidden="true">
+        <span class="rc rc-at">@</span>
+        <span class="rc rc-soft"></span>
+        <span class="rc rc-arrow"><i class="ph ph-arrow-up-right"></i></span>
+      </div>
+    </div>
+
+    <ul class="redes-list">
+      <li class="redes-row">
+        <span class="redes-ico is-ink"><i class="ph ph-facebook-logo" aria-hidden="true"></i></span>
+        <div class="redes-body">
+          <h3 class="sub">Facebook</h3>
+          <p class="redes-handle">Envíos DosRuedas</p>
+          <p class="redes-desc">Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.</p>
+        </div>
+        <a class="btn btn-ghost redes-cta" href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer">Seguir en Facebook<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      </li>
+      <li class="redes-row">
+        <span class="redes-ico"><i class="ph ph-instagram-logo" aria-hidden="true"></i></span>
+        <div class="redes-body">
+          <h3 class="sub">Instagram</h3>
+          <p class="redes-handle">@enviosdosruedas</p>
+          <p class="redes-desc">Mirá el detrás de escena de nuestros repartidores y la flota recorriendo Mar del Plata.</p>
+        </div>
+        <a class="btn btn-ghost redes-cta" href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer">Ver Instagram<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      </li>
+      <li class="redes-row is-featured">
+        <span class="redes-ico is-spark"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></span>
+        <div class="redes-body">
+          <h3 class="sub">WhatsApp</h3>
+          <p class="redes-handle mono">+54 223 660-2699</p>
+          <p class="redes-desc">Escribinos para consultas, contrataciones o soporte.</p>
+        </div>
+        <a class="btn btn-ghost redes-cta" href="https://wa.me/542236602699" target="_blank" rel="noopener noreferrer">Iniciar chat<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOOTER: igual a la home (tema invertido azul, institucional), con links entre prototipos. -->
+<footer class="site-footer band-inverted" aria-labelledby="footer-title">
+  <h2 class="sr-only" id="footer-title">Información de Envíos DosRuedas</h2>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="figma.html" aria-label="Envíos DosRuedas, ir al inicio">
+          <img src="../../../../public/logo-envios-simplified.webp" width="32" height="32" loading="lazy" alt="Logo Envíos Dos Ruedas">
+          <span class="brand-word" aria-hidden="true">Envíos <span class="y">DosRuedas</span></span>
+        </a>
+        <p>Con más de 7 años de trayectoria en Mar del Plata, acompañamos a emprendedores, PyMEs y comercios locales con flota propia.</p>
+        <p class="footer-tag mono">Base de operaciones · Friuli 1972</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/enviosdosruedas/" aria-label="Instagram @enviosdosruedas" target="_blank" rel="noopener"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/share/1RnSzyweir/" aria-label="Facebook Envíos DosRuedas" target="_blank" rel="noopener"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a>
+          <a href="https://wa.me/542236602699" aria-label="WhatsApp +54 223 660-2699" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <nav aria-labelledby="f-servicios">
+        <h2 id="f-servicios">Servicios</h2>
+        <ul class="f-list">
+          <li><a href="figma-envios-express.html">Envíos Express</a></li>
+          <li><a href="/servicios/envios-lowcost">Envíos LowCost</a></li>
+          <li><a href="/servicios/enviosflex">Mercado Envíos Flex</a></li>
+          <li><a href="/servicios/empresas-cuenta-corriente">Cuenta Corriente Flexible</a></li>
+          <li><a href="/servicios#ecommerce-24hs">E-commerce 24HS</a></li>
+          <li><a href="/servicios/deposito-fulfillment">E-commerce Same Day</a></li>
+          <li><a href="figma-cotizar.html">Cotizá tu envío</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2>Base de operaciones</h2>
+        <ul class="f-list">
+          <li><span><i class="ph ph-map-pin" aria-hidden="true"></i>Friuli 1972, Mar del Plata</span></li>
+          <li><a class="mono" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i>+54 223 660-2699</a></li>
+          <li><a href="mailto:matiascejas@enviosdosruedas.com"><i class="ph ph-envelope-simple" aria-hidden="true"></i>matiascejas@enviosdosruedas.com</a></li>
+        </ul>
+        <p class="f-hours mono">Lunes a viernes: 09:00 a 18:00 hs<br>Sábados: 10:00 a 15:00 hs</p>
+      </div>
+
+      <nav aria-labelledby="f-nosotros">
+        <h2 id="f-nosotros">Nosotros</h2>
+        <ul class="f-list">
+          <li><a href="figma-sobre-nosotros.html">Sobre nosotros</a></li>
+          <li><a href="/nosotros/preguntas-frecuentes">Preguntas frecuentes</a></li>
+          <li><a href="/nosotros/nuestras-redes">Nuestras redes</a></li>
+          <li><a href="/cobertura">Cobertura</a></li>
+          <li><a href="/guias/envios-flex-mar-del-plata">Guía Mercado Libre Flex</a></li>
+          <li><a href="figma-contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-legal">
+      <p>© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</p>
+      <ul>
+        <li><a href="/terminos-y-condiciones">Términos y condiciones</a></li>
+        <li><a href="/politica-de-privacidad">Política de privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var reduced = reduceMQ.matches;
+
+  /* Header: estado al scrollear con IntersectionObserver sobre un sentinel (sin listeners de scroll) */
+  var header = document.getElementById('site-header');
+  var sentinel = document.getElementById('top-sentinel');
+  if ('IntersectionObserver' in window && sentinel) {
+    new IntersectionObserver(function (entries) {
+      header.classList.toggle('is-scrolled', !entries[0].isIntersecting);
+    }).observe(sentinel);
+  }
+
+  /* Dropdowns desktop */
+  var toggles = Array.prototype.slice.call(document.querySelectorAll('.nav-toggle'));
+  function closeAll(except) {
+    toggles.forEach(function (t) {
+      if (t === except) return;
+      t.setAttribute('aria-expanded', 'false');
+      document.getElementById(t.getAttribute('aria-controls')).hidden = true;
+    });
+  }
+  toggles.forEach(function (t) {
+    var menu = document.getElementById(t.getAttribute('aria-controls'));
+    t.addEventListener('click', function () {
+      var open = t.getAttribute('aria-expanded') === 'true';
+      closeAll(t);
+      t.setAttribute('aria-expanded', String(!open));
+      menu.hidden = open;
+    });
+    t.parentElement.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && t.getAttribute('aria-expanded') === 'true') {
+        closeAll();
+        t.focus();
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.has-menu')) closeAll();
+  });
+
+  /* Menú mobile: aria-expanded, Esc cierra, foco al primer link y de vuelta al botón */
+  var menuBtn = document.getElementById('menu-button');
+  var panel = document.getElementById('mobile-panel');
+  function focusables() {
+    return Array.prototype.slice.call(panel.querySelectorAll('a[href], button:not([disabled])'));
+  }
+  function setMenu(open) {
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    menuBtn.querySelector('i').className = open ? 'ph ph-x' : 'ph ph-list';
+    panel.hidden = !open;
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) { var f = focusables(); if (f[0]) f[0].focus(); }
+    else { menuBtn.focus(); }
+  }
+  menuBtn.addEventListener('click', function () {
+    setMenu(menuBtn.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (panel.hidden) return;
+    if (e.key === 'Escape') { setMenu(false); return; }
+    if (e.key === 'Tab') {
+      var f = focusables().concat([menuBtn]);
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  panel.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', function (m) {
+    if (m.matches && !panel.hidden) setMenu(false);
+  });
+
+  /* Reveal de secciones + entrada escalonada del collage */
+  var revealables = Array.prototype.slice.call(document.querySelectorAll('.reveal, .collage'));
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealables.forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); obs.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    revealables.forEach(function (el) { io.observe(el); });
+  }
+
+  /* Interacción propia: parallax leve del collage con el puntero (solo transform, solo puntero fino, nunca con reduced motion) */
+  var hero = document.getElementById('hero');
+  var collage = document.getElementById('hero-collage');
+  var finePointer = window.matchMedia('(pointer: fine)').matches;
+  if (!reduced && finePointer && hero && collage) {
+    var raf = 0, nx = 0, ny = 0;
+    hero.addEventListener('pointermove', function (e) {
+      var r = hero.getBoundingClientRect();
+      nx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      ny = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      if (!raf) raf = requestAnimationFrame(function () {
+        collage.style.setProperty('--mx', nx.toFixed(3));
+        collage.style.setProperty('--my', ny.toFixed(3));
+        raf = 0;
+      });
+    });
+    hero.addEventListener('pointerleave', function () {
+      collage.style.setProperty('--mx', '0');
+      collage.style.setProperty('--my', '0');
+    });
+  }
+  reduceMQ.addEventListener('change', function (m) {
+    if (m.matches && collage) {
+      collage.style.setProperty('--mx', '0');
+      collage.style.setProperty('--my', '0');
+      revealables.forEach(function (el) { el.classList.add('is-in'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Formulario de contacto: validación por campo, estado enviando, éxito. Arma el mensaje como ContactForm.tsx. */
+  var WA = 'https://wa.me/542236602699'; /* WHATSAPP_PHONE (src/lib/whatsapp.ts). Ver comentario 54 vs 549 en el HTML. */
+  var form = document.getElementById('contact-lead');
+  var nombre = document.getElementById('c-nombre');
+  var errNombre = document.getElementById('e-nombre');
+  var alertBox = document.getElementById('form-alert');
+  var submit = document.getElementById('c-submit');
+  var success = document.getElementById('c-success');
+  var fallback = document.getElementById('c-wa-fallback');
+  var resetBtn = document.getElementById('c-reset');
+
+  function setError(show) {
+    nombre.setAttribute('aria-invalid', String(show));
+    errNombre.hidden = !show;
+    alertBox.hidden = !show;
+  }
+  nombre.addEventListener('input', function () {
+    if (nombre.value.trim() !== '') setError(false);
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var n = nombre.value.trim();
+    if (!n) { setError(true); nombre.focus(); return; }
+    setError(false);
+    var empresa = form.empresa.value.trim();
+    var volumen = form.volumen.value;
+    var msg = '¡Hola Envíos DosRuedas! Vengo del sitio web. Mi nombre es *' + n + '*' +
+      (empresa ? ' de la empresa *' + empresa + '*' : '') + '.' +
+      (volumen ? ' Volumen mensual estimado: ' + volumen + '.' : '') +
+      ' Quisiera recibir una cotización. [ref: formulario_contacto]';
+    var url = WA + '?text=' + encodeURIComponent(msg);
+    fallback.href = url;
+
+    /* Estado enviando: botón deshabilitado con texto de estado */
+    Array.prototype.forEach.call(form.elements, function (el) { el.disabled = true; });
+    submit.querySelector('span').textContent = 'Abriendo WhatsApp...';
+    submit.setAttribute('aria-busy', 'true');
+    window.open(url, '_blank', 'noopener');
+
+    setTimeout(function () {
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+    }, reduced ? 0 : 400);
+  });
+
+  resetBtn.addEventListener('click', function () {
+    form.reset();
+    Array.prototype.forEach.call(form.elements, function (el) { el.disabled = false; });
+    submit.querySelector('span').textContent = 'Hablar por WhatsApp';
+    submit.removeAttribute('aria-busy');
+    success.hidden = true;
+    form.hidden = false;
+    nombre.focus();
+  });
+
+})();
+</script>
+</body>
+</html>

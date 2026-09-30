@@ -491,6 +491,49 @@ button, input, select { font: inherit; color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; scroll-behavior: auto !important; }
 }
+/* ---------- Redes (CarruselRedes.tsx): directorio editorial en filas hairline ---------- */
+.redes { border-top: 1px solid var(--color-hairline); }
+.redes-grid { display: grid; gap: 40px; }
+@media (min-width: 1024px) {
+  .redes-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
+  .redes-head { position: sticky; top: 120px; }
+}
+.redes-head .lead { margin-top: 20px; max-width: 40ch; }
+.redes-list { border-top: 1px solid var(--color-hairline); }
+.redes-row {
+  display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px 16px;
+  padding: 24px 0; border-bottom: 1px solid var(--color-hairline);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+@media (min-width: 700px) {
+  .redes-list { margin-inline: -16px; }
+  .redes-row { grid-template-columns: 44px minmax(0, 1fr) auto; gap: 8px 24px; align-items: center; padding: 28px 16px; }
+}
+.redes-row:hover { background: var(--color-bone); }
+.redes-icon {
+  width: 44px; height: 44px; border-radius: var(--radius-xl); background: var(--color-bone); color: var(--color-ink);
+  display: grid; place-items: center; font-size: 24px;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.redes-row:hover .redes-icon { background: var(--color-paper); }
+.redes-icon--wa { background: var(--color-highlighter-yellow-tint); }
+.redes-row:hover .redes-icon--wa { background: var(--color-highlighter-yellow-tint); }
+.redes-body h3 { font-family: var(--font-subheading); text-transform: uppercase; font-size: var(--text-heading-sm); letter-spacing: 0.05em; line-height: 1; }
+.redes-handle { margin-top: 6px; font-size: 16px; font-weight: 500; }
+.redes-handle.mono { font-weight: 400; font-size: 16px; }
+.redes-desc { margin-top: 8px; font-size: 16px; max-width: 52ch; }
+.redes-cta { grid-column: 2; justify-self: start; }
+@media (min-width: 700px) { .redes-cta { grid-column: 3; grid-row: 1; justify-self: end; } }
+.redes-cta i { transition: transform var(--duration-fast) var(--ease-out); }
+@media (prefers-reduced-motion: no-preference) {
+  .redes-cta:hover i, .redes-cta:focus-visible i { transform: translate(2px, -2px); }
+  .js .redes-list .redes-row.reveal:nth-child(2) { transition-delay: 90ms; }
+  .js .redes-list .redes-row.reveal:nth-child(3) { transition-delay: 180ms; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .redes-row, .redes-icon, .redes-cta i { transition: none; }
+  .js .redes-list .redes-row.reveal { transition-delay: 0ms; }
+}
 </style>
 </head>
 <body>
@@ -937,6 +980,47 @@ button, input, select { font: inherit; color: inherit; }
           </form>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- REDES: réplica de CarruselRedes.tsx (el sitio lo monta en todas las páginas antes del footer).
+       Patrón Ramp: titular sticky a la izquierda y directorio en filas hairline a la derecha.
+       CTAs en outline azul porque el CTA amarillo del footer queda en el mismo viewport. -->
+  <section class="section redes" id="redes" aria-labelledby="redes-title">
+    <div class="container redes-grid">
+      <div class="redes-head reveal">
+        <h2 class="h2" id="redes-title">Seguí nuestro movimiento</h2>
+        <p class="lead">Sumate a nuestros canales y enterate de las novedades operativas en Mar del Plata.</p>
+      </div>
+      <ul class="redes-list">
+        <li class="redes-row reveal">
+          <span class="redes-icon" aria-hidden="true"><i class="ph ph-facebook-logo"></i></span>
+          <div class="redes-body">
+            <h3>Facebook</h3>
+            <p class="redes-handle">Envíos DosRuedas</p>
+            <p class="redes-desc">Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.</p>
+          </div>
+          <a class="btn btn-outline redes-cta" href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer">Seguir en Facebook<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </li>
+        <li class="redes-row reveal">
+          <span class="redes-icon" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+          <div class="redes-body">
+            <h3>Instagram</h3>
+            <p class="redes-handle">@enviosdosruedas</p>
+            <p class="redes-desc">Mirá el detrás de escena de nuestros repartidores y la flota recorriendo Mar del Plata.</p>
+          </div>
+          <a class="btn btn-outline redes-cta" href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer">Ver Instagram<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </li>
+        <li class="redes-row reveal">
+          <span class="redes-icon redes-icon--wa" aria-hidden="true"><i class="ph ph-whatsapp-logo"></i></span>
+          <div class="redes-body">
+            <h3>WhatsApp</h3>
+            <p class="redes-handle mono">+54 223 660-2699</p>
+            <p class="redes-desc">Escribinos para consultas, contrataciones o soporte.</p>
+          </div>
+          <a class="btn btn-outline redes-cta" href="https://wa.me/542236602699" target="_blank" rel="noopener noreferrer">Iniciar chat<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </li>
+      </ul>
     </div>
   </section>
 

@@ -17,29 +17,34 @@
   .lead { margin-top: 16px; max-width: 60ch; }
   ul { list-style: none; padding: 0; margin-top: 48px; display: grid; gap: 16px; grid-template-columns: 1fr; }
   @media (min-width: 768px) { ul { grid-template-columns: repeat(2, 1fr); } li:first-child { grid-column: span 2; } }
-  a.card { display: grid; gap: 8px; min-height: 44px; padding: 24px; border: 1px solid var(--blue-100); border-radius: 16px; color: var(--blue); text-decoration: none; transition: border-color .2s, transform .2s; }
-  a.card:hover { border-color: var(--blue); transform: translateY(-2px); }
-  a.card:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
-  li:first-child a.card { background: var(--blue); color: var(--white); border-color: var(--blue); }
+  .card { display: grid; gap: 8px; min-height: 44px; padding: 24px; border: 1px solid var(--blue-100); border-radius: 16px; color: var(--blue); text-decoration: none; transition: border-color .2s, transform .2s; }
+  .card:hover { border-color: var(--blue); transform: translateY(-2px); }
+  .card a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  li:first-child .card { background: var(--blue); color: var(--white); border-color: var(--blue); }
   .name { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 32px; letter-spacing: 0.05em; }
   li:first-child .name::after { content: " Más cercana a la marca"; font-size: 16px; margin-left: 8px; padding: 2px 8px; border-radius: 6px; background: var(--yellow); color: var(--blue); vertical-align: middle; }
   .note { margin-top: 48px; padding: 24px; background: var(--blue-50); border-radius: 16px; max-width: 75ch; }
   .note h2 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 24px; letter-spacing: 0.05em; }
   .note li { margin-top: 8px; }
   .note ul { margin-top: 8px; display: block; list-style: disc; padding-left: 20px; }
-  @media (prefers-reduced-motion: reduce) { a.card { transition: none; } a.card:hover { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+  .card .name { color: inherit; text-decoration: none; }
+  .pages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .pages a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border: 1px solid var(--blue-100); border-radius: 8px; color: var(--blue); background: var(--white); text-decoration: none; font-size: 15px; }
+  .pages a:hover { border-color: var(--blue); }
+  li:first-child .pages a { border-color: rgba(255,255,255,0.4); }
 </style>
 </head>
 <body>
 <main>
   <h1>Propuestas de home</h1>
-  <p class="lead">La página principal completa, con todas sus secciones, en cinco lenguajes visuales adaptados a la paleta y la tipografía de Envíos DosRuedas. Cada archivo lleva su HTML, CSS y JS juntos.</p>
+  <p class="lead">La home y cuatro páginas internas (Envíos Express, Sobre nosotros, Contacto y Cotizar) en cinco lenguajes visuales adaptados a la paleta y la tipografía de Envíos DosRuedas. Cada archivo lleva su HTML, CSS y JS juntos.</p>
   <ul>
-    <li><a class="card" href="ramp.html"><span class="name">Ramp</span><span>Editorial blanco, cards con borde fino, un solo acento amarillo tipo resaltador y banda de datos confirmados.</span></a></li>
-    <li><a class="card" href="brex.html"><span class="name">Brex</span><span>Barra de aviso, hero partido con la moto 3D, tabs por segmento, bento 7/5 y footer institucional.</span></a></li>
-    <li><a class="card" href="superhuman.html"><span class="name">Superhuman</span><span>Hero fotográfico, pestañas de servicios, banda azul de emprendedores y banner final con gradiente.</span></a></li>
-    <li><a class="card" href="auros.html"><span class="name">Auros</span><span>Tema invertido azul, orbe de partículas, texto cinético gigante y capas que se aclaran.</span></a></li>
-    <li><a class="card" href="figma.html"><span class="name">Figma</span><span>Collage de fotos teñidas y teselas en siete azules, con una sola tesela amarilla.</span></a></li>
+    <li><div class="card"><a class="name" href="ramp.html">Ramp</a><span>Editorial blanco, cards con borde fino, un solo acento amarillo tipo resaltador y banda de datos confirmados.</span><span class="pages"><a href="ramp.html">Inicio</a><a href="ramp-envios-express.html">Envíos Express</a><a href="ramp-sobre-nosotros.html">Sobre nosotros</a><a href="ramp-contacto.html">Contacto</a><a href="ramp-cotizar.html">Cotizar</a></span></div></li>
+    <li><div class="card"><a class="name" href="brex.html">Brex</a><span>Barra de aviso, hero partido con la moto 3D, tabs por segmento, bento 7/5 y footer institucional.</span><span class="pages"><a href="brex.html">Inicio</a><a href="brex-envios-express.html">Envíos Express</a><a href="brex-sobre-nosotros.html">Sobre nosotros</a><a href="brex-contacto.html">Contacto</a><a href="brex-cotizar.html">Cotizar</a></span></div></li>
+    <li><div class="card"><a class="name" href="superhuman.html">Superhuman</a><span>Hero fotográfico, pestañas de servicios, banda azul de emprendedores y banner final con gradiente.</span><span class="pages"><a href="superhuman.html">Inicio</a><a href="superhuman-envios-express.html">Envíos Express</a><a href="superhuman-sobre-nosotros.html">Sobre nosotros</a><a href="superhuman-contacto.html">Contacto</a><a href="superhuman-cotizar.html">Cotizar</a></span></div></li>
+    <li><div class="card"><a class="name" href="auros.html">Auros</a><span>Tema invertido azul, orbe de partículas, texto cinético gigante y capas que se aclaran.</span><span class="pages"><a href="auros.html">Inicio</a><a href="auros-envios-express.html">Envíos Express</a><a href="auros-sobre-nosotros.html">Sobre nosotros</a><a href="auros-contacto.html">Contacto</a><a href="auros-cotizar.html">Cotizar</a></span></div></li>
+    <li><div class="card"><a class="name" href="figma.html">Figma</a><span>Collage de fotos teñidas y teselas en siete azules, con una sola tesela amarilla.</span><span class="pages"><a href="figma.html">Inicio</a><a href="figma-envios-express.html">Envíos Express</a><a href="figma-sobre-nosotros.html">Sobre nosotros</a><a href="figma-contacto.html">Contacto</a><a href="figma-cotizar.html">Cotizar</a></span></div></li>
   </ul>
   <section class="note" aria-labelledby="pend">
     <h2 id="pend">Pendiente de definir con el dueño</h2>
@@ -47,6 +52,7 @@
       <li>Número de WhatsApp: el formulario usa 549 2236602699 y el resto del sitio 54 2236602699.</li>
       <li>Precio de E-commerce 24HS ($3.800): confirmado de palabra, todavía sin constante en el código.</li>
       <li>Reseñas con superlativos ("el mejor", "la mejor"): hoy quedaron afuera.</li>
+      <li>Cotizar es un prototipo de interfaz: muestra [km] y [precio]; en producción el precio lo calcula el servidor. El selector de servicio y el tamaño de bulto son agregados que el cotizador real no pide.</li>
       <li>Ramp publica la frase del dueño "Preferimos decir que no podemos, a fallar." con su firma.</li>
     </ul>
   </section>

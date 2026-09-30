@@ -636,6 +636,71 @@ html.js .collage:not(.is-in) .tile { opacity: 0; --enter: var(--motion-collage-o
   html.js .collage .tile { opacity: 1; --enter: 0px; }
   .note:hover { transform: rotate(var(--r, 0deg)); }
 }
+/* REDES (equivalente a src/components/layout/CarruselRedes.tsx):
+   índice editorial con hairlines, cabecera con mini collage multivalor.
+   Sin colores de terceros: azul, blanco y una sola tesela amarilla (WhatsApp). */
+.redes-grid { display: grid; gap: 40px; }
+@media (min-width: 1024px) {
+  .redes-grid { grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: start; }
+  .redes-head { grid-column: 1 / span 5; }
+  .redes-list { grid-column: 7 / span 6; }
+}
+.redes-collage { position: relative; height: 124px; margin-top: 40px; max-width: 280px; }
+.rc { position: absolute; display: grid; place-items: center; transform: rotate(var(--r, 0deg)); }
+.rc-at {
+  left: 0; top: 10px; width: 96px; height: 96px; --r: -5deg;
+  background: var(--color-ink); color: var(--color-paper); border-radius: var(--radius-xl);
+  font-family: var(--font-display); font-weight: 400; font-synthesis: none; font-size: 56px; line-height: 1;
+}
+.rc-soft { left: 82px; top: 48px; width: 68px; height: 68px; --r: 6deg; background: var(--color-wash-blue-100); border-radius: var(--radius-sm); }
+.rc-arrow {
+  left: 164px; top: 0; width: 88px; height: 64px; --r: 3deg;
+  background: var(--color-wash-blue-50); color: var(--color-ink); border-radius: var(--radius-md); font-size: 32px;
+}
+.redes-row {
+  display: grid; grid-template-columns: 52px 1fr; column-gap: 20px; row-gap: 16px;
+  padding: 24px 0; border-top: 1px solid var(--color-border);
+  --r: -4deg; --i: 0;
+}
+.redes-row:nth-child(2) { --r: 3deg; --i: 1; }
+.redes-row:nth-child(3) { --r: -2deg; --i: 2; }
+.redes-row.is-featured {
+  background: var(--color-mist); border-radius: var(--radius-xl);
+  padding: 24px 20px; margin-top: 8px; border-top-color: transparent;
+}
+.redes-row:not(.is-featured):last-child { border-bottom: 1px solid var(--color-border); }
+.redes-ico {
+  width: 52px; height: 52px; border-radius: var(--radius-sm);
+  display: grid; place-items: center; font-size: 28px;
+  background: var(--color-wash-blue-100); color: var(--color-ink);
+  transform: rotate(var(--r)); transition: transform 300ms cubic-bezier(.2,.7,.2,1);
+}
+.redes-ico.is-ink { background: var(--color-ink); color: var(--color-paper); }
+.redes-ico.is-spark { background: var(--color-signal); color: var(--color-ink); }
+.redes-row:hover .redes-ico, .redes-row:focus-within .redes-ico { transform: rotate(0deg) scale(1.06); }
+.redes-body h3 { font-size: var(--text-heading); letter-spacing: 0.05em; line-height: 1.1; }
+.redes-handle { margin-top: 6px; font-size: 16px; font-weight: 500; line-height: 1.4; }
+.redes-handle.mono { font-weight: 400; font-size: 18px; }
+.redes-desc { margin-top: 8px; font-size: var(--text-body-sm); line-height: 1.6; max-width: 46ch; }
+.redes-cta { grid-column: 2; justify-self: start; }
+.redes-cta i { transition: transform 160ms ease; }
+.redes-cta:hover i { transform: translate(2px, -2px); }
+.redes-row.is-featured .btn-ghost:hover { background: var(--color-paper); }
+@media (min-width: 768px) {
+  .redes-row { grid-template-columns: 64px 1fr auto; column-gap: 24px; align-items: center; }
+  .redes-cta { grid-column: 3; }
+}
+html.js #redes .redes-row {
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 500ms ease, transform 500ms cubic-bezier(.2,.7,.2,1);
+  transition-delay: calc(120ms + var(--i) * 90ms);
+}
+html.js #redes .reveal.is-in .redes-row { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html.js #redes .redes-row { opacity: 1; transform: none; transition: none; }
+  .redes-ico, .redes-row:hover .redes-ico, .redes-row:focus-within .redes-ico { transform: rotate(var(--r)); transition: none; }
+  .redes-cta:hover i { transform: none; }
+}
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -647,7 +712,7 @@ html.js .collage:not(.is-in) .tile { opacity: 0; --enter: var(--motion-collage-o
 <header class="site-header" id="site-header">
   <div class="container header-inner">
     <a class="brand" href="/" aria-label="Envíos DosRuedas, ir al inicio">
-      <img src="../../../public/logo-envios-simplified.webp" width="32" height="32" alt="Logo Envíos Dos Ruedas">
+      <img src="../../../../public/logo-envios-simplified.webp" width="32" height="32" alt="Logo Envíos Dos Ruedas">
       <span class="brand-word" aria-hidden="true">Envíos DosRuedas</span>
     </a>
 
@@ -728,10 +793,10 @@ html.js .collage:not(.is-in) .tile { opacity: 0; --enter: var(--motion-collage-o
 
       <div class="collage" id="hero-collage" aria-hidden="true">
         <div class="tile t-pale"></div>
-        <div class="tile t-rider duo"><img src="../../../public/img/generales/repartidor.webp" width="1408" height="768" alt=""></div>
-        <div class="tile t-moto duo duo-bright"><img src="../../../public/img/generales/moto-cta.webp" width="768" height="1408" alt=""></div>
-        <div class="tile t-map duo"><img src="../../../public/heroes/inicio-mapa.webp" width="560" height="560" alt=""></div>
-        <div class="tile t-depo duo duo-bright"><img src="../../../public/heroes/deposito-local.webp" width="520" height="520" alt=""></div>
+        <div class="tile t-rider duo"><img src="../../../../public/img/generales/repartidor.webp" width="1408" height="768" alt=""></div>
+        <div class="tile t-moto duo duo-bright"><img src="../../../../public/img/generales/moto-cta.webp" width="768" height="1408" alt=""></div>
+        <div class="tile t-map duo"><img src="../../../../public/heroes/inicio-mapa.webp" width="560" height="560" alt=""></div>
+        <div class="tile t-depo duo duo-bright"><img src="../../../../public/heroes/deposito-local.webp" width="520" height="520" alt=""></div>
         <div class="tile t-express tile-word">Express</div>
         <div class="tile t-flex tile-word">Flex</div>
         <div class="tile t-24 tile-word">24HS</div>
@@ -808,7 +873,7 @@ html.js .collage:not(.is-in) .tile { opacity: 0; --enter: var(--motion-collage-o
       <ul class="svc-grid">
         <li class="svc-card-li" style="display:contents">
           <a class="svc-card wide" href="/servicios/envios-express">
-            <div class="svc-thumb duo"><img src="../../../public/img/generales/repartidor.webp" width="1408" height="768" loading="lazy" alt="Repartidor de Envíos DosRuedas en moto con baúl de envíos Express"></div>
+            <div class="svc-thumb duo"><img src="../../../../public/img/generales/repartidor.webp" width="1408" height="768" loading="lazy" alt="Repartidor de Envíos DosRuedas en moto con baúl de envíos Express"></div>
             <h3 class="sub">Envíos Express</h3>
             <p>Elegís una franja de 3 hs para la entrega en el día. Lo pedís con 2 hs de anticipación.</p>
             <div class="svc-meta mono"><span class="dot-ico"><i class="ph ph-clock" aria-hidden="true"></i></span><span>Corte 15:00 hs · desde <strong>$3.700</strong> (0 a 3 km)</span></div>
@@ -816,7 +881,7 @@ html.js .collage:not(.is-in) .tile { opacity: 0; --enter: var(--motion-collage-o
         </li>
         <li style="display:contents">
           <a class="svc-card" href="/servicios/envios-lowcost">
-            <div class="svc-thumb duo duo-bright"><img src="../../../public/heroes/lowcost-pallet.webp" width="520" height="520" loading="lazy" alt="Paquetes apilados listos para el reparto LowCost"></div>
+            <div class="svc-thumb duo duo-bright"><img src="../../../../public/heroes/lowcost-pallet.webp" width="520" height="520" loading="lazy" alt="Paquetes apilados listos para el reparto LowCost"></div>
             <h3 class="sub">Envíos LowCost</h3>
             <p>Reparto programado en el día, sin franja horaria. Entrega antes de las 19:00 hs.</p>
             <div class="svc-meta mono"><span class="dot-ico"><i class="ph ph-clock" aria-hidden="true"></i></span><span>Corte 13:00 hs · desde <strong>$3.000</strong></span></div>
@@ -848,7 +913,7 @@ html.js .collage:not(.is-in) .tile { opacity: 0; --enter: var(--motion-collage-o
         </li>
         <li style="display:contents">
           <a class="svc-card wide" href="/servicios/deposito-fulfillment">
-            <div class="svc-thumb duo"><img src="../../../public/img/generales/fede/boxes-master-dm.jpg" width="1200" height="799" loading="lazy" alt="Cajas de envío preparadas en depósito"></div>
+            <div class="svc-thumb duo"><img src="../../../../public/img/generales/fede/boxes-master-dm.jpg" width="1200" height="799" loading="lazy" alt="Cajas de envío preparadas en depósito"></div>
             <h3 class="sub">E-commerce Same Day</h3>
             <p>Dejás stock en nuestro depósito: lo que vendés hasta las 15:00 hs se entrega en el día, antes de las 20:00 hs. Para productos pequeños y medianos.</p>
             <div class="svc-meta mono"><span class="dot-ico"><i class="ph ph-tag" aria-hidden="true"></i></span><span><strong>$6.000</strong> fijo a toda la ciudad</span></div>
@@ -871,7 +936,7 @@ html.js .collage:not(.is-in) .tile { opacity: 0; --enter: var(--motion-collage-o
         <div class="emp-intro">
           <h2 class="section-title" id="emprendedores-title">Potenciamos tu marca en Mar del Plata</h2>
           <p class="lead">Si vendés online, necesitás un socio logístico que responda. Armamos planes a tu medida con retiro programado en tu local.</p>
-          <div class="emp-photo duo duo-bright"><img src="../../../public/Emprendedoresbanner.webp" width="800" height="400" loading="lazy" alt="Emprendedora preparando pedidos para enviar"></div>
+          <div class="emp-photo duo duo-bright"><img src="../../../../public/Emprendedoresbanner.webp" width="800" height="400" loading="lazy" alt="Emprendedora preparando pedidos para enviar"></div>
         </div>
 
         <div class="emp-bento">
@@ -1077,6 +1142,54 @@ html.js .collage:not(.is-in) .tile { opacity: 0; --enter: var(--motion-collage-o
   </section>
 </main>
 
+<!-- REDES: equivalente a src/components/layout/CarruselRedes.tsx, que el sitio monta en todas las páginas
+     entre </main> y el footer. Índice editorial con hairlines (patrón de #segmentos), sin colores de terceros.
+     Los CTAs van en fantasma azul: arriba (CTA final) y abajo (footer) ya hay amarillo. -->
+<section class="section" id="redes" aria-labelledby="redes-title">
+  <div class="container redes-grid reveal">
+    <div class="redes-head">
+      <span class="eyebrow sub">Nuestra comunidad digital</span>
+      <h2 class="section-title" id="redes-title">Seguí nuestro movimiento</h2>
+      <p class="lead">Sumate a nuestros canales y enterate de las novedades operativas en Mar del Plata.</p>
+      <div class="redes-collage" aria-hidden="true">
+        <span class="rc rc-at">@</span>
+        <span class="rc rc-soft"></span>
+        <span class="rc rc-arrow"><i class="ph ph-arrow-up-right"></i></span>
+      </div>
+    </div>
+
+    <ul class="redes-list">
+      <li class="redes-row">
+        <span class="redes-ico is-ink"><i class="ph ph-facebook-logo" aria-hidden="true"></i></span>
+        <div class="redes-body">
+          <h3 class="sub">Facebook</h3>
+          <p class="redes-handle">Envíos DosRuedas</p>
+          <p class="redes-desc">Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.</p>
+        </div>
+        <a class="btn btn-ghost redes-cta" href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer">Seguir en Facebook<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      </li>
+      <li class="redes-row">
+        <span class="redes-ico"><i class="ph ph-instagram-logo" aria-hidden="true"></i></span>
+        <div class="redes-body">
+          <h3 class="sub">Instagram</h3>
+          <p class="redes-handle">@enviosdosruedas</p>
+          <p class="redes-desc">Mirá el detrás de escena de nuestros repartidores y la flota recorriendo Mar del Plata.</p>
+        </div>
+        <a class="btn btn-ghost redes-cta" href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer">Ver Instagram<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      </li>
+      <li class="redes-row is-featured">
+        <span class="redes-ico is-spark"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></span>
+        <div class="redes-body">
+          <h3 class="sub">WhatsApp</h3>
+          <p class="redes-handle mono">+54 223 660-2699</p>
+          <p class="redes-desc">Escribinos para consultas, contrataciones o soporte.</p>
+        </div>
+        <a class="btn btn-ghost redes-cta" href="https://wa.me/542236602699" target="_blank" rel="noopener noreferrer">Iniciar chat<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <!-- FOOTER: tema invertido azul, institucional. Incluye los canales de la sección de redes del layout (Facebook, Instagram, WhatsApp). -->
 <footer class="site-footer band-inverted" aria-labelledby="footer-title">
   <h2 class="sr-only" id="footer-title">Información de Envíos DosRuedas</h2>
@@ -1084,7 +1197,7 @@ html.js .collage:not(.is-in) .tile { opacity: 0; --enter: var(--motion-collage-o
     <div class="footer-top">
       <div class="footer-brand">
         <a class="brand" href="/" aria-label="Envíos DosRuedas, ir al inicio">
-          <img src="../../../public/logo-envios-simplified.webp" width="32" height="32" loading="lazy" alt="Logo Envíos Dos Ruedas">
+          <img src="../../../../public/logo-envios-simplified.webp" width="32" height="32" loading="lazy" alt="Logo Envíos Dos Ruedas">
           <span class="brand-word" aria-hidden="true">Envíos <span class="y">DosRuedas</span></span>
         </a>
         <p>Con más de 7 años de trayectoria en Mar del Plata, acompañamos a emprendedores, PyMEs y comercios locales con flota propia.</p>

@@ -1,17 +1,11 @@
 allowBuilds:
   '@firebase/util': true
   '@google/genai': true
-  "@prisma/engines": true
-  '@tailwindcss/oxide': true
+  '@prisma/engines': true
   '@tsparticles/engine': true
   esbuild: true
   prisma: true
   protobufjs: true
-  re2: true
-  sharp: true
-  unrs-resolver: true
-  vitest: true
-  '@vitejs/plugin-react': true
   puppeteer: true
-  msgpackr-extract: true
-  workerd: true
+  re2: true
+  unrs-resolver: true

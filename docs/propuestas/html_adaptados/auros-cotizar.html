@@ -1,0 +1,1344 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cotizá tu envío en moto | Express y LowCost | Envíos DosRuedas</title>
+<meta name="description" content="Cargá el retiro y la entrega una vez y compará la tarifa Express y LowCost para tu envío en Mar del Plata. Elegís el servicio y confirmás por WhatsApp.">
+<!-- Prototipo estático: propuesta Auros adaptada (tema invertido azul). No es código de producción. -->
+<!-- Header, menú mobile, footer, botones, foco, reveal y JS utilitario copiados de auros.html (home de la propuesta). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+/* Tokens copiados de docs/propuestas/disenos_adaptados_envios/Auros/variables.css (paleta DosRuedas únicamente) */
+:root {
+  --color-canvas: #0950F6;
+  --color-surface-recessed: #0950F6;
+  --color-surface-raised: rgba(255, 255, 255, 0.06);
+  --color-surface-elevated: #3570F8;
+  --color-surface-card: #FFFFFF;
+  --color-text-primary: #FFFFFF;
+  --color-text-mist: #E6EEFE;
+  --color-text-secondary: rgba(255, 255, 255, 0.85);
+  --color-text-on-cta: #0950F6;
+  --color-text-on-card: #0950F6;
+  --color-border-hairline: rgba(255, 255, 255, 0.12);
+  --color-border-structural: #BACEFD;
+  --color-border-input: #628FF9;
+  --color-border-card-hover: #8EAFFB;
+  --color-cta: #FFEC01;
+  --color-cta-hover: #FFF12E;
+  --color-cta-pressed: #E6D400;
+  --color-accent-stat: #FFEC01;
+  --color-accent-detail: #FFF45C;
+  --color-badge: #FFFAB8;
+  --color-arrow-button: rgba(255, 255, 255, 0.12);
+  --color-arrow-button-hover: #3570F8;
+  --color-error-border: #EF4444;
+  --color-error-text: #DC2626;
+  --gradient-depth: linear-gradient(90deg, #0950F6 0%, #3570F8 60%, #628FF9 100%);
+  --gradient-bloom: radial-gradient(circle, rgba(255, 236, 1, 0.14) 0%, rgba(255, 236, 1, 0) 70%);
+
+  --font-display: 'Anton', Impact, sans-serif;
+  --font-subheading: 'Bebas Neue', sans-serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  --text-label: 14px;
+  --text-body: 16px;
+  --text-body-lg: 18px;
+  --text-eyebrow-lg: 20px;
+  --text-subheading: 24px;
+  --text-heading: 40px;
+  --text-stat: 64px;
+  --text-heading-lg: 64px;
+  --text-display: 104px;
+  --text-kinetic-min: 120px;
+  --text-kinetic-max: 296px;
+
+  --page-max-width: 1280px;
+  --section-gap: 96px;
+  --card-padding-min: 36px;
+  --card-padding-max: 48px;
+  --element-gap: 20px;
+  --touch-target-min: 44px;
+
+  --radius-sm: 6px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --shadow-float: 0 25px 50px -12px rgba(9, 80, 246, 0.15);
+  --shadow-recessed-inset: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --header-h: 80px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { font-synthesis: none; -webkit-text-size-adjust: 100%; scroll-padding-top: var(--header-h); }
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  overflow-x: clip;
+}
+html.menu-open, html.menu-open body { overflow: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+button, input, select { font: inherit; }
+
+:focus-visible {
+  outline: 2px solid #0950F6;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #FFFFFF;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: fixed; top: 12px; left: 16px; z-index: 100;
+  padding: 12px 20px; min-height: 44px;
+  background: #FFFFFF; color: #0950F6; border-radius: var(--radius-sm);
+  font-family: var(--font-subheading); font-weight: 400; font-size: 16px; letter-spacing: 0.08em;
+  text-decoration: none;
+  transform: translateY(-160%);
+}
+.skip-link:focus-visible { transform: none; }
+
+.container { width: 100%; max-width: var(--page-max-width); margin-inline: auto; padding-inline: 16px; }
+@media (min-width: 768px) { .container { padding-inline: 32px; } }
+
+/* Tipografía */
+.display, .h2, .h3-display, .kinetic-line {
+  font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-synthesis: none;
+}
+.label, .eyebrow, .btn-cta, .btn-ghost, .nav-link, .tab, .h3-sub {
+  font-family: var(--font-subheading); font-weight: 400; text-transform: uppercase; font-synthesis: none;
+}
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.eyebrow { font-size: var(--text-eyebrow-lg); letter-spacing: 0.08em; color: var(--color-text-mist); line-height: 1.2; }
+.h2 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 0.9; letter-spacing: -0.03em; color: #FFFFFF; }
+.h3-display { font-size: clamp(2rem, 4vw, 2.5rem); line-height: 0.9; letter-spacing: -0.02em; color: #FFFFFF; }
+.h3-sub { font-size: var(--text-subheading); letter-spacing: 0.05em; line-height: 1.1; }
+.lead { font-size: var(--text-body-lg); line-height: 1.625; color: var(--color-text-secondary); max-width: 600px; }
+
+/* Botones */
+.btn-cta {
+  position: relative; isolation: isolate;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 0 22px;
+  background: var(--color-cta); color: var(--color-text-on-cta);
+  border-radius: var(--radius-sm);
+  font-size: 16px; letter-spacing: 0.08em; text-decoration: none;
+}
+.btn-cta::before {
+  content: ""; position: absolute; inset: -28px -40px; z-index: -1;
+  background: var(--gradient-bloom); filter: blur(32px); border-radius: 40px;
+  pointer-events: none;
+}
+.btn-cta:hover { background: var(--color-cta-hover); }
+.btn-cta:active { background: var(--color-cta-pressed); }
+.btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 44px; padding: 0 18px;
+  background: transparent; color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.6); border-radius: var(--radius-sm);
+  font-size: 16px; letter-spacing: 0.08em; text-decoration: none; cursor: pointer;
+}
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.12); }
+.btn-ghost .ph, .link-arrow .ph { transition: transform 0.18s ease-out; }
+.btn-ghost:hover .ph, .link-arrow:hover .ph { transform: translate(2px, -2px); }
+.arrow-btn {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: 44px; height: 44px; border-radius: var(--radius-sm);
+  background: var(--color-arrow-button); color: #FFFFFF; text-decoration: none; font-size: 18px;
+}
+.arrow-btn:hover { background: var(--color-arrow-button-hover); }
+.arrow-btn .ph { transition: transform 0.18s ease-out; }
+.arrow-btn:hover .ph { transform: translate(2px, -2px); }
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  font-family: var(--font-subheading); font-weight: 400; font-size: 16px; letter-spacing: 0.08em;
+  text-transform: uppercase; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px;
+  color: #FFFFFF;
+}
+
+/* ============ HEADER ============ */
+#top-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 24px; pointer-events: none; }
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  height: var(--header-h);
+  background: var(--color-canvas);
+}
+.site-header::after {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 1px;
+  background: var(--color-border-hairline);
+  opacity: 0; transition: opacity 0.2s ease-out;
+}
+.site-header.is-scrolled::after { opacity: 1; }
+.header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; min-height: 44px; }
+.brand img { width: 40px; height: 40px; border-radius: 50%; }
+.brand-word { font-family: var(--font-display); font-weight: 400; font-size: 24px; letter-spacing: -0.01em; text-transform: uppercase; line-height: 1; }
+.brand-word span { color: var(--color-cta); }
+.nav-desktop { display: none; }
+.nav-desktop ul { display: flex; gap: 16px; }
+.nav-link {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px;
+  font-size: 16px; letter-spacing: 0.08em; text-decoration: none; color: var(--color-text-secondary);
+}
+.nav-link:hover, .nav-link[aria-current="page"] { color: #FFFFFF; }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.phone-link {
+  display: none; align-items: center; gap: 8px; min-height: 44px; padding: 0 4px;
+  text-decoration: none; font-size: 14px; color: #FFFFFF;
+}
+.phone-link .ph { color: var(--color-cta); font-size: 18px; }
+.header-cta { display: none; }
+.menu-btn {
+  display: inline-grid; place-items: center; width: 44px; height: 44px;
+  background: rgba(255, 255, 255, 0.12); color: #FFFFFF; border: 0; border-radius: var(--radius-sm);
+  font-size: 22px; cursor: pointer;
+}
+.call-btn { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.12); color: #FFFFFF; font-size: 20px; text-decoration: none; }
+@media (min-width: 1024px) {
+  .nav-desktop { display: block; }
+  .phone-link, .header-cta { display: inline-flex; }
+  .menu-btn, .call-btn { display: none; }
+}
+
+.drawer {
+  position: fixed; inset: var(--header-h) 0 0 0; z-index: 49;
+  background: var(--color-canvas);
+  border-top: 1px solid var(--color-border-hairline);
+  overflow-y: auto;
+  padding: 24px 16px 48px;
+  transform: translateX(100%); opacity: 0; visibility: hidden;
+  transition: transform 0.28s ease-out, opacity 0.28s ease-out, visibility 0s linear 0.28s;
+}
+.drawer.is-open { transform: none; opacity: 1; visibility: visible; transition: transform 0.28s ease-out, opacity 0.28s ease-out, visibility 0s; }
+.drawer-group + .drawer-group { margin-top: 28px; }
+.drawer-group h2 { font-family: var(--font-subheading); font-weight: 400; font-size: 14px; letter-spacing: 0.1em; color: var(--color-text-mist); margin-bottom: 8px; text-transform: uppercase; }
+.drawer a.drawer-link {
+  display: flex; align-items: center; justify-content: space-between; min-height: 48px;
+  border-bottom: 1px solid var(--color-border-hairline);
+  font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: 28px; letter-spacing: -0.01em;
+  text-decoration: none; color: #FFFFFF;
+}
+.drawer-foot { margin-top: 32px; display: grid; gap: 12px; }
+@media (min-width: 1024px) { .drawer { display: none; } }
+
+.hero { position: relative; overflow: clip; }
+.hero-stage {
+  position: relative;
+  min-height: 100dvh;
+  padding-top: 96px; padding-bottom: 64px;
+  display: grid; place-items: center;
+}
+.orb-wrap {
+  position: absolute; left: 50%; top: 52%;
+  width: min(120vw, 820px); aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0.55; pointer-events: none;
+}
+.orb-wrap::after {
+  /* Velo central: deja los puntos solo en el anillo exterior para que el copy se lea limpio */
+  content: ""; position: absolute; inset: 6%;
+  background: radial-gradient(circle, rgba(9, 80, 246, 1) 0%, rgba(9, 80, 246, 1) 52%, rgba(9, 80, 246, 0) 72%);
+}
+#orb { width: 100%; height: 100%; }
+.orb-spin { transform-origin: 50% 50%; }
+@media (prefers-reduced-motion: no-preference) {
+  .motion-ok .orb-spin { animation: orb-spin 90s linear infinite; }
+}
+@keyframes orb-spin { to { transform: rotate(360deg); } }
+.orb-wrap { z-index: 0; }
+.hero-copy { position: relative; z-index: 1; text-align: center; display: grid; justify-items: center; gap: 24px; }
+.hero-copy .display {
+  font-size: clamp(3rem, 8vw, 6.5rem); line-height: 0.85; letter-spacing: -0.04em; color: #FFFFFF;
+  display: grid; gap: 0.1em;
+  max-width: 14ch;
+}
+.hero-copy .display span { display: block; }
+.hero-lead { font-size: var(--text-body-lg); line-height: 1.625; color: #FFFFFF; max-width: 34rem; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 28px; margin-top: 8px; }
+
+/* Texto cinético sobredimensionado */
+.kinetic {
+  position: relative; overflow: clip;
+  border-top: 1px solid var(--color-border-hairline);
+  padding: 24px 0 40px;
+}
+.kinetic-line {
+  display: flex; align-items: center; gap: 0.25em; white-space: nowrap; width: max-content;
+  font-size: clamp(var(--text-kinetic-min), 16vw, var(--text-kinetic-max));
+  line-height: 0.85; letter-spacing: -0.05em; color: #FFFFFF;
+  will-change: transform;
+}
+.kinetic-line li { display: inline-flex; align-items: center; gap: 0.25em; }
+.kinetic-line li + li::before {
+  content: ""; width: 0.18em; height: 0.18em; background: var(--color-cta); border-radius: 2px;
+  transform: rotate(45deg); flex-shrink: 0;
+}
+.kinetic-ghost { color: rgba(255, 255, 255, 0.12); margin-top: 8px; transform: translateX(-35%); }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .kinetic-line { animation: kinetic-left linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+    .kinetic-ghost { animation-name: kinetic-right; }
+  }
+}
+@keyframes kinetic-left { from { transform: translateX(4%); } to { transform: translateX(-45%); } }
+@keyframes kinetic-right { from { transform: translateX(-50%); } to { transform: translateX(0%); } }
+/* ============ SECCIONES ============ */
+.section { padding-block: var(--section-gap); position: relative; }
+.recessed { border-top: 1px solid var(--color-border-hairline); box-shadow: var(--shadow-recessed-inset); }
+.glass {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-xl);
+  padding: var(--card-padding-min);
+}
+/* CTA final: pozo hundido con texto cinético y formulario en tarjeta blanca */
+.well {
+  position: relative; overflow: clip; isolation: isolate;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-hairline);
+  box-shadow: var(--shadow-recessed-inset);
+  padding: 64px 20px;
+  display: grid; gap: 48px;
+}
+.well-kinetic {
+  position: absolute; inset: auto -2% -6% auto; z-index: -1; pointer-events: none;
+  font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
+  font-size: clamp(10rem, 30vw, var(--text-kinetic-max)); line-height: 0.85; letter-spacing: -0.05em;
+  color: rgba(255, 255, 255, 0.12);
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .well-kinetic { animation: well-drift linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+  }
+}
+@keyframes well-drift { from { transform: translateY(18%); } to { transform: translateY(-12%); } }
+.cta-copy { display: grid; gap: 24px; align-content: center; }
+.cta-copy .actions { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; margin-top: 8px; }
+.cta-copy .phone-inline { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #FFFFFF; text-decoration: none; font-size: 16px; }
+.cta-copy .phone-inline .ph { color: var(--color-cta); font-size: 20px; }
+.form-card {
+  background: #FFFFFF; color: #0950F6; border-radius: var(--radius-xl);
+  padding: 32px 20px; display: grid; gap: 20px; box-shadow: var(--shadow-float);
+}
+.form-card .h3-sub { color: #0950F6; }
+.field { display: grid; gap: 8px; }
+.field label { font-weight: 500; font-size: 14px; color: #0950F6; }
+.field .control { position: relative; }
+.field .control .ph { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 20px; color: #0950F6; pointer-events: none; }
+.field input, .field select {
+  width: 100%; min-height: 48px; padding: 0 14px 0 44px;
+  background: #FFFFFF; color: #0950F6;
+  border: 1px solid var(--color-border-input); border-radius: var(--radius-sm);
+  font-size: 16px; appearance: none;
+}
+.field input::placeholder { color: #628FF9; }
+.field select { background-image: none; }
+.field .chev { left: auto !important; right: 14px; }
+.field input[aria-invalid="true"], .field select[aria-invalid="true"] { border-color: var(--color-error-border); }
+.field-error { color: var(--color-error-text); font-size: 14px; display: flex; gap: 6px; align-items: center; }
+.field-error[hidden] { display: none; }
+.field-error .ph { color: var(--color-error-border); }
+.btn-solid {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 0 22px; width: 100%;
+  background: #0950F6; color: #FFFFFF; border: 0; border-radius: var(--radius-sm);
+  font-family: var(--font-subheading); font-weight: 400; font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase;
+  cursor: pointer;
+}
+.btn-solid:hover { background: #3570F8; }
+.form-hint { font-size: 14px; color: #0950F6; }
+@media (min-width: 768px) {
+  .well { padding: 120px 48px; }
+  .form-card { padding: 40px; }
+}
+@media (min-width: 1024px) {
+  .well { grid-template-columns: 6fr 5fr; gap: 64px; padding: 120px 64px; }
+}
+/* Footer: pozo hundido institucional */
+.site-footer {
+  position: relative; overflow: clip;
+  border-top: 1px solid var(--color-border-hairline);
+  box-shadow: var(--shadow-recessed-inset);
+  padding: 120px 0 40px;
+}
+.footer-grid { display: grid; gap: 40px; }
+.footer-brand { display: grid; gap: 20px; align-content: start; max-width: 420px; }
+.footer-brand p { color: var(--color-text-secondary); }
+.footer-col h2 { font-family: var(--font-subheading); font-weight: 400; font-size: 20px; letter-spacing: 0.08em; color: var(--color-text-mist); text-transform: uppercase; margin-bottom: 12px; }
+.footer-col a { display: inline-flex; align-items: center; min-height: 44px; color: #FFFFFF; text-decoration: none; }
+.footer-col a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.contact-list li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: center; color: #FFFFFF; min-height: 44px; }
+.contact-list .ph { font-size: 20px; color: #FFFFFF; }
+.hours { margin-top: 12px; display: grid; gap: 6px; font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 14px; color: var(--color-text-mist); }
+.socials { display: flex; gap: 12px; }
+.social-btn { display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.12); color: #FFFFFF; font-size: 22px; text-decoration: none; }
+.social-btn:hover { background: #3570F8; }
+.social-btn.wa { background: var(--color-cta); color: #0950F6; }
+.social-btn.wa:hover { background: var(--color-cta-hover); }
+.footer-mark {
+  margin-top: 80px;
+  font-family: var(--font-display); font-weight: 400; text-transform: uppercase; white-space: nowrap;
+  font-size: clamp(5rem, 19vw, var(--text-kinetic-max)); line-height: 0.85; letter-spacing: -0.05em;
+  color: rgba(255, 255, 255, 0.12);
+}
+.legal { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--color-border-hairline); display: grid; gap: 16px; }
+.legal p { color: var(--color-text-secondary); font-size: 14px; }
+.legal ul { display: flex; flex-wrap: wrap; gap: 0 20px; }
+.legal a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; color: var(--color-text-mist); text-decoration: none; }
+.legal a:hover { color: #FFFFFF; text-decoration: underline; }
+@media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .footer-grid { grid-template-columns: 4fr 3fr 3fr; gap: 64px; } }
+
+/* Reveal con IntersectionObserver (solo transform y opacity) */
+@media (prefers-reduced-motion: no-preference) {
+  .js.motion-ok [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+  .js.motion-ok [data-reveal].is-in { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ============ AJUSTES COMPARTIDOS DE PAGINAS INTERNAS ============ */
+/* Nav con 5 items: el telefono del header aparece recien desde 1280px para no apretar la barra */
+@media (min-width: 1024px) and (max-width: 1279px) { .phone-link { display: none; } }
+.nav-link[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--color-cta); text-decoration-thickness: 2px; text-underline-offset: 10px; }
+.drawer a.drawer-link[aria-current="page"] { color: var(--color-cta); }
+.btn-ghost[aria-current="page"] { background: rgba(255, 255, 255, 0.12); }
+/* Hero interno: misma pila centrada del home, un poco mas baja para que el contenido asome */
+.hero-stage.is-inner { min-height: 88dvh; }
+.hero-copy .display.is-wide { max-width: 18ch; }
+.kinetic.is-single { padding: 24px 0; }
+.sec-head { display: grid; gap: 20px; max-width: 760px; margin-bottom: 48px; }
+.body-white { color: #FFFFFF; }
+.mist { color: var(--color-text-mist); }
+.well.is-single { grid-template-columns: 1fr; }
+.well.is-single .cta-copy { max-width: 760px; }
+@media (min-width: 1024px) { .well.is-single { grid-template-columns: 1fr; } }
+
+/* ============ ESTILOS DE ESTA PÁGINA ============ */
+
+/* Hero compacto: el cotizador tiene que asomar en el primer viewport */
+.hero-stage.is-compact { min-height: auto; padding-top: calc(var(--header-h) + 72px); padding-bottom: 80px; }
+.hero-stage.is-compact .orb-wrap { width: min(110vw, 640px); top: 58%; }
+
+/* Guía: tres verbos en un riel horizontal */
+.guide { display: grid; gap: 0; margin-bottom: 40px; }
+.guide li { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--color-border-hairline); }
+.guide li:first-child { border-top: 1px solid var(--color-border-hairline); }
+.guide .verb { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: 32px; line-height: 0.9; letter-spacing: -0.02em; color: #FFFFFF; min-width: 5.5ch; }
+.guide p { color: var(--color-text-mist); }
+@media (min-width: 768px) {
+  .guide { grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--color-border-hairline); }
+  .guide li, .guide li:first-child { border: 0; padding: 20px 24px 20px 0; }
+  .guide li + li { border-left: 1px solid var(--color-border-hairline); padding-left: 24px; }
+}
+
+/* Cotizador: formulario en tarjeta blanca + panel de resultado */
+.quote { display: grid; gap: 20px; align-items: start; }
+.quote .form-card { gap: 28px; }
+.quote fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 16px; min-width: 0; }
+.quote legend { padding: 0; margin-bottom: 4px; font-family: var(--font-subheading); font-weight: 400; font-size: var(--text-subheading); letter-spacing: 0.05em; line-height: 1.1; text-transform: uppercase; color: #0950F6; }
+.quote .helper { font-size: 14px; color: #0950F6; }
+.two { display: grid; gap: 16px; }
+@media (min-width: 640px) { .two { grid-template-columns: 1fr 1fr; } }
+.radio-cards { display: grid; gap: 10px; }
+@media (min-width: 640px) { .radio-cards.is-3 { grid-template-columns: repeat(3, 1fr); } .radio-cards.is-2 { grid-template-columns: repeat(2, 1fr); } }
+.rc { position: relative; }
+.rc input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.rc label {
+  display: grid; gap: 6px; align-content: start; height: 100%; min-height: 44px;
+  padding: 16px; border-radius: var(--radius-lg); border: 1px solid var(--color-border-structural);
+  background: #FFFFFF; color: #0950F6; cursor: pointer;
+}
+.rc label:hover { border-color: #628FF9; }
+.rc .rc-title { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-family: var(--font-subheading); font-weight: 400; font-size: 20px; letter-spacing: 0.08em; text-transform: uppercase; }
+.rc .rc-title .ph { font-size: 20px; opacity: 0; }
+.rc .rc-desc { font-size: 14px; line-height: 1.45; }
+.rc input:checked + label { border: 2px solid #0950F6; padding: 15px; background: #E6EEFE; }
+.rc input:checked + label .rc-title .ph { opacity: 1; }
+.rc input:focus-visible + label { outline: 2px solid #0950F6; outline-offset: 2px; box-shadow: 0 0 0 2px #FFFFFF; }
+.form-note { font-size: 14px; color: #0950F6; }
+.btn-solid[disabled] { cursor: progress; background: #3570F8; }
+
+.quote-side { display: grid; gap: 20px; align-content: start; }
+.result { background: #FFFFFF; color: #0950F6; border-radius: var(--radius-xl); box-shadow: var(--shadow-float); padding: 28px 20px; }
+.result [data-state] { display: grid; gap: 20px; }
+.result [data-state][hidden] { display: none; }
+.result .h3-sub { color: #0950F6; }
+.result h3:focus { outline: none; }
+.result h3:focus-visible { outline: 2px solid #0950F6; outline-offset: 2px; }
+.todo li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; padding: 10px 0; border-top: 1px solid var(--color-border-structural); }
+.todo .ph { font-size: 20px; }
+.km-label, .r-label { font-family: var(--font-subheading); font-weight: 400; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; }
+.km { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 500; font-size: 40px; line-height: 1; letter-spacing: -0.02em; }
+.pay { display: grid; }
+.pay > div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-top: 1px solid var(--color-border-structural); }
+.pay > div[hidden] { display: none; }
+.pay dt { font-weight: 500; font-size: 18px; }
+.pay dd { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 500; font-size: 28px; }
+.legend-line { font-size: 14px; padding: 12px 14px; border-radius: var(--radius-sm); background: #E6EEFE; }
+.when > div { display: grid; gap: 4px; padding: 12px 0; border-top: 1px solid var(--color-border-structural); }
+.when > div[hidden] { display: none; }
+.when dt { font-weight: 600; }
+.pick { display: grid; gap: 10px; }
+.pick a[hidden] { display: none; }
+.pick a { text-decoration: none; }
+.surcharge-note { font-size: 14px; }
+.surcharge-note a { color: #0950F6; font-weight: 600; }
+.err-box { border: 1px solid var(--color-error-border); border-radius: var(--radius-lg); padding: 20px; display: grid; gap: 12px; }
+.err-box .err-title { display: flex; gap: 10px; align-items: center; color: var(--color-error-text); font-weight: 600; font-size: 18px; }
+.err-box .err-title .ph { color: var(--color-error-border); font-size: 24px; }
+.err-box p { color: #0950F6; }
+.btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; background: #FFFFFF; color: #0950F6; border: 1px solid #0950F6; border-radius: var(--radius-sm); font-family: var(--font-subheading); font-weight: 400; font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-decoration: none; }
+.btn-line:hover { background: #E6EEFE; }
+/* Skeleton: respeta la forma del resultado */
+.sk { display: block; background: #E6EEFE; border-radius: var(--radius-sm); position: relative; overflow: hidden; }
+.sk::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%); transform: translateX(-100%); }
+@media (prefers-reduced-motion: no-preference) { .motion-ok .sk::after { animation: sk-shine 1.1s ease-in-out infinite; } }
+@keyframes sk-shine { to { transform: translateX(100%); } }
+.sk-row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--color-border-structural); }
+/* Demostración discreta de estados */
+.demo { font-size: 14px; color: var(--color-text-mist); }
+.demo summary { cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 8px; }
+.demo-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.demo-btns button { min-height: 44px; padding: 0 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border-hairline); background: transparent; color: #FFFFFF; font: inherit; font-size: 14px; cursor: pointer; }
+.demo-btns button[aria-pressed="true"] { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.6); }
+/* Mapa estático */
+.map-fig { padding: 20px; display: grid; gap: 16px; }
+.map-fig .img { border-radius: var(--radius-lg); overflow: hidden; background: #FFFFFF; }
+.map-fig img { width: 100%; height: auto; aspect-ratio: 1; }
+.map-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; color: #FFFFFF; font-size: 14px; }
+.map-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.pin { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; font-family: var(--font-mono); font-size: 12px; font-weight: 500; }
+.pin.a { background: #FFFFFF; color: #0950F6; }
+.pin.b { background: var(--color-cta); color: #0950F6; }
+.map-foot { display: flex; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid var(--color-border-hairline); font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 14px; color: var(--color-text-mist); }
+@media (min-width: 768px) { .result { padding: 32px; } }
+@media (min-width: 1024px) {
+  .quote { grid-template-columns: 7fr 5fr; gap: 32px; }
+  .quote .form-card { padding: 48px; }
+  .quote-side { position: sticky; top: calc(var(--header-h) + 24px); }
+}
+
+/* Tarifas: tabla en tarjeta blanca */
+.rate-card { background: #FFFFFF; color: #0950F6; border-radius: var(--radius-xl); box-shadow: var(--shadow-float); padding: 28px 20px; display: grid; gap: 32px; }
+.table-wrap { overflow-x: auto; }
+.rates { width: 100%; border-collapse: collapse; min-width: 420px; }
+.rates th, .rates td { padding: 16px 0; border-bottom: 1px solid var(--color-border-structural); text-align: right; vertical-align: baseline; }
+.rates th:first-child { text-align: left; }
+.rates thead th { font-family: var(--font-subheading); font-weight: 400; font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 0; }
+.rates tbody th { font-weight: 500; }
+.rates td { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 500; font-size: clamp(1.125rem, 2.4vw, 1.75rem); white-space: nowrap; padding-left: 16px; }
+.rates td.small { font-size: 16px; }
+.rule { display: grid; gap: 10px; }
+.rule p { color: #0950F6; }
+.facts3 { display: grid; gap: 0; }
+.facts3 > div { padding: 18px 0; border-top: 1px solid var(--color-border-structural); display: grid; gap: 6px; }
+.facts3 dt { font-family: var(--font-subheading); font-weight: 400; font-size: 20px; letter-spacing: 0.08em; text-transform: uppercase; }
+@media (min-width: 768px) { .rate-card { padding: 40px; } .facts3 { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+@media (min-width: 1024px) { .rate-card { padding: 48px; grid-template-columns: 7fr 5fr; column-gap: 64px; } .facts3 { grid-column: 1 / -1; } }
+
+/* Recargos: lista de vidrio en tres columnas */
+.surcharges { padding: 8px 20px; }
+.surcharges > div { display: grid; gap: 6px; padding: 22px 0; border-bottom: 1px solid var(--color-border-hairline); }
+.surcharges > div:last-child { border-bottom: 0; }
+.surcharges dt { font-weight: 600; font-size: 18px; color: #FFFFFF; }
+.surcharges .cost { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 500; font-size: 24px; color: #FFFFFF; }
+.surcharges .detail { color: var(--color-text-mist); }
+@media (min-width: 768px) {
+  .surcharges { padding: 8px 40px; }
+  .surcharges > div { grid-template-columns: 4fr 3fr 5fr; gap: 24px; align-items: baseline; }
+}
+
+/* Dónde llegamos: texto + lista de barrios en rotulado */
+.reach { display: grid; gap: 40px; }
+.reach-copy { display: grid; gap: 20px; align-content: start; }
+.reach-copy p { color: #FFFFFF; font-size: var(--text-body-lg); line-height: 1.625; }
+.barrios { display: flex; flex-wrap: wrap; gap: 6px 28px; align-content: start; }
+.barrios li { font-family: var(--font-subheading); font-weight: 400; font-size: clamp(1.75rem, 3.4vw, 2.5rem); letter-spacing: 0.04em; line-height: 1.1; text-transform: uppercase; color: #FFFFFF; }
+.barrios li.is-out { color: var(--color-text-mist); }
+@media (min-width: 1024px) { .reach { grid-template-columns: 5fr 7fr; gap: 64px; } }
+
+
+/* ============ REDES: pila de capas que se aclaran (lienzo, vidrio, tarjeta blanca) ============ */
+.redes-grid { display: grid; gap: 40px; }
+.redes-head { display: grid; gap: 20px; align-content: start; }
+.redes-stack { display: grid; gap: 12px; }
+.redes-row {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: start;
+  padding: 28px 20px; border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-hairline);
+}
+.redes-row.is-canvas { background: transparent; }
+.redes-row.is-glass { background: var(--color-surface-raised); }
+.redes-row.is-card { background: #FFFFFF; border-color: #FFFFFF; color: #0950F6; }
+.redes-ico {
+  display: grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.12); color: #FFFFFF; font-size: 28px;
+}
+.redes-row.is-card .redes-ico { background: var(--color-cta); color: #0950F6; }
+.redes-body { display: grid; gap: 10px; }
+.redes-idx { font-size: 12px; letter-spacing: 0.1em; color: var(--color-text-mist); }
+.redes-name {
+  font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
+  font-size: clamp(2rem, 4vw, 2.5rem); line-height: 0.9; letter-spacing: -0.02em; color: #FFFFFF;
+}
+.redes-handle { font-size: 16px; color: var(--color-text-mist); overflow-wrap: anywhere; }
+.redes-desc { color: #FFFFFF; max-width: 34rem; }
+.redes-row.is-card .redes-idx,
+.redes-row.is-card .redes-name,
+.redes-row.is-card .redes-handle,
+.redes-row.is-card .redes-desc { color: #0950F6; }
+.redes-row.is-card .redes-handle { font-size: 24px; }
+.redes-action { grid-column: 1 / -1; }
+.redes-row.is-card .btn-ghost { color: #0950F6; border-color: #0950F6; }
+.redes-row.is-card .btn-ghost:hover { background: #E6EEFE; }
+@media (min-width: 768px) {
+  .redes-row { grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; padding: 32px 36px; }
+  .redes-action { grid-column: auto; }
+}
+@media (min-width: 1024px) {
+  .redes-grid { grid-template-columns: 5fr 7fr; gap: 64px; }
+  .redes-row.is-glass { margin-inline-start: 24px; }
+  .redes-row.is-card { margin-inline-start: 48px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js.motion-ok .redes-row[data-reveal] { transition-delay: calc(var(--i, 0) * 120ms); }
+  .redes-ico { transition: transform 0.2s ease-out; }
+  .redes-row:hover .redes-ico { transform: translateY(-2px) scale(1.04); }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+<div id="top-sentinel" aria-hidden="true"></div>
+
+<!-- ============ HEADER: barra de navegación fina sobre el lienzo (igual que la home) ============ -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="auros.html" aria-label="Envíos DosRuedas, inicio">
+      <img src="../../../public/logo-envios-simplified.webp" width="40" height="40" alt="Logo Envíos DosRuedas">
+      <span class="brand-word" aria-hidden="true">Envíos <span>DosRuedas</span></span>
+    </a>
+    <nav class="nav-desktop" aria-label="Principal">
+      <ul>
+        <li><a class="nav-link" href="auros.html">Inicio</a></li>
+        <li><a class="nav-link" href="/servicios">Servicios</a></li>
+        <li><a class="nav-link" href="auros-envios-express.html">Express</a></li>
+        <li><a class="nav-link" href="auros-sobre-nosotros.html">Nosotros</a></li>
+        <li><a class="nav-link" href="auros-contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="phone-link mono" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i>223 660-2699</a>
+      <!-- El hero tiene su propio CTA amarillo: en el header va el botón fantasma blanco (DESIGN.md, Barra de navegación) -->
+      <a class="btn-ghost header-cta" href="auros-cotizar.html" aria-current="page">Cotizá tu envío</a>
+      <a class="call-btn" href="tel:+542236602699" aria-label="Llamar al 223 660-2699"><i class="ph ph-phone" aria-hidden="true"></i></a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+        <i class="ph ph-list" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú principal">
+  <nav aria-label="Menú principal">
+    <div class="drawer-group">
+      <h2>Navegación</h2>
+      <a class="drawer-link" href="auros.html">Inicio <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="auros-contacto.html">Contacto <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="drawer-group">
+      <h2>Servicios</h2>
+      <a class="drawer-link" href="/servicios">Todos los servicios <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="auros-envios-express.html">Envíos Express <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="/servicios/envios-lowcost">Envíos LowCost <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="/servicios/enviosflex">Envíos Flex <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="/servicios/empresas-cuenta-corriente">Cuenta Corriente <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="/servicios#ecommerce-24hs">E-commerce 24HS <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="/servicios/deposito-fulfillment">E-commerce Same Day <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="drawer-group">
+      <h2>Nosotros</h2>
+      <a class="drawer-link" href="auros-sobre-nosotros.html">Sobre nosotros <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="/nosotros/preguntas-frecuentes">Preguntas frecuentes <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="/nosotros/nuestras-redes">Nuestras redes <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="drawer-foot">
+      <a class="btn-ghost" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i><span class="mono">+54 223 660-2699</span></a>
+      <a class="btn-cta" href="auros-cotizar.html" aria-current="page">Cotizá tu envío</a>
+    </div>
+  </nav>
+</div>
+
+<main id="main-content">
+  <!--
+    Hero centrado a propósito, igual que la home: el DESIGN.md de Auros define el hero como
+    "una pila centrada (eyebrow, titular, bajada, CTA) de altura de viewport, con el orbe de partículas de fondo".
+  -->
+  <!-- ============ HERO: pila centrada compacta + orbe ============ -->
+  <section class="hero" id="cotizador-hero" aria-labelledby="hero-title">
+    <div class="hero-stage is-compact">
+      <div class="orb-wrap" aria-hidden="true">
+        <svg id="orb" viewBox="-200 -200 400 400" focusable="false"><g class="orb-spin" id="orb-dots"></g></svg>
+      </div>
+      <div class="container hero-copy">
+        <p class="eyebrow">Mar del Plata · Sin registro</p>
+        <h1 id="hero-title" class="display is-wide"><span>Cotizá tu envío</span> <span>y compará</span></h1>
+        <p class="hero-lead">Cargá el retiro y la entrega una sola vez. Te mostramos la tarifa Express y la LowCost para esa distancia.</p>
+        <div class="hero-actions">
+          <a class="btn-cta" href="#cotizador">Cargar mi envío</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+    En producción el precio sale del servidor (PriceRange / src/lib/pricing.ts). Este prototipo no calcula precios en el cliente.
+    Flujo real: AddressAutocomplete (Google Places vía /api/places/*), distancia con /api/routes/directions y dos llamadas a la
+    Server Action calculateQuoteAction (src/actions/quote.ts), una por servicio. Acá la distancia y el precio se muestran como [km] y [precio].
+  -->
+  <!-- ============ COTIZADOR: guía + formulario en tarjeta blanca + panel de resultado ============ -->
+  <section class="section recessed" id="cotizador" aria-labelledby="cotizador-title">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <h2 id="cotizador-title" class="h2">Contanos del envío</h2>
+        <p class="lead">Con el retiro y la entrega alcanzamos el precio de los dos servicios.</p>
+      </div>
+      <ol class="guide" aria-label="Cómo funciona el cotizador" data-reveal>
+        <li><span class="verb">Cargá</span><p>Retiro, entrega y tus datos de contacto.</p></li>
+        <li><span class="verb">Compará</span><p>Precio y horario de entrega de cada servicio.</p></li>
+        <li><span class="verb">Confirmá</span><p>Te pasamos el pedido armado por WhatsApp.</p></li>
+      </ol>
+      <div class="quote">
+        <div class="form-card" data-reveal>
+          <form id="quote-form" novalidate aria-labelledby="cotizador-title">
+            <fieldset>
+              <legend>Recorrido</legend>
+              <div class="field">
+                <label for="q-origen">Dirección de retiro</label>
+                <div class="control">
+                  <i class="ph ph-map-pin" aria-hidden="true"></i>
+                  <input id="q-origen" name="origen" type="text" autocomplete="off" placeholder="Ej: Av. Colón 1234, Mar del Plata" required aria-describedby="h-origen e-origen">
+                </div>
+                <p class="helper" id="h-origen">En el sitio, elegís la dirección de la lista de sugerencias.</p>
+                <p class="field-error" id="e-origen" role="alert" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i>Ingresá la dirección de retiro.</p>
+              </div>
+              <div class="field">
+                <label for="q-destino">Dirección de entrega</label>
+                <div class="control">
+                  <i class="ph ph-flag-checkered" aria-hidden="true"></i>
+                  <input id="q-destino" name="destino" type="text" autocomplete="off" placeholder="Ej: Juan B. Justo 5678, Mar del Plata" required aria-describedby="h-destino e-destino">
+                </div>
+                <p class="helper" id="h-destino">Si el destino está fuera de la ciudad, lo cotizamos aparte.</p>
+                <p class="field-error" id="e-destino" role="alert" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i>Ingresá la dirección de entrega.</p>
+              </div>
+            </fieldset>
+
+            <fieldset style="margin-top: 28px;">
+              <legend>Servicio</legend>
+              <!-- Radios nativos: se recorren con las flechas del teclado -->
+              <div class="radio-cards is-3">
+                <div class="rc">
+                  <input type="radio" id="s-ambos" name="servicio" value="ambos" checked>
+                  <label for="s-ambos"><span class="rc-title">Los dos <i class="ph ph-check-circle" aria-hidden="true"></i></span><span class="rc-desc">Te mostramos Express y LowCost para la misma distancia.</span></label>
+                </div>
+                <div class="rc">
+                  <input type="radio" id="s-express" name="servicio" value="express">
+                  <label for="s-express"><span class="rc-title">Express <i class="ph ph-check-circle" aria-hidden="true"></i></span><span class="rc-desc">Franja de 3 hs a elección. Pedido con 2 hs de anticipación, hasta las 15:00 hs.</span></label>
+                </div>
+                <div class="rc">
+                  <input type="radio" id="s-lowcost" name="servicio" value="lowcost">
+                  <label for="s-lowcost"><span class="rc-title">LowCost <i class="ph ph-check-circle" aria-hidden="true"></i></span><span class="rc-desc">En el día, sin elección de horario. Pedido antes de las 13:00 hs, entrega antes de las 19:00 hs.</span></label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset style="margin-top: 28px;">
+              <legend>Bulto</legend>
+              <!-- STANDARD_WEIGHT_KG = 5, STANDARD_BULLET_DIMENSIONS_CM = 40 × 40, BULK_EXTRA_FROM_ARS = 1950, MAX_WEIGHT_KG = 15 (techo de la moto, no "sin recargo"). El cotizador real no pide peso: el recargo se confirma por WhatsApp. -->
+              <div class="radio-cards is-2">
+                <div class="rc">
+                  <input type="radio" id="b-std" name="bulto" value="estandar" checked>
+                  <label for="b-std"><span class="rc-title">Estándar <i class="ph ph-check-circle" aria-hidden="true"></i></span><span class="rc-desc">Hasta 5 kg o 40 × 40 cm. Sin recargo.</span></label>
+                </div>
+                <div class="rc">
+                  <input type="radio" id="b-big" name="bulto" value="grande">
+                  <label for="b-big"><span class="rc-title">Más grande <i class="ph ph-check-circle" aria-hidden="true"></i></span><span class="rc-desc">Suma desde <span class="mono">$1.950</span>, según el servicio. La moto lleva como máximo 15 kg.</span></label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset style="margin-top: 28px;">
+              <legend>Tus datos</legend>
+              <div class="two">
+                <div class="field">
+                  <label for="q-nombre">Nombre</label>
+                  <div class="control">
+                    <i class="ph ph-user" aria-hidden="true"></i>
+                    <input id="q-nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre completo" required aria-describedby="e-nombre">
+                  </div>
+                  <p class="field-error" id="e-nombre" role="alert" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i>Ingresá tu nombre.</p>
+                </div>
+                <div class="field">
+                  <label for="q-telefono">Teléfono</label>
+                  <div class="control">
+                    <i class="ph ph-phone" aria-hidden="true"></i>
+                    <input id="q-telefono" name="telefono" type="tel" class="mono" autocomplete="tel" placeholder="Tu teléfono de contacto" required aria-describedby="e-telefono">
+                  </div>
+                  <p class="field-error" id="e-telefono" role="alert" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i>Ingresá un teléfono de contacto.</p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="q-producto">Qué hay adentro</label>
+                <div class="control">
+                  <i class="ph ph-package" aria-hidden="true"></i>
+                  <input id="q-producto" name="producto" type="text" placeholder="Ej: documentos, indumentaria, un repuesto" required aria-describedby="e-producto">
+                </div>
+                <p class="field-error" id="e-producto" role="alert" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i>Contanos qué vas a enviar.</p>
+              </div>
+            </fieldset>
+
+            <div style="margin-top: 28px; display: grid; gap: 12px;">
+              <button class="btn-solid" id="q-submit" type="submit"><i class="ph ph-path" aria-hidden="true"></i><span>Ver tarifas</span></button>
+              <p class="form-note">Las tarifas salen de nuestra tabla vigente. El pedido se confirma por WhatsApp.</p>
+            </div>
+          </form>
+        </div>
+
+        <div class="quote-side" data-reveal>
+          <div class="result" id="quote-result" role="region" aria-labelledby="result-heading" aria-live="polite" aria-busy="false">
+            <h2 class="sr-only" id="result-heading">Resultado de la cotización</h2>
+
+            <!-- Estado vacío -->
+            <div data-state="vacio">
+              <h3 class="h3-sub" tabindex="-1">Tu cotización aparece acá</h3>
+              <p>Completá estos datos y tocá "Ver tarifas":</p>
+              <ul class="todo">
+                <li><i class="ph ph-map-pin" aria-hidden="true"></i><span>Dirección de retiro y de entrega</span></li>
+                <li><i class="ph ph-lightning" aria-hidden="true"></i><span>El servicio, o los dos para comparar</span></li>
+                <li><i class="ph ph-package" aria-hidden="true"></i><span>El tamaño del bulto</span></li>
+                <li><i class="ph ph-user" aria-hidden="true"></i><span>Tu nombre, teléfono y qué enviás</span></li>
+              </ul>
+            </div>
+
+            <!-- Estado cargando: skeleton con la forma del resultado -->
+            <div data-state="cargando" hidden>
+              <h3 class="sr-only" tabindex="-1">Midiendo la ruta</h3>
+              <div aria-hidden="true" style="display: grid; gap: 20px;">
+                <span class="sk" style="width: 40%; height: 14px;"></span>
+                <span class="sk" style="width: 55%; height: 40px;"></span>
+                <div>
+                  <div class="sk-row"><span class="sk" style="width: 30%; height: 18px;"></span><span class="sk" style="width: 28%; height: 28px;"></span></div>
+                  <div class="sk-row"><span class="sk" style="width: 30%; height: 18px;"></span><span class="sk" style="width: 28%; height: 28px;"></span></div>
+                </div>
+                <span class="sk" style="width: 100%; height: 44px;"></span>
+                <span class="sk" style="width: 100%; height: 48px;"></span>
+              </div>
+            </div>
+
+            <!-- Estado resultado (ejemplo): distancia y precios como placeholders -->
+            <div data-state="resultado" hidden>
+              <div>
+                <p class="km-label">Distancia medida</p>
+                <h3 class="km" tabindex="-1">[km] km</h3>
+              </div>
+              <div>
+                <p class="r-label">Lo que pagás</p>
+                <dl class="pay">
+                  <div data-svc="express"><dt>Express</dt><dd>[precio]</dd></div>
+                  <div data-svc="lowcost"><dt>LowCost</dt><dd>[precio]</dd></div>
+                </dl>
+              </div>
+              <p class="legend-line">El precio lo calcula nuestro sistema con la distancia real.</p>
+              <div>
+                <p class="r-label">Cuándo llega</p>
+                <!-- EXPRESS_WINDOW, EXPRESS_LEAD_TIME, EXPRESS_CUTOFF_TIME, LOWCOST_CUTOFF_TIME, LOWCOST_DELIVERY_DEADLINE (promises.ts) -->
+                <dl class="when">
+                  <div data-svc="express"><dt>Express</dt><dd>En la franja de 3 hs que elijas, en el día. Pedido con 2 hs de anticipación, hasta las 15:00 hs.</dd></div>
+                  <div data-svc="lowcost"><dt>LowCost</dt><dd>En el día, antes de las 19:00 hs, sin elección de horario. Pedido antes de las 13:00 hs.</dd></div>
+                </dl>
+              </div>
+              <div>
+                <p class="r-label">Elegí y confirmá</p>
+                <div class="pick" style="margin-top: 10px;">
+                  <a class="btn-solid" data-svc="express" id="wa-express" href="https://wa.me/542236602699" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Elegir Express por WhatsApp</a>
+                  <a class="btn-line" data-svc="lowcost" id="wa-lowcost" href="https://wa.me/542236602699" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Elegir LowCost por WhatsApp</a>
+                </div>
+              </div>
+              <p class="surcharge-note">El precio es por distancia, con bulto de hasta 5 kg o 40 × 40 cm. Lluvia, espera, paradas extra o un bulto más grande suman recargo. <a href="#recargos">Ver cuáles y cuánto</a></p>
+            </div>
+
+            <!-- Estado más de 20 km: CONSULT_THRESHOLD_KM = 20 (promises.ts). Deriva a Contacto, como el sitio real. -->
+            <div data-state="consultar" hidden>
+              <div>
+                <p class="km-label">Distancia medida</p>
+                <p class="km">[km] km</p>
+              </div>
+              <h3 class="h3-sub" tabindex="-1">Tu envío supera los 20 km</h3>
+              <p>Pasado ese radio, las tarifas por distancia no alcanzan. Contanos el caso y te pasamos el valor.</p>
+              <!-- PERIPHERY_PRICE_PER_KM = 1200 (promises.ts) -->
+              <p class="legend-line">Si el destino está fuera de la ciudad, se cotiza a <span class="mono">$1.200</span> por km de ruta.</p>
+              <a class="btn-solid" href="auros-contacto.html"><i class="ph ph-chat-circle-text" aria-hidden="true"></i>Pedir cotización personalizada</a>
+            </div>
+
+            <!-- Estado de error general -->
+            <div data-state="error" hidden>
+              <div class="err-box" role="alert">
+                <h3 class="err-title" tabindex="-1"><i class="ph ph-warning-circle" aria-hidden="true"></i>No pudimos calcular la distancia</h3>
+                <p>Revisá que el retiro y la entrega sean direcciones de Mar del Plata, o probá de nuevo en un momento.</p>
+              </div>
+              <button class="btn-line" id="q-retry" type="button"><i class="ph ph-arrow-clockwise" aria-hidden="true"></i>Probar de nuevo</button>
+            </div>
+          </div>
+
+          <details class="demo">
+            <summary><i class="ph ph-eye" aria-hidden="true"></i>Estados de demostración del prototipo</summary>
+            <p>También con <span class="mono">?estado=error</span>, <span class="mono">consultar</span>, <span class="mono">resultado</span> o <span class="mono">cargando</span> en la URL.</p>
+            <div class="demo-btns">
+              <button type="button" data-demo="vacio" aria-pressed="true">Vacío</button>
+              <button type="button" data-demo="cargando" aria-pressed="false">Cargando</button>
+              <button type="button" data-demo="resultado" aria-pressed="false">Resultado</button>
+              <button type="button" data-demo="consultar" aria-pressed="false">Más de 20 km</button>
+              <button type="button" data-demo="error" aria-pressed="false">Error</button>
+            </div>
+          </details>
+
+          <figure class="map-fig glass">
+            <!-- Mapa estático de public/: sin Leaflet ni iframes en el prototipo -->
+            <div class="img"><img src="../../../public/card_mapa.webp" width="1024" height="1024" loading="lazy" alt="Pin de Envíos DosRuedas sobre un mapa isométrico de la ciudad con una ruta amarilla"></div>
+            <figcaption class="map-legend"><span><i class="pin a" aria-hidden="true">A</i>Retiro</span><span><i class="pin b" aria-hidden="true">B</i>Entrega</span></figcaption>
+            <p class="map-foot"><span>Distancia</span><span id="map-km">Pendiente</span></p>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TARIFAS: tabla de referencia en tarjeta blanca (estática) ============ -->
+  <section class="section" id="tarifas" aria-labelledby="tarifas-title">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow">Tarifas 2026</p>
+        <h2 id="tarifas-title" class="h2">Cuánto cuesta cada distancia</h2>
+        <p class="lead">Las dos columnas usan la misma distancia, medida por calle entre retiro y entrega.</p>
+      </div>
+      <div class="rate-card" data-reveal>
+        <!-- Fuente: EXPRESS_TIERS, EXPRESS_PRICE_PER_KM, LOW_COST_TIERS, LOW_COST_PRICE_PER_KM (src/lib/pricing.ts), iguales a X 02!E5/E6. Los tramos incluyen el límite superior. -->
+        <div class="table-wrap">
+          <table class="rates">
+            <caption class="sr-only">Tarifas por distancia de los servicios Express y LowCost</caption>
+            <thead><tr><th scope="col">Distancia</th><th scope="col">Express</th><th scope="col">LowCost</th></tr></thead>
+            <tbody>
+              <!-- EXPRESS_TIERS[0] / LOW_COST_TIERS[0] -->
+              <tr><th scope="row">Hasta 3 km</th><td>$3.700</td><td>$3.000</td></tr>
+              <!-- EXPRESS_TIERS[1] / LOW_COST_TIERS[1] -->
+              <tr><th scope="row">Más de 3 y hasta 5 km</th><td>$4.600</td><td>$4.000</td></tr>
+              <!-- EXPRESS_TIERS[2] / LOW_COST_TIERS[2] -->
+              <tr><th scope="row">Más de 5 y hasta 7 km</th><td>$6.100</td><td>$5.300</td></tr>
+              <!-- EXPRESS_TIERS[3] / LOW_COST_TIERS[3] -->
+              <tr><th scope="row">Más de 7 y hasta 10 km</th><td>$8.200</td><td>$7.000</td></tr>
+              <!-- EXPRESS_PRICE_PER_KM = 1000 / LOW_COST_PRICE_PER_KM = 700, sobre Math.ceil(km) total -->
+              <tr><th scope="row">Más de 10 y hasta 20 km</th><td class="small">$1.000 por km</td><td class="small">$700 por km</td></tr>
+              <!-- CONSULT_THRESHOLD_KM = 20 (promises.ts) -->
+              <tr><th scope="row">Más de 20 km</th><td class="small">A consultar</td><td class="small">A consultar</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="rule">
+          <h3 class="h3-sub">Cómo se cuenta desde los 10 km</h3>
+          <!-- Ejemplos validados en tarifas.md / home-content §12 -->
+          <p>De más de 10 a 20 km se toman los kilómetros totales, redondeados hacia arriba al kilómetro entero, y se multiplican por la tarifa por km.</p>
+          <p>Ejemplos: <span class="mono">10,3 km</span> en Express se cuentan como <span class="mono">11 km × $1.000 = $11.000</span>. <span class="mono">15,4 km</span> en LowCost, como <span class="mono">16 km × $700 = $11.200</span>.</p>
+        </div>
+        <dl class="facts3">
+          <div><dt>Cobertura</dt><dd>Mar del Plata. Hasta 20 km el cálculo es automático. Fuera de la ciudad, <span class="mono">$1.200</span> por km de ruta, por WhatsApp.</dd></div>
+          <div><dt>Peso y medidas</dt><dd>Sin recargo hasta 5 kg o 40 × 40 cm por bulto. Más que eso suma recargo; la moto lleva como máximo 15 kg.</dd></div>
+          <div><dt>Cortes</dt><dd>Express: con 2 hs de anticipación, hasta las <span class="mono">15:00 hs</span>. LowCost: antes de las <span class="mono">13:00 hs</span>, entrega antes de las <span class="mono">19:00 hs</span>.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RECARGOS: lista de vidrio ============ -->
+  <section class="section recessed" id="recargos" aria-labelledby="recargos-title">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <h2 id="recargos-title" class="h2">Lo que puede sumar al precio</h2>
+        <p class="lead">El cotizador calcula el viaje por distancia. Estas situaciones se cobran aparte, según lo que pase en el viaje.</p>
+      </div>
+      <!-- Todas las cifras: src/lib/promises.ts. Ninguna entra en el cálculo automático. -->
+      <dl class="surcharges glass" data-reveal>
+        <!-- RAIN_SURCHARGE_PERCENT_EXPRESS_LOWCOST = 50, RAIN_SURCHARGE_PERCENT = 30 -->
+        <div><dt>Lluvia o calzada mojada</dt><dd class="cost">+50 %</dd><dd class="detail">Sobre la tarifa Express o LowCost. En Flex y cuentas corrientes es 30 %.</dd></div>
+        <!-- WAIT_TOLERANCE_MIN = 10, WAIT_CHARGE_ARS = 2100, WAIT_CHARGE_BLOCK_MIN = 10 -->
+        <div><dt>Espera en puerta</dt><dd class="cost">$2.100 / 10 min</dd><dd class="detail">Los primeros 10 minutos no se cobran.</dd></div>
+        <!-- EXTRA_STOP_SURCHARGE_PERCENT = 50, EXTRA_STOP_MAX_DETOUR_KM = 2 -->
+        <div><dt>Parada extra en el camino</dt><dd class="cost">+50 % por parada</dd><dd class="detail">Si queda sobre la ruta, con hasta 2 km de desvío. Si desvía más, es otro envío.</dd></div>
+        <!-- RETRY_CHARGE_PERCENT = 100; excepción X 03!D10 (conflicto #8, publicado como "a veces") -->
+        <div><dt>Destinatario ausente</dt><dd class="cost">100 % del envío</dd><dd class="detail">La segunda visita se cobra como un envío nuevo. En zonas cercanas, a veces la hacemos sin cargo.</dd></div>
+        <!-- BULK_EXTRA_FROM_ARS = 1950, MAX_WEIGHT_KG = 15 (techo de la moto) -->
+        <div><dt>Bulto de más de 5 kg o 40 × 40 cm</dt><dd class="cost">Desde $1.950</dd><dd class="detail">El monto final depende del servicio. La moto lleva como máximo 15 kg.</dd></div>
+        <!-- PERIPHERY_PRICE_PER_KM = 1200 -->
+        <div><dt>Destino fuera de la ciudad</dt><dd class="cost">$1.200 por km de ruta</dd><dd class="detail">Batán, Sierra de los Padres y otras localidades cercanas. Se cotiza por WhatsApp.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ DÓNDE LLEGAMOS: texto + barrios en rotulado de instrumento ============ -->
+  <section class="section" id="donde" aria-labelledby="donde-title">
+    <div class="container reach">
+      <div class="reach-copy" data-reveal>
+        <h2 id="donde-title" class="h2">Dónde llegamos</h2>
+        <p>Recorremos Mar del Plata. Más allá de los 10 km cotizamos por kilómetro, y el cálculo automático llega hasta los 20 km.</p>
+        <p>Los destinos fuera de la ciudad, como Batán o Sierra de los Padres, van a <span class="mono">$1.200</span> por km de ruta y los vemos por WhatsApp.</p>
+        <div><a class="btn-ghost" href="https://wa.me/542236602699?text=Hola!%20Quiero%20cotizar%20un%20env%C3%ADo%20fuera%20de%20la%20ciudad" target="_blank" rel="noopener">Consultar por WhatsApp <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
+      </div>
+      <!-- Barrios nombrados en el sitio (CotizadorUnificado, "Dónde llegamos"). No son zonas de precio: el dueño dice "No hay zonas establecidas con limites". -->
+      <ul class="barrios" data-reveal aria-label="Algunos barrios donde trabajamos">
+        <li>Centro</li><li>Güemes</li><li>Chauvín</li><li>Los Troncos</li><li>Puerto</li><li>Playa Grande</li><li>Punta Mogotes</li><li>Constitución</li><li>Camet</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ REDES: pila de capas que se aclaran (lienzo, vidrio, tarjeta blanca). Contenido de CarruselRedes.tsx ============ -->
+  <section class="section recessed" id="redes" aria-labelledby="redes-title">
+    <div class="container redes-grid">
+      <div class="redes-head" data-reveal>
+        <p class="eyebrow">Nuestra comunidad digital</p>
+        <h2 id="redes-title" class="h2">Seguí nuestro movimiento</h2>
+        <p class="lead">Sumate a nuestros canales y enterate de las novedades operativas en Mar del Plata.</p>
+      </div>
+      <ul class="redes-stack">
+        <li class="redes-row is-canvas" data-reveal style="--i: 0">
+          <span class="redes-ico" aria-hidden="true"><i class="ph ph-facebook-logo"></i></span>
+          <div class="redes-body">
+            <h3 class="redes-name">Facebook</h3>
+            <p class="redes-handle">Envíos DosRuedas</p>
+            <p class="redes-desc">Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.</p>
+          </div>
+          <div class="redes-action">
+            <a class="btn-ghost" href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer">Seguir en Facebook <span class="sr-only">(se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </li>
+        <li class="redes-row is-glass" data-reveal style="--i: 1">
+          <span class="redes-ico" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+          <div class="redes-body">
+            <h3 class="redes-name">Instagram</h3>
+            <p class="redes-handle mono">@enviosdosruedas</p>
+            <p class="redes-desc">Mirá el detrás de escena de nuestros repartidores y la flota recorriendo Mar del Plata.</p>
+          </div>
+          <div class="redes-action">
+            <a class="btn-ghost" href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer">Ver Instagram <span class="sr-only">(se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </li>
+        <li class="redes-row is-card" data-reveal style="--i: 2">
+          <span class="redes-ico" aria-hidden="true"><i class="ph ph-whatsapp-logo"></i></span>
+          <div class="redes-body">
+            <h3 class="redes-name">WhatsApp</h3>
+            <p class="redes-handle mono">+54 223 660-2699</p>
+            <p class="redes-desc">Escribinos para consultas, contrataciones o soporte.</p>
+          </div>
+          <div class="redes-action">
+            <a class="btn-ghost" href="https://wa.me/542236602699" target="_blank" rel="noopener noreferrer">Iniciar chat <span class="sr-only">(se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER: pozo hundido institucional (igual que la home, con links a los prototipos) ============ -->
+<footer class="site-footer" aria-labelledby="footer-title">
+  <div class="container">
+    <h2 id="footer-title" class="sr-only">Información de Envíos DosRuedas</h2>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="auros.html" aria-label="Envíos DosRuedas, inicio">
+          <img src="../../../public/logo-envios-simplified.webp" width="40" height="40" loading="lazy" alt="Logo Envíos DosRuedas">
+          <span class="brand-word" aria-hidden="true">Envíos <span>DosRuedas</span></span>
+        </a>
+        <p>Más de 7 años de trayectoria en Mar del Plata. Hacemos los envíos de emprendedores, pymes y comercios locales con flota propia.</p>
+        <div class="socials">
+          <a class="social-btn" href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener" aria-label="Instagram @enviosdosruedas"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+          <a class="social-btn" href="https://www.facebook.com/enviosdosruedas" target="_blank" rel="noopener" aria-label="Facebook de Envíos DosRuedas"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a>
+          <a class="social-btn wa" href="https://wa.me/542236602699" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <nav class="footer-col" aria-labelledby="f-servicios">
+        <h2 id="f-servicios">Servicios</h2>
+        <ul>
+          <li><a href="auros-envios-express.html">Envíos Express</a></li>
+          <li><a href="/servicios/envios-lowcost">Envíos LowCost</a></li>
+          <li><a href="/servicios/enviosflex">Mercado Envíos Flex</a></li>
+          <li><a href="/servicios/empresas-cuenta-corriente">Cuenta Corriente Flexible</a></li>
+          <li><a href="/servicios#ecommerce-24hs">E-commerce 24HS</a></li>
+          <li><a href="/servicios/deposito-fulfillment">E-commerce Same Day</a></li>
+          <li><a href="auros-cotizar.html" aria-current="page">Cotizá tu envío</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2>Base de operaciones</h2>
+        <ul class="contact-list">
+          <li><i class="ph ph-map-pin" aria-hidden="true"></i><span>Centro de distribución: Friuli 1972, Mar del Plata</span></li>
+          <li><i class="ph ph-phone" aria-hidden="true"></i><a class="mono" href="tel:+542236602699">+54 223 660-2699</a></li>
+          <li><i class="ph ph-envelope-simple" aria-hidden="true"></i><a href="mailto:matiascejas@enviosdosruedas.com">matiascejas@enviosdosruedas.com</a></li>
+        </ul>
+        <div class="hours" aria-label="Horarios de atención">
+          <span>Lun a Vie · 09:00 a 18:00 hs</span>
+          <span>Sáb · 10:00 a 15:00 hs</span>
+          <span>Dom · cerrado</span>
+        </div>
+      </div>
+    </div>
+    <p class="footer-mark" aria-hidden="true">DosRuedas</p>
+    <div class="legal">
+      <p>© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</p>
+      <ul>
+        <li><a href="auros.html">Inicio</a></li>
+        <li><a href="auros-sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="auros-contacto.html">Contacto</a></li>
+        <li><a href="/cobertura">Cobertura</a></li>
+        <li><a href="/guias/envios-flex-mar-del-plata">Guía Mercado Envíos Flex</a></li>
+        <li><a href="/nosotros/preguntas-frecuentes">Preguntas frecuentes</a></li>
+        <li><a href="/nosotros/nuestras-redes">Nuestras redes</a></li>
+        <li><a href="/terminos-y-condiciones">Términos y condiciones</a></li>
+        <li><a href="/politica-de-privacidad">Política de privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var doc = document;
+  var root = doc.documentElement;
+  root.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function syncMotion() { root.classList.toggle('motion-ok', !reduce.matches); }
+  syncMotion();
+  if (reduce.addEventListener) reduce.addEventListener('change', syncMotion);
+
+  /* Header: estado al scrollear con IntersectionObserver sobre un sentinel */
+  var header = doc.getElementById('site-header');
+  var sentinel = doc.getElementById('top-sentinel');
+  if ('IntersectionObserver' in window && header && sentinel) {
+    new IntersectionObserver(function (entries) {
+      header.classList.toggle('is-scrolled', !entries[0].isIntersecting);
+    }).observe(sentinel);
+  }
+
+  /* Menú mobile accesible */
+  var btn = doc.getElementById('menu-btn');
+  var drawer = doc.getElementById('mobile-menu');
+  function focusables() {
+    return Array.prototype.slice.call(drawer.querySelectorAll('a[href], button:not([disabled])'));
+  }
+  function openMenu() {
+    drawer.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Cerrar menú');
+    btn.querySelector('i').className = 'ph ph-x';
+    root.classList.add('menu-open');
+    var f = focusables();
+    if (f.length) f[0].focus();
+  }
+  function closeMenu(returnFocus) {
+    drawer.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Abrir menú');
+    btn.querySelector('i').className = 'ph ph-list';
+    root.classList.remove('menu-open');
+    if (returnFocus) btn.focus();
+  }
+  if (btn && drawer) {
+    btn.addEventListener('click', function () {
+      if (btn.getAttribute('aria-expanded') === 'true') closeMenu(true); else openMenu();
+    });
+    doc.addEventListener('keydown', function (e) {
+      if (btn.getAttribute('aria-expanded') !== 'true') return;
+      if (e.key === 'Escape') { e.preventDefault(); closeMenu(true); return; }
+      if (e.key === 'Tab') {
+        var f = focusables().concat([btn]);
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && doc.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && doc.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+    drawer.addEventListener('click', function (e) {
+      if (e.target.closest('a')) closeMenu(false);
+    });
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', function (m) {
+      if (m.matches) closeMenu(false);
+    });
+  }
+
+  /* Reveal de secciones */
+  var items = doc.querySelectorAll('[data-reveal]');
+  if (reduce.matches || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  }
+
+  /* Orbe de partículas: esfera de Fibonacci proyectada; la rotación es CSS (transform) */
+  var g = doc.getElementById('orb-dots');
+  if (g) {
+    var NS = 'http://www.w3.org/2000/svg';
+    var N = 340, R = 180, golden = Math.PI * (3 - Math.sqrt(5));
+    var tilt = 0.45, frag = doc.createDocumentFragment();
+    for (var i = 0; i < N; i++) {
+      var y = 1 - (i / (N - 1)) * 2;
+      var rad = Math.sqrt(1 - y * y);
+      var th = golden * i;
+      var x = Math.cos(th) * rad, z = Math.sin(th) * rad;
+      var y2 = y * Math.cos(tilt) - z * Math.sin(tilt);
+      var z2 = y * Math.sin(tilt) + z * Math.cos(tilt);
+      var depth = (z2 + 1) / 2;
+      var c = doc.createElementNS(NS, 'circle');
+      c.setAttribute('cx', (x * R).toFixed(1));
+      c.setAttribute('cy', (y2 * R).toFixed(1));
+      c.setAttribute('r', (0.8 + depth * 1.9).toFixed(2));
+      var fill = depth > 0.62 ? '#FFFFFF' : (depth > 0.35 ? '#BACEFD' : '#8EAFFB');
+      if (i % 47 === 0) fill = '#FFEC01';
+      c.setAttribute('fill', fill);
+      c.setAttribute('opacity', (0.25 + depth * 0.7).toFixed(2));
+      frag.appendChild(c);
+    }
+    g.appendChild(frag);
+  }
+
+  /* ============ JS DE ESTA PÁGINA ============ */
+  /*
+    Prototipo del cotizador: valida, muestra el skeleton (~800 ms, instantáneo con reduced motion) y un resultado de ejemplo.
+    En producción el precio sale del servidor (PriceRange / src/lib/pricing.ts). Este prototipo no calcula precios en el cliente.
+  */
+  var qform = doc.getElementById('quote-form');
+  var panel = doc.getElementById('quote-result');
+  var states = Array.prototype.slice.call(panel.querySelectorAll('[data-state]'));
+  var demoBtns = Array.prototype.slice.call(doc.querySelectorAll('[data-demo]'));
+  var submitBtn = doc.getElementById('q-submit');
+  var mapKm = doc.getElementById('map-km');
+  var VALID = ['vacio', 'cargando', 'resultado', 'consultar', 'error'];
+  var forced = null;
+  try { forced = new URLSearchParams(window.location.search).get('estado'); } catch (e) { forced = null; }
+  if (VALID.indexOf(forced) === -1) forced = null;
+
+  function show(name, focus) {
+    states.forEach(function (s) { s.hidden = s.getAttribute('data-state') !== name; });
+    panel.setAttribute('aria-busy', name === 'cargando' ? 'true' : 'false');
+    mapKm.textContent = (name === 'resultado' || name === 'consultar') ? '[km] km' : 'Pendiente';
+    demoBtns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-demo') === name ? 'true' : 'false'); });
+    if (focus) {
+      var t = panel.querySelector('[data-state="' + name + '"] [tabindex="-1"]');
+      if (t) t.focus();
+    }
+  }
+
+  function applyService() {
+    var svc = qform.servicio.value;
+    panel.querySelectorAll('[data-svc]').forEach(function (el) {
+      el.hidden = !(svc === 'ambos' || el.getAttribute('data-svc') === svc);
+    });
+  }
+
+  function buildLinks() {
+    var v = function (n) { return qform[n].value.trim() || '[' + n + ']'; };
+    var bulto = qform.bulto.value === 'grande' ? 'Más de 5 kg o 40 × 40 cm (recargo a confirmar)' : 'Hasta 5 kg o 40 × 40 cm';
+    [['express', 'Express', 'Entrega en una franja de 3 hs a elección, en el día (pedido con 2 hs de anticipación, corte 15:00 hs).'],
+     ['lowcost', 'LowCost', 'Entrega programada sin elección de horario: pedido antes de las 13:00 hs, entrega en el día antes de las 19:00 hs.']
+    ].forEach(function (s) {
+      var msg = '¡Hola Envíos DosRuedas! Elegí el servicio ' + s[1] + ' en el cotizador web:\n' +
+        'Nombre: ' + v('nombre') + '\nTeléfono: ' + v('telefono') + '\nProducto: ' + v('producto') + '\nBulto: ' + bulto +
+        '\nRetiro: ' + v('origen') + '\nEntrega: ' + v('destino') +
+        '\nDistancia: [km] km\nTarifa ' + s[1] + ' 2026: [precio]\n' + s[2] +
+        '\n\nQuiero confirmar la reserva. [ref: cotizador_' + s[0] + '_resultado]';
+      doc.getElementById('wa-' + s[0]).href = 'https://wa.me/542236602699?text=' + encodeURIComponent(msg);
+    });
+  }
+
+  var fields = ['origen', 'destino', 'nombre', 'telefono', 'producto'];
+  function validate() {
+    var first = null;
+    fields.forEach(function (n) {
+      var el = qform[n];
+      var err = doc.getElementById('e-' + n);
+      var bad = !el.value.trim();
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      err.hidden = !bad;
+      if (bad && !first) first = el;
+    });
+    if (first) first.focus();
+    return !first;
+  }
+  fields.forEach(function (n) {
+    qform[n].addEventListener('input', function () {
+      if (qform[n].value.trim()) { qform[n].setAttribute('aria-invalid', 'false'); doc.getElementById('e-' + n).hidden = true; }
+    });
+  });
+
+  function setBusy(on) {
+    submitBtn.disabled = on;
+    submitBtn.querySelector('span').textContent = on ? 'Midiendo la ruta…' : 'Ver tarifas';
+  }
+
+  qform.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validate()) return;
+    applyService();
+    buildLinks();
+    setBusy(true);
+    show('cargando', false);
+    var outcome = (forced === 'error' || forced === 'consultar') ? forced : 'resultado';
+    setTimeout(function () {
+      setBusy(false);
+      show(outcome, true);
+    }, reduce.matches ? 0 : 800);
+  });
+
+  doc.getElementById('q-retry').addEventListener('click', function () {
+    forced = null;
+    if (qform.requestSubmit) qform.requestSubmit(); else submitBtn.click();
+  });
+
+  qform.addEventListener('change', function (e) {
+    if (e.target.name === 'servicio') applyService();
+  });
+
+  demoBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var name = b.getAttribute('data-demo');
+      forced = (name === 'error' || name === 'consultar') ? name : null;
+      applyService();
+      buildLinks();
+      show(name, false);
+    });
+  });
+
+  applyService();
+  buildLinks();
+  show(forced || 'vacio', false);
+})();
+</script>
+</body>
+</html>

@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mensajería en moto en Mar del Plata | Envíos DosRuedas</title>
-<meta name="description" content="Mensajería en moto y logística e-commerce en Mar del Plata. Express en franja de 3 hs a elección, Mercado Envíos Flex en el día y LowCost para comercios y particulares.">
+<title>Contacto y base de operaciones | Envíos DosRuedas</title>
+<meta name="description" content="Contacto con Envíos DosRuedas en Mar del Plata: WhatsApp, teléfono, email y redes. Respondemos por WhatsApp en menos de 5 minutos, generalmente.">
 <!-- Prototipo estático: propuesta Auros adaptada (tema invertido azul). No es código de producción. -->
+<!-- Header, menú mobile, footer, botones, foco, reveal y JS utilitario copiados de auros.html (home de la propuesta). -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
@@ -234,13 +235,6 @@ button, input, select { font: inherit; }
 .drawer-foot { margin-top: 32px; display: grid; gap: 12px; }
 @media (min-width: 1024px) { .drawer { display: none; } }
 
-/* ============ HERO ============ */
-/*
-  Hero centrado a propósito: el DESIGN.md de Auros define explícitamente
-  "El hero es una pila centrada (eyebrow, titular, bajada, CTA) de altura de viewport,
-  con el orbe de partículas de fondo". Es el gesto cinematográfico/manifiesto de la
-  propuesta: el orbe ocupa el centro y el texto se apoya sobre él.
-*/
 .hero { position: relative; overflow: clip; }
 .hero-stage {
   position: relative;
@@ -302,148 +296,15 @@ button, input, select { font: inherit; }
 }
 @keyframes kinetic-left { from { transform: translateX(4%); } to { transform: translateX(-45%); } }
 @keyframes kinetic-right { from { transform: translateX(-50%); } to { transform: translateX(0%); } }
-
 /* ============ SECCIONES ============ */
 .section { padding-block: var(--section-gap); position: relative; }
 .recessed { border-top: 1px solid var(--color-border-hairline); box-shadow: var(--shadow-recessed-inset); }
-
-/* Segmentos: selector por tipo de cliente (tabs verticales + panel de vidrio) */
-.seg-grid { display: grid; gap: 40px; }
-.seg-head { display: grid; gap: 20px; align-content: start; }
-.seg-tabs { display: grid; gap: 8px; margin-top: 12px; }
-.tab {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  width: 100%; min-height: 56px; padding: 12px 20px; text-align: left;
-  background: var(--color-surface-raised); color: #FFFFFF;
-  border: 1px solid var(--color-border-hairline); border-radius: var(--radius-sm);
-  font-size: var(--text-subheading); letter-spacing: 0.05em; line-height: 1.1; cursor: pointer;
-}
-.tab .ph { font-size: 18px; opacity: 0; transition: transform 0.18s ease-out, opacity 0.18s ease-out; transform: translateX(-6px); }
-.tab:hover { border-color: rgba(255, 255, 255, 0.6); }
-.tab[aria-selected="true"] { background: #FFFFFF; color: #0950F6; border-color: #FFFFFF; }
-.tab[aria-selected="true"] .ph { opacity: 1; transform: none; }
 .glass {
   background: var(--color-surface-raised);
   border: 1px solid var(--color-border-hairline);
   border-radius: var(--radius-xl);
   padding: var(--card-padding-min);
 }
-.seg-panel { display: grid; gap: 24px; align-content: start; min-height: 100%; }
-.seg-panel[hidden] { display: none; }
-.seg-panel .kicker-big {
-  font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
-  font-size: clamp(3.5rem, 9vw, 7.5rem); line-height: 0.85; letter-spacing: -0.05em; color: #FFFFFF;
-}
-.seg-panel p { color: #FFFFFF; font-size: var(--text-body-lg); line-height: 1.625; max-width: 38rem; }
-.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; border-top: 1px solid var(--color-border-hairline); padding-top: 24px; }
-.facts dt { font-family: var(--font-subheading); font-weight: 400; font-size: 14px; letter-spacing: 0.1em; color: var(--color-text-mist); text-transform: uppercase; }
-.facts dd { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 24px; color: #FFFFFF; margin-top: 4px; }
-@media (prefers-reduced-motion: no-preference) {
-  .js .seg-panel:not([hidden]) { animation: panel-in 0.35s ease-out; }
-}
-@keyframes panel-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-@media (min-width: 1024px) {
-  .seg-grid { grid-template-columns: 5fr 7fr; gap: 64px; }
-  .seg-panels .glass { padding: var(--card-padding-max); }
-}
-
-/* Servicios: sección Explorá (filas + ilustración de red) */
-.svc-head { display: grid; gap: 20px; margin-bottom: 48px; max-width: 760px; }
-.svc-grid { display: grid; gap: 48px; }
-.svc-row {
-  position: relative;
-  display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start;
-  padding: 36px 0; border-bottom: 1px solid var(--color-border-hairline);
-}
-.svc-list li:first-child .svc-row { border-top: 1px solid var(--color-border-hairline); }
-.svc-row p { margin-top: 14px; color: var(--color-text-secondary); max-width: 600px; }
-.svc-meta { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; }
-.svc-price { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 24px; font-weight: 500; color: #FFFFFF; }
-.svc-meta .svc-unit { font-size: 16px; color: var(--color-text-secondary); }
-.svc-aside { display: none; }
-.network { position: sticky; top: calc(var(--header-h) + 32px); }
-.network svg { width: 100%; height: auto; display: block; }
-.network figcaption { margin-top: 16px; color: var(--color-text-secondary); font-size: 16px; }
-.net-label { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 0.1em; fill: #FFFFFF; }
-@media (prefers-reduced-motion: no-preference) {
-  .motion-ok .net-pulse { animation: net-pulse 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-  .motion-ok .net-pulse:nth-of-type(2n) { animation-delay: 1.1s; }
-  .motion-ok .net-pulse:nth-of-type(3n) { animation-delay: 2.2s; }
-}
-@keyframes net-pulse { 0%, 100% { opacity: 0.25; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.6); } }
-.svc-note {
-  margin-top: 40px; padding: 24px; border-radius: var(--radius-lg);
-  background: var(--color-surface-raised); border: 1px solid var(--color-border-hairline);
-  display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start; color: #FFFFFF;
-}
-.svc-note .ph { font-size: 28px; color: var(--color-cta); }
-@media (min-width: 1024px) {
-  .svc-grid { grid-template-columns: 7fr 5fr; gap: 64px; }
-  .svc-aside { display: block; }
-  .svc-row { padding: 48px 36px; }
-}
-
-/* Emprendedores: bento de capas que se aclaran */
-.emp-head { display: grid; gap: 20px; max-width: 760px; margin-bottom: 48px; }
-.bento { display: grid; gap: 20px; grid-template-columns: 1fr; }
-.cell { border-radius: var(--radius-xl); overflow: hidden; position: relative; }
-.cell-cc { display: grid; gap: 24px; align-content: start; }
-.cell-cc p { color: #FFFFFF; font-size: var(--text-body-lg); line-height: 1.625; }
-.checks { display: grid; gap: 14px; }
-.checks li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; color: var(--color-text-mist); }
-.checks .ph { font-size: 22px; color: #FFFFFF; margin-top: 1px; }
-.cell-img { min-height: 260px; background: #3570F8; }
-.cell-img img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1408 / 768; }
-.cell-img::after { content: ""; position: absolute; inset: 0; background: #0950F6; mix-blend-mode: multiply; opacity: 0.35; pointer-events: none; }
-.cell-white { background: #FFFFFF; color: #0950F6; padding: var(--card-padding-min); display: grid; gap: 16px; align-content: start; box-shadow: var(--shadow-float); }
-.cell-white .h3-display { color: #0950F6; }
-.cell-white p { color: #0950F6; }
-.cell-white .link-arrow { color: #0950F6; }
-.cell-elevated { background: #3570F8; padding: var(--card-padding-min); display: grid; align-content: end; min-height: 220px; }
-.cell-elevated .big { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(2.5rem, 4.4vw, 3.5rem); line-height: 0.95; letter-spacing: -0.03em; color: #FFFFFF; }
-.cell-corp { display: grid; gap: 16px; align-content: start; }
-.cell-corp p { color: #FFFFFF; }
-.brands-list { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 20px; }
-.brands-list li { font-family: var(--font-subheading); font-weight: 400; font-size: 24px; letter-spacing: 0.05em; color: #FFFFFF; text-transform: uppercase; }
-.brands-note { margin-top: 16px; color: var(--color-text-mist); font-size: 16px; }
-@media (min-width: 768px) {
-  .bento { grid-template-columns: repeat(2, 1fr); }
-  .cell-cc, .cell-brands { grid-column: 1 / -1; }
-}
-@media (min-width: 1024px) {
-  .bento { grid-template-columns: repeat(12, 1fr); }
-  .cell-cc { grid-column: span 7; grid-row: span 2; padding: var(--card-padding-max); }
-  .cell-img { grid-column: span 5; }
-  .cell-white { grid-column: span 5; }
-  .cell-elevated { grid-column: span 4; }
-  .cell-corp { grid-column: span 8; }
-  .cell-brands { grid-column: 1 / -1; }
-}
-
-/* Prueba social: contador + cita destacada + lista */
-.proof-head { display: grid; gap: 20px; margin-bottom: 56px; }
-.proof-head .head-row { display: flex; flex-wrap: wrap; gap: 20px; align-items: end; justify-content: space-between; }
-.stats { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); padding-block: 40px; border-block: 1px solid var(--color-border-hairline); }
-.stats div { display: flex; flex-direction: column-reverse; }
-.stats dt { margin-top: 12px; font-family: var(--font-subheading); font-weight: 400; font-size: 14px; letter-spacing: 0.1em; color: var(--color-text-mist); text-transform: uppercase; }
-.stats dd { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 500; font-size: clamp(3rem, 6vw, var(--text-stat)); line-height: 1; letter-spacing: -0.02em; color: var(--color-accent-stat); }
-.quotes { display: grid; gap: 40px; margin-top: 56px; }
-.stars { display: inline-flex; gap: 4px; color: var(--color-cta); font-size: 18px; }
-.quote-featured { display: grid; gap: 24px; align-content: start; }
-.quote-featured blockquote p {
-  font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
-  font-size: clamp(2.25rem, 4.6vw, 4rem); line-height: 0.95; letter-spacing: -0.03em; color: #FFFFFF;
-}
-.quote-cite { display: grid; gap: 2px; }
-.quote-cite strong { font-weight: 600; font-size: 16px; }
-.quote-cite span { font-size: 14px; color: var(--color-text-mist); }
-.quote-list li { display: grid; gap: 10px; padding: 24px 0; border-bottom: 1px solid var(--color-border-hairline); }
-.quote-list li:first-child { border-top: 1px solid var(--color-border-hairline); }
-.quote-list blockquote p { font-size: var(--text-body-lg); line-height: 1.5; color: #FFFFFF; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-@media (min-width: 1024px) {
-  .quotes { grid-template-columns: 7fr 5fr; gap: 64px; }
-}
-
 /* CTA final: pozo hundido con texto cinético y formulario en tarjeta blanca */
 .well {
   position: relative; overflow: clip; isolation: isolate;
@@ -507,7 +368,6 @@ button, input, select { font: inherit; }
 @media (min-width: 1024px) {
   .well { grid-template-columns: 6fr 5fr; gap: 64px; padding: 120px 64px; }
 }
-
 /* Footer: pozo hundido institucional */
 .site-footer {
   position: relative; overflow: clip;
@@ -551,6 +411,84 @@ button, input, select { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ============ AJUSTES COMPARTIDOS DE PAGINAS INTERNAS ============ */
+/* Nav con 5 items: el telefono del header aparece recien desde 1280px para no apretar la barra */
+@media (min-width: 1024px) and (max-width: 1279px) { .phone-link { display: none; } }
+.nav-link[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--color-cta); text-decoration-thickness: 2px; text-underline-offset: 10px; }
+.drawer a.drawer-link[aria-current="page"] { color: var(--color-cta); }
+.btn-ghost[aria-current="page"] { background: rgba(255, 255, 255, 0.12); }
+/* Hero interno: misma pila centrada del home, un poco mas baja para que el contenido asome */
+.hero-stage.is-inner { min-height: 88dvh; }
+.hero-copy .display.is-wide { max-width: 18ch; }
+.kinetic.is-single { padding: 24px 0; }
+.sec-head { display: grid; gap: 20px; max-width: 760px; margin-bottom: 48px; }
+.body-white { color: #FFFFFF; }
+.mist { color: var(--color-text-mist); }
+.well.is-single { grid-template-columns: 1fr; }
+.well.is-single .cta-copy { max-width: 760px; }
+@media (min-width: 1024px) { .well.is-single { grid-template-columns: 1fr; } }
+
+/* ============ ESTILOS DE ESTA PÁGINA ============ */
+
+.btn-cta .ph { font-size: 20px; }
+
+/* Canales: conmutador en filas */
+.channels { display: grid; gap: 48px; }
+.channels-aside { display: grid; gap: 24px; align-content: start; }
+.channels-aside figure { border-radius: var(--radius-xl); background: #E6EEFE; overflow: hidden; max-width: 360px; }
+.channels-aside img { width: 100%; height: auto; aspect-ratio: 1; }
+.switch { display: grid; }
+.switch > li { display: grid; grid-template-columns: 44px 1fr; gap: 16px 20px; padding: 28px 0; border-bottom: 1px solid var(--color-border-hairline); align-items: start; }
+.switch > li:first-child { border-top: 1px solid var(--color-border-hairline); }
+.switch .ico { display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--color-arrow-button); font-size: 22px; color: #FFFFFF; }
+.switch .ico.is-wa { background: var(--color-cta); color: #0950F6; }
+.switch .h3-sub { color: #FFFFFF; }
+.switch .value { display: block; margin-top: 6px; font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: clamp(1.25rem, 2.4vw, 1.5rem); color: #FFFFFF; word-break: break-word; }
+.switch .note { margin-top: 6px; color: var(--color-text-secondary); }
+.switch .acts { grid-column: 2; display: flex; flex-wrap: wrap; gap: 8px 12px; }
+.copy-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.6); background: transparent; color: #FFFFFF; cursor: pointer; font-family: var(--font-subheading); font-weight: 400; font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; }
+.copy-btn:hover { background: rgba(255, 255, 255, 0.12); }
+@media (min-width: 768px) {
+  .switch > li { grid-template-columns: 44px 1fr auto; align-items: center; }
+  .switch .acts { grid-column: 3; justify-content: flex-end; }
+}
+@media (min-width: 1024px) { .channels { grid-template-columns: 4fr 8fr; gap: 64px; } }
+
+/* Formulario: copy + tarjeta blanca */
+.form-split { display: grid; gap: 48px; align-items: start; }
+.form-copy { display: grid; gap: 24px; align-content: start; }
+.next-steps li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--color-border-hairline); color: #FFFFFF; }
+.next-steps .ph { font-size: 22px; color: #FFFFFF; }
+.field .helper { font-size: 14px; color: #0950F6; }
+.optional { font-weight: 400; }
+#contact-form fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 20px; min-width: 0; }
+.btn-solid[disabled] { cursor: progress; background: #3570F8; }
+.btn-solid[disabled] .ph { animation: none; }
+.success { display: grid; gap: 16px; justify-items: start; }
+.success[hidden] { display: none; }
+.success .check { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--color-cta); color: #0950F6; font-size: 28px; }
+.success p { color: #0950F6; }
+.btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; background: #FFFFFF; color: #0950F6; border: 1px solid #0950F6; border-radius: var(--radius-sm); font-family: var(--font-subheading); font-weight: 400; font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-decoration: none; }
+.btn-line:hover { background: #E6EEFE; }
+.form-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-top: 16px; border-top: 1px solid var(--color-border-structural); font-size: 14px; color: #0950F6; }
+@media (min-width: 1024px) { .form-split { grid-template-columns: 6fr 5fr; gap: 64px; } }
+
+/* Base de operaciones: panel de vidrio en tres columnas */
+.base { display: grid; gap: 32px; padding: 28px 20px; }
+.base-col { display: grid; gap: 16px; align-content: start; }
+.base-col .h3-sub { color: #FFFFFF; }
+.base-col p { color: #FFFFFF; }
+.hours-table { display: grid; }
+.hours-table > div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--color-border-hairline); }
+.hours-table > div:first-child { border-top: 1px solid var(--color-border-hairline); }
+.hours-table dt { color: var(--color-text-mist); }
+.hours-table dd { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: #FFFFFF; }
+.map-box { border-radius: var(--radius-lg); overflow: hidden; background: #FFFFFF; }
+.map-box img { width: 100%; height: auto; aspect-ratio: 1; }
+@media (min-width: 768px) { .base { padding: 40px; grid-template-columns: repeat(2, 1fr); } .base-map { grid-column: 1 / -1; } }
+@media (min-width: 1024px) { .base { grid-template-columns: 4fr 4fr 4fr; gap: 40px; padding: 48px; } .base-map { grid-column: auto; } }
+
 
 /* ============ REDES: pila de capas que se aclaran (lienzo, vidrio, tarjeta blanca) ============ */
 .redes-grid { display: grid; gap: 40px; }
@@ -605,26 +543,26 @@ button, input, select { font: inherit; }
 <a class="skip-link" href="#main-content">Saltar al contenido</a>
 <div id="top-sentinel" aria-hidden="true"></div>
 
-<!-- ============ HEADER: barra de navegación fina sobre el lienzo ============ -->
+<!-- ============ HEADER: barra de navegación fina sobre el lienzo (igual que la home) ============ -->
 <header class="site-header" id="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/" aria-label="Envíos DosRuedas, inicio">
+    <a class="brand" href="auros.html" aria-label="Envíos DosRuedas, inicio">
       <img src="../../../public/logo-envios-simplified.webp" width="40" height="40" alt="Logo Envíos DosRuedas">
       <span class="brand-word" aria-hidden="true">Envíos <span>DosRuedas</span></span>
     </a>
     <nav class="nav-desktop" aria-label="Principal">
       <ul>
-        <li><a class="nav-link" href="/" aria-current="page">Inicio</a></li>
+        <li><a class="nav-link" href="auros.html">Inicio</a></li>
         <li><a class="nav-link" href="/servicios">Servicios</a></li>
-        <li><a class="nav-link" href="/nosotros/sobre-nosotros">Nosotros</a></li>
-        <li><a class="nav-link" href="/nosotros/preguntas-frecuentes">Preguntas frecuentes</a></li>
-        <li><a class="nav-link" href="/contacto">Contacto</a></li>
+        <li><a class="nav-link" href="auros-envios-express.html">Express</a></li>
+        <li><a class="nav-link" href="auros-sobre-nosotros.html">Nosotros</a></li>
+        <li><a class="nav-link" href="auros-contacto.html" aria-current="page">Contacto</a></li>
       </ul>
     </nav>
     <div class="header-actions">
       <a class="phone-link mono" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i>223 660-2699</a>
-      <!-- El hero ya tiene el CTA amarillo: en el header pasa a botón fantasma blanco (DESIGN.md, Barra de navegación) -->
-      <a class="btn-ghost header-cta" href="/cotizar">Cotizá tu envío</a>
+      <!-- El hero tiene su propio CTA amarillo: en el header va el botón fantasma blanco (DESIGN.md, Barra de navegación) -->
+      <a class="btn-ghost header-cta" href="auros-cotizar.html">Cotizá tu envío</a>
       <a class="call-btn" href="tel:+542236602699" aria-label="Llamar al 223 660-2699"><i class="ph ph-phone" aria-hidden="true"></i></a>
       <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
         <i class="ph ph-list" aria-hidden="true"></i>
@@ -637,13 +575,13 @@ button, input, select { font: inherit; }
   <nav aria-label="Menú principal">
     <div class="drawer-group">
       <h2>Navegación</h2>
-      <a class="drawer-link" href="/">Inicio <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-      <a class="drawer-link" href="/contacto">Contacto <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="auros.html">Inicio <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="auros-contacto.html" aria-current="page">Contacto <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
     </div>
     <div class="drawer-group">
       <h2>Servicios</h2>
       <a class="drawer-link" href="/servicios">Todos los servicios <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-      <a class="drawer-link" href="/servicios/envios-express">Envíos Express <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="auros-envios-express.html">Envíos Express <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
       <a class="drawer-link" href="/servicios/envios-lowcost">Envíos LowCost <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
       <a class="drawer-link" href="/servicios/enviosflex">Envíos Flex <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
       <a class="drawer-link" href="/servicios/empresas-cuenta-corriente">Cuenta Corriente <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
@@ -652,393 +590,221 @@ button, input, select { font: inherit; }
     </div>
     <div class="drawer-group">
       <h2>Nosotros</h2>
-      <a class="drawer-link" href="/nosotros/sobre-nosotros">Sobre nosotros <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <a class="drawer-link" href="auros-sobre-nosotros.html">Sobre nosotros <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
       <a class="drawer-link" href="/nosotros/preguntas-frecuentes">Preguntas frecuentes <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
       <a class="drawer-link" href="/nosotros/nuestras-redes">Nuestras redes <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
     </div>
     <div class="drawer-foot">
       <a class="btn-ghost" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i><span class="mono">+54 223 660-2699</span></a>
-      <a class="btn-cta" href="/cotizar">Cotizá tu envío</a>
+      <a class="btn-cta" href="auros-cotizar.html">Cotizá tu envío</a>
     </div>
   </nav>
 </div>
 
 <main id="main-content">
-
-  <!-- ============ HERO: pila centrada + orbe de partículas + texto cinético ============ -->
-  <section class="hero" id="hero" aria-labelledby="hero-title">
-    <div class="hero-stage">
+  <!--
+    Hero centrado a propósito, igual que la home: el DESIGN.md de Auros define el hero como
+    "una pila centrada (eyebrow, titular, bajada, CTA) de altura de viewport, con el orbe de partículas de fondo".
+  -->
+  <!-- ============ HERO: pila centrada + orbe de partículas ============ -->
+  <section class="hero" id="contact-hero" aria-labelledby="hero-title">
+    <div class="hero-stage is-inner">
       <div class="orb-wrap" aria-hidden="true">
         <svg id="orb" viewBox="-200 -200 400 400" focusable="false"><g class="orb-spin" id="orb-dots"></g></svg>
       </div>
       <div class="container hero-copy">
-        <p class="eyebrow">Flota propia · Todo Mar del Plata</p>
-        <h1 id="hero-title" class="display"><span>El motor de tu</span> <span>última milla</span></h1>
-        <p class="hero-lead">Mensajería en moto y logística e-commerce en Mar del Plata. Envíos en el día con motos y repartidores propios.</p>
+        <p class="eyebrow">Conexión directa</p>
+        <h1 id="hero-title" class="display is-wide"><span>Escribinos,</span> <span>te respondemos</span></h1>
+        <!-- Tiempo de respuesta: "menos de 5 minutos, generalmente" (D §1, identidad.md §1). [DUDOSO] "< 2 MIN" y "al instante" corregidos. -->
+        <p class="hero-lead">Contanos qué necesitás mover. Por WhatsApp respondemos en menos de 5 min, generalmente.</p>
         <div class="hero-actions">
-          <a class="btn-cta" id="hero-cta-cotizar" href="/cotizar">Cotizá tu envío</a>
-          <a class="link-arrow" href="/servicios">Ver servicios <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          <!-- WHATSAPP_PHONE = 542236602699 (src/lib/whatsapp.ts). WhatsApp en amarillo con glifo azul: sin verde de marca externa. -->
+          <a class="btn-cta" id="contact-hero-cta-whatsapp" href="https://wa.me/542236602699?text=Hola!%20Quiero%20cotizar%20mis%20env%C3%ADos" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Escribinos por WhatsApp</a>
+          <!-- Bug del sitio corregido: el ancla #contact-form ahora existe -->
+          <a class="link-arrow" href="#contact-form">Completá el formulario <i class="ph ph-arrow-down" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
-    <div class="kinetic">
-      <h2 class="sr-only">Diferenciales de Envíos DosRuedas</h2>
-      <ul class="kinetic-line">
-        <li>Envíos en el día</li>
-        <li>Flota propia</li>
-        <li>Cero tercerización</li>
-        <li>Todo Mar del Plata</li>
-        <li>Retiro en tu local</li>
+  </section>
+
+  <!-- ============ CANALES: conmutador en filas ============ -->
+  <section class="section recessed" id="canales" aria-labelledby="canales-title">
+    <div class="container channels">
+      <div class="channels-aside" data-reveal>
+        <h2 id="canales-title" class="h2">Elegí cómo comunicarte</h2>
+        <p class="lead">Todos los canales llegan al mismo equipo, en Mar del Plata.</p>
+        <figure>
+          <img src="../../../public/heroes/contacto-mensaje.webp" width="400" height="400" loading="lazy" alt="Teléfono y sobre con el mensaje Escribinos hoy, de Envíos DosRuedas">
+        </figure>
+      </div>
+      <ul class="switch" data-reveal>
+        <!-- SUPPORT_PHONE '+54 223 660-2699' (promises.ts); wa.me/542236602699 = WHATSAPP_PHONE (src/lib/whatsapp.ts, 29 usos) -->
+        <li>
+          <span class="ico is-wa" aria-hidden="true"><i class="ph ph-whatsapp-logo"></i></span>
+          <div>
+            <h3 class="h3-sub">WhatsApp y teléfono</h3>
+            <span class="value" id="val-phone">+54 223 660-2699</span>
+            <p class="note">Cotizaciones, consultas y coordinación de envíos. Respondemos en menos de 5 min, generalmente.</p>
+          </div>
+          <div class="acts">
+            <a class="btn-ghost" href="https://wa.me/542236602699?text=Hola!%20Vengo%20desde%20la%20p%C3%A1gina%20de%20Contacto." target="_blank" rel="noopener">Chatear <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+            <a class="btn-ghost" href="tel:+542236602699">Llamar <i class="ph ph-phone" aria-hidden="true"></i></a>
+            <button class="copy-btn" type="button" data-copy="+54 223 660-2699" data-label="teléfono"><i class="ph ph-copy" aria-hidden="true"></i>Copiar</button>
+          </div>
+        </li>
+        <!-- CONTACT_EMAIL (promises.ts); decisión 2026-09-18 #6 -->
+        <li>
+          <span class="ico" aria-hidden="true"><i class="ph ph-envelope-simple"></i></span>
+          <div>
+            <h3 class="h3-sub">Email comercial</h3>
+            <span class="value">matiascejas@enviosdosruedas.com</span>
+          </div>
+          <div class="acts">
+            <a class="btn-ghost" href="mailto:matiascejas@enviosdosruedas.com">Escribir <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+            <button class="copy-btn" type="button" data-copy="matiascejas@enviosdosruedas.com" data-label="email"><i class="ph ph-copy" aria-hidden="true"></i>Copiar</button>
+          </div>
+        </li>
+        <!-- Instagram: ContactInfo.tsx, D §5 -->
+        <li>
+          <span class="ico" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+          <div>
+            <h3 class="h3-sub">Instagram</h3>
+            <span class="value">@enviosdosruedas</span>
+            <p class="note">Novedades de la flota y nuestro día a día.</p>
+          </div>
+          <div class="acts">
+            <a class="btn-ghost" href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener">Seguir <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </li>
+        <!-- Facebook: ContactInfo.tsx, D §5 -->
+        <li>
+          <span class="ico" aria-hidden="true"><i class="ph ph-facebook-logo"></i></span>
+          <div>
+            <h3 class="h3-sub">Facebook</h3>
+            <span class="value">Envíos DosRuedas</span>
+            <p class="note">Avisos de servicios y contacto para empresas.</p>
+          </div>
+          <div class="acts">
+            <a class="btn-ghost" href="https://www.facebook.com/enviosdosruedas" target="_blank" rel="noopener">Visitar <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </li>
       </ul>
-      <p class="kinetic-line kinetic-ghost" aria-hidden="true">Mar del Plata · MDQ · Mar del Plata · MDQ · Mar del Plata</p>
+      <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
     </div>
   </section>
 
-  <!-- ============ SEGMENTOS: selector por tipo de cliente ============ -->
-  <section class="section" id="segmentos" aria-labelledby="segmentos-title">
-    <div class="container seg-grid">
-      <div class="seg-head" data-reveal>
-        <h2 id="segmentos-title" class="h2">¿Cómo podemos impulsar tu logística hoy?</h2>
-        <p class="lead">Elegí tu tipo de negocio y mirá qué servicio te conviene.</p>
-        <div class="seg-tabs" role="tablist" aria-label="Tipo de cliente" aria-orientation="vertical">
-          <button class="tab" type="button" role="tab" id="tab-flex" aria-controls="panel-flex" aria-selected="true">¿Vendés en Mercado Libre? <i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          <button class="tab" type="button" role="tab" id="tab-ecom" aria-controls="panel-ecom" aria-selected="false" tabindex="-1">¿Tenés tienda online? <i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          <button class="tab" type="button" role="tab" id="tab-comercios" aria-controls="panel-comercios" aria-selected="false" tabindex="-1">¿Tenés envíos diarios? <i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-          <button class="tab" type="button" role="tab" id="tab-particulares" aria-controls="panel-particulares" aria-selected="false" tabindex="-1">¿Necesitás un envío hoy? <i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-        </div>
+  <!-- ============ FORMULARIO: copy + tarjeta blanca (valida y arma el mensaje de WhatsApp) ============ -->
+  <section class="section" id="formulario" aria-labelledby="form-title">
+    <div class="container form-split">
+      <div class="form-copy" data-reveal>
+        <h2 id="form-title" class="h2">Contanos de tu negocio</h2>
+        <p class="lead">Completá tus datos y se abre WhatsApp con el mensaje armado. No se envía nada a un servidor.</p>
+        <ol class="next-steps">
+          <li><i class="ph ph-note-pencil" aria-hidden="true"></i><span>Completás tu nombre y, si querés, tu negocio y volumen.</span></li>
+          <li><i class="ph ph-whatsapp-logo" aria-hidden="true"></i><span>Se abre WhatsApp con el mensaje listo para enviar.</span></li>
+          <li><i class="ph ph-chat-circle-text" aria-hidden="true"></i><span>Una persona del equipo te responde, en general en menos de 5 min.</span></li>
+        </ol>
       </div>
-      <div class="seg-panels" data-reveal>
-        <div class="seg-panel glass" role="tabpanel" id="panel-flex" aria-labelledby="tab-flex" tabindex="0">
-          <h3 class="kicker-big">Mercado Envíos Flex</h3>
-          <p>Entregá tus ventas de Mercado Libre en el día, dentro de Mar del Plata. Retiramos en tu local.</p>
-          <dl class="facts">
-            <div><dt>Corte</dt><dd>15:00 hs</dd></div>
-            <div><dt>Entrega</dt><dd>antes de 20:00 hs</dd></div>
-          </dl>
-          <div><a class="btn-ghost" href="/servicios/enviosflex">Ver solución Flex <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
+      <div class="form-card" data-reveal>
+        <form id="contact-form" novalidate aria-labelledby="form-card-title">
+          <fieldset id="contact-fieldset">
+            <h3 class="h3-sub" id="form-card-title">Pedí tu cotización</h3>
+            <div class="field">
+              <label for="c-nombre">Tu nombre</label>
+              <div class="control">
+                <i class="ph ph-user" aria-hidden="true"></i>
+                <input id="c-nombre" name="nombre" type="text" autocomplete="name" placeholder="Ingresá tu nombre" required aria-describedby="h-nombre e-nombre">
+              </div>
+              <p class="helper" id="h-nombre">Con tu nombre alcanza para empezar.</p>
+              <p class="field-error" id="e-nombre" role="alert" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i>Ingresá tu nombre para iniciar el contacto.</p>
+            </div>
+            <div class="field">
+              <label for="c-empresa">Empresa o negocio <span class="optional">(opcional)</span></label>
+              <div class="control">
+                <i class="ph ph-storefront" aria-hidden="true"></i>
+                <input id="c-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Nombre de tu emprendimiento" aria-describedby="h-empresa">
+              </div>
+              <p class="helper" id="h-empresa">Si tenés un comercio o tienda online.</p>
+            </div>
+            <div class="field">
+              <label for="c-volumen">Volumen estimado mensual <span class="optional">(opcional)</span></label>
+              <div class="control">
+                <i class="ph ph-package" aria-hidden="true"></i>
+                <select id="c-volumen" name="volumen" aria-describedby="h-volumen">
+                  <option value="">Seleccioná una opción</option>
+                  <option>1 a 50 envíos</option>
+                  <option>51 a 200 envíos</option>
+                  <option>Más de 200 envíos</option>
+                </select>
+                <i class="ph ph-caret-down chev" aria-hidden="true"></i>
+              </div>
+              <p class="helper" id="h-volumen">Nos ayuda a proponerte el servicio que te conviene.</p>
+            </div>
+            <button class="btn-solid" id="c-submit" type="submit"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i><span>Hablar por WhatsApp</span></button>
+          </fieldset>
+        </form>
+        <div class="success" id="contact-success" hidden>
+          <span class="check" aria-hidden="true"><i class="ph ph-check"></i></span>
+          <h3 class="h3-sub" id="success-title" tabindex="-1">Listo, se abrió WhatsApp</h3>
+          <p>Enviá el mensaje desde WhatsApp para que el equipo lo reciba. Si no se abrió, <a id="success-link" href="https://wa.me/542236602699" target="_blank" rel="noopener">tocá acá</a>.</p>
+          <button class="btn-line" id="contact-reset" type="button">Completar otro formulario</button>
         </div>
-        <div class="seg-panel glass" role="tabpanel" id="panel-ecom" aria-labelledby="tab-ecom" tabindex="0" hidden>
-          <h3 class="kicker-big">E-commerce</h3>
-          <p>E-commerce 24HS: se retira hoy y se entrega mañana. E-commerce Same Day: dejás stock en nuestro depósito y lo vendido hasta las 15:00 hs se entrega en el día.</p>
-          <dl class="facts">
-            <div><dt>24HS</dt><dd>día hábil siguiente</dd></div>
-            <div><dt>Same Day</dt><dd>antes de 20:00 hs</dd></div>
-          </dl>
-          <div><a class="btn-ghost" href="/servicios">Ver planes E-commerce <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
-        </div>
-        <div class="seg-panel glass" role="tabpanel" id="panel-comercios" aria-labelledby="tab-comercios" tabindex="0" hidden>
-          <h3 class="kicker-big">LowCost</h3>
-          <p>Reparto programado en el día, sin franja horaria. Pedís antes de las 13:00 hs y se entrega antes de las 19:00 hs. Tarifa por distancia.</p>
-          <dl class="facts">
-            <div><dt>Corte</dt><dd>13:00 hs</dd></div>
-            <div><dt>Entrega</dt><dd>antes de 19:00 hs</dd></div>
-          </dl>
-          <div><a class="btn-ghost" href="/servicios/envios-lowcost">Ver LowCost <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
-        </div>
-        <div class="seg-panel glass" role="tabpanel" id="panel-particulares" aria-labelledby="tab-particulares" tabindex="0" hidden>
-          <h3 class="kicker-big">Express</h3>
-          <p>Mensajería punto a punto en moto. Elegís una franja de 3 hs para la entrega y lo pedís con 2 hs de anticipación.</p>
-          <dl class="facts">
-            <div><dt>Corte</dt><dd>15:00 hs</dd></div>
-            <div><dt>Anticipación</dt><dd>2 hs</dd></div>
-          </dl>
-          <div><a class="btn-ghost" href="/cotizar">Cotizá tu envío <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
-        </div>
+        <p class="form-foot"><span>Atención comercial</span><span class="mono">Lun a Sáb</span></p>
       </div>
     </div>
   </section>
 
-  <!-- ============ SERVICIOS: sección Explorá (tarjetas de servicio en fila + ilustración de red) ============ -->
-  <section class="section recessed" id="servicios" aria-labelledby="servicios-title">
+  <!-- ============ BASE DE OPERACIONES: panel de vidrio en tres columnas + mapa estático ============ -->
+  <section class="section recessed" id="base" aria-labelledby="base-title">
     <div class="container">
-      <div class="svc-head" data-reveal>
-        <h2 id="servicios-title" class="h2">Conectamos Mar del Plata de punta a punta</h2>
-        <p class="lead">Seis servicios: con franja a elección, programados en el día o despachados desde nuestro depósito.</p>
+      <div class="sec-head" data-reveal>
+        <h2 id="base-title" class="h2">Base de operaciones</h2>
+        <p class="lead">Desde acá salen las motos todos los días. La atención es por WhatsApp, teléfono o email.</p>
       </div>
-      <div class="svc-grid">
-        <ul class="svc-list">
-          <li>
-            <article class="svc-row" data-reveal>
-              <div>
-                <h3 class="h3-display">Envíos Express</h3>
-                <p>Elegís una franja de 3 hs para la entrega. Pedilo con 2 hs de anticipación, hasta las 15:00 hs.</p>
-                <div class="svc-meta"><span class="svc-price">$3.700</span><span class="svc-unit">hasta 3 km</span></div>
-              </div>
-              <a class="arrow-btn" href="/servicios/envios-express" aria-label="Mirá Envíos Express"><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-            </article>
-          </li>
-          <li>
-            <article class="svc-row" data-reveal>
-              <div>
-                <h3 class="h3-display">Envíos LowCost</h3>
-                <p>Reparto programado en el día, sin franja horaria. Pedilo hasta las 13:00 hs y se entrega antes de las 19:00 hs.</p>
-                <div class="svc-meta"><span class="svc-price">$3.000</span><span class="svc-unit">hasta 3 km</span></div>
-              </div>
-              <a class="arrow-btn" href="/servicios/envios-lowcost" aria-label="Mirá Envíos LowCost"><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-            </article>
-          </li>
-          <li>
-            <article class="svc-row" data-reveal>
-              <div>
-                <h3 class="h3-display">Mercado Envíos Flex</h3>
-                <p>Para vendedores de Mercado Libre con Flex activo, solo en Mar del Plata. Corte 15:00 hs, entrega antes de las 20:00 hs.</p>
-                <div class="svc-meta"><span class="svc-unit">Misma tarifa que LowCost</span></div>
-              </div>
-              <a class="arrow-btn" href="/servicios/enviosflex" aria-label="Mirá Mercado Envíos Flex"><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-            </article>
-          </li>
-          <li>
-            <article class="svc-row" data-reveal>
-              <div>
-                <h3 class="h3-display">Cuenta Corriente Flexible</h3>
-                <p>Para emprendedores y comercios con pedidos que cambian cada día. Sin volumen mínimo y con pagos semanales, quincenales o mensuales.</p>
-                <div class="svc-meta"><span class="svc-unit">Tarifas LowCost con franjas de 3 hs</span></div>
-              </div>
-              <a class="arrow-btn" href="/servicios/empresas-cuenta-corriente" aria-label="Mirá Cuenta Corriente Flexible"><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-            </article>
-          </li>
-          <li>
-            <article class="svc-row" data-reveal>
-              <div>
-                <h3 class="h3-display">E-commerce 24HS</h3>
-                <p>Se retira hoy y se entrega mañana. Recolección gratis desde 10 envíos, y 20 % menos si traés los envíos listos (DropOFF).</p>
-                <!-- $3.800: confirmado de palabra por el dueño el 2026-09-29, todavía sin constante en promises.ts -->
-                <div class="svc-meta"><span class="svc-price">$3.800</span><span class="svc-unit">por envío</span></div>
-              </div>
-              <a class="arrow-btn" href="/servicios#ecommerce-24hs" aria-label="Mirá E-commerce 24HS"><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-            </article>
-          </li>
-          <li>
-            <article class="svc-row" data-reveal>
-              <div>
-                <h3 class="h3-display">E-commerce Same Day</h3>
-                <p>Dejás stock en nuestro depósito y lo vendido hasta las 15:00 hs se entrega en el día, antes de las 20:00 hs. Para productos chicos y medianos.</p>
-                <div class="svc-meta"><span class="svc-price">$6.000</span><span class="svc-unit">fijo a toda la ciudad</span></div>
-              </div>
-              <a class="arrow-btn" href="/servicios/deposito-fulfillment" aria-label="Mirá E-commerce Same Day"><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-            </article>
-          </li>
-        </ul>
-        <div class="svc-aside">
-          <figure class="network">
-            <!-- Ilustración de red (DESIGN.md Auros): nodos planos en blanco y #8EAFFB. Diagrama decorativo, no un mapa a escala. -->
-            <svg viewBox="0 0 420 520" role="img" aria-label="Diagrama de la red de recorridos entre barrios de Mar del Plata, con base en Friuli 1972">
-              <g stroke="#8EAFFB" stroke-width="1.25" fill="none" opacity="0.8">
-                <line x1="90" y1="330" x2="60" y2="450"/>
-                <line x1="90" y1="330" x2="230" y2="230"/>
-                <line x1="90" y1="330" x2="250" y2="330"/>
-                <line x1="90" y1="330" x2="300" y2="420"/>
-                <line x1="90" y1="330" x2="150" y2="120"/>
-                <line x1="150" y1="120" x2="270" y2="60"/>
-                <line x1="150" y1="120" x2="230" y2="230"/>
-                <line x1="270" y1="60" x2="230" y2="230"/>
-                <line x1="230" y1="230" x2="250" y2="330"/>
-                <line x1="250" y1="330" x2="340" y2="360"/>
-                <line x1="340" y1="360" x2="300" y2="420"/>
-                <line x1="300" y1="420" x2="330" y2="490"/>
-              </g>
-              <g fill="#FFFFFF">
-                <circle cx="60" cy="450" r="6"/>
-                <circle cx="230" cy="230" r="7"/>
-                <circle cx="250" cy="330" r="6"/>
-                <circle cx="300" cy="420" r="6"/>
-                <circle cx="150" cy="120" r="6"/>
-                <circle cx="270" cy="60" r="6"/>
-                <circle cx="340" cy="360" r="6"/>
-                <circle cx="330" cy="490" r="6"/>
-              </g>
-              <g fill="#FFEC01">
-                <circle class="net-pulse" cx="90" cy="330" r="16" opacity="0.3"/>
-                <circle class="net-pulse" cx="230" cy="230" r="14" opacity="0.3"/>
-                <circle class="net-pulse" cx="300" cy="420" r="14" opacity="0.3"/>
-                <circle cx="90" cy="330" r="9"/>
-              </g>
-              <g class="net-label">
-                <text x="108" y="336">Base Friuli 1972</text>
-                <text x="74" y="474">El Martillo</text>
-                <text x="246" y="226">Centro</text>
-                <text x="268" y="326">Güemes</text>
-                <text x="316" y="416">Puerto</text>
-                <text x="166" y="114">Constitución</text>
-                <text x="286" y="56">La Perla</text>
-                <text x="356" y="354">Playa Grande</text>
-                <text x="222" y="508">Bosque Peralta Ramos</text>
-              </g>
-            </svg>
-            <figcaption>Recorridos por toda la ciudad desde nuestra base en Friuli 1972.</figcaption>
+      <div class="base glass" data-reveal>
+        <div class="base-col">
+          <h3 class="h3-sub">Dirección</h3>
+          <!-- Friuli 1972, Mar del Plata, CP 7600 (JSON-LD, identidad.md §1). Base logística y depósito, NO punto de retiro ni atención al público (D §6). [DUDOSO] "Atención presencial y retiro de cargas" eliminado. -->
+          <p class="mono">Friuli 1972, Mar del Plata (7600)</p>
+          <p>Es nuestra base logística y depósito, sin atención al público. Retiramos en tu dirección.</p>
+          <!-- Única excepción real: DropOFF, solo E-commerce 24HS (DROPOFF_DISCOUNT_PERCENT = 20, promises.ts) -->
+          <p class="mist">Con E-commerce 24HS podés traer tus envíos listos (DropOFF, 20 % menos). Lo coordinamos por WhatsApp.</p>
+        </div>
+        <div class="base-col">
+          <h3 class="h3-sub">Horarios</h3>
+          <!-- OPERATING_HOURS (promises.ts); decisión 2026-09-18 #5 -->
+          <dl class="hours-table">
+            <div><dt>Lunes a viernes</dt><dd>09:00 a 18:00 hs</dd></div>
+            <div><dt>Sábados</dt><dd>10:00 a 15:00 hs</dd></div>
+            <div><dt>Domingos</dt><dd>Cerrado</dd></div>
+          </dl>
+          <p class="mist">No hacemos envíos fuera de este horario.</p>
+        </div>
+        <div class="base-col base-map">
+          <!-- Mapa estático de public/: sin Leaflet ni iframes. Link al perfil de Google (ContactInfo.tsx). -->
+          <figure class="map-box">
+            <img src="../../../public/card_mapa.webp" width="1024" height="1024" loading="lazy" alt="Pin de Envíos DosRuedas sobre un mapa isométrico de la ciudad con una ruta marcada">
           </figure>
-        </div>
-      </div>
-      <p class="svc-note" data-reveal>
-        <i class="ph ph-hand-coins" aria-hidden="true"></i>
-        <span>Contrareembolso sin comisión: cobramos en efectivo, transferencia o QR y rendimos en el día, al día siguiente o semanal, según lo acordado. Sin recargo hasta 5 kg o 40 × 40 cm.</span>
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ EMPRENDEDORES: bento de capas (vidrio, azul claro, tarjeta blanca, foto) ============ -->
-  <section class="section" id="emprendedores" aria-labelledby="emprendedores-title">
-    <div class="container">
-      <div class="emp-head" data-reveal>
-        <p class="eyebrow">Socio logístico local</p>
-        <h2 id="emprendedores-title" class="h2">Potenciamos tu marca en Mar del Plata</h2>
-        <p class="lead">Si vendés online, necesitás un socio logístico que responda. Armamos planes a tu medida, con recolección programada en tu local.</p>
-      </div>
-      <div class="bento">
-        <article class="cell glass cell-cc" data-reveal>
-          <h3 class="h3-display">Cuenta Corriente Flexible</h3>
-          <p>Tu equipo de entregas de confianza, aunque la cantidad de pedidos cambie cada día. Pagás los envíos juntos, por semana, quincena o mes.</p>
-          <ul class="checks">
-            <li><i class="ph ph-check" aria-hidden="true"></i><span>Sin volumen mínimo de envíos: entrás con la cantidad que tengas.</span></li>
-            <li><i class="ph ph-check" aria-hidden="true"></i><span>Accedés a tarifas LowCost con franjas horarias de 3 hs, como Express.</span></li>
-            <li><i class="ph ph-check" aria-hidden="true"></i><span>Trabajás de forma exclusiva con nosotros para tus envíos.</span></li>
-            <li><i class="ph ph-check" aria-hidden="true"></i><span>Entregas contrareembolso integradas sin cargo extra.</span></li>
-          </ul>
-          <div><a class="btn-ghost" href="/servicios/empresas-cuenta-corriente">Conocé Cuenta Corriente <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
-        </article>
-        <figure class="cell cell-img" data-reveal>
-          <img src="../../../public/img/generales/repartidor.webp" width="1408" height="768" loading="lazy" alt="Repartidor de Envíos DosRuedas en moto azul y amarilla con baúl de envíos Express">
-        </figure>
-        <article class="cell cell-white" data-reveal>
-          <h3 class="h3-display">Envíos Flex Meli</h3>
-          <p>Servicio adaptado a Mercado Envíos Flex para tus envíos en el día. Retiramos en tu local.</p>
-          <div><a class="link-arrow" href="/servicios/enviosflex">Configurá Flex <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
-        </article>
-        <div class="cell cell-elevated" data-reveal>
-          <p class="big">Retiramos en tu local</p>
-        </div>
-        <article class="cell glass cell-corp" data-reveal>
-          <h3 class="h3-display">Soluciones corporativas</h3>
-          <p>Pagos agrupados semanales, quincenales o mensuales, ruteos especiales para volumen y entregas Express coordinadas en Mar del Plata.</p>
-          <div><a class="btn-ghost" href="/contacto">Abrí tu cuenta corriente <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
-        </article>
-        <div class="cell glass cell-brands" data-reveal>
-          <h3 class="h3-sub">Marcas locales que trabajan con nosotros</h3>
-          <!-- Nombres aprobados por el dueño (X 01!E6). Publicables como nombres, no como avales. Sin logos en public/. -->
-          <ul class="brands-list">
-            <li>Toy Piola Juguetería</li>
-            <li>Ama &amp; Pola</li>
-            <li>Dropix 3D</li>
-            <li>El Cóndor</li>
-            <li>Starcel</li>
-            <li>Urbancow</li>
-            <li>Wanca</li>
-            <li>Catalina Indumentaria</li>
-            <li>Envases 3G</li>
-            <li>La Peri</li>
-          </ul>
+          <a class="btn-ghost" href="https://share.google/ofw5wAQt3Fc1dArom" target="_blank" rel="noopener">Abrir en Google Maps <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ PRUEBA SOCIAL: contador de estadísticas + reseñas originales de Google ============ -->
-  <section class="section recessed" id="resenas" aria-labelledby="resenas-title">
+  <!-- ============ CTA FINAL: pozo hundido con texto cinético ============ -->
+  <section class="section" id="cta-contacto" aria-labelledby="cta-title">
     <div class="container">
-      <div class="proof-head" data-reveal>
-        <div class="head-row">
-          <h2 id="resenas-title" class="h2">La palabra de quienes venden y envían en MDQ</h2>
-          <a class="btn-ghost" href="https://share.google/ofw5wAQt3Fc1dArom" target="_blank" rel="noopener">Ver reseñas en Google <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-        </div>
-        <p class="lead">Reseñas publicadas en nuestro perfil de Google, sin editar.</p>
-      </div>
-      <!-- Cifras respaldadas: 5.0 con +120 valoraciones (tarifas.md §9.1) y +7 años (identidad.md) -->
-      <dl class="stats" data-reveal>
-        <div><dt>Estrellas en Google</dt><dd>5.0</dd></div>
-        <div><dt>Valoraciones</dt><dd>+120</dd></div>
-        <div><dt>Años en Mar del Plata</dt><dd>+7</dd></div>
-      </dl>
-      <!-- Textos originales de docs/reneasenvios.md, sin reescribir. Se omiten reseñas con emojis, las que mencionan servicios no confirmados y las muy largas. -->
-      <div class="quotes">
-        <figure class="quote-featured" data-reveal>
-          <span class="stars" role="img" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></span>
-          <blockquote><p>"Excelente servicio, atención de primera, rápido, confiable y seguro. Recomendado 100%"</p></blockquote>
-          <figcaption class="quote-cite"><strong>Lorenzo Elizagoyen</strong><span>Reseña de Google</span></figcaption>
-        </figure>
-        <ul class="quote-list" data-reveal>
-          <li>
-            <figure>
-              <blockquote><p>"10 de 10 muy buenos en lo que hacen, responsables por sobre todas las cosas, super recomendable"</p></blockquote>
-              <figcaption class="quote-cite"><strong>NahuAri</strong><span>Reseña de Google</span></figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <blockquote><p>"Genial como siempre! De absoluta confianza"</p></blockquote>
-              <figcaption class="quote-cite"><strong>juan javier aguayo</strong><span>Reseña de Google</span></figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <blockquote><p>"Recomendado lo de estos muchachos. Buena atención y rapidez en la entrega"</p></blockquote>
-              <figcaption class="quote-cite"><strong>Ignacio</strong><span>Reseña de Google</span></figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <blockquote><p>"Excelente servicio calidad y puntualidad"</p></blockquote>
-              <figcaption class="quote-cite"><strong>Sergio Rivas</strong><span>Reseña de Google</span></figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <blockquote><p>"Confiable y eficiente."</p></blockquote>
-              <figcaption class="quote-cite"><strong>Ana Verónica Abruza</strong><span>Reseña de Google</span></figcaption>
-            </figure>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CTA FINAL: pozo hundido con texto cinético y CTA amarillo con halo ============ -->
-  <section class="section" id="contacto-rapido" aria-labelledby="cta-title">
-    <div class="container">
-      <div class="well" data-reveal>
-        <p class="well-kinetic" aria-hidden="true">MDQ</p>
+      <div class="well is-single" data-reveal>
+        <p class="well-kinetic" aria-hidden="true">Hoy</p>
         <div class="cta-copy">
-          <h2 id="cta-title" class="h2">¿Listo para escalar la logística de tu e-commerce?</h2>
-          <p class="lead">Completá tus datos y seguimos por WhatsApp. La atención comercial responde en menos de 5 min.</p>
+          <h2 id="cta-title" class="h2">¿Tenés envíos para hoy?</h2>
+          <!-- EXPRESS_CUTOFF_TIME, LOWCOST_CUTOFF_TIME (promises.ts) -->
+          <p class="lead">Express se pide hasta las 15:00 hs y LowCost hasta las 13:00 hs. Cotizá online y lo confirmamos por WhatsApp.</p>
           <div class="actions">
-            <a class="btn-cta" href="/cotizar">Cotizá tu envío</a>
+            <a class="btn-cta" href="auros-cotizar.html">Cotizá tu envío</a>
             <a class="phone-inline mono" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i>223 660-2699</a>
           </div>
         </div>
-        <form class="form-card" id="lead-form" novalidate>
-          <h3 class="h3-sub">Contanos de tu negocio</h3>
-          <div class="field">
-            <label for="f-nombre">Tu nombre</label>
-            <div class="control">
-              <i class="ph ph-user" aria-hidden="true"></i>
-              <input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="Ingresá tu nombre" required aria-describedby="e-nombre">
-            </div>
-            <p class="field-error" id="e-nombre" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i>Ingresá tu nombre.</p>
-          </div>
-          <div class="field">
-            <label for="f-empresa">Empresa o negocio</label>
-            <div class="control">
-              <i class="ph ph-storefront" aria-hidden="true"></i>
-              <input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Nombre de tu emprendimiento" required aria-describedby="e-empresa">
-            </div>
-            <p class="field-error" id="e-empresa" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i>Ingresá el nombre de tu negocio.</p>
-          </div>
-          <div class="field">
-            <label for="f-volumen">Volumen estimado mensual</label>
-            <div class="control">
-              <i class="ph ph-package" aria-hidden="true"></i>
-              <select id="f-volumen" name="volumen" aria-describedby="e-volumen">
-                <option value="">Seleccioná una opción</option>
-                <option>1 a 50 envíos</option>
-                <option>51 a 200 envíos</option>
-                <option>Más de 200 envíos</option>
-              </select>
-              <i class="ph ph-caret-down chev" aria-hidden="true"></i>
-            </div>
-            <p class="field-error" id="e-volumen" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i>Elegí un volumen aproximado.</p>
-          </div>
-          <button class="btn-solid" type="submit"><i class="ph ph-chat-circle-text" aria-hidden="true"></i>Hablar por WhatsApp</button>
-          <p class="form-hint">Se abre WhatsApp con tus datos en el mensaje.</p>
-        </form>
       </div>
     </div>
   </section>
@@ -1090,13 +856,13 @@ button, input, select { font: inherit; }
   </section>
 </main>
 
-<!-- ============ FOOTER: pozo hundido institucional ============ -->
+<!-- ============ FOOTER: pozo hundido institucional (igual que la home, con links a los prototipos) ============ -->
 <footer class="site-footer" aria-labelledby="footer-title">
   <div class="container">
     <h2 id="footer-title" class="sr-only">Información de Envíos DosRuedas</h2>
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/" aria-label="Envíos DosRuedas, inicio">
+        <a class="brand" href="auros.html" aria-label="Envíos DosRuedas, inicio">
           <img src="../../../public/logo-envios-simplified.webp" width="40" height="40" loading="lazy" alt="Logo Envíos DosRuedas">
           <span class="brand-word" aria-hidden="true">Envíos <span>DosRuedas</span></span>
         </a>
@@ -1110,13 +876,13 @@ button, input, select { font: inherit; }
       <nav class="footer-col" aria-labelledby="f-servicios">
         <h2 id="f-servicios">Servicios</h2>
         <ul>
-          <li><a href="/servicios/envios-express">Envíos Express</a></li>
+          <li><a href="auros-envios-express.html">Envíos Express</a></li>
           <li><a href="/servicios/envios-lowcost">Envíos LowCost</a></li>
           <li><a href="/servicios/enviosflex">Mercado Envíos Flex</a></li>
           <li><a href="/servicios/empresas-cuenta-corriente">Cuenta Corriente Flexible</a></li>
           <li><a href="/servicios#ecommerce-24hs">E-commerce 24HS</a></li>
           <li><a href="/servicios/deposito-fulfillment">E-commerce Same Day</a></li>
-          <li><a href="/servicios">Ver todos los servicios</a></li>
+          <li><a href="auros-cotizar.html">Cotizá tu envío</a></li>
         </ul>
       </nav>
       <div class="footer-col">
@@ -1137,9 +903,11 @@ button, input, select { font: inherit; }
     <div class="legal">
       <p>© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</p>
       <ul>
+        <li><a href="auros.html">Inicio</a></li>
+        <li><a href="auros-sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="auros-contacto.html" aria-current="page">Contacto</a></li>
         <li><a href="/cobertura">Cobertura</a></li>
         <li><a href="/guias/envios-flex-mar-del-plata">Guía Mercado Envíos Flex</a></li>
-        <li><a href="/nosotros/sobre-nosotros">Sobre nosotros</a></li>
         <li><a href="/nosotros/preguntas-frecuentes">Preguntas frecuentes</a></li>
         <li><a href="/nosotros/nuestras-redes">Nuestras redes</a></li>
         <li><a href="/terminos-y-condiciones">Términos y condiciones</a></li>
@@ -1254,52 +1022,77 @@ button, input, select { font: inherit; }
     g.appendChild(frag);
   }
 
-  /* Tabs de segmentos (flechas, Home/End) */
-  var tabs = Array.prototype.slice.call(doc.querySelectorAll('[role="tab"]'));
-  function selectTab(tab, focus) {
-    tabs.forEach(function (t) {
-      var on = t === tab;
-      t.setAttribute('aria-selected', on ? 'true' : 'false');
-      t.tabIndex = on ? 0 : -1;
-      doc.getElementById(t.getAttribute('aria-controls')).hidden = !on;
-    });
-    if (focus) tab.focus();
-  }
-  tabs.forEach(function (t, idx) {
-    t.addEventListener('click', function () { selectTab(t, false); });
-    t.addEventListener('keydown', function (e) {
-      var n = null;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') n = tabs[(idx + 1) % tabs.length];
-      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = tabs[(idx - 1 + tabs.length) % tabs.length];
-      else if (e.key === 'Home') n = tabs[0];
-      else if (e.key === 'End') n = tabs[tabs.length - 1];
-      if (n) { e.preventDefault(); selectTab(n, true); }
+  /* ============ JS DE ESTA PÁGINA ============ */
+  /* Copiar teléfono o email, con aviso para lectores de pantalla */
+  var status = doc.getElementById('copy-status');
+  doc.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var text = b.getAttribute('data-copy');
+      var label = b.getAttribute('data-label');
+      function done(ok) {
+        status.textContent = ok ? ('Copiamos el ' + label + ' al portapapeles.') : ('No pudimos copiarlo: seleccioná el ' + label + ' y copialo.');
+        b.innerHTML = ok ? '<i class="ph ph-check" aria-hidden="true"></i>Copiado' : '<i class="ph ph-copy" aria-hidden="true"></i>Copiar';
+        setTimeout(function () { b.innerHTML = '<i class="ph ph-copy" aria-hidden="true"></i>Copiar'; }, 2000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+      } else { done(false); }
     });
   });
 
-  /* Formulario: validación y derivación a WhatsApp (sin cálculo de precios) */
-  var form = doc.getElementById('lead-form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var fields = [
-        { el: form.nombre, err: doc.getElementById('e-nombre') },
-        { el: form.empresa, err: doc.getElementById('e-empresa') },
-        { el: form.volumen, err: doc.getElementById('e-volumen') }
-      ];
-      var firstBad = null;
-      fields.forEach(function (f) {
-        var bad = !f.el.value.trim();
-        f.el.setAttribute('aria-invalid', bad ? 'true' : 'false');
-        f.err.hidden = !bad;
-        if (bad && !firstBad) firstBad = f.el;
-      });
-      if (firstBad) { firstBad.focus(); return; }
-      var msg = 'Hola, soy ' + form.nombre.value.trim() + ' de ' + form.empresa.value.trim() +
-        '. Me interesa cotizar envíos para ' + form.volumen.value.toLowerCase() + ' por mes.';
-      window.open('https://wa.me/542236602699?text=' + encodeURIComponent(msg), '_blank', 'noopener');
-    });
+  /*
+    Formulario de contacto: valida y arma el mensaje de WhatsApp como ContactForm.tsx.
+    Número: WHATSAPP_PHONE = 542236602699 (src/lib/whatsapp.ts), el que usa hoy el formulario real vía buildWhatsAppUrl.
+    Inconsistencia a resolver con el dueño: CtaSection.tsx de la home usa wa.me/5492236602699 (con 9) y el asistente
+    dice "+54 9 223 660-2699". El formato canónico de wa.me para celulares argentinos lleva el 9; conviene unificar en una constante.
+  */
+  var cform = doc.getElementById('contact-form');
+  var fset = doc.getElementById('contact-fieldset');
+  var submitBtn = doc.getElementById('c-submit');
+  var success = doc.getElementById('contact-success');
+  var nombre = doc.getElementById('c-nombre');
+  var errNombre = doc.getElementById('e-nombre');
+  var WA = 'https://wa.me/542236602699?text=';
+
+  function setError(bad) {
+    nombre.setAttribute('aria-invalid', bad ? 'true' : 'false');
+    errNombre.hidden = !bad;
   }
+  nombre.addEventListener('input', function () { if (nombre.value.trim()) setError(false); });
+
+  cform.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var n = nombre.value.trim();
+    if (!n) { setError(true); nombre.focus(); return; }
+    setError(false);
+    var emp = cform.empresa.value.trim();
+    var vol = cform.volumen.value;
+    var msg = '¡Hola Envíos DosRuedas! Vengo del sitio web. Mi nombre es *' + n + '*' +
+      (emp ? ' de la empresa *' + emp + '*' : '') + '.' +
+      (vol ? ' Volumen mensual estimado: ' + vol + '.' : '') +
+      ' Quisiera recibir una cotización. [ref: formulario_contacto]';
+    var url = WA + encodeURIComponent(msg);
+    doc.getElementById('success-link').href = url;
+    /* Estado enviando: botón deshabilitado con texto de estado */
+    fset.disabled = true;
+    submitBtn.querySelector('span').textContent = 'Abriendo WhatsApp…';
+    window.open(url, '_blank', 'noopener');
+    setTimeout(function () {
+      cform.hidden = true;
+      success.hidden = false;
+      doc.getElementById('success-title').focus();
+    }, reduce.matches ? 0 : 400);
+  });
+
+  doc.getElementById('contact-reset').addEventListener('click', function () {
+    cform.reset();
+    setError(false);
+    fset.disabled = false;
+    submitBtn.querySelector('span').textContent = 'Hablar por WhatsApp';
+    success.hidden = true;
+    cform.hidden = false;
+    nombre.focus();
+  });
 })();
 </script>
 </body>

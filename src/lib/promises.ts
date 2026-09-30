@@ -61,7 +61,7 @@ export const RETRY_CHARGE_PERCENT = 100; // Segunda visita por destinatario ause
 // Periferia: destinos fuera de la urbana de Mar del Plata (Batán, Sierra de los
 // Padres…). NO es el excedente de 10 a 20 km de `pricing.ts` ($1.000 / $700 por km):
 // es otra tarifa, por km de ruta, que se cotiza aparte. Ver entrevista §3.1.
-export const PERIPHERY_PRICE_PER_KM = 1200;
+export const PERIPHERY_PRICE_PER_KM = 1000;
 // Bulto extra: más de 5 kg o 40 × 40 cm. El dueño lo respondió en la planilla
 // (pestaña 03, celda C6: "Desde $1950"); el monto final varía según el servicio.
 export const BULK_EXTRA_FROM_ARS = 1950;
@@ -78,7 +78,7 @@ export const CONSULT_THRESHOLD_KM = 20; // Hasta 20 km cálculo automático; > 2
 //                                 en el cálculo automático del cotizador.
 export const STANDARD_WEIGHT_KG = 5;
 export const STANDARD_BULLET_DIMENSIONS_CM = '40 × 40 cm';
-export const MAX_WEIGHT_KG = 15; // Techo absoluto. Superarlo se trata como bulto extra.
+export const MAX_WEIGHT_KG = 5; // Techo absoluto. Superarlo se trata como bulto extra.
 
 // Condiciones comerciales Depósito & Fulfillment (servicio para empresas)
 // No figuran en la tabla `PriceRange` ni en docs/contexto/precios.md: son tarifas

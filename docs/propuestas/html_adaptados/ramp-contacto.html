@@ -1,0 +1,1239 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto | Propuesta Ramp</title>
+<meta name="description" content="Contacto de Envíos DosRuedas en Mar del Plata: WhatsApp, teléfono, email, redes y horarios de atención.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400&family=Outfit:wght@400..600&display=swap">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+/* Propuesta Ramp adaptada a Envíos DosRuedas (docs/propuestas/disenos_adaptados_envios/Ramp/variables.css).
+   Prototipo estático: no es el @theme de producción. Las familias se declaran directo porque
+   las variables next/font (--font-anton, etc.) no existen fuera de la app. */
+:root {
+  --color-highlighter-yellow: #FFEC01;
+  --color-highlighter-yellow-hover: #FFF12E;
+  --color-highlighter-yellow-pressed: #E6D400;
+  --color-highlighter-yellow-tint: #FFFAB8;
+  --color-ink: #0950F6;
+  --color-obsidian: #0950F6;
+  --color-obsidian-raised: #3570F8;
+  --color-paper: #FFFFFF;
+  --color-bone: #E6EEFE;
+  --color-ash: #0950F6;
+  --color-ash-on-blue: rgba(255, 255, 255, 0.85);
+  --color-hairline: #BACEFD;
+  --color-hairline-hover: #8EAFFB;
+  --color-input-border: #628FF9;
+  --color-smoke: #E6EEFE;
+  --color-hairline-on-blue: rgba(255, 255, 255, 0.12);
+  --color-glass-on-blue: rgba(255, 255, 255, 0.06);
+  --color-error-border: #EF4444;
+  --color-error-text: #DC2626;
+
+  --font-display: 'Anton', Impact, sans-serif;
+  --font-subheading: 'Bebas Neue', sans-serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  --text-micro: 10px;
+  --text-caption: 12px;
+  --tracking-caption: 0.1em;
+  --text-small: 14px;
+  --text-body: 16px;
+  --leading-body: 1.5;
+  --text-lead: 18px;
+  --leading-lead: 1.55;
+  --text-subheading: 24px;
+  --text-heading-sm: 28px;
+  --text-heading: 36px;
+  --text-heading-lg: 48px;
+  --text-display-sm: 56px;
+  --text-display: 80px;
+  --leading-display: 0.85;
+  --tracking-display: -0.04em;
+
+  --page-max-width: 1280px;
+  --section-gap: 96px;
+  --section-gap-min: 64px;
+  --card-padding-min: 20px;
+  --card-padding-max: 24px;
+  --element-gap: 8px;
+  --touch-target-min: 44px;
+  --nav-height: 64px;
+  --announcement-height: 40px;
+
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+
+  --shadow-subtle: rgba(255, 255, 255, 0.6) 0px 0px 2px 0px inset;
+  --shadow-float: 0px 24px 48px -24px rgba(9, 80, 246, 0.18);
+
+  --duration-fast: 300ms;
+  --duration-base: 400ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --blur-overlay: 25px;
+  --blur-nav: 12px;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --duration-fast: 0ms; --duration-base: 0ms; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-weight: 400;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+button, input, select { font: inherit; color: inherit; }
+.display, .h2, .bebas, h1, h2, h3, .btn {
+  font-weight: 400;
+  font-synthesis: none;
+}
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 400; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.container { width: 100%; max-width: var(--page-max-width); margin-inline: auto; padding-inline: 16px; }
+@media (min-width: 768px) { .container { padding-inline: 32px; } }
+
+:focus-visible { outline: 2px solid #0950F6; outline-offset: 2px; }
+.on-blue :focus-visible { outline-color: #FFFFFF; }
+
+/* Skip link */
+.skip-link {
+  position: absolute; left: 16px; top: -64px; z-index: 100;
+  background: var(--color-paper); color: var(--color-ink);
+  border: 1px solid var(--color-hairline); border-radius: var(--radius-md);
+  padding: 10px 16px; font-family: var(--font-subheading); letter-spacing: 0.06em;
+  text-transform: uppercase; text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+/* Botones */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: var(--touch-target-min); padding: 0 20px;
+  border-radius: var(--radius-md); border: 1px solid transparent;
+  font-family: var(--font-subheading); font-size: 18px; letter-spacing: 0.06em;
+  text-transform: uppercase; text-decoration: none; line-height: 1; cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+.btn i { font-size: 18px; }
+.btn-primary { background: var(--color-highlighter-yellow); color: var(--color-ink); }
+.btn-primary:hover { background: var(--color-highlighter-yellow-hover); }
+.btn-primary:active { background: var(--color-highlighter-yellow-pressed); }
+.btn-outline { background: transparent; border-color: var(--color-ink); color: var(--color-ink); padding: 0 16px; }
+.btn-outline:hover { background: var(--color-bone); }
+.btn-outline-light { background: transparent; border-color: rgba(255, 255, 255, 0.6); color: #FFFFFF; padding: 0 16px; }
+.btn-outline-light:hover { border-color: #FFFFFF; background: var(--color-glass-on-blue); }
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 6px; min-height: var(--touch-target-min);
+  font-family: var(--font-subheading); font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px;
+  text-decoration-color: var(--color-hairline);
+  transition: text-decoration-color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+  border-radius: var(--radius-md);
+}
+.link-arrow:hover { text-decoration-color: var(--color-ink); }
+.icon-btn {
+  display: inline-grid; place-items: center; width: 44px; height: 44px;
+  border-radius: var(--radius-xl); border: 0; background: var(--color-bone); color: var(--color-ink);
+  cursor: pointer; font-size: 20px; transition: background-color var(--duration-fast) var(--ease-out);
+}
+.icon-btn:hover { background: var(--color-hairline); }
+.icon-btn[disabled] { opacity: 0.45; cursor: default; }
+
+/* Tipografía de sección */
+.h2 {
+  font-family: var(--font-display); text-transform: uppercase;
+  font-size: clamp(36px, 5vw, var(--text-heading-lg)); line-height: 0.95; letter-spacing: -0.02em;
+  padding-top: 0.06em;
+}
+.h3 {
+  font-family: var(--font-subheading); text-transform: uppercase;
+  font-size: var(--text-heading-sm); line-height: 1; letter-spacing: 0.05em;
+}
+.caption {
+  font-family: var(--font-subheading); text-transform: uppercase;
+  font-size: 14px; letter-spacing: var(--tracking-caption); line-height: 1.4;
+}
+.lead { font-size: var(--text-lead); line-height: var(--leading-lead); }
+.section { padding-block: var(--section-gap-min); }
+@media (min-width: 1024px) { .section { padding-block: var(--section-gap); } }
+
+/* Reveal (solo opacity y transform) */
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out); }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Barra de anuncio ---------- */
+.announce {
+  background: var(--color-paper); border-bottom: 1px solid var(--color-hairline);
+  min-height: var(--announcement-height); font-size: var(--text-small);
+}
+.announce .container { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--announcement-height); padding-block: 4px; }
+.announce p { text-align: center; }
+.announce a { text-underline-offset: 3px; display: inline-block; padding-block: 2px; }
+.announce-close {
+  flex: none; width: 44px; height: 44px; margin-block: -2px; border: 0; background: transparent;
+  color: var(--color-ink); cursor: pointer; border-radius: var(--radius-md); display: grid; place-items: center; font-size: 18px;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.announce-close:hover { background: var(--color-bone); }
+.announce[hidden] { display: none; }
+
+/* ---------- Header ---------- */
+#header-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 48px; pointer-events: none; }
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--color-obsidian); color: #FFFFFF;
+  border-bottom: 1px solid var(--color-hairline-on-blue);
+  transition: background-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+.site-header.is-scrolled {
+  background: rgba(9, 80, 246, 0.92);
+  -webkit-backdrop-filter: blur(var(--blur-nav)); backdrop-filter: blur(var(--blur-nav));
+  box-shadow: var(--shadow-subtle);
+}
+.nav-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: var(--nav-height); }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; min-height: 44px; border-radius: var(--radius-md); }
+.brand img { width: 40px; height: 40px; border-radius: 50%; }
+.brand span { font-family: var(--font-display); font-size: 22px; letter-spacing: -0.01em; text-transform: uppercase; line-height: 1; }
+.nav-links { display: none; align-items: center; gap: 4px; }
+.nav-links a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: var(--radius-md);
+  font-family: var(--font-subheading); font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  color: #FFFFFF; transition: background-color var(--duration-fast) var(--ease-out);
+}
+.nav-links a:hover { background: var(--color-glass-on-blue); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.nav-phone { display: none; align-items: center; gap: 8px; min-height: 44px; padding: 0 8px; text-decoration: none; font-size: 15px; border-radius: var(--radius-md); }
+.nav-phone i { font-size: 18px; }
+#header-cta { display: none; }
+.menu-btn, .call-btn {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius-md);
+  border: 1px solid var(--color-hairline-on-blue); background: transparent; color: #FFFFFF; font-size: 22px; cursor: pointer; text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.menu-btn:hover, .call-btn:hover { background: var(--color-glass-on-blue); }
+@media (min-width: 1024px) {
+  .nav-links, .nav-phone { display: inline-flex; }
+  #header-cta { display: inline-flex; }
+  .menu-btn, .call-btn { display: none; }
+}
+
+/* Drawer mobile */
+.drawer-backdrop {
+  position: fixed; inset: 0; z-index: 60; background: rgba(9, 80, 246, 0.35);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  opacity: 0; pointer-events: none; transition: opacity var(--duration-base) var(--ease-out);
+}
+.drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 70; width: min(340px, 88vw);
+  background: var(--color-paper); color: var(--color-ink); border-left: 1px solid var(--color-hairline);
+  display: flex; flex-direction: column; transform: translateX(100%); visibility: hidden;
+  transition: transform var(--duration-base) var(--ease-out), visibility 0s linear var(--duration-base);
+}
+.drawer.is-open { transform: none; visibility: visible; transition: transform var(--duration-base) var(--ease-out), visibility 0s; }
+.drawer-backdrop.is-open { opacity: 1; pointer-events: auto; }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid var(--color-hairline); }
+.drawer-body { flex: 1; overflow-y: auto; padding: 8px 16px 24px; }
+.drawer-group { padding-block: 12px; border-bottom: 1px solid var(--color-hairline); }
+.drawer-group:last-child { border-bottom: 0; }
+.drawer-group p { margin-bottom: 4px; }
+.drawer a.drawer-link { display: flex; align-items: center; min-height: 44px; text-decoration: none; font-size: 17px; border-radius: var(--radius-md); padding-inline: 8px; margin-inline: -8px; }
+.drawer a.drawer-link:hover { background: var(--color-bone); }
+.drawer-foot { padding: 16px; border-top: 1px solid var(--color-hairline); display: grid; gap: 8px; }
+.drawer-foot .btn { width: 100%; }
+
+/* ---------- Hero ---------- */
+.hero { padding-top: 48px; padding-bottom: 48px; }
+@media (min-width: 1024px) {
+  /* 104px = barra de anuncio + nav; 56px = banda del contador que cierra el primer viewport */
+  .hero { min-height: calc(100dvh - 104px - 56px); display: flex; align-items: center; padding-top: 64px; padding-bottom: 64px; }
+}
+.hero-grid { display: grid; gap: 40px; align-items: center; }
+@media (min-width: 1024px) { .hero-grid { grid-template-columns: 7fr 5fr; gap: 48px; } }
+.hero h1 {
+  font-family: var(--font-display); text-transform: uppercase;
+  font-size: clamp(56px, 7vw, var(--text-display)); line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display); padding-top: 0.08em; line-height: 0.92;
+}
+.hero .lead { margin-top: 24px; max-width: 44ch; }
+.hero-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-figure {
+  border: 1px solid var(--color-hairline); border-radius: var(--radius-2xl); background: var(--color-bone);
+  padding: 24px; max-width: 480px; justify-self: end; width: 100%; box-shadow: var(--shadow-float);
+}
+.hero-figure img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; }
+@media (max-width: 1023px) { .hero-figure { justify-self: start; max-width: 360px; } }
+
+/* ---------- Live counter ticker ---------- */
+.ticker { background: var(--color-obsidian); color: #FFFFFF; border-top: 1px solid var(--color-hairline-on-blue); }
+.ticker-inner { display: flex; align-items: center; min-height: 56px; }
+.ticker-viewport { flex: 1; overflow: hidden; min-width: 0; }
+.ticker-track { display: flex; width: max-content; animation: ticker 48s linear infinite; }
+.ticker.is-paused .ticker-track { animation-play-state: paused; }
+.ticker-list { display: flex; }
+.ticker-list li { display: flex; align-items: baseline; gap: 12px; padding: 16px 32px 16px 0; margin-right: 32px; border-right: 1px solid var(--color-hairline-on-blue); white-space: nowrap; }
+.ticker-label { font-family: var(--font-subheading); font-size: 14px; letter-spacing: var(--tracking-caption); text-transform: uppercase; color: var(--color-ash-on-blue); }
+.ticker-value { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 15px; color: #FFFFFF; }
+.ticker-toggle {
+  flex: none; margin-left: 8px; width: 44px; height: 44px; border-radius: var(--radius-md);
+  border: 1px solid var(--color-hairline-on-blue); background: transparent; color: #FFFFFF; cursor: pointer; font-size: 18px;
+  display: grid; place-items: center; transition: background-color var(--duration-fast) var(--ease-out);
+}
+.ticker-toggle:hover { background: var(--color-glass-on-blue); }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; width: auto; }
+  .ticker-list { flex-wrap: wrap; row-gap: 0; }
+  .ticker-list[aria-hidden="true"], .ticker-toggle { display: none; }
+  .ticker-viewport { overflow: visible; }
+}
+
+.wash-card { border-radius: var(--radius-xl); background: var(--color-bone); padding: 1px; }
+.wash-card > div { border-radius: 11px; padding: 20px; display: flex; gap: 16px; align-items: flex-start; }
+.wash-card i { font-size: 24px; flex: none; margin-top: 2px; }
+
+.check-list { margin-top: 20px; display: grid; gap: 10px; }
+.check-list li { display: flex; gap: 12px; align-items: flex-start; }
+.check-list i { font-size: 20px; margin-top: 2px; flex: none; }
+
+.cta-panel { border-radius: var(--radius-xl); background: var(--color-bone); padding: 1px; }
+.cta-inner { border-radius: 11px; padding: 32px 20px; }
+@media (min-width: 768px) { .cta-inner { padding: 48px; } }
+.cta-top { display: grid; gap: 16px; }
+@media (min-width: 1024px) { .cta-top { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: end; } }
+.cta-note { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.cta-form { margin-top: 32px; display: grid; gap: 16px; }
+@media (min-width: 1024px) { .cta-form { grid-template-columns: 1fr 1fr 1fr auto; align-items: start; } .cta-form .btn { margin-top: 26px; } }
+.field label { display: block; font-weight: 500; font-size: 15px; margin-bottom: 6px; }
+.field input, .field select {
+  width: 100%; height: 44px; border-radius: var(--radius-lg); border: 1px solid var(--color-input-border);
+  background: var(--color-paper); padding: 0 16px 0 16px; font-size: 16px; color: var(--color-ink);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+.field select { appearance: none; -webkit-appearance: none; padding-right: 40px; cursor: pointer; }
+.select-wrap { position: relative; }
+.select-wrap i { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: 16px; }
+.field input::placeholder { color: var(--color-ink); opacity: 0.8; }
+.field input:focus-visible, .field select:focus-visible { outline: 2px solid #0950F6; outline-offset: 2px; }
+.field input[aria-invalid="true"] { border-color: var(--color-error-border); }
+.field .error { color: var(--color-error-text); font-size: 14px; margin-top: 6px; min-height: 0; }
+.field .error:empty { display: none; }
+.cta-form .btn { width: 100%; }
+@media (min-width: 1024px) { .cta-form .btn { width: auto; } }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--color-obsidian); color: #FFFFFF; }
+.foot-cta { padding-block: 56px; border-bottom: 1px solid var(--color-hairline-on-blue); display: grid; gap: 24px; }
+@media (min-width: 1024px) { .foot-cta { grid-template-columns: minmax(0, 1fr) auto; align-items: end; } }
+.foot-cta h2 { font-family: var(--font-display); text-transform: uppercase; font-size: clamp(36px, 4.5vw, 48px); line-height: 0.9; letter-spacing: -0.02em; padding-top: 0.06em; }
+.foot-cta p { margin-top: 12px; color: var(--color-ash-on-blue); max-width: 52ch; }
+.foot-cta .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.foot-cols { display: grid; gap: 40px; padding-block: 56px; }
+@media (min-width: 768px) { .foot-cols { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .foot-cols { grid-template-columns: 4fr 3fr 3fr 2fr; } }
+.foot-cols h2 { font-family: var(--font-subheading); text-transform: uppercase; font-size: 16px; letter-spacing: var(--tracking-caption); color: var(--color-ash-on-blue); margin-bottom: 12px; }
+.foot-cols a { text-decoration: none; }
+.foot-cols a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.foot-list a, .foot-list span.row { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+.foot-list i { font-size: 18px; flex: none; }
+.foot-brand p { margin-top: 16px; color: var(--color-ash-on-blue); max-width: 40ch; }
+.foot-social { margin-top: 20px; display: flex; gap: 8px; }
+.foot-social a {
+  width: 44px; height: 44px; display: grid; place-items: center; border-radius: var(--radius-md);
+  border: 1px solid var(--color-hairline-on-blue); font-size: 20px; transition: background-color var(--duration-fast) var(--ease-out);
+}
+.foot-social a:hover { background: var(--color-glass-on-blue); text-decoration: none; }
+.foot-hours { display: grid; gap: 4px; margin-top: 4px; }
+.foot-hours div { display: flex; justify-content: space-between; gap: 16px; padding-block: 6px; border-bottom: 1px solid var(--color-hairline-on-blue); }
+.foot-bottom { border-top: 1px solid var(--color-hairline-on-blue); padding-block: 24px; display: grid; gap: 12px; font-size: 14px; color: var(--color-ash-on-blue); }
+@media (min-width: 1024px) { .foot-bottom { grid-template-columns: auto 1fr; align-items: center; } .foot-bottom ul { justify-content: flex-end; } }
+.foot-bottom ul { display: flex; flex-wrap: wrap; gap: 0 16px; }
+.foot-bottom a { display: inline-flex; min-height: 44px; align-items: center; text-decoration: none; color: var(--color-ash-on-blue); }
+.foot-bottom a:hover { color: #FFFFFF; text-decoration: underline; text-underline-offset: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; scroll-behavior: auto !important; }
+}
+
+/* ================= Páginas internas (mismo sistema que ramp.html) ================= */
+
+/* Navegación entre prototipos: ítem activo (Ramp: el amarillo marca el estado activo) */
+.nav-links a[aria-current="page"] { background: var(--color-glass-on-blue); box-shadow: inset 0 -2px 0 var(--color-highlighter-yellow); }
+.drawer a.drawer-link[aria-current="page"] { background: var(--color-highlighter-yellow-tint); }
+.foot-list a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--color-highlighter-yellow); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .nav-links a { padding: 0 8px; }
+  .nav-row > .brand span { display: none; }
+  .nav-phone { display: none !important; }
+}
+
+/* Hero de páginas internas */
+@media (min-width: 1024px) {
+  .hero--solo { min-height: calc(100dvh - 112px); }
+  .hero--band { min-height: calc(100dvh - 112px - 58px); }
+  .hero--compact { min-height: 0; padding-top: 64px; padding-bottom: 56px; }
+}
+.hero h1.h1-fit { font-size: clamp(48px, 5.6vw, 76px); }
+.hero-figure--wide img { aspect-ratio: 560 / 373; }
+@media (min-width: 1024px) { .hero-figure--sm { max-width: 380px; } }
+
+/* Cabeceras de sección y utilidades */
+.sec-head { display: grid; gap: 16px; max-width: 760px; margin-bottom: 48px; }
+.sec-head .lead { max-width: 60ch; }
+.rule-top { border-top: 1px solid var(--color-hairline); }
+.section.tight-top { padding-top: 0; }
+.ic-box { width: 44px; height: 44px; border-radius: var(--radius-xl); background: var(--color-bone); display: grid; place-items: center; font-size: 22px; flex: none; }
+.stack-sm > * + * { margin-top: 12px; }
+.actions-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.on-blue p.soft, .inverted .soft { color: var(--color-ash-on-blue); }
+
+/* Live Counter estático (sin marquee): condiciones verificadas */
+.band { background: var(--color-obsidian); color: #FFFFFF; border-top: 1px solid var(--color-hairline-on-blue); }
+.band-list { display: flex; flex-wrap: wrap; margin: 0; }
+.band-list div { display: flex; align-items: baseline; gap: 10px; padding: 16px 16px 16px 0; margin-right: 16px; border-right: 1px solid var(--color-hairline-on-blue); }
+.band-list div:last-child { border-right: 0; margin-right: 0; }
+.band-list dt { font-family: var(--font-subheading); font-size: 14px; letter-spacing: var(--tracking-caption); text-transform: uppercase; color: var(--color-ash-on-blue); }
+.band-list dd { margin: 0; font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 15px; color: #FFFFFF; }
+
+/* Pasos con verbo como etiqueta */
+.steps { display: grid; border-top: 1px solid var(--color-hairline); }
+@media (min-width: 768px) { .steps { grid-template-columns: repeat(2, 1fr); column-gap: 24px; } }
+.steps li { padding: 24px 0 32px; border-bottom: 1px solid var(--color-hairline); display: grid; gap: 12px; align-content: start; }
+@media (min-width: 1100px) {
+  .steps { grid-template-columns: repeat(4, 1fr); column-gap: 0; }
+  .steps li { border-bottom: 0; border-right: 1px solid var(--color-hairline); padding: 32px 24px 8px; }
+  .steps li:first-child { padding-left: 0; }
+  .steps li:last-child { border-right: 0; }
+}
+.step-verb { font-family: var(--font-display); font-weight: 400; font-synthesis: none; text-transform: uppercase; font-size: 48px; line-height: 0.9; letter-spacing: -0.02em; padding-top: 0.06em; }
+
+/* Split editorial con filas hairline */
+.split { display: grid; gap: 40px; }
+@media (min-width: 1024px) {
+  .split { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+  .split-sticky { position: sticky; top: 128px; }
+}
+.rows { border-top: 1px solid var(--color-hairline); }
+.rows li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding-block: 24px; border-bottom: 1px solid var(--color-hairline); }
+.rows p { margin-top: 8px; }
+.hours { margin-top: 24px; border-top: 1px solid var(--color-hairline); }
+.hours div { display: flex; justify-content: space-between; gap: 16px; padding-block: 10px; border-bottom: 1px solid var(--color-hairline); }
+.hours dt, .hours dd { margin: 0; }
+.inverted .hours, .inverted .hours div { border-color: var(--color-hairline-on-blue); }
+
+/* Tarifas: tabla con cifras en mono */
+.rates-grid { display: grid; gap: 40px; }
+@media (min-width: 1024px) { .rates-grid { grid-template-columns: 7fr 5fr; gap: 48px; align-items: start; } }
+.rate-table { width: 100%; border-collapse: collapse; }
+.rate-table th, .rate-table td { text-align: left; padding: 16px 12px 16px 0; border-bottom: 1px solid var(--color-hairline); vertical-align: baseline; font-weight: 400; }
+.rate-table thead th { font-family: var(--font-subheading); text-transform: uppercase; font-size: 14px; letter-spacing: var(--tracking-caption); padding-block: 12px; border-bottom: 1px solid var(--color-ink); }
+.rate-table tbody th { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 15px; }
+.rate-table .num { text-align: right; padding-right: 0; font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 24px; white-space: nowrap; }
+.rate-table thead .num { font-family: var(--font-subheading); font-size: 14px; }
+.rate-table .num small { font-size: 14px; }
+.rate-table.compact .num { font-size: 18px; }
+.rate-table .txt { font-family: var(--font-sans); font-size: 15px; }
+.notes { display: grid; gap: 12px; }
+.wash-card h3 { font-family: var(--font-subheading); text-transform: uppercase; font-size: 20px; letter-spacing: 0.05em; line-height: 1.1; margin-bottom: 4px; }
+.wash-card p { font-size: 16px; }
+
+/* Bento con foto y cita */
+.bento { display: grid; border: 1px solid var(--color-hairline); border-radius: var(--radius-2xl); overflow: hidden; }
+@media (min-width: 700px) { .bento { grid-template-columns: repeat(2, 1fr); } .bento-photo { grid-column: span 2; } }
+@media (min-width: 1100px) { .bento { grid-template-columns: repeat(4, 1fr); } .bento-photo { grid-column: span 3; } }
+.bento > * { margin: 0 -1px -1px 0; border-right: 1px solid var(--color-hairline); border-bottom: 1px solid var(--color-hairline); }
+.bento-photo img { width: 100%; height: 100%; aspect-ratio: 1408 / 768; object-fit: cover; }
+.bento-quote { background: var(--color-obsidian); color: #FFFFFF; padding: var(--card-padding-max); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+.bento-quote blockquote { margin: 0; font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: 32px; line-height: 0.95; letter-spacing: -0.02em; padding-top: 0.06em; }
+.bento-quote figcaption { color: var(--color-ash-on-blue); }
+.bento-case { padding: var(--card-padding-max); display: grid; gap: 10px; align-content: start; background: var(--color-paper); transition: background-color var(--duration-fast) var(--ease-out); }
+.bento-case:hover { background: var(--color-bone); }
+.bento-case > i { font-size: 28px; }
+.bento-case h3 { font-family: var(--font-subheading); text-transform: uppercase; font-size: var(--text-subheading); letter-spacing: 0.05em; line-height: 1.05; }
+
+/* Preguntas frecuentes: acordeón nativo */
+.faq { border-top: 1px solid var(--color-hairline); }
+.faq details { border-bottom: 1px solid var(--color-hairline); }
+.faq summary {
+  list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  min-height: 64px; padding-block: 16px; cursor: pointer; border-radius: var(--radius-md);
+  font-family: var(--font-subheading); text-transform: uppercase; font-size: 24px; letter-spacing: 0.04em; line-height: 1.1;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { background: var(--color-bone); }
+.faq summary i { font-size: 22px; flex: none; transition: transform var(--duration-fast) var(--ease-out); }
+.faq details[open] summary i { transform: rotate(45deg); }
+.faq .answer { padding: 0 0 24px; max-width: 64ch; display: grid; gap: 12px; }
+
+/* CTA en tarjeta lavado */
+.cta-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (min-width: 1024px) { .cta-actions { justify-content: flex-end; } }
+
+/* Sobre nosotros */
+.story-text p + p { margin-top: 16px; }
+.pull { margin: 40px 0 0; padding-left: 24px; border-left: 2px solid var(--color-ink); }
+.pull blockquote { margin: 0; font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(28px, 3.4vw, 40px); line-height: 0.95; letter-spacing: -0.02em; padding-top: 0.06em; }
+.pull figcaption { margin-top: 12px; }
+.photo-frame { border: 1px solid var(--color-hairline); border-radius: var(--radius-2xl); overflow: hidden; }
+.photo-frame img { width: 100%; aspect-ratio: 768 / 1408; max-height: 640px; object-fit: cover; }
+.inverted { background: var(--color-obsidian); color: #FFFFFF; }
+.inverted .h2 { color: #FFFFFF; }
+.glass-grid { display: grid; gap: 12px; margin-top: 40px; }
+@media (min-width: 700px) { .glass-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .glass-grid.four { grid-template-columns: repeat(4, 1fr); } .glass-grid.three { grid-template-columns: 4fr 4fr 5fr; } }
+.glass { background: var(--color-glass-on-blue); border: 1px solid var(--color-hairline-on-blue); border-radius: var(--radius-xl); padding: var(--card-padding-max); display: grid; gap: 8px; align-content: start; }
+.glass h3 { font-family: var(--font-subheading); text-transform: uppercase; font-size: var(--text-subheading); letter-spacing: 0.05em; line-height: 1.05; }
+.glass p { color: var(--color-ash-on-blue); }
+.glass .mono { color: #FFFFFF; }
+.values { display: grid; border: 1px solid var(--color-hairline); border-radius: var(--radius-2xl); overflow: hidden; }
+@media (min-width: 900px) { .values { grid-template-columns: repeat(3, 1fr); } .values .span2 { grid-column: span 2; } }
+.values > * { margin: 0 -1px -1px 0; padding: var(--card-padding-max); border-right: 1px solid var(--color-hairline); border-bottom: 1px solid var(--color-hairline); display: grid; gap: 12px; align-content: start; }
+.values h3 { font-family: var(--font-subheading); text-transform: uppercase; font-size: var(--text-heading-sm); letter-spacing: 0.05em; line-height: 1; }
+.v-quote { background: var(--color-obsidian); color: #FFFFFF; align-content: space-between !important; min-height: 240px; }
+.v-quote blockquote { margin: 0; font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(36px, 4.4vw, 56px); line-height: 0.9; letter-spacing: -0.03em; padding-top: 0.06em; }
+.v-quote figcaption { color: var(--color-ash-on-blue); }
+.redlines { border-top: 1px solid var(--color-ink); }
+.redlines li { display: grid; gap: 12px; padding-block: 28px; border-bottom: 1px solid var(--color-hairline); }
+@media (min-width: 900px) { .redlines li { grid-template-columns: 64px minmax(0, 1fr); align-items: center; } }
+.redlines p { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(28px, 3.4vw, 44px); line-height: 0.95; letter-spacing: -0.02em; padding-top: 0.06em; }
+
+/* Contacto */
+.contact-grid { display: grid; gap: 48px; }
+@media (min-width: 1024px) { .contact-grid { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; } }
+.form-card { border: 1px solid var(--color-hairline); border-radius: var(--radius-2xl); padding: var(--card-padding-max); }
+@media (min-width: 768px) { .form-card { padding: 32px; } }
+.form-card form { display: grid; gap: 20px; margin-top: 24px; }
+.field .help { font-size: 14px; margin: -2px 0 8px; }
+.field .error:not(:empty) { display: flex; gap: 6px; align-items: flex-start; }
+.field select[aria-invalid="true"] { border-color: var(--color-error-border); }
+.btn[disabled] { cursor: progress; background: var(--color-bone); color: var(--color-ink); }
+.btn-block { width: 100%; }
+.success { border-radius: var(--radius-xl); background: var(--color-bone); padding: 24px; display: grid; gap: 12px; margin-top: 24px; }
+.success[hidden] { display: none; }
+.success i.big { font-size: 32px; }
+.channels { border-top: 1px solid var(--color-hairline); }
+.channel { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 8px 16px; padding-block: 24px; border-bottom: 1px solid var(--color-hairline); }
+@media (min-width: 700px) { .channel { grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; } }
+.channel .value { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 18px; overflow-wrap: anywhere; }
+.channel .value.txt { font-family: var(--font-sans); font-size: 17px; }
+.channel-actions { grid-column: 2; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+@media (min-width: 700px) { .channel-actions { grid-column: 3; justify-content: flex-end; } }
+.map-card { background: var(--color-paper); border-radius: var(--radius-2xl); padding: 16px; color: var(--color-ink); }
+.map-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; }
+.map-card figcaption { font-size: 14px; margin-top: 8px; }
+.base-grid { display: grid; gap: 40px; }
+@media (min-width: 1024px) { .base-grid { grid-template-columns: 7fr 5fr; gap: 64px; align-items: center; } }
+.base-grid .map-card { max-width: 440px; }
+.cut-grid { display: grid; gap: 24px; margin-top: 32px; }
+@media (min-width: 768px) { .cut-grid { grid-template-columns: repeat(3, 1fr); } }
+.cut { border-top: 1px solid var(--color-ink); padding-top: 16px; display: grid; gap: 6px; align-content: start; }
+.cut .time { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 24px; }
+
+/* Cotizar */
+.quote-grid { display: grid; gap: 48px; }
+@media (min-width: 1024px) { .quote-grid { grid-template-columns: 7fr 5fr; gap: 48px; align-items: start; } .rates-aside { position: sticky; top: 128px; } }
+.quote-card { border: 1px solid var(--color-hairline); border-radius: var(--radius-2xl); padding: var(--card-padding-max); }
+@media (min-width: 768px) { .quote-card { padding: 32px; } }
+.guide { display: grid; margin-top: 24px; border-top: 1px solid var(--color-hairline); border-bottom: 1px solid var(--color-hairline); }
+.guide li { padding: 16px 0; display: grid; gap: 4px; align-content: start; font-size: 15px; }
+.guide li + li { border-top: 1px solid var(--color-hairline); }
+@media (min-width: 700px) {
+  .guide { grid-template-columns: repeat(3, 1fr); }
+  .guide li { padding: 16px; }
+  .guide li + li { border-top: 0; border-left: 1px solid var(--color-hairline); }
+  .guide li:first-child { padding-left: 0; }
+}
+.guide .verb { font-family: var(--font-subheading); text-transform: uppercase; font-size: 24px; letter-spacing: 0.05em; line-height: 1; }
+.quote-form { display: grid; gap: 24px; margin-top: 24px; }
+.quote-form fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.quote-form legend { font-weight: 500; font-size: 15px; margin-bottom: 8px; padding: 0; }
+.two { display: grid; gap: 20px; }
+@media (min-width: 700px) { .two { grid-template-columns: 1fr 1fr; } }
+.radio-cards { display: grid; gap: 8px; }
+@media (min-width: 700px) { .radio-cards { grid-template-columns: repeat(3, 1fr); } }
+.radio-card {
+  position: relative; display: grid; gap: 4px; align-content: start; min-height: 44px; padding: 14px 16px;
+  border: 1px solid var(--color-input-border); border-radius: var(--radius-xl); cursor: pointer; background: var(--color-paper);
+  transition: background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+}
+.radio-card:hover { background: var(--color-bone); }
+.radio-card input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; }
+.radio-card:has(input:focus-visible) { outline: 2px solid #0950F6; outline-offset: 2px; }
+.radio-card:has(input:checked) { background: var(--color-highlighter-yellow-tint); border-color: var(--color-ink); }
+.rc-title { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-family: var(--font-subheading); text-transform: uppercase; font-size: 22px; letter-spacing: 0.05em; line-height: 1; }
+.rc-title i { font-size: 20px; opacity: 0; }
+.radio-card:has(input:checked) .rc-title i { opacity: 1; }
+.rc-desc { font-size: 14px; line-height: 1.4; }
+.form-note { font-size: 14px; }
+.result { margin-top: 32px; border-top: 1px solid var(--color-hairline); padding-top: 24px; }
+.state[hidden] { display: none; }
+.empty-state { border-radius: var(--radius-xl); background: var(--color-bone); padding: 24px; display: grid; gap: 12px; }
+.empty-state ul { display: grid; gap: 8px; }
+.empty-state li { display: flex; gap: 10px; align-items: flex-start; }
+.empty-state li i { font-size: 20px; margin-top: 2px; }
+.skel { background: var(--color-smoke); border-radius: var(--radius-md); animation: skel 1.2s ease-in-out infinite alternate; }
+@keyframes skel { from { opacity: 1; } to { opacity: 0.5; } }
+@media (prefers-reduced-motion: reduce) { .skel { animation: none; } }
+.skel-head { display: flex; justify-content: space-between; gap: 16px; }
+.skel-rows { display: grid; gap: 8px; margin-top: 20px; }
+.res-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 16px; }
+.res-km { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 24px; }
+.price-rows { margin-top: 16px; border-top: 1px solid var(--color-ink); }
+.price-rows div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--color-hairline); }
+.price-rows dt { font-family: var(--font-subheading); text-transform: uppercase; font-size: 24px; letter-spacing: 0.05em; line-height: 1; }
+.price-rows dt span { display: block; font-family: var(--font-sans); text-transform: none; letter-spacing: 0; font-size: 14px; margin-top: 4px; }
+.price-rows dd { margin: 0; font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 24px; }
+.legend-note { margin-top: 12px; font-size: 15px; display: flex; gap: 8px; align-items: flex-start; }
+.dayline { margin-top: 24px; display: grid; gap: 14px; }
+.day-row { display: grid; gap: 6px; }
+.day-row .lbl { font-size: 15px; }
+.day { position: relative; height: 24px; border-radius: var(--radius-md); background: var(--color-bone); }
+.day .win { position: absolute; top: 0; bottom: 0; border-radius: var(--radius-md); }
+.day .win.ex { left: 10%; width: 30%; background: var(--color-highlighter-yellow); }
+.day .win.lc { left: 0; width: 100%; background: repeating-linear-gradient(135deg, var(--color-hairline) 0 6px, var(--color-bone) 6px 12px); }
+.day .cut { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--color-ink); }
+.scale { display: flex; justify-content: space-between; font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 12px; }
+.next-step { margin-top: 24px; display: grid; gap: 8px; }
+@media (min-width: 700px) { .next-step { grid-template-columns: 1fr 1fr; } }
+.alert-error { border: 1px solid var(--color-error-border); border-radius: var(--radius-xl); padding: 20px; display: grid; gap: 12px; background: var(--color-paper); }
+.alert-error p.msg { color: var(--color-error-text); display: flex; gap: 8px; align-items: flex-start; }
+.alert-error p.msg i { font-size: 20px; margin-top: 2px; }
+.demo { margin-top: 24px; border-top: 1px dashed var(--color-hairline); padding-top: 4px; font-size: 14px; }
+.demo summary { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; font-family: var(--font-subheading); text-transform: uppercase; letter-spacing: var(--tracking-caption); font-size: 14px; border-radius: var(--radius-md); }
+.demo-options { display: flex; flex-wrap: wrap; gap: 0 20px; padding-bottom: 8px; }
+.demo-options label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; }
+.demo-options input { width: 18px; height: 18px; accent-color: #0950F6; }
+.surcharges { border-top: 1px solid var(--color-ink); margin: 0; }
+.surcharges div { display: grid; gap: 4px; padding-block: 20px; border-bottom: 1px solid var(--color-hairline); }
+@media (min-width: 900px) { .surcharges div { grid-template-columns: 4fr 3fr 5fr; gap: 24px; align-items: baseline; } }
+.surcharges dt { font-family: var(--font-subheading); text-transform: uppercase; font-size: 24px; letter-spacing: 0.05em; line-height: 1.05; }
+.surcharges dd { margin: 0; }
+.surcharges .cost { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 20px; }
+
+/* ---------- Redes (CarruselRedes.tsx): directorio editorial en filas hairline ---------- */
+.redes { border-top: 1px solid var(--color-hairline); }
+.redes-grid { display: grid; gap: 40px; }
+@media (min-width: 1024px) {
+  .redes-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
+  .redes-head { position: sticky; top: 120px; }
+}
+.redes-head .lead { margin-top: 20px; max-width: 40ch; }
+.redes-list { border-top: 1px solid var(--color-hairline); }
+.redes-row {
+  display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px 16px;
+  padding: 24px 0; border-bottom: 1px solid var(--color-hairline);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+@media (min-width: 700px) {
+  .redes-list { margin-inline: -16px; }
+  .redes-row { grid-template-columns: 44px minmax(0, 1fr) auto; gap: 8px 24px; align-items: center; padding: 28px 16px; }
+}
+.redes-row:hover { background: var(--color-bone); }
+.redes-icon {
+  width: 44px; height: 44px; border-radius: var(--radius-xl); background: var(--color-bone); color: var(--color-ink);
+  display: grid; place-items: center; font-size: 24px;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.redes-row:hover .redes-icon { background: var(--color-paper); }
+.redes-icon--wa { background: var(--color-highlighter-yellow-tint); }
+.redes-row:hover .redes-icon--wa { background: var(--color-highlighter-yellow-tint); }
+.redes-body h3 { font-family: var(--font-subheading); text-transform: uppercase; font-size: var(--text-heading-sm); letter-spacing: 0.05em; line-height: 1; }
+.redes-handle { margin-top: 6px; font-size: 16px; font-weight: 500; }
+.redes-handle.mono { font-weight: 400; font-size: 16px; }
+.redes-desc { margin-top: 8px; font-size: 16px; max-width: 52ch; }
+.redes-cta { grid-column: 2; justify-self: start; }
+@media (min-width: 700px) { .redes-cta { grid-column: 3; grid-row: 1; justify-self: end; } }
+.redes-cta i { transition: transform var(--duration-fast) var(--ease-out); }
+@media (prefers-reduced-motion: no-preference) {
+  .redes-cta:hover i, .redes-cta:focus-visible i { transform: translate(2px, -2px); }
+  .js .redes-list .redes-row.reveal:nth-child(2) { transition-delay: 90ms; }
+  .js .redes-list .redes-row.reveal:nth-child(3) { transition-delay: 180ms; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .redes-row, .redes-icon, .redes-cta i { transition: none; }
+  .js .redes-list .redes-row.reveal { transition-delay: 0ms; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+<div id="header-sentinel" aria-hidden="true"></div>
+
+<!-- Barra de anuncio (Ramp: franja superior blanca de 40px, cerrable). Igual que ramp.html. -->
+<div class="announce" id="announce" role="region" aria-label="Aviso de Envíos Express">
+  <div class="container">
+    <p>Express: elegí tu franja de 3 hs. Pedilo con 2 hs de anticipación, hasta las <span class="mono">15:00</span> hs. <a href="ramp-envios-express.html#como-funciona">Mirá cómo funciona</a></p>
+    <button type="button" class="announce-close" id="announce-close" aria-label="Cerrar aviso"><i class="ph ph-x" aria-hidden="true"></i></button>
+  </div>
+</div>
+
+<!-- Header sticky azul con brillo interno al scrollear (igual que ramp.html; links entre prototipos) -->
+<header class="site-header on-blue" id="site-header">
+  <div class="container nav-row">
+    <a class="brand" href="ramp.html" aria-label="Envíos DosRuedas, ir al inicio">
+      <img src="../../../public/logo-envios-simplified.webp" width="40" height="40" alt="Logo Envíos DosRuedas">
+      <span>Envíos DosRuedas</span>
+    </a>
+    <nav aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="ramp.html" data-nav="inicio">Inicio</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="ramp-envios-express.html" data-nav="express">Envíos Express</a></li>
+        <li><a href="ramp-sobre-nosotros.html" data-nav="nosotros">Sobre nosotros</a></li>
+        <li><a href="ramp-contacto.html" data-nav="contacto" aria-current="page">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i><span class="mono">223 660-2699</span></a>
+      <!-- Outline blanco mientras haya otro CTA amarillo en pantalla; amarillo cuando no (un solo CTA primario por pantalla). -->
+      <a class="btn btn-outline-light" id="header-cta" href="ramp-cotizar.html" data-nav="cotizar">Cotizá tu envío</a>
+      <a class="call-btn" href="tel:+542236602699" aria-label="Llamar al 223 660-2699"><i class="ph ph-phone" aria-hidden="true"></i></a>
+      <button type="button" class="menu-btn" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú"><i class="ph ph-list" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+<div class="drawer" id="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" inert>
+  <div class="drawer-head">
+    <p class="caption" id="mobile-menu-title">Menú principal</p>
+    <button type="button" class="icon-btn" id="menu-close" aria-label="Cerrar menú"><i class="ph ph-x" aria-hidden="true"></i></button>
+  </div>
+  <nav class="drawer-body" aria-label="Menú mobile">
+    <div class="drawer-group">
+      <a class="drawer-link" href="ramp.html" data-nav="inicio">Inicio</a>
+    </div>
+    <div class="drawer-group">
+      <p class="caption">Servicios</p>
+      <a class="drawer-link" href="/servicios">Todos los servicios</a>
+      <a class="drawer-link" href="ramp-envios-express.html" data-nav="express">Envíos Express</a>
+      <a class="drawer-link" href="/servicios/envios-lowcost">Envíos LowCost</a>
+      <a class="drawer-link" href="/servicios/enviosflex">Envíos Flex (MeLi)</a>
+      <a class="drawer-link" href="/servicios/empresas-cuenta-corriente">Cuenta Corriente Flexible</a>
+      <a class="drawer-link" href="/servicios#ecommerce-24hs">E-commerce 24HS</a>
+      <a class="drawer-link" href="/servicios/deposito-fulfillment">E-commerce Same Day</a>
+    </div>
+    <div class="drawer-group">
+      <p class="caption">Nosotros</p>
+      <a class="drawer-link" href="ramp-sobre-nosotros.html" data-nav="nosotros">Sobre nosotros</a>
+      <a class="drawer-link" href="/nosotros/preguntas-frecuentes">Preguntas frecuentes</a>
+      <a class="drawer-link" href="/nosotros/nuestras-redes">Nuestras redes</a>
+    </div>
+    <div class="drawer-group">
+      <a class="drawer-link" href="ramp-contacto.html" data-nav="contacto" aria-current="page">Contacto</a>
+    </div>
+  </nav>
+  <div class="drawer-foot">
+    <a class="btn btn-outline" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i><span class="mono">+54 223 660-2699</span></a>
+    <a class="btn btn-primary" href="ramp-cotizar.html" data-nav="cotizar">Cotizá tu envío</a>
+  </div>
+</div>
+
+<main id="main-content" tabindex="-1">
+
+  <!-- HERO: declaración tipográfica + ilustración en marco hairline (patrón de ramp.html).
+       Tiempo de respuesta: "menos de 5 minutos, generalmente" (D §1, identidad.md). Corrección [DUDOSO]: "< 2 MIN" y "al instante" no se publican. -->
+  <section class="hero hero--solo" id="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div>
+        <h1 id="hero-title">Escribinos,<br> te respondemos</h1>
+        <p class="lead">Contanos qué necesitás mover. Por WhatsApp respondemos en menos de <span class="mono">5</span> minutos, generalmente.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" id="hero-cta" data-cta-zone href="https://wa.me/542236602699?text=Hola!%20Quiero%20cotizar%20mis%20env%C3%ADos" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Escribinos por WhatsApp</a>
+          <a class="btn btn-outline" href="#contacto-form">Completá el formulario</a>
+        </div>
+      </div>
+      <figure class="hero-figure hero-figure--sm">
+        <img src="../../../public/heroes/contacto-mensaje.webp" width="400" height="400" fetchpriority="high"
+             alt="Ilustración de un teléfono azul y un sobre con sello amarillo, con el texto Escribinos hoy">
+      </figure>
+    </div>
+  </section>
+
+  <!-- FORMULARIO + CANALES: tarjeta de formulario (hairline) a la izquierda y filas de canal a la derecha.
+       Se corrige el ancla rota del sitio: el hero apunta a #contacto-form y ese id existe. -->
+  <section class="section rule-top" id="contacto-form" aria-labelledby="canales-title">
+    <div class="container contact-grid">
+      <div class="form-card reveal">
+        <h2 class="h3" id="form-title">Pedí tu cotización comercial</h2>
+        <p style="margin-top:12px">Completá tus datos y seguimos la charla por WhatsApp con el mensaje ya armado.</p>
+        <!-- Estados: vacío (inicial), error por campo, enviando (botón deshabilitado), éxito (confirmación visible).
+             No envía nada a un servidor: igual que ContactForm.tsx, arma el mensaje y abre WhatsApp. -->
+        <form id="contact-form" novalidate aria-labelledby="form-title">
+          <div class="field">
+            <label for="c-nombre">Tu nombre</label>
+            <p class="help" id="c-nombre-help">Así sabemos con quién hablamos.</p>
+            <input id="c-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="c-nombre-help c-nombre-error">
+            <p class="error" id="c-nombre-error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="c-empresa">Empresa o negocio</label>
+            <p class="help" id="c-empresa-help">Opcional. Si vendés online, contanos el nombre de tu tienda.</p>
+            <input id="c-empresa" name="empresa" type="text" autocomplete="organization" aria-describedby="c-empresa-help">
+          </div>
+          <div class="field">
+            <label for="c-volumen">Volumen estimado mensual</label>
+            <p class="help" id="c-volumen-help">Opcional. Nos ayuda a proponerte el servicio que conviene.</p>
+            <div class="select-wrap">
+              <select id="c-volumen" name="volumen" aria-describedby="c-volumen-help">
+                <option value="">Seleccioná una opción</option>
+                <option value="1 a 50 envíos">1 a 50 envíos</option>
+                <option value="51 a 200 envíos">51 a 200 envíos</option>
+                <option value="Más de 200 envíos">Más de 200 envíos</option>
+              </select>
+              <i class="ph ph-caret-down" aria-hidden="true"></i>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="contact-submit" data-cta-zone><i class="ph ph-whatsapp-logo" aria-hidden="true"></i><span>Escribinos por WhatsApp</span></button>
+        </form>
+        <div class="success" id="contact-success" role="status" tabindex="-1" hidden>
+          <i class="ph ph-check-circle big" aria-hidden="true"></i>
+          <h3 class="h3">Listo, abrimos WhatsApp</h3>
+          <p>Mandá el mensaje que armamos y seguimos la charla por ahí. Si no se abrió, <a id="contact-wa-link" href="https://wa.me/542236602699" target="_blank" rel="noopener">abrilo desde este enlace</a>.</p>
+          <div><button type="button" class="btn btn-outline" id="contact-reset">Completar otro formulario</button></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-head reveal" style="margin-bottom:24px">
+          <h2 class="h2" id="canales-title">Elegí cómo comunicarte</h2>
+          <p class="lead">Todos los canales llegan al mismo equipo, en Mar del Plata.</p>
+        </div>
+        <ul class="channels reveal">
+          <!-- SUPPORT_PHONE '+54 223 660-2699' (src/lib/promises.ts) · WHATSAPP_PHONE '542236602699' (src/lib/whatsapp.ts) -->
+          <li class="channel">
+            <span class="ic-box" aria-hidden="true"><i class="ph ph-whatsapp-logo"></i></span>
+            <div>
+              <h3 class="h3">WhatsApp y teléfono</h3>
+              <p class="value" id="phone-value">+54 223 660-2699</p>
+            </div>
+            <div class="channel-actions">
+              <a class="btn btn-outline" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i>Llamar</a>
+              <button type="button" class="icon-btn" id="copy-phone" aria-label="Copiar el número +54 223 660-2699"><i class="ph ph-copy" aria-hidden="true"></i></button>
+              <span class="sr-only" id="copy-status" role="status"></span>
+            </div>
+          </li>
+          <!-- CONTACT_EMAIL 'matiascejas@enviosdosruedas.com' (promises.ts; decisión 2026-09-18 #6) -->
+          <li class="channel">
+            <span class="ic-box" aria-hidden="true"><i class="ph ph-envelope-simple"></i></span>
+            <div>
+              <h3 class="h3">Email</h3>
+              <p class="value txt">matiascejas@enviosdosruedas.com</p>
+            </div>
+            <div class="channel-actions">
+              <a class="link-arrow" href="mailto:matiascejas@enviosdosruedas.com">Escribir un email <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </li>
+          <!-- Instagram @enviosdosruedas (ContactInfo.tsx; layout.tsx sameAs) -->
+          <li class="channel">
+            <span class="ic-box" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+            <div>
+              <h3 class="h3">Instagram</h3>
+              <p class="value txt">@enviosdosruedas</p>
+            </div>
+            <div class="channel-actions">
+              <a class="link-arrow" href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener">Seguir en Instagram <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+            </div>
+          </li>
+          <!-- Facebook Envíos DosRuedas (ContactInfo.tsx; layout.tsx sameAs) -->
+          <li class="channel">
+            <span class="ic-box" aria-hidden="true"><i class="ph ph-facebook-logo"></i></span>
+            <div>
+              <h3 class="h3">Facebook</h3>
+              <p class="value txt">Envíos DosRuedas</p>
+            </div>
+            <div class="channel-actions">
+              <a class="link-arrow" href="https://www.facebook.com/enviosdosruedas" target="_blank" rel="noopener">Visitar Facebook <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BASE DE OPERACIONES: banda invertida azul, datos + horarios en Geist Mono + ilustración estática (sin Leaflet ni iframe).
+       Dirección: JSON-LD de las páginas, identidad.md §1. Horario: OPERATING_HOURS (promises.ts). Google Maps: ContactInfo.tsx.
+       Corrección [DUDOSO grave]: "Atención presencial y retiro de cargas · Friuli 1972" NO se publica. Friuli es base logística y depósito,
+       no punto de retiro ni de atención al público (D §6: "tampoco ofrecemos Friuli como punto de retiro"). -->
+  <section class="section inverted on-blue" id="base" aria-labelledby="base-title">
+    <div class="container base-grid">
+      <div class="reveal">
+        <h2 class="h2" id="base-title">Base de operaciones</h2>
+        <p class="lead soft" style="margin-top:16px">Friuli 1972, Mar del Plata. Es nuestro depósito y de ahí salen las motos. No atendemos al público en la base: retiramos en tu domicilio o tu local.</p>
+        <dl class="hours" aria-label="Horario de atención">
+          <div><dt>Lunes a viernes</dt><dd class="mono">09:00 a 18:00 hs</dd></div>
+          <div><dt>Sábados</dt><dd class="mono">10:00 a 15:00 hs</dd></div>
+          <div><dt>Domingos</dt><dd>Cerrado</dd></div>
+        </dl>
+        <p class="soft" style="margin-top:16px">No hacemos envíos fuera de este horario.</p>
+        <div class="actions-row" style="margin-top:24px">
+          <a class="btn btn-outline-light" href="https://share.google/ofw5wAQt3Fc1dArom" target="_blank" rel="noopener"><i class="ph ph-map-pin" aria-hidden="true"></i>Abrir en Google Maps</a>
+        </div>
+      </div>
+      <figure class="map-card reveal">
+        <img src="../../../public/card_mapa.webp" width="1024" height="1024" loading="lazy"
+             alt="Ilustración de un pin de Envíos DosRuedas sobre una ciudad isométrica con una ruta amarilla">
+        <figcaption>Ilustración de referencia, no es un mapa a escala.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CIERRE: cortes para pedir en el día, en tarjeta lavado con cifras grandes en mono.
+       EXPRESS_CUTOFF_TIME + EXPRESS_LEAD_TIME, LOWCOST_CUTOFF_TIME + LOWCOST_DELIVERY_DEADLINE, FLEX_CUTOFF_TIME + FLEX_DELIVERY_DEADLINE (promises.ts) -->
+  <section class="section" id="cortes" aria-labelledby="cortes-title">
+    <div class="container">
+      <div class="cta-panel reveal">
+        <div class="cta-inner">
+          <div class="cta-top">
+            <h2 class="h2" id="cortes-title">Para que salga hoy</h2>
+            <div class="cta-actions">
+              <a class="btn btn-primary" data-cta-zone href="ramp-cotizar.html">Cotizá tu envío</a>
+            </div>
+          </div>
+          <div class="cut-grid">
+            <div class="cut"><h3 class="h3">Express</h3><p class="time">15:00 hs</p><p>Pedido con <span class="mono">2</span> hs de anticipación. Elegís una franja de 3 hs.</p></div>
+            <div class="cut"><h3 class="h3">LowCost</h3><p class="time">13:00 hs</p><p>Se entrega en el día, antes de las <span class="mono">19:00</span> hs, sin franja.</p></div>
+            <div class="cut"><h3 class="h3">Mercado Envíos Flex</h3><p class="time">15:00 hs</p><p>Se entrega antes de las <span class="mono">20:00</span> hs, solo en Mar del Plata.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REDES: réplica de CarruselRedes.tsx (el sitio lo monta en todas las páginas antes del footer).
+       Patrón Ramp: titular sticky a la izquierda y directorio en filas hairline a la derecha.
+       CTAs en outline azul porque el CTA amarillo del footer queda en el mismo viewport. -->
+  <section class="section redes" id="redes" aria-labelledby="redes-title">
+    <div class="container redes-grid">
+      <div class="redes-head reveal">
+        <h2 class="h2" id="redes-title">Seguí nuestro movimiento</h2>
+        <p class="lead">Sumate a nuestros canales y enterate de las novedades operativas en Mar del Plata.</p>
+      </div>
+      <ul class="redes-list">
+        <li class="redes-row reveal">
+          <span class="redes-icon" aria-hidden="true"><i class="ph ph-facebook-logo"></i></span>
+          <div class="redes-body">
+            <h3>Facebook</h3>
+            <p class="redes-handle">Envíos DosRuedas</p>
+            <p class="redes-desc">Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.</p>
+          </div>
+          <a class="btn btn-outline redes-cta" href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer">Seguir en Facebook<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </li>
+        <li class="redes-row reveal">
+          <span class="redes-icon" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+          <div class="redes-body">
+            <h3>Instagram</h3>
+            <p class="redes-handle">@enviosdosruedas</p>
+            <p class="redes-desc">Mirá el detrás de escena de nuestros repartidores y la flota recorriendo Mar del Plata.</p>
+          </div>
+          <a class="btn btn-outline redes-cta" href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer">Ver Instagram<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </li>
+        <li class="redes-row reveal">
+          <span class="redes-icon redes-icon--wa" aria-hidden="true"><i class="ph ph-whatsapp-logo"></i></span>
+          <div class="redes-body">
+            <h3>WhatsApp</h3>
+            <p class="redes-handle mono">+54 223 660-2699</p>
+            <p class="redes-desc">Escribinos para consultas, contrataciones o soporte.</p>
+          </div>
+          <a class="btn btn-outline redes-cta" href="https://wa.me/542236602699" target="_blank" rel="noopener noreferrer">Iniciar chat<span class="sr-only"> (se abre en otra pestaña)</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER institucional azul (igual que ramp.html; links entre prototipos) -->
+<footer class="site-footer on-blue" id="footer">
+  <div class="container">
+    <div class="foot-cta">
+      <div>
+        <h2>¿Tenés envíos para hoy?</h2>
+        <p>Cotizá online o coordiná directo con nuestro equipo por WhatsApp.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" id="footer-cta" data-cta-zone href="ramp-cotizar.html" data-nav="cotizar">Cotizá tu envío</a>
+        <a class="btn btn-outline-light" href="https://wa.me/542236602699?text=Hola%20Env%C3%ADos%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20env%C3%ADos" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Escribinos por WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="foot-cols">
+      <div class="foot-brand">
+        <a class="brand" href="ramp.html" aria-label="Envíos DosRuedas, ir al inicio">
+          <img src="../../../public/logo-envios-simplified.webp" width="40" height="40" loading="lazy" alt="Logo Envíos DosRuedas">
+          <span>Envíos DosRuedas</span>
+        </a>
+        <p>Más de 7 años de mensajería en moto en Mar del Plata, para emprendedores, pymes y comercios locales, con flota propia.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener" aria-label="Instagram @enviosdosruedas"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/enviosdosruedas" target="_blank" rel="noopener" aria-label="Facebook Envíos DosRuedas"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a>
+          <a href="https://wa.me/542236602699" target="_blank" rel="noopener" aria-label="WhatsApp +54 223 660-2699"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <nav aria-labelledby="f-servicios">
+        <h2 id="f-servicios">Servicios</h2>
+        <ul class="foot-list">
+          <li><a href="ramp-envios-express.html" data-nav="express">Envíos Express</a></li>
+          <li><a href="/servicios/envios-lowcost">Envíos LowCost</a></li>
+          <li><a href="/servicios/enviosflex">Mercado Envíos Flex</a></li>
+          <li><a href="/servicios/empresas-cuenta-corriente">Cuenta Corriente Flexible</a></li>
+          <li><a href="/servicios#ecommerce-24hs">E-commerce 24HS</a></li>
+          <li><a href="/servicios/deposito-fulfillment">E-commerce Same Day</a></li>
+          <li><a href="/servicios">Ver todos los servicios</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Base de operaciones</h2>
+        <ul class="foot-list">
+          <li><span class="row"><i class="ph ph-map-pin" aria-hidden="true"></i>Depósito: Friuli 1972, Mar del Plata</span></li>
+          <li><a href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i><span class="mono">+54 223 660-2699</span></a></li>
+          <li><a href="mailto:matiascejas@enviosdosruedas.com"><i class="ph ph-envelope-simple" aria-hidden="true"></i>matiascejas@enviosdosruedas.com</a></li>
+        </ul>
+        <div class="foot-hours" aria-label="Horarios de atención">
+          <div><span>Lunes a viernes</span><span class="mono">09:00 a 18:00 hs</span></div>
+          <div><span>Sábados</span><span class="mono">10:00 a 15:00 hs</span></div>
+          <div><span>Domingos</span><span>Cerrado</span></div>
+        </div>
+      </div>
+      <nav aria-labelledby="f-nosotros">
+        <h2 id="f-nosotros">Nosotros</h2>
+        <ul class="foot-list">
+          <li><a href="ramp.html" data-nav="inicio">Inicio</a></li>
+          <li><a href="ramp-sobre-nosotros.html" data-nav="nosotros">Sobre nosotros</a></li>
+          <li><a href="/nosotros/preguntas-frecuentes">Preguntas frecuentes</a></li>
+          <li><a href="/nosotros/nuestras-redes">Nuestras redes</a></li>
+          <li><a href="/cobertura">Cobertura</a></li>
+          <li><a href="/guias/envios-flex-mar-del-plata">Guía Mercado Libre Flex</a></li>
+          <li><a href="ramp-contacto.html" data-nav="contacto" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="foot-bottom">
+      <p>© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</p>
+      <ul>
+        <li><a href="/terminos-y-condiciones">Términos y condiciones</a></li>
+        <li><a href="/politica-de-privacidad">Política de privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* JS utilitario compartido con ramp.html: anuncio, header con sentinel, un solo CTA amarillo, reveal y menú mobile. */
+(function () {
+  'use strict';
+  var d = document;
+  d.documentElement.classList.add('js');
+
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  window.DR = { reduced: function () { return mq.matches; } };
+
+  /* Barra de anuncio cerrable */
+  var announce = d.getElementById('announce');
+  d.getElementById('announce-close').addEventListener('click', function () {
+    announce.hidden = true;
+    d.getElementById('main-content').focus({ preventScroll: true });
+  });
+
+  /* Header: estado al scrollear con sentinel (sin listener de scroll) */
+  var header = d.getElementById('site-header');
+  var sentinel = d.getElementById('header-sentinel');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      header.classList.toggle('is-scrolled', !entries[0].isIntersecting);
+    }).observe(sentinel);
+  }
+
+  /* Un solo CTA amarillo por pantalla: el del header se enciende solo si no hay otro visible */
+  var headerCta = d.getElementById('header-cta');
+  var zones = d.querySelectorAll('[data-cta-zone]');
+  var visibleZones = new Set();
+  var footerCta = d.getElementById('footer-cta');
+  function syncHeaderCta() {
+    var on = visibleZones.size === 0;
+    headerCta.classList.toggle('btn-primary', on);
+    headerCta.classList.toggle('btn-outline-light', !on);
+    /* Si el CTA final de la página y el del footer entran juntos, el del footer pasa a outline */
+    var otherVisible = false;
+    visibleZones.forEach(function (z) { if (z !== footerCta) otherVisible = true; });
+    footerCta.classList.toggle('btn-primary', !otherVisible);
+    footerCta.classList.toggle('btn-outline-light', otherVisible);
+  }
+  if ('IntersectionObserver' in window) {
+    var ctaObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { visibleZones.add(e.target); } else { visibleZones.delete(e.target); }
+      });
+      syncHeaderCta();
+    }, { rootMargin: '-64px 0px 0px 0px' });
+    zones.forEach(function (z) { ctaObserver.observe(z); });
+  }
+
+  /* Reveal de secciones */
+  var reveals = d.querySelectorAll('.reveal');
+  function showAll() { reveals.forEach(function (el) { el.classList.add('is-visible'); }); }
+  if (mq.matches || !('IntersectionObserver' in window)) {
+    showAll();
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    reveals.forEach(function (el) { revealObserver.observe(el); });
+  }
+  mq.addEventListener('change', function (e) { if (e.matches) showAll(); });
+
+  /* Menú mobile accesible */
+  var toggle = d.getElementById('menu-toggle');
+  var drawer = d.getElementById('mobile-menu');
+  var backdrop = d.getElementById('drawer-backdrop');
+  var closeBtn = d.getElementById('menu-close');
+  function focusables() {
+    return Array.prototype.slice.call(drawer.querySelectorAll('a[href], button:not([disabled])'));
+  }
+  function openMenu() {
+    drawer.removeAttribute('inert');
+    drawer.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Cerrar menú');
+    d.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function closeMenu() {
+    drawer.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    drawer.setAttribute('inert', '');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menú');
+    d.body.style.overflow = '';
+    toggle.focus();
+  }
+  toggle.addEventListener('click', function () {
+    if (toggle.getAttribute('aria-expanded') === 'true') { closeMenu(); } else { openMenu(); }
+  });
+  closeBtn.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  drawer.addEventListener('click', function (e) { if (e.target.closest('a[href]')) closeMenu(); });
+  d.addEventListener('keydown', function (e) {
+    if (!drawer.classList.contains('is-open')) return;
+    if (e.key === 'Escape') { e.preventDefault(); closeMenu(); return; }
+    if (e.key === 'Tab') {
+      var f = focusables();
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && d.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', function (e) {
+    if (e.matches && drawer.classList.contains('is-open')) closeMenu();
+  });
+})();
+
+</script>
+<script>
+/* Contacto: validación y derivación a WhatsApp.
+   Número: el formulario real (ContactForm.tsx) usa buildWhatsAppUrl con WHATSAPP_PHONE = '542236602699' (src/lib/whatsapp.ts).
+   INCONSISTENCIA 54/549: la home (CtaSection.tsx) usa wa.me/5492236602699 y el asistente dice "+54 9 223 660-2699".
+   El formato canónico de wa.me para un celular argentino lleva el 9; decidir con el dueño y unificar en una sola constante. */
+(function () {
+  'use strict';
+  var d = document;
+  var WA = 'https://wa.me/542236602699';
+  var form = d.getElementById('contact-form');
+  var submit = d.getElementById('contact-submit');
+  var success = d.getElementById('contact-success');
+  var waLink = d.getElementById('contact-wa-link');
+  var nombre = d.getElementById('c-nombre');
+  var err = d.getElementById('c-nombre-error');
+
+  function setError(msg) {
+    nombre.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    err.innerHTML = msg ? '<i class="ph ph-warning-circle" aria-hidden="true"></i><span>' + msg + '</span>' : '';
+  }
+  nombre.addEventListener('input', function () { if (nombre.value.trim()) setError(''); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var n = nombre.value.trim();
+    if (!n) { setError('Ingresá tu nombre para iniciar el contacto.'); nombre.focus(); return; }
+    setError('');
+    var empresa = form.elements.empresa.value.trim();
+    var volumen = form.elements.volumen.value;
+    var text = '¡Hola Envíos DosRuedas! Vengo del sitio web. Mi nombre es *' + n + '*';
+    if (empresa) text += ' de la empresa *' + empresa + '*';
+    text += '.';
+    if (volumen) text += ' Volumen mensual estimado: ' + volumen + '.';
+    text += ' Quisiera recibir una cotización. [ref: formulario_contacto]';
+    var url = WA + '?text=' + encodeURIComponent(text);
+
+    /* Estado enviando: botón deshabilitado con texto de estado */
+    submit.disabled = true;
+    submit.querySelector('span').textContent = 'Abriendo WhatsApp…';
+    Array.prototype.forEach.call(form.elements, function (el) { if (el !== submit) el.disabled = true; });
+
+    window.setTimeout(function () {
+      window.open(url, '_blank', 'noopener');
+      waLink.href = url;
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+    }, window.DR.reduced() ? 0 : 400);
+  });
+
+  d.getElementById('contact-reset').addEventListener('click', function () {
+    form.reset();
+    Array.prototype.forEach.call(form.elements, function (el) { el.disabled = false; });
+    submit.querySelector('span').textContent = 'Escribinos por WhatsApp';
+    success.hidden = true;
+    form.hidden = false;
+    nombre.focus();
+  });
+
+  /* Copiar teléfono con aviso para lectores de pantalla */
+  var copyBtn = d.getElementById('copy-phone');
+  var status = d.getElementById('copy-status');
+  copyBtn.addEventListener('click', function () {
+    var done = function (ok) {
+      status.textContent = ok ? 'Teléfono copiado al portapapeles.' : 'No pudimos copiarlo: seleccioná el número y copialo.';
+      copyBtn.innerHTML = ok ? '<i class="ph ph-check" aria-hidden="true"></i>' : '<i class="ph ph-copy" aria-hidden="true"></i>';
+      window.setTimeout(function () {
+        status.textContent = '';
+        copyBtn.innerHTML = '<i class="ph ph-copy" aria-hidden="true"></i>';
+      }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText('+54 223 660-2699').then(function () { done(true); }, function () { done(false); });
+    } else { done(false); }
+  });
+})();
+</script>
+</body>
+</html>
