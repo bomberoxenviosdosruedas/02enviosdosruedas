@@ -1,0 +1,86 @@
+/* Propuesta figma adaptada a Envíos DosRuedas. No es el @theme de producción (src/app/globals.css). */
+@theme {
+  /* Colores */
+  --color-ink: #0950F6;
+  --color-paper: #FFFFFF;
+  --color-mist: #E6EEFE;
+  --color-ink-muted: #0950F6;
+  --color-signal: #FFEC01;
+  --color-signal-hover: #FFF12E;
+  --color-signal-pressed: #E6D400;
+  --color-collage-blue-bright: #3570F8;
+  --color-collage-blue-soft: #628FF9;
+  --color-collage-spark: #FFEC01;
+  --color-wash-yellow: #FFFAB8;
+  --color-wash-blue-100: #BACEFD;
+  --color-wash-blue-200: #8EAFFB;
+  --color-wash-blue-50: #E6EEFE;
+  --color-ring-blue: #3570F8;
+  --color-ring-spark: #FFEC01;
+  --color-border: #BACEFD;
+  --color-border-input: #628FF9;
+  --color-border-hover: #8EAFFB;
+  --color-error: #EF4444;
+  --color-error-text: #DC2626;
+
+  /* Tipografía */
+  --font-display: var(--font-anton), 'Anton', Impact, sans-serif;
+  --font-subheading: var(--font-bebas), 'Bebas Neue', sans-serif;
+  --font-sans: var(--font-outfit), 'Outfit', sans-serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace;
+
+  /* Tipografía: escala */
+  --text-caption: 12px;
+  --text-caption--line-height: 1.3;
+  --text-caption--letter-spacing: 0.05em;
+  --text-body-sm: 16px;
+  --text-body-sm--line-height: 1.5;
+  --text-body: 18px;
+  --text-body--line-height: 1.55;
+  --text-label: 16px;
+  --text-label--line-height: 1;
+  --text-label--letter-spacing: 0.08em;
+  --text-heading: 28px;
+  --text-heading--line-height: 1.1;
+  --text-heading--letter-spacing: 0.05em;
+  --text-heading-lg: 64px;
+  --text-heading-lg--line-height: 0.9;
+  --text-heading-lg--letter-spacing: -0.02em;
+  --text-heading-lg-mobile: 44px;
+  --text-heading-lg-mobile--line-height: 0.9;
+  --text-heading-lg-mobile--letter-spacing: -0.02em;
+  --text-display: 96px;
+  --text-display--line-height: 0.88;
+  --text-display--letter-spacing: -0.03em;
+  --text-display-mobile: 56px;
+  --text-display-mobile--line-height: 0.9;
+  --text-display-mobile--letter-spacing: -0.02em;
+
+  /* Espaciado */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-56: 56px;
+  --spacing-60: 60px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+  --spacing-120: 120px;
+  --spacing-180: 180px;
+
+  /* Radios */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Sombras */
+  --shadow-float: rgba(9, 80, 246, 0.12) 0px 24px 70px 0px;
+}

@@ -1,0 +1,86 @@
+/* Propuesta Ramp adaptada a Envíos DosRuedas. No es el @theme de producción (src/app/globals.css). */
+@theme {
+  /* Colores */
+  --color-highlighter-yellow: #FFEC01;
+  --color-highlighter-yellow-hover: #FFF12E;
+  --color-highlighter-yellow-pressed: #E6D400;
+  --color-highlighter-yellow-tint: #FFFAB8;
+  --color-ink: #0950F6;
+  --color-obsidian: #0950F6;
+  --color-obsidian-raised: #3570F8;
+  --color-paper: #FFFFFF;
+  --color-bone: #E6EEFE;
+  --color-ash: #0950F6;
+  --color-hairline: #BACEFD;
+  --color-hairline-hover: #8EAFFB;
+  --color-input-border: #628FF9;
+  --color-smoke: #E6EEFE;
+  --color-error-border: #EF4444;
+  --color-error-text: #DC2626;
+
+  /* Tipografía */
+  --font-display: var(--font-anton), 'Anton', Impact, sans-serif;
+  --font-subheading: var(--font-bebas), 'Bebas Neue', sans-serif;
+  --font-sans: var(--font-outfit), 'Outfit', sans-serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace;
+
+  /* Tipografía: escala */
+  --text-micro: 10px;
+  --text-micro--line-height: 1.5;
+  --text-micro--letter-spacing: 0.05em;
+  --text-caption: 12px;
+  --text-caption--line-height: 1.6;
+  --text-caption--letter-spacing: 0.1em;
+  --text-small: 14px;
+  --text-small--line-height: 1.5;
+  --text-body: 16px;
+  --text-body--line-height: 1.5;
+  --text-lead: 18px;
+  --text-lead--line-height: 1.55;
+  --text-subheading: 24px;
+  --text-subheading--line-height: 1.05;
+  --text-subheading--letter-spacing: 0.05em;
+  --text-heading-sm: 28px;
+  --text-heading-sm--line-height: 1;
+  --text-heading-sm--letter-spacing: 0.05em;
+  --text-heading: 36px;
+  --text-heading--line-height: 0.9;
+  --text-heading--letter-spacing: -0.02em;
+  --text-heading-lg: 48px;
+  --text-heading-lg--line-height: 0.9;
+  --text-heading-lg--letter-spacing: -0.02em;
+  --text-display-sm: 56px;
+  --text-display-sm--line-height: 0.85;
+  --text-display-sm--letter-spacing: -0.03em;
+  --text-display: 80px;
+  --text-display--line-height: 0.85;
+  --text-display--letter-spacing: -0.04em;
+
+  /* Espaciado */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-96: 96px;
+  --spacing-128: 128px;
+  --spacing-156: 156px;
+
+  /* Radios */
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+
+  /* Sombras */
+  --shadow-subtle: rgba(255, 255, 255, 0.6) 0px 0px 2px 0px inset;
+  --shadow-float: 0px 24px 48px -24px rgba(9, 80, 246, 0.18);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

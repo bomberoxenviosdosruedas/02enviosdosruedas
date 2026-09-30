@@ -1,0 +1,1195 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Envíos DosRuedas | Propuesta Ramp</title>
+<meta name="description" content="Mensajería en moto y logística e-commerce en Mar del Plata. Express en franja de 3 hs a elección, Mercado Envíos Flex en el día y LowCost para comercios y particulares.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400&family=Outfit:wght@400..600&display=swap">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+/* Propuesta Ramp adaptada a Envíos DosRuedas (docs/propuestas/disenos_adaptados_envios/Ramp/variables.css).
+   Prototipo estático: no es el @theme de producción. Las familias se declaran directo porque
+   las variables next/font (--font-anton, etc.) no existen fuera de la app. */
+:root {
+  --color-highlighter-yellow: #FFEC01;
+  --color-highlighter-yellow-hover: #FFF12E;
+  --color-highlighter-yellow-pressed: #E6D400;
+  --color-highlighter-yellow-tint: #FFFAB8;
+  --color-ink: #0950F6;
+  --color-obsidian: #0950F6;
+  --color-obsidian-raised: #3570F8;
+  --color-paper: #FFFFFF;
+  --color-bone: #E6EEFE;
+  --color-ash: #0950F6;
+  --color-ash-on-blue: rgba(255, 255, 255, 0.85);
+  --color-hairline: #BACEFD;
+  --color-hairline-hover: #8EAFFB;
+  --color-input-border: #628FF9;
+  --color-smoke: #E6EEFE;
+  --color-hairline-on-blue: rgba(255, 255, 255, 0.12);
+  --color-glass-on-blue: rgba(255, 255, 255, 0.06);
+  --color-error-border: #EF4444;
+  --color-error-text: #DC2626;
+
+  --font-display: 'Anton', Impact, sans-serif;
+  --font-subheading: 'Bebas Neue', sans-serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  --text-micro: 10px;
+  --text-caption: 12px;
+  --tracking-caption: 0.1em;
+  --text-small: 14px;
+  --text-body: 16px;
+  --leading-body: 1.5;
+  --text-lead: 18px;
+  --leading-lead: 1.55;
+  --text-subheading: 24px;
+  --text-heading-sm: 28px;
+  --text-heading: 36px;
+  --text-heading-lg: 48px;
+  --text-display-sm: 56px;
+  --text-display: 80px;
+  --leading-display: 0.85;
+  --tracking-display: -0.04em;
+
+  --page-max-width: 1280px;
+  --section-gap: 96px;
+  --section-gap-min: 64px;
+  --card-padding-min: 20px;
+  --card-padding-max: 24px;
+  --element-gap: 8px;
+  --touch-target-min: 44px;
+  --nav-height: 64px;
+  --announcement-height: 40px;
+
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+
+  --shadow-subtle: rgba(255, 255, 255, 0.6) 0px 0px 2px 0px inset;
+  --shadow-float: 0px 24px 48px -24px rgba(9, 80, 246, 0.18);
+
+  --duration-fast: 300ms;
+  --duration-base: 400ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --blur-overlay: 25px;
+  --blur-nav: 12px;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --duration-fast: 0ms; --duration-base: 0ms; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-weight: 400;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+button, input, select { font: inherit; color: inherit; }
+.display, .h2, .bebas, h1, h2, h3, .btn {
+  font-weight: 400;
+  font-synthesis: none;
+}
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 400; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.container { width: 100%; max-width: var(--page-max-width); margin-inline: auto; padding-inline: 16px; }
+@media (min-width: 768px) { .container { padding-inline: 32px; } }
+
+:focus-visible { outline: 2px solid #0950F6; outline-offset: 2px; }
+.on-blue :focus-visible { outline-color: #FFFFFF; }
+
+/* Skip link */
+.skip-link {
+  position: absolute; left: 16px; top: -64px; z-index: 100;
+  background: var(--color-paper); color: var(--color-ink);
+  border: 1px solid var(--color-hairline); border-radius: var(--radius-md);
+  padding: 10px 16px; font-family: var(--font-subheading); letter-spacing: 0.06em;
+  text-transform: uppercase; text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+/* Botones */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: var(--touch-target-min); padding: 0 20px;
+  border-radius: var(--radius-md); border: 1px solid transparent;
+  font-family: var(--font-subheading); font-size: 18px; letter-spacing: 0.06em;
+  text-transform: uppercase; text-decoration: none; line-height: 1; cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+.btn i { font-size: 18px; }
+.btn-primary { background: var(--color-highlighter-yellow); color: var(--color-ink); }
+.btn-primary:hover { background: var(--color-highlighter-yellow-hover); }
+.btn-primary:active { background: var(--color-highlighter-yellow-pressed); }
+.btn-outline { background: transparent; border-color: var(--color-ink); color: var(--color-ink); padding: 0 16px; }
+.btn-outline:hover { background: var(--color-bone); }
+.btn-outline-light { background: transparent; border-color: rgba(255, 255, 255, 0.6); color: #FFFFFF; padding: 0 16px; }
+.btn-outline-light:hover { border-color: #FFFFFF; background: var(--color-glass-on-blue); }
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 6px; min-height: var(--touch-target-min);
+  font-family: var(--font-subheading); font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px;
+  text-decoration-color: var(--color-hairline);
+  transition: text-decoration-color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+  border-radius: var(--radius-md);
+}
+.link-arrow:hover { text-decoration-color: var(--color-ink); }
+.icon-btn {
+  display: inline-grid; place-items: center; width: 44px; height: 44px;
+  border-radius: var(--radius-xl); border: 0; background: var(--color-bone); color: var(--color-ink);
+  cursor: pointer; font-size: 20px; transition: background-color var(--duration-fast) var(--ease-out);
+}
+.icon-btn:hover { background: var(--color-hairline); }
+.icon-btn[disabled] { opacity: 0.45; cursor: default; }
+
+/* Tipografía de sección */
+.h2 {
+  font-family: var(--font-display); text-transform: uppercase;
+  font-size: clamp(36px, 5vw, var(--text-heading-lg)); line-height: 0.95; letter-spacing: -0.02em;
+  padding-top: 0.06em;
+}
+.h3 {
+  font-family: var(--font-subheading); text-transform: uppercase;
+  font-size: var(--text-heading-sm); line-height: 1; letter-spacing: 0.05em;
+}
+.caption {
+  font-family: var(--font-subheading); text-transform: uppercase;
+  font-size: 14px; letter-spacing: var(--tracking-caption); line-height: 1.4;
+}
+.lead { font-size: var(--text-lead); line-height: var(--leading-lead); }
+.section { padding-block: var(--section-gap-min); }
+@media (min-width: 1024px) { .section { padding-block: var(--section-gap); } }
+
+/* Reveal (solo opacity y transform) */
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out); }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Barra de anuncio ---------- */
+.announce {
+  background: var(--color-paper); border-bottom: 1px solid var(--color-hairline);
+  min-height: var(--announcement-height); font-size: var(--text-small);
+}
+.announce .container { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--announcement-height); padding-block: 4px; }
+.announce p { text-align: center; }
+.announce a { text-underline-offset: 3px; display: inline-block; padding-block: 2px; }
+.announce-close {
+  flex: none; width: 44px; height: 44px; margin-block: -2px; border: 0; background: transparent;
+  color: var(--color-ink); cursor: pointer; border-radius: var(--radius-md); display: grid; place-items: center; font-size: 18px;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.announce-close:hover { background: var(--color-bone); }
+.announce[hidden] { display: none; }
+
+/* ---------- Header ---------- */
+#header-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 48px; pointer-events: none; }
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--color-obsidian); color: #FFFFFF;
+  border-bottom: 1px solid var(--color-hairline-on-blue);
+  transition: background-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+.site-header.is-scrolled {
+  background: rgba(9, 80, 246, 0.92);
+  -webkit-backdrop-filter: blur(var(--blur-nav)); backdrop-filter: blur(var(--blur-nav));
+  box-shadow: var(--shadow-subtle);
+}
+.nav-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: var(--nav-height); }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; min-height: 44px; border-radius: var(--radius-md); }
+.brand img { width: 40px; height: 40px; border-radius: 50%; }
+.brand span { font-family: var(--font-display); font-size: 22px; letter-spacing: -0.01em; text-transform: uppercase; line-height: 1; }
+.nav-links { display: none; align-items: center; gap: 4px; }
+.nav-links a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: var(--radius-md);
+  font-family: var(--font-subheading); font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  color: #FFFFFF; transition: background-color var(--duration-fast) var(--ease-out);
+}
+.nav-links a:hover { background: var(--color-glass-on-blue); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.nav-phone { display: none; align-items: center; gap: 8px; min-height: 44px; padding: 0 8px; text-decoration: none; font-size: 15px; border-radius: var(--radius-md); }
+.nav-phone i { font-size: 18px; }
+#header-cta { display: none; }
+.menu-btn, .call-btn {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius-md);
+  border: 1px solid var(--color-hairline-on-blue); background: transparent; color: #FFFFFF; font-size: 22px; cursor: pointer; text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.menu-btn:hover, .call-btn:hover { background: var(--color-glass-on-blue); }
+@media (min-width: 1024px) {
+  .nav-links, .nav-phone { display: inline-flex; }
+  #header-cta { display: inline-flex; }
+  .menu-btn, .call-btn { display: none; }
+}
+
+/* Drawer mobile */
+.drawer-backdrop {
+  position: fixed; inset: 0; z-index: 60; background: rgba(9, 80, 246, 0.35);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  opacity: 0; pointer-events: none; transition: opacity var(--duration-base) var(--ease-out);
+}
+.drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 70; width: min(340px, 88vw);
+  background: var(--color-paper); color: var(--color-ink); border-left: 1px solid var(--color-hairline);
+  display: flex; flex-direction: column; transform: translateX(100%); visibility: hidden;
+  transition: transform var(--duration-base) var(--ease-out), visibility 0s linear var(--duration-base);
+}
+.drawer.is-open { transform: none; visibility: visible; transition: transform var(--duration-base) var(--ease-out), visibility 0s; }
+.drawer-backdrop.is-open { opacity: 1; pointer-events: auto; }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid var(--color-hairline); }
+.drawer-body { flex: 1; overflow-y: auto; padding: 8px 16px 24px; }
+.drawer-group { padding-block: 12px; border-bottom: 1px solid var(--color-hairline); }
+.drawer-group:last-child { border-bottom: 0; }
+.drawer-group p { margin-bottom: 4px; }
+.drawer a.drawer-link { display: flex; align-items: center; min-height: 44px; text-decoration: none; font-size: 17px; border-radius: var(--radius-md); padding-inline: 8px; margin-inline: -8px; }
+.drawer a.drawer-link:hover { background: var(--color-bone); }
+.drawer-foot { padding: 16px; border-top: 1px solid var(--color-hairline); display: grid; gap: 8px; }
+.drawer-foot .btn { width: 100%; }
+
+/* ---------- Hero ---------- */
+.hero { padding-top: 48px; padding-bottom: 48px; }
+@media (min-width: 1024px) {
+  /* 104px = barra de anuncio + nav; 56px = banda del contador que cierra el primer viewport */
+  .hero { min-height: calc(100dvh - 104px - 56px); display: flex; align-items: center; padding-top: 64px; padding-bottom: 64px; }
+}
+.hero-grid { display: grid; gap: 40px; align-items: center; }
+@media (min-width: 1024px) { .hero-grid { grid-template-columns: 7fr 5fr; gap: 48px; } }
+.hero h1 {
+  font-family: var(--font-display); text-transform: uppercase;
+  font-size: clamp(56px, 7vw, var(--text-display)); line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display); padding-top: 0.08em; line-height: 0.92;
+}
+.hero .lead { margin-top: 24px; max-width: 44ch; }
+.hero-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-figure {
+  border: 1px solid var(--color-hairline); border-radius: var(--radius-2xl); background: var(--color-bone);
+  padding: 24px; max-width: 480px; justify-self: end; width: 100%; box-shadow: var(--shadow-float);
+}
+.hero-figure img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; }
+@media (max-width: 1023px) { .hero-figure { justify-self: start; max-width: 360px; } }
+
+/* ---------- Live counter ticker ---------- */
+.ticker { background: var(--color-obsidian); color: #FFFFFF; border-top: 1px solid var(--color-hairline-on-blue); }
+.ticker-inner { display: flex; align-items: center; min-height: 56px; }
+.ticker-viewport { flex: 1; overflow: hidden; min-width: 0; }
+.ticker-track { display: flex; width: max-content; animation: ticker 48s linear infinite; }
+.ticker.is-paused .ticker-track { animation-play-state: paused; }
+.ticker-list { display: flex; }
+.ticker-list li { display: flex; align-items: baseline; gap: 12px; padding: 16px 32px 16px 0; margin-right: 32px; border-right: 1px solid var(--color-hairline-on-blue); white-space: nowrap; }
+.ticker-label { font-family: var(--font-subheading); font-size: 14px; letter-spacing: var(--tracking-caption); text-transform: uppercase; color: var(--color-ash-on-blue); }
+.ticker-value { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 15px; color: #FFFFFF; }
+.ticker-toggle {
+  flex: none; margin-left: 8px; width: 44px; height: 44px; border-radius: var(--radius-md);
+  border: 1px solid var(--color-hairline-on-blue); background: transparent; color: #FFFFFF; cursor: pointer; font-size: 18px;
+  display: grid; place-items: center; transition: background-color var(--duration-fast) var(--ease-out);
+}
+.ticker-toggle:hover { background: var(--color-glass-on-blue); }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; width: auto; }
+  .ticker-list { flex-wrap: wrap; row-gap: 0; }
+  .ticker-list[aria-hidden="true"], .ticker-toggle { display: none; }
+  .ticker-viewport { overflow: visible; }
+}
+
+/* ---------- Segmentos (tabla editorial) ---------- */
+.seg-head { display: grid; gap: 16px; max-width: 760px; }
+.seg-head p { font-size: var(--text-lead); line-height: var(--leading-lead); }
+.seg-table { margin-top: 48px; border-top: 1px solid var(--color-hairline); }
+.seg-row {
+  display: grid; gap: 12px; padding-block: 24px; border-bottom: 1px solid var(--color-hairline);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+@media (min-width: 900px) {
+  .seg-row { grid-template-columns: 56px minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr); gap: 24px; align-items: start; padding-block: 32px; }
+  .seg-row .link-arrow { justify-self: end; }
+}
+.seg-row:hover { background: var(--color-bone); }
+.seg-icon { width: 44px; height: 44px; border-radius: var(--radius-xl); background: var(--color-bone); display: grid; place-items: center; font-size: 22px; }
+.seg-row:hover .seg-icon { background: var(--color-paper); }
+
+
+/* ---------- Servicios (grilla hairline + cita) ---------- */
+.svc-head { display: grid; gap: 12px; max-width: 760px; margin-bottom: 48px; }
+.eyebrow { font-family: var(--font-subheading); text-transform: uppercase; font-size: 16px; letter-spacing: var(--tracking-caption); }
+.svc-grid {
+  display: grid; grid-template-columns: 1fr;
+  border: 1px solid var(--color-hairline); border-radius: var(--radius-2xl); overflow: hidden;
+}
+@media (min-width: 700px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) {
+  .svc-grid { grid-template-columns: repeat(4, 1fr); }
+  .svc-quote { grid-column: 4; grid-row: 1 / span 2; }
+}
+.svc {
+  display: flex; flex-direction: column; gap: 12px; padding: var(--card-padding-max);
+  border-bottom: 1px solid var(--color-hairline); border-right: 1px solid var(--color-hairline);
+  margin: 0 -1px -1px 0; background: var(--color-paper);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.svc:hover { background: var(--color-bone); }
+.svc h3 { font-family: var(--font-subheading); text-transform: uppercase; font-size: var(--text-subheading); letter-spacing: 0.05em; line-height: 1.05; }
+.svc p { font-size: 16px; }
+.svc-data { display: grid; gap: 0; margin-top: auto; border-top: 1px solid var(--color-hairline); }
+.svc-data div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-block: 8px; border-bottom: 1px solid var(--color-hairline); }
+.svc-data dt { font-family: var(--font-subheading); text-transform: uppercase; font-size: 14px; letter-spacing: var(--tracking-caption); }
+.svc-data dd { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 15px; text-align: right; }
+.svc-data dd.txt { font-family: var(--font-sans); font-size: 15px; }
+.svc-wash { background: var(--color-bone); }
+.svc-wash:hover { background: var(--color-bone); }
+.svc-wash img { width: 96px; height: 96px; object-fit: contain; }
+.svc-quote {
+  background: var(--color-obsidian); color: #FFFFFF; justify-content: space-between; gap: 24px;
+}
+.svc-quote:hover { background: var(--color-obsidian); }
+.svc-quote blockquote { margin: 0; font-family: var(--font-display); text-transform: uppercase; font-size: 36px; line-height: 0.95; letter-spacing: -0.02em; padding-top: 0.06em; }
+.svc-quote figcaption { color: var(--color-ash-on-blue); font-size: 16px; }
+.svc-quote .quote-context { color: var(--color-ash-on-blue); font-size: 16px; }
+.svc-notes { display: grid; gap: 12px; margin-top: 24px; }
+@media (min-width: 900px) { .svc-notes { grid-template-columns: repeat(2, 1fr); } }
+.wash-card { border-radius: var(--radius-xl); background: var(--color-bone); padding: 1px; }
+.wash-card > div { border-radius: 11px; padding: 20px; display: flex; gap: 16px; align-items: flex-start; }
+.wash-card i { font-size: 24px; flex: none; margin-top: 2px; }
+
+/* ---------- Emprendedores (split editorial) ---------- */
+.emp-grid { display: grid; gap: 48px; }
+@media (min-width: 1024px) { .emp-grid { grid-template-columns: 7fr 5fr; gap: 64px; align-items: start; } }
+.emp-copy .lead { margin-top: 20px; max-width: 56ch; }
+.emp-main { margin-top: 40px; border: 1px solid var(--color-hairline); border-radius: var(--radius-2xl); padding: var(--card-padding-max); transition: border-color var(--duration-fast) var(--ease-out); }
+.emp-main:hover { border-color: var(--color-hairline-hover); }
+.emp-main p { margin-top: 12px; }
+.check-list { margin-top: 20px; display: grid; gap: 10px; }
+.check-list li { display: flex; gap: 12px; align-items: flex-start; }
+.check-list i { font-size: 20px; margin-top: 2px; flex: none; }
+.emp-rows { margin-top: 24px; border-top: 1px solid var(--color-hairline); }
+.emp-row { display: grid; gap: 8px; padding-block: 24px; border-bottom: 1px solid var(--color-hairline); }
+@media (min-width: 700px) { .emp-row { grid-template-columns: minmax(0, 1fr) auto; column-gap: 24px; } .emp-row .link-arrow { grid-column: 2; grid-row: 1 / span 2; align-self: center; } }
+.emp-figure { border: 1px solid var(--color-hairline); border-radius: var(--radius-2xl); overflow: hidden; }
+@media (min-width: 1024px) { .emp-figure { position: sticky; top: 96px; } }
+.emp-figure img { width: 100%; aspect-ratio: 768 / 1408; object-fit: cover; max-height: 720px; }
+.brands { margin-top: 64px; }
+.brands-grid {
+  margin-top: 20px; display: grid; grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--color-hairline); border-left: 1px solid var(--color-hairline);
+}
+@media (min-width: 900px) { .brands-grid { grid-template-columns: repeat(5, 1fr); } }
+.brands-grid li {
+  border-right: 1px solid var(--color-hairline); border-bottom: 1px solid var(--color-hairline);
+  padding: 20px 16px; min-height: 80px; display: flex; align-items: center;
+  font-family: var(--font-subheading); font-size: 22px; letter-spacing: 0.05em; line-height: 1.05; text-transform: uppercase;
+}
+
+/* ---------- Prueba social ---------- */
+.proof-section { border-top: 1px solid var(--color-hairline); }
+.proof-head { display: grid; gap: 24px; }
+@media (min-width: 1024px) { .proof-head { grid-template-columns: minmax(0, 1fr) auto; align-items: end; } }
+.proof-head .lead { margin-top: 16px; max-width: 52ch; }
+.proof-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.rating-chip {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px;
+  border: 1px solid var(--color-hairline); border-radius: var(--radius-md); text-decoration: none;
+  transition: border-color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+}
+.rating-chip:hover { border-color: var(--color-hairline-hover); background: var(--color-bone); }
+.rating-chip .stars { display: inline-flex; gap: 2px; font-size: 16px; }
+.reviews {
+  margin-top: 40px; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(280px, 86%);
+  gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 16px;
+  scrollbar-color: var(--color-hairline) transparent; overscroll-behavior-x: contain;
+}
+@media (min-width: 700px) { .reviews { grid-auto-columns: calc((100% - 16px) / 2.2); } }
+@media (min-width: 1100px) { .reviews { grid-auto-columns: calc((100% - 48px) / 3.4); } }
+.review {
+  scroll-snap-align: start; border: 1px solid var(--color-hairline); border-radius: var(--radius-2xl);
+  padding: var(--card-padding-min); display: flex; flex-direction: column; gap: 16px; background: var(--color-paper);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+.review:hover { border-color: var(--color-hairline-hover); }
+.review .stars { display: flex; gap: 2px; font-size: 16px; }
+.review blockquote { margin: 0; font-size: 16px; line-height: 1.5; }
+.review footer { margin-top: auto; display: flex; align-items: center; gap: 12px; }
+.avatar { width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--color-bone); display: grid; place-items: center; font-family: var(--font-subheading); font-size: 20px; flex: none; }
+.review .who { font-weight: 500; font-size: 16px; line-height: 1.3; }
+.review .src { font-size: 14px; }
+
+/* ---------- CTA final ---------- */
+.cta-panel { border-radius: var(--radius-xl); background: var(--color-bone); padding: 1px; }
+.cta-inner { border-radius: 11px; padding: 32px 20px; }
+@media (min-width: 768px) { .cta-inner { padding: 48px; } }
+.cta-top { display: grid; gap: 16px; }
+@media (min-width: 1024px) { .cta-top { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: end; } }
+.cta-note { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.cta-form { margin-top: 32px; display: grid; gap: 16px; }
+@media (min-width: 1024px) { .cta-form { grid-template-columns: 1fr 1fr 1fr auto; align-items: start; } .cta-form .btn { margin-top: 26px; } }
+.field label { display: block; font-weight: 500; font-size: 15px; margin-bottom: 6px; }
+.field input, .field select {
+  width: 100%; height: 44px; border-radius: var(--radius-lg); border: 1px solid var(--color-input-border);
+  background: var(--color-paper); padding: 0 16px 0 16px; font-size: 16px; color: var(--color-ink);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+.field select { appearance: none; -webkit-appearance: none; padding-right: 40px; cursor: pointer; }
+.select-wrap { position: relative; }
+.select-wrap i { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: 16px; }
+.field input::placeholder { color: var(--color-ink); opacity: 0.8; }
+.field input:focus-visible, .field select:focus-visible { outline: 2px solid #0950F6; outline-offset: 2px; }
+.field input[aria-invalid="true"] { border-color: var(--color-error-border); }
+.field .error { color: var(--color-error-text); font-size: 14px; margin-top: 6px; min-height: 0; }
+.field .error:empty { display: none; }
+.cta-form .btn { width: 100%; }
+@media (min-width: 1024px) { .cta-form .btn { width: auto; } }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--color-obsidian); color: #FFFFFF; }
+.foot-cta { padding-block: 56px; border-bottom: 1px solid var(--color-hairline-on-blue); display: grid; gap: 24px; }
+@media (min-width: 1024px) { .foot-cta { grid-template-columns: minmax(0, 1fr) auto; align-items: end; } }
+.foot-cta h2 { font-family: var(--font-display); text-transform: uppercase; font-size: clamp(36px, 4.5vw, 48px); line-height: 0.9; letter-spacing: -0.02em; padding-top: 0.06em; }
+.foot-cta p { margin-top: 12px; color: var(--color-ash-on-blue); max-width: 52ch; }
+.foot-cta .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.foot-cols { display: grid; gap: 40px; padding-block: 56px; }
+@media (min-width: 768px) { .foot-cols { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .foot-cols { grid-template-columns: 4fr 3fr 3fr 2fr; } }
+.foot-cols h2 { font-family: var(--font-subheading); text-transform: uppercase; font-size: 16px; letter-spacing: var(--tracking-caption); color: var(--color-ash-on-blue); margin-bottom: 12px; }
+.foot-cols a { text-decoration: none; }
+.foot-cols a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.foot-list a, .foot-list span.row { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+.foot-list i { font-size: 18px; flex: none; }
+.foot-brand p { margin-top: 16px; color: var(--color-ash-on-blue); max-width: 40ch; }
+.foot-social { margin-top: 20px; display: flex; gap: 8px; }
+.foot-social a {
+  width: 44px; height: 44px; display: grid; place-items: center; border-radius: var(--radius-md);
+  border: 1px solid var(--color-hairline-on-blue); font-size: 20px; transition: background-color var(--duration-fast) var(--ease-out);
+}
+.foot-social a:hover { background: var(--color-glass-on-blue); text-decoration: none; }
+.foot-hours { display: grid; gap: 4px; margin-top: 4px; }
+.foot-hours div { display: flex; justify-content: space-between; gap: 16px; padding-block: 6px; border-bottom: 1px solid var(--color-hairline-on-blue); }
+.foot-bottom { border-top: 1px solid var(--color-hairline-on-blue); padding-block: 24px; display: grid; gap: 12px; font-size: 14px; color: var(--color-ash-on-blue); }
+@media (min-width: 1024px) { .foot-bottom { grid-template-columns: auto 1fr; align-items: center; } .foot-bottom ul { justify-content: flex-end; } }
+.foot-bottom ul { display: flex; flex-wrap: wrap; gap: 0 16px; }
+.foot-bottom a { display: inline-flex; min-height: 44px; align-items: center; text-decoration: none; color: var(--color-ash-on-blue); }
+.foot-bottom a:hover { color: #FFFFFF; text-decoration: underline; text-underline-offset: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+<div id="header-sentinel" aria-hidden="true"></div>
+
+<!-- Barra de anuncio (Ramp: franja superior blanca de 40px, cerrable) -->
+<div class="announce" id="announce" role="region" aria-label="Aviso de Envíos Express">
+  <div class="container">
+    <p>Express: elegí tu franja de 3 hs. Pedilo con 2 hs de anticipación, hasta las <span class="mono">15:00</span> hs. <a href="/servicios/envios-express">Mirá cómo funciona</a></p>
+    <button type="button" class="announce-close" id="announce-close" aria-label="Cerrar aviso"><i class="ph ph-x" aria-hidden="true"></i></button>
+  </div>
+</div>
+
+<!-- Header sticky azul con brillo interno al scrollear -->
+<header class="site-header on-blue" id="site-header">
+  <div class="container nav-row">
+    <a class="brand" href="/" aria-label="Envíos DosRuedas, ir al inicio">
+      <img src="../../../public/logo-envios-simplified.webp" width="40" height="40" alt="Logo Envíos DosRuedas">
+      <span>Envíos DosRuedas</span>
+    </a>
+    <nav aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/nosotros/sobre-nosotros">Nosotros</a></li>
+        <li><a href="/nosotros/preguntas-frecuentes">Preguntas frecuentes</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i><span class="mono">223 660-2699</span></a>
+      <!-- Outline blanco mientras haya otro CTA amarillo en pantalla; amarillo cuando no (un solo CTA primario por pantalla). -->
+      <a class="btn btn-outline-light" id="header-cta" href="/cotizar">Cotizá tu envío</a>
+      <a class="call-btn" href="tel:+542236602699" aria-label="Llamar al 223 660-2699"><i class="ph ph-phone" aria-hidden="true"></i></a>
+      <button type="button" class="menu-btn" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú"><i class="ph ph-list" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+<div class="drawer" id="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" inert>
+  <div class="drawer-head">
+    <p class="caption" id="mobile-menu-title">Menú principal</p>
+    <button type="button" class="icon-btn" id="menu-close" aria-label="Cerrar menú"><i class="ph ph-x" aria-hidden="true"></i></button>
+  </div>
+  <nav class="drawer-body" aria-label="Menú mobile">
+    <div class="drawer-group">
+      <a class="drawer-link" href="/">Inicio</a>
+    </div>
+    <div class="drawer-group">
+      <p class="caption">Servicios</p>
+      <a class="drawer-link" href="/servicios">Todos los servicios</a>
+      <a class="drawer-link" href="/servicios/envios-express">Envíos Express</a>
+      <a class="drawer-link" href="/servicios/envios-lowcost">Envíos LowCost</a>
+      <a class="drawer-link" href="/servicios/enviosflex">Envíos Flex (MeLi)</a>
+      <a class="drawer-link" href="/servicios/empresas-cuenta-corriente">Cuenta Corriente Flexible</a>
+      <a class="drawer-link" href="/servicios#ecommerce-24hs">E-commerce 24HS</a>
+      <a class="drawer-link" href="/servicios/deposito-fulfillment">E-commerce Same Day</a>
+    </div>
+    <div class="drawer-group">
+      <p class="caption">Nosotros</p>
+      <a class="drawer-link" href="/nosotros/sobre-nosotros">Sobre nosotros</a>
+      <a class="drawer-link" href="/nosotros/preguntas-frecuentes">Preguntas frecuentes</a>
+      <a class="drawer-link" href="/nosotros/nuestras-redes">Nuestras redes</a>
+    </div>
+    <div class="drawer-group">
+      <a class="drawer-link" href="/contacto">Contacto</a>
+    </div>
+  </nav>
+  <div class="drawer-foot">
+    <a class="btn btn-outline" href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i><span class="mono">+54 223 660-2699</span></a>
+    <a class="btn btn-primary" href="/cotizar">Cotizá tu envío</a>
+  </div>
+</div>
+
+<main id="main-content" tabindex="-1">
+
+  <!-- HERO: declaración tipográfica alineada a la izquierda + diorama en marco hairline (sin UI falsa) -->
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div>
+        <h1 id="hero-title">El motor de tu<br> última milla</h1>
+        <p class="lead">Mensajería en moto y logística e-commerce en Mar del Plata. Motos y repartidores propios, sin tercerizar.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" id="hero-cta" data-cta-zone href="/cotizar">Cotizá tu envío</a>
+          <a class="btn btn-outline" href="/servicios">Ver servicios</a>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <img src="../../../public/heroes/inicio-mapa.webp" width="560" height="560" fetchpriority="high"
+             alt="Pin de Envíos DosRuedas sobre un mapa isométrico de Mar del Plata con una ruta amarilla">
+      </figure>
+    </div>
+  </section>
+
+  <!-- LIVE COUNTER TICKER: único marquee de la página. Solo datos confirmados:
+       cortes (promises.ts: EXPRESS_CUTOFF_TIME, LOWCOST_CUTOFF_TIME, LOWCOST_DELIVERY_DEADLINE, FLEX_CUTOFF_TIME, FLEX_DELIVERY_DEADLINE),
+       peso sin recargo (STANDARD_WEIGHT_KG), 5.0 y +120 valoraciones (tarifas.md, prueba social autorizada).
+       "Envíos del mes" queda como [métrica] hasta tener dato aprobado por el dueño. -->
+  <section class="ticker on-blue" id="ticker" aria-labelledby="ticker-title">
+    <h2 class="sr-only" id="ticker-title">Datos del servicio</h2>
+    <div class="container ticker-inner">
+      <div class="ticker-viewport">
+        <div class="ticker-track">
+          <ul class="ticker-list">
+            <li><span class="ticker-label">Corte Express</span><span class="ticker-value">15:00 hs</span></li>
+            <li><span class="ticker-label">Corte LowCost</span><span class="ticker-value">13:00 hs</span></li>
+            <li><span class="ticker-label">LowCost entrega antes de</span><span class="ticker-value">19:00 hs</span></li>
+            <li><span class="ticker-label">Corte Flex</span><span class="ticker-value">15:00 hs</span></li>
+            <li><span class="ticker-label">Flex entrega antes de</span><span class="ticker-value">20:00 hs</span></li>
+            <li><span class="ticker-label">Sin recargo hasta</span><span class="ticker-value">5 kg · 40 × 40 cm</span></li>
+            <li><span class="ticker-label">Google</span><span class="ticker-value">5.0 / 5.0</span></li>
+            <li><span class="ticker-label">Valoraciones</span><span class="ticker-value">+120</span></li>
+            <li><span class="ticker-label">Envíos del mes</span><span class="ticker-value">[métrica]</span></li>
+          </ul>
+          <ul class="ticker-list" aria-hidden="true">
+            <li><span class="ticker-label">Corte Express</span><span class="ticker-value">15:00 hs</span></li>
+            <li><span class="ticker-label">Corte LowCost</span><span class="ticker-value">13:00 hs</span></li>
+            <li><span class="ticker-label">LowCost entrega antes de</span><span class="ticker-value">19:00 hs</span></li>
+            <li><span class="ticker-label">Corte Flex</span><span class="ticker-value">15:00 hs</span></li>
+            <li><span class="ticker-label">Flex entrega antes de</span><span class="ticker-value">20:00 hs</span></li>
+            <li><span class="ticker-label">Sin recargo hasta</span><span class="ticker-value">5 kg · 40 × 40 cm</span></li>
+            <li><span class="ticker-label">Google</span><span class="ticker-value">5.0 / 5.0</span></li>
+            <li><span class="ticker-label">Valoraciones</span><span class="ticker-value">+120</span></li>
+            <li><span class="ticker-label">Envíos del mes</span><span class="ticker-value">[métrica]</span></li>
+          </ul>
+        </div>
+      </div>
+      <button type="button" class="ticker-toggle" id="ticker-toggle" aria-pressed="false" aria-label="Pausar la banda de datos"><i class="ph ph-pause" aria-hidden="true"></i></button>
+    </div>
+  </section>
+
+  <!-- SEGMENTOS: tabla editorial con filas separadas por hairline (Ramp: franjas de datos apiladas) -->
+  <section class="section" id="segmentos" aria-labelledby="segmentos-title">
+    <div class="container">
+      <div class="seg-head reveal">
+        <h2 class="h2" id="segmentos-title">¿Cómo podemos impulsar tu logística hoy?</h2>
+        <p>Elegí según tu tipo de negocio y te mostramos el servicio que corresponde.</p>
+      </div>
+      <ul class="seg-table">
+        <li class="seg-row reveal">
+          <span class="seg-icon" aria-hidden="true"><i class="ph ph-storefront"></i></span>
+          <div>
+            <h3 class="h3">¿Vendés en Mercado Libre?</h3>
+          </div>
+          <p>Entregá en el día con Mercado Envíos Flex en Mar del Plata. Corte a las <span class="mono">15:00</span> hs y entrega antes de las <span class="mono">20:00</span> hs para cuidar tu reputación.</p>
+          <a class="link-arrow" href="/servicios/enviosflex">Ver solución Flex <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </li>
+        <li class="seg-row reveal">
+          <span class="seg-icon" aria-hidden="true"><i class="ph ph-package"></i></span>
+          <div>
+            <h3 class="h3">¿Tenés tienda online?</h3>
+          </div>
+          <p>E-commerce 24HS: se retira hoy y se entrega mañana. E-commerce Same Day: dejás stock en nuestro depósito, corte <span class="mono">15:00</span> hs y entrega antes de las <span class="mono">20:00</span> hs.</p>
+          <a class="link-arrow" href="/servicios">Ver planes e-commerce <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </li>
+        <li class="seg-row reveal">
+          <span class="seg-icon" aria-hidden="true"><i class="ph ph-buildings"></i></span>
+          <div>
+            <h3 class="h3">¿Tenés envíos diarios?</h3>
+          </div>
+          <p>Reparto económico programado en el día: pedís antes de las <span class="mono">13:00</span> hs y se entrega antes de las <span class="mono">19:00</span> hs, sin franja horaria. Tarifa por distancia.</p>
+          <a class="link-arrow" href="/servicios/envios-lowcost">Ver LowCost <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </li>
+        <li class="seg-row reveal">
+          <span class="seg-icon" aria-hidden="true"><i class="ph ph-moped"></i></span>
+          <div>
+            <h3 class="h3">¿Necesitás un envío con horario?</h3>
+          </div>
+          <p>Express punto a punto en moto: elegís una franja de 3 hs y lo pedís con <span class="mono">2</span> hs de anticipación, hasta las <span class="mono">15:00</span> hs.</p>
+          <a class="link-arrow" href="/cotizar">Cotizá tu envío <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SERVICIOS: celda de grilla de servicios (ex grilla de logos) + tarjeta de cita azul que rompe el ritmo.
+       Precios: EXPRESS_TIERS[0] y LOW_COST_TIERS[0] (src/lib/pricing.ts), SAME_DAY_FIXED_PRICE (src/lib/promises.ts),
+       E-commerce 24HS $3.800 confirmado de palabra por el dueño el 2026-09-29 (src/app/servicios/page.tsx). En producción, leer de esas fuentes. -->
+  <section class="section" id="servicios" aria-labelledby="servicios-title" style="padding-top:0">
+    <div class="container">
+      <div class="svc-head reveal">
+        <p class="eyebrow">Nuestros servicios</p>
+        <h2 class="h2" id="servicios-title">Conectamos Mar del Plata de punta a punta</h2>
+      </div>
+      <div class="svc-grid reveal">
+        <article class="svc">
+          <h3>Envíos Express</h3>
+          <p>Mensajería punto a punto con franja de 3 hs a elección. Lo pedís con 2 hs de anticipación.</p>
+          <dl class="svc-data">
+            <div><dt>Corte</dt><dd>15:00 hs</dd></div>
+            <div><dt>Desde (0 a 3 km)</dt><dd>$3.700</dd></div>
+          </dl>
+          <a class="link-arrow" href="/servicios/envios-express">Ver Express <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="svc">
+          <h3>Envíos LowCost</h3>
+          <p>Reparto programado en el día, sin elección de horario. Conviene en envíos esporádicos y distancias largas.</p>
+          <dl class="svc-data">
+            <div><dt>Corte</dt><dd>13:00 hs</dd></div>
+            <div><dt>Entrega antes de</dt><dd>19:00 hs</dd></div>
+            <div><dt>Desde (0 a 3 km)</dt><dd>$3.000</dd></div>
+          </dl>
+          <a class="link-arrow" href="/servicios/envios-lowcost">Ver LowCost <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="svc">
+          <h3>Mercado Envíos Flex</h3>
+          <p>Para vendedores de Mercado Libre con Flex activo, solo en Mar del Plata. Sin mínimo de envíos.</p>
+          <dl class="svc-data">
+            <div><dt>Corte</dt><dd>15:00 hs</dd></div>
+            <div><dt>Entrega antes de</dt><dd>20:00 hs</dd></div>
+            <div><dt>Tarifa</dt><dd class="txt">Igual a LowCost</dd></div>
+          </dl>
+          <a class="link-arrow" href="/servicios/enviosflex">Ver Flex <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <figure class="svc svc-quote on-blue">
+          <p class="quote-context">Nuestro criterio de capacidad</p>
+          <blockquote>Preferimos decir que no podemos, a fallar.</blockquote>
+          <figcaption>Matías Cejas, dueño de Envíos DosRuedas</figcaption>
+        </figure>
+        <article class="svc">
+          <h3>Cuenta Corriente Flexible</h3>
+          <p>Tu equipo de entregas aunque la cantidad de pedidos cambie cada día. Pagás por semana, quincena o mes.</p>
+          <dl class="svc-data">
+            <div><dt>Corte</dt><dd>15:00 hs</dd></div>
+            <div><dt>Tarifa</dt><dd class="txt">LowCost con franja de 3 hs</dd></div>
+          </dl>
+          <a class="link-arrow" href="/servicios/empresas-cuenta-corriente">Ver Cuenta Corriente <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="svc">
+          <h3>E-commerce 24HS</h3>
+          <p>Se retira hoy, se entrega mañana. Recolección sin cargo desde 10 envíos y 20 % menos con DropOFF.</p>
+          <dl class="svc-data">
+            <div><dt>Entrega</dt><dd class="txt">Día hábil siguiente</dd></div>
+            <div><dt>Por envío</dt><dd>$3.800</dd></div>
+          </dl>
+          <a class="link-arrow" href="/servicios#ecommerce-24hs">Ver 24HS <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="svc svc-wash">
+          <img src="../../../public/heroes/deposito-local.webp" width="520" height="520" loading="lazy" alt="Ilustración de un local con bolsas de compra, que representa el depósito de stock">
+          <h3>E-commerce Same Day</h3>
+          <p>Dejás stock en nuestro depósito y las ventas hasta las 15:00 hs se entregan en el día. Productos pequeños y medianos.</p>
+          <dl class="svc-data">
+            <div><dt>Entrega antes de</dt><dd>20:00 hs</dd></div>
+            <div><dt>Tarifa fija</dt><dd>$6.000</dd></div>
+          </dl>
+          <a class="link-arrow" href="/servicios/deposito-fulfillment">Ver Same Day <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </article>
+      </div>
+      <!-- Tarjetas lavado: condiciones transversales (promises.ts: CONTRAREEMBOLSO_COMMISSION_PERCENT, STANDARD_WEIGHT_KG, BULK_EXTRA_FROM_ARS) -->
+      <div class="svc-notes">
+        <div class="wash-card reveal"><div>
+          <i class="ph ph-hand-coins" aria-hidden="true"></i>
+          <p>Contrareembolso sin comisión: cobramos en efectivo, transferencia o QR y rendimos en el día, al día siguiente o semanal, según lo acordado.</p>
+        </div></div>
+        <div class="wash-card reveal"><div>
+          <i class="ph ph-scales" aria-hidden="true"></i>
+          <p>Sin recargo hasta <span class="mono">5 kg</span> o <span class="mono">40 × 40 cm</span>. Si tu paquete pasa esa medida, el bulto extra va desde <span class="mono">$1.950</span>, según el servicio.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMPRENDEDORES: bloque de servicio en par de 2 columnas (texto izq., foto real der.) + celdas hairline de comercios -->
+  <section class="section proof-section" id="emprendedores" aria-labelledby="emprendedores-title">
+    <div class="container">
+      <div class="emp-grid">
+        <div class="emp-copy">
+          <h2 class="h2 reveal" id="emprendedores-title">Potenciamos tu marca en Mar del Plata</h2>
+          <p class="lead reveal">Si vendés online, necesitás un socio logístico que responda. Armamos planes a tu medida, con tarifas por distancia y retiro programado en tu local.</p>
+
+          <article class="emp-main reveal" aria-labelledby="cc-title">
+            <h3 class="h3" id="cc-title">Cuenta Corriente Flexible</h3>
+            <p>Tu equipo de entregas de confianza, aunque la cantidad de pedidos cambie cada día. Pagás los envíos juntos, por semana, quincena o mes.</p>
+            <ul class="check-list">
+              <li><i class="ph ph-check-circle" aria-hidden="true"></i><span>Sin volumen mínimo de envíos: entrás con la cantidad que tengas.</span></li>
+              <li><i class="ph ph-check-circle" aria-hidden="true"></i><span>Tarifas LowCost con franjas horarias de 3 hs, como Express.</span></li>
+              <li><i class="ph ph-check-circle" aria-hidden="true"></i><span>Trabajás de forma exclusiva con nosotros para tus envíos.</span></li>
+              <li><i class="ph ph-check-circle" aria-hidden="true"></i><span>Contrareembolso integrado sin cargo extra.</span></li>
+            </ul>
+            <a class="link-arrow" href="/servicios/empresas-cuenta-corriente" style="margin-top:12px">Conocé más <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          </article>
+
+          <div class="emp-rows">
+            <article class="emp-row reveal" aria-labelledby="flex-title">
+              <h3 class="h3" id="flex-title">Envíos Flex Meli</h3>
+              <p>Servicio adaptado a Mercado Envíos Flex para tus ventas en el día en Mar del Plata. Retiramos en tu local.</p>
+              <a class="link-arrow" href="/servicios/enviosflex">Configurar Flex <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+            </article>
+            <article class="emp-row reveal" aria-labelledby="corp-title">
+              <h3 class="h3" id="corp-title">Soluciones corporativas</h3>
+              <p>Pagos semanales, quincenales o mensuales, ruteos para volúmenes grandes y entregas Express coordinadas en Mar del Plata.</p>
+              <a class="link-arrow" href="/contacto">Abrir cuenta corriente <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+            </article>
+          </div>
+        </div>
+        <figure class="emp-figure reveal">
+          <img src="../../../public/img/generales/moto-cta.webp" width="768" height="1408" loading="lazy"
+               alt="Repartidor de Envíos DosRuedas con casco azul y amarillo sobre una moto azul, de noche en la ciudad">
+        </figure>
+      </div>
+
+      <!-- Nombres aprobados por el dueño ("Los que estan por ahora esta bien", X 01!E6). Se publican como nombres, no como avales. Sin MailAmericas. -->
+      <div class="brands reveal">
+        <h3 class="h3">Comercios que envían con nosotros</h3>
+        <ul class="brands-grid">
+          <li>Toy Piola Juguetería</li>
+          <li>Ama &amp; Pola</li>
+          <li>Dropix 3D</li>
+          <li>El Cóndor</li>
+          <li>Starcel</li>
+          <li>Urbancow</li>
+          <li>Wanca</li>
+          <li>Catalina Indumentaria</li>
+          <li>Envases 3G</li>
+          <li>La Peri</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRUEBA SOCIAL: tarjetas de testimonio en fila con scroll horizontal (Ramp).
+       Textos ORIGINALES de docs/reneasenvios.md (reseñas públicas de Google), sin editar, salvo emojis quitados
+       y el fragmento de Sol R (primera oración textual). Se omiten las dos reseñas con superlativos
+       ("El mejor servicio premium de la zona", "La mejor mensajería de MDP") por la regla de voz sin superlativos,
+       y las dos de 5 estrellas sin texto. -->
+  <section class="section proof-section" id="resenas" aria-labelledby="resenas-title">
+    <div class="container">
+      <div class="proof-head">
+        <div class="reveal">
+          <h2 class="h2" id="resenas-title">La palabra de quienes venden y envían en MDQ</h2>
+          <p class="lead">Reseñas de nuestro perfil de Google, con el texto tal como lo escribió cada cliente.</p>
+        </div>
+        <div class="proof-actions reveal">
+          <a class="rating-chip" href="https://share.google/ofw5wAQt3Fc1dArom" target="_blank" rel="noopener">
+            <span class="stars" aria-hidden="true"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></span>
+            <span><span class="mono">5.0 / 5.0</span> en Google · <span class="mono">+120</span> valoraciones</span>
+            <span class="sr-only">(se abre en una pestaña nueva)</span>
+          </a>
+          <button type="button" class="icon-btn" id="reviews-prev" aria-controls="reviews" aria-label="Ver reseñas anteriores"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
+          <button type="button" class="icon-btn" id="reviews-next" aria-controls="reviews" aria-label="Ver más reseñas"><i class="ph ph-caret-right" aria-hidden="true"></i></button>
+        </div>
+      </div>
+
+      <ul class="reviews" id="reviews" tabindex="0" aria-label="Reseñas de Google, desplazables en horizontal">
+        <li class="review">
+          <span class="stars" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+          <blockquote>"Exclente el servico, rapidos, muy atentos, resolvieron mi problema con la mejor predisposicion, los recomiendo ampliamente!"</blockquote>
+          <footer><span class="avatar" aria-hidden="true">K</span><div><p class="who">Karen Herrera</p><p class="src">Reseña de Google</p></div></footer>
+        </li>
+        <li class="review">
+          <span class="stars" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+          <blockquote>"Matías de envío dos ruedas mensajería se ha convertido en mi héroe logístico por segundo año consecutivo."</blockquote>
+          <footer><span class="avatar" aria-hidden="true">S</span><div><p class="who">Sol R</p><p class="src">Local Guide · Reseña de Google</p></div></footer>
+        </li>
+        <li class="review">
+          <span class="stars" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+          <blockquote>"Lo use varias veces para llevar unos pedidos a nuestros clientes. Impecable el servicio. Ademas hacen depósitos en cajeros sin problemas. Unos genios !!!"</blockquote>
+          <footer><span class="avatar" aria-hidden="true">A</span><div><p class="who">Agustin Torres</p><p class="src">Reseña de Google</p></div></footer>
+        </li>
+        <li class="review">
+          <span class="stars" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+          <blockquote>"Excelente servicio, atención de primera, rápido, confiable y seguro. Recomendado 100%"</blockquote>
+          <footer><span class="avatar" aria-hidden="true">L</span><div><p class="who">Lorenzo Elizagoyen</p><p class="src">Reseña de Google</p></div></footer>
+        </li>
+        <li class="review">
+          <span class="stars" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+          <blockquote>"10 de 10 muy buenos en lo que hacen, responsables por sobre todas las cosas, super recomendable"</blockquote>
+          <footer><span class="avatar" aria-hidden="true">N</span><div><p class="who">NahuAri</p><p class="src">Reseña de Google</p></div></footer>
+        </li>
+        <li class="review">
+          <span class="stars" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+          <blockquote>"Recomendado lo de estos muchachos. Buena atención y rapidez en la entrega"</blockquote>
+          <footer><span class="avatar" aria-hidden="true">I</span><div><p class="who">Ignacio</p><p class="src">Reseña de Google</p></div></footer>
+        </li>
+        <li class="review">
+          <span class="stars" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+          <blockquote>"Genial como siempre! De absoluta confianza"</blockquote>
+          <footer><span class="avatar" aria-hidden="true">J</span><div><p class="who">juan javier aguayo</p><p class="src">Reseña de Google</p></div></footer>
+        </li>
+        <li class="review">
+          <span class="stars" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+          <blockquote>"Excelente servicio calidad y puntualidad"</blockquote>
+          <footer><span class="avatar" aria-hidden="true">S</span><div><p class="who">Sergio Rivas</p><p class="src">Reseña de Google</p></div></footer>
+        </li>
+        <li class="review">
+          <span class="stars" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+          <blockquote>"Excelente servicio muy responsables"</blockquote>
+          <footer><span class="avatar" aria-hidden="true">D</span><div><p class="who">Daniel Gonzalez</p><p class="src">Local Guide · Reseña de Google</p></div></footer>
+        </li>
+        <li class="review">
+          <span class="stars" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+          <blockquote>"Confiable y eficiente."</blockquote>
+          <footer><span class="avatar" aria-hidden="true">A</span><div><p class="who">Ana Verónica Abruza</p><p class="src">Reseña de Google</p></div></footer>
+        </li>
+        <li class="review">
+          <span class="stars" aria-label="5 de 5 estrellas"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+          <blockquote>"Muy buenos humanos"</blockquote>
+          <footer><span class="avatar" aria-hidden="true">E</span><div><p class="who">Ezequiel Monson</p><p class="src">Reseña de Google</p></div></footer>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA FINAL: tarjeta lavado con input compuesto en fila (Ramp: input + botón Highlighter al ras) -->
+  <section class="section" id="cta-final" aria-labelledby="cta-title" style="padding-top:0">
+    <div class="container">
+      <div class="cta-panel reveal">
+        <div class="cta-inner">
+          <div class="cta-top">
+            <div>
+              <p class="eyebrow">Cotización para comercios</p>
+              <h2 class="h2" id="cta-title" style="margin-top:12px">¿Listo para escalar la logística de tu e-commerce?</h2>
+            </div>
+            <div>
+              <p>Completá tus datos y seguimos la charla por WhatsApp.</p>
+              <p class="cta-note" style="margin-top:8px"><span class="caption">Atención comercial</span><span class="mono">&lt; 5 min</span></p>
+            </div>
+          </div>
+          <form class="cta-form" id="cta-form" novalidate>
+            <div class="field">
+              <label for="f-nombre">Tu nombre</label>
+              <input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="Ingresá tu nombre" required aria-describedby="e-nombre">
+              <p class="error" id="e-nombre" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-empresa">Empresa o negocio</label>
+              <input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Nombre de tu emprendimiento" required aria-describedby="e-empresa">
+              <p class="error" id="e-empresa" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-volumen">Volumen estimado mensual</label>
+              <div class="select-wrap">
+                <select id="f-volumen" name="volumen">
+                  <option value="">Seleccioná una opción</option>
+                  <option value="1 a 50">1 a 50 envíos</option>
+                  <option value="51 a 200">51 a 200 envíos</option>
+                  <option value="más de 200">Más de 200 envíos</option>
+                </select>
+                <i class="ph ph-caret-down" aria-hidden="true"></i>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="cta-submit" data-cta-zone><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Escribinos por WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER institucional azul -->
+<footer class="site-footer on-blue" id="footer">
+  <div class="container">
+    <div class="foot-cta">
+      <div>
+        <h2>¿Tenés envíos para hoy?</h2>
+        <p>Cotizá online o coordiná directo con nuestro equipo por WhatsApp.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" id="footer-cta" data-cta-zone href="/cotizar">Cotizá tu envío</a>
+        <a class="btn btn-outline-light" href="https://wa.me/542236602699?text=Hola%20Env%C3%ADos%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20env%C3%ADos" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Escribinos por WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="foot-cols">
+      <div class="foot-brand">
+        <a class="brand" href="/" aria-label="Envíos DosRuedas, ir al inicio">
+          <img src="../../../public/logo-envios-simplified.webp" width="40" height="40" loading="lazy" alt="Logo Envíos DosRuedas">
+          <span>Envíos DosRuedas</span>
+        </a>
+        <p>Más de 7 años de mensajería en moto en Mar del Plata, para emprendedores, pymes y comercios locales, con flota propia.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener" aria-label="Instagram @enviosdosruedas"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/enviosdosruedas" target="_blank" rel="noopener" aria-label="Facebook Envíos DosRuedas"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a>
+          <a href="https://wa.me/542236602699" target="_blank" rel="noopener" aria-label="WhatsApp +54 223 660-2699"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <nav aria-labelledby="f-servicios">
+        <h2 id="f-servicios">Servicios</h2>
+        <ul class="foot-list">
+          <li><a href="/servicios/envios-express">Envíos Express</a></li>
+          <li><a href="/servicios/envios-lowcost">Envíos LowCost</a></li>
+          <li><a href="/servicios/enviosflex">Mercado Envíos Flex</a></li>
+          <li><a href="/servicios/empresas-cuenta-corriente">Cuenta Corriente Flexible</a></li>
+          <li><a href="/servicios#ecommerce-24hs">E-commerce 24HS</a></li>
+          <li><a href="/servicios/deposito-fulfillment">E-commerce Same Day</a></li>
+          <li><a href="/servicios">Ver todos los servicios</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Base de operaciones</h2>
+        <ul class="foot-list">
+          <li><span class="row"><i class="ph ph-map-pin" aria-hidden="true"></i>Depósito: Friuli 1972, Mar del Plata</span></li>
+          <li><a href="tel:+542236602699"><i class="ph ph-phone" aria-hidden="true"></i><span class="mono">+54 223 660-2699</span></a></li>
+          <li><a href="mailto:matiascejas@enviosdosruedas.com"><i class="ph ph-envelope-simple" aria-hidden="true"></i>matiascejas@enviosdosruedas.com</a></li>
+        </ul>
+        <div class="foot-hours" aria-label="Horarios de atención">
+          <div><span>Lunes a viernes</span><span class="mono">09:00 a 18:00 hs</span></div>
+          <div><span>Sábados</span><span class="mono">10:00 a 15:00 hs</span></div>
+          <div><span>Domingos</span><span>Cerrado</span></div>
+        </div>
+      </div>
+      <nav aria-labelledby="f-nosotros">
+        <h2 id="f-nosotros">Nosotros</h2>
+        <ul class="foot-list">
+          <li><a href="/nosotros/sobre-nosotros">Sobre nosotros</a></li>
+          <li><a href="/nosotros/preguntas-frecuentes">Preguntas frecuentes</a></li>
+          <li><a href="/nosotros/nuestras-redes">Nuestras redes</a></li>
+          <li><a href="/cobertura">Cobertura</a></li>
+          <li><a href="/guias/envios-flex-mar-del-plata">Guía Mercado Libre Flex</a></li>
+          <li><a href="/contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="foot-bottom">
+      <p>© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</p>
+      <ul>
+        <li><a href="/terminos-y-condiciones">Términos y condiciones</a></li>
+        <li><a href="/politica-de-privacidad">Política de privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var d = document;
+  d.documentElement.classList.add('js');
+
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var reduced = mq.matches;
+
+  /* Barra de anuncio cerrable */
+  var announce = d.getElementById('announce');
+  d.getElementById('announce-close').addEventListener('click', function () {
+    announce.hidden = true;
+    d.getElementById('main-content').focus({ preventScroll: true });
+  });
+
+  /* Header: estado al scrollear con sentinel (sin listener de scroll) */
+  var header = d.getElementById('site-header');
+  var sentinel = d.getElementById('header-sentinel');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      header.classList.toggle('is-scrolled', !entries[0].isIntersecting);
+    }).observe(sentinel);
+  }
+
+  /* Un solo CTA amarillo por pantalla: el del header se enciende solo si no hay otro visible */
+  var headerCta = d.getElementById('header-cta');
+  var zones = d.querySelectorAll('[data-cta-zone]');
+  var visibleZones = new Set();
+  function syncHeaderCta() {
+    var on = visibleZones.size === 0;
+    headerCta.classList.toggle('btn-primary', on);
+    headerCta.classList.toggle('btn-outline-light', !on);
+  }
+  if ('IntersectionObserver' in window) {
+    var ctaObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { visibleZones.add(e.target); } else { visibleZones.delete(e.target); }
+      });
+      syncHeaderCta();
+    }, { rootMargin: '-64px 0px 0px 0px' });
+    zones.forEach(function (z) { ctaObserver.observe(z); });
+  }
+
+  /* Reveal de secciones */
+  var reveals = d.querySelectorAll('.reveal');
+  function showAll() { reveals.forEach(function (el) { el.classList.add('is-visible'); }); }
+  if (reduced || !('IntersectionObserver' in window)) {
+    showAll();
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    reveals.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  /* Live counter ticker: pausa manual y gate de reduced motion */
+  var ticker = d.getElementById('ticker');
+  var tickerToggle = d.getElementById('ticker-toggle');
+  function setTickerPaused(p) {
+    ticker.classList.toggle('is-paused', p);
+    tickerToggle.setAttribute('aria-pressed', String(p));
+    tickerToggle.setAttribute('aria-label', p ? 'Reanudar la banda de datos' : 'Pausar la banda de datos');
+    tickerToggle.innerHTML = p ? '<i class="ph ph-play" aria-hidden="true"></i>' : '<i class="ph ph-pause" aria-hidden="true"></i>';
+  }
+  tickerToggle.addEventListener('click', function () {
+    setTickerPaused(tickerToggle.getAttribute('aria-pressed') !== 'true');
+  });
+  ticker.addEventListener('mouseenter', function () { if (!reduced) ticker.classList.add('is-paused'); });
+  ticker.addEventListener('mouseleave', function () {
+    if (tickerToggle.getAttribute('aria-pressed') !== 'true') ticker.classList.remove('is-paused');
+  });
+
+  mq.addEventListener('change', function (e) {
+    reduced = e.matches;
+    if (reduced) { showAll(); setTickerPaused(false); }
+  });
+
+  /* Menú mobile accesible */
+  var toggle = d.getElementById('menu-toggle');
+  var drawer = d.getElementById('mobile-menu');
+  var backdrop = d.getElementById('drawer-backdrop');
+  var closeBtn = d.getElementById('menu-close');
+
+  function focusables() {
+    return Array.prototype.slice.call(drawer.querySelectorAll('a[href], button:not([disabled])'));
+  }
+  function openMenu() {
+
+    drawer.removeAttribute('inert');
+    drawer.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Cerrar menú');
+    d.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function closeMenu() {
+    drawer.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    drawer.setAttribute('inert', '');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menú');
+    d.body.style.overflow = '';
+    toggle.focus();
+  }
+  toggle.addEventListener('click', function () {
+    if (toggle.getAttribute('aria-expanded') === 'true') { closeMenu(); } else { openMenu(); }
+  });
+  closeBtn.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  drawer.addEventListener('click', function (e) { if (e.target.closest('a[href]')) closeMenu(); });
+  d.addEventListener('keydown', function (e) {
+    if (!drawer.classList.contains('is-open')) return;
+    if (e.key === 'Escape') { e.preventDefault(); closeMenu(); return; }
+    if (e.key === 'Tab') {
+      var f = focusables();
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && d.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', function (e) {
+    if (e.matches && drawer.classList.contains('is-open')) closeMenu();
+  });
+
+  /* Reseñas: flechas de la fila con scroll horizontal; extremos detectados con IntersectionObserver */
+  var track = d.getElementById('reviews');
+  var prev = d.getElementById('reviews-prev');
+  var next = d.getElementById('reviews-next');
+  var cards = track.querySelectorAll('.review');
+  function step(dir) {
+    var w = cards[0].getBoundingClientRect().width + 16;
+    track.scrollBy({ left: dir * w, behavior: reduced ? 'auto' : 'smooth' });
+  }
+  prev.addEventListener('click', function () { step(-1); });
+  next.addEventListener('click', function () { step(1); });
+  if ('IntersectionObserver' in window && cards.length) {
+    var edgeObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.target === cards[0]) prev.disabled = e.intersectionRatio > 0.9;
+        if (e.target === cards[cards.length - 1]) next.disabled = e.intersectionRatio > 0.9;
+      });
+    }, { root: track, threshold: [0, 0.9, 1] });
+    edgeObserver.observe(cards[0]);
+    edgeObserver.observe(cards[cards.length - 1]);
+  }
+
+  /* Formulario: validación y derivación a WhatsApp (número tal como está hoy en CtaSection) */
+  var form = d.getElementById('cta-form');
+  function setError(input, msg) {
+    var err = d.getElementById(input.getAttribute('aria-describedby'));
+    input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    err.textContent = msg;
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nombre = form.elements.nombre;
+    var empresa = form.elements.empresa;
+    var volumen = form.elements.volumen.value;
+    var ok = true;
+    setError(nombre, nombre.value.trim() ? '' : 'Ingresá tu nombre.');
+    setError(empresa, empresa.value.trim() ? '' : 'Ingresá el nombre de tu negocio.');
+    if (!nombre.value.trim()) { ok = false; nombre.focus(); }
+    else if (!empresa.value.trim()) { ok = false; empresa.focus(); }
+    if (!ok) return;
+    var text = 'Hola, soy ' + nombre.value.trim() + ' de ' + empresa.value.trim() + '.';
+    text += volumen ? ' Me interesa cotizar envíos para ' + volumen + ' paquetes mensuales.' : ' Me interesa cotizar envíos.';
+    window.open('https://wa.me/5492236602699?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  });
+})();
+</script>
+</body>
+</html>

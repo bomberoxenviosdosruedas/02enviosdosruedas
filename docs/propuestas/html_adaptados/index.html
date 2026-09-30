@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuestas de home | Envíos DosRuedas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Índice de las 5 propuestas de home. Paleta DosRuedas únicamente. */
+  :root { --blue: #0950F6; --blue-50: #E6EEFE; --blue-100: #BACEFD; --yellow: #FFEC01; --white: #FFFFFF; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--white); color: var(--blue); font-family: 'Outfit', sans-serif; font-size: 16px; line-height: 1.6; }
+  main { max-width: 1280px; margin: 0 auto; padding: 64px 16px 96px; }
+  h1 { font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-synthesis: none; text-transform: uppercase; font-size: clamp(40px, 6vw, 72px); line-height: 0.92; letter-spacing: -0.03em; }
+  .lead { margin-top: 16px; max-width: 60ch; }
+  ul { list-style: none; padding: 0; margin-top: 48px; display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 768px) { ul { grid-template-columns: repeat(2, 1fr); } li:first-child { grid-column: span 2; } }
+  a.card { display: grid; gap: 8px; min-height: 44px; padding: 24px; border: 1px solid var(--blue-100); border-radius: 16px; color: var(--blue); text-decoration: none; transition: border-color .2s, transform .2s; }
+  a.card:hover { border-color: var(--blue); transform: translateY(-2px); }
+  a.card:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  li:first-child a.card { background: var(--blue); color: var(--white); border-color: var(--blue); }
+  .name { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 32px; letter-spacing: 0.05em; }
+  li:first-child .name::after { content: " Más cercana a la marca"; font-size: 16px; margin-left: 8px; padding: 2px 8px; border-radius: 6px; background: var(--yellow); color: var(--blue); vertical-align: middle; }
+  .note { margin-top: 48px; padding: 24px; background: var(--blue-50); border-radius: 16px; max-width: 75ch; }
+  .note h2 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 24px; letter-spacing: 0.05em; }
+  .note li { margin-top: 8px; }
+  .note ul { margin-top: 8px; display: block; list-style: disc; padding-left: 20px; }
+  @media (prefers-reduced-motion: reduce) { a.card { transition: none; } a.card:hover { transform: none; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Propuestas de home</h1>
+  <p class="lead">La página principal completa, con todas sus secciones, en cinco lenguajes visuales adaptados a la paleta y la tipografía de Envíos DosRuedas. Cada archivo lleva su HTML, CSS y JS juntos.</p>
+  <ul>
+    <li><a class="card" href="ramp.html"><span class="name">Ramp</span><span>Editorial blanco, cards con borde fino, un solo acento amarillo tipo resaltador y banda de datos confirmados.</span></a></li>
+    <li><a class="card" href="brex.html"><span class="name">Brex</span><span>Barra de aviso, hero partido con la moto 3D, tabs por segmento, bento 7/5 y footer institucional.</span></a></li>
+    <li><a class="card" href="superhuman.html"><span class="name">Superhuman</span><span>Hero fotográfico, pestañas de servicios, banda azul de emprendedores y banner final con gradiente.</span></a></li>
+    <li><a class="card" href="auros.html"><span class="name">Auros</span><span>Tema invertido azul, orbe de partículas, texto cinético gigante y capas que se aclaran.</span></a></li>
+    <li><a class="card" href="figma.html"><span class="name">Figma</span><span>Collage de fotos teñidas y teselas en siete azules, con una sola tesela amarilla.</span></a></li>
+  </ul>
+  <section class="note" aria-labelledby="pend">
+    <h2 id="pend">Pendiente de definir con el dueño</h2>
+    <ul>
+      <li>Número de WhatsApp: el formulario usa 549 2236602699 y el resto del sitio 54 2236602699.</li>
+      <li>Precio de E-commerce 24HS ($3.800): confirmado de palabra, todavía sin constante en el código.</li>
+      <li>Reseñas con superlativos ("el mejor", "la mejor"): hoy quedaron afuera.</li>
+      <li>Ramp publica la frase del dueño "Preferimos decir que no podemos, a fallar." con su firma.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

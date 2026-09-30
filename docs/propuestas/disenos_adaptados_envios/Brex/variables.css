@@ -1,0 +1,119 @@
+/* Propuesta Brex adaptada a Envíos DosRuedas. No es el @theme de producción (src/app/globals.css). */
+:root {
+  /* Colors */
+  --color-signal: #FFEC01;
+  --color-signal-hover: #FFF12E;
+  --color-signal-pressed: #E6D400;
+  --color-frame: #0950F6;
+  --color-ink: #0950F6;
+  --color-paper: #FFFFFF;
+  --color-fog: #E6EEFE;
+  --color-mist: #BACEFD;
+  --color-input-border: #628FF9;
+  --color-card-hover-border: #8EAFFB;
+  --color-steel: #3570F8;
+  --color-on-frame: #FFFFFF;
+  --color-on-frame-muted: rgba(255, 255, 255, 0.85);
+  --color-frame-hairline: rgba(255, 255, 255, 0.12);
+  --color-frame-glass: rgba(255, 255, 255, 0.06);
+  --color-error: #EF4444;
+  --color-error-text: #DC2626;
+
+  /* Typography: Font Families */
+  --font-display: var(--font-anton), 'Anton', Impact, sans-serif;
+  --font-subheading: var(--font-bebas), 'Bebas Neue', sans-serif;
+  --font-sans: var(--font-outfit), 'Outfit', sans-serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace;
+
+  /* Typography: Scale */
+  --text-meta: 10px;
+  --leading-meta: 1;
+  --tracking-meta: 0.1em;
+  --text-caption: 12px;
+  --leading-caption: 1.5;
+  --tracking-caption: 0em;
+  --text-eyebrow: 14px;
+  --leading-eyebrow: 1;
+  --tracking-eyebrow: 0.08em;
+  --text-body-sm: 14px;
+  --leading-body-sm: 1.5;
+  --tracking-body-sm: 0em;
+  --text-label: 16px;
+  --leading-label: 1;
+  --tracking-label: 0.06em;
+  --text-body: 16px;
+  --leading-body: 1.5;
+  --tracking-body: 0em;
+  --text-subheading: 20px;
+  --leading-subheading: 1.4;
+  --tracking-subheading: 0em;
+  --text-heading-sm: 28px;
+  --leading-heading-sm: 1.1;
+  --tracking-heading-sm: 0.05em;
+  --text-heading: 44px;
+  --leading-heading: 0.9;
+  --tracking-heading: -0.02em;
+  --text-heading-lg: 60px;
+  --leading-heading-lg: 0.88;
+  --tracking-heading-lg: -0.03em;
+  --text-display-min: 56px;
+  --text-display-max: 88px;
+  --leading-display: 0.85;
+  --tracking-display: -0.04em;
+  --text-price: 24px;
+  --leading-price: 1;
+
+  /* Typography: Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-display: 400;
+
+  /* Spacing */
+  --spacing-unit: 8px;
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-72: 72px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+  --spacing-160: 160px;
+
+  /* Layout */
+  --page-max-width: 1280px;
+  --section-gap-min: 48px;
+  --section-gap-max: 96px;
+  --card-padding-min: 24px;
+  --card-padding-max: 32px;
+  --element-gap-min: 8px;
+  --element-gap-max: 16px;
+  --touch-target: 44px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Named Radii */
+  --radius-tags: 6px;
+  --radius-cards: 12px;
+  --radius-inputs: 12px;
+  --radius-buttons: 12px;
+
+  /* Elevation */
+  --shadow-float: 0 25px 50px -12px rgba(9, 80, 246, 0.15);
+
+  /* Focus */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: #0950F6;
+
+  /* Surfaces */
+  --surface-paper-canvas: #FFFFFF;
+  --surface-fog-section: #E6EEFE;
+  --surface-card-surface: #FFFFFF;
+  --surface-frame-top: #0950F6;
+  --surface-frame-footer: #0950F6;
+}

@@ -1,0 +1,90 @@
+/* Propuesta Auros adaptada a Envíos DosRuedas. No es el @theme de producción (src/app/globals.css). */
+@theme {
+  /* Colores (tema invertido azul) */
+  --color-canvas: #0950F6;
+  --color-surface-recessed: #0950F6;
+  --color-surface-raised: rgba(255, 255, 255, 0.06);
+  --color-surface-elevated: #3570F8;
+  --color-surface-card: #FFFFFF;
+  --color-text-primary: #FFFFFF;
+  --color-text-mist: #E6EEFE;
+  --color-text-secondary: rgba(255, 255, 255, 0.85);
+  --color-text-on-cta: #0950F6;
+  --color-border-hairline: rgba(255, 255, 255, 0.12);
+  --color-border-structural: #BACEFD;
+  --color-border-input: #628FF9;
+  --color-border-card-hover: #8EAFFB;
+  --color-cta: #FFEC01;
+  --color-cta-hover: #FFF12E;
+  --color-cta-pressed: #E6D400;
+  --color-accent-stat: #FFEC01;
+  --color-accent-detail: #FFF45C;
+  --color-badge: #FFFAB8;
+
+  /* Tipografía */
+  --font-display: var(--font-anton), 'Anton', Impact, sans-serif;
+  --font-subheading: var(--font-bebas), 'Bebas Neue', sans-serif;
+  --font-sans: var(--font-outfit), 'Outfit', sans-serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace;
+
+  /* Tipografía: escala */
+  --text-caption: 10px;
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.1em;
+  --text-label: 14px;
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: 0.1em;
+  --text-body: 16px;
+  --text-body--line-height: 1.5;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.625;
+  --text-eyebrow-lg: 20px;
+  --text-eyebrow-lg--line-height: 1.2;
+  --text-eyebrow-lg--letter-spacing: 0.08em;
+  --text-subheading: 24px;
+  --text-subheading--line-height: 1.1;
+  --text-subheading--letter-spacing: 0.05em;
+  --text-heading: 40px;
+  --text-heading--line-height: 0.9;
+  --text-heading--letter-spacing: -0.02em;
+  --text-stat: 64px;
+  --text-stat--line-height: 1;
+  --text-stat--letter-spacing: -0.02em;
+  --text-heading-lg: 64px;
+  --text-heading-lg--line-height: 0.9;
+  --text-heading-lg--letter-spacing: -0.03em;
+  --text-display: 104px;
+  --text-display--line-height: 0.85;
+  --text-display--letter-spacing: -0.04em;
+  --text-kinetic-min: 120px;
+  --text-kinetic-max: 296px;
+  --text-kinetic-min--line-height: 0.85;
+  --text-kinetic-max--line-height: 0.85;
+
+  /* Espaciado */
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-36: 36px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+  --spacing-120: 120px;
+  --spacing-140: 140px;
+  --spacing-160: 160px;
+  --spacing-164: 164px;
+
+  /* Radios (escala del repo) */
+  --radius-sm: 6px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Sombras teñidas */
+  --shadow-float: 0 25px 50px -12px rgba(9, 80, 246, 0.15);
+  --shadow-cta-bloom: 0 0 32px rgba(255, 236, 1, 0.14);
+}

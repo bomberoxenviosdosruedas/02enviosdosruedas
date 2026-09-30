@@ -1,0 +1,137 @@
+/* Propuesta Ramp adaptada a Envíos DosRuedas. No es el @theme de producción (src/app/globals.css). */
+:root {
+  /* Colores */
+  --color-highlighter-yellow: #FFEC01;       /* brand-yellow-500: acento único, CTA, estado activo */
+  --color-highlighter-yellow-hover: #FFF12E; /* brand-yellow-400: hover de CTA */
+  --color-highlighter-yellow-pressed: #E6D400; /* brand-yellow-600: pressed de CTA */
+  --color-highlighter-yellow-tint: #FFFAB8;  /* brand-yellow-100: halo de badge activo */
+  --color-ink: #0950F6;                      /* brand-blue-700: texto, títulos, cuerpo */
+  --color-obsidian: #0950F6;                 /* brand-blue-700: banda invertida, header, footer */
+  --color-obsidian-raised: #3570F8;          /* brand-blue-400: capa elevada dentro de la banda azul */
+  --color-paper: #FFFFFF;                    /* lienzo y tarjetas */
+  --color-bone: #E6EEFE;                     /* brand-blue-50: lavado de tarjeta, hover de link */
+  --color-ash: #0950F6;                      /* brand-blue-700: texto secundario al 100 % */
+  --color-ash-on-blue: rgba(255, 255, 255, 0.85); /* texto secundario sobre azul */
+  --color-hairline: #BACEFD;                 /* brand-blue-100: bordes estructurales */
+  --color-hairline-hover: #8EAFFB;           /* brand-blue-200: hover de borde de tarjeta */
+  --color-input-border: #628FF9;             /* brand-blue-300: borde de input */
+  --color-smoke: #E6EEFE;                    /* brand-blue-50: skeleton, fondos muted */
+  --color-hairline-on-blue: rgba(255, 255, 255, 0.12);
+  --color-glass-on-blue: rgba(255, 255, 255, 0.06);
+  --color-error-border: #EF4444;             /* solo formularios */
+  --color-error-text: #DC2626;               /* solo formularios */
+
+  /* Tipografía: familias */
+  --font-display: var(--font-anton), 'Anton', Impact, sans-serif;
+  --font-subheading: var(--font-bebas), 'Bebas Neue', sans-serif;
+  --font-sans: var(--font-outfit), 'Outfit', sans-serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace;
+
+  /* Tipografía: escala (px) */
+  --text-micro: 10px;           /* Geist Mono / Bebas uppercase, solo metadato */
+  --leading-micro: 1.5;
+  --tracking-micro: 0.05em;
+  --text-caption: 12px;         /* Bebas uppercase, etiquetas de contador */
+  --leading-caption: 1.6;
+  --tracking-caption: 0.1em;
+  --text-small: 14px;           /* Outfit, barra de anuncio, metadatos legibles */
+  --leading-small: 1.5;
+  --text-body: 16px;            /* Outfit, cuerpo */
+  --leading-body: 1.5;
+  --text-lead: 18px;            /* Outfit, bajada del hero */
+  --leading-lead: 1.55;
+  --text-subheading: 24px;      /* Bebas, subtítulos y eyebrows grandes */
+  --leading-subheading: 1.05;
+  --tracking-subheading: 0.05em;
+  --text-heading-sm: 28px;      /* Bebas, H3 */
+  --leading-heading-sm: 1;
+  --tracking-heading-sm: 0.05em;
+  --text-heading: 36px;         /* Anton, H2 chico */
+  --leading-heading: 0.9;
+  --tracking-heading: -0.02em;
+  --text-heading-lg: 48px;      /* Anton, H2 */
+  --leading-heading-lg: 0.9;
+  --tracking-heading-lg: -0.02em;
+  --text-display-sm: 56px;      /* Anton, H1 en mobile */
+  --text-display: 80px;         /* Anton, H1 en desktop */
+  --leading-display: 0.85;
+  --tracking-display: -0.04em;
+
+  /* Tipografía: pesos */
+  --font-weight-regular: 400;   /* único peso de Anton y Bebas Neue */
+  --font-weight-medium: 500;    /* Outfit, labels de UI */
+  --font-weight-semibold: 600;  /* Outfit, techo */
+
+  /* Espaciado */
+  --spacing-unit: 4px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-96: 96px;
+  --spacing-128: 128px;
+  --spacing-156: 156px;
+
+  /* Layout */
+  --page-max-width: 1280px;
+  --section-gap: 96px;
+  --section-gap-min: 64px;
+  --section-gap-max: 128px;
+  --card-padding-min: 20px;
+  --card-padding-max: 24px;
+  --element-gap: 8px;
+  --touch-target-min: 44px;
+  --nav-height: 64px;
+  --announcement-height: 40px;
+
+  /* Radios */
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+
+  /* Radios con nombre */
+  --radius-tags: 6px;
+  --radius-cards: 16px;
+  --radius-inputs: 8px;
+  --radius-buttons: 6px;
+  --radius-wash: 12px;
+
+  /* Sombras (el sistema es plano: el borde hace la elevación) */
+  --shadow-subtle: rgba(255, 255, 255, 0.6) 0px 0px 2px 0px inset;
+  --shadow-float: 0px 24px 48px -24px rgba(9, 80, 246, 0.18); /* opcional, solo marco de producto del hero */
+
+  /* Foco */
+  --focus-ring-width: 2px;
+  --focus-ring-color: #0950F6;
+  --focus-ring-offset: 2px;
+
+  /* Motion */
+  --duration-fast: 300ms;
+  --duration-base: 400ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --blur-overlay: 25px;
+  --blur-nav: 12px;
+  --blur-chip: 8px;
+
+  /* Superficies */
+  --surface-canvas: #FFFFFF;
+  --surface-card: #FFFFFF;
+  --surface-wash: #E6EEFE;
+  --surface-inverted: #0950F6;
+  --surface-inverted-raised: #3570F8;
+  --surface-action: #FFEC01;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}
