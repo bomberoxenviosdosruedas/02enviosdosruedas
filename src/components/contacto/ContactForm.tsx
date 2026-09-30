@@ -86,21 +86,21 @@ export default function ContactForm() {
             {/* Header & Badges */}
             <div className="pb-4 border-b border-brand-blue-100">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 text-xs font-subheading uppercase tracking-wider -rotate-1 shadow-glow-yellow">
-                  <Sparkles className="w-3.5 h-3.5 text-brand-blue-700" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-500 text-xs font-subheading uppercase tracking-wider -rotate-1 shadow-glow-yellow">
+                  <Sparkles className="w-3.5 h-3.5 text-brand-blue-500" />
                   Cotización Inmediata
                 </span>
 
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-yellow-500/20 border border-brand-yellow-500/40 text-brand-blue-700 text-xs font-mono font-bold uppercase tracking-wider tabular-nums">
-                  <Clock className="w-3.5 h-3.5 text-brand-blue-700 animate-pulse" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-yellow-500/20 border border-brand-yellow-500/40 text-brand-blue-500 text-xs font-mono font-bold uppercase tracking-wider tabular-nums">
+                  <Clock className="w-3.5 h-3.5 text-brand-blue-500 animate-pulse" />
                   Atención comercial {'<'} 2 MIN
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-700 mb-2 leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue-500 mb-2 leading-tight">
                 ¿Listo para escalar la logística de tu e-commerce?
               </h2>
-              <p className="text-brand-blue-700 font-sans text-sm sm:text-base leading-relaxed">
+              <p className="text-brand-blue-500 font-sans text-sm sm:text-base leading-relaxed">
                 Olvidate de la gestión de paquetes en Mar del Plata. Completá tus datos y te respondemos por WhatsApp al instante.
               </p>
             </div>
@@ -115,14 +115,14 @@ export default function ContactForm() {
                   transition={{ duration: 0.3 }}
                   className="py-8 text-center space-y-5"
                 >
-                  <div className="w-16 h-16 rounded-full bg-brand-yellow-500 text-brand-blue-900 mx-auto flex items-center justify-center shadow-glow-yellow">
+                  <div className="w-16 h-16 rounded-full bg-brand-yellow-500 text-brand-blue-500 mx-auto flex items-center justify-center shadow-glow-yellow">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="font-display text-2xl uppercase tracking-tight text-brand-blue-700">
+                    <h3 className="font-display text-2xl uppercase tracking-tight text-brand-blue-500">
                       ¡SOLICITUD ENVIADA!
                     </h3>
-                    <p className="font-sans text-sm text-brand-blue-700 max-w-sm mx-auto leading-relaxed">
+                    <p className="font-sans text-sm text-brand-blue-500 max-w-sm mx-auto leading-relaxed">
                       Se abrió WhatsApp para conectar directamente con nuestro equipo comercial en Mar del Plata.
                     </p>
                   </div>
@@ -184,7 +184,7 @@ export default function ContactForm() {
                   <div className="space-y-1.5">
                     <label
                       htmlFor="volumen"
-                      className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-700 font-bold"
+                      className="block text-xs font-subheading uppercase tracking-wider text-brand-blue-500 font-bold"
                     >
                       Volumen Estimado Mensual
                     </label>
@@ -194,7 +194,7 @@ export default function ContactForm() {
                       value={formData.volumen}
                       onChange={handleChange}
                       disabled={status === 'submitting'}
-                      className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-700 focus-visible:border-brand-blue-700 rounded-xl px-4 text-sm transition-all text-brand-blue-700 cursor-pointer disabled:opacity-50 shadow-sm"
+                      className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:border-brand-blue-500 rounded-xl px-4 text-sm transition-all text-brand-blue-500 cursor-pointer disabled:opacity-50 shadow-sm"
                     >
                       <option value="" disabled className="text-brand-blue-500">
                         Seleccioná una opción
@@ -221,9 +221,9 @@ export default function ContactForm() {
           </div>
 
           {/* Footer Guarantee */}
-          <div className="pt-4 mt-6 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-blue-700 font-sans relative z-10">
+          <div className="pt-4 mt-6 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-blue-500 font-sans relative z-10">
             <span>Respuesta garantizada</span>
-            <span className="font-mono font-bold text-brand-blue-700 tabular-nums">Mar del Plata 2026</span>
+            <span className="font-mono font-bold text-brand-blue-500 tabular-nums">Mar del Plata 2026</span>
           </div>
         </div>
       </DoubleBezelCard>

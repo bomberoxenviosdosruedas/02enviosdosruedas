@@ -8,7 +8,7 @@ import { captureAndPersistUtms } from '@/lib/analytics';
 
 // CarruselRedes contains GSAP ScrollTrigger and is dynamically imported to avoid blocking FCP / TBT on initial paint
 const CarruselRedes = dynamic(() => import('./layout/CarruselRedes'), {
-  loading: () => <div className="w-full py-16 bg-brand-blue-700 min-h-[250px]" />,
+  loading: () => <div className="w-full py-16 bg-brand-blue-500 min-h-[250px]" />,
   ssr: true,
 });
 
@@ -20,7 +20,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only fixed top-4 left-4 z-[9999] bg-brand-yellow text-brand-blue px-6 py-3 rounded-xl font-subheading border-2 border-brand-blue shadow-[3px_3px_0px_var(--color-brand-blue)] uppercase font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue"
+        className="sr-only focus:not-sr-only fixed top-4 left-4 z-[9999] bg-brand-yellow-500 text-brand-blue-500 px-6 py-3 rounded-xl font-subheading border-2 border-brand-blue-500 shadow-[3px_3px_0px_var(--color-brand-blue-500)] uppercase font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue-500"
       >
         Saltar al contenido
       </a>

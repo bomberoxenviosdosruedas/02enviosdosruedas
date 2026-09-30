@@ -196,7 +196,7 @@ export default function GuiaEnviosFlexPage() {
                   className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl"
                 >
                   <div className="double-bezel-inner bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-sm flex items-start gap-5">
-                    <span className="w-10 h-10 rounded-xl bg-brand-blue-700 text-brand-yellow-500 font-display text-xl flex items-center justify-center shrink-0">
+                    <span className="w-10 h-10 rounded-xl bg-brand-blue-500 text-brand-yellow-500 font-display text-xl flex items-center justify-center shrink-0">
                       {st.number}
                     </span>
                     <div className="space-y-1">
@@ -227,7 +227,7 @@ export default function GuiaEnviosFlexPage() {
                     key={t.title}
                     className="p-6 rounded-2xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-3"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-brand-blue-700 text-brand-yellow-500 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
                     <h3 className="font-display text-base uppercase text-brand-blue-1000">
@@ -243,7 +243,7 @@ export default function GuiaEnviosFlexPage() {
           </div>
 
           {/* Box de Solución DosRuedas */}
-          <div className="p-8 rounded-2xl bg-brand-blue-700 text-white space-y-6">
+          <div className="p-8 rounded-2xl bg-brand-blue-500 text-white space-y-6">
             <div className="flex items-center gap-2 text-brand-yellow-500 text-xs font-subheading uppercase font-bold tracking-wider">
               <Truck className="w-4 h-4" />
               <span>Tu aliado logístico en Mar del Plata</span>

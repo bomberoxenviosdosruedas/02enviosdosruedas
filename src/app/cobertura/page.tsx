@@ -130,7 +130,7 @@ const breadcrumbSchema = {
 
 export default function CoberturaPage() {
   return (
-    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-700">
+    <main className="min-h-dvh bg-white text-brand-blue-1000">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -141,21 +141,21 @@ export default function CoberturaPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-brand-blue-700 text-white pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden border-b border-brand-blue-800">
+      <section className="relative bg-brand-blue-500 text-white pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden border-b border-brand-blue-500">
         <div className="absolute inset-0 opacity-25 pointer-events-none">
           <LogisticaNetworkCanvas />
         </div>
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFEC01_1px,transparent_1px)] bg-size-[16px_16px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-xs uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-1000 font-subheading text-xs uppercase tracking-wider mb-4">
               <Compass className="w-3.5 h-3.5" />
               <span>TODO MAR DEL PLATA · VIGENCIA 2026</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white leading-none">
               LLEGAMOS A <span className="text-brand-yellow-500">TODO MAR DEL PLATA</span>
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-brand-blue-50/90 font-sans leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-brand-blue-100/90 font-sans leading-relaxed">
               Operamos con base logística central en <strong>Friuli 1972</strong>. Llegamos a todos
               los barrios de Mar del Plata. Más allá de los 10 km de ruta, la tarifa se calcula por
               kilómetro: escribinos y te la confirmamos.
@@ -173,16 +173,16 @@ export default function CoberturaPage() {
       {/* Radios Breakdown Table - Double Bezel */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-900">
+          <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-1000">
             ESQUEMA DE RADIOS Y TARIFAS 2026
           </h2>
-          <p className="font-sans text-sm sm:text-base text-brand-ink mt-2">
+          <p className="font-sans text-sm sm:text-base text-brand-blue-1000 mt-2">
             Tarifas transparentes calculadas según la distancia real en kilómetros desde el punto de retiro al de entrega.
           </p>
         </div>
 
         <div className="bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-sm">
-          <div className="bg-white rounded-xl border border-brand-blue-50/50 overflow-hidden">
+          <div className="bg-white rounded-xl border border-brand-blue-100/50 overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left">
                 <caption className="sr-only">
@@ -192,31 +192,31 @@ export default function CoberturaPage() {
                   <tr className="border-b border-brand-blue-100">
                     <th
                       scope="col"
-                      className="px-4 py-3 font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-900"
+                      className="px-4 py-3 font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-1000"
                     >
                       Zona
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3 font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-900"
+                      className="px-4 py-3 font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-1000"
                     >
                       Distancia
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3 font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-900"
+                      className="px-4 py-3 font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-1000"
                     >
                       Barrios incluidos
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3 text-right font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-900"
+                      className="px-4 py-3 text-right font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-1000"
                     >
                       Express
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3 text-right font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-900"
+                      className="px-4 py-3 text-right font-subheading text-sm uppercase tracking-[0.08em] text-brand-blue-1000"
                     >
                       LowCost
                     </th>
@@ -226,28 +226,28 @@ export default function CoberturaPage() {
                   {ZONE_ROWS.map((row) => (
                     <tr
                       key={row.zona}
-                      className="border-b border-brand-blue-50 align-top last:border-b-0"
+                      className="border-b border-brand-blue-100 align-top last:border-b-0"
                     >
                       <th scope="row" className="px-4 py-3.5">
-                        <span className="rounded bg-brand-blue-700 px-2 py-0.5 font-mono text-sm text-white tabular-nums">
+                        <span className="rounded bg-brand-blue-500 px-2 py-0.5 font-mono text-sm text-white tabular-nums">
                           {row.zona}
                         </span>
                       </th>
-                      <td className="whitespace-nowrap px-4 py-3.5 font-mono text-xs font-medium text-brand-blue-600 tabular-nums">
+                      <td className="whitespace-nowrap px-4 py-3.5 font-mono text-xs font-medium text-brand-blue-1000 tabular-nums">
                         {row.km}
                       </td>
-                      <td className="px-4 py-3.5 font-sans text-xs leading-relaxed text-brand-ink">
+                      <td className="px-4 py-3.5 font-sans text-xs leading-relaxed text-brand-blue-1000">
                         {row.barrios}
                         {row.isFormula && (
-                          <span className="mt-1 block font-sans text-2xs italic text-brand-blue-500">
+                          <span className="mt-1 block font-sans text-2xs italic text-brand-blue-1000">
                             * Aplica Math.ceil(km) × valor por km
                           </span>
                         )}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-3.5 text-right font-mono text-sm font-bold text-brand-blue-900 tabular-nums">
+                      <td className="whitespace-nowrap px-4 py-3.5 text-right font-mono text-sm font-bold text-brand-blue-1000 tabular-nums">
                         {row.express}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-3.5 text-right font-mono text-sm font-bold text-brand-blue-900 tabular-nums">
+                      <td className="whitespace-nowrap px-4 py-3.5 text-right font-mono text-sm font-bold text-brand-blue-1000 tabular-nums">
                         {row.lowCost}
                       </td>
                     </tr>
@@ -262,10 +262,10 @@ export default function CoberturaPage() {
       {/* Interactive Neighborhood Explorer */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-6">
-          <h2 className="font-display text-2xl sm:text-3xl uppercase text-brand-blue-900">
+          <h2 className="font-display text-2xl sm:text-3xl uppercase text-brand-blue-1000">
             BUSCADOR DE BARRIOS Y ZONAS
           </h2>
-          <p className="font-sans text-sm text-brand-ink mt-1">
+          <p className="font-sans text-sm text-brand-blue-1000 mt-1">
             Encontrá tu barrio en Mar del Plata y visualizá el radio y la tarifa estimada de forma inmediata.
           </p>
         </div>
@@ -275,27 +275,27 @@ export default function CoberturaPage() {
       {/* Operating Base and Guarantees */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-brand-blue-50/80 border border-brand-blue-100 p-3 rounded-3xl">
-          <div className="bg-white p-6 sm:p-10 rounded-2xl border border-brand-blue-50/50 shadow-sm grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="bg-white p-6 sm:p-10 rounded-2xl border border-brand-blue-100/50 shadow-sm grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center font-bold">
+              <div className="w-12 h-12 rounded-xl bg-brand-yellow-500 text-brand-blue-1000 flex items-center justify-center font-bold">
                 <MapPin className="w-6 h-6" />
               </div>
-              <h3 className="font-subheading text-xl uppercase text-brand-blue-900">
+              <h3 className="font-subheading text-xl uppercase text-brand-blue-1000">
                 BASE OPERATIVA CENTRAL
               </h3>
-              <p className="font-sans text-sm text-brand-ink leading-relaxed">
+              <p className="font-sans text-sm text-brand-blue-1000 leading-relaxed">
                 Nuestra base física está ubicada en <strong>Friuli 1972, Barrio Chauvín</strong>. Esta posición estratégica en el corazón de Mar del Plata nos permite despachar a cualquier punto de la ciudad en minutos.
               </p>
             </div>
 
             <div className="space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-brand-blue-700 text-brand-yellow-500 flex items-center justify-center font-bold">
+              <div className="w-12 h-12 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center font-bold">
                 <Zap className="w-6 h-6" />
               </div>
-              <h3 className="font-subheading text-xl uppercase text-brand-blue-900">
+              <h3 className="font-subheading text-xl uppercase text-brand-blue-1000">
                 SERVICIO EXPRESS (FRANJA DE 3 HS)
               </h3>
-              <p className="font-sans text-sm text-brand-ink leading-relaxed">
+              <p className="font-sans text-sm text-brand-blue-1000 leading-relaxed">
                 Prioridad operativa directa con franja horaria de entrega a elección (ej. 10 a 13 hs). Solicitá antes de las 15:00 hs con 2 horas de anticipación.
               </p>
             </div>
@@ -304,10 +304,10 @@ export default function CoberturaPage() {
               <div className="w-12 h-12 rounded-xl bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-200 flex items-center justify-center font-bold">
                 <Clock className="w-6 h-6" />
               </div>
-              <h3 className="font-subheading text-xl uppercase text-brand-blue-900">
+              <h3 className="font-subheading text-xl uppercase text-brand-blue-1000">
                 REPARTO LOWCOST EN EL DÍA
               </h3>
-              <p className="font-sans text-sm text-brand-ink leading-relaxed">
+              <p className="font-sans text-sm text-brand-blue-1000 leading-relaxed">
                 Entregas en el transcurso de la jornada antes de las 19:00 hs para compras online y comercios. Solicitá antes de las 13:00 hs con la tarifa más conveniente.
               </p>
             </div>

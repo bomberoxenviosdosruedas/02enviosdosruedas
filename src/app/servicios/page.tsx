@@ -394,7 +394,7 @@ export default function ServiciosPage() {
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-500">
             COMPARATIVA RÁPIDA
           </h2>
-          <p className="font-sans text-sm sm:text-base text-brand-ink mt-2">
+          <p className="font-sans text-sm sm:text-base text-brand-blue-500 mt-2">
             Elegí el servicio que mejor se adapte a tu necesidad operativa y presupuesto.
           </p>
         </div>
@@ -429,7 +429,7 @@ export default function ServiciosPage() {
         </div>
 
         <div className="mt-6 text-center">
-          <p className="font-sans text-xs text-brand-ink">
+          <p className="font-sans text-xs text-brand-blue-500">
             * Tarifas vigentes 2026. Precios base 0-3 km. Consultá cobertura completa en
             <Link href="/cobertura" className="underline hover:text-brand-blue-500 font-medium">/cobertura</Link>
           </p>
