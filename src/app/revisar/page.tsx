@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { getFeedbackList } from '@/actions/feedback';
 import RevisarClient from '@/components/revisar/RevisarClient';
 
+export const dynamic = 'force-dynamic';
+
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
