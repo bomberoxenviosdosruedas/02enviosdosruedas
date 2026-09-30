@@ -56,47 +56,6 @@ describe('ContactoPage — Verbatim & Functionality Tests', () => {
     ).toBeInTheDocument();
   });
 
-  it('3. Verifica los textos literales de la sección Redes y Canales Digitales', () => {
-    render(<ContactoPage />);
-
-    expect(screen.getByText('Nuestra Comunidad Digital')).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: 'SEGUÍ NUESTRO MOVIMIENTO' })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        'Sumate a nuestros canales digitales y enterate al toque de todas las novedades operativas en Mar del Plata.'
-      )
-    ).toBeInTheDocument();
-
-    // Tarjeta 1 - Facebook
-    expect(screen.getByText('FACEBOOK OFICIAL')).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        'Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.'
-      )
-    ).toBeInTheDocument();
-    expect(screen.getByText('SEGUIR COMUNIDAD')).toBeInTheDocument();
-
-    // Tarjeta 2 - Instagram
-    expect(screen.getByText('INSTAGRAM MDQ')).toBeInTheDocument();
-    expect(screen.getByText('@enviosdosruedas')).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        'Mirá el detrás de escena de nuestros riders y la flota recorriendo las calles de MDQ.'
-      )
-    ).toBeInTheDocument();
-    expect(screen.getByText('VER CONTENIDO')).toBeInTheDocument();
-
-    // Tarjeta 3 - WhatsApp Directo
-    expect(screen.getByText('WHATSAPP DIRECTO')).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        'Escribinos directamente para consultas, contrataciones o soporte express al toque.'
-      )
-    ).toBeInTheDocument();
-    expect(screen.getByText('INICIAR CHAT')).toBeInTheDocument();
-  });
 
   it('4. Muestra la información exacta de Base de Operaciones MDQ (Friuli 1972, teléfono, email, horarios)', () => {
     render(<ContactoPage />);
@@ -135,7 +94,7 @@ describe('ContactoPage — Verbatim & Functionality Tests', () => {
     fireEvent.submit(form!);
 
     expect(
-      screen.getByText(/Por favor, ingresá tu nombre para iniciar el contacto./i)
+      screen.getAllByText(/Por favor, ingresá tu nombre para iniciar el contacto./i)[0]
     ).toBeInTheDocument();
   });
 

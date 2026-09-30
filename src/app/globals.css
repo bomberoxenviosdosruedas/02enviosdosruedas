@@ -3,6 +3,29 @@
 /* Tailwind CSS v4 Custom Variant */
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  /* ========================================================================
+   * SUPERFICIES Y ACCIONES (fuera de @theme para no chocar con text-* font-size)
+   * ======================================================================== */
+  --surface-page: var(--color-white);
+  --surface-card: var(--color-white);
+  --surface-muted: var(--color-brand-blue-50);
+  --surface-invert: var(--color-brand-blue-700);
+  --surface-glass: rgba(255, 255, 255, 0.06);
+  --text-body: var(--color-brand-blue-900);
+  --text-muted: var(--color-brand-blue-400);
+  --text-heading: var(--color-brand-blue-900);
+  --text-on-invert: var(--color-white);
+  --text-on-accent: var(--color-brand-blue-900);
+  --border-subtle: var(--color-brand-blue-100);
+  --focus-ring: var(--color-brand-blue-500);
+  --action-primary: var(--color-brand-blue-700);
+  --action-primary-hover: var(--color-brand-blue-800);
+  --action-accent: var(--color-brand-yellow-500);
+  --action-accent-hover: var(--color-brand-yellow-400);
+  --action-danger: #EF4444;
+}
+
 @theme {
   /* ========================================================================
    * PALETA CANÓNICA — Ley de Tres Colores (Ajuste Max #0950F6)
@@ -43,27 +66,6 @@
   --color-brand-yellow: var(--color-brand-yellow-500);
   --color-brand-ink: var(--color-brand-blue-900);
   --color-brand-white: var(--color-white);
-
-  /* ========================================================================
-   * SUPERFICIES Y ACCIONES (sin prefijo --color- para no chocar con text-*)
-   * ======================================================================== */
-  --surface-page: var(--color-white);
-  --surface-card: var(--color-white);
-  --surface-muted: var(--color-brand-blue-50);
-  --surface-invert: var(--color-brand-blue-700);
-  --surface-glass: rgba(255, 255, 255, 0.06);
-  --text-body: var(--color-brand-blue-900);
-  --text-muted: var(--color-brand-blue-400);
-  --text-heading: var(--color-brand-blue-900);
-  --text-on-invert: var(--color-white);
-  --text-on-accent: var(--color-brand-blue-900);
-  --border-subtle: var(--color-brand-blue-100);
-  --focus-ring: var(--color-brand-blue-500);
-  --action-primary: var(--color-brand-blue-700);
-  --action-primary-hover: var(--color-brand-blue-800);
-  --action-accent: var(--color-brand-yellow-500);
-  --action-accent-hover: var(--color-brand-yellow-400);
-  --action-danger: #EF4444;
 
   /* ========================================================================
    * REDES DE SEGURIDAD: escalas remapeadas a marca (no son API válida)
@@ -159,12 +161,10 @@
   /* ========================================================================
    * TIPOGRAFÍAS OFICIALES — Anton, Bebas Neue, Outfit, Geist Mono
    * ======================================================================== */
-  --font-sans: var(--font-sans), "Outfit", "IBM Plex Sans", sans-serif;
-  --font-display: var(--font-display), "Anton SC", "Anton", sans-serif;
-  --font-headline: var(--font-display), "Anton SC", "Anton", sans-serif;
-  --font-subheading: var(--font-subheading), "Bebas Neue", sans-serif;
-  --font-mono: var(--font-mono), "Geist Mono", monospace;
-  --font-body: var(--font-sans);
+  --font-sans: var(--font-sans, "Outfit"), "IBM Plex Sans", sans-serif;
+  --font-display: var(--font-display, "Anton SC"), "Anton", sans-serif;
+  --font-subheading: var(--font-subheading, "Bebas Neue"), sans-serif;
+  --font-mono: var(--font-mono, "Geist Mono"), monospace;
 
   --text-2xs: 0.625rem;
   --text-xs: 0.75rem;
@@ -242,7 +242,7 @@
   --animate-border-pulse: border-pulse 2s ease-in-out infinite;
   --animate-shimmer: shimmer 2.5s ease-in-out infinite;
   --animate-counter-up: counter-up 0.6s ease-out;
-  --animate-logos-scroll: logos-scroll 30s linear infinite;
+  --animate-logos-scroll: marquee-left 30s linear infinite;
 
   /* ========================================================================
    * DEPRECADO: alias temporales, se borran en la fase 3
@@ -260,7 +260,6 @@
 @keyframes border-pulse { 0%, 100% { border-color: rgba(9,80,246,0.2); } 50% { border-color: rgba(9,80,246,0.4); } }
 @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 @keyframes counter-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes logos-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 body {
   font-family: var(--font-sans);
@@ -268,23 +267,38 @@ body {
   color: var(--text-body);
 }
 
-.font-display { font-family: var(--font-display); text-transform: uppercase; line-height: 0.9; letter-spacing: -0.05em; text-wrap: balance; }
-.font-subheading { font-family: var(--font-subheading); text-transform: uppercase; letter-spacing: 0.05em; }
-.font-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+@utility font-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+@utility font-subheading {
+  font-family: var(--font-subheading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@utility font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
 
 /* Double-Bezel - Firma geométrica oficial */
 @utility double-bezel-outer {
   background-color: color-mix(in srgb, var(--color-brand-blue-50) 80%, transparent);
   border: 1px solid var(--color-brand-blue-100);
   padding: 0.5rem;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-float);
-  transition: all 0.3s cubic-bezier(0.25,1,0.5,1);
+  transition: border-color 0.3s cubic-bezier(0.25,1,0.5,1), box-shadow 0.3s cubic-bezier(0.25,1,0.5,1);
   &:hover { border-color: var(--color-brand-blue-300); box-shadow: var(--shadow-antigravity-deep); }
 }
 @utility double-bezel-inner {
   background-color: var(--color-white);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   box-shadow: inset 0 2px 4px rgba(9,80,246,0.06);
   border: 1px solid color-mix(in srgb, var(--color-brand-blue-50) 50%, transparent);
 }
@@ -296,14 +310,14 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   font-family: var(--font-subheading);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 700;
   padding: 0.75rem 1.5rem;
   min-height: 56px;
-  transition: all 0.25s cubic-bezier(0.25,1,0.5,1);
+  transition: transform 0.25s cubic-bezier(0.25,1,0.5,1), background-color 0.25s cubic-bezier(0.25,1,0.5,1), border-color 0.25s cubic-bezier(0.25,1,0.5,1), box-shadow 0.25s cubic-bezier(0.25,1,0.5,1);
   &:hover { transform: translateY(-1px); }
   &:active { transform: scale(0.98); }
 }
@@ -311,7 +325,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   width: 2.5rem;
   height: 2.5rem;
   margin-left: 0.75rem;
@@ -345,12 +359,12 @@ body {
   text-transform: uppercase;
 }
 
-.kinetic-font-stretch {
+@utility kinetic-font-stretch {
   display: inline-block;
   transition: transform 0.4s cubic-bezier(0.25,1,0.5,1), letter-spacing 0.4s;
   transform-origin: left;
+  &:hover { transform: scaleX(1.08); letter-spacing: 0.02em; }
 }
-.kinetic-font-stretch:hover { transform: scaleX(1.08); letter-spacing: 0.02em; }
 
 /* V2 Marquee Flotante */
 @keyframes marquee-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -362,7 +376,6 @@ body {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
-@keyframes road { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes shuttle {
   from { transform: translateX(0); }
   to { transform: translateX(100%); }
@@ -384,7 +397,7 @@ body {
 
 @utility animate-radar { animation: radar 6s linear infinite; }
 @utility animate-floaty { animation: floaty 5s ease-in-out infinite; }
-@utility animate-road { animation: road 3.5s linear infinite; }
+@utility animate-road { animation: marquee-left 3.5s linear infinite; }
 @utility animate-shuttle {
   animation: shuttle 5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
 }
@@ -404,22 +417,20 @@ body {
   transform-origin: left center;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-radar, .animate-floaty, .animate-road, .animate-shuttle, .animate-draw, .animate-roundtrip, .animate-pulse-ring, .animate-grow-x { animation: none !important; }
-  .animate-draw { stroke-dashoffset: 0 !important; }
-  .animate-grow-x { transform: scaleX(1) !important; }
-  .animate-pulse-ring { opacity: 0 !important; }
-}
-
 @utility animate-marquee-left { animation: marquee-left 36s linear infinite; }
 @utility animate-marquee-right { animation: marquee-right 42s linear infinite; }
 @utility is-paused { animation-play-state: paused !important; }
 @utility no-scrollbar { &::-webkit-scrollbar { display: none; } scrollbar-width: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee-left, .animate-marquee-right { animation: none !important; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .animate-radar, .animate-floaty, .animate-road, .animate-shuttle, .animate-draw, .animate-roundtrip, .animate-pulse-ring, .animate-grow-x, .animate-marquee-left, .animate-marquee-right {
+    animation: none !important;
+  }
+  .animate-draw { stroke-dashoffset: 0 !important; }
+  .animate-grow-x { transform: scaleX(1) !important; }
+  .animate-pulse-ring { opacity: 0 !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

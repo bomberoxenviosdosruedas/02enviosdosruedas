@@ -8,7 +8,7 @@ Protocolo obligatorio del proyecto — leer y respetar en toda tarea:
 
 - Las reglas de verificación, diseño y precios están en `AGENTS.md` (arriba). Detalle en `DESIGN.md` y `docs/knowledge_base/`.
 - Antes de tocar UI, leer la sección de `DESIGN.md` que corresponda y usar las primitivas de `src/components/ui/`.
-- Para ejecutar el plan de remediación (`DESIGN.md` §15), usar los prompts de `docs/agents/prompts-remediacion.md`, **un ítem por tarea y por PR**, con el nivel de verificación que indica cada prompt. Al cerrar un ítem, marcarlo en `DESIGN.md` §11 y §15 en el mismo PR.
+- Para ejecutar el plan de remediación (`DESIGN.md` §15), consultar las especificaciones en `DESIGN.md` §15 y los prompts especializados en `docs/agents/`, **un ítem por tarea y por PR**, con el nivel de verificación que indica cada prompt. Al cerrar un ítem, marcarlo en `DESIGN.md` §11 y §15 en el mismo PR.
 - Si un skill (por ejemplo `dosruedas-brand-system` o `.agents/skills/tailwind-v4-design-system`) contradice a `DESIGN.md` en colores, gana `DESIGN.md`.
 
 ## Agent skills

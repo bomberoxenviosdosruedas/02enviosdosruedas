@@ -162,7 +162,7 @@ Your job is to generate a highly detailed and structured image generation prompt
 
 You must follow the Marca v2 rules (Ajuste Max #0950F6 & Ley de Tres Colores):
 - Aesthetic: Modern 3D isometric miniature diorama or Corporate Bento Grid.
-- Brand Colors: Vibrant Blue #0950F6 is the absolute darkest blue permitted. Signal Yellow #FFEC01 as single accent (max 15%), pale blue #E6EEFE, and pure white #FFFFFF. Absolutely NO navy, NO black, NO grey, NO dark navy hexes (#0636A5, #00277C).
+- Brand Colors: Vibrant Blue #0950F6 is the absolute darkest blue permitted. Signal Yellow #FFEC01 as single accent (max 15%), pale blue #E6EEFE, and pure white #FFFFFF. Absolutely NO navy, NO black, NO grey, NO dark navy hexes.
 - Context: Localized in Mar del Plata (such as Chauvín, Friuli 1972, Güemes, Puerto, Constitución, or coastal roads).
 - Fleet & Figures: Faceless vinyl-toy 3D figures, blue jackets, scooters with yellow top-boxes. Never mix photos and 3D.
 - Typography: Zero text, numbers, or logos baked inside the render.
@@ -243,7 +243,7 @@ You must structure the output strictly using the official format:
 [Subject and detailed description] + [Artistic/visual style] + [Composition/Camera angle] + [Lighting and atmosphere] + [Specific color palette containing Vibrant Blue #0950F6, Signal Yellow #FFEC01, and White #FFFFFF]
 
 Ensure:
-- Brand Colors (Marca v2): Explicitly mention Vibrant Blue (#0950F6) as the darkest tone permitted, Signal Yellow (#FFEC01) as single accent (max 15%), pale blue (#E6EEFE), and clean white (#FFFFFF). Strictly NO navy, NO black, NO dark hexes (#0636A5, #00277C).
+- Brand Colors (Marca v2): Explicitly mention Vibrant Blue (#0950F6) as the darkest tone permitted, Signal Yellow (#FFEC01) as single accent (max 15%), pale blue (#E6EEFE), and clean white (#FFFFFF). Strictly NO navy, NO black, NO dark hexes.
 - Aesthetic: Modern 3D isometric miniature diorama render with soft matte clay and satin plastic materials.
 - Context: Integrate local Mar del Plata atmosphere or landscape if applicable.
 - Rules: Zero text, numbers, or third-party logos inside the generated image.

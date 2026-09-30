@@ -225,8 +225,7 @@ export default function HeroProceduralBackground({
             fill="none"
             stroke={accent}
             strokeWidth="1.5"
-            className="motion-safe:animate-ping"
-            style={{ animationDuration: '4s' }}
+            className="motion-safe:animate-ping [animation-duration:4s]"
           />
           <circle cx="1050" cy="320" r="180" fill="none" stroke={accent} strokeWidth="1" strokeDasharray="4 8" />
           <circle cx="1050" cy="320" r="300" fill="none" stroke={softAccent} strokeWidth="0.75" strokeDasharray="6 12" />

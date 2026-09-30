@@ -137,8 +137,7 @@ export default function AboutHero() {
             <span className="absolute bottom-0 left-0 h-0 w-0">
               <span className="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2">
                 <span
-                  className="block h-7 w-7 rounded-full border border-brand-yellow-500/60 motion-safe:animate-ping"
-                  style={{ animationDuration: '3.6s' }}
+                  className="block h-7 w-7 rounded-full border border-brand-yellow-500/60 motion-safe:animate-ping [animation-duration:3.6s]"
                 />
               </span>
               <span className="absolute left-0 top-0 block h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-white-50" />

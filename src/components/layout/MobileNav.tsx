@@ -75,7 +75,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, navItems,
 
   const content = (
     <>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: prefersReducedMotion ? 0 : 0.2 }} onClick={onClose} className="fixed inset-0 bg-brand-blue-700/70 backdrop-blur-md z-99 lg:hidden" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }} />
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: prefersReducedMotion ? 0 : 0.2 }} onClick={onClose} className="fixed inset-0 bg-brand-blue-700/70 backdrop-blur-md z-99 lg:hidden" />
       <motion.div
         ref={drawerRef}
         id="mobile-navigation-dialog"
@@ -87,7 +87,6 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, navItems,
         exit={prefersReducedMotion ? { opacity: 0 } : { x: '100%' }}
         transition={SPRING_PANEL}
         className="fixed top-0 right-0 bottom-0 z-100 flex flex-col w-full max-w-[320px] h-dvh bg-brand-blue-700 shadow-2xl border-l border-white/10 lg:hidden overscroll-contain"
-        style={{ position: 'fixed', top: 0, right: 0, bottom: 0, height: '100dvh', maxHeight: '100dvh', minHeight: '-webkit-fill-available' as any }}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
           <Link href="/" onClick={onClose} className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50 rounded-lg">

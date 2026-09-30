@@ -18,7 +18,7 @@ export default function PoliticaPrivacidadPage() {
     <main className="min-h-dvh bg-brand-blue-500 text-white relative overflow-hidden">
       {/* 3D Ambient floating glow-orbs */}
       <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue-500/20 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow-500/5 rounded-full blur-[110px] pointer-events-none" style={{ animationDelay: '-3s' }} />
+      <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow-500/5 rounded-full blur-[110px] pointer-events-none [animation-delay:-3s]" />
 
       {/* Interactive privacy policy reader */}
       <div className="relative z-10 font-sans">
