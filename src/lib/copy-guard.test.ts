@@ -18,6 +18,11 @@ import { dirname, join, relative } from 'node:path';
  * sitio, pero siempre negados ("No emitimos Factura A", "no es punto de retiro").
  * Un guard ingenuo los marcaría como violación. Blindarlos exige parsear negación,
  * y un guard que da falsos positivos se desactiva; mejor dejarlo explícito.
+ *
+ * Tampoco bloquea "todo Mar del Plata": el sitio lo dice legítimamente, siempre
+ * pegado al corte de 20 km. Bloquear la frase sola daría falsos positivos. Lo que
+ * estaba mal era la lista de barrios al lado, que se llevaba a leer como zonas
+ * tarifarias — el dueño niega que haya zonas establecidas.
  */
 
 const SRC = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -68,6 +73,13 @@ const PROHIBIDOS: readonly Prohibido[] = [
     motivo:
       'El dueño niega la garantía de rendición inmediata. La redacción honesta es ' +
       '"en el día, al día siguiente o semanal, según lo acordado".',
+  },
+  {
+    patron: /sin sorpresas/i,
+    motivo:
+      'Prometer "sin sorpresas" mientras el cotizador publica cinco recargos (lluvia, ' +
+      'espera, parada extra, bulto mayor, contrareembolso). La promesa que sí se ' +
+      'sostiene: los recargos tienen monto publicado y se informan antes de confirmar.',
   },
 ];
 

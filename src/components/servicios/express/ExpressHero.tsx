@@ -39,10 +39,14 @@ export default function ExpressHero() {
               <Knockout className="whitespace-nowrap">puerta a puerta</Knockout>
             </h1>
 
+            {/* La versión anterior cerraba con "Sin agrupar ni esperar". Las dos
+               clausas son insostenibles: "sin agrupar" promete un bulto por viaje
+               —la moto carga varios— y "ni esperar" choca contra el recargo de
+                espera publicado ($2.100 c/10 min). Queda la promesa que sí
+                sostiene: franja a elección, tarifa por distancia, WhatsApp. */}
             <p className="mt-4 max-w-[46ch] font-sans text-lg font-light leading-[1.55] text-white/85">
-              Retiramos tu paquete y lo entregamos en {EXPRESS_WINDOW} a elección en todo Mar del
-              Plata. Sin agrupar ni esperar: tarifa fija por distancia y coordinación directa por
-              WhatsApp.
+              Retiramos tu paquete y lo entregamos en {EXPRESS_WINDOW} a elección en toda la ciudad.
+              Tarifa fija por distancia y coordinación directa por WhatsApp.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">

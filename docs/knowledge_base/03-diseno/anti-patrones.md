@@ -78,6 +78,8 @@
 | Cambiar `EXPRESS_PRICE_PER_KM` a 1200 por un informe sin confirmar | Dejarlo en 1000 hasta que el dueño lo diga. Ver `02-dominio/entrevista-dueno-2026-09-28.md` §3.1 | 🔴 Crítico |
 | Bajar `PERIPHERY_PRICE_PER_KM` a 1000 para "armonizar" con el código, cuando el `.docx` y la planilla dicen `$1.200` | Ya se hizo una vez, el 2026-09-29, y fue el error. El dueño confirmó **`$1.000`** el 2026-09-30 (`decisiones.md` #70, `tarifas.md` §7.1). Las fuentes van atrasadas, no el código | 🔴 Crítico |
 | Reintroducir un techo de peso (el 15 kg de `MAX_WEIGHT_KG`) | No hay techo publicado. Solo `STANDARD_WEIGHT_KG` = 5 kg. `copy-guard.test.ts` lo bloquea | 🔴 Crítico |
+| Describir cobertura con una **lista de barrios** (o "todo Mar del Plata" sin el corte pegado) | *"Todo Mar del Plata. Hasta {CONSULT_THRESHOLD_KM} km el cálculo es automático; más allá de ese radio, la tarifa se conversa con el equipo."* Misma frase en hero, `/servicios/envios-express` y asistente de IA. El dueño niega que haya zonas (`decisiones.md` #71) | 🔴 Crítico |
+| Poner "Periferia" como título de la sección de excedente por km | *"Más de {lastTier.maxKm} km dentro de la ciudad"*. La periferia es **otra** tarifa, fuera de la ciudad, y se cotiza aparte (`tarifas.md` §7.1) | 🟠 Alto |
 
 ---
 
@@ -91,6 +93,8 @@
 | Métricas inventadas: "99.99%", "50%", "1234567" | Datos reales o `[métrica]` | 🟠 Alto |
 | Emojis en UI (🚀, 📦, ✅, ⭐) | Íconos `lucide-react` | 🟠 Alto |
 | Rayas (—) en texto visible | Punto, coma, dos puntos, salto de línea | 🟡 Medio |
+| Prometer "sin sorpresas", "sin costos ocultos" o "el precio no cambia por clima" | "Los recargos del viaje tienen monto publicado y se informan antes de confirmar." Hay **cinco** recargos vigentes, y el de lluvia es del 50 %. `copy-guard.test.ts` bloquea la frase. Ver `decisiones.md` #72 | 🔴 Crítico |
+| Dejar un literal de precio, peso o distancia escrito a mano en el copy (`"3 hs"`, `"5 kg"`) | La constante: `EXPRESS_WINDOW`, `STANDARD_WEIGHT_KG`, `CONSULT_THRESHOLD_KM`, `lastTier.maxKm` | 🟠 Alto |
 | Texto < 12px legible (párrafos, labels) | Mínimo `text-xs` (12px); `text-2xs` (10px) solo metadato mono/Bebas UPPERCASE | 🟠 Alto |
 
 ### 5.1-5.4 Negocio, promesas y tono
@@ -152,6 +156,7 @@
 - [ ] Test Vitest: verifica presencia de `brand-*` tokens en componentes críticos.
 - [ ] Test Vitest: verifica `InputField` / `CTANestedPill` / `DoubleBezelCard` en formularios y CTAs.
 - [ ] Test Vitest: verifica `Math.ceil` en `pricing.ts` y ausencia de precios hardcodeados en Flex/Emprendedores.
-- [x] Test Vitest: **guard de copy** → `src/lib/copy-guard.test.ts` (creado 2026-09-30, después de que "15 kg" se publicara meses sin fuente). Escanea `src/**` y falla si aparece un techo de peso, "60-90 min" o "rendición inmediata"; ignora comentarios para que el código pueda *nombrar* el término. El motivo de cada hallazgo va en el mensaje de error.
+- [x] Test Vitest: **guard de copy** → `src/lib/copy-guard.test.ts` (creado 2026-09-30, después de que "15 kg" se publicara meses sin fuente). Escanea `src/**` y falla si aparece un techo de peso, "60-90 min", "rendición inmediata" o "sin sorpresas" (agregado 2026-09-30, cuando esa frase resultó ser la quinta manifestación del mismo bug); ignora comentarios para que el código pueda *nombrar* el término. El motivo de cada hallazgo va en el mensaje de error.
   - [ ] Ampliar a los términos que hoy **no** cubre: "Factura A", "punto de retiro", "70 %" de indemnización, "entregas en 24hs". Está deliberadamente fuera: los tres primeros aparecen en el sitio **negados** ("No emitimos Factura A"), así que un guard ingenuo daría falsos positivos. Blindarlos exige parsear negación, y un guard que miente se desactiva.
+  - [ ] Tampoco cubre *"todo Mar del Plata"*: el sitio lo dice legítimamente siempre pegado al corte de 20 km. Bloquear la frase sola daría falsos positivos. Lo que estaba mal era la lista de barrios al lado (`decisiones.md` #71).
 - [ ] CI gate: `pnpm typecheck` + `pnpm exec eslint` + `pnpm exec vitest run` obligatorios en PR.

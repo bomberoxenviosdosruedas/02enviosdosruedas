@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { calculateExpressPrice, EXPRESS_PRICE_PER_KM, EXPRESS_TIERS } from '@/lib/pricing';
 import {
   CONSULT_THRESHOLD_KM,
+  EXPRESS_WINDOW,
   EXPRESS_WINDOW_SHORT,
   STANDARD_BULLET_DIMENSIONS_CM,
   STANDARD_WEIGHT_KG,
@@ -55,13 +56,22 @@ const PRICING_FACTS = [
   },
   {
     icon: Clock,
-    title: `Entrega en franja de 3 hs a elección`,
+    title: `Entrega en ${EXPRESS_WINDOW} a elección`,
     body: 'Cadetería prioritaria con entrega asegurada dentro de la franja que coordinamos con vos.',
   },
   {
+    // El texto anterior decía "El precio no cambia por clima ni por demanda",
+    // y contradecía el recargo de lluvia que esta misma página lista en el
+    // introducción y en `CotizadorRecargos`. La promesa que sí se sostiene es
+    // más chica: la tarifa por kilómetros no se ajusta, y los recargos del
+    // viaje se informan antes de confirmar.
+    // Esta tarjeta no repite ese aviso: ya lo hacen la introducción de más abajo
+    // y la tarjeta equivalente de `ExpressFeatures`, que en la página es
+    // contigua a esta. Su trabajo es otro: mostrar que la tarifa es pública y se
+    // aplica sin criterio interno.
     icon: ShieldCheck,
-    title: 'Tarifa fija, sin dinámica',
-    body: 'El precio no cambia por clima ni por demanda. Lo sabés antes de confirmar.',
+    title: 'Tabla pública, sin letra chica',
+    body: 'Los tramos de la tabla y el coeficiente del excedente están a la vista. El precio sale de esos números, no de un criterio interno.',
   },
 ];
 
@@ -98,7 +108,7 @@ export default function ExpressPricing() {
           <p className="text-brand-blue-900 font-sans text-base sm:text-lg max-w-xl mx-auto leading-relaxed text-pretty">
             Tarifa fija según los kilómetros exactos entre retiro y entrega.
             Sabés el precio del viaje antes de confirmar. Lluvia, espera en puerta, paradas
-            extra o un bulto de más de 5 kg se suman aparte.
+            extra o un bulto de más de {STANDARD_WEIGHT_KG} kg se suman aparte.
           </p>
         </div>
 
@@ -183,7 +193,9 @@ export default function ExpressPricing() {
           })}
         </ul>
 
-        {/* Periferia y largas distancias: narrativa + coeficiente + acción */}
+        {/* Excedente dentro del radio: narrativa + coeficiente + acción. No es
+            periferia: la periferia es otra tarifa, fuera de la ciudad, y se
+            cotiza aparte (ver `tarifas.md` §7.1). */}
         <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-sm ring-1 ring-brand-blue-100 flex flex-col lg:flex-row items-stretch justify-between gap-8">
           <div className="flex items-start gap-5 flex-1">
             <span
@@ -196,15 +208,16 @@ export default function ExpressPricing() {
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="font-subheading text-2xl sm:text-3xl uppercase tracking-[0.05em] text-brand-blue-900 leading-tight">
-                  Periferia y largas distancias (&gt; {lastTier.maxKm} km)
+                  Más de {lastTier.maxKm} km dentro de la ciudad
                 </h3>
                 <span className="rounded-md bg-brand-blue-50 px-2.5 py-0.5 font-mono text-xs font-semibold uppercase text-brand-blue-700">
-                  Recorridos extra
+                  Excedente por km
                 </span>
               </div>
 
               <p className="text-base font-sans leading-relaxed text-brand-blue-900 max-w-2xl">
-                Para recorridos largos dentro de Mar del Plata, hasta{' '}
+                Pasados los {lastTier.maxKm} km, la tarifa sigue la fórmula por kilómetro hasta
+                los{' '}
                 <strong className="font-mono tabular-nums">{CONSULT_THRESHOLD_KM} km</strong>.
                 Ejemplo:{' '}
                 <span className="underline decoration-brand-yellow-500 decoration-2 underline-offset-4">

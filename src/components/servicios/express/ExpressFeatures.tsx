@@ -2,6 +2,7 @@ import React from 'react';
 import { Clock, MapPinned, Package, Users } from 'lucide-react';
 import { DoubleBezelCard } from '@/components/ui';
 import {
+  CONSULT_THRESHOLD_KM,
   EXPRESS_LEAD_TIME,
   EXPRESS_WINDOW,
   OPERATING_HOURS,
@@ -23,8 +24,11 @@ const features = [
     span: 'sm:col-span-5',
   },
   {
+    // "Sin tarifa dinámica ni sorpresas a la hora de pagar" contradecía los
+    // cinco recargos que el cotizador publica. La versión honesta no promete
+    // que no haya recargos: promete que están publicados y se informan antes.
     title: 'Tarifa fija por distancia',
-    desc: 'El precio sale de la distancia real entre retiro y entrega. Sin tarifa dinámica ni sorpresas a la hora de pagar.',
+    desc: 'El precio sale de la distancia real entre retiro y entrega. Los recargos del viaje tienen monto publicado y se informan antes de confirmar.',
     icon: MapPinned,
     span: 'sm:col-span-5',
   },
@@ -57,8 +61,8 @@ export default function ExpressFeatures() {
             </h2>
 
             <p className="text-brand-blue-900 text-base leading-relaxed font-sans">
-              Llegamos a todo Mar del Plata: Centro, Güemes, Chauvín, Los Troncos, Puerto, Playa
-              Grande, Punta Mogotes, Constitución y Camet.
+              Todo Mar del Plata. Hasta {CONSULT_THRESHOLD_KM} km el cálculo es automático; más allá
+              de ese radio, la tarifa se conversa con el equipo.
             </p>
 
             <p className="flex items-center gap-3 text-sm text-brand-blue-900 uppercase tracking-wider font-subheading">

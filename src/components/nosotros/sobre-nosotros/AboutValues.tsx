@@ -9,12 +9,12 @@ export default function AboutValues() {
   const values = [
     {
       title: 'Transparencia Total',
-      desc: 'Tarifas públicas por kilómetro exacto según tabla oficial 2026. Sin costos ocultos, sin sorpresas en la liquidación de tus envíos.',
+      desc: 'Tarifas públicas por kilómetro exacto, con los recargos del viaje publicados. Lo que no sabés al cotizar no aparece después en la liquidación.',
       icon: Handshake,
     },
     {
       title: 'Cuidado del Paquete',
-      desc: 'Tratamos cada paquete como si fuera nuestro. Mochilas reinforced, cajas seguras y manipulación profesional de mercadería frágil.',
+      desc: 'Tratamos cada paquete como si fuera nuestro. Mochilas reforzadas, cajas seguras y manipulación profesional de mercadería frágil.',
       icon: ShieldCheck,
       featured: true,
     },

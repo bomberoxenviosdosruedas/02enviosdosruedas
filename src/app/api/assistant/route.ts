@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getGeminiClient } from "@/lib/gemini";
+import { CONSULT_THRESHOLD_KM } from "@/lib/promises";
 
 // Force dynamic execution for API endpoints using system env vars
 export const dynamic = "force-dynamic";
@@ -47,8 +48,8 @@ SERVICIOS OFRECIDOS:
    - Preparamos tus pedidos de mercadería (Pick & Pack) y despachamos diariamente.
    - Flexibilidad con Cuenta Corriente corporativa PyME mensual.
 
-ZONAS DE COBERTURA EN MAR DEL PLATA:
-Llegamos a todo Mar del Plata: Centro, La Perla, Constitución, Chauvín, San Carlos, Playa Grande, Güemes, Puerto, Punta Mogotes, Terminal/Sarmiento, Pompeya, Caisamar, Los Troncos, Stella Maris, Alfar, Bosque Peralta Ramos y Camet. Más allá de los 10 km de ruta, la tarifa se calcula por kilómetro.
+COBERTURA EN MAR DEL PLATA:
+Recorremos toda la ciudad y no hay zonas ni barrios con tarifa distinta: el precio sale de la distancia. Hasta ${CONSULT_THRESHOLD_KM} km de ruta el cálculo es automático; más allá de ese radio, la tarifa se conversa con el equipo. Si preguntan por un barrio en particular, confirmá que sí llegamos, pero aclará que el corte de ${CONSULT_THRESHOLD_KM} km aplica al cálculo automático, no a la cobertura.
 
 POLÍTICAS O REGLAS OPERATIVAS:
 - Clima: No suspendemos por llovizna costera suave. Contamos con mochilas estancas e impermeables para cuidar la paquetería. En caso de temporal extremo severo (alerta meteorológica de viento costero o granizo), se prioriza la seguridad física de los cadetes y se reprograman los repartos avisando al cliente inmediatamente.
