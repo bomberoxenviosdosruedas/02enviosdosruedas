@@ -81,10 +81,7 @@ export const metadata: Metadata = {
     creator: '@enviosdosruedas',
   },
   verification: {
-    google: [
-      'Xmi1zpx45Gdf_z7dZfPWRjDuG7ExiOo7N2fy1hnlBbA',
-      'RKKz8Z6gsm6k3099W3s-xs7G6LTSQQNHpBs_iWfIQnM'
-    ],
+    google: ['RKKz8Z6gsm6k3099W3s-xs7G6LTSQQNHpBs_iWfIQnM'],
   },
 };
 
