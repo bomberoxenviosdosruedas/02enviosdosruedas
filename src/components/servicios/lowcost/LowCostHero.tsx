@@ -163,8 +163,7 @@ export default function LowCostHero() {
         {/* Firma visual: el reloj de la ventana 13:00 → 19:00. */}
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
           <svg
-            className="absolute -right-[10%] -bottom-[14%] w-[300px] h-[300px] sm:w-[440px] sm:h-[440px] lg:w-[560px] lg:h-[560px]"
-            style={{ opacity: 0.28 }}
+            className="absolute -right-[10%] -bottom-[14%] w-[300px] h-[300px] sm:w-[440px] sm:h-[440px] lg:w-[560px] lg:h-[560px] opacity-[0.28]"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="-150 -150 300 300"
           >

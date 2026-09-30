@@ -57,8 +57,7 @@ export default function PreguntasFrecuentesPage() {
       {/* 3D Ambient floating glow-orbs */}
       <div className="absolute top-[20%] left-[-15%] w-[40vw] h-[40vw] bg-brand-blue-500/10 rounded-full blur-[130px] pointer-events-none animate-float-slow" />
       <div
-        className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow-500/5 rounded-full blur-[110px] pointer-events-none"
-        style={{ animationDelay: '-3s' }}
+        className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] bg-brand-yellow-500/5 rounded-full blur-[110px] pointer-events-none [animation-delay:-3s]"
       />
 
       {/* Hero Header block */}

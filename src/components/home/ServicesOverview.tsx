@@ -326,8 +326,7 @@ export default function ServicesOverview() {
     <section
       id="services-overview"
       aria-labelledby="services-overview-title"
-      className="py-24 bg-[#0950F6] text-white relative overflow-hidden"
-      style={{ perspective: '2000px' }}
+      className="py-24 bg-[#0950F6] text-white relative overflow-hidden perspective-[2000px]"
       onMouseEnter={() => setIsAutoRotate(false)}
       onMouseLeave={() => !selectedService && setIsAutoRotate(true)}
     >
@@ -403,8 +402,7 @@ export default function ServicesOverview() {
         {/* 3D Tilted Card Carousel Container */}
         <div
           ref={carouselRef}
-          className="relative h-[500px] sm:h-[540px] flex items-center justify-center my-8"
-          style={{ transformStyle: 'preserve-3d' }}
+          className="relative h-[500px] sm:h-[540px] flex items-center justify-center my-8 [transform-style:preserve-3d]"
         >
           {services.map((service, index) => {
             const Icon = service.icon;

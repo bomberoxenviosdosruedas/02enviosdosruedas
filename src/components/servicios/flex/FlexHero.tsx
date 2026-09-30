@@ -139,8 +139,7 @@ export default function FlexHero() {
           className="absolute inset-x-0 bottom-0 h-14 sm:h-20 lg:h-24 pointer-events-none"
         >
           <svg
-            className="absolute inset-0 h-full w-full"
-            style={{ opacity: 0.32 }}
+            className="absolute inset-0 h-full w-full opacity-[0.32]"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1200 96"
             preserveAspectRatio="none"

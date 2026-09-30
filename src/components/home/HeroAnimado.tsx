@@ -113,13 +113,11 @@ export default function HeroAnimado() {
               />
               <span
                 aria-hidden="true"
-                className="animate-pulse-ring absolute left-1/2 top-[44%] aspect-square w-[30%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-brand-yellow-500/60"
-                style={{ animationDelay: '1.06s' }}
+                className="animate-pulse-ring absolute left-1/2 top-[44%] aspect-square w-[30%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-brand-yellow-500/60 [animation-delay:1.06s]"
               />
               <span
                 aria-hidden="true"
-                className="animate-pulse-ring absolute left-1/2 top-[44%] aspect-square w-[30%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-brand-yellow-500/60"
-                style={{ animationDelay: '2.13s' }}
+                className="animate-pulse-ring absolute left-1/2 top-[44%] aspect-square w-[30%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-brand-yellow-500/60 [animation-delay:2.13s]"
               />
 
               <Image

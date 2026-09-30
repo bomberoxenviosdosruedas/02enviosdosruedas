@@ -48,7 +48,7 @@ Auditoría hecha leyendo el código del commit `5d6588a` (tokens, las 19 piezas 
 | 11  | Baja adopción de primitivas + 321 hex arbitrarios + 183 radios arbitrarios + 140 textos de 8–11 px                                                        | 🟡   | global                                                                                                                         | 11       |
 | 12  | Sin enforcement automático (lint/tests) de paleta, contraste ni tarifas                                                                                   | 🟡   | —                                                                                                                              | 12       |
 
-**Deuda de auditorías anteriores ya saldada** (verificado en `5d6588a`): 0 × `h-screen`, 0 × `animate-bounce`, 0 × `border-l-4`, 0 × verdes (`green-*`, `#25D366`), paleta de `globals.css` migrada a Max.
+**Deuda de auditorías anteriores ya saldada** (verificado en `5d6588a`): 0 × `h-screen`, 0 × `animate-bounce`, 0 × `border-l-4`, 0 × verdes (`green-*`, `#25D366`), paleta de `globals.css` migrada a Max. ✅ 2026-09-30: Refactorización no cromática de `globals.css` (B1-B10), migración de `style={{...}}` estáticos a clases Tailwind v4 (C1-C2) y limpieza de configuración raíz (A1-A4).
 
 ---
 

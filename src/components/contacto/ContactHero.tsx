@@ -78,8 +78,7 @@ export default function ContactHero() {
             {/* Sólo el riel en el SVG estirado: una recta se lee igual deformada.
                 Los terminales y el token van en DOM (ver nota del keyframe). */}
             <svg
-              className="absolute inset-0 h-full w-full"
-              style={{ opacity: 0.34 }}
+              className="absolute inset-0 h-full w-full opacity-[0.34]"
               xmlns="http://www.w3.org/2000/svg"
               viewBox={`0 0 ${RAIL_W} 96`}
               preserveAspectRatio="none"

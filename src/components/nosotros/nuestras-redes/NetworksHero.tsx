@@ -59,8 +59,7 @@ export default function NetworksHero() {
                 igual deformada y nos barre todo el ancho. Los nodos van en DOM
                 para que `animate-pulse` no compita con ningún `translate`. */}
             <svg
-              className="absolute inset-0 h-full w-full"
-              style={{ opacity: 0.4 }}
+              className="absolute inset-0 h-full w-full opacity-40"
               xmlns="http://www.w3.org/2000/svg"
               viewBox={`0 0 ${MESH_W} ${MESH_H}`}
               preserveAspectRatio="none"
