@@ -54,7 +54,7 @@ const jsonLdSchema = {
 
 export default function ContactoPage() {
   return (
-    <main className="min-h-[100dvh] bg-brand-white-50 text-brand-blue-700 relative overflow-hidden font-sans">
+    <main className="min-h-[100dvh] bg-white text-brand-blue-500 relative overflow-hidden font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -67,7 +67,7 @@ export default function ContactoPage() {
           sigue al hero y todo lo de abajo (ContactForm, ContactInfo,
           ConversionBanner) está compuesto para fondo claro. Sobre azul, el
           <h2> de ContactInfo quedaba en #0950F6 sobre #0950F6. */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10 space-y-16 bg-brand-white-50">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10 space-y-16 bg-white">
         {/* Upper Grid: Contact Form & Main Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Column 1: Formulario de Cotización Inmediata (5 Cols on desktop) */}

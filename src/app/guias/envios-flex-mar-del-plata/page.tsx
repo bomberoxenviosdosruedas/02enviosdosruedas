@@ -117,7 +117,7 @@ export default function GuiaEnviosFlexPage() {
   ];
 
   return (
-    <main className="min-h-[100dvh] bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-[100dvh] bg-white text-brand-blue-1000 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -128,7 +128,7 @@ export default function GuiaEnviosFlexPage() {
       />
 
       {/* Hero */}
-      <section className="relative z-10 bg-brand-blue-700 text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8 border-b border-brand-blue-800">
+      <section className="relative z-10 bg-brand-blue-500 text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8 border-b border-brand-blue-400">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/10 border border-brand-yellow-500/40 text-brand-yellow-500 text-xs font-subheading uppercase tracking-widest font-bold shadow-accent-sm">
@@ -140,7 +140,7 @@ export default function GuiaEnviosFlexPage() {
               CÓMO OPERAR <span className="text-brand-yellow-500">MERCADO ENVÍOS FLEX</span> EN MAR DEL PLATA
             </h1>
 
-            <p className="font-sans text-base sm:text-lg text-brand-blue-50 leading-relaxed font-light">
+            <p className="font-sans text-base sm:text-lg text-brand-blue-100 leading-relaxed font-light">
               Todo lo que necesitás saber para activar entregas en el mismo día, no perder ventas locales y mantener tu reputación de MercadoLíder al 100% sin complicaciones operativas.
             </p>
 
@@ -170,22 +170,22 @@ export default function GuiaEnviosFlexPage() {
       </section>
 
       {/* Contenido Editorial de la Guía */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-white-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto space-y-16">
           
           {/* Introducción */}
           <div className="space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-700">
+            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-1000">
               ¿Por qué activar Flex si vendés en Mar del Plata?
             </h2>
-            <p className="font-sans text-base text-brand-blue-600 leading-relaxed">
+            <p className="font-sans text-base text-brand-blue-1000 leading-relaxed">
               En Mar del Plata, más del 65% de los compradores de Mercado Libre prefieren publicaciones con la insignia <strong>&quot;Llega hoy&quot;</strong>. Activar Envíos Flex posiciona tus publicaciones en los primeros lugares de búsqueda para compradores de la ciudad, multiplicando tu tasa de conversión sin costos adicionales de comisión.
             </p>
           </div>
 
           {/* Pasos */}
           <div className="space-y-8">
-            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-700">
+            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-1000">
               Paso a paso para configurar tu logística
             </h2>
 
@@ -200,10 +200,10 @@ export default function GuiaEnviosFlexPage() {
                       {st.number}
                     </span>
                     <div className="space-y-1">
-                      <h3 className="font-display text-lg uppercase text-brand-blue-700">
+                      <h3 className="font-display text-lg uppercase text-brand-blue-1000">
                         {st.title}
                       </h3>
-                      <p className="font-sans text-sm text-brand-blue-600 leading-relaxed">
+                      <p className="font-sans text-sm text-brand-blue-1000 leading-relaxed">
                         {st.desc}
                       </p>
                     </div>
@@ -215,7 +215,7 @@ export default function GuiaEnviosFlexPage() {
 
           {/* Buenas Prácticas */}
           <div className="space-y-8">
-            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-700">
+            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-1000">
               Claves para cuidar tu reputación (Termómetro Verde)
             </h2>
 
@@ -230,10 +230,10 @@ export default function GuiaEnviosFlexPage() {
                     <div className="w-10 h-10 rounded-xl bg-brand-blue-700 text-brand-yellow-500 flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="font-display text-base uppercase text-brand-blue-700">
+                    <h3 className="font-display text-base uppercase text-brand-blue-1000">
                       {t.title}
                     </h3>
-                    <p className="font-sans text-xs sm:text-sm text-brand-blue-600 leading-relaxed">
+                    <p className="font-sans text-xs sm:text-sm text-brand-blue-1000 leading-relaxed">
                       {t.desc}
                     </p>
                   </div>
@@ -251,7 +251,7 @@ export default function GuiaEnviosFlexPage() {
             <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight leading-snug">
               DEJÁ LA LOGÍSTICA EN NUESTRAS MANOS Y DEDICATE A VENDER
             </h3>
-            <p className="font-sans text-sm sm:text-base text-brand-blue-50 leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-brand-blue-100 leading-relaxed">
               En Envíos DosRuedas contamos con más de 7 años de experiencia y flota propia en las calles de MDQ. Retiramos tus paquetes puntualmente y garantizamos el 100% de entregas en el día.
             </p>
             <div className="pt-2">
