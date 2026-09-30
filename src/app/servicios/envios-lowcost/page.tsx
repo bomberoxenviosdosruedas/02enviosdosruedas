@@ -113,7 +113,7 @@ const breadcrumbSchema = {
 
 export default function EnviosLowCostPage() {
   return (
-    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-dvh bg-white text-brand-blue-500 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -126,8 +126,8 @@ export default function EnviosLowCostPage() {
       {/* Hero — el propio LowCostHero ya es el <section id="lowcost-hero"> */}
       <LowCostHero />
 
-      {/* Ruteo masivo features — White Canvas (brand-white-50) */}
-      <section className="relative z-10 bg-brand-white-50 font-sans">
+      {/* Ruteo masivo features — White Canvas */}
+      <section className="relative z-10 bg-white font-sans">
         <LowCostFeatures />
       </section>
 
@@ -136,13 +136,13 @@ export default function EnviosLowCostPage() {
         <LowCostPricing />
       </section>
 
-      {/* Structured logistics benefits grid — Deep Midnight Navy (brand-blue-900) */}
-      <section className="relative z-10 bg-brand-blue-900 font-sans">
+      {/* Structured logistics benefits grid — Deep Midnight Navy (brand-blue-500) */}
+      <section className="relative z-10 bg-brand-blue-500 font-sans">
         <LowCostBenefits />
       </section>
 
-      {/* Step by step operation diagram — White Canvas (brand-white-50) */}
-      <section className="relative z-10 bg-brand-white-50 font-sans">
+      {/* Step by step operation diagram — White Canvas */}
+      <section className="relative z-10 bg-white font-sans">
         <LowCostHowItWorks />
       </section>
     </main>

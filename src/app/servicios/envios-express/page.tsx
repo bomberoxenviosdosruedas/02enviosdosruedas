@@ -97,7 +97,7 @@ const breadcrumbSchema = {
 
 export default function EnviosExpressPage() {
   return (
-    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-900 relative overflow-hidden">
+    <main className="min-h-dvh bg-white text-brand-blue-500 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}

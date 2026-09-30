@@ -97,7 +97,7 @@ const breadcrumbSchema = {
 
 export default function DepositoFulfillmentPage() {
   return (
-    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-dvh bg-white text-brand-blue-500 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -110,13 +110,13 @@ export default function DepositoFulfillmentPage() {
       {/* Hero — el propio EmprendedoresHero pinta su fondo amarillo de marca */}
       <EmprendedoresHero />
 
-      {/* Corporate logistics features — White Canvas (brand-white-50) */}
-      <section className="relative z-10 bg-brand-white-50 font-sans">
+      {/* Corporate logistics features — White Canvas */}
+      <section className="relative z-10 bg-white font-sans">
         <EmprendedoresFeatures />
       </section>
 
-      {/* Strategic business benefits grid — Deep Midnight Navy (brand-blue-900) */}
-      <section className="relative z-10 bg-brand-blue-900 font-sans">
+      {/* Strategic business benefits grid — Deep Midnight Navy (brand-blue-500) */}
+      <section className="relative z-10 bg-brand-blue-500 font-sans">
         <EmprendedoresBenefits />
       </section>
 

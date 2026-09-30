@@ -92,7 +92,7 @@ const breadcrumbSchema = {
 
 export default function EnviosFlexPage() {
   return (
-    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-dvh bg-white text-brand-blue-500 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -105,13 +105,13 @@ export default function EnviosFlexPage() {
       {/* Hero — el propio FlexHero pinta su fondo azul de marca */}
       <FlexHero />
 
-      {/* MercadoLibre expert key features — White Canvas (brand-white-50) */}
-      <section className="relative z-10 bg-brand-white-50 font-sans">
+      {/* MercadoLibre expert key features — White Canvas */}
+      <section className="relative z-10 bg-white font-sans">
         <FlexFeatures />
       </section>
 
-      {/* Seller value-added benefits grid — Deep Midnight Navy (brand-blue-900) */}
-      <section className="relative z-10 bg-brand-blue-900 font-sans">
+      {/* Seller value-added benefits grid — Deep Midnight Navy (brand-blue-500) */}
+      <section className="relative z-10 bg-brand-blue-500 font-sans">
         <FlexBenefits />
       </section>
 
@@ -120,13 +120,13 @@ export default function EnviosFlexPage() {
         <FlexPricing />
       </section>
 
-      {/* Step by step streamlined workflow — White Canvas (brand-white-50) */}
-      <section className="relative z-10 bg-brand-white-50 font-sans">
+      {/* Step by step streamlined workflow — White Canvas */}
+      <section className="relative z-10 bg-white font-sans">
         <FlexHowItWorks />
       </section>
 
-      {/* Active prerequisites for starting — White Canvas (brand-white-50) */}
-      <section className="relative z-10 bg-brand-white-50 font-sans">
+      {/* Active prerequisites for starting — White Canvas */}
+      <section className="relative z-10 bg-white font-sans">
         <FlexRequirements />
       </section>
     </main>

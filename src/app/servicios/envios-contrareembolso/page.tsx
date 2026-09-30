@@ -119,7 +119,7 @@ export default function EnviosContrareembolsoPage() {
   ];
 
   return (
-    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-dvh bg-white text-brand-blue-500 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -130,7 +130,7 @@ export default function EnviosContrareembolsoPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative z-10 bg-brand-blue-700 text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8 border-b border-brand-blue-800">
+      <section className="relative z-10 bg-brand-blue-500 text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8 border-b border-brand-blue-400">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Columna Izquierda: Copys y CTAs */}
@@ -144,7 +144,7 @@ export default function EnviosContrareembolsoPage() {
                 ENVÍOS CON <span className="text-brand-yellow-500">COBRO EN DESTINO</span>
               </h1>
 
-              <p className="font-sans text-base sm:text-lg text-brand-blue-50 max-w-xl leading-relaxed">
+              <p className="font-sans text-base sm:text-lg text-brand-blue-100 max-w-xl leading-relaxed">
                 Vendé más en Mar del Plata brindándole a tus clientes la tranquilidad de pagar al recibir el paquete. Cobramos en efectivo o transferencia y te rendimos el dinero en el día, al día siguiente o semanal, según lo acordado.
               </p>
 
@@ -191,7 +191,7 @@ export default function EnviosContrareembolsoPage() {
             {/* Columna Derecha: Tarjeta Double Bezel Resumen */}
             <div className="lg:col-span-5">
               <div className="double-bezel-outer bg-brand-blue-50/80 border border-brand-blue-100 p-2 rounded-2xl shadow-float">
-                <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue-700 space-y-6">
+                <div className="double-bezel-inner bg-white p-6 sm:p-8 rounded-xl border border-brand-blue-50/50 shadow-sm text-brand-blue-500 space-y-6">
                   <div className="flex items-center justify-between border-b border-brand-blue-100 pb-4">
                     <span className="font-subheading text-xs uppercase tracking-widest text-brand-blue-500 font-bold">
                       MODALIDAD CONTRA REEMBOLSO
@@ -203,24 +203,24 @@ export default function EnviosContrareembolsoPage() {
 
                   <div className="space-y-4">
                     <div className="p-4 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 flex items-start gap-3.5">
-                      <Wallet className="w-6 h-6 text-brand-blue-700 shrink-0 mt-0.5" />
+                      <Wallet className="w-6 h-6 text-brand-blue-500 shrink-0 mt-0.5" />
                       <div>
                         <span className="block font-subheading text-xs uppercase text-brand-blue-500 font-bold">
                           Cobranza en efectivo
                         </span>
-                        <p className="font-sans text-xs sm:text-sm text-brand-blue-700 mt-0.5">
+                        <p className="font-sans text-xs sm:text-sm text-brand-blue-500 mt-0.5">
                           El cadete recibe los billetes, verifica autenticidad y firma el remito correspondiente.
                         </p>
                       </div>
                     </div>
 
                     <div className="p-4 rounded-xl bg-brand-blue-50/60 border border-brand-blue-100 flex items-start gap-3.5">
-                      <Banknote className="w-6 h-6 text-brand-blue-700 shrink-0 mt-0.5" />
+                      <Banknote className="w-6 h-6 text-brand-blue-500 shrink-0 mt-0.5" />
                       <div>
                         <span className="block font-subheading text-xs uppercase text-brand-blue-500 font-bold">
                           Cobranza por transferencia
                         </span>
-                        <p className="font-sans text-xs sm:text-sm text-brand-blue-700 mt-0.5">
+                        <p className="font-sans text-xs sm:text-sm text-brand-blue-500 mt-0.5">
                           El comprador transfiere en el momento con comprobante validado antes de entregar el paquete.
                         </p>
                       </div>
@@ -229,7 +229,7 @@ export default function EnviosContrareembolsoPage() {
 
                   <div className="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
                     <span>Base de operaciones</span>
-                    <span className="font-bold text-brand-blue-700">Friuli 1972, MDQ</span>
+                    <span className="font-bold text-brand-blue-500">Friuli 1972, MDQ</span>
                   </div>
                 </div>
               </div>
@@ -239,16 +239,16 @@ export default function EnviosContrareembolsoPage() {
       </section>
 
       {/* Proceso Paso a Paso */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-white-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="px-3 py-1 rounded-full bg-brand-blue-50 text-brand-blue-700 font-subheading text-xs uppercase font-bold tracking-widest border border-brand-blue-100">
+            <span className="px-3 py-1 rounded-full bg-brand-blue-50 text-brand-blue-500 font-subheading text-xs uppercase font-bold tracking-widest border border-brand-blue-100">
               CÓMO FUNCIONA
             </span>
-            <h2 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-blue-700">
+            <h2 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-blue-500">
               PASO A PASO SIMPLE Y TRANSPARENTE
             </h2>
-            <p className="font-sans text-sm sm:text-base text-brand-blue-600">
+            <p className="font-sans text-sm sm:text-base text-brand-blue-500">
               Diseñado para que cobres rápido y sin preocupaciones en cada rincón de Mar del Plata.
             </p>
           </div>
@@ -264,17 +264,17 @@ export default function EnviosContrareembolsoPage() {
                   <div className="double-bezel-inner bg-white p-6 sm:p-7 rounded-xl border border-brand-blue-50/50 shadow-sm h-full flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <div className="w-12 h-12 rounded-xl bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-xl bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-500 flex items-center justify-center">
                           <Icon className="w-6 h-6" />
                         </div>
-                        <span className="font-display text-2xl text-brand-blue-700 font-bold">
+                        <span className="font-display text-2xl text-brand-blue-500 font-bold">
                           {st.step}
                         </span>
                       </div>
-                      <h3 className="font-display text-xl uppercase text-brand-blue-700">
+                      <h3 className="font-display text-xl uppercase text-brand-blue-500">
                         {st.title}
                       </h3>
-                      <p className="font-sans text-sm text-brand-blue-600 leading-relaxed">
+                      <p className="font-sans text-sm text-brand-blue-500 leading-relaxed">
                         {st.desc}
                       </p>
                     </div>
@@ -293,10 +293,10 @@ export default function EnviosContrareembolsoPage() {
             <span className="px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-xs uppercase font-bold tracking-widest">
               CONFIANZA TOTAL
             </span>
-            <h2 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-blue-700">
+            <h2 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-blue-500">
               POR QUÉ ELEGIR NUESTRO COBRO EN DESTINO
             </h2>
-            <p className="font-sans text-sm sm:text-base text-brand-blue-600">
+            <p className="font-sans text-sm sm:text-base text-brand-blue-500">
               Más de 7 años recorriendo Mar del Plata garantizan seguridad y puntualidad.
             </p>
           </div>
@@ -313,10 +313,10 @@ export default function EnviosContrareembolsoPage() {
                     <Icon className="w-6 h-6" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-display text-lg uppercase text-brand-blue-700">
+                    <h3 className="font-display text-lg uppercase text-brand-blue-500">
                       {b.title}
                     </h3>
-                    <p className="font-sans text-sm text-brand-blue-600 leading-relaxed">
+                    <p className="font-sans text-sm text-brand-blue-500 leading-relaxed">
                       {b.desc}
                     </p>
                   </div>

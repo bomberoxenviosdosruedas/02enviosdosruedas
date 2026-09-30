@@ -144,8 +144,8 @@ const services = [
       'Ruteo directo sin escalas',
       'Confirmación al instante por WhatsApp',
     ],
-    bgColor: 'bg-brand-blue-700',
-    borderColor: 'border-brand-blue-800',
+    bgColor: 'bg-brand-blue-500',
+    borderColor: 'border-brand-blue-400',
     highlightColor: 'text-brand-yellow-500',
     badge: 'PRIORIDAD 1',
     color: 'text-white',
@@ -167,8 +167,8 @@ const services = [
       'Hasta 5 kg / 40 x 40 cm',
       'Ideal para envíos esporádicos',
     ],
-    bgColor: 'bg-brand-blue-900',
-    borderColor: 'border-brand-blue-800',
+    bgColor: 'bg-brand-blue-500',
+    borderColor: 'border-brand-blue-400',
     highlightColor: 'text-brand-yellow-500',
     badge: 'MÁS ECONÓMICO',
     color: 'text-white',
@@ -191,7 +191,7 @@ const services = [
       'Niveles Pro/Elite con tarifas planas',
     ],
     bgColor: 'bg-brand-blue-500',
-    borderColor: 'border-brand-blue-600',
+    borderColor: 'border-brand-blue-400',
     highlightColor: 'text-brand-yellow-500',
     badge: 'MERCADOLIBRE',
     color: 'text-white',
@@ -213,8 +213,8 @@ const services = [
       'Pagos semanales, quincenales o mensuales',
       'Contrareembolso sin comisión',
     ],
-    bgColor: 'bg-brand-blue-700',
-    borderColor: 'border-brand-blue-800',
+    bgColor: 'bg-brand-blue-500',
+    borderColor: 'border-brand-blue-400',
     highlightColor: 'text-brand-yellow-500',
     badge: 'EMPRESAS',
     color: 'text-white',
@@ -237,7 +237,7 @@ const services = [
       'Contrareembolso sin comisión',
     ],
     bgColor: 'bg-brand-blue-500',
-    borderColor: 'border-brand-blue-600',
+    borderColor: 'border-brand-blue-400',
     highlightColor: 'text-brand-yellow-500',
     badge: 'E-COMMERCE 24HS',
     color: 'text-white',
@@ -259,8 +259,8 @@ const services = [
       'Tarifa fija a toda la ciudad',
       'Productos chicos y medianos',
     ],
-    bgColor: 'bg-brand-blue-900',
-    borderColor: 'border-brand-blue-800',
+    bgColor: 'bg-brand-blue-500',
+    borderColor: 'border-brand-blue-400',
     highlightColor: 'text-brand-yellow-500',
     badge: 'E-COMMERCE SAME-DAY',
     color: 'text-white',
@@ -277,7 +277,7 @@ const comparisonTable = [
 
 export default function ServiciosPage() {
   return (
-    <main className="min-h-dvh bg-brand-white-50 text-brand-blue-700 relative overflow-hidden">
+    <main className="min-h-dvh bg-white text-brand-blue-500 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -288,7 +288,7 @@ export default function ServiciosPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-brand-blue-700 text-white pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden border-b border-brand-blue-800">
+      <section className="relative bg-brand-blue-500 text-white pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden border-b border-brand-blue-400">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(#FFEC01_1px,transparent_1px)] bg-size-[16px_16px]" />
         </div>
@@ -297,14 +297,14 @@ export default function ServiciosPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-900 font-subheading text-xs uppercase font-bold tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-500 font-subheading text-xs uppercase font-bold tracking-wider mb-4">
               <Package className="w-3.5 h-3.5" />
               <span>SEIS SOLUCIONES · UNA FLOTA · MDQ 2026</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white leading-none">
               NUESTROS <span className="text-brand-yellow-500">SERVICIOS</span>
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-brand-blue-50 font-sans leading-relaxed font-light max-w-2xl">
+            <p className="mt-4 text-base sm:text-lg text-brand-blue-100 font-sans leading-relaxed font-light max-w-2xl">
               Llegamos a todo Mar del Plata.
               Tarifas transparentes 2026. Flota propia, base en Friuli 1972.
             </p>
@@ -333,10 +333,10 @@ export default function ServiciosPage() {
                 <div className="border border-white/20 p-2 rounded-[20px] shadow-sm flex flex-col justify-between h-full relative overflow-hidden">
                   <div className="space-y-4 relative z-10">
                     <div className="flex items-center justify-between">
-                      <span className="-rotate-1 absolute -top-3.5 left-6 bg-brand-yellow-500 text-brand-blue-900 font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-glow-yellow">
+                      <span className="-rotate-1 absolute -top-3.5 left-6 bg-brand-yellow-500 text-brand-blue-500 font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-glow-yellow">
                         {service.badge}
                       </span>
-                      <div className="w-12 h-12 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center shrink-0 border border-brand-blue-500 shadow-sm group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors duration-200">
+                      <div className="w-12 h-12 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center shrink-0 border border-brand-blue-500 shadow-sm group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-200">
                         <Icon className="w-6 h-6 shrink-0" />
                       </div>
                     </div>
@@ -357,7 +357,7 @@ export default function ServiciosPage() {
                     <div className="flex items-baseline gap-2 pt-2 border-t border-white/20">
                       <span className="text-2xl font-mono tabular-nums font-bold">{service.price}</span>
                       {service.priceNote && (
-                        <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-50">{service.priceNote}</span>
+                        <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-100">{service.priceNote}</span>
                       )}
                     </div>
                   </div>
@@ -391,7 +391,7 @@ export default function ServiciosPage() {
       {/* Comparison Table - 7 columns */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-900">
+          <h2 className="font-display text-3xl sm:text-4xl uppercase text-brand-blue-500">
             COMPARATIVA RÁPIDA
           </h2>
           <p className="font-sans text-sm sm:text-base text-brand-ink mt-2">
@@ -402,7 +402,7 @@ export default function ServiciosPage() {
         <div className="overflow-x-auto rounded-2xl border border-brand-blue-100 bg-white shadow-sm">
           <table className="w-full font-sans text-sm">
             <thead>
-              <tr className="bg-brand-blue-700 text-white">
+              <tr className="bg-brand-blue-500 text-white">
                 <th className="p-4 text-left font-subheading uppercase tracking-wider">CARACTERÍSTICA</th>
                 <th className="p-4 text-center font-subheading uppercase tracking-wider">EXPRESS</th>
                 <th className="p-4 text-center font-subheading uppercase tracking-wider">LOWCOST</th>
@@ -415,13 +415,13 @@ export default function ServiciosPage() {
             <tbody>
               {comparisonTable.map((row, idx) => (
                 <tr key={row.feature} className={idx % 2 === 0 ? 'bg-brand-blue-50/50' : 'bg-white'}>
-                  <td className="p-4 font-medium text-brand-blue-900 border-t border-brand-blue-100">{row.feature}</td>
-                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.express}</td>
-                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.lowcost}</td>
-                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.flex}</td>
-                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.cuentaCorriente}</td>
-                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.ecom24}</td>
-                  <td className="p-4 text-center text-brand-ink border-t border-brand-blue-100 font-mono">{row.ecomSameDay}</td>
+                  <td className="p-4 font-medium text-brand-blue-500 border-t border-brand-blue-100">{row.feature}</td>
+                  <td className="p-4 text-center text-brand-blue-500 border-t border-brand-blue-100 font-mono">{row.express}</td>
+                  <td className="p-4 text-center text-brand-blue-500 border-t border-brand-blue-100 font-mono">{row.lowcost}</td>
+                  <td className="p-4 text-center text-brand-blue-500 border-t border-brand-blue-100 font-mono">{row.flex}</td>
+                  <td className="p-4 text-center text-brand-blue-500 border-t border-brand-blue-100 font-mono">{row.cuentaCorriente}</td>
+                  <td className="p-4 text-center text-brand-blue-500 border-t border-brand-blue-100 font-mono">{row.ecom24}</td>
+                  <td className="p-4 text-center text-brand-blue-500 border-t border-brand-blue-100 font-mono">{row.ecomSameDay}</td>
                 </tr>
               ))}
             </tbody>
@@ -431,7 +431,7 @@ export default function ServiciosPage() {
         <div className="mt-6 text-center">
           <p className="font-sans text-xs text-brand-ink">
             * Tarifas vigentes 2026. Precios base 0-3 km. Consultá cobertura completa en
-            <Link href="/cobertura" className="underline hover:text-brand-blue-700 font-medium">/cobertura</Link>
+            <Link href="/cobertura" className="underline hover:text-brand-blue-500 font-medium">/cobertura</Link>
           </p>
         </div>
       </section>
@@ -440,13 +440,13 @@ export default function ServiciosPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="bg-brand-blue-50/80 border border-brand-blue-100 p-3 rounded-[28px] shadow-float">
           <div className="bg-white p-6 sm:p-10 rounded-[20px] border border-brand-blue-50/50 shadow-sm text-center">
-            <div className="w-16 h-16 rounded-xl bg-brand-yellow-500 text-brand-blue-900 flex items-center justify-center font-bold mx-auto mb-6">
+            <div className="w-16 h-16 rounded-xl bg-brand-yellow-500 text-brand-blue-500 flex items-center justify-center font-bold mx-auto mb-6">
               <MessageSquare className="w-8 h-8" />
             </div>
-            <h3 className="font-subheading text-2xl sm:text-3xl uppercase font-bold text-brand-blue-900 mb-3">
+            <h3 className="font-subheading text-2xl sm:text-3xl uppercase font-bold text-brand-blue-500 mb-3">
               ¿CUÁL ES EL SERVICIO IDEAL PARA VOS?
             </h3>
-            <p className="font-sans text-base sm:text-lg text-brand-ink leading-relaxed max-w-2xl mx-auto mb-6">
+            <p className="font-sans text-base sm:text-lg text-brand-blue-500 leading-relaxed max-w-2xl mx-auto mb-6">
               Te asesoramos sin compromiso. Contanos qué necesitás y te recomendamos la mejor opción.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
