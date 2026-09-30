@@ -64,12 +64,12 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
               className={cn(
                 'absolute -left-8 md:-left-10 top-1 w-6 h-6 rounded-full flex items-center justify-center border-2 border-white shadow-sm transition-all duration-300 z-10',
                 isCompleted &&
-                  'bg-brand-yellow-500 border-white ring-4 ring-brand-yellow-100 text-brand-blue-900',
+                  'bg-brand-yellow-500 border-white ring-4 ring-brand-yellow-100 text-brand-blue-500',
                 isActive &&
-                  'bg-brand-yellow-500 border-white ring-4 ring-brand-yellow-500/30 animate-pulse-subtle text-brand-blue-900 scale-110',
+                  'bg-brand-yellow-500 border-white ring-4 ring-brand-yellow-500/30 animate-pulse-subtle text-brand-blue-500 scale-110',
                 isPending &&
                   (isDark
-                    ? 'bg-brand-blue-900 border-brand-blue-300 text-brand-blue-200'
+                    ? 'bg-brand-blue-500 border-brand-blue-300 text-brand-blue-200'
                     : 'bg-brand-blue-100 border-white text-brand-blue-500')
               )}
             >
@@ -89,10 +89,10 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
                     isActive || isCompleted
                       ? isDark
                         ? 'text-brand-yellow-500'
-                        : 'text-brand-blue-700'
+                        : 'text-brand-blue-500'
                       : isDark
                       ? 'text-brand-blue-50'
-                      : 'text-brand-blue-700'
+                      : 'text-brand-blue-500'
                   )}
                 >
                   {typeof stepNum === 'number' && stepNum < 10 ? `0${stepNum}` : stepNum}.
@@ -104,11 +104,11 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
                     isActive
                       ? isDark
                         ? 'text-white'
-                        : 'text-brand-blue-900 font-bold'
+                        : 'text-brand-blue-500'
                       : isCompleted
                       ? isDark
                         ? 'text-white/90'
-                        : 'text-brand-blue-700'
+                        : 'text-brand-blue-500'
                       : isDark
                       ? 'text-brand-blue-50'
                       : 'text-brand-blue-500'
@@ -122,8 +122,8 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
                     className={cn(
                       'font-subheading text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full',
                       isActive
-                        ? 'bg-brand-yellow-500 text-brand-blue-900'
-                        : 'bg-brand-blue-50 text-brand-blue-700'
+                        ? 'bg-brand-yellow-500 text-brand-blue-500'
+                        : 'bg-brand-blue-50 text-brand-blue-500'
                     )}
                   >
                     {step.badge}
@@ -134,7 +134,7 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
               <p
                 className={cn(
                   'font-sans text-xs md:text-sm leading-relaxed max-w-xl',
-                  isDark ? 'text-brand-blue-50' : 'text-brand-blue-700'
+                  isDark ? 'text-brand-blue-50' : 'text-brand-blue-500'
                 )}
               >
                 {step.description}

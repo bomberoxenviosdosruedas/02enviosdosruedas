@@ -69,16 +69,16 @@ export const StepperHorizontal: React.FC<StepperHorizontalProps> = ({
                 className={cn(
                   'w-10 h-10 rounded-full flex items-center justify-center font-subheading text-base font-bold transition-all duration-200 border-2 select-none',
                   isCompleted &&
-                    'bg-brand-yellow-500 border-brand-yellow-500 text-brand-blue-900 shadow-sm',
+                    'bg-brand-yellow-500 border-brand-yellow-500 text-brand-blue-500 shadow-sm',
                   isActive &&
-                    'bg-brand-blue-700 border-brand-blue-700 text-white ring-4 ring-brand-blue-500/20 scale-105',
+                    'bg-brand-blue-500 border-brand-blue-500 text-white ring-4 ring-brand-blue-500/20 scale-105',
                   isPending &&
                     'bg-white border-brand-blue-300 text-brand-blue-500',
                   isClickable && 'cursor-pointer hover:scale-110'
                 )}
               >
                 {isCompleted ? (
-                  <Check className="w-5 h-5 stroke-[3] text-brand-blue-900" />
+                  <Check className="w-5 h-5 stroke-[3] text-brand-blue-500" />
                 ) : (
                   <span>{idx + 1}</span>
                 )}
@@ -89,8 +89,8 @@ export const StepperHorizontal: React.FC<StepperHorizontalProps> = ({
                 <span
                   className={cn(
                     'block font-subheading text-xs uppercase tracking-wider font-bold transition-colors',
-                    isCompleted && 'text-brand-blue-900',
-                    isActive && 'text-brand-blue-700 font-extrabold',
+                    isCompleted && 'text-brand-blue-500',
+                    isActive && 'text-brand-blue-500',
                     isPending && 'text-brand-blue-500'
                   )}
                 >

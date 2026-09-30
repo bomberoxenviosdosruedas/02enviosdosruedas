@@ -54,19 +54,19 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
 
         const getCheckedStyles = () => {
           if (type.includes('EXPRESS')) {
-            return 'bg-brand-blue-700 border-brand-blue-700 text-white shadow-md';
+            return 'bg-brand-blue-500 border-brand-blue-500 text-white shadow-md';
           }
           if (type.includes('LOW') || type.includes('LOWCOST')) {
-            return 'bg-brand-blue-50 border-brand-blue-200 text-brand-blue-700 shadow-sm';
+            return 'bg-brand-blue-50 border-brand-blue-200 text-brand-blue-500 shadow-sm';
           }
           if (type.includes('FLEX')) {
-            return 'bg-brand-yellow-50 border-brand-yellow-200 text-brand-blue-700 shadow-sm';
+            return 'bg-brand-yellow-50 border-brand-yellow-200 text-brand-blue-500 shadow-sm';
           }
-          return 'bg-brand-blue-700 border-brand-blue-700 text-white shadow-md';
+          return 'bg-brand-blue-500 border-brand-blue-500 text-white shadow-md';
         };
 
         const uncheckedStyles =
-          'bg-white border-2 border-brand-blue-100 text-brand-blue-900 hover:border-brand-blue-200 hover:bg-brand-blue-50/30';
+          'bg-white border-2 border-brand-blue-100 text-brand-blue-500 hover:border-brand-blue-200 hover:bg-brand-blue-50/30';
 
         const checkedStyles = isChecked ? getCheckedStyles() : uncheckedStyles;
 
@@ -110,7 +110,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
                       'w-12 h-12 rounded-xl flex items-center justify-center transition-colors',
                       isChecked && type.includes('EXPRESS')
                         ? 'bg-white/20 text-white'
-                        : 'bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100'
+                        : 'bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100'
                     )}
                   >
                     {opt.icon}
@@ -122,8 +122,8 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
                     className={cn(
                       'font-subheading text-[10px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-full',
                       isChecked && type.includes('EXPRESS')
-                        ? 'bg-brand-yellow-500 text-brand-blue-900'
-                        : 'bg-brand-blue-50 text-brand-blue-700'
+                        ? 'bg-brand-yellow-500 text-brand-blue-500'
+                        : 'bg-brand-blue-50 text-brand-blue-500'
                     )}
                   >
                     {opt.badge}
@@ -135,8 +135,8 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
                     'w-6 h-6 rounded-full border-2 flex items-center justify-center ml-auto transition-all',
                     isChecked
                       ? type.includes('EXPRESS')
-                        ? 'bg-brand-yellow-500 border-brand-yellow-500 text-brand-blue-900'
-                        : 'bg-brand-blue-700 border-brand-blue-700 text-white'
+                        ? 'bg-brand-yellow-500 border-brand-yellow-500 text-brand-blue-500'
+                        : 'bg-brand-blue-500 border-brand-blue-500 text-white'
                       : 'border-brand-blue-200 bg-white'
                   )}
                 >
@@ -148,7 +148,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
               <h3
                 className={cn(
                   'font-subheading text-xl uppercase tracking-wide font-bold mb-1',
-                  isChecked && type.includes('EXPRESS') ? 'text-white' : 'text-brand-blue-900'
+                  isChecked && type.includes('EXPRESS') ? 'text-white' : 'text-brand-blue-500'
                 )}
               >
                 {opt.label}
@@ -160,7 +160,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
                     'text-xs font-sans leading-relaxed',
                     isChecked && type.includes('EXPRESS')
                       ? 'text-brand-blue-50'
-                      : 'text-brand-blue-700'
+                      : 'text-brand-blue-500'
                   )}
                 >
                   {opt.description}
@@ -184,7 +184,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
                     'font-mono text-lg font-bold tabular-nums',
                     isChecked && type.includes('EXPRESS')
                       ? 'text-brand-yellow-500'
-                      : 'text-brand-blue-700'
+                      : 'text-brand-blue-500'
                   )}
                 >
                   {opt.price}

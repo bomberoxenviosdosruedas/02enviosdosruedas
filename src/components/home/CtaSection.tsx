@@ -45,7 +45,7 @@ export default function CtaSection() {
     <section
       id="cta-section"
       aria-labelledby="cta-section-title"
-      className="py-20 lg:py-28 bg-[#0950F6] relative z-10 overflow-hidden px-4 sm:px-6 lg:px-8 shadow-2xl"
+      className="py-20 lg:py-28 bg-brand-blue-500 relative z-10 overflow-hidden px-4 sm:px-6 lg:px-8 shadow-2xl"
     >
       <motion.div
         className="max-w-6xl mx-auto p-2.5 sm:p-3.5 rounded-[30px] bg-white/10 backdrop-blur-md border border-white/25 shadow-2xl"
@@ -55,12 +55,12 @@ export default function CtaSection() {
         variants={containerVariants}
       >
         <motion.div
-          className="bg-white rounded-[20px] p-8 sm:p-12 lg:p-14 flex flex-col lg:flex-row items-center gap-10 lg:gap-16 border border-blue-100/50 shadow-sm relative overflow-hidden"
+          className="bg-white rounded-[20px] p-8 sm:p-12 lg:p-14 flex flex-col lg:flex-row items-center gap-10 lg:gap-16 border border-brand-blue-100/50 shadow-sm relative overflow-hidden"
           variants={itemVariants}
         >
 
           {/* Background grid */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,54,165,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(6,54,165,0.03)_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(9,80,246,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(9,80,246,0.03)_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
 
           {/* Left Text Block */}
           <motion.div className="lg:w-1/2 space-y-8 relative z-10 text-center lg:text-left" variants={itemVariants}>
@@ -68,16 +68,16 @@ export default function CtaSection() {
               className="inline-flex"
               whileHover={reduceMotion ? undefined : { scale: 1.03, transition: springConfigSnappy }}
             >
-              <span className="px-4 py-2 rounded-full text-xs font-subheading tracking-widest bg-brand-yellow-400/20 text-[#0950F6] border border-brand-yellow-400 uppercase font-bold cursor-default shadow-glow-yellow">
+              <span className="px-4 py-2 rounded-full text-xs font-subheading tracking-widest bg-brand-yellow-400/20 text-brand-blue-500 border border-brand-yellow-400 uppercase font-bold cursor-default shadow-glow-yellow">
                 Cotización Inmediata
               </span>
             </motion.div>
 
-            <motion.h2 id="cta-section-title" className="text-[#0950F6] font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase leading-[0.98] tracking-tight">
+            <motion.h2 id="cta-section-title" className="text-brand-blue-500 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase leading-[0.98] tracking-tight">
               ¿Listo para escalar la logística de tu e-commerce?
             </motion.h2>
 
-            <motion.p className="text-[#0950F6] text-base sm:text-lg font-sans leading-relaxed font-medium">
+            <motion.p className="text-brand-blue-500 text-base sm:text-lg font-sans leading-relaxed font-medium">
               Olvidate de la gestión de paquetes en Mar del Plata. Completá tus datos y te respondemos por WhatsApp al instante.
             </motion.p>
 
@@ -85,23 +85,23 @@ export default function CtaSection() {
               className="pt-2 hidden lg:block cursor-default"
               whileHover={reduceMotion ? undefined : { x: 4, transition: springConfigSnappy }}
             >
-              <p className="text-xs font-mono tracking-widest text-[#0950F6] font-bold uppercase leading-none">
-                Atención comercial <span className="text-brand-yellow-400 bg-[#0950F6] px-2 py-0.5 rounded font-mono">{'<'} 5 MIN</span>
+              <p className="text-xs font-mono tracking-widest text-brand-blue-500 font-bold uppercase leading-none">
+                Atención comercial <span className="text-brand-yellow-400 bg-brand-blue-500 px-2 py-0.5 rounded font-mono">{'<'} 5 MIN</span>
               </p>
             </motion.div>
           </motion.div>
 
           {/* Right Form Block */}
           <motion.div className="lg:w-1/2 w-full relative z-10" variants={itemVariants}>
-            <form onSubmit={handleWhatsAppRedirect} className="space-y-5 bg-[#F8FAFC] p-6 sm:p-8 rounded-[20px] border-2 border-[#0950F6]/20 shadow-xl">
+            <form onSubmit={handleWhatsAppRedirect} className="space-y-5 bg-brand-blue-50 p-6 sm:p-8 rounded-[20px] border-2 border-brand-blue-100/20 shadow-xl">
 
               <motion.div
                 className="space-y-1.5"
                 whileHover={reduceMotion ? undefined : { x: 3, transition: springConfigSnappy }}
               >
-                <label htmlFor="cta-name" className="text-xs font-subheading tracking-wider text-[#0950F6] uppercase font-bold">Tu Nombre</label>
+                <label htmlFor="cta-name" className="text-xs font-subheading tracking-wider text-brand-blue-500 uppercase font-bold">Tu Nombre</label>
                 <div className="relative">
-                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#0950F6]/60 pointer-events-none">
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-500/60 pointer-events-none">
                     <User className="w-5 h-5" />
                   </div>
                   <input
@@ -113,7 +113,7 @@ export default function CtaSection() {
                     onChange={e => setFormData({...formData, name: e.target.value})}
                     type="text"
                     placeholder="Ingresá tu nombre"
-                    className="w-full h-11 border-2 border-[#0950F6]/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-[#0950F6] focus:ring-2 focus:ring-[#0950F6]/20 text-[#0950F6] placeholder:text-[#0950F6]/40 text-sm font-sans transition-colors bg-white"
+                    className="w-full h-11 border-2 border-brand-blue-100/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-brand-blue-500 focus:ring-2 focus:ring-brand-blue-500/20 text-brand-blue-500 placeholder:text-brand-blue-500/40 text-sm font-sans transition-colors bg-white"
                   />
                 </div>
               </motion.div>
@@ -122,9 +122,9 @@ export default function CtaSection() {
                 className="space-y-1.5"
                 whileHover={reduceMotion ? undefined : { x: 3, transition: springConfigSnappy }}
               >
-                <label htmlFor="cta-business" className="text-xs font-subheading tracking-wider text-[#0950F6] uppercase font-bold">Empresa / Negocio</label>
+                <label htmlFor="cta-business" className="text-xs font-subheading tracking-wider text-brand-blue-500 uppercase font-bold">Empresa / Negocio</label>
                 <div className="relative">
-                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#0950F6]/60 pointer-events-none">
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-500/60 pointer-events-none">
                     <Store className="w-5 h-5" />
                   </div>
                   <input
@@ -136,7 +136,7 @@ export default function CtaSection() {
                     onChange={e => setFormData({...formData, business: e.target.value})}
                     type="text"
                     placeholder="Nombre de tu emprendimiento"
-                    className="w-full h-11 border-2 border-[#0950F6]/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-[#0950F6] focus:ring-2 focus:ring-[#0950F6]/20 text-[#0950F6] placeholder:text-[#0950F6]/40 text-sm font-sans transition-colors bg-white"
+                    className="w-full h-11 border-2 border-brand-blue-100/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-brand-blue-500 focus:ring-2 focus:ring-brand-blue-500/20 text-brand-blue-500 placeholder:text-brand-blue-500/40 text-sm font-sans transition-colors bg-white"
                   />
                 </div>
               </motion.div>
@@ -145,9 +145,9 @@ export default function CtaSection() {
                 className="space-y-1.5"
                 whileHover={reduceMotion ? undefined : { x: 3, transition: springConfigSnappy }}
               >
-                <label htmlFor="volume-select" className="text-xs font-subheading tracking-wider text-[#0950F6] uppercase font-bold">Volumen Estimado Mensual</label>
+                <label htmlFor="volume-select" className="text-xs font-subheading tracking-wider text-brand-blue-500 uppercase font-bold">Volumen Estimado Mensual</label>
                 <div className="relative">
-                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#0950F6]/60 pointer-events-none">
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-500/60 pointer-events-none">
                     <PackageSearch className="w-5 h-5" />
                   </div>
                   <select
@@ -156,7 +156,7 @@ export default function CtaSection() {
                     name="volumen"
                     value={formData.volume}
                     onChange={e => setFormData({...formData, volume: e.target.value})}
-                    className="w-full h-11 border-2 border-[#0950F6]/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-[#0950F6] focus:ring-2 focus:ring-[#0950F6]/20 text-[#0950F6] text-sm font-sans transition-colors appearance-none bg-white cursor-pointer"
+                    className="w-full h-11 border-2 border-brand-blue-100/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-brand-blue-500 focus:ring-2 focus:ring-brand-blue-500/20 text-brand-blue-500 text-sm font-sans transition-colors appearance-none bg-white cursor-pointer"
                   >
                     <option value="" disabled>Seleccioná una opción</option>
                     <option value="1 a 50">1 a 50 envíos</option>
@@ -175,7 +175,7 @@ export default function CtaSection() {
                       : { scale: 1.02, transition: springConfigSnappy }
                   }
                   whileTap={reduceMotion ? undefined : { scale: 0.98, transition: springConfigSnappy }}
-                  className="w-full min-h-13 bg-brand-yellow-400 hover:bg-[#FFF44A] text-[#0950F6] font-subheading tracking-wider text-xl uppercase rounded-full shadow-glow-yellow flex items-center justify-center gap-3 cursor-pointer font-bold transition-all"
+                  className="w-full min-h-13 bg-brand-yellow-400 hover:bg-brand-yellow-300 text-brand-blue-500 font-subheading tracking-wider text-xl uppercase rounded-full shadow-glow-yellow flex items-center justify-center gap-3 cursor-pointer font-bold transition-all"
                 >
                   <span>Hablar por WhatsApp</span>
                   <motion.span

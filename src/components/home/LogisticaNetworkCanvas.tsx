@@ -6,22 +6,22 @@ import gsap from 'gsap';
 
 // Deterministic particle configuration (pre-calculated, no Math.random at runtime)
 const DETERMINISTIC_PARTICLES = [
-  { connIndex: 0, speed: 0.0035, size: 2.8, color: '#FFEC01', initialProgress: 0.1 },
-  { connIndex: 1, speed: 0.0028, size: 3.2, color: '#ffffff', initialProgress: 0.3 },
-  { connIndex: 2, speed: 0.0042, size: 2.5, color: '#ffffff', initialProgress: 0.5 },
-  { connIndex: 3, speed: 0.0031, size: 3.0, color: '#FFEC01', initialProgress: 0.7 },
-  { connIndex: 4, speed: 0.0038, size: 2.7, color: '#ffffff', initialProgress: 0.2 },
-  { connIndex: 5, speed: 0.0025, size: 3.3, color: '#FFEC01', initialProgress: 0.4 },
-  { connIndex: 6, speed: 0.0045, size: 2.4, color: '#ffffff', initialProgress: 0.6 },
-  { connIndex: 7, speed: 0.0032, size: 2.9, color: '#ffffff', initialProgress: 0.8 },
-  { connIndex: 8, speed: 0.0037, size: 2.6, color: '#FFEC01', initialProgress: 0.05 },
-  { connIndex: 9, speed: 0.0029, size: 3.1, color: '#ffffff', initialProgress: 0.25 },
-  { connIndex: 10, speed: 0.0041, size: 2.3, color: '#ffffff', initialProgress: 0.45 },
-  { connIndex: 11, speed: 0.0033, size: 2.85, color: '#FFEC01', initialProgress: 0.65 },
-  { connIndex: 12, speed: 0.0036, size: 2.75, color: '#ffffff', initialProgress: 0.85 },
-  { connIndex: 13, speed: 0.0030, size: 3.05, color: '#FFEC01', initialProgress: 0.15 },
-  { connIndex: 14, speed: 0.0043, size: 2.45, color: '#ffffff', initialProgress: 0.35 },
-  { connIndex: 15, speed: 0.0034, size: 2.95, color: '#FFEC01', initialProgress: 0.55 },
+  { connIndex: 0, speed: 0.0035, size: 2.8, color: 'var(--color-brand-yellow-500)', initialProgress: 0.1 },
+  { connIndex: 1, speed: 0.0028, size: 3.2, color: 'var(--color-white)', initialProgress: 0.3 },
+  { connIndex: 2, speed: 0.0042, size: 2.5, color: 'var(--color-white)', initialProgress: 0.5 },
+  { connIndex: 3, speed: 0.0031, size: 3.0, color: 'var(--color-brand-yellow-500)', initialProgress: 0.7 },
+  { connIndex: 4, speed: 0.0038, size: 2.7, color: 'var(--color-white)', initialProgress: 0.2 },
+  { connIndex: 5, speed: 0.0025, size: 3.3, color: 'var(--color-brand-yellow-500)', initialProgress: 0.4 },
+  { connIndex: 6, speed: 0.0045, size: 2.4, color: 'var(--color-white)', initialProgress: 0.6 },
+  { connIndex: 7, speed: 0.0032, size: 2.9, color: 'var(--color-white)', initialProgress: 0.8 },
+  { connIndex: 8, speed: 0.0037, size: 2.6, color: 'var(--color-brand-yellow-500)', initialProgress: 0.05 },
+  { connIndex: 9, speed: 0.0029, size: 3.1, color: 'var(--color-white)', initialProgress: 0.25 },
+  { connIndex: 10, speed: 0.0041, size: 2.3, color: 'var(--color-white)', initialProgress: 0.45 },
+  { connIndex: 11, speed: 0.0033, size: 2.85, color: 'var(--color-brand-yellow-500)', initialProgress: 0.65 },
+  { connIndex: 12, speed: 0.0036, size: 2.75, color: 'var(--color-white)', initialProgress: 0.85 },
+  { connIndex: 13, speed: 0.0030, size: 3.05, color: 'var(--color-brand-yellow-500)', initialProgress: 0.15 },
+  { connIndex: 14, speed: 0.0043, size: 2.45, color: 'var(--color-white)', initialProgress: 0.35 },
+  { connIndex: 15, speed: 0.0034, size: 2.95, color: 'var(--color-brand-yellow-500)', initialProgress: 0.55 },
 ];
 
 export default function LogisticaNetworkCanvas() {
@@ -52,6 +52,12 @@ export default function LogisticaNetworkCanvas() {
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    // Resolve CSS custom properties for canvas rendering
+    const style = getComputedStyle(document.documentElement);
+    const brandYellow = style.getPropertyValue('--color-brand-yellow-500').trim() || '#FFEC01';
+    const brandBlue = style.getPropertyValue('--color-brand-blue-500').trim() || '#0950F6';
+    const white = style.getPropertyValue('--color-white').trim() || '#FFFFFF';
 
     ctxRef.current = ctx;
     widthRef.current = canvas.width = canvas.offsetWidth;
@@ -114,7 +120,7 @@ export default function LogisticaNetworkCanvas() {
         progress: p.initialProgress,
         speed: p.speed,
         size: p.size,
-        color: p.color,
+        color: p.color === 'var(--color-brand-yellow-500)' ? brandYellow : white,
         connIndex: p.connIndex,
       };
     });
@@ -261,13 +267,13 @@ export default function LogisticaNetworkCanvas() {
           ctx.fill();
         }
 
-        ctx.fillStyle = isNear ? '#FFEC01' : '#ffffff';
+        ctx.fillStyle = isNear ? brandYellow : white;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
         ctx.fill();
 
         if (isNear || node.id === 'cd') {
-          ctx.fillStyle = isNear ? '#FFEC01' : '#ffffff';
+          ctx.fillStyle = isNear ? brandYellow : white;
           ctx.font = '500 10px var(--font-sans)';
           ctx.fillText(node.label.toUpperCase(), node.x + 10, node.y + 3);
         }
@@ -321,7 +327,7 @@ export default function LogisticaNetworkCanvas() {
   }, [reduceMotion]);
 
   if (reduceMotion) {
-    return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{ opacity: 0.3 }} />;
+    return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0 bg-brand-blue-500/30" />;
   }
 
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />;

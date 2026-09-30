@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const cardVariants = cva(
-  "rounded-lg border bg-brand-white-50 text-brand-blue-900 shadow-sm",
+  "rounded-lg border bg-white text-brand-blue-500 shadow-sm",
   {
     variants: {
       variant: {
@@ -62,7 +62,7 @@ const CardTitle = ({ className, ref, ...props }: React.HTMLAttributes<HTMLHeadin
   <h3
     ref={ref}
     className={cn(
-      "text-2xl font-subheading uppercase tracking-wider leading-none text-brand-blue-700",
+      "text-2xl font-subheading uppercase tracking-wider leading-none text-brand-blue-500",
       className,
     )}
     {...props}
@@ -73,7 +73,7 @@ CardTitle.displayName = "CardTitle"
 const CardDescription = ({ className, ref, ...props }: React.HTMLAttributes<HTMLParagraphElement> & { ref?: React.Ref<HTMLParagraphElement> }) => (
   <p
     ref={ref}
-    className={cn("text-sm text-brand-blue-700 font-sans leading-relaxed", className)}
+    className={cn("text-sm text-brand-blue-500 font-sans leading-relaxed", className)}
     {...props}
   />
 )

@@ -56,8 +56,8 @@ export const DoubleBezelCard = React.forwardRef<HTMLDivElement, DoubleBezelCardP
           className={cn(
             'double-bezel-inner rounded-xl p-6 shadow-sm overflow-hidden transition-colors duration-200',
             isDark
-              ? 'bg-brand-blue-700 border border-white/10 text-white'
-              : 'bg-white border border-brand-blue-50/50 text-brand-blue-900',
+              ? 'bg-brand-blue-500 border border-white/10 text-white'
+              : 'bg-white border border-brand-blue-50/50 text-brand-blue-500',
             innerClassName
           )}
         >

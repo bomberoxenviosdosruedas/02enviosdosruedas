@@ -23,9 +23,9 @@ export default function HeroProceduralBackground({
   className = '',
 }: HeroProceduralBackgroundProps) {
   const isYellow = tone === 'yellow';
-  const accent = isYellow ? '#0950F6' : '#FFEC01';
-  const softAccent = isYellow ? '#0950F6' : '#628FF9';
-  const white = isYellow ? '#0950F6' : '#FFFFFF';
+  const accent = isYellow ? 'var(--color-brand-blue-500)' : 'var(--color-brand-yellow-500)';
+  const softAccent = isYellow ? 'var(--color-brand-blue-500)' : 'var(--color-brand-blue-300)';
+  const white = isYellow ? 'var(--color-brand-blue-500)' : 'var(--color-white)';
   const gridOpacity = isYellow ? 0.05 : 0.07;
   const artOpacity = isYellow ? 0.14 : 0.2;
 
@@ -52,7 +52,7 @@ export default function HeroProceduralBackground({
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(135deg, #0950F6 0%, #0950F6 35%, #0950F6 75%, #0950F6 100%)',
+                'linear-gradient(135deg, var(--color-brand-blue-500) 0%, var(--color-brand-blue-500) 35%, var(--color-brand-blue-500) 75%, var(--color-brand-blue-500) 100%)',
             }}
           />
 

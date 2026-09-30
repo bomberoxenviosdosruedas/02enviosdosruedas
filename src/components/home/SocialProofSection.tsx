@@ -200,14 +200,14 @@ function getVariantClasses(variant: GoogleReview['variant']) {
     // (blue-100 = 3.82:1) no alcanza el 4.5:1 que exige WCAG AA.
     case 'dark-blue':
       return {
-        outer: 'bg-brand-blue-700/90 border-white/15 shadow-ambient-elevation',
-        inner: 'bg-brand-blue-700 text-white border-white/15',
+        outer: 'bg-brand-blue-500/90 border-white/15 shadow-ambient-elevation',
+        inner: 'bg-brand-blue-500 text-white border-white/15',
         quote: 'text-brand-yellow-500',
         // Badge invertido (4.94:1). Amarillo como texto sobre azul no pasa: el
         // peor caso es 4.15:1 y ningún token de la paleta lo levanta.
-        badge: 'bg-brand-yellow-500 text-brand-blue-900 border-brand-blue-900',
+        badge: 'bg-brand-yellow-500 text-brand-blue-500 border-brand-blue-500',
         mono: 'text-white',
-        avatar: 'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-400',
+        avatar: 'bg-brand-yellow-500 text-brand-blue-500 border-brand-yellow-400',
         divider: 'border-white/10',
         response: 'bg-white/5 border-white/10 text-white',
         // 4.55:1, pasa con poco margen. Si el fondo de `response` cambia,
@@ -217,38 +217,38 @@ function getVariantClasses(variant: GoogleReview['variant']) {
     case 'yellow-accent':
       return {
         outer: 'bg-brand-yellow-500/20 border-brand-yellow-500/30 shadow-accent-sm',
-        inner: 'bg-white text-brand-blue-700 border-brand-yellow-500/60',
-        quote: 'text-brand-blue-700',
-        badge: 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-100',
+        inner: 'bg-white text-brand-blue-500 border-brand-yellow-500/60',
+        quote: 'text-brand-blue-500',
+        badge: 'bg-brand-blue-50 text-brand-blue-500 border-brand-blue-100',
         mono: 'text-brand-blue-500',
-        avatar: 'bg-brand-blue-700 text-white border-brand-blue-700',
+        avatar: 'bg-brand-blue-500 text-white border-brand-blue-500',
         divider: 'border-brand-blue-100/50',
-        response: 'bg-brand-blue-50/80 border-brand-blue-100 text-brand-ink',
-        responseLabel: 'text-brand-blue-700',
+        response: 'bg-brand-blue-50/80 border-brand-blue-100 text-brand-blue-500',
+        responseLabel: 'text-brand-blue-500',
       };
     case 'frost-blue':
       return {
         outer: 'bg-white/60 border-white/70 shadow-float',
-        inner: 'bg-white text-brand-blue-700 border-brand-blue-100/60',
-        quote: 'text-brand-blue-700',
-        badge: 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-100',
+        inner: 'bg-white text-brand-blue-500 border-brand-blue-100/60',
+        quote: 'text-brand-blue-500',
+        badge: 'bg-brand-blue-50 text-brand-blue-500 border-brand-blue-100',
         mono: 'text-brand-blue-500',
-        avatar: 'bg-brand-blue-700 text-white border-brand-blue-700',
+        avatar: 'bg-brand-blue-500 text-white border-brand-blue-500',
         divider: 'border-brand-blue-100/50',
-        response: 'bg-brand-blue-50/80 border-brand-blue-100 text-brand-ink',
-        responseLabel: 'text-brand-blue-700',
+        response: 'bg-brand-blue-50/80 border-brand-blue-100 text-brand-blue-500',
+        responseLabel: 'text-brand-blue-500',
       };
     default:
       return {
         outer: 'bg-white/40 border-white/60 shadow-sm',
-        inner: 'bg-white text-brand-blue-700 border-brand-blue-100/50',
-        quote: 'text-brand-blue-700',
-        badge: 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-100',
+        inner: 'bg-white text-brand-blue-500 border-brand-blue-100/50',
+        quote: 'text-brand-blue-500',
+        badge: 'bg-brand-blue-50 text-brand-blue-500 border-brand-blue-100',
         mono: 'text-brand-blue-500',
-        avatar: 'bg-brand-blue-700 text-white border-brand-blue-700',
+        avatar: 'bg-brand-blue-500 text-white border-brand-blue-500',
         divider: 'border-brand-blue-100/50',
-        response: 'bg-brand-blue-50/80 border-brand-blue-100 text-brand-ink',
-        responseLabel: 'text-brand-blue-700',
+        response: 'bg-brand-blue-50/80 border-brand-blue-100 text-brand-blue-500',
+        responseLabel: 'text-brand-blue-500',
       };
   }
 }
@@ -389,7 +389,7 @@ export default function SocialProofSection() {
     return (
       <section className="py-24 bg-white border-y border-brand-blue-100/60">
         <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
-          <h2 className="font-display text-4xl uppercase text-brand-blue-700">Reseñas reales</h2>
+          <h2 className="font-display text-4xl uppercase text-brand-blue-500">Reseñas reales</h2>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((r) => (
               <ReviewCard key={r.id} review={r} rotation={0} reduceMotion={reduceMotion} />
@@ -422,14 +422,14 @@ export default function SocialProofSection() {
               href="https://share.google/ofw5wAQt3Fc1dArom"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-yellow-400 text-brand-blue-700 text-[11px] font-subheading tracking-widest uppercase font-bold border border-brand-yellow-400 shadow-glow-yellow hover:bg-brand-yellow-500 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-yellow-400 text-brand-blue-500 text-[11px] font-subheading tracking-widest uppercase font-bold border border-brand-yellow-400 shadow-glow-yellow hover:bg-brand-yellow-500 transition-colors"
             >
-              <Star className="w-3.5 h-3.5 fill-brand-blue-700" aria-hidden="true" /> 5.0 / 5.0 Verificado · +120 Valoraciones
+              <Star className="w-3.5 h-3.5 fill-brand-blue-500" aria-hidden="true" /> 5.0 / 5.0 Verificado · +120 Valoraciones
               <ExternalLink className="w-3 h-3" aria-hidden="true" />
             </a>
             <h2
               id="social-proof-title"
-              className="font-display text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] uppercase text-brand-blue-700 tracking-tight"
+              className="font-display text-[clamp(2rem,5vw,3.5rem)] leading-[0.9] uppercase text-brand-blue-500 tracking-tight"
             >
               La palabra de quienes
               <br />
@@ -437,7 +437,7 @@ export default function SocialProofSection() {
             </h2>
             {/* /80 se mezclaba en oklab y daba 4.21:1, bajo AA. Token solido: 6.02:1.
                 La jerarquia frente al h2 display se sostiene por tamaño y peso. */}
-            <p className="font-sans text-[15px] leading-relaxed text-brand-blue-700 max-w-2xl">
+            <p className="font-sans text-[15px] leading-relaxed text-brand-blue-500 max-w-2xl">
               Cero filtros, cero bots. Marquee infinito transparente angulado. Pausa al hover. Como tus ejemplos de Pinterest.
             </p>
           </div>
@@ -448,7 +448,7 @@ export default function SocialProofSection() {
               onClick={togglePause}
               aria-pressed={isPaused}
               aria-label={isPaused ? 'Reanudar carrusel' : 'Pausar carrusel'}
-              className="h-11 px-4 rounded-xl border-2 border-brand-blue-100 bg-white text-brand-blue-700 font-mono text-xs font-bold flex items-center gap-2 hover:bg-brand-blue-50 transition-colors cursor-pointer"
+              className="h-11 px-4 rounded-xl border-2 border-brand-blue-100 bg-white text-brand-blue-500 font-mono text-xs font-bold flex items-center gap-2 hover:bg-brand-blue-50 transition-colors cursor-pointer"
             >
               {isPaused ? <Play className="w-4 h-4" aria-hidden="true" /> : <Pause className="w-4 h-4" aria-hidden="true" />}
               {isPaused ? 'Reanudar' : 'Pausar'}
@@ -482,8 +482,8 @@ export default function SocialProofSection() {
                 className={cn(
                   'shrink-0 px-4 py-2 rounded-full font-subheading text-[13px] uppercase tracking-wider font-bold border flex items-center gap-2 transition-[color,background-color,border-color,transform,box-shadow] cursor-pointer',
                   active
-                    ? 'bg-brand-blue-700 text-white border-brand-blue-700 shadow-md scale-[1.03]'
-                    : 'bg-white text-brand-blue-700 border-brand-blue-100 hover:bg-brand-blue-50'
+                    ? 'bg-brand-blue-500 text-white border-brand-blue-500 shadow-md scale-[1.03]'
+                    : 'bg-white text-brand-blue-500 border-brand-blue-100 hover:bg-brand-blue-50'
                 )}
               >
                 <Icon className={cn('w-4 h-4', active && 'text-brand-yellow-500')} aria-hidden="true" />

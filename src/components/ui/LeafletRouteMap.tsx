@@ -98,13 +98,13 @@ export default function LeafletRouteMap({
           html: `
             <div class="relative flex items-center justify-center w-10 h-10 map-marker-animate">
               <span class="absolute w-10 h-10 rounded-full bg-brand-blue-500/50 radar-pulse-ring"></span>
-              <div class="relative bg-brand-blue-700 text-white rounded-full w-9 h-9 flex items-center justify-center border-2 border-white shadow-xl shadow-brand-blue-900/40">
+              <div class="relative bg-brand-blue-500 text-white rounded-full w-9 h-9 flex items-center justify-center border-2 border-white shadow-xl shadow-brand-blue-500/40">
                 <div class="flex flex-col items-center justify-center leading-none">
                   <span class="text-[9px] font-subheading font-bold text-brand-yellow-500 uppercase tracking-tighter">RET</span>
                   <span class="text-xs font-display font-bold">A</span>
                 </div>
               </div>
-              <div class="absolute -bottom-1 w-2 h-2 bg-brand-blue-700 rotate-45 border-r border-b border-white"></div>
+              <div class="absolute -bottom-1 w-2 h-2 bg-brand-blue-500 rotate-45 border-r border-b border-white"></div>
             </div>
           `,
           className: '',
@@ -123,13 +123,13 @@ export default function LeafletRouteMap({
           html: `
             <div class="relative flex items-center justify-center w-10 h-10 map-marker-animate">
               <span class="absolute w-10 h-10 rounded-full bg-brand-yellow-500/60 radar-pulse-ring"></span>
-              <div class="relative bg-brand-yellow-500 text-brand-blue-900 rounded-full w-9 h-9 flex items-center justify-center border-2 border-brand-blue-700 shadow-xl shadow-brand-blue-950/50">
+              <div class="relative bg-brand-yellow-500 text-brand-blue-500 rounded-full w-9 h-9 flex items-center justify-center border-2 border-brand-blue-500 shadow-xl shadow-brand-blue-500/50">
                 <div class="flex flex-col items-center justify-center leading-none">
-                  <span class="text-[9px] font-subheading font-bold text-brand-blue-900 uppercase tracking-tighter">ENT</span>
+                  <span class="text-[9px] font-subheading font-bold text-brand-blue-500 uppercase tracking-tighter">ENT</span>
                   <span class="text-xs font-display font-bold">B</span>
                 </div>
               </div>
-              <div class="absolute -bottom-1 w-2 h-2 bg-brand-yellow-500 rotate-45 border-r border-b border-brand-blue-700"></div>
+              <div class="absolute -bottom-1 w-2 h-2 bg-brand-yellow-500 rotate-45 border-r border-b border-brand-blue-500"></div>
             </div>
           `,
           className: '',
@@ -146,7 +146,7 @@ export default function LeafletRouteMap({
       
       // Underlay glow polyline
       glowPolylineInstance.current = L.polyline(latLngs, {
-        color: '#0950F6',
+        color: 'var(--color-brand-blue-500)',
         weight: 8,
         opacity: 0.7,
         lineCap: 'round',
@@ -155,7 +155,7 @@ export default function LeafletRouteMap({
 
       // Active animated dash polyline
       polylineInstance.current = L.polyline(latLngs, {
-        color: '#FFEC01',
+        color: 'var(--color-brand-yellow-500)',
         weight: 5,
         opacity: 1,
         className: 'leaflet-route-animated',
@@ -185,7 +185,7 @@ export default function LeafletRouteMap({
   }, [origin, destination, routeCoords]);
 
   return (
-    <div className="w-full h-full min-h-[300px] relative rounded-2xl overflow-hidden bg-brand-blue-900 select-none">
+    <div className="w-full h-full min-h-[300px] relative rounded-2xl overflow-hidden bg-brand-blue-500 select-none">
       {/* Map Target Canvas */}
       <div
         ref={mapContainer}
@@ -203,7 +203,7 @@ export default function LeafletRouteMap({
 
       {/* Top Left: Logo Badge Branding Overlay */}
       <div className="absolute top-3 left-3 z-[400] pointer-events-none">
-        <div className="bg-brand-blue-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-brand-blue-500/30 shadow-lg flex items-center gap-2.5">
+        <div className="bg-brand-blue-500/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-brand-blue-500/30 shadow-lg flex items-center gap-2.5">
           <div className="relative w-6 h-6 shrink-0 bg-white/10 rounded-lg p-0.5 flex items-center justify-center">
             <Image
               src="/logo-envios-simplified.webp"
@@ -217,7 +217,7 @@ export default function LeafletRouteMap({
             <span className="text-[11px] font-display uppercase tracking-wider text-white">
               DosRuedas <span className="text-brand-yellow-500">Live</span>
             </span>
-            <span className="text-[8px] font-mono text-brand-blue-50">
+            <span className="text-[8px] font-mono text-brand-blue-100">
               {serviceType === 'EXPRESS' ? 'Franja de 3 hs' : 'Reparto programado'}
             </span>
           </div>
@@ -227,11 +227,11 @@ export default function LeafletRouteMap({
       {/* Top Right: Live Distance Pill Overlay (if distance available) */}
       {distanceKm !== undefined && distanceKm > 0 && (
         <div className="absolute top-3 right-3 z-[400] pointer-events-none">
-          <div className="bg-brand-yellow-500 text-brand-blue-900 px-3 py-1.5 rounded-xl border-2 border-brand-blue-700 shadow-xl flex items-center gap-2 animate-pulse-subtle">
+          <div className="bg-brand-yellow-500 text-brand-blue-500 px-3 py-1.5 rounded-xl border-2 border-brand-blue-500 shadow-xl flex items-center gap-2 animate-pulse-subtle">
             <span className="text-[10px] font-subheading font-bold uppercase tracking-wider">
               Distancia
             </span>
-            <span className="text-sm font-mono font-black tabular-nums bg-brand-blue-900 text-white px-2 py-0.5 rounded-md">
+            <span className="text-sm font-mono font-black tabular-nums bg-brand-blue-500 text-white px-2 py-0.5 rounded-md">
               {distanceKm.toLocaleString('es-AR')} km
             </span>
           </div>
@@ -241,7 +241,7 @@ export default function LeafletRouteMap({
       {/* Bottom Center Route Status Pill */}
       {routeCoords.length > 0 && (
         <div className="absolute bottom-3 left-3 z-[400] pointer-events-none">
-          <div className="bg-brand-blue-950/85 backdrop-blur-md px-2.5 py-1 rounded-lg border border-brand-yellow-500/40 text-[10px] font-mono text-brand-yellow-500 flex items-center gap-1.5 shadow-md">
+          <div className="bg-brand-blue-500/85 backdrop-blur-md px-2.5 py-1 rounded-lg border border-brand-yellow-500/40 text-[10px] font-mono text-brand-yellow-500 flex items-center gap-1.5 shadow-md">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-yellow-500 animate-ping" />
             <span>Ruta Óptima Trazada</span>
           </div>

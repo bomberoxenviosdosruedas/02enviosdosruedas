@@ -57,15 +57,15 @@ export const Badge: React.FC<BadgeProps> = ({
 
   const variantStyles = {
     urgent:
-      'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-400 shadow-accent-sm',
-    secure: 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-200',
-    economic: 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-200',
-    flex: 'bg-brand-yellow-100 text-brand-blue-900 border-brand-yellow-200',
-    neutral: 'bg-white text-brand-blue-700 border-brand-blue-100 shadow-sm',
-    outline: 'bg-transparent text-brand-blue-700 border-brand-blue-700',
-    primary: 'bg-brand-blue-700 text-white border-brand-blue-700',
+      'bg-brand-yellow-500 text-brand-blue-500 border-brand-yellow-400 shadow-accent-sm',
+    secure: 'bg-brand-blue-50 text-brand-blue-500 border-brand-blue-200',
+    economic: 'bg-brand-blue-50 text-brand-blue-500 border-brand-blue-200',
+    flex: 'bg-brand-yellow-100 text-brand-blue-500 border-brand-yellow-200',
+    neutral: 'bg-white text-brand-blue-500 border-brand-blue-100 shadow-sm',
+    outline: 'bg-transparent text-brand-blue-500 border-brand-blue-500',
+    primary: 'bg-brand-blue-500 text-white border-brand-blue-500',
     accent:
-      'bg-brand-yellow-500 text-brand-blue-900 border-brand-yellow-500 shadow-accent-sm',
+      'bg-brand-yellow-500 text-brand-blue-500 border-brand-yellow-500 shadow-accent-sm',
   }[variant];
 
   return (

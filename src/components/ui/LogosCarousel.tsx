@@ -94,7 +94,7 @@ export const LogosCarousel: React.FC<LogosCarouselProps> = ({
             className="h-12 flex items-center justify-center px-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-105"
           >
             {item.logoSvg ? (
-              <div className="h-8 w-auto flex items-center justify-center text-brand-blue-700">
+              <div className="h-8 w-auto flex items-center justify-center text-brand-blue-500">
                 {item.logoSvg}
               </div>
             ) : item.logoUrl ? (
@@ -108,7 +108,7 @@ export const LogosCarousel: React.FC<LogosCarouselProps> = ({
                 />
               </div>
             ) : (
-              <span className="font-subheading text-base font-bold uppercase tracking-wider text-brand-blue-700">
+              <span className="font-subheading text-base font-bold uppercase tracking-wider text-brand-blue-500">
                 {item.name}
               </span>
             )}
