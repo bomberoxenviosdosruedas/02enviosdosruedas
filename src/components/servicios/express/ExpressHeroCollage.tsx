@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useReducedMotion } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { EXPRESS_CUTOFF_TIME } from '@/lib/promises';
+import { EXPRESS_TIERS } from '@/lib/pricing';
 
 /**
  * Collage del hero Express (propuesta "figma").
@@ -85,15 +86,15 @@ const tiles: Tile[] = [
     content: 'Express',
   },
   {
-    key: '3hs',
+    key: 'price',
     className: cn(
       wordClass,
-      'hidden lg:flex left-[58%] top-[80%] h-[84px] w-[18%] rounded-md bg-brand-blue-500 text-[44px] text-white'
+      'hidden lg:flex left-[58%] top-[80%] h-[84px] w-[22%] rounded-md bg-brand-yellow-500 text-[40px] text-brand-blue-500'
     ),
     r: 4,
     d: 9,
     i: 6,
-    content: '3 hs',
+    content: `$${EXPRESS_TIERS[0].price.toLocaleString('es-AR')}`,
   },
   {
     key: 'soft',
