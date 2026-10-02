@@ -67,12 +67,12 @@ export async function miAction(formData: FormData) {
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue-700: #0636A5;
+  --color-brand-blue-700: #0950F6;
   --color-brand-blue-500: #0950F6;
   --color-brand-blue-50:  #E6EEFE;
   --color-brand-yellow-500: #FFEC01;
   --color-brand-white-50:   #FFFFFF;
-  --color-brand-ink:        #00277C;
+  --color-brand-ink:        #0950F6;
 
   --font-display:    "Anton", sans-serif;
   --font-subheading: "Bebas Neue", sans-serif;

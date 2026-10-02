@@ -59,8 +59,7 @@ vi.mock('@/hooks/useGoogleRoute', () => ({
 }));
 
 // Mock AddressAutocomplete para simular selección con coordenadas
-vi.mock('@/components/ui/AddressAutocomplete', () => ({
-  default: React.forwardRef((props: any, ref) => (
+const MockAddressAutocomplete = React.forwardRef((props: any, ref) => (
     <input
       ref={ref}
       {...props}
@@ -76,7 +75,11 @@ vi.mock('@/components/ui/AddressAutocomplete', () => ({
         }
       }}
     />
-  )),
+  ));
+MockAddressAutocomplete.displayName = 'MockAddressAutocomplete';
+
+vi.mock('@/components/ui/AddressAutocomplete', () => ({
+  default: MockAddressAutocomplete,
 }));
 
 // Configurar env var para tests

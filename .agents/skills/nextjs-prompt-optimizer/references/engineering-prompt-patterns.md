@@ -114,7 +114,7 @@ Referencia de patrones para redactar Criterios de Aceptación y Restricciones T�
 ### Restricciones de Design System
 
 ```
-- ❌ Clases de color sin token (`bg-blue-500`, `text-gray-700`, hex inline `#0636A5`)
+- ❌ Clases de color sin token (`bg-blue-500`, `text-gray-700`, hex inline `#0950F6`)
 - ❌ Fuentes sin token (`font-family: 'Anton'` inline)
 - ❌ Sombras sin token (box-shadow inline)
 - ✅ Siempre: `bg-brand-blue-700`, `text-brand-ink`, `font-display`, `shadow-antigravity-deep`

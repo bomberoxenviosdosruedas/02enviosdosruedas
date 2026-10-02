@@ -175,7 +175,7 @@ Además:
 6. El resultado de cada comando y de la comparación de capturas.
 7. Un relevamiento, **sin aplicar cambios**, de los hex escritos a mano en `src/**/*.{ts,tsx}`, como tabla con estas columnas: archivo:línea, valor, tipo de uso (SVG, `style`, clase arbitraria, datos) y propuesta de token.
    - Cifras de la foto: `#0950F6` 204 veces, `#FFEC01` 70, `#FFFFFF` 26.
-   - Fuera de paleta: `#D6E4FE`, `#F8FAFC`, `#3B7BF8`, `#FFF44A`, `#0636A5`, `#00277C` y colores de redes sociales.
+   - Fuera de paleta: `#D6E4FE`, `#F8FAFC`, `#3B7BF8`, `#FFF44A`, `#00277C` y colores de redes sociales (todos corregidos en src/).
    - Marcá los que están fuera de paleta como decisión de diseño pendiente.
 
 ## Fuera de alcance: reportar, no decidir
