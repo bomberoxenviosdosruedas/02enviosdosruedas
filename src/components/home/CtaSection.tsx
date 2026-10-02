@@ -73,7 +73,7 @@ export default function CtaSection() {
               </span>
             </motion.div>
 
-            <motion.h2 id="cta-section-title" className="text-brand-blue-500 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase leading-[0.98] tracking-tight">
+            <motion.h2 id="cta-section-title" className="text-brand-blue-500 font-display text-4xl sm:text-5xl lg:text-6xl uppercase leading-[0.98] tracking-tight">
               ¿Listo para escalar la logística de tu e-commerce?
             </motion.h2>
 

@@ -267,7 +267,7 @@ export default function EnviosContrareembolsoPage() {
                         <div className="w-12 h-12 rounded-xl bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-1000 flex items-center justify-center">
                           <Icon className="w-6 h-6" />
                         </div>
-                        <span className="font-display text-2xl text-brand-blue-1000 font-bold">
+                        <span className="font-display text-2xl text-brand-blue-900">
                           {st.step}
                         </span>
                       </div>

@@ -43,6 +43,8 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
   ) => {
     const generatedId = React.useId();
     const inputId = id || generatedId;
+    const errorId = `${inputId}-error`;
+    const helpId = `${inputId}-help`;
 
     return (
       <div className={cn('input-wrapper flex flex-col gap-1.5 w-full', containerClassName)}>
@@ -72,7 +74,9 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
             ref={ref}
             id={inputId}
             disabled={disabled}
+            required={required}
             aria-invalid={!!error}
+            aria-describedby={error ? errorId : helpText ? helpId : undefined}
             className={cn(
               'input-field h-11 w-full border-2 rounded-xl bg-white font-sans text-sm text-brand-blue-500 placeholder:text-brand-blue-500 transition-all duration-200 focus:outline-none',
               icon ? 'pl-10 pr-4' : 'px-4',
@@ -87,9 +91,13 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
         </div>
 
         {error ? (
-          <p className="font-mono text-[11px] text-red-600 font-medium">{error}</p>
+          <p id={errorId} role="alert" className="font-mono text-[11px] text-red-600 font-medium">
+            {error}
+          </p>
         ) : helpText ? (
-          <p className="font-mono text-[11px] text-brand-blue-500">{helpText}</p>
+          <p id={helpId} className="font-mono text-[11px] text-brand-blue-500">
+            {helpText}
+          </p>
         ) : null}
       </div>
     );

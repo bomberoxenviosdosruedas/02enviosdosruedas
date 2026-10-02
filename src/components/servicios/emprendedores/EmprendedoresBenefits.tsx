@@ -74,7 +74,7 @@ export default function EmprendedoresBenefits() {
                       <Icon className="h-6 w-6 shrink-0" />
                     </div>
                     
-                    <h3 className="text-xl font-display uppercase tracking-wide text-[#0950F6] font-bold leading-tight relative z-10">
+                    <h3 className="text-xl font-display uppercase tracking-wide text-[#0950F6] leading-tight relative z-10">
                       {benefit.title}
                     </h3>
                     

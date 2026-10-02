@@ -97,7 +97,7 @@ export default function FlexHowItWorks() {
                   </div>
 
                   <div className="space-y-2 relative z-10">
-                    <h3 className="text-xl font-display uppercase tracking-wider text-brand-blue-500 font-bold leading-tight">
+                    <h3 className="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight">
                       {step.title}
                     </h3>
                     <p className="text-sm text-brand-ink font-sans leading-relaxed">

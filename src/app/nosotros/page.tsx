@@ -180,10 +180,10 @@ export default function NosotrosPage() {
                       <Icon className="w-6 h-6 shrink-0" />
                     </div>
                     <div>
-                      <span className="text-xs font-subheading tracking-wider uppercase text-[#0950F6] font-bold">
+                      <span className="text-xs font-subheading tracking-wider uppercase text-[#0950F6]">
                         {section.label}
                       </span>
-                      <h3 className="text-xl font-display uppercase tracking-wider mt-1 leading-tight text-[#0950F6] font-bold min-h-14">
+                      <h3 className="text-xl font-display uppercase tracking-wider mt-1 leading-tight text-[#0950F6] min-h-14">
                         {section.title}
                       </h3>
                     </div>

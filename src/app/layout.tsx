@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Outfit, Anton, Bebas_Neue, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
+import { MotionConfig } from 'motion/react';
 import './globals.css';
 import ClientLayout from '@/components/ClientLayout';
 
@@ -178,7 +179,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
       </head>
       <body className="bg-white text-[#0950F6] font-sans antialiased selection:bg-[#FFEC01] selection:text-[#0950F6] min-h-dvh flex flex-col" suppressHydrationWarning>
-        <ClientLayout>{children}</ClientLayout>
+        <MotionConfig reducedMotion="user">
+          <ClientLayout>{children}</ClientLayout>
+        </MotionConfig>
       </body>
     </html>
   );

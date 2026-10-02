@@ -346,7 +346,7 @@ export default function ServiciosPage() {
                       <span className="text-xs font-subheading tracking-wider uppercase text-brand-yellow-500 font-bold">
                         {service.label}
                       </span>
-                      <h3 className="text-xl font-display uppercase tracking-wider mt-1 leading-tight font-bold min-h-12">
+                      <h3 className="text-xl font-display uppercase tracking-wider mt-1 leading-tight min-h-12">
                         {service.title}
                       </h3>
                     </div>

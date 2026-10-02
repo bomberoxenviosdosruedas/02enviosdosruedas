@@ -153,10 +153,10 @@ export default function LowCostPricing() {
                     )}
 
                     <div>
-                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-500 font-bold">
+                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-500">
                         {zone.name}
                       </span>
-                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[48px] leading-tight text-brand-blue-900 font-bold">
+                      <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[48px] leading-tight text-brand-blue-900">
                         {zone.scope}
                       </h3>
                     </div>

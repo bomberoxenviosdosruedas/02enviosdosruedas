@@ -74,7 +74,7 @@ export default function LowCostHowItWorks() {
                     </div>
 
                     <div className="space-y-1.5 relative z-10">
-                      <h3 className="text-xl font-display uppercase tracking-wider text-[#0950F6] font-bold leading-tight">
+                      <h3 className="text-xl font-display uppercase tracking-wider text-[#0950F6] leading-tight">
                         {step.title}
                       </h3>
                       <p className="text-sm text-brand-ink font-sans leading-relaxed">

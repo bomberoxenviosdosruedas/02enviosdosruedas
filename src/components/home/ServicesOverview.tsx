@@ -351,7 +351,7 @@ export default function ServicesOverview() {
             <div className="px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-400 rounded-full text-xs font-subheading font-bold tracking-widest inline-block uppercase shadow-glow-yellow mb-3 border border-brand-yellow-400/40">
               NUESTROS SERVICIOS
             </div>
-            <h2 id="services-overview-title" className="font-display text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-tight leading-none text-balance">
+            <h2 id="services-overview-title" className="font-display text-4xl sm:text-6xl uppercase text-white tracking-tight leading-none text-balance">
               SOLUCIONES LOGÍSTICAS <br />
               <span className="text-brand-yellow-400 drop-shadow-[0_2px_10px_rgba(255,241,46,0.35)] underline decoration-brand-blue-500 underline-offset-8">
                 A TU MEDIDA
@@ -506,7 +506,7 @@ export default function ServicesOverview() {
                       {service.city}
                     </div>
                     <motion.h3
-                      className={`font-display text-2xl sm:text-3xl font-extrabold uppercase leading-none text-balance ${service.titleColor}`}
+                      className={`font-display text-2xl sm:text-3xl uppercase leading-none text-balance ${service.titleColor}`}
                       whileHover={reduceMotion ? undefined : { x: 4, transition: springConfigSnappy }}
                     >
                       {service.title}
@@ -629,7 +629,7 @@ export default function ServicesOverview() {
                     <span className="text-[10px] font-bold text-brand-yellow-500 font-subheading tracking-widest uppercase">
                       {selectedService.founded} • {selectedService.city}
                     </span>
-                    <h3 id="service-modal-title" className="font-display text-3xl sm:text-4xl font-extrabold uppercase text-balance mt-0.5">
+                    <h3 id="service-modal-title" className="font-display text-3xl sm:text-4xl uppercase text-balance mt-0.5">
                       {selectedService.title}
                     </h3>
                   </div>

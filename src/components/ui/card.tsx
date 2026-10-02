@@ -73,7 +73,7 @@ CardTitle.displayName = "CardTitle"
 const CardDescription = ({ className, ref, ...props }: React.HTMLAttributes<HTMLParagraphElement> & { ref?: React.Ref<HTMLParagraphElement> }) => (
   <p
     ref={ref}
-    className={cn("text-sm text-brand-blue-500 font-sans leading-relaxed", className)}
+    className={cn("text-sm text-brand-blue-700 font-sans leading-relaxed", className)}
     {...props}
   />
 )

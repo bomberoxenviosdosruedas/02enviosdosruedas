@@ -188,7 +188,7 @@ export default function AddressAutocomplete({
                   <p className="font-semibold text-white">
                     {s.description.split(',')[0]}
                   </p>
-                  <p className="text-xs text-brand-blue-100 mt-0.5 line-clamp-1 font-medium">
+                  <p className="text-xs text-brand-blue-50 mt-0.5 line-clamp-1 font-medium">
                     {s.description}
                   </p>
                 </div>

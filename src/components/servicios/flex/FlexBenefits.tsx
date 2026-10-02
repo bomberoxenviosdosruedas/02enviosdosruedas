@@ -90,7 +90,7 @@ export default function FlexBenefits() {
                     <Icon className="h-6 w-6 shrink-0" />
                   </div>
                   
-                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue-900 font-bold leading-tight relative z-10">
+                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue-900 leading-tight relative z-10">
                     {benefit.title}
                   </h3>
                   
