@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor, within } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen, fireEvent, waitFor, within, act } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, beforeAll, afterAll } from 'vitest';
 import Page from './page';
 import CotizadorUnificado from '@/components/cotizar/unified/CotizadorUnificado';
 import {
@@ -15,15 +15,14 @@ const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
  * El cotizador unificado reemplaza a los dos cotizadores por servicio. Estos tests
  * cubren el flujo completo: una sola medición de ruta alimenta las dos tarifas.
  *
- * Se mockea `useGoogleRoute` (API externa) y `prisma` (BD), pero NO el Server
- * Action ni `pricing.ts`: el reparto de tarifas tiene que seguir viniendo de la
- * tabla real, no de un stub.
+ * Se mockea:
+ * - `fetch` global para Google Directions API (server-side en Server Action)
+ * - `prisma` (BD)
+ * - `useGoogleRoute` NO se usa en el Server Action, pero el cliente lo usa para el mapa
+ * - AddressAutocomplete para simular selección de direcciones con coordenadas
+ *
+ * El Server Action ahora recibe coordenadas y recalcula la distancia en servidor.
  */
-
-const mockFetchRoute = vi.fn();
-vi.mock('@/hooks/useGoogleRoute', () => ({
-  useGoogleRoute: () => ({ fetchRoute: mockFetchRoute }),
-}));
 
 const RANGOS = [
   { id: 1, serviceType: 'EXPRESS', distanciaMinKm: 0, distanciaMaxKm: 3, precioRango: 3700, descripcion: 'Zona 1' },
@@ -38,6 +37,7 @@ const RANGOS = [
   { id: 10, serviceType: 'LOW_COST', distanciaMinKm: 10, distanciaMaxKm: 9999, precioRango: 700, descripcion: 'Excedente' },
 ];
 
+// Mock Prisma
 vi.mock('@/lib/prisma', () => ({
   prisma: {
     priceRange: {
@@ -48,6 +48,60 @@ vi.mock('@/lib/prisma', () => ({
   },
 }));
 
+// Mock fetch global para Google Directions API (llamada server-side en Server Action)
+const mockFetch = vi.fn();
+vi.stubGlobal('fetch', mockFetch);
+
+// Mock useGoogleRoute para el mapa del cliente
+const mockFetchRoute = vi.fn();
+vi.mock('@/hooks/useGoogleRoute', () => ({
+  useGoogleRoute: () => ({ fetchRoute: mockFetchRoute }),
+}));
+
+// Mock AddressAutocomplete para simular selección con coordenadas
+vi.mock('@/components/ui/AddressAutocomplete', () => ({
+  default: React.forwardRef((props: any, ref) => (
+    <input
+      ref={ref}
+      {...props}
+      data-testid="mock-address-input"
+      onChange={(e) => props.onChange(e.target.value)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          // Simular selección de dirección con coordenadas
+          const coords = props.id.includes('origen')
+            ? { lat: -38.002, lng: -57.55 }
+            : { lat: -38.01, lng: -57.56 };
+          props.onSelectCoordinate?.(coords);
+        }
+      }}
+    />
+  )),
+}));
+
+// Configurar env var para tests
+const originalGoogleMapsKey = process.env.GOOGLE_MAPS_API_KEY;
+const originalNextPublicGoogleMapsKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+process.env.GOOGLE_MAPS_API_KEY = 'test-api-key';
+process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY = 'test-api-key';
+
+function mockGoogleDirectionsResponse(distanceKm: number) {
+  return {
+    status: 'OK',
+    routes: [
+      {
+        legs: [
+          {
+            distance: { value: Math.round(distanceKm * 1000) },
+            duration: { value: Math.round(distanceKm * 2.5 * 60) }, // ~2.5 min/km
+          },
+        ],
+        overview_polyline: { points: '' },
+      },
+    ],
+  };
+}
+
 /** Rellena los cinco campos del formulario único. */
 function completarFormulario() {
   fireEvent.change(screen.getByPlaceholderText('Tu nombre completo'), { target: { value: 'Alberto' } });
@@ -57,15 +111,27 @@ function completarFormulario() {
   const direcciones = screen.getAllByTestId('mock-address-input');
   fireEvent.change(direcciones[0], { target: { value: 'Friuli 1972' } });
   fireEvent.change(direcciones[1], { target: { value: 'San Martin 2300' } });
+  // Disparar Enter para simular selección y obtener coordenadas
+  fireEvent.keyDown(direcciones[0], { key: 'Enter', code: 'Enter' });
+  fireEvent.keyDown(direcciones[1], { key: 'Enter', code: 'Enter' });
 }
 
 function cotizar() {
   fireEvent.click(screen.getByRole('button', { name: /Ver las dos tarifas/ }));
 }
 
+afterAll(() => {
+  if (originalGoogleMapsKey) process.env.GOOGLE_MAPS_API_KEY = originalGoogleMapsKey;
+  else delete process.env.GOOGLE_MAPS_API_KEY;
+  if (originalNextPublicGoogleMapsKey) process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY = originalNextPublicGoogleMapsKey;
+  else delete process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+});
+
 describe('Cotizador unificado /cotizar', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    mockFetch.mockReset();
+    mockFetchRoute.mockReset();
     sessionStorage.clear();
   });
 
@@ -119,10 +185,9 @@ describe('Cotizador unificado /cotizar', () => {
   });
 
   it('con una sola medición devuelve las dos tarifas de la misma distancia', async () => {
-    mockFetchRoute.mockResolvedValueOnce({
-      distanceKm: 5.2,
-      durationMin: 12,
-      routeCoords: [[-38.002, -57.55], [-38.01, -57.56]],
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => mockGoogleDirectionsResponse(5.2),
     });
 
     render(<CotizadorUnificado />);
@@ -133,18 +198,17 @@ describe('Cotizador unificado /cotizar', () => {
       expect(screen.getByText('Lo que pagás')).toBeInTheDocument();
     });
 
-    // La ruta se midió una sola vez, para las dos tarifas.
-    expect(mockFetchRoute).toHaveBeenCalledTimes(1);
+    // La ruta se midió una sola vez (server-side), para las dos tarifas.
+    expect(mockFetch).toHaveBeenCalledTimes(1);
     expect(screen.getAllByText('5.2 km').length).toBeGreaterThan(0);
     expect(screen.getByText('$6.100')).toBeInTheDocument(); // Express, 5-7 km
     expect(screen.getByText('$5.300')).toBeInTheDocument(); // LowCost, 5-7 km
   });
 
   it('compara precio y horario de entrega sobre filas separadas', async () => {
-    mockFetchRoute.mockResolvedValueOnce({
-      distanceKm: 2.5,
-      durationMin: 7,
-      routeCoords: [[-38.002, -57.55], [-38.005, -57.555]],
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => mockGoogleDirectionsResponse(2.5),
     });
 
     render(<CotizadorUnificado />);
@@ -167,10 +231,9 @@ describe('Cotizador unificado /cotizar', () => {
   });
 
   it('no promete una duración de entrega ni cotiza lotes de un mismo cliente', async () => {
-    mockFetchRoute.mockResolvedValueOnce({
-      distanceKm: 2.5,
-      durationMin: 7,
-      routeCoords: [[-38.002, -57.55], [-38.005, -57.555]],
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => mockGoogleDirectionsResponse(2.5),
     });
 
     const { container } = render(<CotizadorUnificado />);
@@ -206,10 +269,9 @@ describe('Cotizador unificado /cotizar', () => {
   });
 
   it('ofrece un botón por servicio y cada uno abre WhatsApp con ese servicio elegido', async () => {
-    mockFetchRoute.mockResolvedValueOnce({
-      distanceKm: 2.5,
-      durationMin: 7,
-      routeCoords: [[-38.002, -57.55], [-38.005, -57.555]],
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => mockGoogleDirectionsResponse(2.5),
     });
 
     render(<CotizadorUnificado />);
@@ -237,10 +299,9 @@ describe('Cotizador unificado /cotizar', () => {
 
   it('aplica Math.ceil al excedente de 10 km en los dos servicios', async () => {
     // 10.3 km -> Math.ceil(10.3) = 11 km -> Express 11 × $1.000, LowCost 11 × $700
-    mockFetchRoute.mockResolvedValueOnce({
-      distanceKm: 10.3,
-      durationMin: 22,
-      routeCoords: [[-38.002, -57.55], [-38.05, -57.60]],
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => mockGoogleDirectionsResponse(10.3),
     });
 
     render(<CotizadorUnificado />);
@@ -254,10 +315,9 @@ describe('Cotizador unificado /cotizar', () => {
   });
 
   it('deriva a cotización personalizada cuando el envío supera los 20 km', async () => {
-    mockFetchRoute.mockResolvedValueOnce({
-      distanceKm: 24.5,
-      durationMin: 40,
-      routeCoords: [[-38.002, -57.55], [-38.2, -57.7]],
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => mockGoogleDirectionsResponse(24.5),
     });
 
     render(<CotizadorUnificado />);
@@ -283,7 +343,10 @@ describe('Cotizador unificado /cotizar', () => {
   });
 
   it('muestra un mensaje de error si la API de rutas no devuelve una ruta válida', async () => {
-    mockFetchRoute.mockResolvedValueOnce(null);
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => ({ status: 'ZERO_RESULTS', error_message: 'No route found' }),
+    });
 
     render(<CotizadorUnificado />);
     completarFormulario();

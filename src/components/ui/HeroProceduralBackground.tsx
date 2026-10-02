@@ -16,6 +16,9 @@ export interface HeroProceduralBackgroundProps {
  * Fondo procedural de hero. Server Component: el gate de `prefers-reduced-motion`
  * es CSS (`motion-safe:`), no `useReducedMotion()`, para no romper el hydration —
  * `useReducedMotion()` devuelve `false` en el servidor y el valor real en el cliente.
+ * 
+ * Gradiente canónico Max (Ajuste #0950F6): linear-gradient(135deg, #0950F6 0%, #0950F6 55%, #3570F8 100%)
+ * Halos con rgba(9,80,246,α) y rgba(255,236,1,α) — NUNCA rgba(6,54,165,…) ni rgba(0,39,124,…)
  */
 export default function HeroProceduralBackground({
   variant = 'default',
@@ -28,6 +31,9 @@ export default function HeroProceduralBackground({
   const white = isYellow ? 'var(--color-brand-blue-500)' : 'var(--color-white)';
   const gridOpacity = isYellow ? 0.05 : 0.07;
   const artOpacity = isYellow ? 0.14 : 0.2;
+
+  // Gradiente canónico Max: #0950F6 → #0950F6 → #3570F8 (nada más oscuro que #0950F6)
+  const canonicalGradient = 'linear-gradient(135deg, #0950F6 0%, #0950F6 55%, #3570F8 100%)';
 
   return (
     <div
@@ -47,16 +53,13 @@ export default function HeroProceduralBackground({
         </>
       ) : (
         <>
-          {/* 1. Deep Royal Navy Base Gradient */}
+          {/* 1. Gradiente base canónico Max (Ajuste #0950F6) */}
           <div
             className="absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(135deg, var(--color-brand-blue-500) 0%, var(--color-brand-blue-500) 35%, var(--color-brand-blue-500) 75%, var(--color-brand-blue-500) 100%)',
-            }}
+            style={{ background: canonicalGradient }}
           />
 
-          {/* 2. Procedural Dynamic Radial Highlights (CSS Glows) */}
+          {/* 2. Procedural Dynamic Radial Highlights (CSS Glows) — Todos teñidos con brand colors */}
           <div
             className="absolute -top-32 -left-32 w-125 h-125 rounded-full pointer-events-none"
             style={{

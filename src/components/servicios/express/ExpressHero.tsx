@@ -3,6 +3,7 @@ import { Zap } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { CTANestedPill, Knockout } from '@/components/ui';
 import Badge from '@/components/ui/Badge';
+import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { EXPRESS_WINDOW } from '@/lib/promises';
 import ExpressHeroCollage from './ExpressHeroCollage';
 
@@ -10,9 +11,9 @@ import ExpressHeroCollage from './ExpressHeroCollage';
  * Hero Express — propuesta "figma": tarjeta de texto sobre collage.
  *
  * Referencia: docs/propuestas/html_adaptados/figma/secciones/hero-envios-express.html.
- * Fondo plano #0950F6. A la izquierda, la tarjeta (del mismo azul que el fondo)
- * con badge, titular con knockout, promesa y CTAs; a la derecha, el collage de
- * teselas que se mete por detrás de la tarjeta en desktop. En mobile el collage
+ * Fondo: HeroProceduralBackground variant="express" (gradiente canónico Max + halos + gráficos vectoriales).
+ * A la izquierda, la tarjeta (del mismo azul que el fondo) con badge, titular con knockout, promesa y CTAs;
+ * a la derecha, el collage de teselas que se mete por detrás de la tarjeta en desktop. En mobile el collage
  * va debajo del texto.
  */
 export default function ExpressHero() {
@@ -22,6 +23,7 @@ export default function ExpressHero() {
       aria-label="Envíos Express en moto con entrega en franja horaria de 3 horas a elección en Mar del Plata"
       className="relative isolate flex min-h-[90dvh] w-full items-center overflow-hidden bg-brand-blue-500 text-white"
     >
+      <HeroProceduralBackground variant="express" tone="blue" />
       <div className="mx-auto w-full max-w-[1280px] px-4 pb-12 pt-8 md:px-8 lg:py-14">
         <div className="grid items-center gap-6 lg:min-h-[560px] lg:grid-cols-12">
           <div className="relative z-[2] max-w-[640px] rounded-xl bg-brand-blue-500 p-6 lg:col-span-6 lg:col-start-1 lg:row-start-1 lg:p-10">

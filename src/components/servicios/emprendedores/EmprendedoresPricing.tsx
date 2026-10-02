@@ -9,13 +9,13 @@ import CTANestedPill from '@/components/ui/CTANestedPill';
 const plans = [
   {
     name: 'Plan Inicial DropOFF',
-    price: '$2.400',
-    period: 'por envío en MDQ',
-    badge: 'DROP-OFF 20% OFF',
+    price: 'Cotización a medida',
+    period: 'E-commerce 24HS · DropOFF 20% OFF',
+    badge: 'DROP-OFF · 20% OFF',
     description: 'Dejá tus paquetes directamente en nuestro depósito de Friuli 1972 y ahorrá en el envío.',
     bullets: [
       'Corte de recepción 13:00 hs',
-      'Descuento del 20% aplicado',
+      'Descuento del 20% aplicado sobre tarifa final',
       'Ruteo SAME-DAY garantizado',
       'Contrareembolso $0 comisión',
     ],
@@ -23,8 +23,8 @@ const plans = [
   },
   {
     name: 'Plan E-Commerce 3PL',
-    price: '$3.000',
-    period: 'por envío + stock gratis',
+    price: 'Cotización a medida',
+    period: 'Same-Day · Stock en Friuli 1972',
     badge: 'MÁS POPULAR 2026',
     description: 'Guardamos tu stock en Friuli 1972. Al vender, empaquetamos y entregamos en el día.',
     bullets: [
@@ -37,8 +37,8 @@ const plans = [
   },
   {
     name: 'Plan PyME Corporativo',
-    price: 'A Medida',
-    period: 'volumen > 10 envíos/día',
+    price: 'Cotización a medida',
+    period: 'Cuenta Corriente · Volumen recurrente',
     badge: 'CUENTA CORRIENTE',
     description: 'Para empresas con envíos diarios recurrentes. Liquidación mensual y asesor dedicado.',
     bullets: [
@@ -94,23 +94,25 @@ export default function EmprendedoresPricing() {
                       </h3>
 
                       <div className="py-2">
-                        {isNumericPrice && numericValue ? (
+                        {plan.price.startsWith('$') ? (
                           <div className="flex items-baseline">
                             <span className="text-4xl sm:text-5xl font-mono tabular-nums uppercase font-bold tracking-tight text-white">
                               $
                               <NumberFlow
-                                value={numericValue}
+                                value={parseInt(plan.price.replace('$', '').replace('.', ''))}
                                 format={{ minimumFractionDigits: 0 }}
                                 className="inline-block font-mono tabular-nums"
                               />
                             </span>
                           </div>
                         ) : (
-                          <span className="text-4xl sm:text-5xl font-mono tabular-nums uppercase font-bold tracking-tight text-white">
+                          <span className="text-3xl font-mono tabular-nums uppercase font-bold tracking-tight text-brand-yellow-500">
                             {plan.price}
                           </span>
                         )}
-                        <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-50">{plan.period}</span>
+                        <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-50">
+                          {plan.price.startsWith('$') ? plan.period : 'por WhatsApp'}
+                        </span>
                       </div>
 
                       <p className="text-sm leading-relaxed font-sans min-h-12 text-brand-blue-50">
@@ -135,7 +137,7 @@ export default function EmprendedoresPricing() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Elegir {plan.name.split(' ')[0]}
+                        {plan.price.startsWith('$') ? `Elegir ${plan.name.split(' ')[0]}` : 'Solicitar cotización por WhatsApp'}
                       </CTANestedPill>
                     </div>
                   </div>

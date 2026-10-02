@@ -3,11 +3,12 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { Zap, Truck, Package, Building2, Clock, ShieldCheck, CreditCard, MessageSquare, Store, Shield, RotateCcw } from 'lucide-react';
 import CTANestedPill from '@/components/ui/CTANestedPill';
-import { SAME_DAY_FIXED_PRICE } from '@/lib/promises';
+import { SAME_DAY_FIXED_PRICE, ECOMMERCE_24HS_PRICE } from '@/lib/promises';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 const SAME_DAY_PRICE = `$${SAME_DAY_FIXED_PRICE.toLocaleString('es-AR')}`;
+const ECOMMERCE_24HS_PRICE_DISPLAY = `$${ECOMMERCE_24HS_PRICE.toLocaleString('es-AR')}`;
 
 export const metadata: Metadata = {
   title: 'Servicios - Express, LowCost, Flex, Cuenta Corriente y E-commerce 24hs/Same-Day',
@@ -227,7 +228,7 @@ const services = [
     icon: RotateCcw,
     href: '/servicios/deposito-fulfillment',
     cta: 'Ver planes 24hs',
-    price: '$3.800',
+    price: ECOMMERCE_24HS_PRICE_DISPLAY,
     priceNote: 'por envío',
     features: [
       'Entrega al día hábil siguiente',
@@ -271,7 +272,7 @@ const comparisonTable = [
   { feature: 'Tiempo de entrega', express: 'Franja de 3 hs', lowcost: 'Antes de 19:00 hs', flex: 'Antes de 20:00 hs', cuentaCorriente: 'Franja de 3 hs', ecom24: 'Día hábil siguiente', ecomSameDay: 'Antes de 20:00 hs' },
   { feature: 'Horario de corte', express: '15:00 hs (2h ant.)', lowcost: '13:00 hs', flex: '15:00 hs', cuentaCorriente: '15:00 hs (2h ant.)', ecom24: 'Retiro en el día', ecomSameDay: '15:00 hs' },
   { feature: 'Elección de franja', express: 'Sí (3 hs)', lowcost: 'No', flex: 'No (estándar ML)', cuentaCorriente: 'Sí (3 hs)', ecom24: 'No', ecomSameDay: 'A coordinar' },
-  { feature: 'Precio', express: '$3.700 (0-3 km)', lowcost: '$3.000 (0-3 km)', flex: '$3.000 (Nivel 1)', cuentaCorriente: 'Tarifa LowCost', ecom24: '$3.800 por envío', ecomSameDay: `${SAME_DAY_PRICE} fijo` },
+  { feature: 'Precio', express: '$3.700 (0-3 km)', lowcost: '$3.000 (0-3 km)', flex: '$3.000 (Nivel 1)', cuentaCorriente: 'Tarifa LowCost', ecom24: `${ECOMMERCE_24HS_PRICE_DISPLAY} por envío`, ecomSameDay: `${SAME_DAY_PRICE} fijo` },
   { feature: 'Ideal para', express: 'Urgencias, trámites, repuestos', lowcost: 'Emprendedores, envíos esporádicos', flex: 'Vendedores MercadoLibre', cuentaCorriente: 'Comercios con pedidos diarios', ecom24: 'Tiendas online sin apuro', ecomSameDay: 'Marcas con stock en depósito' },
 ];
 

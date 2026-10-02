@@ -425,7 +425,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
         /* Select styling */
         select.input-field {
           @apply appearance-none bg-white;
-          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%230636A5' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%230950F6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
           background-position: right 0.75rem center;
           background-repeat: no-repeat;
           background-size: 1.25em 1.25em;

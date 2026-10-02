@@ -17,7 +17,7 @@ export default function FlexPricing() {
   const pricingRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
 
-  // Generate pricing bullets from actual pricing tiers
+  // Generate pricing bullets from actual pricing tiers (Nivel 1 = LowCost tariff)
   const generatePricingBullets = () => {
     const bullets: string[] = [];
     LOW_COST_TIERS.forEach((tier) => {
@@ -27,7 +27,7 @@ export default function FlexPricing() {
         bullets.push(`Z${LOW_COST_TIERS.indexOf(tier) + 1} (${tier.minKm}-${tier.maxKm}km) ${formatArs(tier.price)}`);
       }
     });
-    bullets.push(`Z5 (+10km) ${formatArs(LOW_COST_TIERS[LOW_COST_TIERS.length - 1].price)} + ${formatArs(LOW_COST_PRICE_PER_KM)} x km adicional`);
+    bullets.push(`Z5 (+10km) ${formatArs(LOW_COST_TIERS[LOW_COST_TIERS.length - 1].price)} + ${formatArs(LOW_COST_PRICE_PER_KM)} x km`);
     return bullets;
   };
 
@@ -35,7 +35,7 @@ export default function FlexPricing() {
     {
       name: 'Nivel 1 (Crecimiento)',
       volume: '1 a 4 envíos diarios',
-      price: '$3.000',
+      price: 'Tarifas LowCost',
       description: 'Tarifas estándar segmentadas por distancia en km.',
       bullets: generatePricingBullets(),
       highlight: false,
@@ -43,26 +43,27 @@ export default function FlexPricing() {
     {
       name: 'Nivel 2 (Pro)',
       volume: '5 a 10 envíos diarios',
-      price: '$3.000',
-      description: 'Tarifas con tope fijo para envíos de mayor distancia.',
+      price: 'Cotización a medida',
+      description: 'Tarifas mejoradas por volumen diario. Sin mínimos, sin compromiso de permanencia.',
       bullets: [
-        'Z1 (0-3km) $3.000 | Z2 (3-5km) $4.000',
-        'Z3 (5-7km) $5.300 | Z4 y Z5 (Tope) $6.500',
-        'Segunda visita Z1 gratis, otras al 50%',
-        'Retiro bonificado sin cargo'
+        'Tarifa base LowCost + descuento por volumen',
+        'Segunda visita Z1 gratis, resto al 50%',
+        'Retiro bonificado sin cargo',
+        'Soporte prioritario por WhatsApp'
       ],
       highlight: true,
     },
     {
       name: 'Nivel 3 (Elite)',
       volume: '+10 envíos diarios',
-      price: '$4.500',
-      description: 'Tarifa plana unificada para toda la ciudad sin límites.',
+      price: 'Cotización a medida',
+      description: 'Mejor tarifa por alto volumen. Condiciones exclusivas para grandes vendedores.',
       bullets: [
-        'Tarifa plana de $4.500 a toda la ciudad',
+        'Tarifa plana preferencial a toda la ciudad',
         'Segunda visita sin cargo a toda la ciudad',
         'Soporte directo prioritario',
-        'Retiro bonificado sin cargo'
+        'Retiro bonificado sin cargo',
+        'Liquidación quincenal automática'
       ],
       highlight: false,
     },
@@ -189,11 +190,13 @@ export default function FlexPricing() {
                             </span>
                           </div>
                         ) : (
-                          <span className="text-3xl font-mono tabular-nums uppercase font-bold tracking-tight text-white">
+                          <span className="text-3xl font-mono tabular-nums uppercase font-bold tracking-tight text-brand-yellow-500">
                             {level.price}
                           </span>
                         )}
-                        <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-50">/ liquidación quincenal</span>
+                        <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-50">
+                          {isNumericPrice ? '/ liquidación quincenal' : 'por WhatsApp'}
+                        </span>
                       </div>
 
                       <p className="text-sm leading-relaxed font-sans min-h-[48px] text-brand-blue-50">
@@ -218,7 +221,7 @@ export default function FlexPricing() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Activar {level.name.split(' ')[0]}
+                        {isNumericPrice ? `Activar ${level.name.split(' ')[0]}` : 'Solicitar cotización por WhatsApp'}
                       </CTANestedPill>
                     </div>
                   </div>

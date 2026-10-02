@@ -104,7 +104,9 @@
     "claude-seo@agricidaniel-claude-seo": false,
     "ui-ux-pro-max@ui-ux-pro-max-skill": true,
     "firecrawl@claude-plugins-official": false,
-    "skill-creator@claude-plugins-official": false
+    "skill-creator@claude-plugins-official": false,
+    "prisma@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true
   },
   "claudeMdExcludes": [
     "C:/Users/prest/proyectos/CLAUDE.md"

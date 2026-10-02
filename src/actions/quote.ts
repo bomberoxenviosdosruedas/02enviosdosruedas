@@ -7,21 +7,57 @@ import { calculateExpressPrice, calculateLowCostPrice, type PriceRangeProp } fro
 // Tope razonable para la distancia aceptada por el cotizador (km).
 const MAX_DISTANCE_KM = 200;
 
+// Esquema de entrada: coordenadas de origen/destino + tipo de servicio
 const quoteSchema = z.object({
-  // Zod 4 rechaza NaN e Infinity por defecto; .finite() explicita el requisito.
-  distanceKm: z
-    .number()
-    .finite('La distancia debe ser un número finito')
-    .min(0, 'La distancia debe ser un número positivo')
-    .max(MAX_DISTANCE_KM, `La distancia supera el límite permitido (${MAX_DISTANCE_KM} km)`),
+  origenLat: z.number().finite().min(-90).max(90),
+  origenLng: z.number().finite().min(-180).max(180),
+  destinoLat: z.number().finite().min(-90).max(90),
+  destinoLng: z.number().finite().min(-180).max(180),
   serviceType: z.enum(['EXPRESS', 'LOW_COST']),
 });
 
 export type QuoteState = {
   success: boolean;
   price: number | 'consultar' | null;
+  distanceKm: number | null;
   error: string | null;
 };
+
+/**
+ * Calcula la distancia vial real entre dos coordenadas usando Google Directions API.
+ * Lado servidor: valida que la distancia coincida con la ruta real.
+ */
+async function fetchRouteDistance(
+  origenLat: number,
+  origenLng: number,
+  destinoLat: number,
+  destinoLng: number
+): Promise<number | null> {
+  const apiKey = process.env.GOOGLE_MAPS_API_KEY || process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  if (!apiKey) {
+    console.error('[calculateQuoteAction] GOOGLE_MAPS_API_KEY no configurada');
+    return null;
+  }
+
+  try {
+    const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origenLat},${origenLng}&destination=${destinoLat},${destinoLng}&key=${apiKey}`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.status !== 'OK' || !data.routes || data.routes.length === 0) {
+      console.error('[calculateQuoteAction] Google Directions error:', data.error_message || data.status);
+      return null;
+    }
+
+    const leg = data.routes[0].legs[0];
+    // Google devuelve metros → km con 1 decimal
+    const distanceKm = Math.round((leg.distance.value / 1000) * 10) / 10;
+    return distanceKm;
+  } catch (error) {
+    console.error('[calculateQuoteAction] Error fetch route:', error);
+    return null;
+  }
+}
 
 export async function calculateQuoteAction(
   prevState: QuoteState,
@@ -29,35 +65,63 @@ export async function calculateQuoteAction(
 ): Promise<QuoteState> {
   try {
     const rawData = {
-      distanceKm: Number(formData.get('distanceKm')),
+      origenLat: Number(formData.get('origenLat')),
+      origenLng: Number(formData.get('origenLng')),
+      destinoLat: Number(formData.get('destinoLat')),
+      destinoLng: Number(formData.get('destinoLng')),
       serviceType: formData.get('serviceType'),
     };
 
     const validatedData = quoteSchema.parse(rawData);
 
-    // TODO: distanceKm también llega del cliente (FormData). Recalcular la distancia en
-    // el servidor a partir de origen/destino es la mejora pendiente (DESIGN.md §12.3).
-    // Las tarifas se leen acá en el servidor: nunca aceptar priceRanges del cliente.
+    // 1. Calcular distancia real en servidor (no confiar en cliente)
+    const distanceKm = await fetchRouteDistance(
+      validatedData.origenLat,
+      validatedData.origenLng,
+      validatedData.destinoLat,
+      validatedData.destinoLng
+    );
+
+    if (distanceKm === null) {
+      return {
+        success: false,
+        price: null,
+        distanceKm: null,
+        error: 'No se pudo calcular la ruta. Verificá las direcciones e intentá de nuevo.',
+      };
+    }
+
+    if (distanceKm > MAX_DISTANCE_KM) {
+      return {
+        success: false,
+        price: null,
+        distanceKm,
+        error: `La distancia (${distanceKm} km) supera el límite permitido (${MAX_DISTANCE_KM} km).`,
+      };
+    }
+
+    // 2. Leer tarifas de PriceRange (BD) → fallback pricing.ts
     let priceRanges: PriceRangeProp[] = [];
     try {
       priceRanges = await prisma.priceRange.findMany({
         where: { serviceType: validatedData.serviceType },
       });
     } catch (error) {
-      // No filtrar detalles de la BD al cliente: se cae al fallback de pricing.ts.
       console.error('No se pudieron leer las tarifas de PriceRange; se usa el fallback de pricing.ts', error);
     }
 
+    // 3. Calcular precio en servidor con la distancia validada
     let price: number | 'consultar';
     if (validatedData.serviceType === 'EXPRESS') {
-      price = calculateExpressPrice(validatedData.distanceKm, priceRanges);
+      price = calculateExpressPrice(distanceKm, priceRanges);
     } else {
-      price = calculateLowCostPrice(validatedData.distanceKm, priceRanges);
+      price = calculateLowCostPrice(distanceKm, priceRanges);
     }
 
     return {
       success: true,
       price,
+      distanceKm,
       error: null,
     };
   } catch (error: unknown) {
@@ -65,12 +129,14 @@ export async function calculateQuoteAction(
       return {
         success: false,
         price: null,
-        error: error.issues?.[0]?.message || 'Error de validación',
+        distanceKm: null,
+        error: error.issues?.[0]?.message || 'Error de validación: coordenadas inválidas',
       };
     }
     return {
       success: false,
       price: null,
+      distanceKm: null,
       error: 'Error interno al calcular la cotización',
     };
   }

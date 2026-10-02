@@ -101,6 +101,10 @@ export const CONTRAREEMBOLSO_COMMISSION_PERCENT = 0; // Sin extra ni comisión p
 // a propósito: es un precio cerrado por servicio, no un rango por distancia.
 export const SAME_DAY_FIXED_PRICE = 6000;
 
+// Tarifa fija E-Commerce 24HS (Next Day) — Confirmada por Matías 2026-09-29.
+// Recolección gratis desde 10 envíos. DropOFF -20% solo en este servicio.
+export const ECOMMERCE_24HS_PRICE = 3800;
+
 // Horarios de atención oficiales en base central Friuli 1972 (Decisión 5 aprobada)
 export const OPERATING_HOURS = {
   weekdays: '09:00 a 18:00 hs',

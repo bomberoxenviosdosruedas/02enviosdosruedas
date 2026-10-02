@@ -25,7 +25,7 @@ export interface ResultadoUnificado {
   lowcost: OpcionCotizacion;
 }
 
-const initialState: QuoteState = { success: false, price: null, error: null };
+const initialState: QuoteState = { success: false, price: null, distanceKm: null, error: null };
 
 const SOURCE_LABEL: Record<ServiceKey, string> = {
   express: 'Express',
@@ -98,9 +98,13 @@ export function useCotizadorUnificado() {
         setRouteCoords(route.routeCoords);
 
         // Las tarifas nunca se calculan en el cliente: las dos pasan por el Server Action.
+        // Enviamos coordenadas; el servidor recalcula la distancia y valida la ruta.
         const pedirTarifa = (serviceType: 'EXPRESS' | 'LOW_COST') => {
           const formData = new FormData();
-          formData.append('distanceKm', route.distanceKm.toString());
+          formData.append('origenLat', origenCoords.lat.toString());
+          formData.append('origenLng', origenCoords.lng.toString());
+          formData.append('destinoLat', destinoCoords.lat.toString());
+          formData.append('destinoLng', destinoCoords.lng.toString());
           formData.append('serviceType', serviceType);
           return calculateQuoteAction(initialState, formData);
         };
@@ -116,11 +120,14 @@ export function useCotizadorUnificado() {
           return;
         }
 
+        // Usar la distancia validada por el servidor (debe ser la misma en ambas respuestas)
+        const serverDistanceKm = respExpress.distanceKm ?? respLowCost.distanceKm ?? route.distanceKm;
+
         const newQuoteId = `DR-${Math.floor(1000 + Math.random() * 9000)}`;
         setQuoteId(newQuoteId);
 
         setResultado({
-          distancia: route.distanceKm,
+          distancia: serverDistanceKm,
           express: { key: 'express', precio: respExpress.price! },
           lowcost: { key: 'lowcost', precio: respLowCost.price! },
         });
