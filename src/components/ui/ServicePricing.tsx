@@ -27,7 +27,7 @@ export interface ServicePricingProps {
   rangeLabel: string;
   unit: string;
   tiers: PriceTier[];
-  ctaLabel: (tierIndex: number) => string;
+  ctaLabel: (tierIndex: number) => React.ReactNode;
   onCta?: (tierIndex: number) => void;
   featuredIndex?: number;
   className?: string;
@@ -99,11 +99,23 @@ function PriceTierCard({
   index: number;
   isFeatured: boolean;
   unit: string;
-  ctaLabel: string;
+  ctaLabel: React.ReactNode;
   onCta?: (tierIndex: number) => void;
   ctaHref?: string;
   ctaVariant?: 'primary' | 'outline' | 'secondary' | 'ghost';
 }) {
+  // Render badge as a separate variable to avoid JSX parsing issues
+  const badgeElement = isFeatured && tier.tag ? (
+    <Badge
+      variant="accent"
+      size="sm"
+      className="absolute -top-3 left-1/2 -translate-x-1/2 shadow-md whitespace-nowrap"
+      icon={<Star className="h-3 w-3 fill-current" aria-hidden="true" />}
+    >
+      {tier.tag}
+    </Badge>
+  ) : null;
+
   return (
     <li key={tier.range} className="h-full">
       <article
@@ -164,18 +176,18 @@ function PriceTierCard({
           >
             {ctaLabel}
           </CTANestedPill>
-        </div>
 
-        {isFeatured && tier.tag && (
-          <Badge
-            variant="accent"
-            size="sm"
-            className="absolute -top-3 left-1/2 -translate-x-1/2 shadow-md whitespace-nowrap"
-            icon={<Star className="h-3 w-3 fill-current" aria-hidden="true" />}
-          >
-            {tier.tag}
-          </Badge>
-        )}
+          {isFeatured && tier.tag ? (
+            <Badge
+              variant="accent"
+              size="sm"
+              className="absolute -top-3 left-1/2 -translate-x-1/2 shadow-md whitespace-nowrap"
+              icon={<Star className="h-3 w-3 fill-current" aria-hidden="true" />}
+            >
+              {tier.tag}
+            </Badge>
+          ) : null}
+        </div>
       </article>
     </li>
   );
@@ -226,7 +238,7 @@ function ExcedenteSection({
 }) {
   if (!perKmCoefficient || !maxAutoKm || !consultThresholdKm) return null;
 
-  const exampleKm = excedenteExampleKm || maxAutoKm + 2;
+  const exampleKm = excedenteExampleKm ?? maxAutoKm + 2;
   const examplePrice = perKmCoefficient * exampleKm;
 
   const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
@@ -244,7 +256,7 @@ function ExcedenteSection({
         <div className="flex flex-col gap-2">
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="font-subheading text-2xl sm:text-3xl uppercase tracking-[0.05em] text-brand-blue-900 leading-tight">
-              {excedenteTitle || `Más de ${maxAutoKm} km dentro de la ciudad`}
+              {excedenteTitle ?? `Más de ${maxAutoKm} km dentro de la ciudad`}
             </h3>
             <span className="rounded-md bg-brand-blue-50 px-2.5 py-0.5 font-mono text-xs font-semibold uppercase text-brand-blue-700">
               Excedente por km
@@ -275,7 +287,7 @@ function ExcedenteSection({
           </span>
           <p className="flex items-baseline gap-1.5">
             <span className="font-mono text-[38px] font-bold leading-none text-brand-blue-900 tabular-nums">
-              {formatArs(perKmCoefficient)}
+              {formatArs(perKmCoefficient ?? 0)}
             </span>
             <span className="font-mono text-xs text-brand-blue-700">ARS / km</span>
           </p>
@@ -285,11 +297,11 @@ function ExcedenteSection({
         </div>
 
         <CTANestedPill
-          href={ctaHref || '/cotizar'}
-          variant={ctaVariant || 'primary'}
+          href={ctaHref ?? '/cotizar'}
+          variant={ctaVariant ?? 'primary'}
           className="w-full sm:w-auto"
         >
-          {ctaLabel || 'Cotizar trayecto extendido'}
+          {ctaLabel ?? 'Cotizar trayecto extendido'}
         </CTANestedPill>
       </div>
     </div>
@@ -337,7 +349,7 @@ export interface ServicePricingProps {
   rangeLabel: string;
   unit: string;
   tiers: PriceTier[];
-  ctaLabel: (tierIndex: number) => string;
+  ctaLabel: (tierIndex: number) => React.ReactNode;
   onCta?: (tierIndex: number) => void;
   featuredIndex?: number;
   className?: string;
@@ -524,50 +536,50 @@ export default function ServicePricing({
                       </p>
                     )}
 
-                    <CTANestedPill
-                      href={ctaHref}
-                      onClick={onCta ? () => onCta?.(0) : undefined}
-                      variant={ctaVariant || (idx === featuredIndex ? 'primary' : 'outline')}
-                      size={idx === featuredIndex ? 'large' : 'default'}
-                      className="w-full"
-                      icon={idx === featuredIndex ? <Zap className="h-4 w-4" aria-hidden="true" /> : undefined}
-                      target={ctaHref?.startsWith('http') ? '_blank' : undefined}
-                      rel={ctaHref?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  <CTANestedPill
+                    href={ctaHref}
+                    onClick={onCta ? () => onCta?.(0) : undefined}
+                    variant={ctaVariant || (idx === featuredIndex ? 'primary' : 'outline')}
+                    size={idx === featuredIndex ? 'large' : 'default'}
+                    className="w-full"
+                    icon={idx === featuredIndex ? <Zap className="h-4 w-4" aria-hidden="true" /> : undefined}
+                    target={ctaHref?.startsWith('http') ? '_blank' : undefined}
+                    rel={ctaHref?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    {ctaLabel(idx)}
+                  </CTANestedPill>
+
+                  {isFeatured && tier.tag ? (
+                    <Badge
+                      variant="accent"
+                      size="sm"
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 shadow-md whitespace-nowrap"
+                      icon={<Star className="h-3 w-3 fill-current" aria-hidden="true" />}
                     >
-                      {ctaLabel}
-                    </CTANestedPill>
+                      {tier.tag}
+                    </Badge>
+                  ) : null}
+                </div>
+              </article>
+            </li>
+          );
+        })}
+      </ul>
 
-                    {isFeatured && tier.tag && (
-                      <Badge
-                        variant="accent"
-                        size="sm"
-                        className="absolute -top-3 left-1/2 -translate-x-1/2 shadow-md whitespace-nowrap"
-                        icon={<Star className="h-3 w-3 fill-current" aria-hidden="true" />}
-                      >
-                        {tier.tag}
-                      </Badge>
-                    )}
-                  </div>
-                </article>
-              </li>
-            );
-          })}
-        </ul>
+      <ExcedenteSection
+        perKmCoefficient={perKmCoefficient}
+        maxAutoKm={maxAutoKm}
+        consultThresholdKm={consultThresholdKm}
+        excedenteTitle={excedenteTitle}
+        excedenteDescription={excedenteDescription}
+        excedenteExampleKm={excedenteExampleKm}
+        ctaLabel={ctaLabel ? (idx: number) => ctaLabel(idx) : undefined}
+        ctaHref={ctaHref}
+        ctaVariant={ctaVariant}
+      />
 
-        <ExcedenteSection
-          perKmCoefficient={perKmCoefficient}
-          maxAutoKm={maxAutoKm}
-          consultThresholdKm={consultThresholdKm}
-          excedenteTitle={excedenteTitle}
-          excedenteDescription={excedenteDescription}
-          excedenteExampleKm={excedenteExampleKm}
-          ctaLabel={ctaLabel ? (idx: number) => ctaLabel(idx) : undefined}
-          ctaHref={ctaHref}
-          ctaVariant={ctaVariant}
-        />
-
-        <PriceFactsSection facts={facts} />
-      </div>
-    </section>
+      <PriceFactsSection facts={facts} />
+    </div>
+  </section>
   );
 }
