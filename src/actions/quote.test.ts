@@ -100,7 +100,7 @@ afterAll(() => {
     expect(result).toEqual({ success: true, price: 6100, distanceKm: 5.2, error: null });
   });
 
-  it('aplica el tramo extendido de EXPRESS con Math.ceil (10.3 km → $11.000)', async () => {
+  it('aplica el tramo extendido de EXPRESS con precio lineal (10.3 km → $10.300)', async () => {
     mockFindMany.mockResolvedValue(expressRanges);
     mockFetch.mockResolvedValue({
       ok: true,
@@ -109,7 +109,7 @@ afterAll(() => {
 
     const result = await calculateQuoteAction(initialState, formDataWithCoords(-38.0, -57.5, -38.1, -57.6, 'EXPRESS'));
 
-    expect(result).toEqual({ success: true, price: 11000, distanceKm: 10.3, error: null });
+    expect(result).toEqual({ success: true, price: 10300, distanceKm: 10.3, error: null });
   });
 
   it('lee las tarifas de LOW_COST desde PriceRange (Prisma) y calcula 2 km → $3.000', async () => {
@@ -125,7 +125,7 @@ afterAll(() => {
     expect(result).toEqual({ success: true, price: 3000, distanceKm: 2, error: null });
   });
 
-  it('aplica el tramo extendido de LOW_COST con Math.ceil (10.3 km → $7.700)', async () => {
+  it('aplica el tramo extendido de LOW_COST con precio lineal (10.3 km → $7.210)', async () => {
     mockFindMany.mockResolvedValue(lowCostRanges);
     mockFetch.mockResolvedValue({
       ok: true,
@@ -134,7 +134,7 @@ afterAll(() => {
 
     const result = await calculateQuoteAction(initialState, formDataWithCoords(-38.0, -57.5, -38.1, -57.6, 'LOW_COST'));
 
-    expect(result).toEqual({ success: true, price: 7700, distanceKm: 10.3, error: null });
+    expect(result).toEqual({ success: true, price: 7210, distanceKm: 10.3, error: null });
   });
 
   it('devuelve "consultar" para distancias > 20 km', async () => {
@@ -186,8 +186,8 @@ afterAll(() => {
     const lowCost10_3 = await calculateQuoteAction(initialState, formDataWithCoords(-38.0, -57.5, -38.1, -57.6, 'LOW_COST'));
 
     expect(express3_7.price).toBe(4600); // fallback tramo 3–5
-    expect(express10_3.price).toBe(11000); // fallback Math.ceil(10.3) × $1.000
-    expect(lowCost10_3.price).toBe(7700); // fallback Math.ceil(10.3) × $700
+    expect(express10_3.price).toBe(10300); // fallback lineal 10.3 × $1.000
+    expect(lowCost10_3.price).toBe(7210); // fallback lineal 10.3 × $700
   });
 
   it('cae al fallback de pricing.ts si la BD falla, sin exponer detalles del error', async () => {

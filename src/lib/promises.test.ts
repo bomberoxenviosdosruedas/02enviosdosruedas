@@ -41,11 +41,11 @@ describe('BL-01 & BL-03 — Enrutamiento, Promesas y Fórmulas 2026', () => {
     expect(OPERATING_HOURS.saturdays).toBe('10:00 a 15:00 hs');
   });
 
-  it('BL-03: el bulto sin recargo es 5 kg o 40 × 40 cm, sin techo numérico', async () => {
+  it('BL-03: el bulto sin recargo es 5 kg o 40 × 40 × 30 cm, sin techo numérico', async () => {
     // Un solo umbral, dos formas de expresarlo. Sobrepasado, el bulto se coordina
     // aparte con un recargo desde BULK_EXTRA_FROM_ARS.
     expect(STANDARD_WEIGHT_KG).toBe(5);
-    expect(STANDARD_BULLET_DIMENSIONS_CM).toBe('40 × 40 cm');
+    expect(STANDARD_BULLET_DIMENSIONS_CM).toBe('40 × 40 × 30 cm');
 
     // No se publica techo de peso. El de 15 kg que se publicaba hasta el
     // 2026-09-30 no lo respaldaba ninguna fuente del dueño: el CSV responde
@@ -61,21 +61,21 @@ describe('BL-01 & BL-03 — Enrutamiento, Promesas y Fórmulas 2026', () => {
     expect(SAME_DAY_FIXED_PRICE).toBe(6000);
   });
 
-  it('BL-03: Express calcula Math.ceil(km) * 1000 para +10 km hasta 20 km', () => {
-    // 10.3 km -> 11 km * 1000 = $11.000
-    expect(calculateExpressPrice(10.3, [])).toBe(11000);
-    // 12 km -> 12 km * 1000 = $12.000
+  it('BL-03: Express calcula lineal (km × 1000) para +10 km hasta 20 km', () => {
+    // 10.3 km * 1000 = $10.300 (LINEAL, no Math.ceil)
+    expect(calculateExpressPrice(10.3, [])).toBe(10300);
+    // 12 km * 1000 = $12.000
     expect(calculateExpressPrice(12, [])).toBe(12000);
-    // 20 km -> 20 * 1000 = $20.000
+    // 20 km * 1000 = $20.000
     expect(calculateExpressPrice(20, [])).toBe(20000);
     // > 20 km -> 'consultar'
     expect(calculateExpressPrice(20.1, [])).toBe('consultar');
   });
 
-  it('BL-03: LowCost calcula Math.ceil(km) * 700 para +10 km hasta 20 km', () => {
-    // 12 km -> 12 * 700 = $8.400
+  it('BL-03: LowCost calcula lineal (km × 700) para +10 km hasta 20 km', () => {
+    // 12 km * 700 = $8.400
     expect(calculateLowCostPrice(12, [])).toBe(8400);
-    // 20 km -> 20 * 700 = $14.000
+    // 20 km * 700 = $14.000
     expect(calculateLowCostPrice(20, [])).toBe(14000);
     // > 20 km -> 'consultar'
     expect(calculateLowCostPrice(20.1, [])).toBe('consultar');

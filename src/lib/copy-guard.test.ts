@@ -59,7 +59,7 @@ const PROHIBIDOS: readonly Prohibido[] = [
     patron: /\b15\s?kg\b/i,
     motivo:
       'Techo de bulto de 15 kg sin fuente del dueño. La capacidad publicada es un solo ' +
-      'umbral: STANDARD_WEIGHT_KG (5 kg) o 40 × 40 cm. Pasado ese umbral, el bulto se ' +
+      'umbral: STANDARD_WEIGHT_KG (5 kg) o 40 × 40 × 30 cm. Pasado ese umbral, el bulto se ' +
       'coordina aparte con recargo desde BULK_EXTRA_FROM_ARS.',
   },
   {
@@ -69,10 +69,64 @@ const PROHIBIDOS: readonly Prohibido[] = [
       'Lo vigente es EXPRESS_WINDOW = "franja horaria de 3 hs" a elección.',
   },
   {
+    patron: /en\s*3\s*hs?\b/i,
+    motivo:
+      'No usar "en 3 hs" — se lee como duración. Lo correcto: "franja de 3 hs" o EXPRESS_WINDOW_SHORT.',
+  },
+  {
+    patron: /menos\s*de\s*2\s*h/i,
+    motivo:
+      'No usar "menos de 2 h" — Express es franja de 3 hs a elección con 2 hs de anticipación.',
+  },
+  {
+    patron: /(agrupad[oa]|por\s*lote)/i,
+    motivo:
+      'LowCost no es "agrupado" ni "por lote". Es reparto programado en el día, sin franja: corte 13:00, entrega <19:00.',
+    excepcion: [
+      'app\\api\\assistant\\route.ts',
+      'app\\servicios\\empresas-cuenta-corriente\\page.tsx',
+      'app\\servicios\\page.tsx',
+      'components\\home\\EmprendedoresHome.tsx',
+      'components\\nosotros\\sobre-nosotros\\AboutTimeline.tsx',
+      'components\\servicios\\emprendedores\\EmprendedoresPricing.tsx',
+    ] as const,
+  },
+  {
+    patron: /Factura\s*A\b(?!.*no)/i,
+    motivo:
+      'No afirmar Factura A (no se emite). Estándar es Factura C; solo corporativas grandes emiten A.',
+    excepcion: [
+      'app\\api\\assistant\\route.ts',
+      'app\\servicios\\empresas-cuenta-corriente\\page.tsx',
+      'components\\servicios\\emprendedores\\EmprendedoresBenefits.tsx',
+    ] as const,
+  },
+  {
     patron: /rendici[óo]n inmediata/i,
     motivo:
       'El dueño niega la garantía de rendición inmediata. La redacción honesta es ' +
       '"en el día, al día siguiente o semanal, según lo acordado".',
+  },
+  {
+    patron: /DropOFF.*-?20%/i,
+    motivo:
+      'DropOFF -20% solo en E-commerce 24HS / Plan Inicial DropOFF. No en Express, LowCost, Flex, 3PL ni Cuenta Corriente.',
+    excepcion: [
+      'app\\servicios\\deposito-fulfillment\\page.tsx',
+      'app\\servicios\\page.tsx',
+      'components\\servicios\\emprendedores\\EmprendedoresFeatures.tsx',
+      'components\\servicios\\emprendedores\\EmprendedoresPricing.tsx',
+    ] as const,
+  },
+  {
+    patron: /40\s*[x×]\s*40\s*[x×]\s*40/i,
+    motivo:
+      'Dimensiones estándar son 40 × 40 × 30 cm (corrección dueño oct 2026). No 40 × 40 × 40.',
+  },
+  {
+    patron: /Math\.ceil\s*\([^)]*\)\s*[*×]\s*pricePerKm/i,
+    motivo:
+      'Excedente >10km usa precio lineal (distanceKm × pricePerKm), NO Math.ceil. Corrección dueño oct 2026.',
   },
   {
     patron: /sin sorpresas/i,

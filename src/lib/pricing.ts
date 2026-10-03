@@ -39,10 +39,14 @@ export const LOW_COST_TIERS: readonly PriceTier[] = [
 ];
 export const LOW_COST_PRICE_PER_KM = 700;
 
-/** Tarifa de fallback: tramo fijo si entra en uno, si no `Math.ceil(km) × precio por km`. */
+/**
+ * Calcula precio: tramo fijo si distanceKm <= maxKm, sino distanceKm × pricePerKm (lineal).
+ * NO usa Math.ceil — corrección dueño octubre 2026: precio por km lineal.
+ * Redondea al entero más cercano para evitar problemas de punto flotante.
+ */
 function fallbackPrice(distanceKm: number, tiers: readonly PriceTier[], pricePerKm: number): number {
   const tier = tiers.find((t) => distanceKm <= t.maxKm);
-  return tier ? tier.price : Math.ceil(distanceKm) * pricePerKm;
+  return tier ? tier.price : Math.round(distanceKm * pricePerKm);
 }
 
 /**
@@ -53,7 +57,7 @@ function fallbackPrice(distanceKm: number, tiers: readonly PriceTier[], pricePer
  *   3–5 km  → $4.600
  *   5–7 km  → $6.100
  *   7–10 km → $8.200
- *   +10 km  → Math.ceil(km) × $1.000  (km total entero × precio por km)
+ *   +10 km  → distanceKm × $1.000  (km total × precio por km, LINEAL)
  *
  * @param distanceKm  Distancia en kilómetros (puede tener decimales).
  * @param priceRanges Rangos de precios obtenidos desde la base de datos.
@@ -74,8 +78,8 @@ export function calculateExpressPrice(
 
     if (matchingRange) {
       if (matchingRange.distanciaMaxKm === 9999) {
-        // Rango extendido (+10 km): cantidad total de km redondeados hacia arriba × precio unitario por km
-        return Math.ceil(distanceKm) * matchingRange.precioRango;
+        // Rango extendido (+10 km): cantidad total de km × precio unitario por km (LINEAL)
+        return Math.round(distanceKm * matchingRange.precioRango);
       }
       return matchingRange.precioRango;
     }
@@ -95,7 +99,7 @@ export function calculateExpressPrice(
  *   3–5 km  → $4.000
  *   5–7 km  → $5.300
  *   7–10 km → $7.000
- *   +10 km  → Math.ceil(km) × $700  (km total entero × precio por km)
+ *   +10 km  → distanceKm × $700  (km total × precio por km, LINEAL)
  *
  * @param distanceKm  Distancia en kilómetros (puede tener decimales).
  * @param priceRanges Rangos de precios obtenidos desde la base de datos.
@@ -116,8 +120,8 @@ export function calculateLowCostPrice(
 
     if (matchingRange) {
       if (matchingRange.distanciaMaxKm === 9999) {
-        // Rango extendido (+10 km): cantidad total de km redondeados hacia arriba × precio unitario por km
-        return Math.ceil(distanceKm) * matchingRange.precioRango;
+        // Rango extendido (+10 km): cantidad total de km × precio unitario por km (LINEAL)
+        return Math.round(distanceKm * matchingRange.precioRango);
       }
       return matchingRange.precioRango;
     }

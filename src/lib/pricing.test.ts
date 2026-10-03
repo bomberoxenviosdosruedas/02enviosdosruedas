@@ -68,8 +68,8 @@ describe('calculateExpressPrice', () => {
   it('usa fallback cuando priceRanges está vacío — tramo extendido (> 10 km)', () => {
     // 12 km * 1000 = 12000
     expect(calculateExpressPrice(12, [])).toBe(12000);
-    // 10.3 km -> Math.ceil(10.3) = 11 km * 1000 = 11000
-    expect(calculateExpressPrice(10.3, [])).toBe(11000);
+    // 10.3 km * 1000 = 10300 (LINEAL, no Math.ceil)
+    expect(calculateExpressPrice(10.3, [])).toBe(10300);
   });
 
   it('retorna "consultar" con fallback para distancias > 20 km', () => {
@@ -113,8 +113,8 @@ describe('calculateLowCostPrice', () => {
   it('usa fallback cuando priceRanges está vacío — tramo extendido (> 10 km)', () => {
     // 12 km * 700 = 8400
     expect(calculateLowCostPrice(12, [])).toBe(8400);
-    // 10.3 km -> Math.ceil(10.3) = 11 km * 700 = 7700
-    expect(calculateLowCostPrice(10.3, [])).toBe(7700);
+    // 10.3 km * 700 = 7210 (LINEAL, no Math.ceil)
+    expect(calculateLowCostPrice(10.3, [])).toBe(7210);
   });
 
   it('retorna "consultar" con fallback para distancias > 20 km', () => {
@@ -191,7 +191,7 @@ describe('Tarifas oficiales 2026 (fallback con constantes exportadas)', () => {
     [5, 4600],
     [7, 6100],
     [10, 8200],
-    [10.3, 11000],
+    [10.3, 10300],
     [12, 12000],
     [20, 20000],
   ])('Express %s km → %s', (km, esperado) => {
@@ -201,8 +201,8 @@ describe('Tarifas oficiales 2026 (fallback con constantes exportadas)', () => {
   it.each([
     [3, 3000],
     [10, 7000],
-    [10.1, 7700],
-    [15.4, 11200],
+    [10.1, 7070],
+    [15.4, 10780],
   ])('LowCost %s km → %s', (km, esperado) => {
     expect(calculateLowCostPrice(km, [])).toBe(esperado);
   });

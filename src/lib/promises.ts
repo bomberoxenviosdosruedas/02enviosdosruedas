@@ -52,7 +52,7 @@ export const RAIN_SURCHARGE_PERCENT_EXPRESS_LOWCOST = 50;
 // en el cotizador pero no entran en el cálculo automático: dependen de lo que pase
 // en el viaje (lluvia, espera, paradas, destinatario ausente).
 export const WAIT_TOLERANCE_MIN = 10; // Espera en puerta sin cargo
-export const WAIT_CHARGE_ARS = 2100; // Por cada bloque de espera, desde el minuto 11
+export const WAIT_CHARGE_ARS = 2200; // Por cada bloque de espera, desde el minuto 11 (corrección dueño oct 2026)
 export const WAIT_CHARGE_BLOCK_MIN = 10;
 export const EXTRA_STOP_SURCHARGE_PERCENT = 50; // Por parada intermedia sobre la ruta
 export const EXTRA_STOP_MAX_DETOUR_KM = 2; // Más desvío que esto es un envío aparte
@@ -62,9 +62,8 @@ export const RETRY_CHARGE_PERCENT = 100; // Segunda visita por destinatario ause
 // Padres…). NO es el excedente de 10 a 20 km de `pricing.ts` ($1.000 / $700 por km):
 // es otra tarifa, por km de ruta, que se cotiza aparte. Ver entrevista §3.1.
 export const PERIPHERY_PRICE_PER_KM = 1000;
-// Bulto extra: más de 5 kg o 40 × 40 cm. El dueño lo respondió en la planilla
-// (pestaña 03, celda C6: "Desde $1950"); el monto final varía según el servicio.
-export const BULK_EXTRA_FROM_ARS = 1950;
+// Bulto extra: más de 5 kg o 40 × 40 × 30 cm. Corrección dueño octubre 2026: desde $1800.
+export const BULK_EXTRA_FROM_ARS = 1800;
 
 // Umbrales de distancia y límites físicos
 export const CONSULT_THRESHOLD_KM = 20; // Hasta 20 km cálculo automático; > 20 km "A consultar"
@@ -85,10 +84,10 @@ export const CONSULT_THRESHOLD_KM = 20; // Hasta 20 km cálculo automático; > 2
 // dueño ya corrigió ahí ("60-90 min: ESTO ES FALSO"). Lo que el dueño sí
 // respondió, textual, fue "todo lo que pueda ser llevado en moto" (CSV pregunta
 // 4), sin cifra. Publicar un techo inventado además rompía el recargo por bulto
-// extra: si el máximo fuera 5 kg, "más de 5 kg suma $1.950" sería imposible.
+// extra: si el máximo fuera 5 kg, "más de 5 kg suma $1.800" sería imposible.
 // Constante eliminada; el guard de `src/lib/copy-guard.test.ts` la bloquea.
 export const STANDARD_WEIGHT_KG = 5;
-export const STANDARD_BULLET_DIMENSIONS_CM = '40 × 40 cm';
+export const STANDARD_BULLET_DIMENSIONS_CM = '40 × 40 × 30 cm';
 
 // Condiciones comerciales Depósito & Fulfillment (servicio para empresas)
 // No figuran en la tabla `PriceRange` ni en docs/contexto/precios.md: son tarifas
@@ -104,6 +103,18 @@ export const SAME_DAY_FIXED_PRICE = 6000;
 // Tarifa fija E-Commerce 24HS (Next Day) — Confirmada por Matías 2026-09-29.
 // Recolección gratis desde 10 envíos. DropOFF -20% solo en este servicio.
 export const ECOMMERCE_24HS_PRICE = 3800;
+
+// Reglas de 2da visita / reintento por servicio (corrección dueño octubre 2026)
+export const RETRY_RULES = {
+  EXPRESS: { type: 'NEW_TRIP', description: 'Se cobra como viaje nuevo' },
+  LOW_COST: { type: 'NEW_TRIP', description: 'Se cobra como viaje nuevo' },
+  FLEX_NIVEL_1: { type: 'PERCENT', value: 50, description: '50% en todas las zonas' },
+  FLEX_NIVEL_2: { type: 'ZONE_BASED', z1: 0, z2_to_z5: 50, description: 'Z1 gratis, Z2-Z5 50%' },
+  FLEX_NIVEL_3: { type: 'FREE', description: '100% bonificada todas zonas' },
+  DEPOSITO_3PL: { type: 'FREE', description: '100% bonificada' },
+  ECOMMERCE_24HS: { type: 'FREE', description: '100% bonificada' },
+  CUENTA_CORRIENTE: { type: 'PERCENT', value: 50, description: '50% del valor original' },
+} as const;
 
 // Horarios de atención oficiales en base central Friuli 1972 (Decisión 5 aprobada)
 export const OPERATING_HOURS = {
