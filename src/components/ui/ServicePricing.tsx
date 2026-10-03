@@ -164,18 +164,18 @@ function PriceTierCard({
           >
             {ctaLabel}
           </CTANestedPill>
-
-          {isFeatured && tier.tag && (
-            <Badge
-              variant="accent"
-              size="sm"
-              className="absolute -top-3 left-1/2 -translate-x-1/2 shadow-md whitespace-nowrap"
-              icon={<Star className="h-3 w-3 fill-current" aria-hidden="true" />}
-            >
-              {tier.tag}
-            </Badge>
-          )}
         </div>
+
+        {isFeatured && tier.tag && (
+          <Badge
+            variant="accent"
+            size="sm"
+            className="absolute -top-3 left-1/2 -translate-x-1/2 shadow-md whitespace-nowrap"
+            icon={<Star className="h-3 w-3 fill-current" aria-hidden="true" />}
+          >
+            {tier.tag}
+          </Badge>
+        )}
       </article>
     </li>
   );
@@ -524,50 +524,50 @@ export default function ServicePricing({
                       </p>
                     )}
 
-                  <CTANestedPill
-                    href={ctaHref}
-                    onClick={onCta ? () => onCta?.(0) : undefined}
-                    variant={ctaVariant || (idx === featuredIndex ? 'primary' : 'outline')}
-                    size={idx === featuredIndex ? 'large' : 'default'}
-                    className="w-full"
-                    icon={idx === featuredIndex ? <Zap className="h-4 w-4" aria-hidden="true" /> : undefined}
-                    target={ctaHref?.startsWith('http') ? '_blank' : undefined}
-                    rel={ctaHref?.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  >
-                    {ctaLabel}
-                  </CTANestedPill>
-
-                  {isFeatured && tier.tag && (
-                    <Badge
-                      variant="accent"
-                      size="sm"
-                      className="absolute -top-3 left-1/2 -translate-x-1/2 shadow-md whitespace-nowrap"
-                      icon={<Star className="h-3 w-3 fill-current" aria-hidden="true" />}
+                    <CTANestedPill
+                      href={ctaHref}
+                      onClick={onCta ? () => onCta?.(0) : undefined}
+                      variant={ctaVariant || (idx === featuredIndex ? 'primary' : 'outline')}
+                      size={idx === featuredIndex ? 'large' : 'default'}
+                      className="w-full"
+                      icon={idx === featuredIndex ? <Zap className="h-4 w-4" aria-hidden="true" /> : undefined}
+                      target={ctaHref?.startsWith('http') ? '_blank' : undefined}
+                      rel={ctaHref?.startsWith('http') ? 'noopener noreferrer' : undefined}
                     >
-                      {tier.tag}
-                    </Badge>
-                  )}
-                </div>
-              </article>
-            </li>
-          );
-        })}
-      </ul>
+                      {ctaLabel}
+                    </CTANestedPill>
 
-      <ExcedenteSection
-        perKmCoefficient={perKmCoefficient}
-        maxAutoKm={maxAutoKm}
-        consultThresholdKm={consultThresholdKm}
-        excedenteTitle={excedenteTitle}
-        excedenteDescription={excedenteDescription}
-        excedenteExampleKm={excedenteExampleKm}
-        ctaLabel={ctaLabel ? (idx: number) => ctaLabel(idx) : undefined}
-        ctaHref={ctaHref}
-        ctaVariant={ctaVariant}
-      />
+                    {isFeatured && tier.tag && (
+                      <Badge
+                        variant="accent"
+                        size="sm"
+                        className="absolute -top-3 left-1/2 -translate-x-1/2 shadow-md whitespace-nowrap"
+                        icon={<Star className="h-3 w-3 fill-current" aria-hidden="true" />}
+                      >
+                        {tier.tag}
+                      </Badge>
+                    )}
+                  </div>
+                </article>
+              </li>
+            );
+          })}
+        </ul>
 
-      <PriceFactsSection facts={facts} />
-    </div>
-  </section>
+        <ExcedenteSection
+          perKmCoefficient={perKmCoefficient}
+          maxAutoKm={maxAutoKm}
+          consultThresholdKm={consultThresholdKm}
+          excedenteTitle={excedenteTitle}
+          excedenteDescription={excedenteDescription}
+          excedenteExampleKm={excedenteExampleKm}
+          ctaLabel={ctaLabel ? (idx: number) => ctaLabel(idx) : undefined}
+          ctaHref={ctaHref}
+          ctaVariant={ctaVariant}
+        />
+
+        <PriceFactsSection facts={facts} />
+      </div>
+    </section>
   );
 }
