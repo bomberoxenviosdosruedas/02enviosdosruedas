@@ -38,6 +38,12 @@ export const LOWCOST_DELIVERY_DEADLINE = '19:00 hs';
 export const FLEX_CUTOFF_TIME = '15:00 hs';
 export const FLEX_DELIVERY_DEADLINE = '20:00 hs';
 
+// Tarifas fijas de los niveles Flex. Fuera de `PriceRange`: son precio cerrado
+// por nivel, no un rango por distancia. El Nivel 1 no tiene cifra propia —cobra
+// la tabla LowCost por zona (ver `LOW_COST_TIERS` en `pricing.ts`).
+export const FLEX_NIVEL_2_PRICE = 6500; // Tope fijo en Z4 y Z5
+export const FLEX_NIVEL_3_PRICE = 4500; // Tarifa plana a todo Mar del Plata
+
 // Recargo por lluvia. El dueño (entrevista 2026-09-28) define un rango según el
 // servicio: 50 % para Express y LowCost, 30 % en todos los demás. Esta constante
 // modela SOLO el caso de 30 %, que es el único que hoy se muestra en el sitio.
@@ -103,6 +109,61 @@ export const SAME_DAY_FIXED_PRICE = 6000;
 // Tarifa fija E-Commerce 24HS (Next Day) — Confirmada por Matías 2026-09-29.
 // Recolección gratis desde 10 envíos. DropOFF -20% solo en este servicio.
 export const ECOMMERCE_24HS_PRICE = 3800;
+
+/** Envíos/mes desde los cuales el retiro es gratis. */
+export const ECOMMERCE_24HS_FREE_PICKUP_THRESHOLD = 10;
+
+/**
+ * Escala de planes E-Commerce 24HS. Vivían como literales dentro de
+ * `Ecommerce24HSPricing.tsx`; se movieron acá para que haya una sola fuente,
+ * como manda AGENTS.md.
+ *
+ * Procedencia: `Inicial` es `ECOMMERCE_24HS_PRICE`, confirmado de palabra por el
+ * dueño el 2026-09-29. `Pro`, `Elite` y `Partner` salen de la escala que el
+ * sitio ya publica; no hay confirmación verbal registrada para esos tres.
+ * Si el dueño ajusta la escala, se corrige acá y en ningún otro lado.
+ */
+export const ECOMMERCE_24HS_PLANS = [
+  { name: 'Inicial', fromEnvos: 1, toEnvios: 199, price: ECOMMERCE_24HS_PRICE, featured: false },
+  { name: 'Pro', fromEnvos: 200, toEnvios: 1199, price: 3500, featured: true },
+  { name: 'Elite', fromEnvos: 1200, toEnvios: 1999, price: 3200, featured: false },
+  { name: 'Partner', fromEnvos: 2000, toEnvios: null, price: 3000, featured: false },
+] as const;
+
+/**
+ * Planes de la landing de Emprendedores. Tarifas cerradas por plan, fuera de
+ * `PriceRange`. El Plan Inicial DropOFF ya viene con el -20% aplicado sobre la
+ * tarifa plana; el Plan PyME Corporativo no tiene cifra: se cotiza.
+ */
+export const EMPRENDEDORES_PLANS = [
+  {
+    name: 'Plan Inicial DropOFF',
+    distance: 'Por envío en MDQ',
+    price: 2400, // Tarifa base del Plan DropOFF. La consume también `DropoffCalculator`.
+    period: '/ envío',
+    tag: `DropOFF -${DROPOFF_DISCOUNT_PERCENT}%`,
+    note: 'Traés tus paquetes listos a Friuli 1972 y el descuento se aplica solo.',
+    featured: false,
+  },
+  {
+    name: 'Plan E-Commerce 3PL',
+    distance: 'Stock gratis',
+    price: 3000,
+    period: '/ envío + stock gratis',
+    tag: 'Con depósito',
+    note: 'Stock gratis en Friuli 1972 + picking QR + Same Day.',
+    featured: true,
+  },
+  {
+    name: 'Plan PyME Corporativo',
+    distance: 'Volumen > 10 envíos/día',
+    price: null,
+    period: '',
+    tag: 'Cuenta corriente',
+    note: 'Para empresas con envíos diarios recurrentes. La tarifa se cotiza.',
+    featured: false,
+  },
+] as const;
 
 // Reglas de 2da visita / reintento por servicio (corrección dueño octubre 2026)
 export const RETRY_RULES = {

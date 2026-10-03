@@ -1,86 +1,73 @@
 'use client';
 
-import React from 'react';
-import { Clock, TrendingDown, ShieldCheck, MapPin, Check, ArrowRight } from 'lucide-react';
-import ServicePricing, { PriceTier } from '@/components/ui/ServicePricing';
-import { LOW_COST_TIERS, LOW_COST_PRICE_PER_KM } from '@/lib/pricing';
-import { CONSULT_THRESHOLD_KM, STANDARD_WEIGHT_KG, STANDARD_BULLET_DIMENSIONS_CM } from '@/lib/promises';
+import ServicePricing, { type PricingFact, type PriceTier } from '@/components/ui/ServicePricing';
+import { calculateLowCostPrice, LOW_COST_PRICE_PER_KM, LOW_COST_TIERS } from '@/lib/pricing';
+import {
+  CONSULT_THRESHOLD_KM,
+  LOWCOST_CUTOFF_TIME,
+  LOWCOST_DELIVERY_DEADLINE,
+  STANDARD_BULLET_DIMENSIONS_CM,
+  STANDARD_WEIGHT_KG,
+} from '@/lib/promises';
 
-const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
+const MAX_AUTO_KM = 10;
+const EXAMPLE_KM = 12;
+const FEATURED_TIER_INDEX = 1;
 
-const LOW_COST_TIERS_DATA: PriceTier[] = [
+/**
+ * LowCost no es un envío "agrupado" ni "por lote" (el dueño lo negó): es un
+ * reparto programado en el día, sin franja horaria. El copy habla de ruteo y de
+ * cortes, nunca de lotes.
+ */
+const TIER_FEATURES: string[] = [
+  `Corte de carga ${LOWCOST_CUTOFF_TIME}`,
+  `Entrega antes de las ${LOWCOST_DELIVERY_DEADLINE}`,
+  `Hasta ${STANDARD_WEIGHT_KG} kg / ${STANDARD_BULLET_DIMENSIONS_CM} por bulto`,
+  'Ruteo por zona optimizado',
+  'Entrega puntual garantizada en el día',
+];
+
+/** Etiquetas y copy por tramo. Los precios salen de `LOW_COST_TIERS`. */
+const TIER_METADATA: readonly Omit<PriceTier, 'price' | 'distance' | 'features'>[] = [
   {
     range: 'Zona 1',
-    distance: '0–3 km',
-    price: '3000',
-    features: [
-      'Corte de carga 13:00 hs',
-      'Entrega antes de 19:00 hs',
-      'Hasta 5 kg / 40×40×30 cm por bulto',
-      'Eficiencia en ruteo masivo',
-      'Entrega puntual garantizada en el día',
-    ],
-    tag: 'La mejor tarifa para ruteo diario de cercanía.',
-    note: 'La mejor tarifa para ruteo diario de cercanía.',
-    featured: false,
+    tag: 'Zona 1',
+    note: 'La mejor tarifa para despacho diario de cercanía.',
   },
   {
     range: 'Zona 2',
-    distance: '3–5 km',
-    price: '4000',
-    features: [
-      'Corte de carga 13:00 hs',
-      'Entrega antes de 19:00 hs',
-      'Hasta 5 kg / 40×40×30 cm por bulto',
-      'Eficiencia en ruteo masivo',
-      'Entrega puntual garantizada en el día',
-    ],
     tag: 'Recomendado PyME',
     note: 'Cobertura intermedia económica para PyMEs.',
-    featured: true,
   },
   {
     range: 'Zona 3',
-    distance: '5–7 km',
-    price: '5300',
-    features: [
-      'Corte de carga 13:00 hs',
-      'Entrega antes de 19:00 hs',
-      'Hasta 5 kg / 40×40×30 cm por bulto',
-      'Eficiencia en ruteo masivo',
-      'Entrega puntual garantizada en el día',
-    ],
     tag: 'Zona 3',
     note: 'Llegamos a distancias medias al mejor costo.',
-    featured: false,
   },
   {
     range: 'Zona 4',
-    distance: '7–10 km',
-    price: '7000',
-    features: [
-      'Corte de carga 13:00 hs',
-      'Entrega antes de 19:00 hs',
-      'Hasta 5 kg / 40×40×30 cm por bulto',
-      'Eficiencia en ruteo masivo',
-      'Entrega puntual garantizada en el día',
-    ],
     tag: 'Zona 4',
     note: 'Máximo ahorro en distancias urbanas largas.',
-    featured: false,
   },
 ];
 
-const LOW_COST_PRICING_FACTS = [
+const TIERS: PriceTier[] = LOW_COST_TIERS.map((tier, index) => ({
+  ...TIER_METADATA[index],
+  distance: `${tier.minKm}–${tier.maxKm} km`,
+  price: String(tier.price),
+  features: TIER_FEATURES,
+}));
+
+const LOW_COST_PRICING_FACTS: PricingFact[] = [
   {
     icon: 'Route',
-    title: 'Ruteo masivo optimizado',
-    body: 'Agrupamos envíos por zona para maximizar la eficiencia y bajar el costo por despacho.',
+    title: 'Ruteo por zona optimizado',
+    body: 'Planificamos el recorrido por zonas para maximizar la eficiencia y bajar el costo por despacho.',
   },
   {
     icon: 'Clock',
-    title: 'Corte 13:00 · Entrega < 19:00',
-    body: 'Pedidos antes de las 13:00 hs se entregan garantizados antes de las 19:00 hs del mismo día.',
+    title: `Corte ${LOWCOST_CUTOFF_TIME} · entrega antes de las ${LOWCOST_DELIVERY_DEADLINE}`,
+    body: `Pedidos cargados antes de las ${LOWCOST_CUTOFF_TIME} se entregan el mismo día, antes de las ${LOWCOST_DELIVERY_DEADLINE}.`,
   },
   {
     icon: 'ShieldCheck',
@@ -90,43 +77,28 @@ const LOW_COST_PRICING_FACTS = [
 ];
 
 export default function LowCostPricing() {
+  const examplePrice = calculateLowCostPrice(EXAMPLE_KM, []);
+
   return (
     <ServicePricing
       serviceType="LOW_COST"
       title="Tarifas 2026 Envíos LowCost"
-      subtitle="Eficiencia en ruteo masivo. Garantizamos entregas antes de las 19:00 hs para pedidos cargados antes de las 13:00 hs."
+      subtitle="Ruteo por zona optimizado. Garantizamos entregas antes de las 19:00 hs para pedidos cargados antes de las 13:00 hs."
       rangeLabel="Por envío en MDQ"
-      unit="/ despacho final"
-      tiers={LOW_COST_TIERS_DATA}
-      ctaLabel={(idx) => `Ver ${LOW_COST_TIERS_DATA[idx].range}`}
-      featuredIndex={1}
-      perKmCoefficient={LOW_COST_TIERS[LOW_COST_TIERS.length - 1].price} // This should be 700, let's fix
-      maxAutoKm={10}
-      consultThresholdKm={20}
-      excedenteTitle="Zona 5 (Más de 10 km)"
-      excedenteExampleKm={12}
-      ctaLabel={(idx) => `Ver ${LOW_COST_TIERS_DATA[idx].range}`}
+      unit="/ envío"
+      tone="dark"
+      tiers={TIERS}
+      ctaLabel={(idx) => `Ver ${TIERS[idx].range}`}
       ctaHref="/cotizar"
-      backgroundClassName="py-24 bg-brand-blue-500 relative overflow-hidden text-white border-t border-b border-white/10"
-      showFacts={true}
-      facts={[
-        {
-          icon: 'Route',
-          title: 'Ruteo masivo optimizado',
-          body: 'Agrupamos envíos por zona para maximizar la eficiencia y bajar el costo por despacho.',
-        },
-        {
-          icon: 'Clock',
-          title: 'Corte 13:00 · Entrega < 19:00',
-          body: 'Pedidos antes de las 13:00 hs se entregan garantizados antes de las 19:00 hs del mismo día.',
-        },
-        {
-          icon: 'ShieldCheck',
-          title: 'Tarifa fija por distancia',
-          body: 'El precio sale de los kilómetros exactos entre retiro y entrega. Sin letra chica.',
-        },
-      ]}
-      cardClassName="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col"
+      featuredIndex={FEATURED_TIER_INDEX}
+      perKmCoefficient={LOW_COST_PRICE_PER_KM}
+      maxAutoKm={MAX_AUTO_KM}
+      consultThresholdKm={CONSULT_THRESHOLD_KM}
+      excedenteTitle={`Zona 5 (más de ${MAX_AUTO_KM} km)`}
+      excedenteExampleKm={EXAMPLE_KM}
+      excedenteExamplePrice={typeof examplePrice === 'number' ? examplePrice : undefined}
+      facts={LOW_COST_PRICING_FACTS}
+      backgroundClassName="bg-brand-blue-500 border-t border-b border-white/10 text-white"
     />
   );
 }

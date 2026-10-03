@@ -6,18 +6,19 @@ import { FaWhatsapp } from 'react-icons/fa';
 import NumberFlow from '@number-flow/react';
 import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 import CTANestedPill from '@/components/ui/CTANestedPill';
-import { DROPOFF_DISCOUNT_PERCENT } from '@/lib/promises';
+import { DROPOFF_DISCOUNT_PERCENT, EMPRENDEDORES_PLANS } from '@/lib/promises';
 
 /**
  * Calculadora de ahorro DropOFF — la isla interactiva del ticket.
  *
- * El descuento (%) viene de promises.ts (BL-03). La tarifa base es el precio
- * publicado del Plan Inicial DropOFF en <EmprendedoresPricing /> de esta misma
- * página: NO toca src/lib/pricing.ts, que gobierna solo los cotizadores
+ * El descuento (%) y la tarifa base salen de `promises.ts`: el precio es el del
+ * Plan Inicial DropOFF, el mismo que publica `<EmprendedoresPricing />` en esta
+ * misma página, así que la calculadora no puede quedar desfasada del tarifario.
+ * NO toca `src/lib/pricing.ts`, que gobierna solo los cotizadores
  * Express/LowCost. El resultado es una estimación visible y citable (GEO), y
  * cada caso se confirma por WhatsApp con el asesor.
  */
-const BASE_DROPOFF_RATE = 2400;
+const BASE_DROPOFF_RATE = EMPRENDEDORES_PLANS[0].price;
 const SAVINGS_PER_UNIT = Math.round((BASE_DROPOFF_RATE * DROPOFF_DISCOUNT_PERCENT) / 100);
 
 const MIN_ENVIOS = 1;

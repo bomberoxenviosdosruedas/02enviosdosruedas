@@ -1,40 +1,40 @@
 'use client';
 
-import React from 'react';
-import { ShoppingBag, Check, CloudRain, Zap, TrendingDown } from 'lucide-react';
-import ServicePricing, { PriceTier } from '@/components/ui/ServicePricing';
-import { LOW_COST_TIERS, LOW_COST_PRICE_PER_KM } from '@/lib/pricing';
-import {
-  FLEX_CUTOFF_TIME,
-  FLEX_DELIVERY_DEADLINE,
-  FLEX_NIVEL_2_Z4_Z5_CAP,
-  FLEX_NIVEL_3_FLAT,
-} from '@/lib/promises';
+import { Zap } from 'lucide-react';
+import ServicePricing, { type PricingFact, type PriceTier } from '@/components/ui/ServicePricing';
+import { LOW_COST_PRICE_PER_KM, LOW_COST_TIERS } from '@/lib/pricing';
+import { FLEX_NIVEL_2_PRICE, FLEX_NIVEL_3_PRICE, RAIN_SURCHARGE_PERCENT, RETRY_RULES } from '@/lib/promises';
+
+const Z5_TIER = LOW_COST_TIERS[LOW_COST_TIERS.length - 1];
 
 const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
-const FLEX_LEVELS_DATA: PriceTier[] = [
+/**
+ * Nivel 1 no tiene tarifa propia: cobra la tabla LowCost de zona. Por eso su
+ * "precio" es el de la última tranche publicada, y el excedente se explica con
+ * el mismo coeficiente (`LOW_COST_PRICE_PER_KM`).
+ */
+const FLEX_LEVELS: PriceTier[] = [
   {
     range: 'Nivel 1 · Crecimiento',
     distance: '1 a 4 envíos/día',
-    price: '3000',
+    price: String(Z5_TIER.price),
     features: [
       'Tarifa estándar por zona (Z1-Z5)',
-      'Z5 (+10km): $7.000 + $700 × km lineal',
-      'Segunda visita 50% en todas las zonas',
+      `Z5 (+${Z5_TIER.maxKm} km): ${formatArs(Z5_TIER.price)} + ${formatArs(LOW_COST_PRICE_PER_KM)} × km`,
+      `Segunda visita ${RETRY_RULES.FLEX_NIVEL_1.description}`,
       'Retiro sin cargo en todo MDQ',
     ],
     tag: 'Nivel 1',
-    note: 'Tarifa base LowCost + zona. Ideal para empezar.',
-    featured: false,
+    note: 'Tarifa base LowCost por zona. Ideal para empezar.',
   },
   {
     range: 'Nivel 2 · Pro',
     distance: '5 a 10 envíos/día',
-    price: '6500',
+    price: String(FLEX_NIVEL_2_PRICE),
     features: [
-      'Tope fijo $6.500 en Z4 y Z5',
-      'Segunda visita Z1 gratis, Z2-Z5 al 50%',
+      'Tope fijo en Z4 y Z5',
+      `Segunda visita: ${RETRY_RULES.FLEX_NIVEL_2.description}`,
       'Retiro bonificado sin cargo',
       'Soporte prioritario por WhatsApp',
     ],
@@ -45,21 +45,20 @@ const FLEX_LEVELS_DATA: PriceTier[] = [
   {
     range: 'Nivel 3 · Elite',
     distance: '+10 envíos/día',
-    price: '4500',
+    price: String(FLEX_NIVEL_3_PRICE),
     features: [
-      'Tarifa plana unificada $4.500 a todo MDQ',
-      'Segunda visita 100% bonificada en todas las zonas',
+      'Tarifa plana unificada a todo MDQ',
+      `Segunda visita: ${RETRY_RULES.FLEX_NIVEL_3.description}`,
       'Retiro bonificado sin cargo',
       'Soporte directo prioritario',
       'Liquidación quincenal automática',
     ],
     tag: 'Elite',
     note: 'Tarifa plana unificada a toda la ciudad.',
-    featured: false,
   },
 ];
 
-const FLEX_FACTS = [
+const FLEX_FACTS: PricingFact[] = [
   {
     icon: 'ShoppingBag',
     title: 'Recolección gratis',
@@ -72,8 +71,8 @@ const FLEX_FACTS = [
   },
   {
     icon: 'Zap',
-    title: 'Lluvia solo 30%',
-    body: 'Recargo por clima reducido al 30% (vs 50% estándar) para cuidar tu rentabilidad.',
+    title: `Lluvia solo ${RAIN_SURCHARGE_PERCENT}%`,
+    body: `Recargo por clima reducido al ${RAIN_SURCHARGE_PERCENT}% para cuidar tu rentabilidad.`,
   },
 ];
 
@@ -86,51 +85,31 @@ export default function FlexPricing() {
         subtitle="Escalá tu negocio con MercadoLibre Flex. A mayor volumen diario de despachos, mejores beneficios y tarifas para tus envíos Same-Day."
         rangeLabel="Por liquidación quincenal"
         unit="/ liq. quincenal"
-        tiers={FLEX_LEVELS_DATA.map(l => ({
-          range: l.name,
-          distance: l.distance,
-          price: l.price,
-          features: l.bullets || l.features,
-          tag: l.tag,
-          note: l.note,
-          featured: l.featured,
-        }))}
-        ctaLabel={(idx) => FLEX_LEVELS_DATA[idx].price.startsWith('$') ? `Activar ${FLEX_LEVELS_DATA[idx].name.split(' ')[0]}` : 'Solicitar cotización por WhatsApp'}
+        tone="dark"
+        tiers={FLEX_LEVELS}
+        ctaLabel={() => 'Solicitar cotización por WhatsApp'}
         featuredIndex={1}
         ctaHref="https://wa.me/542236602699"
         ctaVariant="primary"
-        backgroundClassName="py-24 bg-brand-blue-700 relative overflow-hidden text-white border-t border-b border-white/10"
-        showFacts={true}
-        facts={[
-          {
-            icon: 'ShoppingBag',
-            title: 'Recolección gratis',
-            body: 'Retiramos tus paquetes sin costo en todo Mar del Plata, varias veces al día si es necesario.',
-          },
-          {
-            icon: 'ShieldCheck',
-            title: 'Reputación intacta',
-            body: 'Cumplimos los SLAs de MercadoLibre para que mantengas tu estatus de MercadoLíder.',
-          },
-          {
-            icon: 'Zap',
-            title: 'Lluvia solo 30%',
-            body: 'Recargo por clima reducido al 30% (vs 50% estándar) para cuidar tu rentabilidad.',
-          },
-        ]}
+        facts={FLEX_FACTS}
+        backgroundClassName="bg-brand-blue-700 border-t border-b border-white/10 text-white"
       />
+
       <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-2xl shadow-float">
         <div className="bg-brand-blue-900 text-white rounded-xl p-8 relative overflow-hidden text-left border border-white/10 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-8 space-y-4 text-left">
               <span className="-rotate-1 inline-block px-4 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-glow-yellow">
-                RECARGO POR LLUVIA
+                Recargo por lluvia
               </span>
               <h3 className="text-3xl font-display uppercase tracking-tight text-white">
-                <span className="font-mono tabular-nums">30%</span> adicional en caso de lluvia
+                <span className="font-mono tabular-nums">{RAIN_SURCHARGE_PERCENT}%</span> adicional en caso de
+                lluvia
               </h3>
               <p className="text-sm text-brand-blue-50 leading-relaxed font-sans max-w-2xl">
-                Para todos nuestros clientes asociados al canal Flex, el recargo por días de lluvia es de solo un <span className="font-mono tabular-nums">30%</span> adicional sobre el valor del envío. Cuidamos tu rentabilidad operativa para que sigas vendiendo con tranquilidad.
+                Para todos nuestros clientes asociados al canal Flex, el recargo por días de lluvia es de solo un{' '}
+                <span className="font-mono tabular-nums">{RAIN_SURCHARGE_PERCENT}%</span> adicional sobre el valor
+                del envío. Cuidamos tu rentabilidad operativa para que sigas vendiendo con tranquilidad.
               </p>
             </div>
 
