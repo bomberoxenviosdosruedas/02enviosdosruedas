@@ -58,8 +58,9 @@ vi.mock('@/hooks/useGoogleRoute', () => ({
   useGoogleRoute: () => ({ fetchRoute: mockFetchRoute }),
 }));
 
-// Mock AddressAutocomplete para simular selección con coordenadas
-const MockAddressAutocomplete = React.forwardRef((props: any, ref) => (
+// Mock AddressAutocomplete para simular selección con coordenadas - usar vi.mock con factory
+vi.mock('@/components/ui/AddressAutocomplete', () => {
+  const MockAddressAutocomplete = React.forwardRef((props: any, ref) => (
     <input
       ref={ref}
       {...props}
@@ -67,7 +68,6 @@ const MockAddressAutocomplete = React.forwardRef((props: any, ref) => (
       onChange={(e) => props.onChange(e.target.value)}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
-          // Simular selección de dirección con coordenadas
           const coords = props.id.includes('origen')
             ? { lat: -38.002, lng: -57.55 }
             : { lat: -38.01, lng: -57.56 };
@@ -76,11 +76,12 @@ const MockAddressAutocomplete = React.forwardRef((props: any, ref) => (
       }}
     />
   ));
-MockAddressAutocomplete.displayName = 'MockAddressAutocomplete';
-
-vi.mock('@/components/ui/AddressAutocomplete', () => ({
-  default: MockAddressAutocomplete,
-}));
+  MockAddressAutocomplete.displayName = 'MockAddressAutocomplete';
+  return {
+    __esModule: true,
+    default: MockAddressAutocomplete,
+  };
+});
 
 // Configurar env var para tests
 const originalGoogleMapsKey = process.env.GOOGLE_MAPS_API_KEY;
@@ -260,15 +261,15 @@ describe('Cotizador unificado /cotizar', () => {
     render(await Page());
     const recargos = screen.getByRole('region', { name: /Lo que puede sumar al precio/ });
     expect(recargos).toHaveTextContent('+50 %');
-    expect(recargos).toHaveTextContent('$2.100 cada 10 min');
+    expect(recargos).toHaveTextContent('$2.200 cada 10 min');
     expect(recargos).toHaveTextContent('+50 % por parada');
     expect(recargos).toHaveTextContent('100 % del envío');
-    expect(recargos).toHaveTextContent('Bulto de más de 5 kg o 40 × 40 cm');
+    expect(recargos).toHaveTextContent('Bulto de más de 5 kg o 40 × 40 × 30 cm');
     // Periferia: $1.000 por km de ruta, confirmado por el dueño el 2026-09-30.
     // El $1.200 que aparece en el cuestionario y la planilla (sep-2026) no se aplica.
     expect(recargos).toHaveTextContent('$1.000 por km de ruta');
-    // Bulto extra: respuesta del dueño en la planilla (pestaña 03, C6).
-    expect(recargos).toHaveTextContent('Desde $1.950');
+    // Bulto extra: respuesta del dueño en la planilla (pestaña 03, C6) - actualizado a $1.800.
+    expect(recargos).toHaveTextContent('Desde $1.800');
   });
 
   it('ofrece un botón por servicio y cada uno abre WhatsApp con ese servicio elegido', async () => {
@@ -300,8 +301,8 @@ describe('Cotizador unificado /cotizar', () => {
 
   // ─── LÍMITES Y CASOS BORDE ────────────────────────────────────────────────
 
-  it('aplica Math.ceil al excedente de 10 km en los dos servicios', async () => {
-    // 10.3 km -> Math.ceil(10.3) = 11 km -> Express 11 × $1.000, LowCost 11 × $700
+  it('aplica precio lineal al excedente de 10 km en los dos servicios', async () => {
+    // 10.3 km * $1.000 = $10.300 (Express), 10.3 km * $700 = $7.210 (LowCost) — LINEAL, no Math.ceil
     mockFetch.mockResolvedValue({
       ok: true,
       json: async () => mockGoogleDirectionsResponse(10.3),
@@ -312,9 +313,9 @@ describe('Cotizador unificado /cotizar', () => {
     cotizar();
 
     await waitFor(() => {
-      expect(screen.getByText('$11.000')).toBeInTheDocument();
+      expect(screen.getByText('$10.300')).toBeInTheDocument();
     });
-    expect(screen.getByText('$7.700')).toBeInTheDocument();
+    expect(screen.getByText('$7.210')).toBeInTheDocument();
   });
 
   it('deriva a cotización personalizada cuando el envío supera los 20 km', async () => {

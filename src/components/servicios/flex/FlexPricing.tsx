@@ -1,280 +1,156 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { Check, ArrowRight, MessageSquare, CloudRain } from 'lucide-react';
-import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
-import CTANestedPill from '@/components/ui/CTANestedPill';
-import { Sparkles } from '@/components/ui/sparkles';
-import { TimelineContent } from '@/components/ui/timeline-animation';
-import { VerticalCutReveal } from '@/components/ui/vertical-cut-reveal';
-import { useReducedMotion } from 'motion/react';
-import NumberFlow from '@number-flow/react';
+import React from 'react';
+import { ShoppingBag, Check, CloudRain, Zap, TrendingDown } from 'lucide-react';
+import ServicePricing, { PriceTier } from '@/components/ui/ServicePricing';
 import { LOW_COST_TIERS, LOW_COST_PRICE_PER_KM } from '@/lib/pricing';
+import {
+  FLEX_CUTOFF_TIME,
+  FLEX_DELIVERY_DEADLINE,
+  FLEX_NIVEL_2_Z4_Z5_CAP,
+  FLEX_NIVEL_3_FLAT,
+} from '@/lib/promises';
 
 const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
+const FLEX_LEVELS_DATA: PriceTier[] = [
+  {
+    range: 'Nivel 1 · Crecimiento',
+    distance: '1 a 4 envíos/día',
+    price: '3000',
+    features: [
+      'Tarifa estándar por zona (Z1-Z5)',
+      'Z5 (+10km): $7.000 + $700 × km lineal',
+      'Segunda visita 50% en todas las zonas',
+      'Retiro sin cargo en todo MDQ',
+    ],
+    tag: 'Nivel 1',
+    note: 'Tarifa base LowCost + zona. Ideal para empezar.',
+    featured: false,
+  },
+  {
+    range: 'Nivel 2 · Pro',
+    distance: '5 a 10 envíos/día',
+    price: '6500',
+    features: [
+      'Tope fijo $6.500 en Z4 y Z5',
+      'Segunda visita Z1 gratis, Z2-Z5 al 50%',
+      'Retiro bonificado sin cargo',
+      'Soporte prioritario por WhatsApp',
+    ],
+    tag: 'Recomendado',
+    note: 'Tope fijo en Z4/Z5 + beneficios por volumen.',
+    featured: true,
+  },
+  {
+    range: 'Nivel 3 · Elite',
+    distance: '+10 envíos/día',
+    price: '4500',
+    features: [
+      'Tarifa plana unificada $4.500 a todo MDQ',
+      'Segunda visita 100% bonificada en todas las zonas',
+      'Retiro bonificado sin cargo',
+      'Soporte directo prioritario',
+      'Liquidación quincenal automática',
+    ],
+    tag: 'Elite',
+    note: 'Tarifa plana unificada a toda la ciudad.',
+    featured: false,
+  },
+];
+
+const FLEX_FACTS = [
+  {
+    icon: 'ShoppingBag',
+    title: 'Recolección gratis',
+    body: 'Retiramos tus paquetes sin costo en todo Mar del Plata, varias veces al día si es necesario.',
+  },
+  {
+    icon: 'ShieldCheck',
+    title: 'Reputación intacta',
+    body: 'Cumplimos los SLAs de MercadoLibre para que mantengas tu estatus de MercadoLíder.',
+  },
+  {
+    icon: 'Zap',
+    title: 'Lluvia solo 30%',
+    body: 'Recargo por clima reducido al 30% (vs 50% estándar) para cuidar tu rentabilidad.',
+  },
+];
+
 export default function FlexPricing() {
-  const pricingRef = useRef<HTMLDivElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-
-  // Generate pricing bullets from actual pricing tiers (Nivel 1 = LowCost tariff)
-  const generatePricingBullets = () => {
-    const bullets: string[] = [];
-    LOW_COST_TIERS.forEach((tier) => {
-      if (tier.minKm === 0) {
-        bullets.push(`Z1 (0-${tier.maxKm}km) ${formatArs(tier.price)}`);
-      } else {
-        bullets.push(`Z${LOW_COST_TIERS.indexOf(tier) + 1} (${tier.minKm}-${tier.maxKm}km) ${formatArs(tier.price)}`);
-      }
-    });
-    bullets.push(`Z5 (+10km) ${formatArs(LOW_COST_TIERS[LOW_COST_TIERS.length - 1].price)} + ${formatArs(LOW_COST_PRICE_PER_KM)} x km`);
-    return bullets;
-  };
-
-  const levels = [
-    {
-      name: 'Nivel 1 (Crecimiento)',
-      volume: '1 a 4 envíos diarios',
-      price: 'Tarifas LowCost',
-      description: 'Tarifas estándar segmentadas por distancia en km.',
-      bullets: generatePricingBullets(),
-      highlight: false,
-    },
-    {
-      name: 'Nivel 2 (Pro)',
-      volume: '5 a 10 envíos diarios',
-      price: 'Cotización a medida',
-      description: 'Tarifas mejoradas por volumen diario. Sin mínimos, sin compromiso de permanencia.',
-      bullets: [
-        'Tarifa base LowCost + descuento por volumen',
-        'Segunda visita Z1 gratis, resto al 50%',
-        'Retiro bonificado sin cargo',
-        'Soporte prioritario por WhatsApp'
-      ],
-      highlight: true,
-    },
-    {
-      name: 'Nivel 3 (Elite)',
-      volume: '+10 envíos diarios',
-      price: 'Cotización a medida',
-      description: 'Mejor tarifa por alto volumen. Condiciones exclusivas para grandes vendedores.',
-      bullets: [
-        'Tarifa plana preferencial a toda la ciudad',
-        'Segunda visita sin cargo a toda la ciudad',
-        'Soporte directo prioritario',
-        'Retiro bonificado sin cargo',
-        'Liquidación quincenal automática'
-      ],
-      highlight: false,
-    },
-  ];
-
-  const revealVariants = {
-    visible: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      filter: 'blur(0px)',
-      transition: {
-        delay: shouldReduceMotion ? 0 : i * 0.15,
-        duration: shouldReduceMotion ? 0 : 0.5,
-      },
-    }),
-    hidden: {
-      filter: shouldReduceMotion ? 'none' : 'blur(10px)',
-      y: shouldReduceMotion ? 0 : -20,
-      opacity: shouldReduceMotion ? 1 : 0,
-    },
-  };
-
   return (
-    <section
-      id="flex-pricing"
-      className="py-24 bg-brand-blue-700 relative overflow-hidden text-white border-t border-b border-white/10"
-      ref={pricingRef}
-    >
-      {/* Background Sparkles overlay throttled for performance */}
-      {!shouldReduceMotion && (
-        <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent_85%)] opacity-30">
-          <Sparkles
-            density={350}
-            direction="bottom"
-            speed={0.8}
-            color="#FFFFFF"
-            className="absolute inset-0 h-full w-full"
-          />
-        </div>
-      )}
+    <div className="space-y-16">
+      <ServicePricing
+        serviceType="FLEX"
+        title="Niveles y Tarifas Flex"
+        subtitle="Escalá tu negocio con MercadoLibre Flex. A mayor volumen diario de despachos, mejores beneficios y tarifas para tus envíos Same-Day."
+        rangeLabel="Por liquidación quincenal"
+        unit="/ liq. quincenal"
+        tiers={FLEX_LEVELS_DATA.map(l => ({
+          range: l.name,
+          distance: l.distance,
+          price: l.price,
+          features: l.bullets || l.features,
+          tag: l.tag,
+          note: l.note,
+          featured: l.featured,
+        }))}
+        ctaLabel={(idx) => FLEX_LEVELS_DATA[idx].price.startsWith('$') ? `Activar ${FLEX_LEVELS_DATA[idx].name.split(' ')[0]}` : 'Solicitar cotización por WhatsApp'}
+        featuredIndex={1}
+        ctaHref="https://wa.me/542236602699"
+        ctaVariant="primary"
+        backgroundClassName="py-24 bg-brand-blue-700 relative overflow-hidden text-white border-t border-b border-white/10"
+        showFacts={true}
+        facts={[
+          {
+            icon: 'ShoppingBag',
+            title: 'Recolección gratis',
+            body: 'Retiramos tus paquetes sin costo en todo Mar del Plata, varias veces al día si es necesario.',
+          },
+          {
+            icon: 'ShieldCheck',
+            title: 'Reputación intacta',
+            body: 'Cumplimos los SLAs de MercadoLibre para que mantengas tu estatus de MercadoLíder.',
+          },
+          {
+            icon: 'Zap',
+            title: 'Lluvia solo 30%',
+            body: 'Recargo por clima reducido al 30% (vs 50% estándar) para cuidar tu rentabilidad.',
+          },
+        ]}
+      />
+      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-2xl shadow-float">
+        <div className="bg-brand-blue-900 text-white rounded-xl p-8 relative overflow-hidden text-left border border-white/10 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            <div className="lg:col-span-8 space-y-4 text-left">
+              <span className="-rotate-1 inline-block px-4 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-glow-yellow">
+                RECARGO POR LLUVIA
+              </span>
+              <h3 className="text-3xl font-display uppercase tracking-tight text-white">
+                <span className="font-mono tabular-nums">30%</span> adicional en caso de lluvia
+              </h3>
+              <p className="text-sm text-brand-blue-50 leading-relaxed font-sans max-w-2xl">
+                Para todos nuestros clientes asociados al canal Flex, el recargo por días de lluvia es de solo un <span className="font-mono tabular-nums">30%</span> adicional sobre el valor del envío. Cuidamos tu rentabilidad operativa para que sigas vendiendo con tranquilidad.
+              </p>
+            </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-
-        {/* Header Block */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <TimelineContent
-            animationNum={0}
-            timelineRef={pricingRef}
-            customVariants={revealVariants}
-            as="span"
-            className="-rotate-1 px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading uppercase tracking-widest inline-block font-bold shadow-glow-yellow"
-          >
-            NIVELES FLEX 2026
-          </TimelineContent>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white flex justify-center leading-[0.98]">
-            <VerticalCutReveal
-              splitBy="words"
-              staggerDuration={0.1}
-              staggerFrom="first"
-              containerClassName="justify-center"
-            >
-              NIVELES Y TARIFAS FLEX
-            </VerticalCutReveal>
-          </h2>
-
-          <TimelineContent
-            animationNum={1}
-            timelineRef={pricingRef}
-            customVariants={revealVariants}
-            as="p"
-            className="text-brand-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed"
-          >
-            Escalá tu negocio con MercadoLibre Flex. A mayor volumen diario de despachos, mejores beneficios y tarifas para tus envíos Same-Day.
-          </TimelineContent>
-          <div className="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
-        </div>
-
-        {/* Pricing Cards Grid Bento layout with Double Bezel */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-          {levels.map((level, idx) => {
-            const isNumericPrice = level.price.startsWith('$');
-            const numericValue = isNumericPrice ? parseInt(level.price.replace('$', '').replace('.', '')) : null;
-
-            const spanClass = 'lg:col-span-4';
-
-            return (
-              <TimelineContent
-                key={level.name}
-                animationNum={2 + idx}
-                timelineRef={pricingRef}
-                customVariants={revealVariants}
-                as="div"
-                className={`${spanClass}`}
+            <div className="lg:col-span-4 flex justify-start lg:justify-end">
+              <a
+                href="https://wa.me/542236602699"
+                target="_blank"
+                rel="noopener noreferrer"
+                id="flex-pricing-cta-whatsapp"
+                className="group inline-flex items-center justify-between gap-3 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-[48px] shadow-glow-yellow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 w-full sm:w-auto"
               >
-                <DoubleBezelCard variant="dark" className="h-full" outerClassName="shadow-float hover:shadow-antigravity-deep transition-all duration-300">
-                  <div className="space-y-4 text-white flex flex-col justify-between h-full">
-                    <div className="space-y-3">
-                      {level.highlight && (
-                        <span className="-rotate-1 absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-yellow-500 text-brand-blue-900 font-bold font-subheading text-xs tracking-wider px-4 py-1 rounded-full shadow-glow-yellow">
-                          RECOMENDADO
-                        </span>
-                      )}
-
-                      <div>
-                        <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-50">
-                          {level.volume}
-                        </span>
-                        <h3 className="text-2xl font-display uppercase tracking-wider mt-1 min-h-[56px] leading-tight text-white">
-                          {level.name}
-                        </h3>
-                      </div>
-
-                      <div className="py-2">
-                        {isNumericPrice && numericValue ? (
-                          <div className="flex items-baseline">
-                            <span className="text-4xl sm:text-5xl font-mono tabular-nums uppercase font-bold tracking-tight text-white">
-                              $
-                              <NumberFlow
-                                value={numericValue}
-                                format={{ minimumFractionDigits: 0 }}
-                                className="inline-block font-mono tabular-nums"
-                              />
-                            </span>
-                          </div>
-                        ) : (
-                          <span className="text-3xl font-mono tabular-nums uppercase font-bold tracking-tight text-brand-yellow-500">
-                            {level.price}
-                          </span>
-                        )}
-                        <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-50">
-                          {isNumericPrice ? '/ liquidación quincenal' : 'por WhatsApp'}
-                        </span>
-                      </div>
-
-                      <p className="text-sm leading-relaxed font-sans min-h-[48px] text-brand-blue-50">
-                        {level.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-4">
-                      <ul className="space-y-2.5 pt-4 border-t border-brand-blue-800 mb-6">
-                        {level.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-center gap-2 text-xs text-brand-blue-50">
-                            <Check className="h-4 w-4 shrink-0 text-brand-yellow-500" />
-                            <span className="font-sans text-xs">{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <CTANestedPill
-                        href="https://wa.me/542236602699"
-                        variant="primary"
-                        className="w-full justify-center"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {isNumericPrice ? `Activar ${level.name.split(' ')[0]}` : 'Solicitar cotización por WhatsApp'}
-                      </CTANestedPill>
-                    </div>
-                  </div>
-                </DoubleBezelCard>
-              </TimelineContent>
-            );
-          })}
-        </div>
-
-        {/* Special Benefit: Rain Weather (Full width callout) */}
-        <TimelineContent
-          animationNum={5}
-          timelineRef={pricingRef}
-          customVariants={revealVariants}
-          as="div"
-          className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-2xl shadow-float"
-        >
-          <div className="bg-brand-blue-900 text-white rounded-xl p-8 relative overflow-hidden text-left border border-white/10 shadow-sm">
-            {/* Background icon watermark */}
-            <CloudRain className="absolute -bottom-8 -right-8 h-64 w-64 text-white/[0.04] pointer-events-none select-none" />
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-
-              <div className="lg:col-span-8 space-y-4 text-left">
-                <span className="-rotate-1 inline-block px-4 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-glow-yellow">
-                  RECARGO POR LLUVIA
+                <span>Más Información Flex</span>
+                <span className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+                  <Zap className="h-4 w-4 shrink-0 text-brand-blue-900" />
                 </span>
-                <h3 className="text-3xl font-display uppercase tracking-tight text-white">
-                  <span className="font-mono tabular-nums">30%</span> adicional en caso de lluvia
-                </h3>
-                <p className="text-sm text-brand-blue-50 leading-relaxed font-sans max-w-2xl">
-                  Para todos nuestros clientes asociados al canal Flex, el recargo por días de lluvia es de solo un <span className="font-mono tabular-nums">30%</span> adicional sobre el valor del envío. Cuidamos tu rentabilidad operativa para que sigas vendiendo con tranquilidad.
-                </p>
-              </div>
-
-              <div className="lg:col-span-4 flex justify-start lg:justify-end">
-                <CTANestedPill
-                  href="https://wa.me/542236602699"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="flex-pricing-cta-whatsapp"
-                  variant="primary"
-                  className="w-full sm:w-auto"
-                >
-                  Más Información Flex
-                </CTANestedPill>
-              </div>
-
+              </a>
             </div>
           </div>
-        </TimelineContent>
-
+        </div>
       </div>
-    </section>
+    </div>
   );
 }

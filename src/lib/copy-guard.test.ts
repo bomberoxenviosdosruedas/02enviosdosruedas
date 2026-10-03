@@ -116,6 +116,7 @@ const PROHIBIDOS: readonly Prohibido[] = [
       'app\\servicios\\page.tsx',
       'components\\servicios\\emprendedores\\EmprendedoresFeatures.tsx',
       'components\\servicios\\emprendedores\\EmprendedoresPricing.tsx',
+      'components\\servicios\\Ecommerce24HSPricing.tsx',
     ] as const,
   },
   {

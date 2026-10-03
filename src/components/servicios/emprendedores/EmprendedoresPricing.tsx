@@ -1,187 +1,271 @@
 'use client';
 
 import React from 'react';
-import { Check, Briefcase } from 'lucide-react';
-import NumberFlow from '@number-flow/react';
-import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
-import CTANestedPill from '@/components/ui/CTANestedPill';
+import { Check, Briefcase, Building2, Zap, TrendingDown, Package, Store } from 'lucide-react';
+import ServicePricing, { PriceTier } from '@/components/ui/ServicePricing';
 
-const plans = [
+const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
+
+const EMPRENDEDORES_PLANS: PriceTier[] = [
   {
-    name: 'Plan Inicial DropOFF',
-    price: 'Cotización a medida',
-    period: 'E-commerce 24HS · DropOFF 20% OFF',
-    badge: 'DROP-OFF · 20% OFF',
-    description: 'Dejá tus paquetes directamente en nuestro depósito de Friuli 1972 y ahorrá en el envío.',
-    bullets: [
+    range: 'Plan Inicial DropOFF',
+    distance: 'Por envío en MDQ',
+    price: '2400',
+    period: '/ envío',
+    features: [
       'Corte de recepción 13:00 hs',
-      'Descuento del 20% aplicado sobre tarifa final',
-      'Ruteo SAME-DAY garantizado',
+      'Descuento del 20% aplicado',
+      'Ruteo same-day garantizado',
       'Contrareembolso $0 comisión',
     ],
-    highlight: false,
+    tag: 'DropOFF 20% off',
+    note: 'Traés tus paquetes listos a Friuli 1972 y ahorrás 20% en cada envío.',
+    featured: false,
   },
   {
-    name: 'Plan E-Commerce 3PL',
-    price: 'Cotización a medida',
-    period: 'Same-Day · Stock en Friuli 1972',
-    badge: 'MÁS POPULAR 2026',
-    description: 'Guardamos tu stock en Friuli 1972. Al vender, empaquetamos y entregamos en el día.',
-    bullets: [
+    range: 'Plan E-Commerce 3PL',
+    distance: 'Stock gratis',
+    price: '3000',
+    period: '/ envío + stock gratis',
+    features: [
       'Almacenamiento de stock sin costo',
       'Picking por código QR instantáneo',
-      'Reparto Same-Day en Mar del Plata',
+      'Reparto same-day en Mar del Plata',
       'Seguimiento GPS para tus clientes',
     ],
-    highlight: true,
+    tag: 'Más popular 2026',
+    note: 'Stock gratis en Friuli 1972 + picking QR + Same Day.',
+    featured: true,
   },
   {
-    name: 'Plan PyME Corporativo',
-    price: 'Cotización a medida',
-    period: 'Cuenta Corriente · Volumen recurrente',
-    badge: 'CUENTA CORRIENTE',
-    description: 'Para empresas con envíos diarios recurrentes. Liquidación mensual y asesor dedicado.',
-    bullets: [
+    range: 'Plan PyME Corporativo',
+    distance: 'Volumen > 10 envíos/día',
+    price: 'A medida',
+    period: '',
+    features: [
       'Retiro programado en tu local',
       'Pagos agrupados semanales, quincenales o mensuales',
       'Atención prioritaria por WhatsApp',
       'Tarifa corporativa escalonada',
     ],
-    highlight: false,
+    tag: 'Cuenta corriente',
+    note: 'Para empresas con envíos diarios recurrentes.',
+    featured: false,
+  },
+];
+
+const EMPRENDEDORES_FACTS = [
+  {
+    icon: 'Building2',
+    title: 'Depósito propio en Friuli 1972',
+    body: 'Guardamos tu stock en nuestro depósito central con picking QR y despacho Same Day.',
+  },
+  {
+    icon: 'Zap',
+    title: 'DropOFF -20% (Solo E-com 24HS)',
+    body: 'Traés tus paquetes listos a Friuli 1972 y obtenés 20% de descuento automático.',
+  },
+  {
+    icon: 'ShieldCheck',
+    title: 'Contrareembolso $0 comisión',
+    body: 'Cobro en destino sin comisión ni recargo. Rendición día / 24hs / semanal + arqueo.',
+  },
+];
+
+const ECOMMERCE_24HS_PLANS = [
+  {
+    range: 'Inicial',
+    distance: '1-199 envíos/mes',
+    price: '3800',
+    period: '/ envío',
+    features: [
+      'Tarifa plana todo MDQ',
+      'Retiro gratis +10 paquetes',
+      '2da visita gratis',
+      'Contrareembolso gratis',
+      'DropOFF -20% en Friuli 1972',
+    ],
+    tag: 'Inicial',
+    note: 'Ideal para empezar con volúmenes bajos.',
+    featured: false,
+  },
+  {
+    range: 'Pro',
+    distance: '200-1.199 envíos/mes',
+    price: '3500',
+    period: '/ envío',
+    features: [
+      'Tarifa plana todo MDQ',
+      'Retiro gratis +10 paquetes',
+      '2da visita gratis',
+      'Contrareembolso gratis',
+      'DropOFF -20% en Friuli 1972',
+    ],
+    tag: 'Pro',
+    note: 'El equilibrio ideal para PyMEs en crecimiento.',
+    featured: true,
+  },
+  {
+    range: 'Elite',
+    distance: '1.200-1.999 envíos/mes',
+    price: '3200',
+    period: '/ envío',
+    features: [
+      'Tarifa plana todo MDQ',
+      'Retiro gratis +10 paquetes',
+      '2da visita gratis',
+      'Contrareembolso gratis',
+      'DropOFF -20% en Friuli 1972',
+    ],
+    tag: 'Elite',
+    note: 'Para volúmenes altos con mejor tarifa.',
+    featured: false,
+  },
+  {
+    range: 'Partner',
+    distance: '+2.000 envíos/mes',
+    price: '3000',
+    period: '/ envío',
+    features: [
+      'Tarifa plana todo MDQ',
+      'Retiro gratis +10 paquetes',
+      '2da visita gratis',
+      'Contrareembolso gratis',
+      'DropOFF -20% en Friuli 1972',
+    ],
+    tag: 'Partner',
+    note: 'Tarifa plana para grandes volúmenes.',
+    featured: false,
   },
 ];
 
 export default function EmprendedoresPricing() {
   return (
-    <section
-      id="emprendedores-pricing"
-      className="py-24 bg-brand-blue-700 relative z-10 overflow-hidden text-white"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-
-        {/* Header Block */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="-rotate-1 px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading uppercase tracking-widest inline-block font-bold shadow-glow-yellow">
-            MODALIDADES E-COMMERCE Y 3PL 2026
-          </span>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white leading-[0.98]">
-            PLANES PAQUETERÍA Y FULFILLMENT
-          </h2>
-
-          <p className="text-white/90 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-            Elegí la modalidad e-commerce que mejor impulse tu marca. Desde almacenamiento con picking QR en Friuli 1972 hasta opción DropOFF con 20% OFF.
-          </p>
-          <div className="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
-        </div>
-
-        {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-          {plans.map((plan) => {
-            const isNumericPrice = plan.price.startsWith('$');
-            const numericValue = isNumericPrice ? parseInt(plan.price.replace('$', '').replace('.', '')) : null;
-
-            return (
-              <div key={plan.name} className="lg:col-span-4">
-                <DoubleBezelCard variant="dark" className="h-full" outerClassName="shadow-float hover:shadow-antigravity-deep transition-all duration-300">
-                  <div className="space-y-4 text-white flex flex-col justify-between h-full">
-                    <div className="space-y-3">
-                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-50">
-                        {plan.badge}
-                      </span>
-                      <h3 className="text-2xl font-display uppercase tracking-wider leading-tight text-white min-h-14">
-                        {plan.name}
-                      </h3>
-
-                      <div className="py-2">
-                        {plan.price.startsWith('$') ? (
-                          <div className="flex items-baseline">
-                            <span className="text-4xl sm:text-5xl font-mono tabular-nums uppercase font-bold tracking-tight text-white">
-                              $
-                              <NumberFlow
-                                value={parseInt(plan.price.replace('$', '').replace('.', ''))}
-                                format={{ minimumFractionDigits: 0 }}
-                                className="inline-block font-mono tabular-nums"
-                              />
-                            </span>
-                          </div>
-                        ) : (
-                          <span className="text-3xl font-mono tabular-nums uppercase font-bold tracking-tight text-brand-yellow-500">
-                            {plan.price}
-                          </span>
-                        )}
-                        <span className="text-xs font-subheading tracking-wider uppercase block mt-1 text-brand-blue-50">
-                          {plan.price.startsWith('$') ? plan.period : 'por WhatsApp'}
-                        </span>
-                      </div>
-
-                      <p className="text-sm leading-relaxed font-sans min-h-12 text-brand-blue-50">
-                        {plan.description}
-                      </p>
-
-                      <ul className="space-y-2.5 pt-4 border-t border-brand-blue-800">
-                        {plan.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-center gap-2 text-xs text-brand-blue-50">
-                            <Check className="h-4 w-4 shrink-0 text-brand-yellow-500" />
-                            <span className="font-sans text-xs">{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="pt-4">
-                      <CTANestedPill
-                        href="https://wa.me/542236602699"
-                        variant="primary"
-                        className="w-full justify-center"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {plan.price.startsWith('$') ? `Elegir ${plan.name.split(' ')[0]}` : 'Solicitar cotización por WhatsApp'}
-                      </CTANestedPill>
-                    </div>
-                  </div>
-                </DoubleBezelCard>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Bottom CTA Special custom callout */}
-        <DoubleBezelCard variant="dark" outerClassName="shadow-float hover:shadow-antigravity-deep">
-          <div className="space-y-4 text-white">
-            <Briefcase className="absolute -bottom-8 -right-8 h-64 w-64 text-white/4 pointer-events-none select-none" />
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-
-              <div className="lg:col-span-8 space-y-4 text-left">
-                <span className="-rotate-1 inline-block px-4 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-glow-yellow">
-                  CONTRAREEMBOLSO SIN COSTO EXTRA
-                </span>
-                <h3 className="text-3xl font-display uppercase tracking-tight text-white">
-                  ¿Cobrás tus ventas en puerta?
-                </h3>
-                <p className="text-sm text-white/90 leading-relaxed font-sans max-w-2xl">
-                  Realizamos cobros contrareembolso en Mar del Plata sin ningún costo adicional sobre el valor del producto. Además, podés llevar tus envíos a Friuli 1972 con un <span className="font-mono tabular-nums">20%</span> de descuento en la tarifa final.
-                </p>
-              </div>
-
-              <div className="lg:col-span-4 flex justify-start lg:justify-end">
-                <CTANestedPill
-                  href="https://wa.me/542236602699"
-                  variant="primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Agendar Asesoría 3PL
-                </CTANestedPill>
-              </div>
-
-            </div>
-          </div>
-        </DoubleBezelCard>
-
-      </div>
-    </section>
+    <div className="space-y-16">
+      <ServicePricing
+        serviceType="DEPOSITO"
+        title="Planes Paquetería y Fulfillment"
+        subtitle="Elegí la modalidad e-commerce que mejor impulse tu marca."
+        rangeLabel="Soluciones 3PL y E-commerce"
+        unit="/ envío"
+        tiers={EMPRENDEDORES_PLANS}
+        ctaLabel={(idx) => `Elegir ${['DropOFF', '3PL', 'PyME'][idx]} plan`}
+        featuredIndex={1}
+        ctaHref="https://wa.me/542236602699"
+        ctaVariant="primary"
+        backgroundClassName="py-24 bg-brand-blue-700 relative overflow-hidden text-white"
+        showFacts={true}
+        facts={[
+          {
+            icon: 'Building2',
+            title: 'Depósito propio en Friuli 1972',
+            body: 'Guardamos tu stock en nuestro depósito central con picking QR y despacho Same Day.',
+          },
+          {
+            icon: 'Zap',
+            title: 'DropOFF -20% (Solo E-com 24HS)',
+            body: 'Traés tus paquetes listos a Friuli 1972 y obtenés 20% de descuento automático.',
+          },
+          {
+            icon: 'ShieldCheck',
+            title: 'Contrareembolso $0 comisión',
+            body: 'Cobro en destino sin comisión ni recargo. Rendición día / 24hs / semanal + arqueo.',
+          },
+        ]}
+      />
+      <ServicePricing
+        serviceType="ECOMMERCE_24HS"
+        title="Planes E-Commerce 24HS (Next Day)"
+        subtitle="Distribución programada Next Day con costos fijos escalonados. DropOFF -20% trayendo paquetes a Friuli 1972."
+        rangeLabel="Escalas por volumen mensual"
+        unit="/ envío"
+        tiers={ECOMMERCE_24HS_PLANS.map(p => ({
+          range: p.range,
+          distance: p.distance,
+          price: p.price,
+          period: p.period,
+          features: p.features,
+          tag: p.tag,
+          note: p.note,
+          featured: p.featured,
+        }))}
+        ctaLabel={(idx) => `Elegir ${['Inicial', 'Pro', 'Elite', 'Partner'][idx]} plan`}
+        featuredIndex={1}
+        ctaHref="https://wa.me/542236602699"
+        ctaVariant="primary"
+        backgroundClassName="py-24 bg-brand-blue-500 relative overflow-hidden text-brand-blue-900"
+        showFacts={true}
+        facts={[
+          {
+            icon: 'Zap',
+            title: 'DropOFF -20% en Friuli 1972',
+            body: 'Trayendo tus paquetes al depósito ahorrás 20% y evitás costo de retiro.',
+          },
+          {
+            icon: 'ShieldCheck',
+            title: '2da visita y Contrareembolso GRATIS',
+            body: 'En todos los planes 24HS la segunda visita y el contrareembolso son 100% gratis.',
+          },
+          {
+            icon: 'Package',
+            title: 'Retiro gratis +10 paquetes/día',
+            body: 'Superando 10 paquetes diarios el retiro es gratis. Menor volumen: $4.000 pase moto.',
+          },
+        ]}
+        ctaHref="https://wa.me/542236602699"
+        ctaVariant="primary"
+        backgroundClassName="py-24 bg-brand-blue-500 relative overflow-hidden text-brand-blue-900"
+      />
+      <ServicePricing
+        serviceType="CUENTA_CORRIENTE"
+        title="Cuenta Corriente Flexible"
+        subtitle="El comercio paga el valor económico LowCost pero accede a condiciones Express (rango horario, corte 15:00, 2hs anticipación)."
+        rangeLabel="Sin volumen mínimo"
+        unit="/ envío"
+        tiers={[
+          {
+            range: 'Cuenta Corriente Flexible',
+            distance: 'Sin volumen mínimo',
+            price: 'Tarifa LowCost',
+            period: '/ envío',
+            features: [
+              'Condiciones Express (franja 3hs)',
+              'Corte 15:00',
+              '2hs anticipación',
+              'Factura C / A corporativa',
+              'Cierre diario/semanal/quincenal/mensual',
+              'Pago remitente o destinatario',
+              '2da visita 50%',
+            ],
+            tag: 'LowCost + Express',
+            note: 'Tarifa LowCost con condiciones Express. Sin mínimo fijo.',
+            featured: true,
+          },
+        ]}
+        ctaLabel={(idx) => 'Solicitar asesoría por WhatsApp'}
+        featuredIndex={0}
+        ctaHref="https://wa.me/542236602699"
+        ctaVariant="primary"
+        backgroundClassName="py-24 bg-brand-blue-700 relative overflow-hidden text-white"
+        showFacts={true}
+        facts={[
+          {
+            icon: 'Building2',
+            title: 'Facturación flexible',
+            body: 'Cierre diario, semanal, quincenal o mensual a elección. Factura C estándar, A solo corporativas.',
+          },
+          {
+            icon: 'Zap',
+            title: 'Retiro programado',
+            body: 'Coordinamos el retiro en tu local según tu operativa diaria.',
+          },
+          {
+            icon: 'ShieldCheck',
+            title: 'Atención ejecutiva WhatsApp',
+            body: 'Asesor dedicado para resolver consultas operativas al instante.',
+          },
+        ]}
+      />
+    </div>
   );
 }
