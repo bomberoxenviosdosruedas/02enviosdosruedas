@@ -197,7 +197,7 @@ export default function RecentPosts() {
                         >
                           <span>Ver original</span>
                           <span className="w-6 h-6 rounded-full bg-transparent flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 shrink-0">
-                            <ExternalLink className="h-3.5 w-3.5 text-[#0950F6]" />
+                            <ExternalLink className="h-3.5 w-3.5 text-brand-blue" />
                           </span>
                         </a>
                       </div>

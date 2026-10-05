@@ -10,11 +10,11 @@ export default function FaqCta() {
   return (
     <section
       id="faq-cta"
-      className="py-24 bg-[#0950F6] text-white relative overflow-hidden border-t border-white/10"
+      className="py-24 bg-brand-blue text-white relative overflow-hidden border-t border-white/10"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <DoubleBezelCard>
-          <div className="bg-[#0950F6] p-8 sm:p-12 rounded-[20px] border border-white/20 text-white text-center relative overflow-hidden">
+          <div className="bg-brand-blue p-8 sm:p-12 rounded-[20px] border border-white/20 text-white text-center relative overflow-hidden">
             {/* Abstract background logo */}
             <div className="absolute right-0 bottom-0 translate-y-8 translate-x-8 text-white/5 pointer-events-none -z-10">
               <HelpCircle className="h-64 w-64 text-white opacity-10" />
@@ -22,7 +22,7 @@ export default function FaqCta() {
 
             <div className="max-w-2xl mx-auto space-y-6 relative z-10 flex flex-col items-center">
 
-              <span className="px-4 py-1.5 bg-[#FFEC01] text-[#0950F6] font-bold rounded-full text-xs font-subheading uppercase tracking-widest inline-block shadow-glow-yellow transform -rotate-1">
+              <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue font-bold rounded-full text-xs font-subheading uppercase tracking-widest inline-block shadow-glow-yellow transform -rotate-1">
                 SOPORTE HUMANO EN MDP
               </span>
 

@@ -39,13 +39,13 @@ export default function EmprendedoresBenefits() {
   return (
     <section 
       id="emprendedores-benefits" 
-      className="py-24 bg-[#0950F6] relative z-10 overflow-hidden border-t border-b border-white/10 text-white"
+      className="py-24 bg-brand-blue relative z-10 overflow-hidden border-t border-b border-white/10 text-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="-rotate-1 inline-block px-4 py-1.5 bg-[#FFEC01] text-[#0950F6] rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-glow-yellow">
+          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-glow-yellow">
             BENEFICIOS PARA NEGOCIOS
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white leading-[0.98]">
@@ -54,7 +54,7 @@ export default function EmprendedoresBenefits() {
           <p className="text-white/90 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Dedicá a vender, de la logística nos encargamos nosotros.
           </p>
-          <div className="h-1.5 w-16 bg-[#FFEC01] mx-auto rounded-full" />
+          <div className="h-1.5 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
         {/* Benefits Grid Bento layout with Double Bezel */}
@@ -67,18 +67,18 @@ export default function EmprendedoresBenefits() {
             return (
               <div key={benefit.title} className={spanClass}>
                 <DoubleBezelCard>
-                  <div className="space-y-5 text-[#0950F6] relative overflow-hidden h-full flex flex-col justify-between">
-                    <Icon className="absolute -bottom-6 -right-6 h-36 w-32 text-[#0950F6]/[0.05] pointer-events-none select-none" />
+                  <div className="space-y-5 text-brand-blue relative overflow-hidden h-full flex flex-col justify-between">
+                    <Icon className="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue/5 pointer-events-none select-none" />
 
-                    <div className="p-3 bg-[#0950F6] text-[#FFEC01] rounded-xl w-fit border border-[#0950F6] shadow-sm relative z-10">
+                    <div className="p-3 bg-brand-blue text-brand-yellow rounded-xl w-fit border border-brand-blue shadow-sm relative z-10">
                       <Icon className="h-6 w-6 shrink-0" />
                     </div>
                     
-                    <h3 className="text-xl font-display uppercase tracking-wide text-[#0950F6] leading-tight relative z-10">
+                    <h3 className="text-xl font-display uppercase tracking-wide text-brand-ink leading-tight relative z-10">
                       {benefit.title}
                     </h3>
                     
-                    <p className="text-sm text-[#0950F6] font-sans leading-relaxed relative z-10">
+                    <p className="text-sm text-brand-ink font-sans leading-relaxed relative z-10">
                       {benefit.desc}
                     </p>
                   </div>
