@@ -19,6 +19,7 @@ interface CotizadorFormProps {
 export default function CotizadorForm({ form }: CotizadorFormProps) {
   return (
     <form
+      noValidate
       onSubmit={form.handleCalculate}
       onFocus={form.handleInputFocus}
       className="space-y-5 relative z-10"

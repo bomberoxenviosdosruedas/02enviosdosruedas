@@ -143,7 +143,7 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
     return (
       <button
         ref={ref as React.Ref<HTMLButtonElement>}
-        type="button"
+        type={buttonProps.type || 'button'}
         disabled={disabled}
         className={combinedClassName}
         {...buttonProps}

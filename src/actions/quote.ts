@@ -31,7 +31,22 @@ export type QuoteState = {
  * Cacheado con React.cache() para deduplicar dentro de la misma request
  * (cuando se llama para EXPRESS y LOW_COST en paralelo).
  */
-const fetchRouteDistanceCached = cache(async function fetchRouteDistance(
+function safeCache<T extends (...args: any[]) => any>(fn: T): T {
+  try {
+    const cachedFn = cache(fn);
+    return ((...args: Parameters<T>) => {
+      try {
+        return cachedFn(...args);
+      } catch {
+        return fn(...args);
+      }
+    }) as T;
+  } catch {
+    return fn;
+  }
+}
+
+const fetchRouteDistanceCached = safeCache(async function fetchRouteDistance(
   origenLat: number,
   origenLng: number,
   destinoLat: number,
@@ -66,7 +81,7 @@ const fetchRouteDistanceCached = cache(async function fetchRouteDistance(
 /**
  * Obtiene los rangos de precios desde la BD con deduplicación por request.
  */
-const getPriceRangesCached = cache(async function getPriceRanges(
+const getPriceRangesCached = safeCache(async function getPriceRanges(
   serviceType: 'EXPRESS' | 'LOW_COST'
 ): Promise<PriceRangeProp[]> {
   try {
