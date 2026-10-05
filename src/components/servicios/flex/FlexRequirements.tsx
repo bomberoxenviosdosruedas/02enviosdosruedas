@@ -30,22 +30,22 @@ export default function FlexRequirements() {
   return (
     <section 
       id="flex-requirements" 
-      className="py-24 bg-[#F8FAFC] relative z-10 overflow-hidden border-t border-[#D6E4FE]"
+      className="py-24 bg-brand-blue-50 relative z-10 overflow-hidden border-t border-brand-blue-100"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="-rotate-1 inline-block px-4 py-1.5 bg-[#0950F6] text-[#FFEC01] rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
+          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
             PUESTA EN MARCHA
           </span>
-          <h2 className="text-[#0950F6] text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight inline-block leading-[0.98]">
+          <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight inline-block leading-[0.98]">
             ¿QUÉ NECESITÁS?
           </h2>
-          <p className="text-[#0950F6] font-sans text-sm sm:text-base max-w-lg mx-auto">
+          <p className="text-brand-ink font-sans text-sm sm:text-base max-w-lg mx-auto">
             Requisitos mínimos e indispensables para empezar a ofrecer envíos Same-Day y potenciar tu e-commerce hoy mismo.
           </p>
-          <div className="h-1.5 w-16 bg-[#FFEC01] mx-auto rounded-full" />
+          <div className="h-1.5 w-16 bg-brand-yellow mx-auto rounded-full" />
         </div>
 
         {/* Requirements Grid Bento Grid layout with Double Bezel */}
@@ -56,22 +56,22 @@ export default function FlexRequirements() {
               <div key={req.title} className="lg:col-span-4">
                 <DoubleBezelCard>
                   <div className="h-full flex flex-col gap-5 text-left relative overflow-hidden">
-                    <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-[#0950F6]/[0.05] pointer-events-none select-none" />
+                    <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue/5 pointer-events-none select-none" />
 
                     <div className="flex items-center justify-between">
-                      <div className="p-3 bg-[#FFEC01] text-[#0950F6] rounded-xl shrink-0 border border-[#FFEC01] shadow-glow-yellow relative z-10">
+                      <div className="p-3 bg-brand-yellow text-brand-blue rounded-xl shrink-0 border border-brand-yellow shadow-glow-yellow relative z-10">
                         <Icon className="h-6 w-6 shrink-0" />
                       </div>
-                      <span className="text-[10px] font-subheading font-bold uppercase tracking-wider bg-[#E6EEFE] text-[#0950F6] px-2.5 py-1 rounded-full border border-[#D6E4FE]">
+                      <span className="text-[10px] font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue px-2.5 py-1 rounded-full border border-brand-blue-100">
                         {req.badge}
                       </span>
                     </div>
                     
                     <div className="space-y-1.5 relative z-10">
-                      <h3 className="text-xl font-display uppercase tracking-wide text-[#0950F6] leading-tight">
+                      <h3 className="text-xl font-display uppercase tracking-wide text-brand-ink leading-tight">
                         {req.title}
                       </h3>
-                      <p className="text-sm text-[#0950F6] font-sans leading-relaxed">
+                      <p className="text-sm text-brand-ink font-sans leading-relaxed">
                         {req.desc}
                       </p>
                     </div>
