@@ -1,5 +1,6 @@
 'use server';
 
+import { cache } from 'react';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { calculateExpressPrice, calculateLowCostPrice, type PriceRangeProp } from '@/lib/pricing';
@@ -26,8 +27,11 @@ export type QuoteState = {
 /**
  * Calcula la distancia vial real entre dos coordenadas usando Google Directions API.
  * Lado servidor: valida que la distancia coincida con la ruta real.
+ * 
+ * Cacheado con React.cache() para deduplicar dentro de la misma request
+ * (cuando se llama para EXPRESS y LOW_COST en paralelo).
  */
-async function fetchRouteDistance(
+const fetchRouteDistanceCached = cache(async function fetchRouteDistance(
   origenLat: number,
   origenLng: number,
   destinoLat: number,
@@ -57,7 +61,23 @@ async function fetchRouteDistance(
     console.error('[calculateQuoteAction] Error fetch route:', error);
     return null;
   }
-}
+});
+
+/**
+ * Obtiene los rangos de precios desde la BD con deduplicación por request.
+ */
+const getPriceRangesCached = cache(async function getPriceRanges(
+  serviceType: 'EXPRESS' | 'LOW_COST'
+): Promise<PriceRangeProp[]> {
+  try {
+    return await prisma.priceRange.findMany({
+      where: { serviceType },
+    });
+  } catch (error) {
+    console.error('No se pudieron leer las tarifas de PriceRange; se usa el fallback de pricing.ts', error);
+    return [];
+  }
+});
 
 export async function calculateQuoteAction(
   prevState: QuoteState,
@@ -75,7 +95,8 @@ export async function calculateQuoteAction(
     const validatedData = quoteSchema.parse(rawData);
 
     // 1. Calcular distancia real en servidor (no confiar en cliente)
-    const distanceKm = await fetchRouteDistance(
+    // Usa React.cache() para deduplicar cuando se llama para EXPRESS y LOW_COST en paralelo
+    const distanceKm = await fetchRouteDistanceCached(
       validatedData.origenLat,
       validatedData.origenLng,
       validatedData.destinoLat,
@@ -101,14 +122,8 @@ export async function calculateQuoteAction(
     }
 
     // 2. Leer tarifas de PriceRange (BD) → fallback pricing.ts
-    let priceRanges: PriceRangeProp[] = [];
-    try {
-      priceRanges = await prisma.priceRange.findMany({
-        where: { serviceType: validatedData.serviceType },
-      });
-    } catch (error) {
-      console.error('No se pudieron leer las tarifas de PriceRange; se usa el fallback de pricing.ts', error);
-    }
+    // Usa React.cache() para deduplicar dentro del mismo request
+    const priceRanges = await getPriceRangesCached(validatedData.serviceType);
 
     // 3. Calcular precio en servidor con la distancia validada
     let price: number | 'consultar';

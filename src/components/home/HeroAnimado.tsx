@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ArrowRight, MapPin, Zap } from 'lucide-react';
-import { CTANestedPill, Knockout } from '@/components/ui';
+import { CTANestedPill } from '@/components/ui/CTANestedPill';
+import { Knockout } from '@/components/ui/Knockout';
 import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 

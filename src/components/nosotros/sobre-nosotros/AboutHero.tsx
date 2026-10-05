@@ -1,6 +1,7 @@
 import { Bike, CalendarClock, MapPin, Navigation, ShieldCheck } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { CTANestedPill, Knockout } from '@/components/ui';
+import { CTANestedPill } from '@/components/ui/CTANestedPill';
+import { Knockout } from '@/components/ui/Knockout';
 import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import {

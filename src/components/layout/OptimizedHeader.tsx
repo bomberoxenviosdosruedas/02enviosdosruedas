@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
@@ -11,7 +11,7 @@ import {
   Home, Zap, TrendingDown, Clock, ShoppingBag, Info, HelpCircle, Share2, Mail,
   LayoutGrid, HandCoins, Building2, Rocket, Package, Store
 } from 'lucide-react';
-import { CTANestedPill } from '@/components/ui';
+import { CTANestedPill } from '@/components/ui/CTANestedPill';
 
 const MobileNav = dynamic(() => import('./MobileNav'), { ssr: false });
 
@@ -24,6 +24,34 @@ interface NavItem {
 
 const EASE_MOUNT = { duration: 0.45, ease: [0.25, 0.8, 0.25, 1] } as const;
 
+// NAV ITEMS - Static data, move outside component to avoid recreation on every render
+const NAV_ITEMS: NavItem[] = [
+  { label: 'Inicio', href: '/', icon: Home },
+  {
+    label: 'Servicios',
+    icon: Bike,
+    dropdownItems: [
+      { label: 'Todos los Servicios', href: '/servicios', icon: LayoutGrid },
+      { label: 'Envíos Express', href: '/servicios/envios-express', icon: Zap },
+      { label: 'Envíos LowCost', href: '/servicios/envios-lowcost', icon: TrendingDown },
+      { label: 'Envíos Flex (MeLi)', href: '/servicios/enviosflex', icon: Clock },
+      { label: 'Cuenta Corriente Flexible', href: '/servicios/empresas-cuenta-corriente', icon: Building2 },
+      { label: 'E-commerce 24HS', href: '/servicios#ecommerce-24hs', icon: Package },
+      { label: 'E-commerce Same Day', href: '/servicios/deposito-fulfillment', icon: Store },
+    ],
+  },
+  {
+    label: 'Nosotros',
+    icon: Info,
+    dropdownItems: [
+      { label: 'Sobre Nosotros', href: '/nosotros/sobre-nosotros', icon: Info },
+      { label: 'Preguntas Frecuentes', href: '/nosotros/preguntas-frecuentes', icon: HelpCircle },
+      { label: 'Nuestras Redes', href: '/nosotros/nuestras-redes', icon: Share2 },
+    ],
+  },
+  { label: 'Contacto', href: '/contacto', icon: Mail },
+];
+
 export default function OptimizedHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -31,6 +59,25 @@ export default function OptimizedHeader() {
   const pathname = usePathname();
   const prefersReducedMotion = useReducedMotion();
   const prevPathRef = useRef(pathname);
+
+  // Memoize dropdown variants to avoid recreation on every render
+  const dropdownContainer = useMemo<Variants>(() => ({
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 8, scale: prefersReducedMotion ? 1 : 0.97 },
+    visible: {
+      opacity: 1, y: 0, scale: 1,
+      transition: { type: 'spring', stiffness: 320, damping: 24, staggerChildren: prefersReducedMotion ? 0 : 0.06, delayChildren: 0.02 },
+    },
+    exit: { opacity: 0, y: prefersReducedMotion ? 0 : 6, scale: prefersReducedMotion ? 1 : 0.97, transition: { duration: 0.15, ease: 'easeIn' as const } },
+  }), [prefersReducedMotion]);
+
+  const dropdownItem = useMemo<Variants>(() => ({
+    hidden: { opacity: 0, x: prefersReducedMotion ? 0 : -8 },
+    visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 400, damping: 28 } },
+  }), [prefersReducedMotion]);
+
+  const handleDropdownToggle = useCallback((label: string) => {
+    setActiveDropdown(prev => (prev === label ? null : label));
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -72,51 +119,6 @@ export default function OptimizedHeader() {
     }
   }, [isOpen]);
 
-  const navItems: NavItem[] = [
-    { label: 'Inicio', href: '/', icon: Home },
-    {
-      label: 'Servicios',
-      icon: Bike,
-      dropdownItems: [
-        { label: 'Todos los Servicios', href: '/servicios', icon: LayoutGrid },
-        { label: 'Envíos Express', href: '/servicios/envios-express', icon: Zap },
-        { label: 'Envíos LowCost', href: '/servicios/envios-lowcost', icon: TrendingDown },
-        { label: 'Envíos Flex (MeLi)', href: '/servicios/enviosflex', icon: Clock },
-        { label: 'Cuenta Corriente Flexible', href: '/servicios/empresas-cuenta-corriente', icon: Building2 },
-        { label: 'E-commerce 24HS', href: '/servicios#ecommerce-24hs', icon: Package },
-        { label: 'E-commerce Same Day', href: '/servicios/deposito-fulfillment', icon: Store },
-      ],
-    },
-    {
-      label: 'Nosotros',
-      icon: Info,
-      dropdownItems: [
-        { label: 'Sobre Nosotros', href: '/nosotros/sobre-nosotros', icon: Info },
-        { label: 'Preguntas Frecuentes', href: '/nosotros/preguntas-frecuentes', icon: HelpCircle },
-        { label: 'Nuestras Redes', href: '/nosotros/nuestras-redes', icon: Share2 },
-      ],
-    },
-    { label: 'Contacto', href: '/contacto', icon: Mail },
-  ];
-
-  const handleDropdownToggle = (label: string) => {
-    setActiveDropdown(prev => (prev === label ? null : label));
-  };
-
-  const dropdownContainer: Variants = {
-    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 8, scale: prefersReducedMotion ? 1 : 0.97 },
-    visible: {
-      opacity: 1, y: 0, scale: 1,
-      transition: { type: 'spring', stiffness: 320, damping: 24, staggerChildren: prefersReducedMotion ? 0 : 0.06, delayChildren: 0.02 },
-    },
-    exit: { opacity: 0, y: prefersReducedMotion ? 0 : 6, scale: prefersReducedMotion ? 1 : 0.97, transition: { duration: 0.15, ease: 'easeIn' as const } },
-  };
-
-  const dropdownItem: Variants = {
-    hidden: { opacity: 0, x: prefersReducedMotion ? 0 : -8 },
-    visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 400, damping: 28 } },
-  };
-
   return (
     <>
       <header
@@ -151,7 +153,7 @@ export default function OptimizedHeader() {
             </Link>
 
             <nav id="desktop-nav-opt" className="hidden lg:flex items-center gap-2">
-              {navItems.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <div key={item.label} className="relative" onMouseEnter={() => item.dropdownItems && setActiveDropdown(item.label)} onMouseLeave={() => setActiveDropdown(null)}>
                   {item.href ? (
                     <Link href={item.href} className="px-4 py-2.5 rounded-xl text-base font-subheading font-bold uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-white/10 transition-colors">{item.label}</Link>
@@ -209,7 +211,7 @@ export default function OptimizedHeader() {
         </motion.div>
       </header>
 
-      <AnimatePresence>{isOpen && <MobileNav isOpen={isOpen} onClose={() => setIsOpen(false)} navItems={navItems} activeDropdown={activeDropdown} onDropdownToggle={handleDropdownToggle} />}</AnimatePresence>
+      <AnimatePresence>{isOpen && <MobileNav isOpen={isOpen} onClose={() => setIsOpen(false)} navItems={NAV_ITEMS} activeDropdown={activeDropdown} onDropdownToggle={handleDropdownToggle} />}</AnimatePresence>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { BookOpen, PackageCheck, ShieldCheck, Tag, Timer } from 'lucide-react';
-import { CTANestedPill, Knockout } from '@/components/ui';
+import { CTANestedPill } from '@/components/ui/CTANestedPill';
+import { Knockout } from '@/components/ui/Knockout';
 import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import { LOW_COST_TIERS } from '@/lib/pricing';

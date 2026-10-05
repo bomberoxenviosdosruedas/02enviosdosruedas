@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { Boxes, Warehouse } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { CTANestedPill, Knockout } from '@/components/ui';
+import { CTANestedPill } from '@/components/ui/CTANestedPill';
+import { Knockout } from '@/components/ui/Knockout';
 import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
 import {
