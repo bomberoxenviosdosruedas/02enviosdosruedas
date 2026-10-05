@@ -15,7 +15,18 @@ export default function CarruselRedes() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    if (prefersReducedMotion) return undefined;
+    // Early return for reduced motion - no animations at all
+    if (prefersReducedMotion) {
+      // Ensure blocks are visible without animation
+      if (containerRef.current) {
+        const blocks = containerRef.current.querySelectorAll('.social-block');
+        blocks.forEach((block) => {
+          (block as HTMLElement).style.opacity = '1';
+          (block as HTMLElement).style.transform = 'none';
+        });
+      }
+      return;
+    }
 
     const ctx = gsap.context(() => {
       if (containerRef.current) {

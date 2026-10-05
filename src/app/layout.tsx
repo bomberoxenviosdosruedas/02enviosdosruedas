@@ -178,7 +178,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </head>
-      <body className="bg-white text-[#0950F6] font-sans antialiased selection:bg-[#FFEC01] selection:text-[#0950F6] min-h-dvh flex flex-col" suppressHydrationWarning>
+      <body className="bg-brand-white text-brand-ink font-sans antialiased selection:bg-brand-yellow selection:text-brand-blue min-h-dvh flex flex-col" suppressHydrationWarning>
         <MotionConfig reducedMotion="user">
           <ClientLayout>{children}</ClientLayout>
         </MotionConfig>
