@@ -73,7 +73,7 @@ export default function RecentPosts() {
   return (
     <section 
       id="recent-posts" 
-      className="py-24 bg-[#0950F6] text-white relative overflow-hidden border-t border-white/10"
+      className="py-24 bg-brand-blue text-white relative overflow-hidden border-t border-white/10"
     >
       {/* Ambient background glows */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,#0950F6,transparent_50%)] pointer-events-none opacity-30" />
@@ -83,7 +83,7 @@ export default function RecentPosts() {
         
         {/* Header Block */}
         <div className="text-left max-w-2xl mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow-500 text-[#0950F6] rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block shadow-glow-yellow font-bold transform -rotate-1">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block shadow-glow-yellow font-bold transform -rotate-1">
             EN VIVO
           </span>
           <h2 className="text-white text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -160,7 +160,7 @@ export default function RecentPosts() {
                           </div>
                         </div>
 
-                        <div className="p-2 bg-brand-blue-50 text-[#0950F6] border border-brand-blue-100 rounded-lg">
+                        <div className="p-2 bg-brand-blue-50 text-brand-blue border border-brand-blue-100 rounded-lg">
                           <SocialIcon className="h-4 w-4" />
                         </div>
                       </div>
