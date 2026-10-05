@@ -28,19 +28,19 @@ export default function AboutValues() {
   return (
     <section 
       id="about-values" 
-      className="py-20 sm:py-24 bg-[#0950F6] text-white relative z-10 overflow-hidden border-t border-white/10"
+      className="py-20 sm:py-24 bg-brand-blue text-white relative z-10 overflow-hidden border-t border-white/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="text-left max-w-2xl mb-16 space-y-3.5">
-          <span className="px-4 py-1.5 bg-[#FFEC01] text-[#0950F6] rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
             FILOSOFÍA OPERATIVA
           </span>
           <h2 className="text-white text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
             NUESTROS VALORES
           </h2>
-          <p className="text-white/90 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
+          <p className="text-brand-blue-50 font-sans text-base sm:text-lg max-w-prose leading-relaxed">
             Los pilares innegociables que sostienen nuestra operativa diaria en cada barrio de Mar del Plata.
           </p>
         </div>
@@ -58,18 +58,18 @@ export default function AboutValues() {
           >
             <DoubleBezelCard>
               <div className="flex flex-col gap-6 h-full justify-between">
-                <div className="w-14 h-14 bg-[#E6EEFE] text-[#0950F6] rounded-2xl flex items-center justify-center border border-[#D6E4FE]">
-                  <ShieldCheck className="h-7 w-7 text-[#0950F6]" />
+                <div className="w-14 h-14 bg-brand-blue-50 text-brand-blue rounded-2xl flex items-center justify-center border border-brand-blue-100">
+                  <ShieldCheck className="h-7 w-7 text-brand-blue" />
                 </div>
 
                 <div className="space-y-3">
-                  <span className="text-xs font-subheading uppercase tracking-wider text-[#0950F6] font-bold bg-[#FFEC01] px-3 py-1 rounded-full w-fit transform -rotate-1 inline-block">
+                  <span className="text-xs font-subheading uppercase tracking-wider text-brand-blue font-bold bg-brand-yellow px-3 py-1 rounded-full w-fit transform -rotate-1 inline-block">
                     Pilar de Confianza
                   </span>
-                  <h3 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-[#0950F6] leading-tight">
+                  <h3 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-ink leading-tight">
                     Cuidado del Paquete
                   </h3>
-                  <p className="text-[#0950F6] font-sans leading-relaxed text-sm sm:text-base max-w-prose">
+                  <p className="text-brand-ink font-sans leading-relaxed text-sm sm:text-base max-w-prose">
                     Manipulación profesional de paquetería e-commerce, indumentaria, tecnología y repuestos. Cada envío viaja seguro y protegido de las inclemencias del clima marplatense.
                   </p>
                 </div>
@@ -94,15 +94,15 @@ export default function AboutValues() {
                   >
                     <DoubleBezelCard>
                       <div className="flex flex-col gap-4 h-full justify-between">
-                        <div className="w-11 h-11 bg-[#E6EEFE] text-[#0950F6] rounded-xl flex items-center justify-center border border-[#D6E4FE] shrink-0">
-                          <Icon className="h-5 w-5 text-[#0950F6]" />
+                        <div className="w-11 h-11 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100 shrink-0">
+                          <Icon className="h-5 w-5 text-brand-blue" />
                         </div>
 
                         <div className="space-y-1.5">
-                          <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-[#0950F6] leading-tight">
+                          <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-ink leading-tight">
                             {val.title}
                           </h3>
-                          <p className="text-xs sm:text-sm text-[#0950F6] leading-relaxed font-sans">
+                          <p className="text-xs sm:text-sm text-brand-ink leading-relaxed font-sans">
                             {val.desc}
                           </p>
                         </div>

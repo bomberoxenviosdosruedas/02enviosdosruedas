@@ -41,13 +41,13 @@ export default function AboutTeam() {
   return (
     <section
       id="about-team"
-      className="py-20 sm:py-24 bg-[#0950F6] text-white relative z-10 overflow-hidden border-t border-white/10"
+      className="py-20 sm:py-24 bg-brand-blue text-white relative z-10 overflow-hidden border-t border-white/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="text-left max-w-3xl mb-16 space-y-3.5">
-          <span className="px-4 py-1.5 bg-[#FFEC01] text-[#0950F6] rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
             FUERZA OPERATIVA & EXPERIENCIA
           </span>
           <h2 className="text-white text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -76,33 +76,33 @@ export default function AboutTeam() {
 
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <div className="w-10 h-10 bg-[#E6EEFE] text-[#0950F6] rounded-xl flex items-center justify-center border border-[#D6E4FE]">
-                          <Icon className="w-5 h-5 text-[#0950F6]" />
+                        <div className="w-10 h-10 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100">
+                          <Icon className="w-5 h-5 text-brand-blue" />
                         </div>
-                        <span className="text-[10px] font-subheading uppercase tracking-wider bg-[#FFEC01] text-[#0950F6] px-2.5 py-0.5 rounded-full font-bold transform -rotate-1">
+                        <span className="text-[10px] font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full font-bold transform -rotate-1">
                           {stat.tag}
                         </span>
                       </div>
 
-                      <span className="block font-mono text-5xl sm:text-6xl font-bold text-[#0950F6] leading-none mb-2 tabular-nums">
+                      <span className="block font-mono text-5xl sm:text-6xl font-bold text-brand-ink leading-none mb-2 tabular-nums">
                         {stat.number}
                       </span>
 
-                      <h3 className="text-xl font-display uppercase tracking-tight text-[#0950F6] leading-tight mb-2">
+                      <h3 className="text-xl font-display uppercase tracking-tight text-brand-ink leading-tight mb-2">
                         {stat.role}
                       </h3>
 
-                      <p className="text-xs sm:text-sm text-[#0950F6] leading-relaxed font-sans">
+                      <p className="text-xs sm:text-sm text-brand-ink leading-relaxed font-sans">
                         {stat.desc}
                       </p>
                     </div>
 
-                    <div className="pt-4 border-t border-[#D6E4FE] flex items-center justify-between text-xs text-[#0950F6] font-mono">
+                    <div className="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-ink font-mono">
                       <span className="flex items-center gap-1.5">
                         <Image src="/logo-envios-simplified.webp" alt="Envíos DosRuedas" width={16} height={16} className="object-contain" />
                         Envíos DosRuedas
                       </span>
-                      <span className="font-bold text-[#0950F6] tabular-nums">MDQ 2026</span>
+                      <span className="font-bold text-brand-blue tabular-nums">MDQ 2026</span>
                     </div>
                   </div>
                 </DoubleBezelCard>
