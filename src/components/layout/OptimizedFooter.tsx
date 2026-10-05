@@ -73,7 +73,7 @@ export default function OptimizedFooter() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="mb-14 rounded-2xl bg-[#0950F6]/90 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6"
+          className="mb-14 rounded-2xl bg-brand-blue/90 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div className="space-y-2 text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading font-bold uppercase tracking-wider">
@@ -327,7 +327,7 @@ export default function OptimizedFooter() {
             </h4>
 
             <div className="space-y-3.5 text-xs text-brand-blue-50 font-sans">
-              <div className="flex gap-3 items-start bg-[#0950F6]/80 p-3 rounded-xl border border-white/15">
+              <div className="flex gap-3 items-start bg-brand-blue/80 p-3 rounded-xl border border-white/15">
                 <div className="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
                   <MapPin className="h-4 w-4" />
                 </div>
@@ -337,7 +337,7 @@ export default function OptimizedFooter() {
                 </div>
               </div>
 
-              <div className="flex gap-3 items-start bg-[#0950F6]/80 p-3 rounded-xl border border-white/15">
+              <div className="flex gap-3 items-start bg-brand-blue/80 p-3 rounded-xl border border-white/15">
                 <div className="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
                   <Phone className="h-4 w-4" />
                 </div>
@@ -349,7 +349,7 @@ export default function OptimizedFooter() {
                 </div>
               </div>
 
-              <div className="flex gap-3 items-start bg-[#0950F6]/80 p-3 rounded-xl border border-white/15">
+              <div className="flex gap-3 items-start bg-brand-blue/80 p-3 rounded-xl border border-white/15">
                 <div className="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
                   <Mail className="h-4 w-4" />
                 </div>
@@ -361,7 +361,7 @@ export default function OptimizedFooter() {
                 </div>
               </div>
 
-              <div className="flex gap-3 items-start bg-[#0950F6]/80 p-3 rounded-xl border border-white/15">
+              <div className="flex gap-3 items-start bg-brand-blue/80 p-3 rounded-xl border border-white/15">
                 <div className="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
                   <Clock className="h-4 w-4" />
                 </div>
