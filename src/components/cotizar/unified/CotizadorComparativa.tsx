@@ -6,6 +6,7 @@ import { AlertTriangle, Zap, Package, Check, ArrowRight, CloudRain } from 'lucid
 import { trackAnalytics } from '@/lib/analytics';
 import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 import CTANestedPill from '@/components/ui/CTANestedPill';
+import RadioCardGroup from '@/components/ui/RadioCardGroup';
 import type { ServiceKey, UseCotizadorUnificadoReturn } from '@/hooks/cotizador/useCotizadorUnified';
 import {
   EXPRESS_CUTOFF_TIME,
@@ -70,7 +71,7 @@ function precioTexto(precio: number | 'consultar'): string {
 
 export default function CotizadorComparativa({ form, error }: CotizadorComparativaProps) {
   const { resultado, quoteId, getWhatsAppLink, shouldReduceMotion } = form;
-  const [elegido, setElegido] = useState<ServiceKey | null>(null);
+  const [elegido, setElegido] = useState<string>('');
 
   // Sin resultado no hay escala posible: 0 evita NaN en el ancho de las barras.
   const precioExpress = resultado?.express.precio;
@@ -83,6 +84,43 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
     resultado !== null &&
     resultado.express.precio === 'consultar' &&
     resultado.lowcost.precio === 'consultar';
+
+  // Opciones para RadioCardGroup
+  const serviceOptions = React.useMemo(() => [
+    {
+      id: 'express',
+      label: 'Express',
+      description: 'Elegís una franja de 3 hs a elección, en el día.',
+      price: resultado?.express.precio ? precioTexto(resultado.express.precio) : '—',
+      badge: 'MÁS RÁPIDO',
+      serviceType: 'EXPRESS',
+      icon: <Zap className="h-6 w-6" aria-hidden="true" />,
+      disabled: !resultado || resultado.express.precio === 'consultar',
+    },
+    {
+      id: 'lowcost',
+      label: 'LowCost',
+      description: `Entrega programada en el día antes de las ${LOWCOST_DELIVERY_DEADLINE}.`,
+      price: resultado?.lowcost.precio ? precioTexto(resultado.lowcost.precio) : '—',
+      badge: 'MÁS ECONÓMICO',
+      serviceType: 'LOW_COST',
+      icon: <Package className="h-6 w-6" aria-hidden="true" />,
+      disabled: !resultado || resultado.lowcost.precio === 'consultar',
+    },
+  ], [resultado]);
+
+  const handleServiceChange = (service: string) => {
+    const svc = service as ServiceKey;
+    setElegido(service);
+    trackAnalytics.whatsappClick(`cotizador_unificado_${svc}`);
+    // Open WhatsApp link
+    if (resultado) {
+      const link = getWhatsAppLink(svc);
+      if (link !== '#') {
+        window.open(link, '_blank', 'noopener,noreferrer');
+      }
+    }
+  };
 
   return (
     <div className="mt-6 relative z-10 space-y-4">
@@ -272,111 +310,40 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                             </div>
                           );
                         })}
-
-                        <div aria-hidden="true" className="relative h-4 font-mono text-2xs text-brand-blue-400 tabular-nums">
-                          {MARCAS.map((hora) => (
-                            <span
-                              key={hora}
-                              className="absolute -translate-x-1/2 first:translate-x-0 last:-translate-x-full whitespace-nowrap"
-                              style={{ left: `${posicion(hora)}%` }}
-                            >
-                              {hora} hs
-                            </span>
-                          ))}
-                        </div>
-                        <p className="font-sans text-2xs text-brand-blue-400 flex items-center gap-1.5">
-                          <span aria-hidden="true" className="inline-block h-3 w-0.5 bg-brand-blue-700" />
-                          Horario de corte para pedir en el día.
-                        </p>
                       </div>
 
-                      {/* Cierre de la fila: dice en palabras lo que la línea del día
-                          ya mostró en pantalla. */}
-                      <p className="mt-3 pt-3 border-t border-brand-blue-100 font-sans text-xs text-brand-blue-500">
-                        Los dos llegan en el día. La diferencia es si elegís el horario: con Express
-                        sabés en qué franja de 3 hs lo recibís; con LowCost, solo que llega antes de
-                        las {LOWCOST_DELIVERY_DEADLINE}.
+                      <div aria-hidden="true" className="relative h-4 font-mono text-2xs text-brand-blue-400 tabular-nums">
+                        {MARCAS.map((hora) => (
+                          <span
+                            key={hora}
+                            className="absolute -translate-x-1/2 first:translate-x-0 last:-translate-x-full whitespace-nowrap"
+                            style={{ left: `${posicion(hora)}%` }}
+                          >
+                            {hora} hs
+                          </span>
+                        ))}
+                      </div>
+                      <p className="font-sans text-2xs text-brand-blue-400 flex items-center gap-1.5">
+                        <span aria-hidden="true" className="inline-block h-3 w-0.5 bg-brand-blue-700" />
+                        Horario de corte para pedir en el día.
                       </p>
                     </section>
 
                     {/* ─────────────────────────────────────────────────────────────
-                        LA DECISIÓN. Dos botones, una sola acción posible: elegir.
+                        LA DECISIÓN. RadioCardGroup para elegir servicio.
                         ───────────────────────────────────────────────────────────── */}
                     <div className="pt-5 border-t border-brand-blue-100">
                       <h3 className="font-subheading text-xs uppercase tracking-widest font-bold text-brand-blue-500 mb-3">
                         Elegí cómo lo querés
                       </h3>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {(['express', 'lowcost'] as const).map((key) => {
-                          const regla = REGLAS[key];
-                          const activo = elegido === key;
-                          const esExpress = key === 'express';
-                          const precio = resultado[key].precio;
-
-                          return (
-                            <a
-                              key={key}
-                              href={getWhatsAppLink(key)}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => {
-                                setElegido(key);
-                                trackAnalytics.whatsappClick(`cotizador_unificado_${key}`);
-                              }}
-                              aria-label={`Elegir ${regla.nombre} y confirmar por WhatsApp: ${precioTexto(precio)}`}
-                              className={`group flex flex-col gap-3 rounded-xl border-2 p-4 min-h-[44px] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 ${
-                            esExpress
-                              ? 'border-brand-yellow-500 bg-brand-yellow-500 hover:bg-brand-yellow-400 hover:shadow-cta-glow'
-                              : 'border-brand-blue-100 bg-white hover:border-brand-blue-500 hover:bg-brand-blue-50'
-                          }`}
-                            >
-                              <span className="flex items-center justify-between gap-2">
-                                <span
-                                  className={`font-subheading text-sm uppercase font-bold tracking-wider ${
-                                    esExpress ? 'text-brand-blue-900' : 'text-brand-blue-700'
-                                  }`}
-                                >
-                                  {regla.nombre}
-                                </span>
-                                {esExpress ? (
-                                  <Zap className="h-4 w-4 text-brand-blue-900" aria-hidden="true" />
-                                ) : (
-                                  <Package className="h-4 w-4 text-brand-blue-500" aria-hidden="true" />
-                                )}
-                              </span>
-
-                              <span
-                                className={`font-sans text-xs leading-snug ${
-                                  esExpress ? 'text-brand-blue-900/80' : 'text-brand-blue-500'
-                                }`}
-                              >
-                                {regla.entrega}
-                              </span>
-
-                              <span
-                                className={`inline-flex items-center gap-1.5 font-subheading text-2xs uppercase font-bold tracking-wider ${
-                                  esExpress ? 'text-brand-blue-900' : 'text-brand-blue-500'
-                                }`}
-                              >
-                                {activo ? (
-                                  <>
-                                    <Check className="h-3.5 w-3.5" aria-hidden="true" /> Llevando tu pedido
-                                  </>
-                                ) : (
-                                  <>
-                                    Elegir por WhatsApp
-                                    <ArrowRight
-                                      className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
-                                      aria-hidden="true"
-                                    />
-                                  </>
-                                )}
-                              </span>
-                            </a>
-                          );
-                        })}
-                      </div>
+                      <RadioCardGroup
+                        name="cotizador-service-selector"
+                        value={elegido}
+                        onChange={handleServiceChange}
+                        options={serviceOptions}
+                        gridCols="grid-cols-1 sm:grid-cols-2"
+                      />
                     </div>
 
                     {/* El precio de arriba es por distancia. Lo que pasa en el viaje

@@ -72,7 +72,7 @@ export default function AboutTeam() {
               >
                 <DoubleBezelCard>
                   <div className="flex flex-col justify-between h-full space-y-5 relative overflow-hidden">
-                    <Icon className="absolute -right-4 -bottom-4 w-28 h-28 text-[#0950F6]/[0.05] pointer-events-none" />
+                    <Icon className="absolute -right-4 -bottom-4 w-28 h-28 text-brand-blue/5 pointer-events-none" />
 
                     <div>
                       <div className="flex items-center justify-between mb-3">
