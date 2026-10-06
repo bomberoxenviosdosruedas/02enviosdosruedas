@@ -143,7 +143,7 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
               {step.detail && (
                 <p
                   className={cn(
-                    'font-mono text-[11px] mt-1',
+                    'font-mono text-2xs mt-1',
                     isDark ? 'text-brand-yellow-300' : 'text-brand-blue-500'
                   )}
                 >

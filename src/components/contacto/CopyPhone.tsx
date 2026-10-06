@@ -91,7 +91,7 @@ export default function CopyPhone({ className = '' }: { className?: string }) {
       <button
         type="button"
         onClick={handleCopy}
-        className={`inline-flex min-h-[44px] items-center gap-2 rounded-lg font-mono text-sm sm:text-base text-white tabular-nums transition-colors hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 ${className}`}
+        className={`inline-flex min-h-11 items-center gap-2 rounded-lg font-mono text-sm sm:text-base text-white tabular-nums transition-colors hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 ${className}`}
       >
         <Phone className="h-4 w-4 shrink-0 text-brand-yellow-500" aria-hidden="true" />
         <span ref={labelRef} className="select-all">

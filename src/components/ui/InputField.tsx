@@ -91,11 +91,11 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
         </div>
 
         {error ? (
-          <p id={errorId} role="alert" className="font-mono text-[11px] text-red-600 font-medium">
+          <p id={errorId} role="alert" className="font-mono text-2xs text-red-600 font-medium">
             {error}
           </p>
         ) : helpText ? (
-          <p id={helpId} className="font-mono text-[11px] text-brand-blue-500">
+          <p id={helpId} className="font-mono text-2xs text-brand-blue-500">
             {helpText}
           </p>
         ) : null}

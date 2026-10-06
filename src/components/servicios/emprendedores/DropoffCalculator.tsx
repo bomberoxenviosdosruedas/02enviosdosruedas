@@ -74,7 +74,7 @@ export default function DropoffCalculator() {
             <span className="font-subheading text-sm uppercase tracking-wider font-bold text-brand-blue-900">
               Envíos por mes
             </span>
-            <span className="font-mono text-[11px] text-brand-blue-500 tabular-nums">
+            <span className="font-mono text-2xs text-brand-blue-500 tabular-nums">
               {MIN_ENVIOS}-{MAX_ENVIOS}
             </span>
           </div>
@@ -84,7 +84,7 @@ export default function DropoffCalculator() {
               type="button"
               onClick={() => apply(envios - 1)}
               aria-label="Restar un envío"
-              className="shrink-0 w-12 min-h-[44px] flex items-center justify-center text-brand-blue-700 hover:bg-brand-blue-50 active:bg-brand-blue-100 transition-colors cursor-pointer"
+              className="shrink-0 w-12 min-h-11 flex items-center justify-center text-brand-blue-700 hover:bg-brand-blue-50 active:bg-brand-blue-100 transition-colors cursor-pointer"
             >
               <Minus className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -103,7 +103,7 @@ export default function DropoffCalculator() {
               type="button"
               onClick={() => apply(envios + 1)}
               aria-label="Sumar un envío"
-              className="shrink-0 w-12 min-h-[44px] flex items-center justify-center text-brand-blue-700 hover:bg-brand-blue-50 active:bg-brand-blue-100 transition-colors cursor-pointer"
+              className="shrink-0 w-12 min-h-11 flex items-center justify-center text-brand-blue-700 hover:bg-brand-blue-50 active:bg-brand-blue-100 transition-colors cursor-pointer"
             >
               <Plus className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -116,7 +116,7 @@ export default function DropoffCalculator() {
                 type="button"
                 onClick={() => apply(n)}
                 aria-pressed={envios === n}
-                className={`min-h-[44px] px-4 rounded-full font-mono text-sm tabular-nums border-2 transition-colors cursor-pointer ${
+                className={`min-h-11 px-4 rounded-full font-mono text-sm tabular-nums border-2 transition-colors cursor-pointer ${
                   envios === n
                     ? 'bg-brand-blue-700 text-brand-yellow-500 border-brand-blue-700'
                     : 'bg-white text-brand-blue-700 border-brand-blue-300 hover:border-brand-blue-700'

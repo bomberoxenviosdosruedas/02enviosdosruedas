@@ -26,7 +26,7 @@ export interface CTANestedPillProps extends React.ButtonHTMLAttributes<HTMLButto
  * CTANestedPill Component
  * Standardized nested pill CTA interactive element (Button or Link).
  * Follows DESIGN.md specifications:
- * - Rounded-full, font-subheading, uppercase, tracking-[.05em], font-bold
+ * - Rounded-full, font-subheading, uppercase, tracking-wider, font-bold
  * - Embedded circular icon chip (w-8 h-8) with smooth hover translation
  * - Variants: --primary (yellow), --blue (para fondos amarillos), --elevated (white), --outline, --ghost
  */

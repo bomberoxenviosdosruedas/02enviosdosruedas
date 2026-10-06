@@ -147,14 +147,14 @@ export default function FaqHero() {
               </CTANestedPill>
               <a
                 href="#faq-categories"
-                className="inline-flex min-h-[44px] items-center gap-2 font-subheading text-sm sm:text-base uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 rounded-md"
+                className="inline-flex min-h-11 items-center gap-2 font-subheading text-sm sm:text-base uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 rounded-md"
               >
                 <ChevronDown className="h-5 w-5 shrink-0" aria-hidden="true" />
                 Ver las {TOTAL_QUESTIONS} preguntas
               </a>
             </div>
 
-            <p className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em] text-white/85 tabular-nums">
+            <p className="font-mono text-2xs sm:text-xs uppercase tracking-[0.18em] text-white/85 tabular-nums">
               {TOTAL_QUESTIONS} preguntas · {FAQ_DATA.length} categorías · {SUPPORT_PHONE}
             </p>
           </div>

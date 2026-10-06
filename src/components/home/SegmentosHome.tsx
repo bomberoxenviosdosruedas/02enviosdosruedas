@@ -128,7 +128,7 @@ export default function SegmentosHome() {
                 <div className="pt-4 border-t border-brand-blue-100">
                   <Link
                     href={seg.href}
-                    className={`w-full min-h-[44px] px-4 py-2.5 rounded-full font-subheading text-xs uppercase tracking-wider font-bold flex items-center justify-between transition-all duration-200 cursor-pointer ${
+                    className={`w-full min-h-11 px-4 py-2.5 rounded-full font-subheading text-xs uppercase tracking-wider font-bold flex items-center justify-between transition-all duration-200 cursor-pointer ${
                       seg.highlight
                         ? 'bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 shadow-accent-sm'
                         : 'bg-brand-blue-50 hover:bg-brand-blue-100 text-brand-blue-500 border border-brand-blue-200/60'

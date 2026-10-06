@@ -115,10 +115,10 @@ export default function ContactHero() {
               <span className="absolute -left-1.75 -translate-y-1/2 block h-3.5 w-3.5 rounded-full bg-brand-yellow-500 shadow-[0_0_18px_rgba(255,236,1,0.45)]" />
             </div>
 
-            <span className="absolute left-0 bottom-0 font-subheading text-[11px] uppercase tracking-[0.18em] text-white/85">
+            <span className="absolute left-0 bottom-0 font-subheading text-2xs uppercase tracking-[0.18em] text-white/85">
               Escribís
             </span>
-            <span className="absolute right-0 bottom-0 font-mono text-[11px] tracking-[0.14em] text-brand-yellow-500 tabular-nums">
+            <span className="absolute right-0 bottom-0 font-mono text-2xs tracking-[0.14em] text-brand-yellow-500 tabular-nums">
               {BASE_ADDRESS}
             </span>
           </div>
@@ -162,7 +162,7 @@ export default function ContactHero() {
                 </CTANestedPill>
                 <a
                   href="#contact-form"
-                  className="inline-flex min-h-[44px] items-center gap-2 font-subheading text-sm sm:text-base uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 rounded-md"
+                  className="inline-flex min-h-11 items-center gap-2 font-subheading text-sm sm:text-base uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 rounded-md"
                 >
                   <ChevronDown className="h-5 w-5 shrink-0" aria-hidden="true" />
                   Completá el formulario
@@ -229,7 +229,7 @@ export default function ContactHero() {
                   />
                 </div>
 
-                <div className="pt-3 border-t border-white/15 grid grid-cols-2 gap-3 font-mono text-[11px] sm:text-xs text-white/85 tabular-nums">
+                <div className="pt-3 border-t border-white/15 grid grid-cols-2 gap-3 font-mono text-2xs sm:text-xs text-white/85 tabular-nums">
                   <div>
                     <span className="block font-subheading text-2xs uppercase tracking-widest text-brand-yellow-500">
                       Lun a Vie

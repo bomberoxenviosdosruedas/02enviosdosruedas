@@ -177,7 +177,7 @@ export default function CoberturaExplorer() {
                   type="button"
                   onClick={() => setSelectedZone(filter.id)}
                   className={cn(
-                    'px-3 py-1.5 rounded-lg text-xs font-subheading uppercase tracking-wider transition-colors cursor-pointer min-h-[36px]',
+                    'px-3 py-1.5 rounded-lg text-xs font-subheading uppercase tracking-wider transition-colors cursor-pointer min-h-9',
                     selectedZone === filter.id
                       ? 'bg-brand-blue-700 text-brand-yellow-500 shadow-sm'
                       : 'bg-brand-blue-50 text-brand-blue-700 hover:bg-brand-blue-100'

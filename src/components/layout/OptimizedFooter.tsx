@@ -224,7 +224,7 @@ export default function OptimizedFooter() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
               {/* Grupo Cotizadores */}
               <div>
-                <p className="text-[11px] font-bold text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                <p className="text-2xs font-bold text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
                   Cotizador online
                 </p>
                 <ul className="space-y-2.5 text-sm font-sans">
@@ -245,7 +245,7 @@ export default function OptimizedFooter() {
 
               {/* Grupo Servicios y Planes */}
               <div>
-                <p className="text-[11px] font-bold text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                <p className="text-2xs font-bold text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
                   Servicios y planes
                 </p>
                 <ul className="space-y-2.5 text-sm font-sans">

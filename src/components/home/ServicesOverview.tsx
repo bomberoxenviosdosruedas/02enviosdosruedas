@@ -520,15 +520,15 @@ export default function ServicesOverview() {
                   <div className="relative z-10 pt-4 border-t border-white/5 grid grid-cols-3 gap-2 text-center">
                     <div className={`p-2 rounded-xl backdrop-blur-sm ${service.statBoxStyle}`}>
                       <div className="text-sm font-bold font-subheading truncate">{service.stats.time}</div>
-                      <div className={`text-[9px] uppercase font-bold tracking-wider ${service.statLabelStyle}`}>ENTREGA</div>
+                      <div className={`text-2xs uppercase font-bold tracking-wider ${service.statLabelStyle}`}>ENTREGA</div>
                     </div>
                     <div className={`p-2 rounded-xl backdrop-blur-sm ${service.statBoxStyle}`}>
                       <div className="text-sm font-bold font-subheading truncate">{service.stats.price}</div>
-                      <div className={`text-[9px] uppercase font-bold tracking-wider ${service.statLabelStyle}`}>TARIFA</div>
+                      <div className={`text-2xs uppercase font-bold tracking-wider ${service.statLabelStyle}`}>TARIFA</div>
                     </div>
                     <div className={`p-2 rounded-xl backdrop-blur-sm ${service.statBoxStyle}`}>
                       <div className="text-sm font-bold font-subheading truncate">{service.stats.weight}</div>
-                      <div className={`text-[9px] uppercase font-bold tracking-wider ${service.statLabelStyle}`}>PESO</div>
+                      <div className={`text-2xs uppercase font-bold tracking-wider ${service.statLabelStyle}`}>PESO</div>
                     </div>
                   </div>
 
@@ -571,7 +571,7 @@ export default function ServicesOverview() {
               }}
               aria-label={`Ir al servicio ${service.title}${i === activeIndex ? ', servicio actual' : ''}`}
               aria-current={i === activeIndex ? 'true' : 'false'}
-              className={`min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500`}
+              className={`min-w-11 min-h-11 flex items-center justify-center rounded-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500`}
               whileHover={i !== activeIndex && !reduceMotion ? { scale: 1.2, transition: springConfigSnappy } : undefined}
               whileTap={reduceMotion ? undefined : { scale: 0.9 }}
             >

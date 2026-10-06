@@ -86,7 +86,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
               if (!opt.disabled) onChange(opt.id);
             }}
             className={cn(
-              'relative flex flex-col justify-between p-6 rounded-xl border-2 transition-[transform,background-color,border-color,box-shadow] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer select-none hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2',
+              'relative flex flex-col justify-between p-6 rounded-xl border-2 transition-[transform,background-color,border-color,box-shadow] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer select-none hover:-translate-y-0.5 active:scale-98 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2',
               checkedStyles,
               opt.disabled && 'opacity-50 cursor-not-allowed pointer-events-none'
             )}
@@ -173,7 +173,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
               <div className="mt-4 pt-3 border-t border-current/10 flex items-baseline justify-between">
                 <span
                   className={cn(
-                    'text-[11px] font-subheading uppercase tracking-wider',
+                    'text-2xs font-subheading uppercase tracking-wider',
                     isChecked && type.includes('EXPRESS') ? 'text-brand-blue-50' : 'text-brand-blue-500'
                   )}
                 >

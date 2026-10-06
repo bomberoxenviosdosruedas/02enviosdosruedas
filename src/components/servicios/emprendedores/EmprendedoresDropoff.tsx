@@ -113,7 +113,7 @@ export default function EmprendedoresDropoff() {
           {/* RIGHT 5 — calculadora (isla client) */}
           <div className="lg:col-span-5">
             <DropoffCalculator />
-            <p className="mt-4 text-center font-mono text-[11px] text-brand-blue-500">
+            <p className="mt-4 text-center font-mono text-2xs text-brand-blue-500">
               Estimación sobre la tarifa publicada del Plan Inicial DropOFF (MDQ, 2026). Cada caso se confirma por WhatsApp.
             </p>
           </div>

@@ -100,7 +100,7 @@ export default function LeafletRouteMap({
               <span class="absolute w-10 h-10 rounded-full bg-brand-blue-500/50 radar-pulse-ring"></span>
               <div class="relative bg-brand-blue-500 text-white rounded-full w-9 h-9 flex items-center justify-center border-2 border-white shadow-xl shadow-brand-blue-500/40">
                 <div class="flex flex-col items-center justify-center leading-none">
-                  <span class="text-[9px] font-subheading text-brand-yellow-500 uppercase tracking-tighter">RET</span>
+                  <span class="text-2xs font-subheading text-brand-yellow-500 uppercase tracking-tighter">RET</span>
                   <span class="text-xs font-display">A</span>
                 </div>
               </div>
@@ -125,7 +125,7 @@ export default function LeafletRouteMap({
               <span class="absolute w-10 h-10 rounded-full bg-brand-yellow-500/60 radar-pulse-ring"></span>
               <div class="relative bg-brand-yellow-500 text-brand-blue-500 rounded-full w-9 h-9 flex items-center justify-center border-2 border-brand-blue-500 shadow-xl shadow-brand-blue-500/50">
                 <div class="flex flex-col items-center justify-center leading-none">
-                  <span class="text-[9px] font-subheading text-brand-blue-500 uppercase tracking-tighter">ENT</span>
+                  <span class="text-2xs font-subheading text-brand-blue-500 uppercase tracking-tighter">ENT</span>
                   <span class="text-xs font-display">B</span>
                 </div>
               </div>
@@ -214,10 +214,10 @@ export default function LeafletRouteMap({
             />
           </div>
           <div className="flex flex-col leading-none">
-            <span className="text-[11px] font-display uppercase tracking-wider text-white">
+            <span className="text-2xs font-display uppercase tracking-wider text-white">
               DosRuedas <span className="text-brand-yellow-500">Live</span>
             </span>
-            <span className="text-[8px] font-mono text-brand-blue-100">
+            <span className="text-2xs font-mono text-brand-blue-100">
               {serviceType === 'EXPRESS' ? 'Franja de 3 hs' : 'Reparto programado'}
             </span>
           </div>

@@ -110,7 +110,7 @@ export default function NetworksHero() {
               <span className="relative block h-3 w-3 rounded-full bg-brand-yellow-500" />
             </span>
 
-            <span className="absolute left-6 top-1/2 -translate-y-1/2 font-subheading text-[11px] uppercase tracking-[0.18em] text-brand-yellow-500 lg:left-8">
+            <span className="absolute left-6 top-1/2 -translate-y-1/2 font-subheading text-2xs uppercase tracking-[0.18em] text-brand-yellow-500 lg:left-8">
               {CHANNELS.length} canales
             </span>
           </div>
@@ -153,7 +153,7 @@ export default function NetworksHero() {
                 </CTANestedPill>
                 <a
                   href="#redes-oficiales"
-                  className="inline-flex min-h-[44px] items-center gap-2 font-subheading text-sm sm:text-base uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 rounded-md"
+                  className="inline-flex min-h-11 items-center gap-2 font-subheading text-sm sm:text-base uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 rounded-md"
                 >
                   <ChevronDown className="h-5 w-5 shrink-0" aria-hidden="true" />
                   Ver los {CHANNELS.length} canales

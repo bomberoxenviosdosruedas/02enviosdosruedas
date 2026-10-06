@@ -146,7 +146,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
               <button
                 key={pageName}
                 onClick={() => setSelectedPage(pageName)}
-                className={`px-4 py-2 rounded-xl font-mono text-[11px] uppercase tracking-wider border-2 border-brand-blue transition-all duration-150 ${
+                className={`px-4 py-2 rounded-xl font-mono text-2xs uppercase tracking-wider border-2 border-brand-blue transition-all duration-150 ${
                   selectedPage === pageName
                     ? 'bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)] -translate-x-px -translate-y-px'
                     : 'bg-brand-white-50 hover:bg-brand-blue-50 text-brand-blue shadow-sm'
@@ -254,17 +254,17 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                           <div>
                             {/* Component Header info */}
                             <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                              <span className="font-mono text-[9px] text-brand-blue font-bold flex items-center gap-1 select-all">
+                              <span className="font-mono text-2xs text-brand-blue font-bold flex items-center gap-1 select-all">
                                 <MapPin className="h-3 w-3 shrink-0" />
                                 {item.componentPath}
                               </span>
                               {isReviewed ? (
-                                <span className="px-2 py-0.5 rounded-[4px] bg-brand-blue-50 border border-brand-blue-200 text-brand-blue-700 font-mono text-[8px] font-bold flex items-center gap-1">
+                                <span className="px-2 py-0.5 rounded-[4px] bg-brand-blue-50 border border-brand-blue-200 text-brand-blue-700 font-mono text-2xs font-bold flex items-center gap-1">
                                   <CheckCircle className="h-2.5 w-2.5" />
                                   REVISADO ({suggestions.length})
                                 </span>
                               ) : (
-                                <span className="px-2 py-0.5 rounded-[4px] bg-brand-yellow-50 border border-brand-yellow-300 text-brand-blue-700 font-mono text-[8px] font-bold flex items-center gap-1">
+                                <span className="px-2 py-0.5 rounded-[4px] bg-brand-yellow-50 border border-brand-yellow-300 text-brand-blue-700 font-mono text-2xs font-bold flex items-center gap-1">
                                   <AlertCircle className="h-2.5 w-2.5" />
                                   PENDIENTE
                                 </span>
@@ -277,7 +277,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
 
                             {/* Current text snippet box */}
                             <div className="mb-4">
-                              <span className="block text-[8px] font-mono font-bold uppercase tracking-wider text-brand-blue-700 mb-1">
+                              <span className="block text-2xs font-mono font-bold uppercase tracking-wider text-brand-blue-700 mb-1">
                                 TEXTO ORIGINAL
                               </span>
                               <div className="bg-brand-white-50/80 p-3 border border-brand-blue-100/60 rounded-xl max-h-36 overflow-y-auto">
@@ -289,12 +289,12 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
 
                             {/* Review prompts */}
                             <div className="mb-4">
-                              <span className="block text-[8px] font-mono font-bold uppercase tracking-wider text-brand-blue-700 mb-1">
+                              <span className="block text-2xs font-mono font-bold uppercase tracking-wider text-brand-blue-700 mb-1">
                                 PAUTAS DE REVISIÓN
                               </span>
                               <div className="flex flex-wrap gap-1">
                                 {item.elementsToReview.map((el, idx) => (
-                                  <span key={idx} className="text-[9px] bg-brand-white-50/50 text-brand-blue px-1.5 py-0.5 rounded border border-brand-blue-50 font-sans font-semibold">
+                                  <span key={idx} className="text-2xs bg-brand-white-50/50 text-brand-blue px-1.5 py-0.5 rounded border border-brand-blue-50 font-sans font-semibold">
                                     {el}
                                   </span>
                                 ))}
@@ -364,7 +364,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
               >
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-3 pb-3 border-b border-brand-blue-100">
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 bg-brand-blue text-white font-mono text-[9px] font-bold rounded uppercase">
+                    <span className="px-2 py-0.5 bg-brand-blue text-white font-mono text-2xs font-bold rounded uppercase">
                       {feedback.page}
                     </span>
                     <span className="font-mono text-2xs text-brand-blue-700 font-semibold truncate max-w-xs sm:max-w-md select-all">
@@ -380,7 +380,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Before */}
                   <div>
-                    <span className="block text-[8px] font-mono font-bold uppercase tracking-wider text-brand-blue-700 mb-1">
+                    <span className="block text-2xs font-mono font-bold uppercase tracking-wider text-brand-blue-700 mb-1">
                       Contenido Original de Referencia
                     </span>
                     <div className="bg-white p-3 border border-brand-blue-50 rounded-xl text-xs text-brand-blue-700 max-h-32 overflow-y-auto whitespace-pre-wrap font-sans">
@@ -390,7 +390,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
 
                   {/* Proposed */}
                   <div>
-                    <span className="block text-[8px] font-mono font-bold uppercase tracking-wider text-brand-blue mb-1">
+                    <span className="block text-2xs font-mono font-bold uppercase tracking-wider text-brand-blue mb-1">
                       Ajuste Propuesto
                     </span>
                     <div className="bg-brand-yellow-50/50 p-3 border border-brand-yellow-50 rounded-xl text-xs text-brand-blue font-semibold max-h-32 overflow-y-auto whitespace-pre-wrap font-sans">

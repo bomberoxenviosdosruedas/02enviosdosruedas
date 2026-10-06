@@ -179,7 +179,7 @@ function TierCard({
         <div>
           <p
             className={cn(
-              'font-mono text-[11px] uppercase tracking-wider',
+              'font-mono text-2xs uppercase tracking-wider',
               dark ? 'text-brand-blue-100' : 'text-brand-blue-700'
             )}
           >
@@ -426,7 +426,7 @@ function ExcedenteSection({
         <div className="flex flex-col lg:items-end">
           <span
             className={cn(
-              'font-mono text-[11px] uppercase tracking-wider',
+              'font-mono text-2xs uppercase tracking-wider',
               dark ? 'text-brand-blue-100' : 'text-brand-blue-700'
             )}
           >

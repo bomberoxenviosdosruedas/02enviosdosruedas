@@ -375,13 +375,13 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                  tracking-wider font-bold cursor-pointer transition-all duration-150 ease-snappy
                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500
                  focus-visible:ring-offset-2 focus-visible:ring-offset-white
-                 active:scale-[0.98] active:translate-y-[1px];
+                 active:scale-98 active:translate-y-px;
         }
         .cta-nested-pill--primary {
           @apply bg-brand-yellow text-brand-blue border-2 border-brand-yellow
                  hover:bg-brand-yellow hover:text-brand-blue hover:border-brand-yellow
                  hover:shadow-cta-glow hover:shadow-accent-sm
-                 min-h-[40px] px-4 py-2 text-sm;
+                 min-h-10 px-4 py-2 text-sm;
         }
         .cta-nested-pill--primary:disabled {
           @apply opacity-50 cursor-not-allowed hover:bg-brand-yellow hover:text-brand-blue;
@@ -389,7 +389,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
         .cta-nested-pill--outline {
           @apply bg-transparent text-brand-blue-600 border-2 border-brand-blue-100
                  hover:bg-brand-blue-50 hover:border-brand-blue-200 hover:text-brand-ink
-                 min-h-[40px] px-3 py-2 text-xs;
+                 min-h-10 px-3 py-2 text-xs;
         }
         .cta-nested-pill--outline:disabled {
           @apply opacity-50 cursor-not-allowed;
@@ -397,7 +397,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
         .cta-nested-pill--ghost {
           @apply bg-transparent text-brand-blue-600 border-2 border-transparent
                  hover:bg-brand-blue-50 hover:border-brand-blue-100 hover:text-brand-ink
-                 min-h-[40px] px-3 py-2 text-xs;
+                 min-h-10 px-3 py-2 text-xs;
         }
         .cta-nested-pill--ghost:disabled {
           @apply opacity-50 cursor-not-allowed;
@@ -817,12 +817,12 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                                 <div className="space-y-2 flex-1 min-w-0">
                                   <div className="flex flex-wrap items-center gap-2">
                                     {prompt.modelUsed && (
-                                      <span className="px-2 py-0.5 rounded bg-brand-blue-50/80 text-brand-blue font-bold uppercase text-[9px] font-mono tracking-wider">
+                                      <span className="px-2 py-0.5 rounded bg-brand-blue-50/80 text-brand-blue font-bold uppercase text-2xs font-mono tracking-wider">
                                         {prompt.modelUsed}
                                       </span>
                                     )}
                                     {prompt.aspectRatio && (
-                                      <span className="px-2 py-0.5 rounded bg-brand-blue-100 text-brand-blue-500 font-bold text-[9px] font-mono tracking-wider">
+                                      <span className="px-2 py-0.5 rounded bg-brand-blue-100 text-brand-blue-500 font-bold text-2xs font-mono tracking-wider">
                                         {prompt.aspectRatio}
                                       </span>
                                     )}

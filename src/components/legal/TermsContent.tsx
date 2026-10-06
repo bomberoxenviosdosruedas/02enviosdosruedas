@@ -256,7 +256,7 @@ export default function TermsContent() {
                   <p className="text-xs font-bold text-brand-blue-700 uppercase font-subheading tracking-wide">
                     Operación Transparente
                   </p>
-                  <p className="text-[11px] text-brand-blue-500 mt-1 leading-normal font-sans">
+                  <p className="text-2xs text-brand-blue-500 mt-1 leading-normal font-sans">
                     Nuestras pautas operativas aseguran un servicio responsable y veloz.
                   </p>
                 </div>

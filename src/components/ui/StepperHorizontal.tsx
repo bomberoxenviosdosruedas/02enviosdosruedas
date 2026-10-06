@@ -97,7 +97,7 @@ export const StepperHorizontal: React.FC<StepperHorizontalProps> = ({
                   {step.title}
                 </span>
                 {step.subtitle && (
-                  <span className="block font-mono text-[11px] text-brand-blue-500 leading-tight mt-0.5">
+                  <span className="block font-mono text-2xs text-brand-blue-500 leading-tight mt-0.5">
                     {step.subtitle}
                   </span>
                 )}

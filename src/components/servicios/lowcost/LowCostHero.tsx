@@ -112,7 +112,7 @@ function BarraJornada() {
             {marcas.map((hora) => (
               <span
                 key={hora}
-                className="absolute -translate-x-1/2 font-mono text-[11px] tabular-nums text-brand-blue-500/70"
+                className="absolute -translate-x-1/2 font-mono text-2xs tabular-nums text-brand-blue-500/70"
                 style={{ left: `${((hora - HORA_APERTURA) / SPAN_HORAS) * 100}%` }}
               >
                 {String(hora).padStart(2, '0')}
@@ -252,7 +252,7 @@ export default function LowCostHero() {
                   href="https://wa.me/542236602699?text=Hola!%20Quiero%20hacer%20un%20env%C3%ADo%20LowCost"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-[44px] items-center gap-2 font-subheading text-sm sm:text-base uppercase tracking-wider text-brand-blue-500 underline decoration-brand-blue-500 decoration-2 underline-offset-4 hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-yellow-500 rounded-md"
+                  className="inline-flex min-h-11 items-center gap-2 font-subheading text-sm sm:text-base uppercase tracking-wider text-brand-blue-500 underline decoration-brand-blue-500 decoration-2 underline-offset-4 hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-yellow-500 rounded-md"
                 >
                   <FaWhatsapp className="h-5 w-5 shrink-0" aria-hidden="true" />
                   O escribinos por WhatsApp
@@ -264,7 +264,7 @@ export default function LowCostHero() {
                   <li key={chip.label} className="p-3 rounded-xl bg-white/45 border border-brand-blue-500/30 text-center">
                     <chip.icon className="w-4 h-4 mx-auto text-brand-blue-500" aria-hidden="true" />
                     <span className="block font-mono text-lg sm:text-2xl text-brand-blue-500 tabular-nums mt-1.5">{chip.value}</span>
-                    <span className="block font-subheading text-[11px] sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">{chip.label}</span>
+                    <span className="block font-subheading text-2xs sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">{chip.label}</span>
                   </li>
                 ))}
               </ul>
@@ -283,7 +283,7 @@ export default function LowCostHero() {
                   {/* La diferencia va en pesos, no en porcentaje: sobre la tarifa
                       base un porcentaje se distorsiona al redondear y deja de
                       decir la verdad. */}
-                  <span className="shrink-0 rounded-md bg-brand-blue-500 px-2 py-1 font-mono text-[11px] tabular-nums text-white">
+                  <span className="shrink-0 rounded-md bg-brand-blue-500 px-2 py-1 font-mono text-2xs tabular-nums text-white">
                     −{ars(DIFERENCIA_BASE)}
                   </span>
                 </div>

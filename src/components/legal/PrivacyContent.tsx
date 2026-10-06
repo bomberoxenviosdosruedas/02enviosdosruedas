@@ -279,7 +279,7 @@ export default function PrivacyContent() {
                   <p className="text-xs font-bold text-brand-blue-700 uppercase font-subheading tracking-wide">
                     Seguridad Garantizada
                   </p>
-                  <p className="text-[11px] text-brand-blue-500 mt-1 leading-normal font-sans">
+                  <p className="text-2xs text-brand-blue-500 mt-1 leading-normal font-sans">
                     Tus datos logísticos se cifran con los más altos estándares.
                   </p>
                 </div>

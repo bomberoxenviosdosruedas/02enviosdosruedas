@@ -42,7 +42,7 @@ export default function CotizadorMapa({ form }: CotizadorMapaProps) {
           />
         </div>
 
-        <div className="relative z-10 text-[11px] font-mono text-white/90 space-y-1.5 border-t border-white/15 pt-3 mt-3 tabular-nums">
+        <div className="relative z-10 text-2xs font-mono text-white/90 space-y-1.5 border-t border-white/15 pt-3 mt-3 tabular-nums">
           <div className="flex justify-between gap-3">
             <span>Distancia:</span>
             <span className="text-white">
