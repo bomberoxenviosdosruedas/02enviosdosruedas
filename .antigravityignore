@@ -23,6 +23,8 @@ build/
 out/
 .output/
 generated/
+docs/paginas/*
+docs/paginas/
 
 # TypeScript incremental build cache (~570 KB)
 tsconfig.tsbuildinfo

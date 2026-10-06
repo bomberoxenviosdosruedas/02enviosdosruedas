@@ -91,6 +91,7 @@ ds-bundle/
 
 # Documentation local (prompts, specs, internals)
 docs/prompts/
+docs/paginas/
 docs/sitio_completo.html
 docs/diseno/
 docs/contexto/correo_propio/
