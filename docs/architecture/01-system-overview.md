@@ -6,7 +6,7 @@ El sitio web de **Envíos DosRuedas** está construido sobre un stack moderno de
 
 | Capa | Tecnología | Propósito |
 |---|---|---|
-| **Framework Web** | Next.js 15 (App Router) | Renderizado del lado del servidor (RSC), Server Actions y rutas API. |
+| **Framework Web** | Next.js 16 (App Router) | Renderizado del lado del servidor (RSC), Server Actions y rutas API. |
 | **Biblioteca UI** | React 19 | Interfaces interactivas y componentes por servidor/cliente. |
 | **Estilos CSS** | Tailwind CSS v4 + `theme.css` | Sistema de tokens visuales de la marca y diseño responsivo. |
 | **Animaciones** | GSAP (GreenSock) | Animaciones fluidas con control de preferencia de movimiento reducido. |

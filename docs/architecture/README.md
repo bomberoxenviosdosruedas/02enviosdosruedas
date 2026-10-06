@@ -7,7 +7,7 @@ Bienvenido al centro de documentación arquitectónica de **Envíos DosRuedas** 
 ## Índice de Documentación Arquitectónica
 
 1. [Visión General del Sistema (System Overview)](./01-system-overview.md)
-   - Stack tecnológico principal (Next.js 15, React 19, Tailwind CSS v4, Prisma ORM, Vitest).
+   - Stack tecnológico principal (Next.js 16, React 19, Tailwind CSS v4, Prisma ORM, Vitest).
    - Estructura de directorios y límites de responsabilidad (`src/app`, `src/actions`, `src/lib`, `src/components`, `src/hooks`).
    - Paradigma Server Components vs Client Components.
 

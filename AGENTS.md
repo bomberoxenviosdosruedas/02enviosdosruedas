@@ -13,6 +13,7 @@ Sitio Next.js de una mensajería en moto de Mar del Plata. Dueño: Matías Cejas
 | Dudas sin resolver con el dueño (no las decidas vos) | `docs/knowledge_base/01-fuentes-dueno/conflictos-abiertos.md` |
 | Qué del sitio ya cumple y qué falta | `docs/knowledge_base/05-auditoria/estado-sitio.md` |
 | Diseño (tokens, tipografía, hero, primitivas, motion) | `DESIGN.md` (manda) y `docs/knowledge_base/03-diseno/` |
+| Arquitectura técnica, Server Actions, motor y QA | `docs/architecture/README.md` |
 | Comandos, niveles N0-N3, baseline de tests | `docs/knowledge_base/04-operaciones/comandos-verificacion.md` |
 
 ## Precios: nunca inventar ni copiar

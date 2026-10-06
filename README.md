@@ -6,39 +6,40 @@ Sede Operativa: **Friuli 1972, Mar del Plata** · Liderazgo: **Matías Nicolás 
 
 ---
 
-## 🚀 Qué Hace Este Proyecto
+## 📚 Documentación de Arquitectura Técnica
 
-Plataforma comercial y cotizador inteligente para los servicios logísticos de **Envíos DosRuedas**. Todos los servicios operan bajo emisión de **Factura C** y se adaptan a las necesidades de comerciantes, PyMEs y vendedores e-commerce.
+La documentación de arquitectura del sistema está centralizada en el directorio [`docs/architecture/`](./docs/architecture/README.md):
 
-### 📦 Menú Oficial de Servicios
-
-| Servicio | Tipo de Servicio | Dinámica y Horarios de Corte | Tarifas y Beneficios Clave |
-| :--- | :--- | :--- | :--- |
-| **Express** | Por Demanda Prioritario | Solicitud con **mín. 2 horas** de anticipación. Elección libre de rango u horario límite (ej. "antes de las 17:00hs"). Corte: 15:00hs. | Tarifa zonificada ($3.700 a $8.200 / Z5: $1.000/km). Ideal para urgencias. |
-| **LowCost** | Ruteo Diario Económico | Solicitud con **mín. 2 horas** de anticipación. Pedidos hasta las **13:00hs** se entregan antes de las **19:00hs** (sin rango fijo). | Tarifa zonificada súper económica ($3.000 a $7.000 / Z5: $700/km). |
-| **Mercado Envíos Flex** | Same-Day Mercado Libre | Colecta gratuita. Ventas concretadas hasta las **15:00hs** se entregan el mismo día antes de las **20:00hs**. | **Estructurado en 3 Niveles:**<br>• *N1 (1-4 envíos/día):* Tarifario estándar ($3.000 - $7.000).<br>• *N2 (5+ envíos/día):* Tope fijo $6.500 en Zonas 4 y 5.<br>• *N3 (10+ envíos/día):* **Tarifa Plana de $4.500** todo MDP + 2da visita y reprogramación **100% GRATIS**. |
-| **Plan E-Commerce Same Day (Fulfillment 3PL)** | Almacenamiento & Despacho 3PL | Almacenamiento en Friuli 1972. Recepción de pedidos hasta las **15:00hs** para entrega el mismo día (franja 9:00 a 20:00hs). | **Tarifa Plana Integral: $6.000** a todo Mar del Plata. Incluye stock, picking y embalaje básico. 2da visita **100% Bonificada**. |
-| **Plan E-Commerce 24hs** | Distribución Next Day | Retiro hoy, entrega mañana en franja abierta (9:00 a 20:00hs). Retiro diario gratis con +10 paquetes. | **Tarifa Plana según Escalado Mensual:**<br>• *Inicial (1-199 env/mes):* $3.800<br>• *Pro (200-1.199 env/mes):* $3.500<br>• *Elite (1.200-1.999 env/mes):* $3.200<br>• *Partner (+2.000 env/mes):* $3.000<br>💡 **Opción Drop-Off:** 20% OFF directo entregando paquetes en Friuli 1972. |
-| **Cuenta Corriente Flexible** | Exclusivo PyMEs / Empresas | Recepción hasta las **15:00hs** con mín. 2hs de anticipación y elección de rango horario. | **Abona tarifa económica LowCost pero goza de los beneficios de servicio Express.** Liquidación personalizada (diaria, semanal, quincenal o mensual). Factura C. |
-| **Gestion de Cobranzas** | Contrareembolso en Destino | Recaudación en mano del valor del producto en la puerta del comprador. | **0% Comisión (GRATIS).** Rendición en el día, 24hs o semanal por transferencia o efectivo con arqueo detallado. |
+- 📐 [01 — Visión General del Sistema (System Overview)](./docs/architecture/01-system-overview.md): Stack (Next.js 16, React 19, Tailwind v4, Prisma, Vitest) y estructura de `src/`.
+- 💰 [02 — Motor de Cotización y Dominio (Domain & Pricing Engine)](./docs/architecture/02-domain-pricing-engine.md): Algoritmo de cálculo de precios, franjas horarias y guardrails.
+- ⚡ [03 — Server Actions e Integraciones (Server Actions & APIs)](./docs/architecture/03-server-actions-and-integrations.md): Server Actions, proxy de Google Places/Routes y resiliencia con `safeCache`.
+- 🎨 [04 — Sistema de Diseño e Interfaces (UI & Design System)](./docs/architecture/04-ui-design-system.md): Tokens cromáticos (`#0950F6`, `#FFEC01`), tipografías, Double-Bezel y accesibilidad.
+- 🧪 [05 — Protocolo de Verificación y Testing (Verification & QA Protocol)](./docs/architecture/05-testing-verification-protocol.md): Niveles de pruebas N0–N3, Vitest JSDOM y TypeScript strict mode.
 
 ---
 
-## ⚙️ Reglas Operativas y Condiciones Adicionales
+## 🚀 Menú Oficial de Servicios
 
-* **Facturación:** Emisión exclusiva de **Factura C** para todos los clientes y servicios.
-* **Cobro en Destino (Contrareembolso):** Totalmente **sin costo extra (0% comisión)** en Express, LowCost, Cta. Cte., y E-Commerce.
-* **Políticas de 2da Visita (Cliente Ausente):**
-  * *Express / LowCost:* Se cobra como viaje nuevo.
-  * *Cuenta Corriente:* 50% del valor original.
-  * *Flex ML:* Nivel 1 (50%), Nivel 2 (Z1 gratis, resto 50%), Nivel 3 (**100% Gratis**).
-  * *E-Commerce (Same Day 3PL y 24hs):* **100% Bonificada**.
-* **Clima Adverso (Lluvia / Calzada Mojada):**
-  * Recargo estándar del **50%** para Express, LowCost y Cuenta Corriente.
-  * Recargo reducido del **30%** para Flex y E-Commerce Same Day (3PL).
-* **Tolerancia de Espera:** 10 minutos de gracia en domicilio. Luego, +$2.200 cada 10 minutos adicionales.
-* **Bulto Excedente:** Mayor a 5kg o 40x40x30cm adiciona desde $1.800 (sujeto a límite físico seguro de moto).
-* **Devoluciones por Rechazo de Compra:** Si el comprador se arrepiente en puerta, el envío de ida se abona pero la devolución al local es **100% SIN CARGO**.
+| Servicio | Tipo de Servicio | Dinámica y Horarios de Corte | Tarifas y Beneficios Clave |
+| :--- | :--- | :--- | :--- |
+| **Express** | Por Demanda Prioritario | Solicitud con **mín. 2 horas** de anticipación. Franja horaria a elección (3 hs). Corte: 15:00hs. | Tarifa por distancia (`pricing.ts` / `PriceRange`). Excedente 10-20 km: +$1.000/km (`Math.ceil`). Periferia: $1.000/km de ruta. |
+| **LowCost** | Reparto Programado Diario | Solicitud con **mín. 2 horas** de anticipación. Pedidos hasta las **13:00hs** se entregan antes de las **19:00hs** (sin franja). | Tarifa económica por distancia. Excedente 10-20 km: +$700/km (`Math.ceil`). Periferia: $1.000/km de ruta. |
+| **Mercado Envíos Flex** | Same-Day Mercado Libre | Colecta gratuita. Ventas concretadas hasta las **15:00hs** se entregan el mismo día antes de las **20:00hs**. | **Estructurado en 3 Niveles:**<br>• *N1 (1-4 envíos/día):* Tarifario estándar.<br>• *N2 (5+ envíos/día):* Tope fijo en Zonas 4 y 5.<br>• *N3 (10+ envíos/día):* Tarifa Plana. 2da visita **100% GRATIS**. |
+| **Plan E-Commerce Same Day (Fulfillment 3PL)** | Almacenamiento & Despacho 3PL | Almacenamiento en Friuli 1972. Recepción de pedidos hasta las **15:00hs** para entrega el mismo día. | Tarifa Plana Integral a todo Mar del Plata. Incluye stock, picking y embalaje básico. 2da visita **100% Bonificada**. |
+| **Plan E-Commerce 24hs** | Distribución Next Day | Retiro hoy, entrega mañana en franja abierta. Retiro diario gratis con +10 paquetes. | Tarifa Plana según escalado mensual. **Opción Drop-Off:** 20% OFF directo entregando paquetes en Friuli 1972. |
+| **Cuenta Corriente Flexible** | Exclusivo PyMEs / Empresas | Recepción hasta las **15:00hs** con mín. 2hs de anticipación y elección de rango horario. | Beneficios de servicio Express con liquidación personalizada (diaria, semanal, quincenal o mensual). Factura C. |
+| **Gestión de Cobranzas** | Contrareembolso en Destino | Recaudación en mano del valor del producto en la puerta del comprador. | Rendición en el día, 24hs o semanal por transferencia o efectivo con arqueo detallado. |
+
+---
+
+## ⚙️ Reglas Operativas y Guardrails de Negocio
+
+* **Facturación:** Emisión de **Factura C** para todos los clientes y servicios.
+* **Cobro en Destino (Contrareembolso):** Rendición pactada al cierre del día, 24hs o semanal. No existe rendición inmediata.
+* **Franja Horaria Express:** Express no promete duraciones estimadas ("60-90 min" o "menos de 2 hs"); es una **franja horaria de 3 hs a elección**.
+* **Umbral Único de Peso:** Hasta **5 kg o 40 × 40 cm** (`STANDARD_WEIGHT_KG = 5`) sin recargo. No se publica límite máximo de peso.
+* **Clima Adverso (Lluvia / Calzada Mojada):** Recargo aplicable según el tipo de servicio.
+* **Tolerancia de Espera:** 10 minutos de gracia en domicilio.
 
 ---
 
@@ -46,14 +47,14 @@ Plataforma comercial y cotizador inteligente para los servicios logísticos de *
 
 | Capa | Tecnología |
 | :--- | :--- |
-| **Framework** | Next.js 16 (App Router, React 19, Turbopack) |
+| **Framework** | Next.js 16 (App Router, React 19) |
 | **Lenguaje** | TypeScript 5 (strict mode) |
 | **Estilos** | Tailwind CSS v4 (`@theme` en `src/app/globals.css`) |
-| **Animaciones** | Motion (`motion/react`) + GSAP |
-| **Base de Datos** | Prisma ORM + PostgreSQL 16 |
-| **Mapas/Geocoding** | Leaflet + OpenStreetMap + OSRM |
+| **Animaciones** | GSAP (GreenSock) + `motion/react` (con `useReducedMotion()`) |
+| **Base de Datos** | Prisma ORM + PostgreSQL 16 (`PriceRange` + fallback `pricing.ts`) |
+| **Mapas / Geocoding** | Google Places & Directions API (Proxied via Server Actions) + Leaflet |
 | **Gestor Paquetes** | **pnpm** (único autorizado) |
-| **Testing** | Vitest (unitario) + Playwright (E2E) |
+| **Testing** | Vitest (unitario e integración) + JSDOM |
 | **Deploy** | Vercel |
 
 ---
@@ -70,7 +71,7 @@ Plataforma comercial y cotizador inteligente para los servicios logísticos de *
 ```bash
 # Clonar e instalar dependencias
 git clone <repo-url>
-cd 02enviosdosruedas
+cd 02enviosdosruedassetiembre
 pnpm install
 
 # Configurar base de datos
@@ -93,7 +94,7 @@ pnpm dev
 | Variable | Requerida | Descripción |
 | :--- | :---: | :--- |
 | `DATABASE_URL` | ✅ | Conexión PostgreSQL (`postgresql://user:pass@localhost:5432/enviosdosruedas`) |
-| `GOOGLE_MAPS_API_KEY` | ✅ | Para AddressAutocomplete (Places API + Geocoding) |
+| `GOOGLE_MAPS_API_KEY` | ✅ | Para AddressAutocomplete & Directions API proxied |
 | `NEXT_PUBLIC_SITE_URL` | ✅ | URL canónica (`https://enviosdosruedas.com`) |
 | `GA4_MEASUREMENT_ID` | ⚪ | Google Analytics 4 (`G-XXXXXXXXXX`) |
 | `WHATSAPP_NUMBER` | ⚪ | WhatsApp Business Oficial (`542236602699`) |
@@ -106,7 +107,7 @@ pnpm dev
 | :--- | :--- |
 | **Typecheck** | `pnpm typecheck` |
 | **Lint** | `pnpm exec eslint <archivos>` |
-| **Tests** | `pnpm exec vitest run <ruta>` |
+| **Tests CI** | `pnpm exec vitest --run` |
 | **Build** | `pnpm build` |
 | **Prisma Studio** | `pnpm prisma studio` |
 | **Seed tarifas** | `pnpm prisma db seed` |
@@ -116,12 +117,11 @@ pnpm dev
 ## 🎨 Sistema de Diseño (Resumen)
 
 * **Paleta Corporativa:**
-  * Azul Corporativo: `#0950F6` (Base e identidad)
+  * Azul Corporativo: `#0950F6` (Base e identidad, techo de oscuridad permitido)
   * Amarillo Accent: `#FFEC01` (Llamados a la acción / CTA ≤15%)
-  * Verde E-Commerce: `#10B981` (Planes de Fulfillment / E-Commerce)
-  * Blanco: `#FFFFFF` / Gris Oscuro
-* **Tipografía:** Anton (Display), Bebas Neue (Subtítulos/CTA), Outfit (Body), Geist Mono (Métricas).
-* **Primitivas UI:** `DoubleBezelCard`, `CTANestedPill`, `InputField`, `HeroProceduralBackground`, `Stepper`, `BentoGrid`, `Badge`, `RadioCardGroup`.
+  * Blanco: `#FFFFFF`
+* **Tipografía:** Anton 400 (Display/Titulares), Bebas Neue 400 (Subtítulos/Eyebrows), Outfit (Body), Geist Mono (`tabular-nums` para precios y métricas).
+* **Primitivas UI:** `DoubleBezelCard`, `CTANestedPill`, `InputField`, `RadioCardGroup`, `BentoGrid`, `HeroProceduralBackground`.
 
 ---
 
@@ -129,21 +129,15 @@ pnpm dev
 
 ```
 src/
-├── app/                    # Rutas (App Router)
-│   ├── cotizar/           # Cotizador Express y LowCost
-│   ├── servicios/         # Landings de servicios
-│   ├── nosotros/          # Empresa, FAQ, Cobertura
-│   ├── contacto/          # Formulario + WhatsApp
-│   ├── api/               # Endpoints y Webhooks
-│   └── layout.tsx         # Layout raíz + fuentes + metadata
-├── actions/               # Server Actions (cotización y reservas)
-├── components/            # UI Primitivas y módulos
-├── lib/
-│   ├── pricing.ts         # Motor de cálculo de tarifas (Single Source of Truth)
-│   ├── whatsapp.ts        # Integración de enlaces inteligentes
-│   └── utils.ts           # Helpers
-└── proxy.ts               # Middleware Next.js 16
-docs/knowledge_base/       # Base de conocimiento canónica
+├── actions/               # Server Actions (calculateQuoteAction, feedback, admin-imagenes)
+├── app/                   # Rutas (App Router: cotizar, servicios, nosotros, contacto, api)
+├── components/            # UI Primitivas (ui/) y módulos por página
+├── hooks/                 # Hooks de estado e integración (cotizador, useGoogleRoute)
+├── lib/                   # Motor de cotización (pricing.ts, promises.ts, whatsapp.ts, prisma.ts)
+└── test/                  # Setup y utilidades de Vitest
+docs/
+├── architecture/          # Documentación de Arquitectura Técnica (01-05)
+└── knowledge_base/        # Base de conocimiento canónica de negocio
 ```
 
 ---
