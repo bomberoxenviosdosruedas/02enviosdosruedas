@@ -50,7 +50,7 @@ export const Badge: React.FC<BadgeProps> = ({
   }[rounded];
 
   const sizeStyles = {
-    sm: 'px-2 py-0.5 text-[10px] leading-tight',
+    sm: 'px-2 py-0.5 text-2xs leading-tight',
     md: 'px-3 py-1 text-xs leading-tight',
     lg: 'px-4 py-1.5 text-sm leading-tight',
   }[size];
