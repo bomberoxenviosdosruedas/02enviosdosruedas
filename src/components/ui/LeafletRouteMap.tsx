@@ -185,13 +185,13 @@ export default function LeafletRouteMap({
   }, [origin, destination, routeCoords]);
 
   return (
-    <div className="w-full h-full min-h-[300px] relative rounded-2xl overflow-hidden bg-brand-blue-500 select-none">
+    <div className="w-full h-full min-h-75 relative rounded-2xl overflow-hidden bg-brand-blue-500 select-none">
       {/* Map Target Canvas */}
       <div
         ref={mapContainer}
         role="region"
         aria-label="Mapa interactivo de ruta en Mar del Plata"
-        className="relative w-full h-full min-h-[300px] z-0 overflow-hidden"
+        className="relative w-full h-full min-h-75 z-0 overflow-hidden"
       >
         {/* Texto accesible alternativo para lectores de pantalla (BL-09) */}
         <div className="sr-only" aria-live="polite">
@@ -202,7 +202,7 @@ export default function LeafletRouteMap({
       </div>
 
       {/* Top Left: Logo Badge Branding Overlay */}
-      <div className="absolute top-3 left-3 z-[400] pointer-events-none">
+      <div className="absolute top-3 left-3 z-400 pointer-events-none">
         <div className="bg-brand-blue-500/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-brand-blue-500/30 shadow-lg flex items-center gap-2.5">
           <div className="relative w-6 h-6 shrink-0 bg-white/10 rounded-lg p-0.5 flex items-center justify-center">
             <Image
@@ -226,9 +226,9 @@ export default function LeafletRouteMap({
 
       {/* Top Right: Live Distance Pill Overlay (if distance available) */}
       {distanceKm !== undefined && distanceKm > 0 && (
-        <div className="absolute top-3 right-3 z-[400] pointer-events-none">
+        <div className="absolute top-3 right-3 z-400 pointer-events-none">
           <div className="bg-brand-yellow-500 text-brand-blue-500 px-3 py-1.5 rounded-xl border-2 border-brand-blue-500 shadow-xl flex items-center gap-2 animate-pulse-subtle">
-            <span className="text-[10px] font-subheading font-bold uppercase tracking-wider">
+            <span className="text-2xs font-subheading font-bold uppercase tracking-wider">
               Distancia
             </span>
             <span className="text-sm font-mono font-black tabular-nums bg-brand-blue-500 text-white px-2 py-0.5 rounded-md">
@@ -240,8 +240,8 @@ export default function LeafletRouteMap({
 
       {/* Bottom Center Route Status Pill */}
       {routeCoords.length > 0 && (
-        <div className="absolute bottom-3 left-3 z-[400] pointer-events-none">
-          <div className="bg-brand-blue-500/85 backdrop-blur-md px-2.5 py-1 rounded-lg border border-brand-yellow-500/40 text-[10px] font-mono text-brand-yellow-500 flex items-center gap-1.5 shadow-md">
+        <div className="absolute bottom-3 left-3 z-400 pointer-events-none">
+          <div className="bg-brand-blue-500/85 backdrop-blur-md px-2.5 py-1 rounded-lg border border-brand-yellow-500/40 text-2xs font-mono text-brand-yellow-500 flex items-center gap-1.5 shadow-md">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-yellow-500 animate-ping" />
             <span>Ruta Óptima Trazada</span>
           </div>

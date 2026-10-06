@@ -111,7 +111,7 @@ export default function SegmentosHome() {
                     }`}>
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-[10px] font-mono uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100">
+                    <span className="text-2xs font-mono uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100">
                       {seg.tag}
                     </span>
                   </div>

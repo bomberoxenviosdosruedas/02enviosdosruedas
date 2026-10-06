@@ -31,7 +31,7 @@ export default function CotizadorUnificado() {
         <article className="lg:col-span-7 flex flex-col rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl">
           <div className="bg-brand-blue-700 p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col h-full text-white relative overflow-hidden">
             <Calculator
-              className="absolute -bottom-10 -right-10 w-64 h-64 text-white/[0.04] pointer-events-none"
+              className="absolute -bottom-10 -right-10 w-64 h-64 text-white/4 pointer-events-none"
               aria-hidden="true"
             />
 

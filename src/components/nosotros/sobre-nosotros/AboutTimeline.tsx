@@ -105,7 +105,7 @@ export default function AboutTimeline() {
                           <span className="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">
                             {milestone.year}
                           </span>
-                          <span className="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-[10px] font-mono text-brand-blue font-bold uppercase border border-brand-yellow/40 transform -rotate-1 tabular-nums">
+                          <span className="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/40 transform -rotate-1 tabular-nums">
                             Hito MDQ
                           </span>
                         </div>

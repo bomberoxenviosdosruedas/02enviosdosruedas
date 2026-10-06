@@ -45,7 +45,7 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
       {/* Vertical Connecting Line */}
       <div
         className={cn(
-          'absolute top-3 bottom-3 left-3 md:left-3.5 w-0.5 -translate-x-1/2 -z-0',
+          'absolute top-3 bottom-3 left-3 md:left-3.5 w-0.5 -translate-x-1/2 z-0',
           isDark ? 'bg-white/20' : 'bg-brand-blue-100'
         )}
       />
@@ -74,7 +74,7 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
               )}
             >
               {isCompleted ? (
-                <Check className="w-3.5 h-3.5 stroke-[3]" />
+                <Check className="w-3.5 h-3.5 stroke-3" />
               ) : (
                 <span className="w-2 h-2 rounded-full bg-current" />
               )}
@@ -120,7 +120,7 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
                 {step.badge && (
                   <span
                     className={cn(
-                      'font-subheading text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full',
+                      'font-subheading text-2xs uppercase tracking-wider font-bold px-2 py-0.5 rounded-full',
                       isActive
                         ? 'bg-brand-yellow-500 text-brand-blue-500'
                         : 'bg-brand-blue-50 text-brand-blue-500'

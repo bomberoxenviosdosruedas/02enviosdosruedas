@@ -117,7 +117,7 @@ export default function RecentPosts() {
                   
                   {/* Simulated Image */}
                   <div className={`relative w-full overflow-hidden bg-brand-blue-50 border-b border-brand-blue-100/50 ${
-                    isFeatured ? 'md:w-1/2 h-64 md:h-full min-h-[300px] md:border-b-0 md:border-r' : 'h-64'
+                    isFeatured ? 'md:w-1/2 h-64 md:h-full min-h-75 md:border-b-0 md:border-r' : 'h-64'
                   }`}>
                     <Image
                       src={post.image}
@@ -154,7 +154,7 @@ export default function RecentPosts() {
                             <h3 className="text-sm font-sans font-semibold uppercase tracking-wider text-brand-blue-700 leading-none">
                               Envíos DosRuedas
                             </h3>
-                            <span className="text-[10px] font-mono font-bold text-brand-blue-700 mt-1 block tabular-nums">
+                            <span className="text-2xs font-mono font-bold text-brand-blue-700 mt-1 block tabular-nums">
                               {post.date}
                             </span>
                           </div>

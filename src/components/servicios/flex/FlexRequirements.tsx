@@ -62,7 +62,7 @@ export default function FlexRequirements() {
                       <div className="p-3 bg-brand-yellow text-brand-blue rounded-xl shrink-0 border border-brand-yellow shadow-glow-yellow relative z-10">
                         <Icon className="h-6 w-6 shrink-0" />
                       </div>
-                      <span className="text-[10px] font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue px-2.5 py-1 rounded-full border border-brand-blue-100">
+                      <span className="text-2xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue px-2.5 py-1 rounded-full border border-brand-blue-100">
                         {req.badge}
                       </span>
                     </div>

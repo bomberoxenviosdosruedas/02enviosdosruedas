@@ -68,9 +68,9 @@ export default function EmprendedoresHome() {
       className="py-32 md:py-48 bg-brand-blue-500 relative overflow-hidden text-white border-y border-white/10"
     >
       {/* Background Decorative Asymmetric Glows */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-125 h-125 bg-brand-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
       <motion.div
-        className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-yellow-500/5 rounded-full blur-[150px] pointer-events-none"
+        className="absolute bottom-0 right-0 w-150 h-150 bg-brand-yellow-500/5 rounded-full blur-[150px] pointer-events-none"
         animate={reduceMotion ? {} : { scale: [1, 1.04, 1] }}
         transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
       />
@@ -92,7 +92,7 @@ export default function EmprendedoresHome() {
           <h2 id="emprendedores-home-title" className="text-white text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9] text-left max-w-5xl">
             Potenciamos tu{' '}
             <span
-              className="inline-flex items-center justify-center w-16 sm:w-20 md:w-24 h-8 sm:h-10 md:h-12 rounded-full align-middle bg-gradient-to-r from-brand-yellow-500 to-brand-yellow-400 mx-2 border border-brand-yellow-500 shadow-md text-brand-blue-900 font-display text-base sm:text-xl uppercase transition-transform duration-500 hover:scale-105"
+              className="inline-flex items-center justify-center w-16 sm:w-20 md:w-24 h-8 sm:h-10 md:h-12 rounded-full align-middle bg-linear-to-r from-brand-yellow-500 to-brand-yellow-400 mx-2 border border-brand-yellow-500 shadow-md text-brand-blue-900 font-display text-base sm:text-xl uppercase transition-transform duration-500 hover:scale-105"
               role="img"
               aria-label="Envíos DosRuedas"
             >
@@ -120,11 +120,11 @@ export default function EmprendedoresHome() {
             </p>
           </motion.div>
 
-          <div className="h-[2px] w-24 bg-brand-yellow-500 rounded-full pt-1" />
+          <div className="h-0.5 w-24 bg-brand-yellow-500 rounded-full pt-1" />
         </motion.div>
 
         {/* Solutions Cards Grid: Asymmetric Bento Layout with Double-Bezel Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 auto-rows-auto lg:auto-rows-[340px] grid-flow-row-dense">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 auto-rows-auto lg:auto-rows-85 grid-flow-row-dense">
           
           {/* Card 1: PyMEs (E-Commerce) - lg:col-span-7 lg:row-span-2 (Dark Navy Card with Double-Layered Glass Shell) */}
           <motion.div
@@ -157,7 +157,7 @@ export default function EmprendedoresHome() {
                   >
                     <Landmark className="h-5 w-5" />
                   </motion.div>
-                  <span className="text-[10px] font-bold tracking-widest bg-brand-blue-500 text-brand-yellow-500 px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-yellow-500/30">
+                  <span className="text-2xs font-bold tracking-widest bg-brand-blue-500 text-brand-yellow-500 px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-yellow-500/30">
                     EMPRENDEDORES
                   </span>
                 </div>
@@ -196,7 +196,7 @@ export default function EmprendedoresHome() {
               <div className="pt-6 mt-6 border-t border-white/10 relative z-10 flex justify-end">
                 <Link
                   href="/servicios/empresas-cuenta-corriente"
-                  className="inline-flex items-center justify-between rounded-full min-h-[52px] px-8 py-3.5 bg-brand-yellow-400 hover:bg-brand-yellow-300 text-brand-blue-500 font-subheading text-base font-bold uppercase tracking-wider shadow-glow-yellow transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
+                  className="inline-flex items-center justify-between rounded-full min-h-13 px-8 py-3.5 bg-brand-yellow-400 hover:bg-brand-yellow-300 text-brand-blue-500 font-subheading text-base font-bold uppercase tracking-wider shadow-glow-yellow transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
                 >
                   <span>Conocé más</span>
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-transparent text-brand-blue ml-3 transition-transform duration-300 group-hover:translate-x-1">
@@ -213,7 +213,7 @@ export default function EmprendedoresHome() {
             className="lg:col-span-5 lg:row-span-1 double-bezel-outer p-2 rounded-2xl bg-brand-yellow-500/10 border border-brand-yellow-500/20 hover:border-brand-blue-700/30 hover:bg-brand-yellow-500/15 hover:shadow-[0_20px_40px_-15px_rgba(255,236,1,0.15)] group overflow-hidden flex flex-col"
             whileHover={reduceMotion ? undefined : { y: -6, transition: snappySpring }}
           >
-            <div className="double-bezel-inner bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 p-6 sm:p-8 rounded-xl border border-brand-yellow-500/20 shadow-sm flex flex-col justify-between h-full relative overflow-hidden text-left text-brand-blue-900 flex-1">
+            <div className="double-bezel-inner bg-linear-to-br from-brand-yellow-500 to-brand-yellow-400 p-6 sm:p-8 rounded-xl border border-brand-yellow-500/20 shadow-sm flex flex-col justify-between h-full relative overflow-hidden text-left text-brand-blue-900 flex-1">
               {/* Subtle Radial Glow */}
               <motion.div
                 className="absolute bottom-0 right-0 w-36 h-36 rounded-full bg-white/20 blur-2xl pointer-events-none"
@@ -238,7 +238,7 @@ export default function EmprendedoresHome() {
                   >
                     <ShoppingBag className="h-5 w-5" />
                   </motion.div>
-                  <span className="text-[10px] font-bold tracking-widest bg-brand-blue-500 text-white px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-blue-500/30">
+                  <span className="text-2xs font-bold tracking-widest bg-brand-blue-500 text-white px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-blue-500/30">
                     MERCADOLIBRE
                   </span>
                 </div>
@@ -298,7 +298,7 @@ export default function EmprendedoresHome() {
                   >
                     <Building2 className="h-5 w-5" />
                   </motion.div>
-                  <span className="text-[10px] font-bold tracking-widest bg-brand-blue-50 text-brand-blue-500 px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-blue-100">
+                  <span className="text-2xs font-bold tracking-widest bg-brand-blue-50 text-brand-blue-500 px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-blue-100">
                     CORPORATIVO
                   </span>
                 </div>
@@ -339,7 +339,7 @@ export default function EmprendedoresHome() {
             Marcas locales que confían en nosotros
           </p>
           <div
-            className="relative w-full overflow-hidden py-4 select-none [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
+            className="relative w-full overflow-hidden py-4 select-none mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
           >
             <div className="flex gap-16 w-max animate-logos-scroll hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]">
               {/* Set 1 */}

@@ -120,7 +120,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
                 {opt.badge && (
                   <span
                     className={cn(
-                      'font-subheading text-[10px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-full',
+                      'font-subheading text-2xs uppercase tracking-wider font-bold px-2.5 py-1 rounded-full',
                       isChecked && type.includes('EXPRESS')
                         ? 'bg-brand-yellow-500 text-brand-blue-500'
                         : 'bg-brand-blue-50 text-brand-blue-500'
@@ -140,7 +140,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
                       : 'border-brand-blue-200 bg-white'
                   )}
                 >
-                  {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
+                  {isChecked && <Check className="w-3.5 h-3.5 stroke-3" />}
                 </div>
               </div>
 

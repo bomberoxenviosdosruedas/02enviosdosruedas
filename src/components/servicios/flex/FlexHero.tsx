@@ -57,11 +57,11 @@ function EtiquetaFlex() {
       {/* Los dos orificios: son los que hacen que el rectángulo se lea etiqueta. */}
       <span
         aria-hidden="true"
-        className="absolute left-[-11px] top-1/2 h-[18px] w-[18px] -translate-y-1/2 rounded-full bg-brand-blue-500"
+        className="absolute -left-2.75 top-1/2 h-4.5 w-4.5 -translate-y-1/2 rounded-full bg-brand-blue-500"
       />
       <span
         aria-hidden="true"
-        className="absolute right-[-11px] top-1/2 h-[18px] w-[18px] -translate-y-1/2 rounded-full bg-brand-blue-500"
+        className="absolute -right-2.75 top-1/2 h-4.5 w-4.5 -translate-y-1/2 rounded-full bg-brand-blue-500"
       />
 
       <div className="rounded-2xl border-2 border-dashed border-brand-blue-200 bg-white px-5 py-4 text-left shadow-[0_24px_48px_-16px_rgba(255,255,255,0.18)]">
@@ -69,7 +69,7 @@ function EtiquetaFlex() {
           <span className="font-display text-3xl uppercase leading-none tracking-[-0.01em] text-brand-blue-500">
             Entrega hoy
           </span>
-          <span className="shrink-0 rounded-md bg-brand-yellow-500 px-2 py-1.5 font-subheading text-xs uppercase tracking-[0.1em] text-brand-blue-500">
+          <span className="shrink-0 rounded-md bg-brand-yellow-500 px-2 py-1.5 font-subheading text-xs uppercase tracking-widest text-brand-blue-500">
             Same-day
           </span>
         </div>
@@ -80,7 +80,7 @@ function EtiquetaFlex() {
               key={k}
               className="flex items-baseline justify-between gap-3 border-b border-dashed border-brand-blue-100 py-2 last:border-b-0"
             >
-              <dt className="font-subheading text-sm uppercase tracking-[0.1em] text-brand-blue-400">
+              <dt className="font-subheading text-sm uppercase tracking-widest text-brand-blue-400">
                 {k}
               </dt>
               <dd className="text-right font-mono text-sm font-bold tabular-nums text-brand-blue-500">
@@ -167,10 +167,10 @@ export default function FlexHero() {
             ))}
           </svg>
 
-          <span className="absolute left-[6%] top-0 font-mono text-[10px] uppercase tracking-[0.18em] text-white/85 tabular-nums">
+          <span className="absolute left-[6%] top-0 font-mono text-2xs uppercase tracking-[0.18em] text-white/85 tabular-nums">
             Corte {FLEX_CUTOFF_TIME}
           </span>
-          <span className="absolute right-[6%] top-0 font-mono text-[10px] uppercase tracking-[0.18em] text-white/85 tabular-nums">
+          <span className="absolute right-[6%] top-0 font-mono text-2xs uppercase tracking-[0.18em] text-white/85 tabular-nums">
             Entrega {FLEX_DELIVERY_DEADLINE}
           </span>
 
@@ -178,8 +178,8 @@ export default function FlexHero() {
               `preserveAspectRatio="none"` no lo deforma. El wrapper mide todo el
               recorrido (6% → 94%) para que `translateX(100%)` sea el 100% real. */}
           <div className="absolute left-[6%] top-[66%] h-0 w-[88%] motion-safe:animate-shuttle">
-            <div className="absolute left-0 -translate-y-1/2 h-[16px] w-[32px] rounded-md bg-brand-yellow-500 shadow-[0_0_18px_rgba(255,236,1,0.45)]">
-              <span className="block mx-auto mt-[6px] h-[3px] w-[16px] rounded-full bg-brand-blue-500" />
+            <div className="absolute left-0 -translate-y-1/2 h-4 w-8 rounded-md bg-brand-yellow-500 shadow-[0_0_18px_rgba(255,236,1,0.45)]">
+              <span className="block mx-auto mt-1.5 h-0.75 w-4 rounded-full bg-brand-blue-500" />
             </div>
           </div>
         </div>
@@ -240,7 +240,7 @@ export default function FlexHero() {
                     key={paso.n}
                     className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 font-subheading text-base uppercase tracking-[0.07em] text-white"
                   >
-                    <span className="inline-flex h-[22px] w-[22px] items-center justify-center rounded-full bg-brand-yellow-500 font-mono text-[12px] font-bold text-brand-blue-500">
+                    <span className="inline-flex h-5.5 w-5.5 items-center justify-center rounded-full bg-brand-yellow-500 font-mono text-[12px] font-bold text-brand-blue-500">
                       {paso.n}
                     </span>
                     {paso.texto}

@@ -84,7 +84,7 @@ export default function FaqHero() {
           <ul className="mx-auto flex h-full max-w-3xl items-end justify-center gap-4 px-6 pt-2 sm:gap-8 sm:pt-3 lg:pt-4">
             {bars.map((bar) => (
               <li key={bar.id} className="flex h-full w-14 flex-col items-center gap-1.5 sm:w-16">
-                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/85 tabular-nums">
+                <span className="font-mono text-2xs uppercase tracking-[0.18em] text-white/85 tabular-nums">
                   {bar.count}
                 </span>
                 <span className="flex w-full flex-1 flex-col justify-end">
@@ -93,7 +93,7 @@ export default function FaqHero() {
                     style={{ transform: `scaleY(${bar.scaleY})`, animationDelay: `${bar.delay}s` }}
                   />
                 </span>
-                <span className="font-subheading text-[10px] uppercase tracking-[0.16em] text-brand-yellow-500">
+                <span className="font-subheading text-2xs uppercase tracking-[0.16em] text-brand-yellow-500">
                   {bar.short}
                 </span>
               </li>

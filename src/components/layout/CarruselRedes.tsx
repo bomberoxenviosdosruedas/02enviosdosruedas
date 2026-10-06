@@ -91,11 +91,11 @@ export default function CarruselRedes() {
       // Estética propia Instagram (Gradient Sunset & Pink/Purple)
       cardBg: 'bg-gradient-to-br from-[#833AB4]/10 via-[#FD1D1D]/10 to-[#F77737]/10 hover:from-[#833AB4]/15 hover:via-[#FD1D1D]/15 hover:to-[#F77737]/15',
       cardBorder: 'border-[#E1306C]/30 hover:border-[#E1306C]/70',
-      badgeBg: 'bg-gradient-to-r from-[#833AB4]/20 via-[#FD1D1D]/20 to-[#F77737]/20 text-brand-blue-50 border-[#E1306C]/40',
-      iconBoxBg: 'bg-gradient-to-tr from-[#F56040] via-[#FD1D1D] to-[#833AB4] text-white shadow-lg shadow-[#E1306C]/40',
+      badgeBg: 'bg-linear-to-r from-[#833AB4]/20 via-[#FD1D1D]/20 to-[#F77737]/20 text-brand-blue-50 border-[#E1306C]/40',
+      iconBoxBg: 'bg-linear-to-tr from-[#F56040] via-[#FD1D1D] to-[#833AB4] text-white shadow-lg shadow-[#E1306C]/40',
       handleColor: 'text-brand-blue-50',
       watermarkColor: 'text-[#E1306C]/10 group-hover:text-[#E1306C]/20',
-      btnBg: 'bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-95 text-white shadow-md shadow-[#FD1D1D]/30',
+      btnBg: 'bg-linear-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-95 text-white shadow-md shadow-[#FD1D1D]/30',
       btnIconBg: 'bg-white/20 text-white',
       glow: 'from-[#E1306C]/20 to-transparent',
     },
@@ -130,7 +130,7 @@ export default function CarruselRedes() {
     >
       {/* Background Decorative Mesh & Depth Highlights */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
-      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-brand-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-100 h-100 bg-brand-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -164,9 +164,9 @@ export default function CarruselRedes() {
                 className={`social-block group relative rounded-2xl p-2 transition-[transform,border-color,box-shadow] duration-300 border ${net.cardBorder} bg-brand-blue/80 backdrop-blur-md hover:-translate-y-1.5 shadow-xl`}
               >
                 {/* Internal Glow on Hover */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-b ${net.glow} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
+                <div className={`absolute inset-0 rounded-2xl bg-linear-to-b ${net.glow} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
 
-                <div className={`relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden ${net.cardBg} border border-white/10 transition-colors`}>
+                <div className={`relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden ${net.cardBg} border border-white/10 transition-colors`}>
                   
                   {/* Background Watermark Icon that enlarges and tilts on hover */}
                   <div className={`absolute -right-8 -bottom-8 ${net.watermarkColor} transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none`}>
@@ -176,7 +176,7 @@ export default function CarruselRedes() {
                   {/* Top Area: Badge & Branded Icon Box */}
                   <div className="z-10 text-left space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className={`text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border ${net.badgeBg}`}>
+                      <span className={`text-2xs font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border ${net.badgeBg}`}>
                         {net.badgeText}
                       </span>
 

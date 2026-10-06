@@ -508,7 +508,7 @@ export default function ServicePricing({
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(currentColor_1px,transparent_1px)] bg-[size:24px_24px] opacity-[0.06]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(currentColor_1px,transparent_1px)] bg-size-[24px_24px] opacity-[0.06]"
       />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl space-y-12 px-4 sm:px-6 lg:space-y-14 lg:px-8">

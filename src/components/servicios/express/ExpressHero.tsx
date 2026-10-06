@@ -26,8 +26,8 @@ export default function ExpressHero() {
     >
       <HeroProceduralBackground variant="express" tone="blue" />
       <div className="mx-auto w-full max-w-[1280px] px-4 pb-12 pt-8 md:px-8 lg:py-14">
-        <div className="grid items-center gap-6 lg:min-h-[560px] lg:grid-cols-12">
-          <div className="relative z-[2] max-w-[640px] rounded-xl bg-brand-blue-500 p-6 lg:col-span-6 lg:col-start-1 lg:row-start-1 lg:p-10">
+        <div className="grid items-center gap-6 lg:min-h-140 lg:grid-cols-12">
+          <div className="relative z-2 max-w-160 rounded-xl bg-brand-blue-500 p-6 lg:col-span-6 lg:col-start-1 lg:row-start-1 lg:p-10">
             <Badge
               variant="accent"
               size="lg"
@@ -66,7 +66,7 @@ export default function ExpressHero() {
                 href="https://wa.me/542236602699?text=Hola!%20Quiero%20hacer%20un%20env%C3%ADo%20Express"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center gap-2 rounded-sm font-subheading text-base uppercase tracking-[0.05em] text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 transition-colors hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500"
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-sm font-subheading text-base uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 transition-colors hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500"
               >
                 <FaWhatsapp className="h-5 w-5 shrink-0" aria-hidden="true" />
                 O escribinos por WhatsApp
@@ -75,7 +75,7 @@ export default function ExpressHero() {
             </div>
           </div>
 
-          <ExpressHeroCollage className="z-[1] h-[380px] md:h-[460px] lg:col-span-8 lg:col-start-5 lg:row-start-1 lg:h-[600px]" />
+          <ExpressHeroCollage className="z-1 h-95 md:h-115 lg:col-span-8 lg:col-start-5 lg:row-start-1 lg:h-150" />
         </div>
       </div>
     </section>

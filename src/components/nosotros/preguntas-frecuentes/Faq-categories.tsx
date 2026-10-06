@@ -105,7 +105,7 @@ export function FaqCategories() {
                   onClick={() => handleCategorySelect(category.id)}
                   aria-pressed={isActive}
                   className={cn(
-                    'group relative text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 min-h-[52px] cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-blue-700/50',
+                    'group relative text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 min-h-13 cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-blue-700/50',
                     isActive
                       ? 'bg-brand-blue-700 border-brand-blue-700 text-white shadow-lg scale-[1.02] transform -rotate-1'
                       : 'bg-white border-brand-blue-100 text-brand-blue-700 hover:border-brand-blue-700 hover:bg-brand-blue-50/40'

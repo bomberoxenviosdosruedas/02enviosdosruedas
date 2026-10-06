@@ -93,7 +93,7 @@ export default function ServicesOverview() {
       city: 'Todo Mar del Plata',
       founded: '+7 Años de Trayectoria',
       imageUrl: '/cards/fondo_express.webp',
-      cardStyleCenter: 'border-brand-yellow-500 bg-gradient-to-br from-brand-blue-500 to-brand-blue-500 shadow-cta-glow text-white',
+      cardStyleCenter: 'border-brand-yellow-500 bg-linear-to-br from-brand-blue-500 to-brand-blue-500 shadow-cta-glow text-white',
       cardStyleSide: 'border-brand-blue-500/20 bg-brand-blue-500 text-white/90',
       textColor: 'text-white',
       titleColor: 'text-white group-hover:text-brand-yellow-500',
@@ -130,7 +130,7 @@ export default function ServicesOverview() {
       city: 'Todo Gral. Pueyrredón',
       founded: 'Tarifa Fija Especial',
       imageUrl: '/cards/fondo_lowcost.webp',
-      cardStyleCenter: 'border-brand-blue-500 bg-gradient-to-br from-white to-brand-blue-50 shadow-[8px_8px_0px_rgba(9,80,246,0.2)] text-brand-blue-500',
+      cardStyleCenter: 'border-brand-blue-500 bg-linear-to-br from-white to-brand-blue-50 shadow-[8px_8px_0px_rgba(9,80,246,0.2)] text-brand-blue-500',
       cardStyleSide: 'border-brand-blue-100 bg-white text-brand-blue-500',
       textColor: 'text-brand-blue-500',
       titleColor: 'text-brand-blue-500 group-hover:text-brand-blue-500',
@@ -167,7 +167,7 @@ export default function ServicesOverview() {
       city: 'Mar del Plata urbana',
       founded: `Corte extendido ${FLEX_CUTOFF_TIME}`,
       imageUrl: '/cards/fondo_flex.webp',
-      cardStyleCenter: 'border-brand-blue-500 bg-gradient-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-[8px_8px_0px_rgba(255,236,1,0.25)] text-brand-blue-500',
+      cardStyleCenter: 'border-brand-blue-500 bg-linear-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-[8px_8px_0px_rgba(255,236,1,0.25)] text-brand-blue-500',
       cardStyleSide: 'border-brand-yellow-500/30 bg-brand-yellow-500 text-brand-blue-500',
       textColor: 'text-brand-blue-500',
       titleColor: 'text-brand-blue-500 group-hover:text-brand-blue-500',
@@ -204,7 +204,7 @@ export default function ServicesOverview() {
       city: 'Depósito Friuli 1972',
       founded: 'Stock guardado',
       imageUrl: '/cards/fondo_emprendedores.webp',
-      cardStyleCenter: 'border-brand-blue-500 bg-gradient-to-br from-brand-blue-500 to-brand-blue-500 shadow-2xl text-white',
+      cardStyleCenter: 'border-brand-blue-500 bg-linear-to-br from-brand-blue-500 to-brand-blue-500 shadow-2xl text-white',
       cardStyleSide: 'border-brand-blue-500/20 bg-brand-blue-500 text-white/90',
       textColor: 'text-white',
       titleColor: 'text-white group-hover:text-brand-yellow-500',
@@ -333,7 +333,7 @@ export default function ServicesOverview() {
       {/* Background Decorative Asymmetric Glows */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-brand-blue-500/10 rounded-full blur-3xl pointer-events-none" />
       <motion.div
-        className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-yellow-500/5 rounded-full blur-3xl pointer-events-none"
+        className="absolute bottom-0 right-0 w-125 h-125 bg-brand-yellow-500/5 rounded-full blur-3xl pointer-events-none"
         animate={reduceMotion ? {} : { scale: [1, 1.05, 1] }}
         transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
       />
@@ -402,7 +402,7 @@ export default function ServicesOverview() {
         {/* 3D Tilted Card Carousel Container */}
         <div
           ref={carouselRef}
-          className="relative h-[500px] sm:h-[540px] flex items-center justify-center my-8 [transform-style:preserve-3d]"
+          className="relative h-125 sm:h-135 flex items-center justify-center my-8 transform-3d"
         >
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -421,7 +421,7 @@ export default function ServicesOverview() {
                     setIsAutoRotate(false);
                   }
                 }}
-                className="absolute w-[290px] sm:w-[350px] h-[440px] sm:h-[490px] rounded-3xl cursor-pointer select-none group text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink"
+                className="absolute w-72.5 sm:w-87.5 h-110 sm:h-122.5 rounded-3xl cursor-pointer select-none group text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink"
                 style={{
                   transformStyle: 'preserve-3d',
                   zIndex: transform.zIndex,
@@ -460,7 +460,7 @@ export default function ServicesOverview() {
                       className={`object-cover ${service.imgBlend}`}
                       priority={index === 0}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-500/80 via-brand-blue-500/20 to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-linear-to-t from-brand-blue-500/80 via-brand-blue-500/20 to-transparent opacity-60" />
                   </div>
 
                   {/* Center Card Ambient Glow Overlay */}
@@ -493,7 +493,7 @@ export default function ServicesOverview() {
                       <div className="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-500)]">
                         <Icon className="h-5 w-5" />
                       </div>
-                      <span className={`text-[10px] font-bold font-subheading px-2.5 py-1 rounded-full border shadow-sm ${service.badgeStyle}`}>
+                      <span className={`text-2xs font-bold font-subheading px-2.5 py-1 rounded-full border shadow-sm ${service.badgeStyle}`}>
                         {service.badge}
                       </span>
                     </motion.div>
@@ -626,7 +626,7 @@ export default function ServicesOverview() {
                     {React.createElement(selectedService.icon, { className: "w-8 h-8" })}
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-brand-yellow-500 font-subheading tracking-widest uppercase">
+                    <span className="text-2xs font-bold text-brand-yellow-500 font-subheading tracking-widest uppercase">
                       {selectedService.founded} • {selectedService.city}
                     </span>
                     <h3 id="service-modal-title" className="font-display text-3xl sm:text-4xl uppercase text-balance mt-0.5">
@@ -669,19 +669,19 @@ export default function ServicesOverview() {
                     <span className="text-xl font-bold font-subheading text-brand-yellow-500 block truncate">
                       {selectedService.stats.time}
                     </span>
-                    <span className="text-[10px] text-brand-blue-50 font-bold uppercase tracking-wider">Tiempos</span>
+                    <span className="text-2xs text-brand-blue-50 font-bold uppercase tracking-wider">Tiempos</span>
                   </div>
                   <div className="bg-brand-blue-500 border border-brand-blue-500/20 p-3 rounded-xl">
                     <span className="text-xl font-bold font-subheading text-white block truncate">
                       {selectedService.stats.price}
                     </span>
-                    <span className="text-[10px] text-brand-blue-50 font-bold uppercase tracking-wider">Precio Base</span>
+                    <span className="text-2xs text-brand-blue-50 font-bold uppercase tracking-wider">Precio Base</span>
                   </div>
                   <div className="bg-brand-blue-500 border border-brand-blue-500/20 p-3 rounded-xl">
                     <span className="text-xl font-bold font-subheading text-brand-yellow-500 block truncate">
                       {selectedService.stats.weight}
                     </span>
-                    <span className="text-[10px] text-brand-blue-50 font-bold uppercase tracking-wider">Capacidad</span>
+                    <span className="text-2xs text-brand-blue-50 font-bold uppercase tracking-wider">Capacidad</span>
                   </div>
                 </motion.div>
 

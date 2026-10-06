@@ -359,20 +359,20 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
 
         /* Double Bezel Card */
         .double-bezel {
-          @apply bg-brand-blue-50/80 border border-brand-blue-100 rounded-[1rem] p-[0.5rem] shadow-float
+          @apply bg-brand-blue-50/80 border border-brand-blue-100 rounded-xl p-2 shadow-float
                  transition-all duration-300;
         }
         .double-bezel:hover {
           @apply shadow-antigravity-deep border-brand-blue-300;
         }
         .double-bezel-inner {
-          @apply bg-white rounded-[0.75rem] shadow-inner overflow-hidden;
+          @apply bg-white rounded-lg shadow-inner overflow-hidden;
         }
 
         /* CTA Nested Pill */
         .cta-nested-pill {
           @apply inline-flex items-center justify-center gap-2 rounded-full font-subheading uppercase
-                 tracking-[.05em] font-bold cursor-pointer transition-all duration-150 ease-snappy
+                 tracking-wider font-bold cursor-pointer transition-all duration-150 ease-snappy
                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500
                  focus-visible:ring-offset-2 focus-visible:ring-offset-white
                  active:scale-[0.98] active:translate-y-[1px];
@@ -594,7 +594,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
 
                 {/* Dynamic Path & File existence status */}
                 <div className="bg-brand-blue-50 p-4 rounded-2xl border border-brand-blue-100 space-y-2">
-                  <div className="text-[10px] font-bold uppercase text-brand-blue-300">Ruta Resultante:</div>
+                  <div className="text-2xs font-bold uppercase text-brand-blue-300">Ruta Resultante:</div>
                   <code className="text-xs font-semibold text-brand-blue-600 font-mono block break-all">
                     /img/{selectedFolder}/{filename || '[nombre-de-archivo]'}
                   </code>
@@ -627,7 +627,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                     placeholder="Ej: Mapa de calor ilustrado para la sección de entregas express."
                     required
                     rows={3}
-                    className="input-field resize-none min-h-[72px]"
+                    className="input-field resize-none min-h-18"
                     aria-label="Descripción de la imagen"
                   />
                 </div>
@@ -675,7 +675,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                     <div className="bg-brand-blue-700 text-white p-5 flex flex-wrap items-center justify-between gap-4">
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
-                          <span className="px-2 py-0.5 rounded bg-brand-yellow text-brand-blue text-[10px] font-bold font-mono">
+                          <span className="px-2 py-0.5 rounded bg-brand-yellow text-brand-blue text-2xs font-bold font-mono">
                             PATH
                           </span>
                           <code className="text-sm font-semibold text-brand-yellow font-mono">
@@ -748,7 +748,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                             onChange={(e) => setPromptTexts((prev) => ({ ...prev, [image.id]: e.target.value }))}
                             placeholder="Ingresá la descripción estructurada del prompt o usá las sugerencias de IA…"
                             rows={3}
-                            className="input-field font-sans resize-none min-h-[72px]"
+                            className="input-field font-sans resize-none min-h-18"
                             aria-label="Texto del prompt"
                           />
                           <div className="flex flex-wrap gap-2">

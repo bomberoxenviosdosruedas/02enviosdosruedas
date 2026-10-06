@@ -79,7 +79,7 @@ export default function AboutTeam() {
                         <div className="w-10 h-10 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100">
                           <Icon className="w-5 h-5 text-brand-blue" />
                         </div>
-                        <span className="text-[10px] font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full font-bold transform -rotate-1">
+                        <span className="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full font-bold transform -rotate-1">
                           {stat.tag}
                         </span>
                       </div>

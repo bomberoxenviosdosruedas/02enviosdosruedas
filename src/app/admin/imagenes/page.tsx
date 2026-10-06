@@ -17,7 +17,7 @@ export default async function AdminImagenesPage() {
   ]);
 
   return (
-    <main className="min-h-[100dvh] bg-white pt-32 pb-20">
+    <main className="min-h-dvh bg-white pt-32 pb-20">
       <AdminImagenesClient initialImageList={images} initialFolders={folders} />
     </main>
   );

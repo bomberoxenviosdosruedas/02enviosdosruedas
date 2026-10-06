@@ -34,11 +34,11 @@ export const StepperHorizontal: React.FC<StepperHorizontalProps> = ({
     <div className={cn('w-full py-4', className)}>
       <div className="relative flex items-center justify-between w-full">
         {/* Background Step Line */}
-        <div className="absolute top-5 left-0 right-0 h-0.5 bg-brand-blue-100 -z-0" />
+        <div className="absolute top-5 left-0 right-0 h-0.5 bg-brand-blue-100 z-0" />
 
         {/* Active Step Progress Line */}
         <div
-          className="absolute top-5 left-0 h-0.5 bg-brand-yellow-500 transition-all duration-300 -z-0"
+          className="absolute top-5 left-0 h-0.5 bg-brand-yellow-500 transition-all duration-300 z-0"
           style={{
             width: `${(Math.min(currentStep, steps.length - 1) / Math.max(steps.length - 1, 1)) * 100}%`,
           }}
@@ -78,14 +78,14 @@ export const StepperHorizontal: React.FC<StepperHorizontalProps> = ({
                 )}
               >
                 {isCompleted ? (
-                  <Check className="w-5 h-5 stroke-[3] text-brand-blue-500" />
+                  <Check className="w-5 h-5 stroke-3 text-brand-blue-500" />
                 ) : (
                   <span>{idx + 1}</span>
                 )}
               </div>
 
               {/* Step Label */}
-              <div className="mt-2 text-center max-w-[120px]">
+              <div className="mt-2 text-center max-w-30">
                 <span
                   className={cn(
                     'block font-subheading text-xs uppercase tracking-wider font-bold transition-colors',

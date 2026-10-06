@@ -176,7 +176,7 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
               key={wordIndex}
               aria-hidden="true"
               // pt/-mt: widen the clip box upward so accents (Á, Í) survive tight leading without shifting layout
-              className={cn("inline-flex overflow-hidden pt-[0.2em] -mt-[0.2em]", wordLevelClassName)}
+              className={cn("inline-flex overflow-hidden pt-[0.2em] mt-[-0.2em]", wordLevelClassName)}
             >
               {wordObj.characters.map((char, charIndex) => (
                 <span

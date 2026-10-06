@@ -80,7 +80,7 @@ function ReviewCard({ review }: { review: Review }) {
 
   const cardStyles = {
     blue: {
-      article: 'bg-brand-blue-500 text-white shadow-[0_16px_40px_rgba(9,80,246,0.18)]',
+      article: 'bg-brand-blue-500 text-white shadow-elevated',
       dateBadge: 'bg-brand-yellow-500 text-brand-blue-500',
       starsColor: 'text-brand-yellow-500',
       headingColor: 'text-white',
@@ -113,7 +113,7 @@ function ReviewCard({ review }: { review: Review }) {
 
   return (
     <article className={cn(
-      'card-token flex flex-col justify-between p-8 min-h-[340px]',
+      'card-token flex flex-col justify-between p-8 min-h-85',
       cardStyles.article
     )}>
       <div>
@@ -147,7 +147,7 @@ function ReviewCard({ review }: { review: Review }) {
       {/* Author / Footer */}
       <div className={cn('pt-6 mt-6 flex items-center gap-3', cardStyles.borderColor)}>
         <div className={cn(
-          'w-10 h-10 rounded-full font-bold flex items-center justify-center text-sm flex-shrink-0 shadow-sm',
+          'w-10 h-10 rounded-full font-bold flex items-center justify-center text-sm shrink-0 shadow-sm',
           cardStyles.avatarBg
         )}>
           {review.author.charAt(0)}
@@ -192,7 +192,7 @@ export default function SocialProofSection() {
             </h1>
 
             {/* Google Maps Link Button */}
-            <div className="flex-shrink-0 pt-2 lg:pt-0">
+            <div className="shrink-0 pt-2 lg:pt-0">
               <Link
                 href="https://share.google/ofw5wAQt3Fc1dArom"
                 target="_blank"

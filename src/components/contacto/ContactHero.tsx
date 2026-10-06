@@ -109,10 +109,10 @@ export default function ContactHero() {
 
             {/* El token es un div real: mide todo el recorrido, así
                 `translateX(100%)` es el 100% real y no el ancho del token. El
-                `-left-[7px]` compensa la mitad de su propio ancho para que
+                `-left-1.75` compensa la mitad de su propio ancho para que
                 arranque y termine centrado sobre cada terminal. */}
             <div className="absolute left-0 top-[31%] h-0 w-full motion-safe:animate-roundtrip">
-              <span className="absolute -left-[7px] -translate-y-1/2 block h-3.5 w-3.5 rounded-full bg-brand-yellow-500 shadow-[0_0_18px_rgba(255,236,1,0.45)]" />
+              <span className="absolute -left-1.75 -translate-y-1/2 block h-3.5 w-3.5 rounded-full bg-brand-yellow-500 shadow-[0_0_18px_rgba(255,236,1,0.45)]" />
             </div>
 
             <span className="absolute left-0 bottom-0 font-subheading text-[11px] uppercase tracking-[0.18em] text-white/85">
@@ -173,7 +173,7 @@ export default function ContactHero() {
                   la acción baja a una segunda fila porque 44px de glifo + número
                   + botón no entran en 320px. */}
               <ul className="grid gap-2.5 border-t border-white/15 pt-6">
-                <li className="grid grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-white/15 bg-white/[0.08] p-3 sm:grid-cols-[44px_1fr_auto] sm:pr-4">
+                <li className="grid grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-white/15 bg-white/8 p-3 sm:grid-cols-[44px_1fr_auto] sm:pr-4">
                   {/* Amarillo de fondo con el glifo verde: la única excepción
                       cromática que autoriza `tokens-colores.md` §7.6. El verde
                       va en el `fill` del SVG y no en una clase, porque las
@@ -189,7 +189,7 @@ export default function ContactHero() {
                   <CopyPhone className="col-start-2 justify-self-start sm:col-start-3 sm:justify-self-end" />
                 </li>
 
-                <li className="grid grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-white/15 bg-white/[0.08] p-3 sm:grid-cols-[44px_1fr_auto] sm:pr-4">
+                <li className="grid grid-cols-[44px_1fr] items-center gap-3 rounded-2xl border border-white/15 bg-white/8 p-3 sm:grid-cols-[44px_1fr_auto] sm:pr-4">
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white">
                     <MapPin className="h-5 w-5 text-brand-blue-500" aria-hidden="true" />
                   </span>
@@ -218,7 +218,7 @@ export default function ContactHero() {
                   </span>
                 </div>
 
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/20">
+                <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border border-white/20">
                   <Image
                     src="/heroes/contacto-mensaje.webp"
                     alt="Teléfono y sobre con el mensaje Escribinos hoy, de Envíos DosRuedas en Mar del Plata"
@@ -231,13 +231,13 @@ export default function ContactHero() {
 
                 <div className="pt-3 border-t border-white/15 grid grid-cols-2 gap-3 font-mono text-[11px] sm:text-xs text-white/85 tabular-nums">
                   <div>
-                    <span className="block font-subheading text-[10px] uppercase tracking-widest text-brand-yellow-500">
+                    <span className="block font-subheading text-2xs uppercase tracking-widest text-brand-yellow-500">
                       Lun a Vie
                     </span>
                     <span className="block mt-1">{OPERATING_HOURS.weekdays}</span>
                   </div>
                   <div>
-                    <span className="block font-subheading text-[10px] uppercase tracking-widest text-brand-yellow-500">
+                    <span className="block font-subheading text-2xs uppercase tracking-widest text-brand-yellow-500">
                       Sábado
                     </span>
                     <span className="block mt-1">{OPERATING_HOURS.saturdays}</span>

@@ -163,7 +163,7 @@ export default function DropoffCalculator() {
         </div>
 
         {/* Código de barras decorativo */}
-        <div aria-hidden="true" className="flex items-end gap-[3px] h-9">
+        <div aria-hidden="true" className="flex items-end gap-0.75 h-9">
           {BARS.map((b) => (
             <span
               key={b.k}

@@ -148,7 +148,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                 onClick={() => setSelectedPage(pageName)}
                 className={`px-4 py-2 rounded-xl font-mono text-[11px] uppercase tracking-wider border-2 border-brand-blue transition-all duration-150 ${
                   selectedPage === pageName
-                    ? 'bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)] translate-x-[-1px] translate-y-[-1px]'
+                    ? 'bg-brand-yellow text-brand-blue shadow-[2px_2px_0px_var(--color-brand-blue)] -translate-x-px -translate-y-px'
                     : 'bg-brand-white-50 hover:bg-brand-blue-50 text-brand-blue shadow-sm'
                 }`}
               >
@@ -220,11 +220,11 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                     <h2 className="text-xl sm:text-2xl font-display text-brand-blue uppercase tracking-wide text-left">
                       {pageName}
                     </h2>
-                    <span className="px-2 py-0.5 bg-brand-blue text-white rounded-md text-[10px] font-mono font-bold">
+                    <span className="px-2 py-0.5 bg-brand-blue text-white rounded-md text-2xs font-mono font-bold">
                       {items.length} componentes
                     </span>
                     {reviewedCount > 0 && (
-                      <span className="px-2 py-0.5 bg-brand-blue-700 text-white rounded-md text-[10px] font-mono font-bold flex items-center gap-1">
+                      <span className="px-2 py-0.5 bg-brand-blue-700 text-white rounded-md text-2xs font-mono font-bold flex items-center gap-1">
                         <CheckCircle className="h-3 w-3" />
                         {reviewedCount} revisados
                       </span>
@@ -304,7 +304,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
 
                           {/* Submit form */}
                           <div className="pt-3 border-t border-brand-blue-50">
-                            <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-brand-blue mb-1.5">
+                            <label className="block text-2xs font-mono font-bold uppercase tracking-wider text-brand-blue mb-1.5">
                               ¿Qué querés ajustar, agregar o modificar? (voseo)
                             </label>
                             <textarea
@@ -319,7 +319,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                               <button
                                 onClick={() => handleSubmit(item)}
                                 disabled={isPending}
-                                className="px-3 py-1.5 bg-brand-yellow text-brand-blue font-mono font-bold text-[10px] uppercase tracking-wider border-2 border-brand-blue rounded-lg shadow-[2px_2px_0px_var(--color-brand-blue)] hover:shadow-[1px_1px_0px_var(--color-brand-blue)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                                className="px-3 py-1.5 bg-brand-yellow text-brand-blue font-mono font-bold text-2xs uppercase tracking-wider border-2 border-brand-blue rounded-lg shadow-[2px_2px_0px_var(--color-brand-blue)] hover:shadow-[1px_1px_0px_var(--color-brand-blue)] hover:translate-x-px hover:translate-y-px transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
                               >
                                 {isPending ? (
                                   <RefreshCw className="h-3 w-3 animate-spin" />
@@ -356,7 +356,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
             </p>
           </div>
         ) : (
-          <div className="space-y-6 max-h-[500px] overflow-y-auto pr-2">
+          <div className="space-y-6 max-h-125 overflow-y-auto pr-2">
             {feedbackList.map((feedback) => (
               <div
                 key={feedback.id}
@@ -367,11 +367,11 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                     <span className="px-2 py-0.5 bg-brand-blue text-white font-mono text-[9px] font-bold rounded uppercase">
                       {feedback.page}
                     </span>
-                    <span className="font-mono text-[10px] text-brand-blue-700 font-semibold truncate max-w-xs sm:max-w-md select-all">
+                    <span className="font-mono text-2xs text-brand-blue-700 font-semibold truncate max-w-xs sm:max-w-md select-all">
                       {feedback.componentPath}
                     </span>
                   </div>
-                  <span className="text-[10px] text-brand-blue-700 font-sans flex items-center gap-1">
+                  <span className="text-2xs text-brand-blue-700 font-sans flex items-center gap-1">
                     <Clock className="h-3.5 w-3.5" />
                     {new Date(feedback.createdAt).toLocaleString('es-AR')}
                   </span>

@@ -117,7 +117,7 @@ export default function GuiaEnviosFlexPage() {
   ];
 
   return (
-    <main className="min-h-[100dvh] bg-white text-brand-blue-1000 relative overflow-hidden">
+    <main className="min-h-dvh bg-white text-brand-blue-1000 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}

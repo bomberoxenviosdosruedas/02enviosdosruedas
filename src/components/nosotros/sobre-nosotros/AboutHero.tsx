@@ -98,7 +98,7 @@ export default function AboutHero() {
           vacío. Va en z-0 y `aria-hidden` — el texto real es el H1. */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-[8%] left-[-1%] z-0 whitespace-nowrap font-display text-[clamp(90px,17vw,230px)] uppercase leading-[0.8] text-white/[0.06]"
+        className="pointer-events-none absolute bottom-[-8%] left-[-1%] z-0 whitespace-nowrap font-display text-[clamp(90px,17vw,230px)] uppercase leading-hero text-white/6"
       >
         Dos Ruedas
       </span>
@@ -112,7 +112,7 @@ export default function AboutHero() {
           {/* Línea de base: el piso desde el que sale todo. */}
           <div className="absolute inset-x-0 bottom-0 border-t border-dashed border-white/30" />
 
-          <span className="absolute bottom-2 right-6 sm:right-8 font-mono text-[10px] uppercase tracking-[0.18em] text-white/85 tabular-nums">
+          <span className="absolute bottom-2 right-6 sm:right-8 font-mono text-2xs uppercase tracking-[0.18em] text-white/85 tabular-nums">
             Base central · Friuli 1972 · MDQ
           </span>
 
@@ -212,7 +212,7 @@ export default function AboutHero() {
                 <div className="flex flex-col gap-4 rounded-[14px] bg-brand-blue-500 p-5">
                   {/* Sello de la base. El ladeo de 1,5° es lo que lo hace leer
                       como sello y no como un encabezado más. */}
-                  <div className="-rotate-[1.5deg] self-start rounded-xl border-2 border-brand-yellow-500 px-3.5 py-3">
+                  <div className="rotate-[-1.5deg] self-start rounded-xl border-2 border-brand-yellow-500 px-3.5 py-3">
                     <span className="block font-display text-3xl uppercase leading-none tracking-[-0.01em] text-brand-yellow-500">
                       Friuli 1972
                     </span>
@@ -225,7 +225,7 @@ export default function AboutHero() {
                     {credenciales.map(({ dt, dd }) => (
                       <div
                         key={dt}
-                        className="flex items-baseline justify-between gap-3 border-t border-white/[0.18] pt-2.5"
+                        className="flex items-baseline justify-between gap-3 border-t border-white/18 pt-2.5"
                       >
                         <dt className="font-subheading text-base uppercase tracking-[0.08em] text-brand-blue-50">
                           {dt}
@@ -237,7 +237,7 @@ export default function AboutHero() {
                     ))}
                   </dl>
 
-                  <dl className="grid gap-1.5 border-t border-white/[0.18] pt-3 font-mono text-xs tabular-nums text-brand-blue-50">
+                  <dl className="grid gap-1.5 border-t border-white/18 pt-3 font-mono text-xs tabular-nums text-brand-blue-50">
                     {hours.map((row) => (
                       <div key={row.label} className="flex items-baseline justify-between gap-3">
                         <dt className="font-subheading text-xs uppercase tracking-wider">
@@ -248,7 +248,7 @@ export default function AboutHero() {
                     ))}
                   </dl>
 
-                  <p className="flex items-center justify-between gap-3 border-t border-white/[0.18] pt-3 font-mono text-xs tabular-nums text-brand-blue-50">
+                  <p className="flex items-center justify-between gap-3 border-t border-white/18 pt-3 font-mono text-xs tabular-nums text-brand-blue-50">
                     <span className="flex items-center gap-1.5 truncate">
                       <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                       Mar del Plata

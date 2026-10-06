@@ -23,7 +23,7 @@ export interface BentoGridItemProps extends React.HTMLAttributes<HTMLDivElement>
  * BentoGrid Component
  * Asymmetric 12-column layout container for service showcases and features.
  * Follows DESIGN.md specifications:
- * - Base: grid-cols-12, gap-6 lg:gap-8, auto-rows-[380px]
+ * - Base: grid-cols-12, gap-6 lg:gap-8, auto-rows-95
  * - Span 7 (Hero cards): Express, E-Commerce 3PL -> lg:col-span-7
  * - Span 5 (Standard cards): LowCost, Flex -> lg:col-span-5
  * - Span 12 (Full width): Cotizador CTA -> col-span-12

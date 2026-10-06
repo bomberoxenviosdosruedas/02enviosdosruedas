@@ -81,7 +81,7 @@ function BarraJornada() {
 
       {/* Barra + marcas. `min-w` porque en móvil las 7 marcas no entran en 300 px. */}
       <div className="-mx-1 overflow-x-auto px-1 pb-1">
-        <div className="min-w-[340px]">
+        <div className="min-w-85">
           <div className="relative h-11 overflow-hidden rounded-lg bg-brand-blue-50">
             {/* Carga: desde la apertura hasta el corte. */}
             <div
@@ -125,7 +125,7 @@ function BarraJornada() {
       {/* Los dos hitos, en la misma fila que la leyenda para que la barra no crezca. */}
       <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 font-sans text-xs text-brand-blue-500">
         <li className="inline-flex items-center gap-2">
-          <span className="h-[3px] w-6 bg-brand-blue-500" aria-hidden="true" />
+          <span className="h-0.75 w-6 bg-brand-blue-500" aria-hidden="true" />
           <span className="font-mono tabular-nums">{LOWCOST_CUTOFF_TIME}</span> cortás
         </li>
         <li className="inline-flex items-center gap-2">
@@ -165,7 +165,7 @@ export default function LowCostHero() {
         {/* Firma visual: el reloj de la ventana 13:00 → 19:00. */}
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
           <svg
-            className="absolute -right-[10%] -bottom-[14%] w-[300px] h-[300px] sm:w-[440px] sm:h-[440px] lg:w-[560px] lg:h-[560px] opacity-[0.28]"
+            className="absolute right-[-10%] bottom-[-14%] w-75 h-75 sm:w-110 sm:h-110 lg:w-140 lg:h-140 opacity-[0.28]"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="-150 -150 300 300"
           >

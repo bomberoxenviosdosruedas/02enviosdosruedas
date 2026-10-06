@@ -39,7 +39,7 @@ const tiles: Tile[] = [
   {
     key: 'moto',
     className:
-      'left-0 top-0 w-[64%] aspect-[560/262] overflow-hidden rounded-xl bg-brand-blue-50 lg:left-[24%] lg:top-[3%] lg:w-1/2',
+      'left-0 top-0 w-[64%] aspect-560/262 overflow-hidden rounded-xl bg-brand-blue-50 lg:left-[24%] lg:top-[3%] lg:w-1/2',
     r: -2,
     d: 8,
     i: 0,
@@ -96,7 +96,7 @@ const tiles: Tile[] = [
     key: 'desde',
     className: cn(
       wordClass,
-      'hidden lg:flex left-[58%] top-[80%] h-[84px] w-[22%] rounded-md bg-brand-yellow-500 text-[40px] text-brand-blue-500'
+      'hidden lg:flex left-[58%] top-[80%] h-21 w-[22%] rounded-md bg-brand-yellow-500 text-[40px] text-brand-blue-500'
     ),
     r: 4,
     d: 9,
@@ -106,7 +106,7 @@ const tiles: Tile[] = [
   {
     key: 'soft',
     className:
-      'left-[46%] top-[310px] size-14 rounded-sm bg-brand-blue-100 lg:left-[80%] lg:top-[86%] lg:size-[72px]',
+      'left-[46%] top-77.5 size-14 rounded-sm bg-brand-blue-100 lg:left-[80%] lg:top-[86%] lg:size-18',
     r: 6,
     d: 4,
     i: 3,
@@ -114,7 +114,7 @@ const tiles: Tile[] = [
   {
     key: 'note',
     className:
-      'right-[2%] top-[320px] flex items-center justify-center rounded-md bg-white px-3 py-2 text-center font-mono text-xs leading-[1.3] tracking-[0.05em] tabular-nums text-brand-blue-500 lg:left-[30%] lg:right-auto lg:top-[58%]',
+      'right-[2%] top-80 flex items-center justify-center rounded-md bg-white px-3 py-2 text-center font-mono text-xs leading-[1.3] tracking-wider tabular-nums text-brand-blue-500 lg:left-[30%] lg:right-auto lg:top-[58%]',
     r: 1,
     d: 3,
     i: 4,

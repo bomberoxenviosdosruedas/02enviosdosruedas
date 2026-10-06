@@ -192,11 +192,11 @@ export default function PrivacyContent() {
   };
 
   return (
-    <div className="bg-brand-white-50 min-h-[100dvh] relative font-sans text-brand-ink">
+    <div className="bg-brand-white-50 min-h-dvh relative font-sans text-brand-ink">
       {/* HERO BANNER SECTION */}
       <section className="bg-brand-blue-700 text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-yellow-500/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />
-        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-white/5 blur-3xl -z-10 -translate-x-1/4 translate-y-1/4" />
+        <div className="absolute top-0 right-0 w-125 h-125 rounded-full bg-brand-yellow-500/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute bottom-0 left-0 w-87.5 h-87.5 rounded-full bg-white/5 blur-3xl -z-10 -translate-x-1/4 translate-y-1/4" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
@@ -322,7 +322,7 @@ export default function PrivacyContent() {
                           <IconComponent className="h-6 w-6" />
                         </div>
                         <div>
-                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-blue-700 block mb-0.5">
+                          <span className="text-2xs font-mono font-bold uppercase tracking-wider text-brand-blue-700 block mb-0.5">
                             Sección {index + 1} de {SECTIONS.length}
                           </span>
                           <h2 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-700">
@@ -367,10 +367,10 @@ export default function PrivacyContent() {
                 variants={cardVariants}
                 className="double-bezel-outer bg-brand-blue-900/90 border border-brand-blue-700 p-2 rounded-3xl shadow-xl"
               >
-                <div className="double-bezel-inner bg-gradient-to-br from-brand-blue-700 to-brand-blue-950 text-white rounded-2xl p-8 sm:p-10 border border-brand-blue-700/60">
+                <div className="double-bezel-inner bg-linear-to-br from-brand-blue-700 to-brand-blue-950 text-white rounded-2xl p-8 sm:p-10 border border-brand-blue-700/60">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                     <div className="space-y-2.5 max-w-lg">
-                      <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-[10px] font-subheading font-bold uppercase tracking-widest inline-block">
+                      <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-2xs font-subheading font-bold uppercase tracking-widest inline-block">
                         Soporte de Privacidad
                       </span>
                       <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">

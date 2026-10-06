@@ -94,7 +94,7 @@ export default function EmprendedoresHero() {
                       390 y de 32/40px desde sm, contra 14/16px de bulto). */}
                   <div className="absolute -top-3.5 sm:-top-4 left-0 right-0 flex justify-center">
                     <div className="motion-safe:animate-floaty h-3.5 sm:h-4 w-6 sm:w-7 rounded-[4px] bg-brand-blue-500 shadow-[0_0_18px_rgba(9,80,246,0.28)]">
-                      <span className="block mx-auto mt-1.5 h-[3px] w-5 rounded-full bg-brand-yellow-500" />
+                      <span className="block mx-auto mt-1.5 h-0.75 w-5 rounded-full bg-brand-yellow-500" />
                     </div>
                   </div>
                 </div>
@@ -176,7 +176,7 @@ export default function EmprendedoresHero() {
                     <span className="font-mono text-xs font-bold tabular-nums text-brand-blue-400">
                       {paso.n}
                     </span>
-                    <span className="font-subheading text-xl uppercase leading-none tracking-[0.05em] text-brand-blue-500">
+                    <span className="font-subheading text-xl uppercase leading-none tracking-wider text-brand-blue-500">
                       {paso.titulo}
                     </span>
                     <span className="text-[13.5px] leading-snug text-brand-blue-400">
@@ -194,7 +194,7 @@ export default function EmprendedoresHero() {
 
             {/* RIGHT 5 — el local con los dos sellos comerciales encima. */}
             <div className="relative flex w-full flex-col items-center justify-center lg:col-span-5">
-              <div className="relative w-full max-w-[420px]">
+              <div className="relative w-full max-w-105">
                 {/* Panel blanco ladeado detrás de la foto: da la separación que
                     en azul plano no existe, porque la imagen es de la misma
                     paleta que el fondo. */}
@@ -216,7 +216,7 @@ export default function EmprendedoresHero() {
                 {ofertas.map((oferta) => (
                   <div
                     key={oferta.id}
-                    className={`absolute z-[2] flex flex-col gap-0.5 rounded-xl bg-brand-blue-500 px-3.5 py-2.5 shadow-[0_14px_30px_rgba(9,80,246,0.3)] ${oferta.posicion}`}
+                    className={`absolute z-2 flex flex-col gap-0.5 rounded-xl bg-brand-blue-500 px-3.5 py-2.5 shadow-[0_14px_30px_rgba(9,80,246,0.3)] ${oferta.posicion}`}
                   >
                     <span className="font-mono text-xl font-bold leading-none tabular-nums text-brand-yellow-500">
                       {oferta.valor}
@@ -228,7 +228,7 @@ export default function EmprendedoresHero() {
                 ))}
               </div>
 
-              <p className="mt-5 flex w-full max-w-[420px] items-center justify-between gap-3 border-t border-brand-blue-500/20 pt-3 font-mono text-xs tabular-nums text-brand-blue-500">
+              <p className="mt-5 flex w-full max-w-105 items-center justify-between gap-3 border-t border-brand-blue-500/20 pt-3 font-mono text-xs tabular-nums text-brand-blue-500">
                 <span className="truncate">Hub Friuli 1972</span>
                 <span className="shrink-0">Stock + Same Day</span>
               </p>

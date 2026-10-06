@@ -16,9 +16,9 @@ export default function CotizadorMapa({ form }: CotizadorMapaProps) {
   const { origenCoords, destinoCoords, routeCoords, resultado } = form;
 
   return (
-    <div className="lg:col-span-5 min-h-[360px] lg:min-h-full rounded-[28px] sm:rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl">
+    <div className="lg:col-span-5 min-h-90 lg:min-h-full rounded-[28px] sm:rounded-[30px] bg-white/10 backdrop-blur-md border border-white/20 p-2.5 shadow-xl">
       <div className="bg-brand-blue-900 p-6 rounded-[20px] border border-white/10 flex flex-col justify-between h-full relative overflow-hidden text-white">
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
 
         <div className="relative z-10 flex justify-between items-center border-b border-white/15 pb-3 mb-3">
           <div className="flex items-center gap-2">
@@ -27,12 +27,12 @@ export default function CotizadorMapa({ form }: CotizadorMapaProps) {
               Midiendo ruta
             </span>
           </div>
-          <span className="text-[10px] font-mono text-white/90 tabular-nums">
+          <span className="text-2xs font-mono text-white/90 tabular-nums">
             OpenStreetMap + OSRM
           </span>
         </div>
 
-        <div className="relative flex-grow min-h-[260px] rounded-xl overflow-hidden border border-white/15 shadow-inner z-10">
+        <div className="relative grow min-h-65 rounded-xl overflow-hidden border border-white/15 shadow-inner z-10">
           <DynamicRouteMap
             origin={origenCoords}
             destination={destinoCoords}

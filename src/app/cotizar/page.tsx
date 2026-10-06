@@ -147,7 +147,7 @@ export default function Page() {
             </div>
 
             <div className="overflow-x-auto rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md">
-              <table className="w-full min-w-[34rem] text-left border-collapse">
+              <table className="w-full min-w-136 text-left border-collapse">
                 <caption className="sr-only">
                   Tarifas por zona de distancia para los servicios Express y LowCost
                 </caption>
@@ -168,7 +168,7 @@ export default function Page() {
                   {TARIFAS.map((fila, i) => (
                     <tr
                       key={fila.rango}
-                      className={i % 2 === 1 ? 'bg-white/[0.04]' : undefined}
+                      className={i % 2 === 1 ? 'bg-white/4' : undefined}
                     >
                       <th
                         scope="row"
