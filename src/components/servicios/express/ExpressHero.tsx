@@ -25,7 +25,7 @@ export default function ExpressHero() {
       className="relative isolate flex min-h-[90dvh] w-full items-center overflow-hidden bg-brand-blue-500 text-white"
     >
       <HeroProceduralBackground variant="express" tone="blue" />
-      <div className="mx-auto w-full max-w-[1280px] px-4 pb-12 pt-8 md:px-8 lg:py-14">
+      <div className="mx-auto w-full max-w-7xl px-4 pb-12 pt-8 md:px-8 lg:py-14">
         <div className="grid items-center gap-6 lg:min-h-140 lg:grid-cols-12">
           <div className="relative z-2 max-w-160 rounded-xl bg-brand-blue-500 p-6 lg:col-span-6 lg:col-start-1 lg:row-start-1 lg:p-10">
             <Badge

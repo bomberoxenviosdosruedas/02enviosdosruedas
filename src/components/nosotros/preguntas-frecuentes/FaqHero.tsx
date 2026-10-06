@@ -101,7 +101,7 @@ export default function FaqHero() {
           </ul>
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-8 pt-14 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 pt-14 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center sm:gap-8">
             <Image
               src="/elementos/dudas_transparent.webp"

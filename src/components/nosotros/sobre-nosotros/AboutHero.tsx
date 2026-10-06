@@ -146,7 +146,7 @@ export default function AboutHero() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-8 pt-14 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 pt-14 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">

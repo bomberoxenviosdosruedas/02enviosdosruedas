@@ -184,7 +184,7 @@ export default function FlexHero() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">

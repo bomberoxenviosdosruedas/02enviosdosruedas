@@ -76,7 +76,7 @@ export default function ContactHero() {
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 h-14 sm:h-20 lg:h-24 pointer-events-none"
         >
-          <div className="relative mx-auto h-full w-full max-w-[1280px] px-6 lg:px-8">
+          <div className="relative mx-auto h-full w-full max-w-7xl px-6 lg:px-8">
             {/* Sólo el riel en el SVG estirado: una recta se lee igual deformada.
                 Los terminales y el token van en DOM (ver nota del keyframe). */}
             <svg
@@ -124,7 +124,7 @@ export default function ContactHero() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">

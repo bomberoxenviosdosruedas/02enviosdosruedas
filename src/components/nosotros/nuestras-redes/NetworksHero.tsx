@@ -56,7 +56,7 @@ export default function NetworksHero() {
       <div className="relative flex-1 flex items-center overflow-hidden">
         {/* Firma visual: la constelación. */}
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-14 sm:h-20 lg:h-24 pointer-events-none">
-          <div className="relative mx-auto h-full w-full max-w-[1280px] px-6 lg:px-8">
+          <div className="relative mx-auto h-full w-full max-w-7xl px-6 lg:px-8">
             {/* Sólo trazos finos en el SVG estirado: la convergencia se lee
                 igual deformada y nos barre todo el ancho. Los nodos van en DOM
                 para que `animate-pulse` no compita con ningún `translate`. */}
@@ -116,7 +116,7 @@ export default function NetworksHero() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-8 pt-14 sm:pt-20 lg:pt-24 pb-14 sm:pb-20 lg:pb-24">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 pt-14 sm:pt-20 lg:pt-24 pb-14 sm:pb-20 lg:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
