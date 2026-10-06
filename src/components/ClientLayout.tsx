@@ -16,16 +16,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   useEffect(() => {
     captureAndPersistUtms();
   }, []);
+
   return (
     <>
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only fixed top-4 left-4 z-9999 bg-brand-yellow-500 text-brand-blue-500 px-6 py-3 rounded-xl font-subheading border-2 border-brand-blue-500 shadow-[3px_3px_0px_var(--color-brand-blue-500)] uppercase font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue-500"
-      >
-        Saltar al contenido
-      </a>
       <OptimizedHeader />
-      <main id="main-content" className="grow pt-18" tabIndex={-1}>
+      <main id="main-content" className="grow pt-18">
         {children}
       </main>
       <CarruselRedes />
