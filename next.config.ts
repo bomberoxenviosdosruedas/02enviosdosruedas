@@ -96,8 +96,6 @@ const nextConfig: NextConfig = {
     optimizePackageImports: [
       'lucide-react',
       'react-icons',
-      'gsap',
-      'leaflet',
       '@radix-ui/react-icons',
       '@radix-ui/react-accordion',
       '@radix-ui/react-dialog',

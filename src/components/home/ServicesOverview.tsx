@@ -458,7 +458,6 @@ export default function ServicesOverview() {
                       fill={true}
                       sizes="(max-width: 768px) 290px, 350px"
                       className={`object-cover ${service.imgBlend}`}
-                      priority={index === 0}
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-brand-blue-500/80 via-brand-blue-500/20 to-transparent opacity-60" />
                   </div>

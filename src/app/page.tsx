@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import HeroAnimado from '@/components/home/HeroAnimado';
 import SegmentosHome from '@/components/home/SegmentosHome';
 import ServicesOverview from '@/components/home/ServicesOverview';
 import EmprendedoresHome from '@/components/home/EmprendedoresHome';
 import CtaSection from '@/components/home/CtaSection';
 import SocialProofSection from '@/components/home/SocialProofSection';
-import LogisticaNetworkCanvas from '@/components/home/LogisticaNetworkCanvas';
+
+const LogisticaNetworkCanvas = dynamic(() => import('@/components/home/LogisticaNetworkCanvas'));
 
 export const metadata: Metadata = {
   alternates: {

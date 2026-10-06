@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import Image from 'next/image';
-import 'leaflet/dist/leaflet.css';
 
 interface Coordinate {
   lat: number;

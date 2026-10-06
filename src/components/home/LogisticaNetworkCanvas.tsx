@@ -174,11 +174,37 @@ export default function LogisticaNetworkCanvas() {
       ease: 'none',
     });
 
-    // Start the timeline
-    tl.play();
+    const isVisibleRef = { current: true };
+    let observer: IntersectionObserver | null = null;
+
+    if (typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          isVisibleRef.current = entry.isIntersecting;
+          if (entry.isIntersecting) {
+            if (timelineRef.current) timelineRef.current.play();
+            if (!animationFrameId.current) {
+              animationFrameId.current = requestAnimationFrame(render);
+            }
+          } else {
+            if (timelineRef.current) timelineRef.current.pause();
+            if (animationFrameId.current) {
+              cancelAnimationFrame(animationFrameId.current);
+              animationFrameId.current = null;
+            }
+          }
+        },
+        { threshold: 0.05 }
+      );
+      observer.observe(canvas);
+    }
 
     // ─── Render loop driven by GSAP timeline ─────────────────────────────────────
     const render = () => {
+      if (!isVisibleRef.current) {
+        animationFrameId.current = null;
+        return;
+      }
       const ctx = ctxRef.current;
       if (!ctx) return;
 
@@ -306,6 +332,7 @@ export default function LogisticaNetworkCanvas() {
     window.addEventListener('resize', handleResize);
 
     return () => {
+      if (observer) observer.disconnect();
       window.removeEventListener('resize', handleResize);
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);

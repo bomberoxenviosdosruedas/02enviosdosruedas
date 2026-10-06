@@ -361,6 +361,12 @@
       "skillPath": "skills/onboarding/SKILL.md",
       "computedHash": "ba2fe5408a824eec4a42497f4d43c5ffcc90e3ab6fd6bdc87e6532367de44433"
     },
+    "pagespeed-insights": {
+      "source": "enderpuentes/ai-agent-skills",
+      "sourceType": "github",
+      "skillPath": "pagespeed-insights/SKILL.md",
+      "computedHash": "80a9e00c680f7341b442efae1e9d05572681dbf57db1cee0db8cc8d920b14a7c"
+    },
     "paywalls": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
