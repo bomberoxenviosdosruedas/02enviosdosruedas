@@ -159,8 +159,8 @@ describe('Guard de copy — afirmaciones que el dueño negó', () => {
   it.each(PROHIBIDOS.map((p) => [p.patron.source, p] as const))(
     'ningún archivo publica /%s/',
     (_fuente, { patron, motivo, excepcion }) => {
-      const permitidos = new Set(excepcion ?? []);
-      const hallazgos = ARCHIVOS.filter((a) => !permitidos.has(relative(SRC, a)))
+      const permitidos = new Set((excepcion ?? []).map((e) => e.replace(/\\/g, '/')));
+      const hallazgos = ARCHIVOS.filter((a) => !permitidos.has(relative(SRC, a).replace(/\\/g, '/')))
         .flatMap((a) => buscar(a, patron))
         .map((ref) => `${ref} — ${motivo}`);
 

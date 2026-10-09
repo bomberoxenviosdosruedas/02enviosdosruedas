@@ -314,7 +314,7 @@ export default function ServicesOverview() {
     }
 
     const rotateY = isSmallScreen ? 0 : offset * -28;
-    const translateZ = isCenter ? (isSmallScreen ? 20 : 120) : -absOffset * 180;
+    const translateZ = isSmallScreen ? 0 : isCenter ? 120 : -absOffset * 180;
     const translateX = offset * (isSmallScreen ? 140 : 260);
     const opacity = isCenter ? 1 : Math.max(0.15, 1 - absOffset * 0.4);
     const scale = isCenter ? 1.05 : Math.max(0.65, 1 - absOffset * 0.18);

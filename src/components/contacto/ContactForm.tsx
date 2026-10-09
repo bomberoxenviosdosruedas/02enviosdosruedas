@@ -194,7 +194,7 @@ export default function ContactForm() {
                       value={formData.volumen}
                       onChange={handleChange}
                       disabled={status === 'submitting'}
-                      className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:border-brand-blue-500 rounded-xl px-4 text-sm transition-all text-brand-blue-500 cursor-pointer disabled:opacity-50 shadow-sm"
+                      className="w-full h-11 min-h-11 bg-white border-2 border-brand-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:border-brand-blue-500 rounded-xl px-4 text-base sm:text-sm transition-all text-brand-blue-500 cursor-pointer disabled:opacity-50 shadow-sm"
                     >
                       <option value="" disabled className="text-brand-blue-500">
                         Seleccioná una opción

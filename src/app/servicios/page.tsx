@@ -400,7 +400,68 @@ export default function ServiciosPage() {
           </p>
         </div>
 
-        <div className="overflow-x-auto rounded-2xl border border-brand-blue-100 bg-white shadow-sm">
+        {/* Vista Mobile (<sm) — Tarjetas de Resumen Vertical */}
+        <div className="grid grid-cols-1 gap-4 sm:hidden">
+          {services.map((svc) => {
+            const expKey = svc.id === 'envios-express' ? 'express'
+              : svc.id === 'envios-lowcost' ? 'lowcost'
+              : svc.id === 'enviosflex' ? 'flex'
+              : svc.id === 'cuenta-corriente-flexible' ? 'cuentaCorriente'
+              : svc.id === 'ecommerce-24hs' ? 'ecom24'
+              : 'ecomSameDay';
+
+            return (
+              <div
+                key={svc.id}
+                className="rounded-2xl border border-brand-blue-100 bg-white p-5 shadow-sm space-y-3"
+              >
+                <div className="flex items-center justify-between pb-3 border-b border-brand-blue-100">
+                  <span className="font-subheading text-base font-bold uppercase tracking-wide text-brand-blue-500">
+                    {svc.label}
+                  </span>
+                  <span className="text-2xs font-bold tracking-widest bg-brand-yellow-500 text-brand-blue-500 px-2.5 py-1 rounded-full uppercase font-subheading">
+                    {svc.badge}
+                  </span>
+                </div>
+
+                <div className="space-y-2 text-xs font-sans">
+                  <div className="flex items-center justify-between">
+                    <span className="text-brand-blue-500/80 font-medium">Precio Base:</span>
+                    <span className="font-mono font-bold text-brand-blue-500 text-sm">{svc.price}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-brand-blue-500/80 font-medium">Entrega:</span>
+                    <span className="font-semibold text-brand-blue-500">{comparisonTable[0][expKey]}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-brand-blue-500/80 font-medium">Corte:</span>
+                    <span className="text-brand-blue-500">{comparisonTable[1][expKey]}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-brand-blue-500/80 font-medium">Franja:</span>
+                    <span className="text-brand-blue-500">{comparisonTable[2][expKey]}</span>
+                  </div>
+                  <div className="pt-2 border-t border-brand-blue-100/60">
+                    <span className="text-brand-blue-500/80 font-medium block mb-0.5">Ideal para:</span>
+                    <span className="text-brand-blue-500 font-medium">{comparisonTable[4][expKey]}</span>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <Link
+                    href={svc.href}
+                    className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-brand-blue-50 text-brand-blue-500 font-subheading text-xs uppercase font-bold tracking-wider hover:bg-brand-blue-100 transition-colors"
+                  >
+                    Ver detalles del servicio →
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Vista Desktop (sm+) — Tabla clásica */}
+        <div className="hidden sm:block overflow-x-auto rounded-2xl border border-brand-blue-100 bg-white shadow-sm">
           <table className="w-full font-sans text-sm">
             <thead>
               <tr className="bg-brand-blue-500 text-white">
