@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Outfit, Anton, Bebas_Neue, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
 import { MotionConfig } from 'motion/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import ClientLayout from '@/components/ClientLayout';
 
@@ -183,6 +184,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MotionConfig reducedMotion="user">
           <ClientLayout>{children}</ClientLayout>
         </MotionConfig>
+        <SpeedInsights />
       </body>
     </html>
   );
