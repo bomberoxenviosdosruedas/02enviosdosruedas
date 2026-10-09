@@ -45,7 +45,7 @@ export default function LogisticaNetworkCanvas() {
   const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion || (typeof window !== 'undefined' && window.innerWidth < 640)) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;

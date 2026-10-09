@@ -78,7 +78,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
             aria-invalid={!!error}
             aria-describedby={error ? errorId : helpText ? helpId : undefined}
             className={cn(
-              'input-field h-11 w-full border-2 rounded-xl bg-white font-sans text-sm text-brand-blue-500 placeholder:text-brand-blue-500 transition-all duration-200 focus:outline-none',
+              'input-field h-11 min-h-11 w-full border-2 rounded-xl bg-white font-sans text-base sm:text-sm text-brand-blue-500 placeholder:text-brand-blue-500 transition-all duration-200 focus:outline-none',
               icon ? 'pl-10 pr-4' : 'px-4',
               error
                 ? 'border-red-500 focus:border-red-500 ring-2 ring-red-500/20 text-red-600'

@@ -76,7 +76,7 @@ export function FaqCategories() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Buscar por palabra clave (ej: MercadoLibre, tarifas, cobertura)..."
-              className="w-full h-11 pl-12 pr-10 bg-white border-2 border-brand-blue-100 focus:border-brand-blue-700 rounded-xl text-sm font-sans text-brand-blue-700 placeholder:text-brand-blue-500 outline-none shadow-sm transition-all"
+              className="w-full h-11 min-h-11 pl-12 pr-10 bg-white border-2 border-brand-blue-100 focus:border-brand-blue-700 rounded-xl text-base sm:text-sm font-sans text-brand-blue-700 placeholder:text-brand-blue-500 outline-none shadow-sm transition-all"
             />
             {searchQuery && (
               <button
@@ -226,7 +226,7 @@ export function FaqCategories() {
                         aria-expanded={isExpanded}
                         aria-controls={answerId}
                         onClick={() => handleToggle(index)}
-                        className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-4 cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-700 focus-visible:ring-inset"
+                        className="w-full min-h-12 text-left p-4 sm:p-5 flex items-start justify-between gap-4 cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-700 focus-visible:ring-inset"
                       >
                         <div className="flex items-start gap-3 sm:gap-4">
                           <div
