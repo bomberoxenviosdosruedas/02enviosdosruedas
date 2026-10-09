@@ -354,8 +354,8 @@ export default function LogisticaNetworkCanvas() {
   }, [reduceMotion]);
 
   if (reduceMotion) {
-    return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0 bg-brand-blue-500/30" />;
+    return <canvas ref={canvasRef} className="hidden sm:block absolute inset-0 w-full h-full pointer-events-none z-0 bg-brand-blue-500/30" />;
   }
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />;
+  return <canvas ref={canvasRef} className="hidden sm:block absolute inset-0 w-full h-full pointer-events-none z-0" />;
 }

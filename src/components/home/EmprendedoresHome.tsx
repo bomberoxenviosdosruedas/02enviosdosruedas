@@ -65,7 +65,7 @@ export default function EmprendedoresHome() {
     <section
       id="emprendedores-home"
       aria-labelledby="emprendedores-home-title"
-      className="py-32 md:py-48 bg-brand-blue-500 relative overflow-hidden text-white border-y border-white/10"
+      className="py-16 sm:py-24 lg:py-32 bg-brand-blue-500 relative overflow-hidden text-white border-y border-white/10"
     >
       {/* Background Decorative Asymmetric Glows */}
       <div className="absolute top-0 left-0 w-125 h-125 bg-brand-blue-500/5 rounded-full blur-[120px] pointer-events-none" />

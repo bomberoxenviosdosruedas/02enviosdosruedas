@@ -313,8 +313,8 @@ export default function ServicesOverview() {
       };
     }
 
-    const rotateY = offset * -28;
-    const translateZ = isCenter ? 120 : -absOffset * 180;
+    const rotateY = isSmallScreen ? 0 : offset * -28;
+    const translateZ = isCenter ? (isSmallScreen ? 20 : 120) : -absOffset * 180;
     const translateX = offset * (isSmallScreen ? 140 : 260);
     const opacity = isCenter ? 1 : Math.max(0.15, 1 - absOffset * 0.4);
     const scale = isCenter ? 1.05 : Math.max(0.65, 1 - absOffset * 0.18);
@@ -326,7 +326,7 @@ export default function ServicesOverview() {
     <section
       id="services-overview"
       aria-labelledby="services-overview-title"
-      className="py-24 bg-brand-blue text-white relative overflow-hidden perspective-[2000px]"
+      className="py-14 sm:py-20 lg:py-24 bg-brand-blue text-white relative overflow-hidden perspective-[2000px]"
       onMouseEnter={() => setIsAutoRotate(false)}
       onMouseLeave={() => !selectedService && setIsAutoRotate(true)}
     >

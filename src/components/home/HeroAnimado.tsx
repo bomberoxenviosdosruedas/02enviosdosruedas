@@ -33,14 +33,14 @@ const diferenciales = [
 const fichas = [
   {
     id: 'base',
-    posicion: 'left-[-4%] bottom-[14%]',
+    posicion: 'left-2 bottom-2 sm:left-[-4%] sm:bottom-[14%]',
     tono: 'bg-white text-brand-blue-500',
     titulo: 'Base Friuli 1972',
     detalle: 'Mar del Plata',
   },
   {
     id: 'entrega',
-    posicion: 'right-[-2%] top-[10%]',
+    posicion: 'right-2 top-2 sm:right-[-2%] sm:top-[10%]',
     tono: 'bg-brand-yellow-500 text-brand-blue-500',
     titulo: 'Entrega en el día',
     detalle: 'en todo MDQ',
@@ -90,13 +90,13 @@ export default function HeroAnimado() {
                 id="hero-cta-cotizar"
                 variant="primary"
                 size="large"
-                className="focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500"
+                className="w-full sm:w-auto justify-center focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500"
               >
                 Cotizá tu envío
               </CTANestedPill>
               <a
                 href="/servicios"
-                className="inline-flex min-h-11 items-center gap-2 rounded-md font-subheading text-sm uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 transition-colors hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 sm:text-base"
+                className="inline-flex min-h-11 w-full sm:w-auto justify-center items-center gap-2 rounded-md font-subheading text-sm uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 transition-colors hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 sm:text-base"
               >
                 Ver servicios
                 <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
