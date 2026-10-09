@@ -146,7 +146,38 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="overflow-x-auto rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md">
+            {/* Vista Mobile (<sm) — Tarjetas verticales de tarifas */}
+            <div className="grid grid-cols-1 gap-3 sm:hidden">
+              {TARIFAS.map((fila) => (
+                <div
+                  key={fila.rango}
+                  className="rounded-xl border border-white/15 bg-white/5 p-4 space-y-2"
+                >
+                  <div className="font-mono text-xs text-white/70 uppercase tracking-wider font-medium">
+                    Zona: <span className="text-white font-bold">{fila.rango}</span>
+                  </div>
+                  <div className="flex items-center justify-between pt-1 border-t border-white/10">
+                    <span className="font-subheading text-xs uppercase tracking-widest text-brand-yellow-500">
+                      Express
+                    </span>
+                    <span className="font-mono text-sm font-bold text-brand-yellow-500 tabular-nums">
+                      {fila.express}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-subheading text-xs uppercase tracking-widest text-white/90">
+                      LowCost
+                    </span>
+                    <span className="font-mono text-sm font-bold text-white tabular-nums">
+                      {fila.lowcost}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Vista Desktop (sm+) — Tabla clásica */}
+            <div className="hidden sm:block overflow-x-auto rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md">
               <table className="w-full min-w-136 text-left border-collapse">
                 <caption className="sr-only">
                   Tarifas por zona de distancia para los servicios Express y LowCost
