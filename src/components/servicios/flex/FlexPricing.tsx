@@ -99,7 +99,7 @@ export default function FlexPricing() {
         <div className="bg-brand-blue-900 text-white rounded-xl p-8 relative overflow-hidden text-left border border-white/10 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-8 space-y-4 text-left">
-              <span className="-rotate-1 inline-block px-4 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading font-bold uppercase tracking-widest shadow-glow-yellow">
+              <span className="-rotate-1 inline-block px-4 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
                 Recargo por lluvia
               </span>
               <h3 className="text-3xl font-display uppercase tracking-tight text-white">
@@ -119,7 +119,7 @@ export default function FlexPricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="flex-pricing-cta-whatsapp"
-                className="group inline-flex items-center justify-between gap-3 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-12 shadow-glow-yellow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 w-full sm:w-auto"
+                className="group inline-flex items-center justify-between gap-3 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-12 shadow-glow-yellow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 w-full sm:w-auto"
               >
                 <span>Más Información Flex</span>
                 <span className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">

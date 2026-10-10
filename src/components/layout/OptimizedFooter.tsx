@@ -76,7 +76,7 @@ export default function OptimizedFooter() {
           className="mb-14 rounded-2xl bg-brand-blue/90 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div className="space-y-2 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-brand-yellow-500 animate-ping motion-reduce:animate-none" />
               Operaciones Activas Mar del Plata 2026
             </div>
@@ -91,7 +91,7 @@ export default function OptimizedFooter() {
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             <Link
               href="/cotizar"
-              className="w-full sm:w-auto cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-all flex items-center justify-between group min-h-12"
+              className="w-full sm:w-auto cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase tracking-wider text-sm px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-all flex items-center justify-between group min-h-12"
             >
               <span>Cotizá tu Envío</span>
               <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
@@ -104,7 +104,7 @@ export default function OptimizedFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chateá con Nosotros por WhatsApp para consultas de envíos"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-subheading font-bold uppercase tracking-wider text-sm px-5 py-3.5 rounded-full transition-all min-h-12"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-subheading uppercase tracking-wider text-sm px-5 py-3.5 rounded-full transition-all min-h-12"
             >
               <FaWhatsapp className="h-4 w-4 text-brand-yellow-500" />
               <span>Chateá con Nosotros</span>
@@ -218,13 +218,13 @@ export default function OptimizedFooter() {
             variants={prefersReducedMotion ? {} : FOOTER_COL}
             className="lg:col-span-4 space-y-5"
           >
-            <h4 className="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2 font-bold flex items-center gap-2">
+            <h4 className="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2 flex items-center gap-2">
               <span>Servicios y Cotizadores</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
               {/* Grupo Cotizadores */}
               <div>
-                <p className="text-2xs font-bold text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                <p className="text-2xs text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
                   Cotizador online
                 </p>
                 <ul className="space-y-2.5 text-sm font-sans">
@@ -245,7 +245,7 @@ export default function OptimizedFooter() {
 
               {/* Grupo Servicios y Planes */}
               <div>
-                <p className="text-2xs font-bold text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                <p className="text-2xs text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
                   Servicios y planes
                 </p>
                 <ul className="space-y-2.5 text-sm font-sans">
@@ -322,7 +322,7 @@ export default function OptimizedFooter() {
             variants={prefersReducedMotion ? {} : FOOTER_COL}
             className="lg:col-span-4 space-y-5"
           >
-            <h4 className="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2 font-bold">
+            <h4 className="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2">
               Base de Operaciones MDQ
             </h4>
 

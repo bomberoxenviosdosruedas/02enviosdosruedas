@@ -67,7 +67,7 @@ export const StepperHorizontal: React.FC<StepperHorizontalProps> = ({
               {/* Step Circle (40px) */}
               <div
                 className={cn(
-                  'w-10 h-10 rounded-full flex items-center justify-center font-subheading text-base font-bold transition-all duration-200 border-2 select-none',
+                  'w-10 h-10 rounded-full flex items-center justify-center font-subheading text-base transition-all duration-200 border-2 select-none',
                   isCompleted &&
                     'bg-brand-yellow-500 border-brand-yellow-500 text-brand-blue-500 shadow-sm',
                   isActive &&
@@ -88,7 +88,7 @@ export const StepperHorizontal: React.FC<StepperHorizontalProps> = ({
               <div className="mt-2 text-center max-w-30">
                 <span
                   className={cn(
-                    'block font-subheading text-xs uppercase tracking-wider font-bold transition-colors',
+                    'block font-subheading text-xs uppercase tracking-wider transition-colors',
                     isCompleted && 'text-brand-blue-500',
                     isActive && 'text-brand-blue-500',
                     isPending && 'text-brand-blue-500'

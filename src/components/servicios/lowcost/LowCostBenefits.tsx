@@ -48,7 +48,7 @@ export default function LowCostBenefits() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-glow-yellow">
+          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
             VENTAJAS CLAVE
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white leading-[0.98]">

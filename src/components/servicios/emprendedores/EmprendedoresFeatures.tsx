@@ -40,20 +40,20 @@ export default function EmprendedoresFeatures() {
 
           {/* Header column (Left) */}
           <div className="lg:col-span-5 space-y-6 text-left">
-            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
+            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
               SOLUCIONES PAQUETERÍA E-COMMERCE
             </span>
 
             <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
               LOGÍSTICA 3PL <br />
-              <span className="text-brand-ink bg-brand-yellow px-2 py-0.5 inline-block mt-1 font-bold -rotate-1 shadow-glow-yellow">Y PAQUETERÍA E-COMMERCE</span>
+              <span className="text-brand-ink bg-brand-yellow px-2 py-0.5 inline-block mt-1 -rotate-1 shadow-glow-yellow">Y PAQUETERÍA E-COMMERCE</span>
             </h2>
 
             <p className="text-brand-ink text-base leading-relaxed font-sans">
               Especialistas en paquetería e-commerce y logística 3PL en Mar del Plata. Almacenamos tus productos pequeños o medianos en Friuli 1972, realizamos picking por QR y despachamos en el día o 24hs con la tarifa más competitiva.
             </p>
 
-            <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-ink font-bold uppercase tracking-wider font-subheading">
+            <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-ink uppercase tracking-wider font-subheading">
               <Landmark className="h-5 w-5 text-brand-yellow shrink-0 fill-current" />
               <span>PAQUETERÍA Y LOGÍSTICA B2B MAR DEL PLATA</span>
             </div>
@@ -111,7 +111,7 @@ export default function EmprendedoresFeatures() {
                         <span className="block text-2xl font-mono tabular-nums font-bold uppercase tracking-tight text-brand-ink leading-none mb-1">
                           {stat.value}
                         </span>
-                        <span className="block text-xs uppercase tracking-wider font-subheading text-brand-ink font-bold">
+                        <span className="block text-xs uppercase tracking-wider font-subheading text-brand-ink">
                           {stat.label}
                         </span>
                       </div>

@@ -83,7 +83,7 @@ export default function RecentPosts() {
         
         {/* Header Block */}
         <div className="text-left max-w-2xl mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block shadow-glow-yellow font-bold transform -rotate-1">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block shadow-glow-yellow transform -rotate-1">
             EN VIVO
           </span>
           <h2 className="text-white text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -128,7 +128,7 @@ export default function RecentPosts() {
                     />
                     {isFeatured && (
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-900 text-xs font-subheading uppercase tracking-widest rounded-lg font-bold shadow-glow-yellow transform -rotate-1 inline-block">
+                        <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-900 text-xs font-subheading uppercase tracking-widest rounded-lg shadow-glow-yellow transform -rotate-1 inline-block">
                           DESTACADO
                         </span>
                       </div>
@@ -193,7 +193,7 @@ export default function RecentPosts() {
                           href={post.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group min-h-11 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading tracking-wider text-sm uppercase font-bold py-2 px-4.5 rounded-full flex items-center justify-center gap-2 shadow-glow-yellow transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
+                          className="group min-h-11 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading tracking-wider text-sm uppercase py-2 px-4.5 rounded-full flex items-center justify-center gap-2 shadow-glow-yellow transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                         >
                           <span>Ver original</span>
                           <span className="w-6 h-6 rounded-full bg-transparent flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 shrink-0">

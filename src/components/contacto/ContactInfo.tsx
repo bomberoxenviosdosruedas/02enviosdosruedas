@@ -61,11 +61,11 @@ export default function ContactInfo() {
       {/* 3 Canales Directos */}
       <div>
         <div className="text-center sm:text-left mb-6">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue-50 text-brand-blue-1000 text-xs font-subheading uppercase tracking-wider -rotate-1 border border-brand-blue-100">
-            <ShieldCheck className="w-3.5 h-3.5 text-brand-blue-1000" />
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue-50 text-brand-blue-700 text-xs font-subheading uppercase tracking-wider -rotate-1 border border-brand-blue-100">
+            <ShieldCheck className="w-3.5 h-3.5 text-brand-blue-700" />
             Canales de Atención Directa
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-brand-blue-1000 mt-2">
+          <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-brand-blue-700 mt-2">
             Elegí cómo comunicarte
           </h2>
         </div>
@@ -80,16 +80,16 @@ export default function ContactInfo() {
                 <div className="flex flex-col justify-between h-full space-y-4 relative overflow-hidden">
                   <div className="relative z-10">
                     <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-2xs font-subheading uppercase tracking-wider text-brand-blue-1000 px-2.5 py-0.5 rounded bg-brand-blue-50 border border-brand-blue-100">
+                      <span className="text-2xs font-subheading uppercase tracking-wider text-brand-blue-700 px-2.5 py-0.5 rounded bg-brand-blue-50 border border-brand-blue-100">
                         {card.tag}
                       </span>
-                      <span className="text-2xs font-mono font-bold uppercase text-brand-blue-1000 tabular-nums">
+                      <span className="text-2xs font-mono font-bold uppercase text-brand-blue-700 tabular-nums">
                         {card.subtag}
                       </span>
                     </div>
 
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-1000">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-700">
                         {/* Renderizado con el componente optimizado de Next.js */}
                         {typeof IconComp === 'string' ? (
                           <Image
@@ -100,15 +100,15 @@ export default function ContactInfo() {
                             className="w-5 h-5 object-contain"
                           />
                         ) : (
-                          <IconComp className="w-5 h-5 text-brand-blue-1000" />
+                          <IconComp className="w-5 h-5 text-brand-blue-700" />
                         )}
                       </div>
-                      <h3 className="font-display text-lg uppercase tracking-tight text-brand-blue-1000 truncate">
+                      <h3 className="font-display text-lg uppercase tracking-tight text-brand-blue-700 truncate">
                         {card.title}
                       </h3>
                     </div>
 
-                    <p className="font-sans text-xs sm:text-sm text-brand-blue-1000 leading-relaxed mb-6">
+                    <p className="font-sans text-xs sm:text-sm text-brand-blue-700 leading-relaxed mb-6">
                       {card.description}
                     </p>
                   </div>
@@ -220,13 +220,13 @@ export default function ContactInfo() {
                 <div className="space-y-4 font-sans text-sm">
                   <div className="flex items-center justify-between py-2 border-b border-white/10">
                     <span className="text-white font-mono tabular-nums">Lunes a Viernes: 09:00 - 18:00 hs</span>
-                    <span className="px-2.5 py-0.5 text-2xs font-mono uppercase font-bold text-brand-blue-1000 bg-brand-yellow-500 rounded-full shadow-xs tabular-nums">
+                    <span className="px-2.5 py-0.5 text-2xs font-mono uppercase font-bold text-brand-blue-700 bg-brand-yellow-500 rounded-full shadow-xs tabular-nums">
                       Activo
                     </span>
                   </div>
                   <div className="flex items-center justify-between py-2 border-b border-white/10">
                     <span className="text-white font-mono tabular-nums">Sábados: 10:00 - 15:00 hs</span>
-                    <span className="px-2.5 py-0.5 text-2xs font-mono uppercase font-bold text-brand-blue-1000 bg-brand-yellow-500 rounded-full shadow-xs tabular-nums">
+                    <span className="px-2.5 py-0.5 text-2xs font-mono uppercase font-bold text-brand-blue-700 bg-brand-yellow-500 rounded-full shadow-xs tabular-nums">
                       Activo
                     </span>
                   </div>

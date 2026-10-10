@@ -71,7 +71,7 @@ export default function DropoffCalculator() {
         {/* Control: envíos por mes */}
         <div className="space-y-3">
           <div className="flex items-center justify-between gap-3">
-            <span className="font-subheading text-sm uppercase tracking-wider font-bold text-brand-blue-900">
+            <span className="font-subheading text-sm uppercase tracking-wider text-brand-blue-900">
               Envíos por mes
             </span>
             <span className="font-mono text-2xs text-brand-blue-500 tabular-nums">

@@ -423,6 +423,9 @@ body {
 @utility no-scrollbar { &::-webkit-scrollbar { display: none; } scrollbar-width: none; }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
   .animate-radar, .animate-floaty, .animate-road, .animate-shuttle, .animate-draw, .animate-roundtrip, .animate-pulse-ring, .animate-grow-x, .animate-marquee-left, .animate-marquee-right {
     animation: none !important;
   }

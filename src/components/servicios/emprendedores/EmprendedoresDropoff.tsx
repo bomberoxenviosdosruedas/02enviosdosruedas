@@ -48,7 +48,7 @@ export default function EmprendedoresDropoff() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* LEFT 7 — copy + condiciones + CTA */}
           <div className="lg:col-span-7 space-y-7">
-            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
+            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
               Modalidad DropOFF · Mar del Plata
             </span>
 
@@ -82,7 +82,7 @@ export default function EmprendedoresDropoff() {
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
                     <div>
-                      <h3 className="font-subheading text-sm uppercase tracking-wider font-bold text-brand-ink">
+                      <h3 className="font-subheading text-sm uppercase tracking-wider text-brand-ink">
                         {item.title}
                       </h3>
                       <p className="text-sm text-brand-blue-900 leading-relaxed mt-0.5">{item.desc}</p>

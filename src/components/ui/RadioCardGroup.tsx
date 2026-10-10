@@ -120,7 +120,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
                 {opt.badge && (
                   <span
                     className={cn(
-                      'font-subheading text-2xs uppercase tracking-wider font-bold px-2.5 py-1 rounded-full',
+                      'font-subheading text-2xs uppercase tracking-wider px-2.5 py-1 rounded-full',
                       isChecked && type.includes('EXPRESS')
                         ? 'bg-brand-yellow-500 text-brand-blue-500'
                         : 'bg-brand-blue-50 text-brand-blue-500'
@@ -147,7 +147,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
               {/* Title & Description */}
               <h3
                 className={cn(
-                  'font-subheading text-xl uppercase tracking-wide font-bold mb-1',
+                  'font-subheading text-xl uppercase tracking-wide mb-1',
                   isChecked && type.includes('EXPRESS') ? 'text-white' : 'text-brand-blue-500'
                 )}
               >

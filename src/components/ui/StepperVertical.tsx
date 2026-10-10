@@ -120,7 +120,7 @@ export const StepperVertical: React.FC<StepperVerticalProps> = ({
                 {step.badge && (
                   <span
                     className={cn(
-                      'font-subheading text-2xs uppercase tracking-wider font-bold px-2 py-0.5 rounded-full',
+                      'font-subheading text-2xs uppercase tracking-wider px-2 py-0.5 rounded-full',
                       isActive
                         ? 'bg-brand-yellow-500 text-brand-blue-500'
                         : 'bg-brand-blue-50 text-brand-blue-500'

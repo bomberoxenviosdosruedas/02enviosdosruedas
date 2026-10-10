@@ -159,7 +159,7 @@ export const LogosCarousel: React.FC<LogosCarouselProps> = ({
                 />
               </div>
             ) : (
-              <span className="font-subheading text-base font-bold uppercase tracking-wider text-brand-blue-500">
+              <span className="font-subheading text-base uppercase tracking-wider text-brand-blue-500">
                 {item.name}
               </span>
             )}

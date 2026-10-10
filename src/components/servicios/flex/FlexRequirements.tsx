@@ -36,7 +36,7 @@ export default function FlexRequirements() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase font-bold tracking-widest shadow-sm">
+          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue text-brand-yellow rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
             PUESTA EN MARCHA
           </span>
           <h2 className="text-brand-ink text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight inline-block leading-[0.98]">
@@ -62,7 +62,7 @@ export default function FlexRequirements() {
                       <div className="p-3 bg-brand-yellow text-brand-blue rounded-xl shrink-0 border border-brand-yellow shadow-glow-yellow relative z-10">
                         <Icon className="h-6 w-6 shrink-0" />
                       </div>
-                      <span className="text-2xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue px-2.5 py-1 rounded-full border border-brand-blue-100">
+                      <span className="text-2xs font-subheading uppercase tracking-wider bg-brand-blue-50 text-brand-blue px-2.5 py-1 rounded-full border border-brand-blue-100">
                         {req.badge}
                       </span>
                     </div>

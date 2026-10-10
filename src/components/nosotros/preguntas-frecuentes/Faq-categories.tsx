@@ -136,7 +136,7 @@ export function FaqCategories() {
 
                   <h3
                     className={cn(
-                      'font-subheading text-lg font-bold tracking-wide uppercase leading-snug mb-1',
+                      'font-subheading text-lg tracking-wide uppercase leading-snug mb-1',
                       isActive ? 'text-white' : 'text-brand-blue-700'
                     )}
                   >
@@ -186,7 +186,7 @@ export function FaqCategories() {
             {searchResults && searchResults.length === 0 && (
               <div className="text-center py-10">
                 <HelpCircle className="w-10 h-10 text-brand-blue-700/40 mx-auto mb-2" />
-                <h3 className="font-subheading text-lg uppercase font-bold text-brand-blue-700">
+                <h3 className="font-subheading text-lg uppercase text-brand-blue-700">
                   No encontramos respuestas exactas para esa búsqueda
                 </h3>
                 <p className="text-sm font-sans text-brand-blue-700 max-w-md mx-auto mt-1 mb-4">
@@ -195,7 +195,7 @@ export function FaqCategories() {
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  className="px-4 py-2 rounded-xl bg-brand-blue-50 text-brand-blue-700 font-subheading uppercase text-xs font-bold hover:bg-brand-blue-100 cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-brand-blue-50 text-brand-blue-700 font-subheading uppercase text-xs hover:bg-brand-blue-100 cursor-pointer"
                 >
                   Ver todas las preguntas
                 </button>
@@ -241,7 +241,7 @@ export function FaqCategories() {
                           </div>
                           <h3
                             className={cn(
-                              'text-base sm:text-lg font-subheading font-bold uppercase tracking-wide leading-snug transition-colors',
+                              'text-base sm:text-lg font-subheading uppercase tracking-wide leading-snug transition-colors',
                               isExpanded
                                 ? 'text-brand-blue-700'
                                 : 'text-brand-blue-700'

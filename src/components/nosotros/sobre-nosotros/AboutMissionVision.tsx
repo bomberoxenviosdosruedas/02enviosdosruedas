@@ -16,7 +16,7 @@ export default function AboutMissionVision() {
 
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3.5">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
             PROPÓSITO & FUTURO
           </span>
           <h2 className="text-brand-ink text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -54,7 +54,7 @@ export default function AboutMissionVision() {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading font-bold uppercase tracking-wider text-brand-ink">
+                <div className="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-ink">
                   <ShieldCheck className="h-4 w-4 text-brand-blue" />
                   <span>COMPROMISO OPERATIVO PERMANENTE</span>
                 </div>
@@ -86,7 +86,7 @@ export default function AboutMissionVision() {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading font-bold uppercase tracking-wider text-brand-ink">
+                <div className="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-ink">
                   <ShieldCheck className="h-4 w-4 text-brand-blue" />
                   <span>VISIÓN DE FUTURO 2026</span>
                 </div>

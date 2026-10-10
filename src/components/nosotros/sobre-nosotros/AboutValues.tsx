@@ -34,7 +34,7 @@ export default function AboutValues() {
         
         {/* Header Block */}
         <div className="text-left max-w-2xl mb-16 space-y-3.5">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
             FILOSOFÍA OPERATIVA
           </span>
           <h2 className="text-white text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -63,7 +63,7 @@ export default function AboutValues() {
                 </div>
 
                 <div className="space-y-3">
-                  <span className="text-xs font-subheading uppercase tracking-wider text-brand-blue font-bold bg-brand-yellow px-3 py-1 rounded-full w-fit transform -rotate-1 inline-block">
+                  <span className="text-xs font-subheading uppercase tracking-wider text-brand-blue bg-brand-yellow px-3 py-1 rounded-full w-fit transform -rotate-1 inline-block">
                     Pilar de Confianza
                   </span>
                   <h3 className="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-ink leading-tight">

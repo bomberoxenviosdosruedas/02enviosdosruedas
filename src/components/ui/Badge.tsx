@@ -41,7 +41,7 @@ export const Badge: React.FC<BadgeProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center gap-1.5 font-subheading uppercase tracking-wider font-bold border transition-colors select-none';
+    'inline-flex items-center gap-1.5 font-subheading uppercase tracking-wider border transition-colors select-none';
 
   const roundedStyles = {
     full: 'rounded-full',

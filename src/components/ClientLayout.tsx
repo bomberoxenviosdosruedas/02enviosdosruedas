@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { MotionConfig } from 'motion/react';
 import OptimizedHeader from './layout/OptimizedHeader';
 import OptimizedFooter from './layout/OptimizedFooter';
 import { captureAndPersistUtms } from '@/lib/analytics';
@@ -18,13 +19,13 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   }, []);
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <OptimizedHeader />
       <main id="main-content" className="grow pt-18">
         {children}
       </main>
       <CarruselRedes />
       <OptimizedFooter />
-    </>
+    </MotionConfig>
   );
 }

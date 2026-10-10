@@ -175,17 +175,17 @@ export default function GuiaEnviosFlexPage() {
           
           {/* Introducción */}
           <div className="space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-1000">
+            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-700">
               ¿Por qué activar Flex si vendés en Mar del Plata?
             </h2>
-            <p className="font-sans text-base text-brand-blue-1000 leading-relaxed">
+            <p className="font-sans text-base text-brand-blue-700 leading-relaxed">
               En Mar del Plata, más del 65% de los compradores de Mercado Libre prefieren publicaciones con la insignia <strong>&quot;Llega hoy&quot;</strong>. Activar Envíos Flex posiciona tus publicaciones en los primeros lugares de búsqueda para compradores de la ciudad, multiplicando tu tasa de conversión sin costos adicionales de comisión.
             </p>
           </div>
 
           {/* Pasos */}
           <div className="space-y-8">
-            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-1000">
+            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-700">
               Paso a paso para configurar tu logística
             </h2>
 
@@ -200,10 +200,10 @@ export default function GuiaEnviosFlexPage() {
                       {st.number}
                     </span>
                     <div className="space-y-1">
-                      <h3 className="font-display text-lg uppercase text-brand-blue-1000">
+                      <h3 className="font-display text-lg uppercase text-brand-blue-700">
                         {st.title}
                       </h3>
-                      <p className="font-sans text-sm text-brand-blue-1000 leading-relaxed">
+                      <p className="font-sans text-sm text-brand-blue-700 leading-relaxed">
                         {st.desc}
                       </p>
                     </div>
@@ -215,7 +215,7 @@ export default function GuiaEnviosFlexPage() {
 
           {/* Buenas Prácticas */}
           <div className="space-y-8">
-            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-1000">
+            <h2 className="text-2xl sm:text-3xl font-display uppercase text-brand-blue-700">
               Claves para cuidar tu reputación (Termómetro Verde)
             </h2>
 
@@ -230,10 +230,10 @@ export default function GuiaEnviosFlexPage() {
                     <div className="w-10 h-10 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="font-display text-base uppercase text-brand-blue-1000">
+                    <h3 className="font-display text-base uppercase text-brand-blue-700">
                       {t.title}
                     </h3>
-                    <p className="font-sans text-xs sm:text-sm text-brand-blue-1000 leading-relaxed">
+                    <p className="font-sans text-xs sm:text-sm text-brand-blue-700 leading-relaxed">
                       {t.desc}
                     </p>
                   </div>

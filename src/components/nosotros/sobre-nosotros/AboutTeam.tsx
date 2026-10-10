@@ -47,7 +47,7 @@ export default function AboutTeam() {
         
         {/* Header Block */}
         <div className="text-left max-w-3xl mb-16 space-y-3.5">
-          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block font-bold transform -rotate-1 shadow-glow-yellow">
+          <span className="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
             FUERZA OPERATIVA & EXPERIENCIA
           </span>
           <h2 className="text-white text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -79,7 +79,7 @@ export default function AboutTeam() {
                         <div className="w-10 h-10 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100">
                           <Icon className="w-5 h-5 text-brand-blue" />
                         </div>
-                        <span className="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full font-bold transform -rotate-1">
+                        <span className="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
                           {stat.tag}
                         </span>
                       </div>
