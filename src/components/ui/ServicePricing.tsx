@@ -161,7 +161,7 @@ function TierCard({
           <h3
             className={cn(
               'font-subheading text-sm uppercase leading-tight tracking-wider sm:text-base',
-              dark ? 'text-white' : 'text-brand-blue-900'
+              dark ? 'text-white' : 'text-brand-blue-500'
             )}
           >
             {tier.range}
@@ -169,7 +169,7 @@ function TierCard({
           <span
             className={cn(
               'shrink-0 rounded-md px-2 py-0.5 font-mono text-xs font-medium tabular-nums',
-              dark ? 'bg-white/15 text-white' : 'bg-brand-blue-50 text-brand-blue-900'
+              dark ? 'bg-white/15 text-white' : 'bg-brand-blue-50 text-brand-blue-500'
             )}
           >
             {tier.distance}
@@ -180,7 +180,7 @@ function TierCard({
           <p
             className={cn(
               'font-mono text-2xs uppercase tracking-wider',
-              dark ? 'text-brand-blue-100' : 'text-brand-blue-700'
+              dark ? 'text-brand-blue-100' : 'text-brand-blue-500'
             )}
           >
             Tarifa
@@ -189,13 +189,13 @@ function TierCard({
             <span
               className={cn(
                 'font-mono text-[40px] font-bold leading-none tabular-nums sm:text-[44px]',
-                dark ? 'text-brand-yellow-500' : 'text-brand-blue-900'
+                dark ? 'text-brand-yellow-500' : 'text-brand-blue-500'
               )}
             >
               {displayPrice(tier.price)}
             </span>
             <span
-              className={cn('font-mono text-xs', dark ? 'text-brand-blue-100' : 'text-brand-blue-700')}
+              className={cn('font-mono text-xs', dark ? 'text-brand-blue-100' : 'text-brand-blue-500')}
             >
               {tier.period ?? unit}
             </span>
@@ -211,7 +211,7 @@ function TierCard({
           {tier.features.map((feature) => (
             <li
               key={feature}
-              className={cn('flex items-start gap-2', dark ? 'text-brand-blue-50' : 'text-brand-blue-900')}
+              className={cn('flex items-start gap-2', dark ? 'text-brand-blue-50' : 'text-brand-blue-500')}
             >
               <Check
                 className={cn(
@@ -231,7 +231,7 @@ function TierCard({
               'rounded-lg border px-3 py-2 text-xs',
               dark
                 ? 'border-white/15 bg-white/10 text-brand-blue-50'
-                : 'border-brand-blue-100 bg-brand-blue-50 text-brand-blue-700'
+                : 'border-brand-blue-100 bg-brand-blue-50 text-brand-blue-500'
             )}
           >
             {tier.note}
@@ -279,7 +279,7 @@ function PriceFacts({ facts, tone }: PriceFactsProps) {
                 'flex h-full items-start gap-4 rounded-2xl p-5 ring-1',
                 dark
                   ? 'bg-white/10 text-brand-blue-50 ring-white/20 backdrop-blur-md'
-                  : 'bg-brand-blue-50 text-brand-blue-900 ring-brand-blue-100'
+                  : 'bg-brand-blue-50 text-brand-blue-500 ring-brand-blue-100'
               )}
             >
               <Icon
@@ -293,7 +293,7 @@ function PriceFacts({ facts, tone }: PriceFactsProps) {
                 <p
                   className={cn(
                     'font-subheading text-base uppercase leading-tight tracking-wider',
-                    dark ? 'text-white' : 'text-brand-blue-900'
+                    dark ? 'text-white' : 'text-brand-blue-500'
                   )}
                 >
                   {title}
@@ -345,7 +345,7 @@ function ExcedenteSection({
         'mt-12 flex flex-col items-stretch justify-between gap-8 rounded-2xl p-6 sm:p-8 lg:flex-row',
         dark
           ? 'bg-white/10 text-brand-blue-50 ring-1 ring-white/20 backdrop-blur-md'
-          : 'bg-white text-brand-blue-900 shadow-sm ring-1 ring-brand-blue-100'
+          : 'bg-white text-brand-blue-500 shadow-sm ring-1 ring-brand-blue-100'
       )}
     >
       <div className="flex flex-1 items-start gap-5">
@@ -364,7 +364,7 @@ function ExcedenteSection({
             <h3
               className={cn(
                 'font-subheading text-2xl uppercase leading-tight tracking-wider sm:text-3xl',
-                dark ? 'text-white' : 'text-brand-blue-900'
+                dark ? 'text-white' : 'text-brand-blue-500'
               )}
             >
               {excedenteTitle ?? `Más de ${maxAutoKm} km`}
@@ -372,7 +372,7 @@ function ExcedenteSection({
             <span
               className={cn(
                 'rounded-md px-2.5 py-0.5 font-mono text-xs font-semibold uppercase',
-                dark ? 'bg-white/15 text-white' : 'bg-brand-blue-50 text-brand-blue-700'
+                dark ? 'bg-white/15 text-white' : 'bg-brand-blue-50 text-brand-blue-500'
               )}
             >
               Excedente por km
@@ -397,7 +397,7 @@ function ExcedenteSection({
             <p
               className={cn(
                 'font-sans text-sm leading-relaxed',
-                dark ? 'text-brand-blue-100' : 'text-brand-blue-700'
+                dark ? 'text-brand-blue-100' : 'text-brand-blue-500'
               )}
             >
               {excedenteDescription}
@@ -410,7 +410,7 @@ function ExcedenteSection({
               dark ? 'bg-white/10 ring-white/20' : 'bg-brand-blue-50 ring-brand-blue-100'
             )}
           >
-            <span className={cn('font-mono text-xs font-semibold', dark ? 'text-white' : 'text-brand-blue-900')}>
+            <span className={cn('font-mono text-xs font-semibold', dark ? 'text-white' : 'text-brand-blue-500')}>
               Fórmula: {formatArs(perKmCoefficient)} × km total
             </span>
           </p>
@@ -427,7 +427,7 @@ function ExcedenteSection({
           <span
             className={cn(
               'font-mono text-2xs uppercase tracking-wider',
-              dark ? 'text-brand-blue-100' : 'text-brand-blue-700'
+              dark ? 'text-brand-blue-100' : 'text-brand-blue-500'
             )}
           >
             Coeficiente kilométrico
@@ -436,19 +436,19 @@ function ExcedenteSection({
             <span
               className={cn(
                 'font-mono text-[38px] font-bold leading-none tabular-nums',
-                dark ? 'text-brand-yellow-500' : 'text-brand-blue-900'
+                dark ? 'text-brand-yellow-500' : 'text-brand-blue-500'
               )}
             >
               {formatArs(perKmCoefficient)}
             </span>
             <span
-              className={cn('font-mono text-xs', dark ? 'text-brand-blue-100' : 'text-brand-blue-700')}
+              className={cn('font-mono text-xs', dark ? 'text-brand-blue-100' : 'text-brand-blue-500')}
             >
               ARS / km
             </span>
           </p>
           <span
-            className={cn('mt-1 font-mono text-xs', dark ? 'text-brand-blue-100' : 'text-brand-blue-700')}
+            className={cn('mt-1 font-mono text-xs', dark ? 'text-brand-blue-100' : 'text-brand-blue-500')}
           >
             Cálculo automático hasta {consultThresholdKm} km
           </span>
@@ -528,7 +528,7 @@ export default function ServicePricing({
             <span
               className={cn(
                 'font-mono text-xs font-semibold uppercase tracking-wider',
-                dark ? 'text-white' : 'text-brand-blue-700'
+                dark ? 'text-white' : 'text-brand-blue-500'
               )}
             >
               Tarifario 2026 · Mar del Plata
@@ -538,7 +538,7 @@ export default function ServicePricing({
           <h2
             className={cn(
               'font-display text-4xl sm:text-5xl lg:text-6xl',
-              dark ? 'text-white' : 'text-brand-blue-900'
+              dark ? 'text-white' : 'text-brand-blue-500'
             )}
           >
             {title}
@@ -548,7 +548,7 @@ export default function ServicePricing({
             <p
               className={cn(
                 'mx-auto max-w-xl font-sans text-pretty text-base leading-relaxed sm:text-lg',
-                dark ? 'text-brand-blue-50' : 'text-brand-blue-900'
+                dark ? 'text-brand-blue-50' : 'text-brand-blue-500'
               )}
             >
               {subtitle}
@@ -559,7 +559,7 @@ export default function ServicePricing({
             <span
               className={cn(
                 'font-mono text-xs font-semibold uppercase tracking-wider',
-                dark ? 'text-white' : 'text-brand-blue-700'
+                dark ? 'text-white' : 'text-brand-blue-500'
               )}
             >
               {windowLabel}
@@ -576,7 +576,7 @@ export default function ServicePricing({
                 <span
                   className={cn(
                     'font-mono text-xs font-semibold uppercase tracking-wider',
-                    dark ? 'text-white' : 'text-brand-blue-700'
+                    dark ? 'text-white' : 'text-brand-blue-500'
                   )}
                 >
                   {rangeLabel}

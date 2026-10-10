@@ -70,7 +70,7 @@ export default function Ecommerce24HSPricing() {
       ctaHref="https://wa.me/542236602699"
       ctaVariant="primary"
       facts={ECOMMERCE_24HS_FACTS}
-      backgroundClassName="bg-brand-blue-500 text-brand-blue-900"
+      backgroundClassName="bg-brand-blue-500 text-white"
     />
   );
 }
