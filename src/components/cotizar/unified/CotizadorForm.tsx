@@ -39,7 +39,7 @@ export default function CotizadorForm({ form }: CotizadorFormProps) {
           onChange={form.setOrigen}
           onSelectCoordinate={form.setOrigenCoords}
           required
-          className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-700 focus-visible:border-brand-blue-700 rounded-xl px-4 text-sm transition-all text-brand-blue-900 placeholder:text-brand-blue-500 font-sans shadow-sm"
+          className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-500 rounded-xl px-4 text-sm transition-all text-brand-blue-500 placeholder:text-brand-blue-500 font-sans shadow-sm"
         />
       </div>
 
@@ -58,13 +58,15 @@ export default function CotizadorForm({ form }: CotizadorFormProps) {
           onChange={form.setDestino}
           onSelectCoordinate={form.setDestinoCoords}
           required
-          className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-700 focus-visible:border-brand-blue-700 rounded-xl px-4 text-sm transition-all text-brand-blue-900 placeholder:text-brand-blue-500 font-sans shadow-sm"
+          className="w-full h-11 bg-white border-2 border-brand-blue-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500 focus-visible:border-brand-blue-500 rounded-xl px-4 text-sm transition-all text-brand-blue-500 placeholder:text-brand-blue-500 font-sans shadow-sm"
         />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <InputField
           id="guia-nombre-input"
+          name="nombre"
+          autoComplete="name"
           label="Nombre"
           placeholder="Tu nombre completo"
           value={form.nombre}
@@ -77,6 +79,8 @@ export default function CotizadorForm({ form }: CotizadorFormProps) {
 
         <InputField
           id="guia-telefono-input"
+          name="telefono"
+          autoComplete="tel"
           label="Teléfono"
           placeholder="Tu teléfono de contacto"
           value={form.telefono}
@@ -92,8 +96,9 @@ export default function CotizadorForm({ form }: CotizadorFormProps) {
 
       <InputField
         id="guia-producto-input"
+        name="producto"
         label="Qué hay adentro"
-        placeholder="Ej: Documentos, indumentaria, repuesto..."
+        placeholder="Ej: Documentos, indumentaria, repuesto…"
         value={form.producto}
         onChange={(e) => form.setProducto(e.target.value)}
         required
@@ -110,7 +115,7 @@ export default function CotizadorForm({ form }: CotizadorFormProps) {
           disabled={form.isCalculating}
           className="w-full"
         >
-          {form.isCalculating ? 'Midiendo la ruta...' : 'Ver las dos tarifas'}
+          {form.isCalculating ? 'Midiendo la ruta…' : 'Ver las dos tarifas'}
         </CTANestedPill>
       </div>
 
