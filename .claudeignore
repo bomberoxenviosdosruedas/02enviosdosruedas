@@ -1,0 +1,20 @@
+# Documentación pesada y artefactos generados
+docs/
+generated/
+
+# Dependencias y cachés de construcción
+node_modules/
+.next/
+dist/
+build/
+.vitest/
+
+# Archivos de bloqueo y metadatos de compilación
+pnpm-lock.yaml
+pnpm-workspace.yaml
+tsconfig.tsbuildinfo
+
+# Control de versión y logs
+.git/
+*.log
+.env*
