@@ -11,7 +11,7 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
   description:
-    'Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express en 3 hs, Mercado Envíos Flex en el día y reparto LowCost. Cotizá online.',
+    'Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express en franja de 3 hs, Mercado Envíos Flex en el día y reparto LowCost. Cotizá online.',
   alternates: {
     canonical: `${baseUrl}/`,
   },

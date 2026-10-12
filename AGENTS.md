@@ -1,183 +1,120 @@
-# AGENTS.md — Envíos DosRuedas Agent Configuration
+# AGENTS.md - Configuración de Agentes para Envíos DosRuedas
 
-**Proyecto:** Envíos DosRuedas (2026)  
-**Stack:** Next.js 16 · React 19 · TypeScript 5 (strict) · Tailwind CSS v4 · Prisma · PostgreSQL 16 · Vitest  
-**Gestor de paquetes:** pnpm (único autorizado)  
-**Deploy:** Vercel
+**Proyecto:** Envíos DosRuedas  
+**Entorno:** Next.js 16 · React 19 · TypeScript 5.7 · Tailwind CSS v4 · Prisma · PostgreSQL · Vitest  
+**Gestor de paquetes:** pnpm (único gestor autorizado)  
+**Despliegue:** Vercel
 
 ---
 
-## 1. Reglas de Marca (Binding)
+## 1. Identidad de Marca y Reglas de Diseño
 
-### Paleta Cromática
+### Paleta Cromática Canónica (Ley de Tres Colores)
 
-| Token              | Hex       | Uso                                                  |
-| ------------------ | --------- | ---------------------------------------------------- |
-| `brand-blue-500`   | `#0950F6` | Azul corporativo base (techo de oscuridad permitido) |
-| `brand-blue-400`   | `#3570F8` | Hover/acentos claros                                 |
-| `brand-blue-300`   | `#628FF9` | Bordes, focus rings                                  |
-| `brand-blue-200`   | `#8EAFFB` | Fondos suaves                                        |
-| `brand-blue-100`   | `#BACEFD` | Fondos muy suaves                                    |
-| `brand-blue-50`    | `#E6EEFE` | Fondos mínimos                                       |
-| `brand-yellow-500` | `#FFEC01` | Amarillo accent (CTAs ≤15%)                          |
-| `brand-yellow-400` | `#FFF12E` | Hover CTA                                            |
-| `brand-yellow-600` | `#E6D400` | Pressed CTA                                          |
-| `brand-yellow-50`  | `#FFFDE6` | Fondos accent suaves                                 |
-| `brand-yellow-100` | `#FFFAB8` | Fondos accent                                        |
-| `brand-yellow-200` | `#FFF78A` | Fondos accent medios                                 |
-| `brand-yellow-300` | `#FFF45C` | Fondos accent fuertes                                |
-| `white`            | `#FFFFFF` | Blanco puro                                          |
-| `error-500`        | `#EF4444` | Solo errores                                         |
-| `error-600`        | `#DC2626` | Solo errores pressed                                 |
+| Token | Hex | Función |
+| --- | --- | --- |
+| `brand-blue-500` / `brand-blue-700` | `#0950F6` | Azul institucional corporativo (techo máximo de oscuridad) |
+| `brand-blue-400` | `#3570F8` | Acentos claros, íconos y estados hover |
+| `brand-blue-300` | `#628FF9` | Bordes activos y anillos de foco |
+| `brand-blue-200` | `#8EAFFB` | Trazos secundarios y bordes suaves |
+| `brand-blue-100` | `#BACEFD` | Divisores y líneas estructurales |
+| `brand-blue-50` | `#E6EEFE` | Fondos suaves y biseles exteriores |
+| `brand-yellow-500` | `#FFEC01` | Amarillo vial para botones de acción (CTAs <= 15% del área) |
+| `brand-yellow-400` | `#FFF12E` | Hover de llamadas a la acción |
+| `brand-yellow-600` | `#E6D400` | Estado presionado (pressed) |
+| `brand-yellow-50` | `#FFFDE6` | Fondos de selección destacados |
+| `white` | `#FFFFFF` | Blanco puro institucional |
+| `error-500` | `#EF4444` | Señalización de errores |
 
-**Prohibidos:** Negro, grises, verdes, azules fuera de paleta, `#0636A5`, `#052C87`, `#04236B`, `#021440`, `#00277C`.
+**Colores estrictamente prohibidos:** Negro puro (`#000000`), escalas de grises oscuros, verdes estándar y tonos azules más oscuros que `#0950F6` (como `#0636A5`, `#052C87`, `#04236B`, `#021440`).
 
-### Tipografía
+### Tipografía Oficial
 
-- **Display/Titulares:** `Anton` 400 (`font-display`)
-- **Subtítulos/Eyebrows:** `Bebas Neue` 400 (`font-subheading`)
-- **Body:** `Outfit` (`font-sans`)
-- **Mono/Precios/Métricas:** `Geist Mono` tabular-nums (`font-mono`)
+- **Display / Titulares de Impacto:** `Anton` 400 (`font-display`)
+- **Subtítulos y Eyebrows:** `Bebas Neue` 400 (`font-subheading`)
+- **Texto Principal y Lectura:** `Outfit` (`font-sans`)
+- **Precios, Métricas y Distancias:** `Geist Mono` con números tabulares (`font-mono`)
 
 ### Primitivas UI Obligatorias
 
-`DoubleBezelCard`, `CTANestedPill`, `InputField`, `RadioCardGroup`, `BentoGrid`, `HeroProceduralBackground`
+Toda interfaz nueva debe estructurarse utilizando las primitivas estandarizadas en `src/components/ui/`:
+- `DoubleBezelCard`: Contenedor insignia con doble bisel (exterior suave e interior blanco o azul).
+- `CTANestedPill`: Botón interactivo redondeado con micro-chip circular para íconos.
+- `InputField`: Campo de entrada accesible con anillos de foco corporativos.
+- `RadioCardGroup`: Selector de tarjetas con soporte de teclado y estados activos.
+- `BentoGrid`: Grilla modular para despliegue de funcionalidades y servicios.
+- `HeroProceduralBackground`: Fondo decorativo procedural con partículas o gradientes livianos.
 
-### Accesibilidad
+### Accesibilidad (A11y)
 
-- WCAG 2.2 Level AA
-- `prefers-reduced-motion` en toda animación
-- Focus ring: `ring-2 ring-brand-blue-500`
-- Contraste mínimo 4.5:1 (brand-blue-500 sobre amarillo = 4.9:1)
-
----
-
-## 2. Niveles de Verificación (N0–N3)
-
-| Nivel  | Descripción                                         | Comandos                                                                                                                                         |
-| ------ | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **N0** | Solo documentación / sin cambios de código          | Lectura, análisis, planificación                                                                                                                 |
-| **N1** | Cambios triviales, bajo riesgo                      | `pnpm typecheck`                                                                                                                                 |
-| **N2** | Cambios moderados, un archivo/área                  | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run`                                                   |
-| **N3** | Cambios estructurales, globales, CSS, configuración | `pnpm typecheck` + `pnpm run lint` + `pnpm exec vitest run` + `pnpm build` (Windows: `powershell -ExecutionPolicy Bypass -Command "pnpm build"`) |
-
-**Regla:** Nunca `pnpm test` a secas (queda en watch). Siempre `pnpm exec vitest run ...`.
+- Cumplimiento estricto de WCAG 2.2 Nivel AA.
+- Contraste visual mínimo de 4.5:1 (texto azul sobre amarillo cumple ratio de 4.9:1).
+- Respeto integral de `prefers-reduced-motion` en todas las animaciones (`MotionConfig` en `src/app/layout.tsx`).
+- Anillos de foco visibles en elementos interactivos (`ring-2 ring-brand-blue-500`).
 
 ---
 
-## 3. Flujo de Trabajo de Agentes
+## 2. Niveles de Verificación para Agentes (N0 a N3)
 
-### Issue Tracking (Local Markdown)
+Al modificar la base de código, ejecutá las comprobaciones correspondientes según la magnitud del cambio:
 
-- **Directorio de features:** `.scratch/<feature-slug>/`
-- **Spec:** `.scratch/<feature-slug>/spec.md`
-- **Tickets:** `.scratch/<feature-slug>/issues/<NN>-<slug>.md` (números desde `01`)
-- **Estado:** Línea `Status:` al inicio (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`)
-- **Comentarios:** Al final bajo `## Comments`
+| Nivel | Alcance | Comandos Requeridos |
+| --- | --- | --- |
+| **N0** | Documentación o consultas de lectura | Análisis de código sin cambios en archivos de producción |
+| **N1** | Modificaciones cosméticas o de bajo riesgo | `pnpm typecheck` |
+| **N2** | Cambios en componentes, Server Actions o lógica puntual | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run` |
+| **N3** | Cambios estructurales, estilos globales, Prisma o configuración | `pnpm typecheck` + `pnpm lint` + `pnpm test:ci` + `pnpm build` |
 
-### Alineación con `docs/marketing`
-
-- Backlog maestro: `docs/marketing/TASKS.md` y `docs/marketing/F4-0-backlog.md`
-- Prompts listos para agentes: `docs/marketing/BL-*-prompt.md`
-- Al completar: actualizar `docs/marketing/TASKS.md` (rutina de cierre de sesión)
-
-### Wayfinding (para `/wayfinder`)
-
-- **Mapa:** `.scratch/<effort>/map.md` (Notes / Decisions-so-far / Fog body)
-- **Ticket hijo:** `.scratch/<effort>/issues/NN-<slug>.md`
-- **Bloqueo:** Línea `Blocked by: NN, NN`
-- **Frontera:** Escanear issues abiertos, sin bloquear, sin reclamar; el primero por número gana
-- **Reclamar:** `Status: claimed` antes de empezar
-- **Resolver:** Anexar solución bajo `## Answer`, `Status: resolved`, actualizar `map.md`
+> **Regla de ejecución:** Nunca ejecutes `pnpm test` a secas (permanece en modo interactivo). Empleá siempre `pnpm test:ci` o `pnpm exec vitest run`.
 
 ---
 
-## 4. Etiquetas de Triage (Canónicas)
+## 3. Salvaguardas de Negocio y Reglas de Copy
 
-| Label en skills   | Label en nuestro tracker | Significado en workflow local                              |
-| ----------------- | ------------------------ | ---------------------------------------------------------- |
-| `needs-triage`    | `needs-triage`           | Mantenedor debe evaluar (`Pendiente`)                      |
-| `needs-info`      | `needs-info`             | Esperando aclaración owner/reporter (`Bloqueado`)          |
-| `ready-for-agent` | `ready-for-agent`        | Especificado completamente, prompt listo (`Specs listos`)  |
-| `ready-for-human` | `ready-for-human`        | Requiere acción humana (Canva, Google Business, contratos) |
-| `wontfix`         | `wontfix`                | Fuera de alcance, rechazado o supersedido                  |
+Los tests de integridad en `src/lib/copy-guard.test.ts` y las definiciones en `src/lib/promises.ts` establecen las siguientes restricciones no negociables:
 
----
+1. **Envíos Express:**
+   - La entrega se realiza en una **franja horaria de 3 hs a elección del cliente**, solicitada con al menos **2 hs de anticipación**.
+   - Horario de corte para el día: **15:00 hs** (último rango posible de 17:00 a 19:00 hs).
+   - Prohibido prometer "en 2 horas", "en 3 hs", "menos de 2 h" o "60 a 90 minutos".
 
-## 5. Documentación de Dominio (Lectura Obligatoria)
+2. **Envíos LowCost:**
+   - Reparto programado económico en el día, sin selección de franja horaria.
+   - Horario de corte: **13:00 hs**; ventana de entrega hasta las **19:00 hs**.
+   - Prohibido categorizarlo como servicio "agrupado" o "por lote". La tarifa se calcula por distancia individual.
 
-Antes de explorar código, leer en orden:
+3. **Mercado Envíos Flex:**
+   - Logística de entregas en el mismo día para MercadoLibre.
+   - Horario de corte: **15:00 hs**; entrega garantizada hasta las **20:00 hs**.
+   - SLA superior al 99.8% con acuse de entrega mediante foto del paquete y firma digital.
 
-1. **`CONTEXT.md`** (raíz) — Glosario core, definiciones de entidad, guías geográficas Mar del Plata y marca
-2. **`docs/marketing/glosario.md`** — Glosario definitivo de términos negocio/logística
-3. **`docs/marketing/decisiones.md`** — Decisiones arquitectura, negocio, diseño
-4. **`docs/adr/`** — ADRs del área a trabajar
-5. **`AGENTS.md` & `DESIGN.md`** — Reglas binding de marca, tipografía, cromáticas
+4. **Capacidad y Bultos:**
+   - Medida estándar incluida: hasta **5 kg** o **40 x 40 x 30 cm**.
+   - Todo bulto que exceda ese volumen se coordina como especial con recargo operativo desde `$1.800`.
+   - Prohibido publicar límites de peso máximos inventados (como "15 kg"). No se publica techo rígido: se transporta lo que quepa con seguridad en moto.
 
-**Vocabulario obligatorio:** Usar términos tal como definidos en `CONTEXT.md` y `docs/marketing/glosario.md`. No inventar sinónimos ni traducir terminología establecida.
+5. **Cálculo Tarifario y Distancias:**
+   - Tramo extendido (más de 10 km hasta 20 km): cálculo lineal directo (`distancia * precioPorKm`). Nunca utilizar `Math.ceil`.
+   - Distancias viales superiores a 20 km: retorno `'consultar'`, derivando la cotización a atención personalizada.
+   - No utilizar la frase "sin sorpresas" si existen recargos operativos estipulados (lluvia, tiempo de espera desde el minuto 11, paradas extra, bultos mayores).
 
-**Conflictos ADR:** Si la salida contradice decisión en `docs/marketing/decisiones.md` o `docs/adr/`, surfear explícitamente en lugar de sobrescribir silenciosamente.
-
----
-
-## 6. Optimización de Tokens (Context Boundaries)
-
-Este repo usa tres archivos de exclusión coordinados para reducir contexto IA:
-
-| Archivo              | Propósito                                                                        | Agentes objetivo |
-| -------------------- | -------------------------------------------------------------------------------- | ---------------- |
-| `.aiexclude`         | Estándar universal (Cursor, Copilot, Windsurf, Cody, JetBrains AI, Gemini, etc.) | Todos            |
-| `.antigravityignore` | Optimización FinOps para Antigravity AI                                          | Antigravity      |
-| `.geminiignore`      | FinOps & Context Optimization para Google AI / Gemini                            | Gemini           |
-
-**Whitelist común (archivos SÍ incluidos):**
-
-- Configuración: `next.config.ts`, `tailwind.config.ts`, `tsconfig.json`, `package.json`, `pnpm-workspace.yaml`, `postcss.config.mjs`, `eslint.config.mjs`, `vitest.config.ts`, `prisma.config.ts`, `prisma/schema.prisma`, `prisma/seed.ts`
-- Código fuente: `src/**/*`, `public/**/manifest.json`
-- Reglas/raíz: `README.md`, `AGENTS.md`, `DESIGN.md`, `PROJECT.md`, `CONTEXT.md`, `PRODUCT.md`, `CLAUDE.md`
-- Control IA: `.antigravityignore`, `.geminiignore`, `.aiexclude`
-- Skills: `.agents/skills/**/SKILL.md`, `.agents/skills.json`, `.agents/rules/**`
-- Docs operativas: `docs/knowledge_base/**`, `docs/contexto/precios.md`, `docs/contexto/arquitectura.md`, `docs/contexto/convenciones.md`, `docs/contexto/decisiones.md`, `docs/contexto/errores-conocidos.md`, `docs/contexto/flujo-de-trabajo.md`, `docs/contexto/glosario.md`, `docs/marketing/glosario.md`, `docs/marketing/decisiones.md`, `docs/adr/**`, `docs/agents/**`, `docs/imagenes/hero-derecha/PROMPTS.md`
-
-**Excluidos principales:** `node_modules/`, `pnpm-lock.yaml`, `.next/`, `dist/`, `build/`, `.git/`, `.env*`, `*.log`, `prisma/migrations/**/*.sql`, `enviosdosruedas_datos_2_anos/`, `*.csv`, `*.xlsx`, `docs/imagenes/`, `docs/prompts/`, `docs/paginas*/`, `.claude/`, `.hermes/`, `.agents/**/node_modules/`, `.agents/**/bin/`, `.agents/**/font-index.json`
+6. **Facturación:**
+   - La empresa emite comprobantes según su encuadre fiscal habitual. No se emite Factura A.
 
 ---
 
-## 7. Comandos de Desarrollo
+## 4. Estructura de Trabajo en el Código
 
-| Acción                | Comando                                                                            |
-| --------------------- | ---------------------------------------------------------------------------------- |
-| **Typecheck**         | `pnpm typecheck`                                                                   |
-| **Lint**              | `pnpm exec eslint <archivos>`                                                      |
-| **Tests CI**          | `pnpm exec vitest --run`                                                           |
-| **Tests related**     | `pnpm exec vitest related <archivos> --run`                                        |
-| **Build**             | `pnpm build` (Windows: `powershell -ExecutionPolicy Bypass -Command "pnpm build"`) |
-| **Prisma Studio**     | `pnpm prisma studio`                                                               |
-| **Seed tarifas 2026** | `pnpm prisma db seed`                                                              |
-| **Dev server**        | `pnpm dev`                                                                         |
+- **Server Actions:** Crear mutaciones en `src/actions/` asegurando validación rigurosa de entradas con Zod.
+- **Consultas a Base de Datos:** Usar la instancia centralizada `prisma` importada de `@/lib/prisma`.
+- **Rutas y API:** En Next.js 16 App Router, preferir Server Components por defecto y delegar la interactividad a componentes clientes con `'use client'`.
+- **Estilos:** Emplear las clases de utilidad de Tailwind v4 y los tokens semánticos definidos en `src/app/globals.css`.
 
 ---
 
-## 8. Variables de Entorno Requeridas
+## 5. Reglas Mandatorias de Interacción
 
-| Variable               | Requerida | Descripción                                                          |
-| ---------------------- | --------- | -------------------------------------------------------------------- |
-| `DATABASE_URL`         | ✅        | PostgreSQL (`postgresql://user:pass@localhost:5432/enviosdosruedas`) |
-| `GOOGLE_MAPS_API_KEY`  | ✅        | AddressAutocomplete & Directions API proxied                         |
-| `NEXT_PUBLIC_SITE_URL` | ✅        | URL canónica (`https://enviosdosruedas.com`)                         |
-| `GA4_MEASUREMENT_ID`   | ⚪        | Google Analytics 4 (`G-XXXXXXXXXX`)                                  |
-| `WHATSAPP_NUMBER`      | ⚪        | WhatsApp Business Oficial (`542236602699`)                           |
-
-**Nunca** imprimir valores de `.env` ni `DATABASE_URL`.
-
----
-
-## 9. Reglas Duras (No Negociables)
-
-- **NUNCA** cambiar precios, textos visibles, rutas, redirecciones, lógica de negocio ni colores
-- **NUNCA** borrar carpetas de herramientas de agentes (`.agent`, `.agents`, `.hermes`, `.opencode`, `.design-sync`, `.impeccable`, `.stitch`, `.claude`) ni archivos de ignore de IA (`.aiexclude`, `.antigravityignore`, `.geminiignore`)
-- **NUNCA** imprimir valores de `.env` ni `DATABASE_URL`
-- Todo cambio CSS = visualmente nulo (salvo bug demostrado y declarado)
-- Paleta, tipografías, `prefers-reduced-motion`, focus ring: son reglas de este AGENTS.md y DESIGN.md, no se relajan
-- Solo **pnpm**. Nunca `pnpm test` a secas
-- **Voseo rioplatense** en todo lo que escribas para humanos (comentarios, docs, PR). Sin em-dash ni en-dash
+- Usá **voseo rioplatense** en todos los textos dirigidos a humanos (comentarios de código, documentación, mensajes de commit o descripciones técnicas).
+- No uses guiones largos ni en-dash en la redacción en español.
+- Nunca imprimas ni expongas claves de entorno (`.env`, `DATABASE_URL`, `GOOGLE_MAPS_API_KEY`, `GEMINI_API_KEY`).
+- No modifiques tarifas, rutas existentes ni redirecciones fijadas sin especificación explícita.

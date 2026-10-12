@@ -1,154 +1,188 @@
 # Envíos DosRuedas
 
-**Logística de última milla, mensajería urbana y soluciones e-commerce en Mar del Plata (General Pueyrredón).**  
-Año operativo: **2026** · Flota especializada en motos · +7 años de trayectoria en la ciudad.  
-Sede Operativa: **Friuli 1972, Mar del Plata** · Liderazgo: **Matías Nicolás Cejas** (Fundador & CEO).
+Plataforma web de mensajería urbana en moto y logística de última milla para e-commerce en Mar del Plata, Argentina.
+
+El sistema ofrece cotización online en tiempo real por distancia vial, contratación de servicios de entrega programada e inmediata, integración para vendedores de Mercado Envíos Flex, almacenamiento y fulfillment 3PL, y asistencia virtual inteligente.
 
 ---
 
-## 📚 Documentación de Arquitectura Técnica
+## Stack Tecnológico
 
-La documentación de arquitectura del sistema está centralizada en el directorio [`docs/architecture/`](./docs/architecture/README.md):
+El proyecto está construido sobre un stack moderno y tipado de punta a punta:
 
-- 📐 [01 — Visión General del Sistema (System Overview)](./docs/architecture/01-system-overview.md): Stack (Next.js 16, React 19, Tailwind v4, Prisma, Vitest) y estructura de `src/`.
-- 💰 [02 — Motor de Cotización y Dominio (Domain & Pricing Engine)](./docs/architecture/02-domain-pricing-engine.md): Algoritmo de cálculo de precios, franjas horarias y guardrails.
-- ⚡ [03 — Server Actions e Integraciones (Server Actions & APIs)](./docs/architecture/03-server-actions-and-integrations.md): Server Actions, proxy de Google Places/Routes y resiliencia con `safeCache`.
-- 🎨 [04 — Sistema de Diseño e Interfaces (UI & Design System)](./docs/architecture/04-ui-design-system.md): Tokens cromáticos (`#0950F6`, `#FFEC01`), tipografías, Double-Bezel y accesibilidad.
-- 🧪 [05 — Protocolo de Verificación y Testing (Verification & QA Protocol)](./docs/architecture/05-testing-verification-protocol.md): Niveles de pruebas N0–N3, Vitest JSDOM y TypeScript strict mode.
-
----
-
-## 🚀 Menú Oficial de Servicios
-
-| Servicio | Tipo de Servicio | Dinámica y Horarios de Corte | Tarifas y Beneficios Clave |
-| :--- | :--- | :--- | :--- |
-| **Express** | Por Demanda Prioritario | Solicitud con **mín. 2 horas** de anticipación. Franja horaria a elección (3 hs). Corte: 15:00hs. | Tarifa por distancia (`pricing.ts` / `PriceRange`). Excedente 10-20 km: +$1.000/km (`Math.ceil`). Periferia: $1.000/km de ruta. |
-| **LowCost** | Reparto Programado Diario | Solicitud con **mín. 2 horas** de anticipación. Pedidos hasta las **13:00hs** se entregan antes de las **19:00hs** (sin franja). | Tarifa económica por distancia. Excedente 10-20 km: +$700/km (`Math.ceil`). Periferia: $1.000/km de ruta. |
-| **Mercado Envíos Flex** | Same-Day Mercado Libre | Colecta gratuita. Ventas concretadas hasta las **15:00hs** se entregan el mismo día antes de las **20:00hs**. | **Estructurado en 3 Niveles:**<br>• *N1 (1-4 envíos/día):* Tarifario estándar.<br>• *N2 (5+ envíos/día):* Tope fijo en Zonas 4 y 5.<br>• *N3 (10+ envíos/día):* Tarifa Plana. 2da visita **100% GRATIS**. |
-| **Plan E-Commerce Same Day (Fulfillment 3PL)** | Almacenamiento & Despacho 3PL | Almacenamiento en Friuli 1972. Recepción de pedidos hasta las **15:00hs** para entrega el mismo día. | Tarifa Plana Integral a todo Mar del Plata. Incluye stock, picking y embalaje básico. 2da visita **100% Bonificada**. |
-| **Plan E-Commerce 24hs** | Distribución Next Day | Retiro hoy, entrega mañana en franja abierta. Retiro diario gratis con +10 paquetes. | Tarifa Plana según escalado mensual. **Opción Drop-Off:** 20% OFF directo entregando paquetes en Friuli 1972. |
-| **Cuenta Corriente Flexible** | Exclusivo PyMEs / Empresas | Recepción hasta las **15:00hs** con mín. 2hs de anticipación y elección de rango horario. | Beneficios de servicio Express con liquidación personalizada (diaria, semanal, quincenal o mensual). Factura C. |
-| **Gestión de Cobranzas** | Contrareembolso en Destino | Recaudación en mano del valor del producto en la puerta del comprador. | Rendición en el día, 24hs o semanal por transferencia o efectivo con arqueo detallado. |
+- **Framework:** Next.js 16 (App Router)
+- **Biblioteca UI:** React 19
+- **Lenguaje:** TypeScript 5.7 (modo estricto)
+- **Estilos:** Tailwind CSS v4 con tokens de diseño dedicados
+- **Base de Datos y ORM:** PostgreSQL con Prisma ORM (`@prisma/adapter-pg`)
+- **Inteligencia Artificial:** Google GenAI SDK (`@google/genai`) y Genkit (`genkit`, `@genkit-ai/google-genai`)
+- **Mapas y Ruteo:** Google Maps Platform (Directions, Places Autocomplete y Details) con fallback visual en Leaflet
+- **Animaciones y Primitivas:** Motion, GSAP, Radix UI y Lucide React
+- **Testing:** Vitest con jsdom y Testing Library
+- **Gestor de paquetes:** pnpm (gestor único autorizado)
+- **Despliegue:** Vercel
 
 ---
 
-## ⚙️ Reglas Operativas y Guardrails de Negocio
+## Arquitectura del Proyecto (`src`)
 
-* **Facturación:** Emisión de **Factura C** para todos los clientes y servicios.
-* **Cobro en Destino (Contrareembolso):** Rendición pactada al cierre del día, 24hs o semanal. No existe rendición inmediata.
-* **Franja Horaria Express:** Express no promete duraciones estimadas ("60-90 min" o "menos de 2 hs"); es una **franja horaria de 3 hs a elección**.
-* **Umbral Único de Peso:** Hasta **5 kg o 40 × 40 cm** (`STANDARD_WEIGHT_KG = 5`) sin recargo. No se publica límite máximo de peso.
-* **Clima Adverso (Lluvia / Calzada Mojada):** Recargo aplicable según el tipo de servicio.
-* **Tolerancia de Espera:** 10 minutos de gracia en domicilio.
-
----
-
-## 🛠 Stack Tecnológico
-
-| Capa | Tecnología |
-| :--- | :--- |
-| **Framework** | Next.js 16 (App Router, React 19) |
-| **Lenguaje** | TypeScript 5 (strict mode) |
-| **Estilos** | Tailwind CSS v4 (`@theme` en `src/app/globals.css`) |
-| **Animaciones** | GSAP (GreenSock) + `motion/react` (con `useReducedMotion()`) |
-| **Base de Datos** | Prisma ORM + PostgreSQL 16 (`PriceRange` + fallback `pricing.ts`) |
-| **Mapas / Geocoding** | Google Places & Directions API (Proxied via Server Actions) + Leaflet |
-| **Gestor Paquetes** | **pnpm** (único autorizado) |
-| **Testing** | Vitest (unitario e integración) + JSDOM |
-| **Deploy** | Vercel |
-
----
-
-## ⚡ Inicio Rápido
-
-### Prerrequisitos
-* Node.js 20+ LTS
-* pnpm 9+
-* PostgreSQL 16 (local o remoto)
-
-### Instalación
-
-```bash
-# Clonar e instalar dependencias
-git clone <repo-url>
-cd 02enviosdosruedassetiembre
-pnpm install
-
-# Configurar base de datos
-cp .env.example .env
-# Editar .env con DATABASE_URL y variables necesarias
-
-# Generar cliente Prisma y aplicar esquema
-pnpm prisma generate
-pnpm prisma db push
-
-# Seed de tarifas vigentes 2026
-pnpm prisma db seed
-
-# Servidor de desarrollo
-pnpm dev
-```
-
-### Variables de Entorno (`.env`)
-
-| Variable | Requerida | Descripción |
-| :--- | :---: | :--- |
-| `DATABASE_URL` | ✅ | Conexión PostgreSQL (`postgresql://user:pass@localhost:5432/enviosdosruedas`) |
-| `GOOGLE_MAPS_API_KEY` | ✅ | Para AddressAutocomplete & Directions API proxied |
-| `NEXT_PUBLIC_SITE_URL` | ✅ | URL canónica (`https://enviosdosruedas.com`) |
-| `GA4_MEASUREMENT_ID` | ⚪ | Google Analytics 4 (`G-XXXXXXXXXX`) |
-| `WHATSAPP_NUMBER` | ⚪ | WhatsApp Business Oficial (`542236602699`) |
-
----
-
-## 📦 Comandos Útiles
-
-| Acción | Comando |
-| :--- | :--- |
-| **Typecheck** | `pnpm typecheck` |
-| **Lint** | `pnpm exec eslint <archivos>` |
-| **Tests CI** | `pnpm exec vitest --run` |
-| **Build** | `pnpm build` |
-| **Prisma Studio** | `pnpm prisma studio` |
-| **Seed tarifas** | `pnpm prisma db seed` |
-
----
-
-## 🎨 Sistema de Diseño (Resumen)
-
-* **Paleta Corporativa:**
-  * Azul Corporativo: `#0950F6` (Base e identidad, techo de oscuridad permitido)
-  * Amarillo Accent: `#FFEC01` (Llamados a la acción / CTA ≤15%)
-  * Blanco: `#FFFFFF`
-* **Tipografía:** Anton 400 (Display/Titulares), Bebas Neue 400 (Subtítulos/Eyebrows), Outfit (Body), Geist Mono (`tabular-nums` para precios y métricas).
-* **Primitivas UI:** `DoubleBezelCard`, `CTANestedPill`, `InputField`, `RadioCardGroup`, `BentoGrid`, `HeroProceduralBackground`.
-
----
-
-## 📁 Estructura del Proyecto
+La base de código se organiza de manera modular dentro de `src/`:
 
 ```
 src/
-├── actions/               # Server Actions (calculateQuoteAction, feedback, admin-imagenes)
-├── app/                   # Rutas (App Router: cotizar, servicios, nosotros, contacto, api)
-├── components/            # UI Primitivas (ui/) y módulos por página
-├── hooks/                 # Hooks de estado e integración (cotizador, useGoogleRoute)
-├── lib/                   # Motor de cotización (pricing.ts, promises.ts, whatsapp.ts, prisma.ts)
-└── test/                  # Setup y utilidades de Vitest
-docs/
-├── architecture/          # Documentación de Arquitectura Técnica (01-05)
-└── knowledge_base/        # Base de conocimiento canónica de negocio
+├── actions/              # Server Actions para mutaciones y consultas seguras
+│   ├── quote.ts          # Cotización server-side validada con Google Directions y Zod
+│   ├── feedback.ts       # Registro de feedback y sugerencias en base de datos
+│   └── admin-imagenes.ts # Gestión y sugerencias asistidas por IA para metadatos de imágenes
+├── app/                  # Rutas y páginas de Next.js App Router
+│   ├── (public)/         # Páginas públicas: inicio, servicios, cotizador, cobertura, nosotros, contacto
+│   ├── admin/            # Panel administrativo interno (gestión de imágenes)
+│   ├── api/              # Route Handlers para proxies y endpoints
+│   │   ├── assistant/    # API del asistente virtual ("DosRuedas Bot") con Gemini
+│   │   ├── places/       # Proxy seguro para Google Places (Autocomplete y Details)
+│   │   └── routes/       # Proxy para Google Directions
+│   ├── globals.css       # Definición de tokens @theme Tailwind v4 y variables CSS
+│   ├── layout.tsx        # Layout raíz con configuración de fuentes y SEO global
+│   ├── sitemap.ts        # Generación dinámica del mapa del sitio
+│   └── robots.ts         # Directivas de indexación para buscadores
+├── assets/               # Tipografías locales (Anton, Bebas Neue) y estáticos
+├── components/           # Componentes React organizados por dominio y biblioteca UI
+│   ├── cotizar/          # Módulos del cotizador unificado (formulario, mapa, comparativa)
+│   ├── home/             # Secciones interactivas de la página de inicio
+│   ├── layout/           # Header optimizado, footer institucional y navegación móvil
+│   ├── servicios/        # Secciones y calculadoras por servicio logístico
+│   └── ui/               # Primitivas del sistema de diseño (DoubleBezelCard, CTANestedPill, InputField)
+├── hooks/                # Custom hooks (cotización unificada, analítica, ruteo)
+├── lib/                  # Lógica pura del negocio y configuraciones de clientes
+│   ├── analytics.ts      # Captura de UTMs y eventos de GA4
+│   ├── gemini.ts         # Cliente oficial de Google GenAI
+│   ├── genkit.ts         # Instancia configurada de Genkit
+│   ├── pricing.ts        # Algoritmos puros de cálculo tarifario
+│   ├── prisma.ts         # Instancia única del cliente de Prisma
+│   ├── promises.ts       # Constantes canónicas de promesas de servicio y umbrales
+│   └── whatsapp.ts       # Generador de enlaces a WhatsApp con trazabilidad
+└── test/                 # Configuración global y extensiones para Vitest
 ```
 
 ---
 
-## 📞 Contacto e Información Institucional
+## Servicios Logísticos y Reglas de Negocio
 
-* **Base Operativa:** Friuli 1972, Mar del Plata, Buenos Aires, Argentina
-* **Fundador & CEO:** Matías Nicolás Cejas
-* **WhatsApp / Teléfono:** [+54 223 660-2699](https://wa.me/542236602699)
-* **Email:** [MatiasCejas@enviosdosruedas.com](mailto:MatiasCejas@enviosdosruedas.com)
-* **Web Oficial:** [www.enviosdosruedas.com](https://www.enviosdosruedas.com)
+La plataforma modela las siguientes soluciones para Mar del Plata:
+
+1. **Envíos Express:**
+   - Entrega en franja horaria acotada de 3 horas a elección del cliente.
+   - Solicitud con un mínimo de 2 horas de anticipación.
+   - Horario de corte para el mismo día: 15:00 hs (última franja disponible 17:00 a 19:00 hs).
+   - Cálculo tarifario automático por distancia vial hasta 20 km. Para trayectos mayores a 20 km se consulta con el equipo.
+
+2. **Envíos LowCost:**
+   - Reparto programado económico en el día, sin elección de franja horaria.
+   - Horario de corte: 13:00 hs; entrega en el transcurso del día antes de las 19:00 hs.
+   - Cada paquete se cotiza individualmente según su distancia.
+
+3. **Mercado Envíos Flex:**
+   - Logística para vendedores con entregas "Llega Hoy".
+   - Horario de corte: 15:00 hs; ventana de entrega hasta las 20:00 hs.
+   - Cumplimiento de SLAs superior al 99.8%, con comprobante fotográfico y firma digital en destino.
+
+4. **Depósito y Fulfillment 3PL:**
+   - Almacenamiento, control de inventario y preparación de pedidos (Pick & Pack) en la base central (Friuli 1972).
+   - Planes para e-commerce con recolección bonificada por volumen y modalidad DropOFF con descuento al despachar en base.
+
+5. **Límites de Carga y Condiciones:**
+   - Bulto estándar sin recargo: hasta 5 kg o dimensiones de 40 x 40 x 30 cm.
+   - Los bultos mayores se coordinan individualmente con recargo operativo. No existe un techo numérico rígido publicado, admitiéndose todo lo transportable con seguridad en moto.
+   - Cobro contra entrega (contrareembolso) disponible sin comisión adicional porcentual sobre el valor recaudado.
 
 ---
-*Envíos DosRuedas 2026 — El Motor de su Última Milla en Mar del Plata* 🏍️📦
+
+## Sistema de Diseño y Marca
+
+La identidad visual está regida por la Ley de Tres Colores definida en `globals.css`:
+
+- **Azul Vibrante:** `#0950F6` (`brand-blue-500` / `brand-blue-700`). Es el techo máximo de oscuridad permitido en la interfaz. No se utilizan tonos negros ni azules noche.
+- **Amarillo Vial:** `#FFEC01` (`brand-yellow-500`). Reservado estrictamente para acentos de alta jerarquía y botones de llamada a la acción (CTAs), con una presencia no mayor al 15% del área visual.
+- **Blanco:** `#FFFFFF`. Fondo principal y lienzo institucional.
+- **Tipografías:**
+  - `Anton` (`font-display`): Títulos de impacto y números destacados.
+  - `Bebas Neue` (`font-subheading`): Subtítulos, eyebrows y textos en mayúsculas de CTAs.
+  - `Outfit` (`font-sans`): Lectura general, párrafos y formularios.
+  - `Geist Mono` (`font-mono`): Precios, distancias, códigos y métricas con números tabulares.
+
+---
+
+## Requisitos Previos
+
+- **Node.js:** Versión 20.x o superior.
+- **pnpm:** Versión 10 o superior (gestor exclusivo del repositorio).
+- **PostgreSQL:** Base de datos relacional accesible localmente o mediante servicio cloud.
+
+---
+
+## Instalación y Configuración
+
+1. Cloná el repositorio en tu máquina:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd 02enviosdosruedassetiembre
+   ```
+
+2. Instalá las dependencias con pnpm:
+   ```bash
+   pnpm install
+   ```
+
+3. Creá el archivo `.env` en la raíz copiando las variables base:
+   ```env
+   # Base de Datos
+   DATABASE_URL="postgresql://usuario:password@localhost:5432/enviosdosruedas?schema=public"
+
+   # Google Maps Platform (Ruteo y Autocomplete)
+   GOOGLE_MAPS_API_KEY="AIzaSy..."
+   NEXT_PUBLIC_GOOGLE_MAPS_API_KEY="AIzaSy..."
+
+   # Inteligencia Artificial (Gemini)
+   GEMINI_API_KEY="AIzaSy..."
+
+   # Configuración de Sitio y Contacto
+   NEXT_PUBLIC_SITE_URL="https://www.enviosdosruedas.com"
+   WHATSAPP_NUMBER="542236602699"
+   GA4_MEASUREMENT_ID="G-XXXXXXXXXX"
+   ```
+
+4. Generá el cliente de Prisma y ejecutá el seed inicial:
+   ```bash
+   pnpm prisma generate
+   pnpm prisma db push
+   pnpm prisma db seed
+   ```
+
+---
+
+## Comandos de Desarrollo
+
+| Acción | Comando | Descripción |
+| --- | --- | --- |
+| **Servidor de desarrollo** | `pnpm dev` | Inicia Next.js en `http://localhost:3000` |
+| **Verificación de tipos** | `pnpm typecheck` | Ejecuta `tsc --noEmit` |
+| **Linter** | `pnpm lint` | Inspecciona el código con ESLint 9 |
+| **Tests unitarios** | `pnpm test:ci` | Corre Vitest en modo ejecución única |
+| **Interfaz de tests** | `pnpm test:ui` | Abre el panel visual de Vitest |
+| **Generar cliente Prisma** | `pnpm postinstall` | Genera los tipos de Prisma Client |
+| **Prisma Studio** | `pnpm prisma studio` | Abre el panel de administración de datos |
+| **Compilación de producción** | `pnpm build` | Genera Prisma y compila la aplicación para producción |
+| **Servidor de producción** | `pnpm start` | Inicia la versión optimizada construida |
+
+> **Nota:** Nunca ejecutes `pnpm test` en entornos automatizados para evitar que el proceso quede bloqueado en modo observación. Usá siempre `pnpm test:ci`.
+
+---
+
+## Verificación y Calidad de Código
+
+Antes de enviar cualquier cambio, asegurate de cumplir el ciclo de verificación:
+
+1. **Chequeo de tipos:** `pnpm typecheck`
+2. **Linter:** `pnpm lint`
+3. **Tests de regresión y copy:** `pnpm test:ci`
+4. **Compilación completa:** `pnpm build`

@@ -1,261 +1,135 @@
-# CLAUDE.md — Envíos DosRuedas Configuration for Claude Code
+# CLAUDE.md - Guía de Desarrollo Operacional para Asistentes
 
-**Proyecto:** Envíos DosRuedas (2026) — Logística última milla, Mar del Plata  
-**Stack:** Next.js 16 (App Router) · React 19 · TypeScript 5 strict · Tailwind CSS v4 · Prisma · PostgreSQL 16 · Vitest · pnpm
-
----
-
-## 1. Visión General Rápida
-
-| Aspecto | Detalle |
-|---------|---------|
-| **Framework** | Next.js 16 con App Router, React 19 |
-| **Lenguaje** | TypeScript 5 (strict mode) |
-| **Estilos** | Tailwind CSS v4 (`@theme` en `src/app/globals.css`) |
-| **Animaciones** | GSAP + `motion/react` (con `useReducedMotion()`) |
-| **Base de Datos** | Prisma ORM + PostgreSQL 16 (`PriceRange` + fallback `pricing.ts`) |
-| **Mapas/Geocoding** | Google Places & Directions API (Proxied via Server Actions) + Leaflet |
-| **Testing** | Vitest (unitario e integración) + JSDOM |
-| **Deploy** | Vercel |
-| **Package Manager** | **pnpm 9+** (único autorizado) |
+Este archivo contiene las directivas técnicas, comandos canónicos y reglas de arquitectura para trabajar en el código de **Envíos DosRuedas**.
 
 ---
 
-## 2. Archivos de Configuración Raíz (Contexto Obligatorio)
+## 1. Stack Tecnológico y Configuración
 
-| Archivo | Propósito |
-|---------|-----------|
-| `AGENTS.md` | Configuración de agentes, reglas de marca, workflow, triage, verificación |
-| `DESIGN.md` | Sistema de diseño completo (tokens, tipografía, componentes, motion, accesibilidad) |
-| `CONTEXT.md` | Glosario core, entidades de dominio, geografía Mar del Plata, reglas de negocio |
-| `PROJECT.md` | Resumen técnico del proyecto, arquitectura, decisiones clave |
-| `PRODUCT.md` | Especificación de producto, servicios, pricing, reglas operativas |
-| `README.md` | Documentación pública, inicio rápido, comandos, contacto |
-
-**Regla:** Antes de cualquier tarea, leer `AGENTS.md` y `DESIGN.md` §2 (paleta y tokens).
+- **Framework:** Next.js 16 (App Router con Server Components y Server Actions)
+- **Runtime y Biblioteca:** React 19 / Node.js 20+
+- **Lenguaje:** TypeScript 5.7 (estricto)
+- **Estilos:** Tailwind CSS v4 con variables en `@theme` (`src/app/globals.css`)
+- **Base de Datos:** PostgreSQL con Prisma ORM (`@prisma/adapter-pg`, cliente en `generated/prisma`)
+- **Pruebas:** Vitest con jsdom y `@testing-library/react`
+- **IA:** Google GenAI SDK (`@google/genai`) y Genkit (`genkit`, `@genkit-ai/google-genai`)
+- **Mapas:** Google Maps APIs (Directions, Places) y Leaflet (`leaflet`, `@types/leaflet`)
+- **Gestor de paquetes:** `pnpm` (exclusivo, no usar npm ni yarn ni bun)
 
 ---
 
-## 3. Comandos de Desarrollo
+## 2. Comandos Canónicos de Trabajo
+
+Todos los comandos deben ejecutarse con `pnpm`:
 
 ```bash
-# Instalación
-pnpm install
+# Desarrollo local
+pnpm dev
 
-# Base de datos
-cp .env.example .env
-pnpm prisma generate
-pnpm prisma db push
-pnpm prisma db seed          # Seed tarifas vigentes 2026
+# Verificación estricta de TypeScript
+pnpm typecheck
 
-# Desarrollo
-pnpm dev                     # Servidor desarrollo (Turbopack)
+# Análisis estático y linter
+pnpm lint
+pnpm exec eslint <ruta/al/archivo>
 
-# Verificación
-pnpm typecheck               # TypeScript strict check
-pnpm exec eslint <archivos>  # Lint específico
-pnpm exec vitest --run       # Tests CI (no watch)
-pnpm exec vitest related <archivos> --run  # Tests related
+# Tests (NUNCA ejecutar "pnpm test" a secas porque entra en watch mode)
+pnpm test:ci                                # Corre todos los tests en Vitest sin watch
+pnpm exec vitest run                        # Equivalente directo con Vitest
+pnpm exec vitest related <archivo> --run    # Tests asociados a un archivo puntual
 
-# Build & Deploy
-pnpm build                   # Build producción (Windows: powershell -ExecutionPolicy Bypass -Command "pnpm build")
-pnpm prisma studio           # Prisma Studio
+# Base de datos y Prisma
+pnpm prisma generate                        # Genera el cliente en generated/prisma
+pnpm prisma db push                         # Sincroniza esquema con PostgreSQL
+pnpm prisma db seed                         # Carga datos iniciales (seed)
+pnpm prisma studio                          # Interfaz web de exploración de datos
+
+# Build de producción
+pnpm build                                  # prisma generate && next build
 ```
 
 ---
 
-## 4. Niveles de Verificación (N0–N3)
+## 3. Estructura del Código en `src/`
 
-| Nivel | Cuándo usar | Comandos requeridos |
-|-------|-------------|---------------------|
-| **N0** | Solo docs, análisis, planificación | Ninguno (solo lectura) |
-| **N1** | Cambios triviales, typo, docs | `pnpm typecheck` |
-| **N2** | Un archivo/área, lógica acotada | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run` |
-| **N3** | Cambios globales, CSS, config, arquitectura | `pnpm typecheck` + `pnpm run lint` + `pnpm exec vitest run` + `pnpm build` |
-
-**⚠️ Nunca** `pnpm test` a secas (queda en watch mode). Siempre `pnpm exec vitest run ...`.
-
----
-
-## 5. Estructura del Proyecto (src/)
-
-```
-src/
-├── actions/               # Server Actions (calculateQuoteAction, feedback, admin-imagenes)
-├── app/                   # Rutas App Router (cotizar, servicios, nosotros, contacto, api)
-├── components/
-│   ├── ui/                # Primitivas (DoubleBezelCard, CTANestedPill, InputField, RadioCardGroup, BentoGrid, HeroProceduralBackground)
-│   ├── home/              # Componentes página home
-│   ├── servicios/         # Módulos servicios
-│   ├── cotizar/           # Módulos cotizador
-│   ├── layout/            # Header, Footer, Navigation
-│   ├── nosotros/          # Páginas nosotros
-│   ├── contacto/          # Formulario contacto
-│   └── legal/             # Legales
-├── hooks/                 # useCotizador, useGoogleRoute, useReducedMotion
-├── lib/
-│   ├── pricing.ts         # Motor de cotización (PriceRange + fallback)
-│   ├── promises.ts        # Promesas de servicio
-│   ├── whatsapp.ts        # Integración WhatsApp Business
-│   └── prisma.ts          # Cliente Prisma singleton
-└── test/                  # Setup Vitest, utilities
-```
+- `src/actions/`: Server Actions con directiva `'use server'`. Validación de entradas con Zod y consultas con Prisma.
+- `src/app/`: Estructura de rutas del App Router. Páginas informativas, cotizador, área administrativa y route handlers en `src/app/api/`.
+- `src/components/ui/`: Primitivas reutilizables de interfaz de usuario. Destacan `DoubleBezelCard`, `CTANestedPill`, `InputField`, `RadioCardGroup`, `BentoGrid` y `HeroProceduralBackground`.
+- `src/components/[dominio]/`: Componentes específicos de cada vista (`home`, `cotizar`, `servicios`, `nosotros`, `contacto`, `admin`).
+- `src/hooks/`: Hooks de React para estado de cotización (`useCotizadorUnified.ts`), ruteo y eventos de analítica.
+- `src/lib/`: Núcleo de lógica pura, desacoplada de la interfaz:
+  - `pricing.ts`: Cálculos matemáticos y tramos de tarifas para Express y LowCost.
+  - `promises.ts`: Constantes oficiales de promesas de servicio, cortes horarios, dimensiones y recargos.
+  - `prisma.ts`: Conexión de Prisma Client optimizada para Next.js.
+  - `gemini.ts` y `genkit.ts`: Integraciones con modelos de lenguaje.
+  - `whatsapp.ts`: Construcción de URLs con número corporativo y parámetros de trazabilidad.
+  - `analytics.ts`: Gestión de eventos y persistencia de UTMs.
+- `src/test/`: Configuración global de Vitest y mocks de entorno.
 
 ---
 
-## 6. Paleta y Tokens (Resumen Binding)
+## 4. Reglas Críticas de Negocio y Copy (Invariantes)
 
-**Fuente de verdad:** `src/app/globals.css` `@theme` + `DESIGN.md` §2 + `AGENTS.md` §1
+El archivo `src/lib/copy-guard.test.ts` valida automáticamente que no se reintroduzcan afirmaciones erróneas. Respetá estrictamente las siguientes pautas:
 
-| Token Canónico | Hex | Uso |
-|---|---|---|
-| `brand-blue-500` | `#0950F6` | Azul corporativo (máx. oscuridad) |
-| `brand-blue-400` | `#3570F8` | Hover/acento |
-| `brand-blue-300` | `#628FF9` | Bordes, focus-ring |
-| `brand-blue-200` | `#8EAFFB` | Fondos suaves |
-| `brand-blue-100` | `#BACEFD` | Fondos muy suaves |
-| `brand-blue-50` | `#E6EEFE` | Fondos mínimos |
-| `brand-yellow-500` | `#FFEC01` | Amarillo accent (CTA ≤15%) |
-| `brand-yellow-400` | `#FFF12E` | Hover CTA |
-| `brand-yellow-600` | `#E6D400` | Pressed CTA |
-| `white` | `#FFFFFF` | Blanco |
-| `error-500` | `#EF4444` | Solo errores |
-| `error-600` | `#DC2626` | Solo errores pressed |
+1. **Promesa de Entrega Express:**
+   - La entrega Express coordina una **franja horaria acotada de 3 hs a elección del cliente**.
+   - Se solicita con un mínimo de **2 hs de anticipación**.
+   - Corte operativo: pedidos hasta las **15:00 hs** se entregan en el día (última franja disponible 17:00 a 19:00 hs).
+   - **PROHIBIDO:** Decir "en 2 horas", "en 3 hs", "menos de 2 h" o "60 a 90 minutos".
 
-**Prohibidos:** Negro, grises, verdes, azules fuera de paleta, `#0636A5`, `#052C87`, `#04236B`, `#021440`, `#00277C`.
+2. **Servicio LowCost:**
+   - Reparto programado económico en el día, sin franja horaria.
+   - Corte operativo a las **13:00 hs**; entrega antes de las **19:00 hs**.
+   - Cada envío se cotiza por su distancia individual.
+   - **PROHIBIDO:** Describirlo como servicio "agrupado" o "por lote".
 
-**Tipografía:** Anton 400 (display), Bebas Neue 400 (subheading), Outfit (body), Geist Mono tabular-nums (precios).
+3. **Mercado Envíos Flex:**
+   - Solución para vendedores con entrega en el día ("Llega Hoy").
+   - Corte a las **15:00 hs**; entrega hasta las **20:00 hs**.
+   - Exige comprobante fotográfico y firma digital en la recepción.
 
----
+4. **Límites Físicos y Bultos:**
+   - El estándar sin recargo es hasta **5 kg** o medidas de **40 x 40 x 30 cm**.
+   - Pasado ese volumen, se coordina como bulto especial con recargo operativo desde `$1.800`.
+   - **PROHIBIDO:** Publicar un límite máximo inventado (como "15 kg"). No existe techo numérico rígido publicado: se traslada todo lo que pueda llevarse de manera segura en moto.
 
-## 7. Optimización de Tokens (Context Boundaries)
+5. **Tarifas y Cotización:**
+   - Tramo lineal: para distancias mayores a 10 km y hasta 20 km, el cálculo es lineal (`distanceKm * pricePerKm`). **Nunca usar Math.ceil**.
+   - Más de 20 km de distancia vial no calcula tarifa automática en la web, muestra `'consultar'`.
+   - No asegurar "sin sorpresas" si existen recargos operativos declarados (lluvia, espera en puerta tras 10 minutos, parada extra, bulto especial).
 
-Tres archivos coordinados excluyen contenido pesado del contexto IA:
-
-| Archivo | Agentes objetivo |
-|---------|------------------|
-| `.aiexclude` | Universal (Cursor, Copilot, Windsurf, Cody, JetBrains, Gemini, etc.) |
-| `.antigravityignore` | Antigravity AI |
-| `.geminiignore` | Google AI / Gemini |
-
-**Whitelist compartida (SÍ se incluyen):**
-- Config: `next.config.ts`, `tailwind.config.ts`, `tsconfig.json`, `package.json`, `pnpm-workspace.yaml`, `postcss.config.mjs`, `eslint.config.mjs`, `vitest.config.ts`, `prisma.config.ts`, `prisma/schema.prisma`, `prisma/seed.ts`
-- Source: `src/**/*`, `public/**/manifest.json`
-- Raíz: `README.md`, `AGENTS.md`, `DESIGN.md`, `PROJECT.md`, `CONTEXT.md`, `PRODUCT.md`, `CLAUDE.md`
-- IA Control: `.antigravityignore`, `.geminiignore`, `.aiexclude`
-- Skills: `.agents/skills/**/SKILL.md`, `.agents/skills.json`, `.agents/rules/**`
-- Docs: `docs/knowledge_base/**`, `docs/contexto/**`, `docs/marketing/glosario.md`, `docs/marketing/decisiones.md`, `docs/adr/**`, `docs/agents/**`
-
-**Excluidos (no llegan al contexto):**
-`node_modules/`, `pnpm-lock.yaml`, `.next/`, `dist/`, `build/`, `.git/`, `.env*`, `*.log`, `prisma/migrations/**/*.sql`, `enviosdosruedas_datos_2_anos/`, `*.csv`, `*.xlsx`, `docs/imagenes/`, `docs/prompts/`, `docs/paginas*/`, `.claude/`, `.hermes/`, `.agents/**/node_modules/`, `.agents/**/bin/`, `.agents/**/font-index.json`
+6. **Facturación:**
+   - Envíos DosRuedas emite comprobantes conforme a su condición fiscal estándar. No se emite Factura A.
 
 ---
 
-## 8. Reglas de Negocio Clave (Guardrails)
+## 5. Directrices de Estilo y UI
 
-- **Facturación:** Factura C para todos los clientes/servicios
-- **Cobro destino (contreembolso):** Rendición cierre día / 24hs / semanal (nunca inmediata)
-- **Express:** Franja horaria 3hs a elección (no promete duración "60-90min")
-- **Peso:** Hasta 5kg o 40×40cm sin recargo (`STANDARD_WEIGHT_KG = 5`)
-- **Clima adverso:** Recargo según tipo de servicio
-- **Espera:** 10 min gracia en domicilio
+1. **Paleta de Colores Canónica:**
+   - `brand-blue-500` / `brand-blue-700` (`#0950F6`): Azul institucional principal. Es el techo de oscuridad de la interfaz. Están prohibidos los tonos negros, grises oscuros o azules fuera de paleta.
+   - `brand-yellow-500` (`#FFEC01`): Amarillo vial para botones de acción principal (CTAs) y elementos de alta atención (máximo 15% del área).
+   - `white` (`#FFFFFF`): Fondo general y superficies limpias.
+   - Variaciones suaves: `brand-blue-50` (`#E6EEFE`), `brand-blue-100` (`#BACEFD`), `brand-yellow-50` (`#FFFDE6`).
 
----
+2. **Tipografía:**
+   - Display / Títulos: `Anton` (`font-display`).
+   - Eyebrows / Subtítulos en mayúsculas: `Bebas Neue` (`font-subheading`).
+   - Párrafos y UI: `Outfit` (`font-sans`).
+   - Métricas, distancias y precios: `Geist Mono` (`font-mono`).
 
-## 9. Servicios Principales
-
-| Servicio | Tipo | Corte | Tarifa clave |
-|----------|------|-------|--------------|
-| **Express** | Demanda prioritario | 15:00hs, min 2hs antelación | Distancia + $1.000/km excedente 10-20km |
-| **LowCost** | Programado diario | 13:00hs → entrega <19:00hs | Económica + $700/km excedente |
-| **Mercado Envíos Flex** | Same-day ML | 15:00hs → entrega <20:00hs | 3 Niveles (N1/N2/N3), 2da visita GRATIS |
-| **E-Commerce Same Day (3PL)** | Fulfillment | 15:00hs → same day | Tarifa plana integral MDP |
-| **E-Commerce 24hs** | Next day | Retiro hoy, entrega mañana | Tarifa plana escalada, Drop-Off 20% OFF |
-| **Cuenta Corriente** | PyMEs/Empresas | 15:00hs, min 2hs | Express + liquidación personalizada |
-| **Gestión Cobranzas** | Contrareembolso | Rendición día/24hs/semanal | Arqueo detallado |
+3. **Accesibilidad:**
+   - Contraste visual mínimo de 4.5:1 (el azul `#0950F6` sobre el amarillo `#FFEC01` cumple ratio de 4.9:1).
+   - Anillos de foco visibles (`focus-visible:ring-2 focus-visible:ring-brand-blue-500`).
+   - Soporte para `prefers-reduced-motion` en animaciones.
 
 ---
 
-## 10. Variables de Entorno (.env)
+## 6. Convenciones de Código
 
-| Variable | Req | Descripción |
-|----------|-----|-------------|
-| `DATABASE_URL` | ✅ | `postgresql://user:pass@localhost:5432/enviosdosruedas` |
-| `GOOGLE_MAPS_API_KEY` | ✅ | Places & Directions API (proxied) |
-| `NEXT_PUBLIC_SITE_URL` | ✅ | `https://enviosdosruedas.com` |
-| `GA4_MEASUREMENT_ID` | ⚪ | `G-XXXXXXXXXX` |
-| `WHATSAPP_NUMBER` | ⚪ | `542236602699` |
-
-**Nunca** exponer `.env` ni `DATABASE_URL` en outputs.
-
----
-
-## 11. RTK (Rust Token Killer) — Optimización Bash
-
-```bash
-rtk gain              # Analytics de ahorro de tokens
-rtk gain --history    # Historial de comandos con ahorro
-rtk discover          # Analiza historial Claude Code oportunidades perdidas
-rtk proxy <cmd>       # Ejecuta comando sin filtrar (debug)
-```
-
-Hook automático: `git status` → `rtk git status` (transparente, 0 tokens overhead).
-
----
-
-## 12. Hooks y Permisos (.claude/settings.json)
-
-```json
-{
-  "enabledPlugins": {
-    "mattpocock-skills@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true
-  }
-}
-```
-
----
-
-## 13. Reglas Duras para Claude Code
-
-- **NUNCA** modificar precios, textos visibles, rutas, lógica de negocio, colores
-- **NUNCA** borrar `.agent`, `.agents`, `.hermes`, `.opencode`, `.design-sync`, `.impeccable`, `.stitch`, `.claude`, `.aiexclude`, `.antigravityignore`, `.geminiignore`
-- **NUNCA** exponer secrets (`.env`, `DATABASE_URL`)
-- Cambios CSS = visualmente nulos (salvo bug demostrado)
-- Paleta, tipografía, `prefers-reduced-motion`, focus-ring: **binding** (AGENTS.md + DESIGN.md)
-- Solo **pnpm**. No `pnpm test` sin `--run`
-- **Voseo rioplatense** en outputs para humanos. Sin em-dash/en-dash.
-- Usar vocabulario de `CONTEXT.md` y `docs/marketing/glosario.md` (no inventar sinónimos)
-
----
-
-## 14. Documentación de Arquitectura (docs/architecture/)
-
-| Doc | Contenido |
-|-----|-----------|
-| `01-system-overview.md` | Stack, estructura `src/` |
-| `02-domain-pricing-engine.md` | Algoritmo precios, franjas, guardrails |
-| `03-server-actions-and-integrations.md` | Server Actions, proxy Google, `safeCache` |
-| `04-ui-design-system.md` | Tokens, tipografías, Double-Bezel, accesibilidad |
-| `05-testing-verification-protocol.md` | Niveles N0–N3, Vitest JSDOM, TS strict |
-
----
-
-## 15. Contacto Institucional
-
-- **Base Operativa:** Friuli 1972, Mar del Plata, Buenos Aires, Argentina
-- **Fundador & CEO:** Matías Nicolás Cejas
-- **WhatsApp/Tel:** +54 223 660-2699
-- **Email:** MatiasCejas@enviosdosruedas.com
-- **Web:** www.enviosdosruedas.com
-
-## graphify
-
-This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
-
-Rules:
-- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
-- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
-- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
-- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+- Utilizá TypeScript estricto, sin `any` implícitos ni conversiones forzadas.
+- Priorizá Server Components en Next.js. Reservá `'use client'` para componentes que requieren interactividad, hooks de navegador o animaciones cliente.
+- Importaciones con alias:
+  - `@/*` mapea a `src/*`.
+  - `@generated/*` mapea a `generated/*` (Prisma Client).
+- Comunicación y documentación: mantené el voseo rioplatense en los textos explicativos, comentarios de código y mensajes dirigidos a humanos, evitando guiones largos o en-dash.

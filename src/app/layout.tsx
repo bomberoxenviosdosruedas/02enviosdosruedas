@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { MotionConfig } from 'motion/react';
 import './globals.css';
 import ClientLayout from '@/components/ClientLayout';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     template: '%s | Envíos DosRuedas',
   },
   description:
-    'Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express en 3 hs, Mercado Envíos Flex en el día y reparto LowCost. Cotizá online.',
+    'Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express en franja de 3 hs, Mercado Envíos Flex en el día y reparto LowCost. Cotizá online.',
   authors: [{ name: 'Envíos DosRuedas' }],
   creator: 'Envíos DosRuedas',
   publisher: 'Envíos DosRuedas',
@@ -203,6 +204,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MotionConfig reducedMotion="user">
           <ClientLayout>{children}</ClientLayout>
         </MotionConfig>
+        <SpeedInsights />
       </body>
     </html>
   );
