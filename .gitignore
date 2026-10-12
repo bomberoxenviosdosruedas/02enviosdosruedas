@@ -127,3 +127,6 @@ v11/*
 # Python (scripts/ y sus tests)
 __pycache__/
 *.py[cod]
+
+.vercel
+.env*
