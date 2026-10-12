@@ -36,6 +36,7 @@ const geistMono = Geist_Mono({
 });
 
 const baseUrl = 'https://www.enviosdosruedas.com';
+const AHREFS_ANALYTICS_KEY = 'NWj98c8Mm2KygtpCXcQh5w';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -96,6 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://analytics.ahrefs.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://wa.me" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -178,6 +180,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-LSLQ3RJ8WT');
           `}
         </Script>
+        {process.env.NODE_ENV === 'production' && (
+          <Script
+            src="https://analytics.ahrefs.com/analytics.js"
+            data-key={AHREFS_ANALYTICS_KEY}
+            strategy="afterInteractive"
+            async
+          />
+        )}
       </head>
       <body className="bg-brand-white text-brand-ink font-sans antialiased selection:bg-brand-yellow selection:text-brand-blue min-h-dvh flex flex-col" suppressHydrationWarning>
         <MotionConfig reducedMotion="user">

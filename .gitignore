@@ -59,6 +59,7 @@ ds-bundle/
 document.md
 document.html
 document.pdf
+exports/
 
 # === AI AGENTS IGNORE (Unificado: reemplaza .aiexclude, .geminiignore, .cursorignore, etc.) ===
 # Ignora carpetas pesadas y artefactos de build para que los agentes de IA no las lean

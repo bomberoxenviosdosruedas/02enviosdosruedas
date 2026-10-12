@@ -14,7 +14,10 @@
     "postinstall": "prisma generate",
     "test": "vitest",
     "test:ci": "vitest run",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "pdf": "python scripts/generate_page_pdf.py",
+    "pdf:prod": "python scripts/generate_page_pdf.py --url https://enviosdosruedas.com",
+    "export:texts": "python scripts/extract_site_texts.py"
   },
   "dependencies": {
     "@genkit-ai/google-genai": "^1.42.0",
