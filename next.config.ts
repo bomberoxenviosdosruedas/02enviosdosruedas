@@ -110,10 +110,26 @@ const nextConfig: NextConfig = {
 
   // Encabezados de seguridad y rendimiento para Vercel Edge Network
   async headers() {
+    const cspHeader = `
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com https://www.googletagmanager.com https://*.google-analytics.com https://unpkg.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com;
+      img-src 'self' data: blob: https://maps.gstatic.com https://*.googleapis.com https://picsum.photos https://i.postimg.cc https://*.tile.openstreetmap.org https://unpkg.com;
+      font-src 'self' https://fonts.gstatic.com data:;
+      connect-src 'self' https://maps.googleapis.com https://www.google-analytics.com https://*.googleapis.com https://*.tile.openstreetmap.org;
+      frame-ancestors 'self';
+      form-action 'self' https://api.whatsapp.com;
+      upgrade-insecure-requests;
+    `.replace(/\s{2,}/g, ' ').trim();
+
     return [
       {
         source: '/(.*)',
         headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: cspHeader,
+          },
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
@@ -137,6 +153,14 @@ const nextConfig: NextConfig = {
           {
             key: 'X-DNS-Prefetch-Control',
             value: 'on',
+          },
+          {
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin-allow-popups',
+          },
+          {
+            key: 'Cross-Origin-Resource-Policy',
+            value: 'same-origin',
           },
         ],
       },

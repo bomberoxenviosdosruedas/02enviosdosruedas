@@ -5,8 +5,10 @@ import { revalidatePath } from 'next/cache';
 import fs from 'fs/promises';
 import path from 'path';
 import { existsSync } from 'fs';
+import { assertAdminAuth } from '@/lib/auth';
 
 export async function getImageList() {
+  await assertAdminAuth();
   try {
     return await prisma.imageMetadata.findMany({
       include: {
@@ -30,6 +32,7 @@ export async function saveImageMetadata(data: {
   relativePath: string;
   currentDescription: string;
 }) {
+  await assertAdminAuth();
   if (!data.relativePath || data.relativePath.trim() === '') {
     throw new Error('La ruta relativa no puede estar vacía');
   }
@@ -59,6 +62,7 @@ export async function addPromptSuggestion(data: {
   modelUsed?: string;
   aspectRatio?: string;
 }) {
+  await assertAdminAuth();
   if (!data.promptText || data.promptText.trim() === '') {
     throw new Error('El prompt no puede estar vacío');
   }
@@ -77,6 +81,7 @@ export async function addPromptSuggestion(data: {
 }
 
 export async function deleteImageMetadata(id: number) {
+  await assertAdminAuth();
   const deleted = await prisma.imageMetadata.delete({
     where: { id },
   });
@@ -85,6 +90,7 @@ export async function deleteImageMetadata(id: number) {
 }
 
 export async function getPageFolders() {
+  await assertAdminAuth();
   try {
     const imgPath = path.join(process.cwd(), 'public', 'img');
     const entries = await fs.readdir(imgPath, { withFileTypes: true });
@@ -109,6 +115,7 @@ export async function checkFileExists(folder: string, filename: string) {
 }
 
 export async function createPageFolder(folderName: string) {
+  await assertAdminAuth();
   if (!folderName || folderName.trim() === '') {
     throw new Error('El nombre de la carpeta no puede estar vacío');
   }
@@ -147,6 +154,7 @@ export async function suggestPromptBase(data: {
   modelUsed: string;
   aspectRatio: string;
 }) {
+  await assertAdminAuth();
   const { description, relativePath, modelUsed, aspectRatio } = data;
 
   if ((!description || description.trim() === '') && (!relativePath || relativePath.trim() === '')) {
@@ -227,6 +235,7 @@ export async function improvePrompt(data: {
   modelUsed: string;
   aspectRatio: string;
 }) {
+  await assertAdminAuth();
   const { currentPromptText, modelUsed, aspectRatio } = data;
   if (!currentPromptText || currentPromptText.trim() === '') {
     throw new Error('El prompt actual no puede estar vacío');

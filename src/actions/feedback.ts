@@ -2,6 +2,7 @@
 
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
+import { assertAdminAuth } from '@/lib/auth';
 
 export async function saveFeedback(data: {
   page: string;
@@ -9,6 +10,7 @@ export async function saveFeedback(data: {
   currentText: string;
   suggestedEdit: string;
 }) {
+  await assertAdminAuth();
   if (!data.suggestedEdit || data.suggestedEdit.trim() === '') {
     throw new Error('El comentario no puede estar vacío');
   }
@@ -27,6 +29,7 @@ export async function saveFeedback(data: {
 }
 
 export async function getFeedbackList() {
+  await assertAdminAuth();
   try {
     return await prisma.feedback.findMany({
       orderBy: {
@@ -38,3 +41,4 @@ export async function getFeedbackList() {
     return [];
   }
 }
+

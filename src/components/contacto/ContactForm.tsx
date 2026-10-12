@@ -50,9 +50,9 @@ export default function ContactForm() {
 
     if (typeof window !== 'undefined') {
       try {
-        sessionStorage.setItem('contact_lead', JSON.stringify({
-          ...formData,
+        sessionStorage.setItem('contact_lead_meta', JSON.stringify({
           submittedAt: new Date().toISOString(),
+          hasVolumen: Boolean(formData.volumen),
         }));
       } catch {}
     }

@@ -52,7 +52,7 @@ const fetchRouteDistanceCached = safeCache(async function fetchRouteDistance(
   destinoLat: number,
   destinoLng: number
 ): Promise<number | null> {
-  const apiKey = process.env.GOOGLE_MAPS_API_KEY || process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  const apiKey = process.env.GOOGLE_MAPS_API_KEY;
   if (!apiKey) {
     console.error('[calculateQuoteAction] GOOGLE_MAPS_API_KEY no configurada');
     return null;

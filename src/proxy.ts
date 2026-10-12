@@ -1,45 +1,37 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
+import { isValidBasicAuth, isValidAdminSessionCookie } from '@/lib/auth';
 
 /**
- * Middleware para Envíos DosRuedas (BL-01 & BL-42)
- * 1. Bloqueo / Redirección 308 del host duplicado de Vercel (02enviosdosruedas.vercel.app -> www.enviosdosruedas.com)
- * 2. Inyección estricta de header X-Robots-Tag: noindex, nofollow en cualquier preview de Vercel o vercel.app
+ * Proxy perimetral de Next.js 16 (reemplazo oficial del middleware deprecado)
+ * Ver: https://nextjs.org/docs/messages/middleware-to-proxy
+ * 
+ * Intercepta y restringe el acceso no autorizado a los paneles administrativos:
+ * - /admin/:path*
+ * - /revisar/:path*
  */
 export function proxy(request: NextRequest) {
-  const host = request.headers.get('host') || '';
-  const isVercelPreview =
-    process.env.VERCEL_ENV === 'preview' ||
-    process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview' ||
-    host.includes('vercel.app');
+  const { pathname } = request.nextUrl;
 
-  // Si es el dominio de producción legacy o subdominio vercel.app, redirigir al canónico www.enviosdosruedas.com
-  if (host.includes('vercel.app')) {
-    const url = request.nextUrl.clone();
-    url.protocol = 'https:';
-    url.host = 'www.enviosdosruedas.com';
-    url.port = '';
+  if (pathname.startsWith('/admin') || pathname.startsWith('/revisar')) {
+    const authHeader = request.headers.get('authorization');
+    const sessionCookie = request.cookies.get('admin_session')?.value;
 
-    const response = NextResponse.redirect(url, 308);
-    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
-    return response;
+    const isBasicValid = isValidBasicAuth(authHeader);
+    const isCookieValid = isValidAdminSessionCookie(sessionCookie);
+
+    if (!isBasicValid && !isCookieValid) {
+      return new NextResponse('Acceso restringido: se requiere autenticación de administración.', {
+        status: 401,
+        headers: {
+          'WWW-Authenticate': 'Basic realm="Envíos DosRuedas - Panel Privado", charset="UTF-8"',
+        },
+      });
+    }
   }
 
-  const response = NextResponse.next();
-
-  // En cualquier entorno de preview, inyectar noindex
-  if (isVercelPreview) {
-    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
-  }
-
-  return response;
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Aplica a todas las rutas excepto recursos estáticos e imágenes
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
-  ],
+  matcher: ['/admin/:path*', '/revisar/:path*'],
 };

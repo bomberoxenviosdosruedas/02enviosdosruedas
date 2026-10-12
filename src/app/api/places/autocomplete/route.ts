@@ -1,15 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
+  // Verificación perimetral de origen para mitigar uso como proxy abierto por sitios externos
+  const secFetchSite = request.headers.get('sec-fetch-site');
+  if (secFetchSite === 'cross-site') {
+    return NextResponse.json({ error: 'Acceso no autorizado desde origen cruzado.' }, { status: 403 });
+  }
+
   const { searchParams } = new URL(request.url);
-  const input = searchParams.get('input');
+  const input = searchParams.get('input')?.trim();
 
   if (!input) {
     return NextResponse.json({ error: 'Falta el parámetro "input"' }, { status: 400 });
   }
 
-  // La clave se lee del entorno del servidor de forma segura sin prefijo NEXT_PUBLIC_
-  const apiKey = process.env.GOOGLE_MAPS_API_KEY || process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  if (input.length > 120) {
+    return NextResponse.json({ error: 'El parámetro "input" supera la longitud permitida.' }, { status: 400 });
+  }
+
+  // La clave se lee exclusivamente del entorno seguro del servidor
+  const apiKey = process.env.GOOGLE_MAPS_API_KEY;
   if (!apiKey) {
     return NextResponse.json({ error: 'Configuración del servidor incompleta (API Key vacía)' }, { status: 500 });
   }
