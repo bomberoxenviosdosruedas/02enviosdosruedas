@@ -152,7 +152,7 @@ export default function EnviosContrareembolsoPage() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                 <CTANestedPill
-                  href="https://wa.me/542236602699?text=Hola!%20Quiero%20consultar%20por%20env%C3%ADos%20contra%20reembolso%20en%20Mar%20del%20Plata."
+                  href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20consultar%20por%20env%C3%ADos%20contra%20reembolso%20en%20Mar%20del%20Plata."
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="primary"
@@ -339,7 +339,7 @@ export default function EnviosContrareembolsoPage() {
           </p>
           <div className="pt-2 flex justify-center">
             <CTANestedPill
-              href="https://wa.me/542236602699?text=Hola!%20Quiero%20activar%20env%C3%ADos%20con%20cobro%20contra%20reembolso%20para%20mi%20negocio."
+              href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20activar%20env%C3%ADos%20con%20cobro%20contra%20reembolso%20para%20mi%20negocio."
               target="_blank"
               rel="noopener noreferrer"
               variant="primary"

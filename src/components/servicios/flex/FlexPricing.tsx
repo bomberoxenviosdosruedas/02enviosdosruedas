@@ -89,7 +89,7 @@ export default function FlexPricing() {
         tiers={FLEX_LEVELS}
         ctaLabel={() => 'Solicitar cotización por WhatsApp'}
         featuredIndex={1}
-        ctaHref="https://wa.me/542236602699"
+        ctaHref="https://api.whatsapp.com/send/?phone=542236602699"
         ctaVariant="primary"
         facts={FLEX_FACTS}
         backgroundClassName="bg-brand-blue-700 border-t border-b border-white/10 text-white"
@@ -115,7 +115,7 @@ export default function FlexPricing() {
 
             <div className="lg:col-span-4 flex justify-start lg:justify-end">
               <a
-                href="https://wa.me/542236602699"
+                href="https://api.whatsapp.com/send/?phone=542236602699"
                 target="_blank"
                 rel="noopener noreferrer"
                 id="flex-pricing-cta-whatsapp"

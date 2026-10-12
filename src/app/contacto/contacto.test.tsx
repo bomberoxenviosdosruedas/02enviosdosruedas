@@ -119,7 +119,7 @@ describe('ContactoPage — Verbatim & Functionality Tests', () => {
     });
 
     expect(openSpy).toHaveBeenCalledWith(
-      expect.stringContaining('https://wa.me/542236602699'),
+      expect.stringContaining('542236602699'),
       '_blank',
       'noopener,noreferrer'
     );

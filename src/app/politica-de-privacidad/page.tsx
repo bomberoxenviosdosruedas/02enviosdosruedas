@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     title: 'Política de Privacidad',
     description: 'Conocé cómo protegemos, procesamos y resguardamos tu información personal y los datos logísticos de tus despachos en Envíos DosRuedas.',
     url: `${baseUrl}/politica-de-privacidad`,
+    type: 'website',
+    locale: 'es_AR',
     images: [`${baseUrl}/og-image.jpg`],
   },
 };

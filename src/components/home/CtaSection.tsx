@@ -13,7 +13,7 @@ export default function CtaSection() {
     const { name, business, volume } = formData;
     const message = `Hola, soy ${name} de ${business}. Me interesa cotizar envíos para ${volume} paquetes mensuales.`;
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/5492236602699?text=${encodedMessage}`, '_blank');
+    window.open(`https://api.whatsapp.com/send/?phone=542236602699&text=${encodedMessage}`, '_blank');
   };
 
   // HyperFrames standard spring config

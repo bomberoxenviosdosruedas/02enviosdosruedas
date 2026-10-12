@@ -64,7 +64,7 @@ export default function DepositoPricing() {
       tiers={SAME_DAY_TIERS}
       ctaLabel={() => 'Solicitar plan 3PL'}
       featuredIndex={0}
-      ctaHref="https://wa.me/542236602699"
+      ctaHref="https://api.whatsapp.com/send/?phone=542236602699"
       ctaVariant="primary"
       facts={SAME_DAY_FACTS}
       backgroundClassName="bg-brand-blue-700 text-white"

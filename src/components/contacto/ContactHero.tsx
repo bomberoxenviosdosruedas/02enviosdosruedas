@@ -150,7 +150,7 @@ export default function ContactHero() {
 
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
                 <CTANestedPill
-                  href={`https://wa.me/${WHATSAPP_PHONE}?text=Hola!%20Quiero%20cotizar%20mis%20env%C3%ADos`}
+                  href={`https://api.whatsapp.com/send/?phone=${WHATSAPP_PHONE}&text=Hola!%20Quiero%20cotizar%20mis%20env%C3%ADos`}
                   id="contact-hero-cta-whatsapp"
                   target="_blank"
                   rel="noopener noreferrer"

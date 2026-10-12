@@ -515,7 +515,7 @@ export default function ServiciosPage() {
               Te asesoramos sin compromiso. Contanos qué necesitás y te recomendamos la mejor opción.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CTANestedPill href="https://wa.me/542236602699" variant="primary" size="large">
+              <CTANestedPill href="https://api.whatsapp.com/send/?phone=542236602699" variant="primary" size="large">
                 Asesorame por WhatsApp
               </CTANestedPill>
               <CTANestedPill href="/cobertura" variant="elevated" size="large">

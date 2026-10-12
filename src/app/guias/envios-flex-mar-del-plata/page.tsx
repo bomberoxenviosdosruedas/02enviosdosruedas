@@ -147,7 +147,7 @@ export default function GuiaEnviosFlexPage() {
 
             <div className="flex flex-wrap gap-4 pt-2">
               <CTANestedPill
-                href="https://wa.me/542236602699?text=Hola!%20Le%C3%AD%20la%20gu%C3%ADa%20Flex%20y%20quiero%20coordinar%20retiros%20para%20mi%20cuenta."
+                href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Le%C3%AD%20la%20gu%C3%ADa%20Flex%20y%20quiero%20coordinar%20retiros%20para%20mi%20cuenta."
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="primary"
@@ -257,7 +257,7 @@ export default function GuiaEnviosFlexPage() {
             </p>
             <div className="pt-2">
               <CTANestedPill
-                href="https://wa.me/542236602699?text=Hola!%20Quiero%20activar%20repartos%20Flex%20con%20Env%C3%ADos%20DosRuedas."
+                href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20activar%20repartos%20Flex%20con%20Env%C3%ADos%20DosRuedas."
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="primary"

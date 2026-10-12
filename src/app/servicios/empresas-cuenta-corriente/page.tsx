@@ -125,7 +125,7 @@ export default function EmpresasCuentaCorrientePage() {
 
               <div className="flex flex-wrap gap-4 pt-2">
                 <CTANestedPill
-                  href="https://wa.me/542236602699?text=Hola!%20Quiero%20abrir%20una%20cuenta%20corriente%20comercial%20para%20mi%20empresa."
+                  href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20abrir%20una%20cuenta%20corriente%20comercial%20para%20mi%20empresa."
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="primary"

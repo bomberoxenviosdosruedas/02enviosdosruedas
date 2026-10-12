@@ -67,7 +67,7 @@ export default function Ecommerce24HSPricing() {
       tiers={PLANS}
       ctaLabel={(idx) => `Elegir plan ${PLANS[idx].range}`}
       featuredIndex={FEATURED_PLAN_INDEX}
-      ctaHref="https://wa.me/542236602699"
+      ctaHref="https://api.whatsapp.com/send/?phone=542236602699"
       ctaVariant="primary"
       facts={ECOMMERCE_24HS_FACTS}
       backgroundClassName="bg-brand-blue-500 text-white"

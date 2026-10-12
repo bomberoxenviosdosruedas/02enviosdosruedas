@@ -211,7 +211,7 @@ export default function FlexHero() {
 
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
                 <CTANestedPill
-                  href="https://wa.me/542236602699?text=Hola!%20Quiero%20activar%20Mercado%20Env%C3%ADos%20Flex"
+                  href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20activar%20Mercado%20Env%C3%ADos%20Flex"
                   id="flex-hero-cta-activar"
                   target="_blank"
                   rel="noopener noreferrer"

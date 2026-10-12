@@ -48,7 +48,7 @@ export default function DropoffCalculator() {
 
   const onBlur = () => setRaw(String(envios));
 
-  const waUrl = `https://wa.me/542236602699?text=${encodeURIComponent(
+  const waUrl = `https://api.whatsapp.com/send/?phone=542236602699&text=${encodeURIComponent(
     `Hola! Manejo aprox. ${envios} envíos por mes y quiero activar la modalidad DropOFF (${DROPOFF_DISCOUNT_PERCENT}% off) en Mar del Plata.`,
   )}`;
 

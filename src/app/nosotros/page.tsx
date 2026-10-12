@@ -231,7 +231,7 @@ export default function NosotrosPage() {
               Cotizá tu envío o consultanos lo que necesites.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-              <CTANestedPill href="https://wa.me/542236602699" variant="primary">
+              <CTANestedPill href="https://api.whatsapp.com/send/?phone=542236602699" variant="primary">
                 Hablar por WhatsApp
               </CTANestedPill>
               <CTANestedPill href="/cotizar" variant="outline">

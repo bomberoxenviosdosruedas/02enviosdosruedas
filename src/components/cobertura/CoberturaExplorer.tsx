@@ -274,7 +274,7 @@ export default function CoberturaExplorer() {
           </p>
           <div className="mt-4">
             <CTANestedPill
-              href="https://wa.me/542236602699?text=Hola%20Envíos%20DosRuedas!%20Quería%20consultar%20por%20la%20cobertura%20en%20mi%20zona"
+              href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola%20Envíos%20DosRuedas!%20Quería%20consultar%20por%20la%20cobertura%20en%20mi%20zona"
               variant="primary"
               size="compact"
             >

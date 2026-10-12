@@ -27,5 +27,5 @@ export function buildWhatsAppUrl({ message, source }: BuildWhatsAppUrlOptions = 
     }
   }
 
-  return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
+  return `https://api.whatsapp.com/send/?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(text)}`;
 }

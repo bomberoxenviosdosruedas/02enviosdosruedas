@@ -71,7 +71,7 @@ export default function NetworksChannels() {
                 </div>
                 <div className="shrink-0 w-full md:w-auto">
                   <CTANestedPill
-                    href="https://wa.me/542236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web."
+                    href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web."
                     variant="primary"
                   >
                     CHATEÁ AHORA

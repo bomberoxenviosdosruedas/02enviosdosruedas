@@ -100,7 +100,7 @@ export default function OptimizedFooter() {
             </Link>
 
             <a
-              href="https://wa.me/542236602699?text=Hola%20Envíos%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20envíos"
+              href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola%20Envíos%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20envíos"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chateá con Nosotros por WhatsApp para consultas de envíos"
@@ -194,7 +194,7 @@ export default function OptimizedFooter() {
                   className="inline-block"
                 >
                   <a
-                    href="https://wa.me/542236602699"
+                    href="https://api.whatsapp.com/send/?phone=542236602699"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="h-10 w-10 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 flex items-center justify-center transition-colors duration-200 border border-brand-yellow-500 hover:border-brand-yellow-400 shadow-accent-sm hover:shadow-cta-glow p-2.5 group cursor-pointer"

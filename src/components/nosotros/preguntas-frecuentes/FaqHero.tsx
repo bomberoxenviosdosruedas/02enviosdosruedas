@@ -135,7 +135,7 @@ export default function FaqHero() {
 
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
               <CTANestedPill
-                href="https://wa.me/542236602699?text=Hola!%20Tengo%20una%20duda%20sobre%20los%20env%C3%ADos%20de%20DosRuedas"
+                href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Tengo%20una%20duda%20sobre%20los%20env%C3%ADos%20de%20DosRuedas"
                 id="faq-hero-cta-whatsapp"
                 target="_blank"
                 rel="noopener noreferrer"

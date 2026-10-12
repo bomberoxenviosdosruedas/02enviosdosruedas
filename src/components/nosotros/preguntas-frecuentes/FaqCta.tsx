@@ -37,7 +37,7 @@ export default function FaqCta() {
               {/* CTA Buttons (WhatsApp en amarillo #FFEC01 + azul #0950F6) */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full">
                 <CTANestedPill
-                  href="https://wa.me/542236602699?text=Hola,%20tengo%20una%20consulta%20que%20no%20encontr%C3%A9%20en%20las%20FAQ"
+                  href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola,%20tengo%20una%20consulta%20que%20no%20encontr%C3%A9%20en%20las%20FAQ"
                   variant="primary"
                 >
                   Hablá por WhatsApp

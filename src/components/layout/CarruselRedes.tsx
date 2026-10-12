@@ -105,7 +105,7 @@ export default function CarruselRedes() {
       handle: '+54 223 660-2699',
       desc: 'Escribinos directamente para consultas, contrataciones o soporte express al toque.',
       action: 'INICIAR CHAT',
-      url: 'https://wa.me/542236602699',
+      url: 'https://api.whatsapp.com/send/?phone=542236602699',
       icon: FaWhatsapp,
       badgeText: 'WHATSAPP DIRECTO',
       // Estética oficial Envíos DosRuedas (Brand Yellow & Navy Blue)

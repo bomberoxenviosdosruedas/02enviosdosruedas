@@ -94,7 +94,7 @@ export default function EmprendedoresDropoff() {
 
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-1">
               <CTANestedPill
-                href="https://wa.me/542236602699?text=Hola!%20Quiero%20activar%20la%20modalidad%20DropOFF%20(20%25%20off)%20para%20mis%20despachos%20en%20Mar%20del%20Plata"
+                href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20activar%20la%20modalidad%20DropOFF%20(20%25%20off)%20para%20mis%20despachos%20en%20Mar%20del%20Plata"
                 variant="primary"
                 size="large"
                 target="_blank"

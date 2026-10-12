@@ -40,7 +40,7 @@ export default function ConversionBanner() {
               </CTANestedPill>
 
               <CTANestedPill
-                href="https://wa.me/542236602699?text=Hola!%20Quiero%20coordinar%20mis%20env%C3%ADos%20de%20hoy."
+                href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20coordinar%20mis%20env%C3%ADos%20de%20hoy."
                 variant="outline"
               >
                 Chateá con Nosotros

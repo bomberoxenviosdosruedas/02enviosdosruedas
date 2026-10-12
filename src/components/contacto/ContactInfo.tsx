@@ -30,7 +30,7 @@ const contactCards: ContactCard[] = [
     title: 'WhatsApp Comercial',
     description: 'Cotizaciones instantáneas, consultas operativas y seguimiento en vivo por WhatsApp.',
     buttonText: 'Chatear por WhatsApp',
-    href: 'https://wa.me/542236602699?text=Hola!%20Vengo%20desde%20la%20p%C3%A1gina%20de%20Contacto.',
+    href: 'https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Vengo%20desde%20la%20p%C3%A1gina%20de%20Contacto.',
     icon: MessageSquare,
     tag: 'RESPUESTA < 2 MIN',
     subtag: 'MAR DEL PLATA 2026',

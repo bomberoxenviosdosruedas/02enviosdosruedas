@@ -182,7 +182,7 @@ export default function AboutHero() {
                   Trabajemos juntos
                 </CTANestedPill>
                 <a
-                  href="https://wa.me/542236602699?text=Hola!%20Quiero%20conocer%20la%20operativa%20de%20DosRuedas"
+                  href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20conocer%20la%20operativa%20de%20DosRuedas"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center gap-2 font-subheading text-sm sm:text-base uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 rounded-md"
