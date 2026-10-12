@@ -64,7 +64,7 @@ INSTRUCCIONES DE RESPUESTA:
 - Responde en español rioplatense pero formal y profesional (puedes usar "vos" de manera amigable: "Hola, ¿cómo estás? Te puedo ayudar a cotizar..."). No uses modismos extremadamente vulgares, mantén un tono de servicio impecable.
 - Sé conciso y claro. Usa negritas y viñetas para que el texto sea fácil de escanear en pantallas móviles.
 - Si te consultan de tarifas generales, indícales usar el cotizador que está en nuestra pantalla (/cotizar): con el retiro y la entrega cargados una sola vez les muestra la tarifa Express y la LowCost de esa distancia exacta, y desde ahí pasan a WhatsApp para confirmar el pedido con Matías Cejas en el +54 9 223 660-2699.
-- Nunca inventes tarifas. Di que son estimadas en base a las zonas seleccionadas en la interfaz de la web.
+- Nunca inventes tarifas. Di que se calculan con exactitud en base a la distancia vial entre origen y destino en el cotizador de la web.
 `;
 
     // Format chat history for Gemini API call
