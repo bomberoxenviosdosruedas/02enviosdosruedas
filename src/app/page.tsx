@@ -1,17 +1,11 @@
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import HeroAnimado from '@/components/home/HeroAnimado';
 import SegmentosHome from '@/components/home/SegmentosHome';
 import ServicesOverview from '@/components/home/ServicesOverview';
 import EmprendedoresHome from '@/components/home/EmprendedoresHome';
 import CtaSection from '@/components/home/CtaSection';
 import SocialProofSection from '@/components/home/SocialProofSection';
-
-// Carga dinámica exclusiva en el cliente para el canvas animado
-const LogisticaNetworkCanvas = dynamic(
-  () => import('@/components/home/LogisticaNetworkCanvas'),
-  { ssr: false }
-);
+import NetworkCanvasWrapper from '@/components/home/NetworkCanvasWrapper';
 
 export const metadata: Metadata = {
   alternates: {
@@ -33,7 +27,9 @@ export default function HomePage() {
         className="relative bg-brand-blue py-20 overflow-hidden"
         aria-labelledby="services-section-title"
       >
-        <LogisticaNetworkCanvas />
+        {/* Renderizamos el wrapper cliente que carga el canvas de forma diferida */}
+        <NetworkCanvasWrapper />
+
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.08),transparent_60%)] pointer-events-none" />
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-8">
           <div className="max-w-180 mb-12">
