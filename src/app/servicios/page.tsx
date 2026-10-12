@@ -11,17 +11,20 @@ const SAME_DAY_PRICE = `$${SAME_DAY_FIXED_PRICE.toLocaleString('es-AR')}`;
 const ECOMMERCE_24HS_PRICE_DISPLAY = `$${ECOMMERCE_24HS_PRICE.toLocaleString('es-AR')}`;
 
 export const metadata: Metadata = {
-  title: 'Servicios - Express, LowCost, Flex, Cuenta Corriente y E-commerce 24hs/Same-Day',
-  description: 'Servicios de Envíos DosRuedas en Mar del Plata: Envíos Express (franja 3hs), LowCost (día), Mercado Envíos Flex, Cuenta Corriente Flexible, E-commerce 24hs y Same-Day con stock en depósito.',
+  title: 'Servicios de Mensajería y Envíos',
+  description:
+    'Servicios de logística y mensajería en moto en Mar del Plata: Express, LowCost, Flex, Cuenta Corriente y E-commerce con stock en depósito y flota propia.',
   alternates: {
     canonical: `${baseUrl}/servicios`,
   },
   openGraph: {
-    title: 'Servicios | Envíos DosRuedas',
-    description: 'Mensajería Express, paquetería LowCost, MercadoLibre Flex, Cuenta Corriente y logística e-commerce 24hs/Same-Day en Mar del Plata.',
+    title: 'Servicios de Mensajería y Envíos | Envíos DosRuedas',
+    description:
+      'Mensajería Express, paquetería LowCost, MercadoLibre Flex, Cuenta Corriente y logística e-commerce en Mar del Plata.',
     url: `${baseUrl}/servicios`,
     type: 'website',
     locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
   twitter: {
     card: 'summary_large_image',

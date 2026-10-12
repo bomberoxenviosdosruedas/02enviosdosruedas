@@ -180,7 +180,7 @@ export default function SocialProofSection() {
           {/* Main Title & CTA Button */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             {/* Title with highlighted keyword */}
-            <h1
+            <h2
               id="social-proof-title"
               className="font-display uppercase text-brand-blue-500 text-[42px] sm:text-[60px] lg:text-[clamp(2.75rem,5.2vw,4.5rem)] leading-[0.92] max-w-4xl tracking-tight"
             >
@@ -189,12 +189,12 @@ export default function SocialProofSection() {
                 VENDEN Y ENVÍAN
               </span>
               EN MDQ
-            </h1>
+            </h2>
 
             {/* Google Maps Link Button */}
             <div className="shrink-0 pt-2 lg:pt-0">
               <Link
-                href="https://share.google/ofw5wAQt3Fc1dArom"
+                href="https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="button-pill inline-flex items-center gap-2.5 border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white px-7 py-3 font-subheading text-lg sm:text-xl tracking-wider uppercase shadow-sm hover:shadow-md"

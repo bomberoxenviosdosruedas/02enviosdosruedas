@@ -7,9 +7,20 @@ import CtaSection from '@/components/home/CtaSection';
 import SocialProofSection from '@/components/home/SocialProofSection';
 import NetworkCanvasWrapper from '@/components/home/NetworkCanvasWrapper';
 
+const baseUrl = 'https://www.enviosdosruedas.com';
+
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/',
+    canonical: `${baseUrl}/`,
+  },
+  openGraph: {
+    title: 'Mensajería en moto en Mar del Plata | Envíos DosRuedas',
+    description:
+      'La solución logística y última milla de mayor confianza en Mar del Plata. Envíos Express, MercadoLibre Flex, ruteo eficiente y cadetería inteligente.',
+    url: `${baseUrl}/`,
+    type: 'website',
+    locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
 };
 

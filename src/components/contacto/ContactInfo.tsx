@@ -252,7 +252,7 @@ export default function ContactInfo() {
                 </h4>
               </div>
               <a
-                href="https://share.google/ofw5wAQt3Fc1dArom"
+                href="https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/10 hover:bg-brand-yellow-500/20 border border-brand-yellow-500/40 text-brand-yellow-500 text-xs font-subheading font-bold uppercase tracking-wider transition-all"

@@ -12,7 +12,7 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 export const metadata: Metadata = {
   title: 'Mercado Envíos Flex Same-Day',
   description:
-    'Servicio logístico para Mercado Envíos Flex en Mar del Plata. Entregas en el día para proteger tu reputación MercadoLíder. Horario de corte 15:00 hs, entregas antes de las 20:00 hs.',
+    'Servicio logístico para Mercado Envíos Flex en Mar del Plata. Entregas en el día para proteger tu reputación. Corte 15:00 hs y distribución antes de 20 hs.',
   alternates: {
     canonical: `${baseUrl}/servicios/enviosflex`,
   },
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     url: `${baseUrl}/servicios/enviosflex`,
     type: 'website',
     locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
   twitter: {
     card: 'summary_large_image',

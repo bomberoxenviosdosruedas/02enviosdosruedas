@@ -22,17 +22,18 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 export const metadata: Metadata = {
   title: 'Envíos Contra Reembolso en Mar del Plata | Cobro en Destino',
   description:
-    'Servicio seguro de cobro contra reembolso y entrega en Mar del Plata. Rendición de efectivo y transferencias en el día, al día siguiente o semanal, según lo acordado, para tu comercio o emprendimiento.',
+    'Cobro contra reembolso y entrega segura en Mar del Plata. Rendición de efectivo en el día para tu comercio o tienda online, sin comisiones adicionales.',
   alternates: {
     canonical: `${baseUrl}/servicios/envios-contrareembolso`,
   },
   openGraph: {
     title: 'Envíos Contra Reembolso en Mar del Plata | Envíos DosRuedas',
     description:
-      'Entregá tus paquetes y cobrá en mano en Mar del Plata. Rendición en el día, al día siguiente o semanal, según lo acordado, con total seguridad y flota propia.',
+      'Entregá tus paquetes y cobrá en mano en Mar del Plata. Rendición en el día con total seguridad y flota propia.',
     url: `${baseUrl}/servicios/envios-contrareembolso`,
     type: 'website',
     locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
 };
 

@@ -420,6 +420,9 @@ export default function OptimizedFooter() {
             <Link href="/guias/envios-flex-mar-del-plata" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
               Guía MercadoLibre Flex
             </Link>
+            <Link href="/nosotros" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
+              Nosotros
+            </Link>
             <Link href="/nosotros/sobre-nosotros" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
               Sobre Nosotros
             </Link>

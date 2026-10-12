@@ -11,7 +11,7 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 export const metadata: Metadata = {
   title: 'Envíos LowCost y Cadetería en el Día',
   description:
-    'Paquetería e-commerce y cadetería programada con entrega en el día en Mar del Plata. Pedidos antes de las 13:00 hs se entregan antes de las 19:00 hs. Tarifas 2026.',
+    'Paquetería y cadetería programada con entrega en el día en Mar del Plata. Pedidos antes de las 13:00 hs se entregan antes de las 19:00 hs con tarifa fija.',
   alternates: {
     canonical: `${baseUrl}/servicios/envios-lowcost`,
   },
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     url: `${baseUrl}/servicios/envios-lowcost`,
     type: 'website',
     locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
   twitter: {
     card: 'summary_large_image',

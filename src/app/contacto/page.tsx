@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     url: `${baseUrl}/contacto`,
     type: 'website',
     locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
   twitter: {
     card: 'summary_large_image',
@@ -39,6 +40,8 @@ const jsonLdSchema = {
     '@type': 'LocalBusiness',
     '@id': `${baseUrl}#localbusiness`,
     name: 'Envíos DosRuedas',
+    image: `${baseUrl}/og-image.jpg`,
+    priceRange: '$$',
     telephone: '+54-223-660-2699',
     email: 'matiascejas@enviosdosruedas.com',
     address: {
@@ -49,6 +52,25 @@ const jsonLdSchema = {
       postalCode: '7600',
       addressCountry: 'AR',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: -38.0055,
+      longitude: -57.5426,
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '18:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Saturday'],
+        opens: '10:00',
+        closes: '15:00',
+      },
+    ],
   },
 };
 

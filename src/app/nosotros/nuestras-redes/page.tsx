@@ -8,21 +8,22 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
   title: 'Nuestras Redes y Comunidad',
-  description: 'Conectate con la mayor comunidad logística y de mensajería urbana en Mar del Plata. Seguí nuestras novedades operativas de calle, beneficios y promociones.',
+  description: 'Conectate con la comunidad logística y de mensajería urbana en Mar del Plata. Seguí nuestras novedades de calle, beneficios y promociones exclusivas.',
   alternates: {
     canonical: `${baseUrl}/nosotros/nuestras-redes`,
   },
   openGraph: {
     title: 'Nuestras Redes y Comunidad | Envíos DosRuedas',
-    description: 'Conectate con la mayor comunidad logística y de mensajería urbana en Mar del Plata. Seguí nuestras novedades operativas de calle, beneficios y promociones.',
+    description: 'Conectate con la comunidad logística y de mensajería urbana en Mar del Plata. Seguí nuestras novedades de calle, beneficios y promociones exclusivas.',
     url: `${baseUrl}/nosotros/nuestras-redes`,
     type: 'website',
     locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Nuestras Redes y Comunidad | Envíos DosRuedas',
-    description: 'Conectate con la mayor comunidad logística y de mensajería urbana en Mar del Plata. Seguí nuestras novedades operativas de calle, beneficios y promociones.',
+    description: 'Conectate con la comunidad logística y de mensajería urbana en Mar del Plata. Seguí nuestras novedades de calle, beneficios y promociones exclusivas.',
     images: [`${baseUrl}/og-image.jpg`],
     creator: '@enviosdosruedas',
   },

@@ -10,7 +10,7 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 export const metadata: Metadata = {
   title: 'Preguntas Frecuentes (FAQ)',
   description:
-    'Despejá todas tus dudas sobre mensajería en moto, Envíos Flex MercadoLibre, reparto LowCost, servicio Express, tarifas 2026 y cobertura en Mar del Plata.',
+    'Respuestas sobre mensajería en moto, Envíos Flex MercadoLibre, reparto LowCost, servicio Express, tarifas y cobertura logística en Mar del Plata.',
   alternates: {
     canonical: `${baseUrl}/nosotros/preguntas-frecuentes`,
   },
@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     url: `${baseUrl}/nosotros/preguntas-frecuentes`,
     type: 'website',
     locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
   twitter: {
     card: 'summary_large_image',

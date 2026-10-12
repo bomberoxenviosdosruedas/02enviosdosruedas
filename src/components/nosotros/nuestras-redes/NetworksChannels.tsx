@@ -120,7 +120,7 @@ export default function NetworksChannels() {
                 </div>
                 <div className="pt-6 mt-6 border-t border-brand-blue-100 w-full">
                   <CTANestedPill
-                    href="https://instagram.com/enviosdosruedas"
+                    href="https://www.instagram.com/enviosdosruedas/"
                     variant="outline"
                     className="w-full justify-center"
                   >
@@ -170,7 +170,7 @@ export default function NetworksChannels() {
                 </div>
                 <div className="pt-6 mt-6 border-t border-brand-blue-100 w-full">
                   <CTANestedPill
-                    href="https://facebook.com/enviosdosruedas"
+                    href="https://www.facebook.com/enviosdosruedas/"
                     variant="outline"
                     className="w-full justify-center"
                   >

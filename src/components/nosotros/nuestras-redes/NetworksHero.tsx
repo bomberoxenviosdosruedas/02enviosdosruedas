@@ -141,7 +141,7 @@ export default function NetworksHero() {
 
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
                 <CTANestedPill
-                  href="https://instagram.com/enviosdosruedas"
+                  href="https://www.instagram.com/enviosdosruedas/"
                   id="networks-hero-cta-instagram"
                   target="_blank"
                   rel="noopener noreferrer"

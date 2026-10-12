@@ -19,19 +19,20 @@ import CTANestedPill from '@/components/ui/CTANestedPill';
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Guía Completa Mercado Envíos Flex en Mar del Plata 2026',
+  title: 'Guía Mercado Envíos Flex en MDQ',
   description:
-    'Aprendé cómo activar, configurar y gestionar tus entregas con Mercado Envíos Flex en Mar del Plata. Horarios de corte, zonas cubiertas y consejos para proteger tu reputación.',
+    'Aprendé cómo activar y gestionar entregas con Mercado Envíos Flex en Mar del Plata. Horarios de corte, zonas y consejos para cuidar tu reputación.',
   alternates: {
     canonical: `${baseUrl}/guias/envios-flex-mar-del-plata`,
   },
   openGraph: {
-    title: 'Guía Mercado Envíos Flex en Mar del Plata | Envíos DosRuedas',
+    title: 'Guía Mercado Envíos Flex en MDQ | Envíos DosRuedas',
     description:
       'Paso a paso definitivo para vendedores de Mercado Libre en Mar del Plata. Optimizá tu logística y entregá en el día.',
     url: `${baseUrl}/guias/envios-flex-mar-del-plata`,
     type: 'article',
     locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
 };
 

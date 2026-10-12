@@ -116,8 +116,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     url: baseUrl,
                     logo: `${baseUrl}/logo-envios-simplified.webp`,
                     sameAs: [
-                      'https://www.instagram.com/enviosdosruedas',
-                      'https://www.facebook.com/enviosdosruedas',
+                      'https://www.instagram.com/enviosdosruedas/',
+                      'https://www.facebook.com/enviosdosruedas/',
                     ],
                     contactPoint: {
                       '@type': 'ContactPoint',
@@ -137,7 +137,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     telephone: '+54-223-660-2699',
                     email: 'matiascejas@enviosdosruedas.com',
                     image: `${baseUrl}/og-image.jpg`,
-                    hasMap: 'https://maps.google.com/?q=Friuli+1972,+Mar+del+Plata',
+                    hasMap: 'https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata',
                     address: {
                       '@type': 'PostalAddress',
                       streetAddress: 'Friuli 1972',

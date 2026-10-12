@@ -25,12 +25,12 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const dynamic = 'force-dynamic';
 
-const TITLE = 'Cotizá tu Envío en Moto | Express y LowCost | Envíos DosRuedas';
+const TITLE = 'Cotizá tu Envío en Moto | Envíos DosRuedas';
 const DESCRIPTION =
   'Cargá el retiro y la entrega una vez y compará la tarifa Express y LowCost para tu envío en Mar del Plata. Elegís el servicio y confirmás por WhatsApp.';
 
 export const metadata: Metadata = {
-  title: 'Cotizá tu Envío en Moto | Express y LowCost',
+  title: 'Cotizá tu Envío en Moto',
   description: DESCRIPTION,
   alternates: {
     canonical: `${baseUrl}/cotizar`,
@@ -41,6 +41,7 @@ export const metadata: Metadata = {
     url: `${baseUrl}/cotizar`,
     type: 'website',
     locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
   twitter: {
     card: 'summary_large_image',

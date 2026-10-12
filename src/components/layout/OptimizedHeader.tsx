@@ -44,6 +44,7 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Nosotros',
     icon: Info,
     dropdownItems: [
+      { label: 'Portal Nosotros', href: '/nosotros', icon: LayoutGrid },
       { label: 'Sobre Nosotros', href: '/nosotros/sobre-nosotros', icon: Info },
       { label: 'Preguntas Frecuentes', href: '/nosotros/preguntas-frecuentes', icon: HelpCircle },
       { label: 'Nuestras Redes', href: '/nosotros/nuestras-redes', icon: Share2 },

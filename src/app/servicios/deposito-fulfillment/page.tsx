@@ -8,19 +8,20 @@ import EmprendedoresPricing from '@/components/servicios/emprendedores/Emprended
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Depósito, Fulfillment y Envíos PyME en Mar del Plata',
+  title: 'Depósito y Fulfillment para PyMEs',
   description:
-    'Almacenamiento en Friuli 1972 con picking, preparación de pedidos, opción DropOFF y contrareembolso en Mar del Plata.',
+    'Depósito y fulfillment logístico en Friuli 1972, Mar del Plata. Picking, empaque, opción Drop-Off y entregas en el día con stock seguro para tu negocio.',
   alternates: {
     canonical: `${baseUrl}/servicios/deposito-fulfillment`,
   },
   openGraph: {
-    title: 'Depósito, Fulfillment y Envíos PyME | Envíos DosRuedas',
+    title: 'Depósito y Fulfillment para PyMEs | Envíos DosRuedas',
     description:
       'Soluciones integrales de logística para e-commerce en Mar del Plata. Depósito en Friuli 1972, preparación y despacho directo.',
     url: `${baseUrl}/servicios/deposito-fulfillment`,
     type: 'website',
     locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
   twitter: {
     card: 'summary_large_image',

@@ -12,7 +12,7 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 export const metadata: Metadata = {
   title: 'Sobre Nosotros y Trayectoria',
   description:
-    'Conocé la historia, valores y equipo detrás de Envíos DosRuedas. Más de 7 años de trayectoria en logística urbana, cadetería y última milla e-commerce en Mar del Plata.',
+    'Conocé la historia y valores de Envíos DosRuedas. Más de 7 años de trayectoria en logística urbana, cadetería y última milla e-commerce en Mar del Plata.',
   alternates: {
     canonical: `${baseUrl}/nosotros/sobre-nosotros`,
   },
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     url: `${baseUrl}/nosotros/sobre-nosotros`,
     type: 'website',
     locale: 'es_AR',
+    images: [`${baseUrl}/og-image.jpg`],
   },
   twitter: {
     card: 'summary_large_image',
