@@ -5,25 +5,10 @@
 
 :root {
   /* ========================================================================
-   * SUPERFICIES Y ACCIONES (fuera de @theme para no chocar con text-* font-size)
+   * SUPERFICIES Y LIENZO BASE
    * ======================================================================== */
   --surface-page: var(--color-white);
-  --surface-card: var(--color-white);
-  --surface-muted: var(--color-brand-blue-50);
-  --surface-invert: var(--color-brand-blue-700);
-  --surface-glass: rgba(255, 255, 255, 0.06);
   --text-body: var(--color-brand-blue-900);
-  --text-muted: var(--color-brand-blue-400);
-  --text-heading: var(--color-brand-blue-900);
-  --text-on-invert: var(--color-white);
-  --text-on-accent: var(--color-brand-blue-900);
-  --border-subtle: var(--color-brand-blue-100);
-  --focus-ring: var(--color-brand-blue-500);
-  --action-primary: var(--color-brand-blue-700);
-  --action-primary-hover: var(--color-brand-blue-800);
-  --action-accent: var(--color-brand-yellow-500);
-  --action-accent-hover: var(--color-brand-yellow-400);
-  --action-danger: #EF4444;
 }
 
 @theme {
@@ -67,57 +52,6 @@
   --color-brand-ink: var(--color-brand-blue-900);
   --color-brand-white: var(--color-white);
 
-  /* ========================================================================
-   * REDES DE SEGURIDAD: escalas remapeadas a marca (no son API válida)
-   * Código nuevo usa solo brand-*. Estas evitan que clases heredadas rompan.
-   * ======================================================================== */
-  --color-blue-50: var(--color-brand-blue-50);
-  --color-blue-100: var(--color-brand-blue-100);
-  --color-blue-200: var(--color-brand-blue-200);
-  --color-blue-300: var(--color-brand-blue-300);
-  --color-blue-400: var(--color-brand-blue-400);
-  --color-blue-500: var(--color-brand-blue-500);
-  --color-blue-600: var(--color-brand-blue-500);
-  --color-blue-700: var(--color-brand-blue-700);
-  --color-blue-800: var(--color-brand-blue-400);
-  --color-blue-900: var(--color-brand-blue-700);
-  --color-blue-950: var(--color-brand-blue-700);
-
-  --color-gray-50: var(--color-white);
-  --color-gray-100: var(--color-brand-blue-50);
-  --color-gray-200: var(--color-brand-blue-100);
-  --color-gray-300: var(--color-brand-blue-200);
-  --color-gray-400: var(--color-brand-blue-300);
-  --color-gray-500: var(--color-brand-blue-400);
-  --color-gray-600: var(--color-brand-blue-500);
-  --color-gray-700: var(--color-brand-blue-700);
-  --color-gray-800: var(--color-brand-blue-700);
-  --color-gray-900: var(--color-brand-blue-700);
-  --color-gray-950: var(--color-brand-blue-700);
-
-  --color-slate-50: var(--color-white);
-  --color-slate-100: var(--color-brand-blue-50);
-  --color-slate-200: var(--color-brand-blue-100);
-  --color-slate-300: var(--color-brand-blue-200);
-  --color-slate-400: var(--color-brand-blue-300);
-  --color-slate-500: var(--color-brand-blue-400);
-  --color-slate-600: var(--color-brand-blue-500);
-  --color-slate-700: var(--color-brand-blue-700);
-  --color-slate-800: var(--color-brand-blue-700);
-  --color-slate-900: var(--color-brand-blue-700);
-  --color-slate-950: var(--color-brand-blue-700);
-
-  --color-zinc-50: var(--color-white);
-  --color-zinc-100: var(--color-brand-blue-50);
-  --color-zinc-200: var(--color-brand-blue-100);
-  --color-zinc-300: var(--color-brand-blue-200);
-  --color-zinc-400: var(--color-brand-blue-300);
-  --color-zinc-500: var(--color-brand-blue-400);
-  --color-zinc-600: var(--color-brand-blue-500);
-  --color-zinc-700: var(--color-brand-blue-700);
-  --color-zinc-800: var(--color-brand-blue-700);
-  --color-zinc-900: var(--color-brand-blue-700);
-  --color-zinc-950: var(--color-brand-blue-700);
 
   /* ========================================================================
    * NEUTRALIZACIÓN DE PALETAS PROHIBIDAS (Tailwind defaults)
@@ -222,44 +156,29 @@
   --shadow-xl: 0 16px 32px rgba(9, 80, 246, 0.12), 0 8px 16px rgba(9, 80, 246, 0.08);
   --shadow-2xl: 0 25px 50px -12px rgba(9, 80, 246, 0.25);
 
-  --shadow-panel: 0 32px 120px -20px rgba(9, 80, 246, 0.15);
   --shadow-float: 0 25px 50px -12px rgba(9, 80, 246, 0.15);
   --shadow-elevated: 0 16px 40px rgba(9, 80, 246, 0.18);
   --shadow-hover-lift: 0 24px 64px rgba(9, 80, 246, 0.20);
   --shadow-antigravity-deep: 0 24px 64px rgba(9, 80, 246, 0.22);
-  --shadow-ambient-elevation: 0 20px 80px rgba(9, 80, 246, 0.18);
 
   --shadow-accent: 0 12px 40px -6px rgba(255, 236, 1, 0.3);
-  --shadow-accent-hover: 0 6px 25px rgba(255, 236, 1, 0.4);
   --shadow-accent-sm: 0 2px 4px rgba(255, 236, 1, 0.15);
   --shadow-accent-md: 0 4px 8px rgba(255, 236, 1, 0.2);
-  --shadow-glow-blue: 0 0 25px rgba(9, 80, 246, 0.35);
   --shadow-glow-yellow: 0 0 25px rgba(255, 241, 46, 0.45);
   --shadow-cta-glow: 0 0 28px rgba(255, 236, 1, 0.45), 0 8px 24px rgba(9, 80, 246, 0.18);
 
   --animate-float-slow: float-slow 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 2s ease-in-out infinite;
-  --animate-border-pulse: border-pulse 2s ease-in-out infinite;
-  --animate-shimmer: shimmer 2.5s ease-in-out infinite;
-  --animate-counter-up: counter-up 0.6s ease-out;
   --animate-logos-scroll: marquee-left 30s linear infinite;
 
   /* ========================================================================
-   * DEPRECADO: alias temporales, se borran en la fase 3
-   * Cada alias apunta al canónico con var(), NUNCA a un hex.
+   * ALIAS DE TRANSICIÓN: conservado para compatibilidad en producción
    * ======================================================================== */
-  --color-brand-navy: var(--color-brand-blue-700);
-  --color-brand-blue-deep: var(--color-brand-blue-700);
-  --color-brand-blue-ink: var(--color-brand-blue-700);
-  --color-brand-dark: var(--color-brand-blue-700);
   --color-brand-white-50: var(--color-white);
 }
 
 @keyframes float-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 @keyframes pulse-subtle { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
-@keyframes border-pulse { 0%, 100% { border-color: rgba(9,80,246,0.2); } 50% { border-color: rgba(9,80,246,0.4); } }
-@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-@keyframes counter-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
 body {
   font-family: var(--font-sans);
@@ -380,11 +299,7 @@ body {
   from { transform: translateX(0); }
   to { transform: translateX(100%); }
 }
-@keyframes draw {
-  from { stroke-dashoffset: var(--draw-len, 1200); }
-  to { stroke-dashoffset: 0; }
-}
-@keyframes pulse-ring {
+@@keyframes pulse-ring {
   0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0.9; }
   100% { transform: translate(-50%, -50%) scale(3.2); opacity: 0; }
 }
@@ -395,13 +310,10 @@ body {
   100% { transform: translateX(0); }
 }
 
-@utility animate-radar { animation: radar 6s linear infinite; }
 @utility animate-floaty { animation: floaty 5s ease-in-out infinite; }
-@utility animate-road { animation: marquee-left 3.5s linear infinite; }
 @utility animate-shuttle {
   animation: shuttle 5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
 }
-@utility animate-draw { animation: draw 2.4s cubic-bezier(0.25,1,0.5,1) forwards; }
 @utility animate-pulse-ring {
   animation: pulse-ring 3.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
@@ -418,22 +330,20 @@ body {
 }
 
 @utility animate-marquee-left { animation: marquee-left 36s linear infinite; }
-@utility animate-marquee-right { animation: marquee-right 42s linear infinite; }
-@utility is-paused { animation-play-state: paused !important; }
-@utility no-scrollbar { &::-webkit-scrollbar { display: none; } scrollbar-width: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;
   }
-  .animate-radar, .animate-floaty, .animate-road, .animate-shuttle, .animate-draw, .animate-roundtrip, .animate-pulse-ring, .animate-grow-x, .animate-marquee-left, .animate-marquee-right {
+  .animate-floaty, .animate-shuttle, .animate-roundtrip, .animate-pulse-ring, .animate-grow-x, .animate-marquee-left {
     animation: none !important;
   }
-  .animate-draw { stroke-dashoffset: 0 !important; }
   .animate-grow-x { transform: scaleX(1) !important; }
   .animate-pulse-ring { opacity: 0 !important; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}  transition-duration: 0.01ms !important;
   }
 }
