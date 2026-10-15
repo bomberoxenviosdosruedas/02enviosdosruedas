@@ -1,6 +1,6 @@
 # 004 — Standardize Active Press Feedback, Touch Guards, and Spatial Micro-Interactions
 
-- **Status**: TODO
+- **Status**: DONE
 - **Severity**: MEDIUM
 - **Category**: Accesibilidad / Oportunidades Perdidas
 - **Estimated scope**: 4 archivos de Next.js (`OptimizedHeader.tsx`, `MobileNav.tsx`, `OptimizedFooter.tsx`, `globals.css`), ~20 líneas

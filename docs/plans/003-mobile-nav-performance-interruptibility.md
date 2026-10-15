@@ -1,6 +1,6 @@
 # 003 — Optimize Mobile Drawer Performance and Eliminate Reflow Anti-Patterns
 
-- **Status**: TODO
+- **Status**: DONE
 - **Severity**: HIGH
 - **Category**: Rendimiento y Desacople de Render / Interrumpibilidad
 - **Estimated scope**: 4 archivos de Next.js (`MobileNav.tsx`, `OptimizedFooter.tsx`, `page.tsx`, `globals.css`), ~30 líneas

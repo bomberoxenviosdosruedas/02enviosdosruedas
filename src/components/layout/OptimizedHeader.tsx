@@ -63,12 +63,12 @@ export default function OptimizedHeader() {
 
   // Memoize dropdown variants to avoid recreation on every render
   const dropdownContainer = useMemo<Variants>(() => ({
-    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 8, scale: prefersReducedMotion ? 1 : 0.97 },
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 4, scale: prefersReducedMotion ? 1 : 0.97 },
     visible: {
       opacity: 1, y: 0, scale: 1,
-      transition: { type: 'spring', stiffness: 320, damping: 24, staggerChildren: prefersReducedMotion ? 0 : 0.06, delayChildren: 0.02 },
+      transition: { type: 'spring', stiffness: 420, damping: 28, staggerChildren: prefersReducedMotion ? 0 : 0.03, delayChildren: 0.01 },
     },
-    exit: { opacity: 0, y: prefersReducedMotion ? 0 : 6, scale: prefersReducedMotion ? 1 : 0.97, transition: { duration: 0.15, ease: 'easeIn' as const } },
+    exit: { opacity: 0, y: prefersReducedMotion ? 0 : 4, scale: prefersReducedMotion ? 1 : 0.97, transition: { duration: 0.14, ease: [0.23, 1, 0.32, 1] } },
   }), [prefersReducedMotion]);
 
   const dropdownItem = useMemo<Variants>(() => ({
@@ -132,7 +132,7 @@ export default function OptimizedHeader() {
           <div className="flex items-center justify-between">
             <Link href="/" id="nav-logo-opt" className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
               <div className="flex items-center gap-2.5">
-                <motion.div className="relative w-10 h-10 shrink-0" whileHover={prefersReducedMotion ? {} : { rotate: 12, scale: 1.08 }} whileTap={prefersReducedMotion ? {} : { scale: 0.95 }} transition={{ type: 'spring', stiffness: 500, damping: 18 }}>
+                <motion.div className="relative w-10 h-10 shrink-0" whileHover={prefersReducedMotion ? {} : { rotate: 8, scale: 1.04 }} whileTap={prefersReducedMotion ? {} : { scale: 0.97 }} transition={{ type: 'spring', duration: 0.22, bounce: 0.15 }}>
                   {/* `sizes` es obligatorio con `fill`: sin él Next asume 100vw y el browser
     descarga la variante de 1536px para una caja de 40x40. Medido en producción:
     25.598 bytes de los cuales 25.534 eran desperdicio (99,7%). Como lleva
@@ -165,7 +165,7 @@ export default function OptimizedHeader() {
                   )}
                   <AnimatePresence>
                     {item.dropdownItems && activeDropdown === item.label && (
-                      <motion.div variants={dropdownContainer} initial="hidden" animate="visible" exit="exit" className="absolute left-0 mt-2 w-64 bg-brand-blue-700 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden z-50">
+                      <motion.div variants={dropdownContainer} initial="hidden" animate="visible" exit="exit" style={{ transformOrigin: 'top left' }} className="absolute left-0 mt-2 w-64 bg-brand-blue-700 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden z-50">
                         <div className="flex flex-col gap-1 px-2">
                           {item.dropdownItems.map((subItem) => {
                             const SubIcon = subItem.icon || ChevronRight;

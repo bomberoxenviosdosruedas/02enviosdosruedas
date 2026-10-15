@@ -1,6 +1,6 @@
 # 002 — Standardize Transform Origins and Initial Scale States
 
-- **Status**: TODO
+- **Status**: DONE
 - **Severity**: MEDIUM
 - **Category**: Fisicalidad y Origen
 - **Estimated scope**: 3 archivos de Next.js (`OptimizedHeader.tsx`, `timeline-animation.tsx`, `NetworksChannels.tsx`), ~18 líneas

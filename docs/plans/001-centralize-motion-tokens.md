@@ -1,6 +1,6 @@
 # 001 — Centralize Motion Tokens and Fix Easing Violations
 
-- **Status**: TODO
+- **Status**: DONE
 - **Severity**: HIGH
 - **Category**: Curvas (Easing) y Duración / Cohesión y Tokens
 - **Estimated scope**: 4 archivos de Next.js (`globals.css`, `OptimizedHeader.tsx`, `template.tsx`, `ContactForm.tsx`), ~25 líneas
