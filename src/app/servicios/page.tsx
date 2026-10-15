@@ -332,7 +332,7 @@ export default function ServiciosPage() {
                 key={service.id}
                 id={service.id}
                 href={service.href}
-                className={`group relative scroll-mt-28 ${service.bgColor} ${service.borderColor} p-3 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col ${service.color}`}
+                className={`group relative scroll-mt-28 ${service.bgColor} ${service.borderColor} p-3 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-[border-color,box-shadow,transform] duration-300 ease-out flex flex-col ${service.color}`}
               >
                 <div className="border border-white/20 p-2 rounded-[20px] shadow-sm flex flex-col justify-between h-full relative overflow-hidden">
                   <div className="space-y-4 relative z-10">

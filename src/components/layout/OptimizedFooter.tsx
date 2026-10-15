@@ -91,10 +91,10 @@ export default function OptimizedFooter() {
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             <Link
               href="/cotizar"
-              className="w-full sm:w-auto cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase tracking-wider text-sm px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-all flex items-center justify-between group min-h-12"
+              className="w-full sm:w-auto cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase tracking-wider text-sm px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-[transform,background-color,border-color,box-shadow] duration-150 ease-out flex items-center justify-between group min-h-12"
             >
               <span>Cotizá tu Envío</span>
-              <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
+              <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform duration-150 ease-out">
                 <ArrowUpRight className="h-4 w-4" />
               </span>
             </Link>
@@ -104,7 +104,7 @@ export default function OptimizedFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chateá con Nosotros por WhatsApp para consultas de envíos"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-subheading uppercase tracking-wider text-sm px-5 py-3.5 rounded-full transition-all min-h-12"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-subheading uppercase tracking-wider text-sm px-5 py-3.5 rounded-full transition-[background-color,border-color] duration-150 ease-out min-h-12"
             >
               <FaWhatsapp className="h-4 w-4 text-brand-yellow-500" />
               <span>Chateá con Nosotros</span>
@@ -127,7 +127,7 @@ export default function OptimizedFooter() {
             className="lg:col-span-4 space-y-6"
           >
             <Link href="/" className="flex items-center gap-3.5 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
-              <div className="relative w-11 h-11 bg-white/10 p-1.5 rounded-xl border border-white/15 group-hover:scale-105 transition-all duration-300 shrink-0 flex items-center justify-center">
+              <div className="relative w-11 h-11 bg-white/10 p-1.5 rounded-xl border border-white/15 group-hover:scale-105 transition-transform duration-300 shrink-0 flex items-center justify-center">
                 <Image
                   src="/logo-envios-simplified.webp"
                   alt="Logo Envíos DosRuedas"
@@ -231,13 +231,13 @@ export default function OptimizedFooter() {
                   <li>
                     <Link
                       href="/cotizar"
-                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-all duration-200 hover:translate-x-1"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-[color,transform] duration-200 ease-out hover:translate-x-1"
                     >
                       <div className="flex items-center gap-2.5">
                         <Zap className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                         <span>Cotizá Express o LowCost</span>
                       </div>
-                      <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500" />
+                      <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150 ease-out text-brand-yellow-500" />
                     </Link>
                   </li>
                 </ul>
@@ -252,7 +252,7 @@ export default function OptimizedFooter() {
                   <li>
                     <Link
                       href="/servicios/envios-express"
-                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-[color,transform] duration-200 ease-out hover:translate-x-1"
                     >
                       <Zap className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                       <span>Envíos Express</span>
@@ -261,7 +261,7 @@ export default function OptimizedFooter() {
                   <li>
                     <Link
                       href="/servicios/envios-lowcost"
-                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-[color,transform] duration-200 ease-out hover:translate-x-1"
                     >
                       <TrendingDown className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                       <span>Envíos LowCost</span>
@@ -270,7 +270,7 @@ export default function OptimizedFooter() {
                   <li>
                     <Link
                       href="/servicios/enviosflex"
-                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-[color,transform] duration-200 ease-out hover:translate-x-1"
                     >
                       <Clock className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                       <span>Mercado Envíos Flex</span>
@@ -279,7 +279,7 @@ export default function OptimizedFooter() {
                   <li>
                     <Link
                       href="/servicios/empresas-cuenta-corriente"
-                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-[color,transform] duration-200 ease-out hover:translate-x-1"
                     >
                       <Building2 className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                       <span>Cuenta Corriente Flexible</span>
@@ -288,7 +288,7 @@ export default function OptimizedFooter() {
                   <li>
                     <Link
                       href="/servicios#ecommerce-24hs"
-                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-[color,transform] duration-200 ease-out hover:translate-x-1"
                     >
                       <Package className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                       <span>E-commerce 24HS</span>
@@ -297,7 +297,7 @@ export default function OptimizedFooter() {
                   <li>
                     <Link
                       href="/servicios/deposito-fulfillment"
-                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-[color,transform] duration-200 ease-out hover:translate-x-1"
                     >
                       <Store className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                       <span>E-commerce Same Day</span>
@@ -306,7 +306,7 @@ export default function OptimizedFooter() {
                   <li>
                     <Link
                       href="/servicios"
-                      className="text-brand-yellow-500 hover:text-brand-yellow-400 flex items-center gap-2.5 transition-all duration-200 hover:translate-x-1 font-bold"
+                      className="text-brand-yellow-500 hover:text-brand-yellow-400 flex items-center gap-2.5 transition-[color,transform] duration-200 ease-out hover:translate-x-1 font-bold"
                     >
                       <Layers className="h-4 w-4 shrink-0" />
                       <span>Ver todos los servicios</span>
@@ -400,8 +400,8 @@ export default function OptimizedFooter() {
                 : { duration: 2, ease: 'easeInOut', repeat: Infinity, repeatType: 'loop' }
             }
             /* Tap feedback */
-            whileTap={{ scale: 0.92 }}
-            whileHover={prefersReducedMotion ? {} : { scale: 1.1, y: -7 }}
+            whileTap={{ scale: 0.97 }}
+            whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -4 }}
           >
             <ArrowUp className="h-4 w-4 font-bold" />
           </motion.button>

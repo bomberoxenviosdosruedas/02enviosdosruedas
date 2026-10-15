@@ -26,8 +26,8 @@ export const timelineVariants = {
 
   /** Scale pop — for cards and icons */
   scalePop: {
-    hidden:  { opacity: 0, scale: 0.88 },
-    visible: { opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 100, damping: 14 } },
+    hidden:  { opacity: 0, scale: 0.96, y: 12 },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { type: 'spring', stiffness: 350, damping: 26 } },
   } as Variants,
 
   /** Blur reveal — cinematic, for headlines */
