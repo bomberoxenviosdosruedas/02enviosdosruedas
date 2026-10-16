@@ -1,12 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion, type Variants } from 'motion/react';
-import { Building2, ShoppingBag, Landmark, ShieldCheck } from 'lucide-react';
+import { Building2, ShoppingBag, Landmark, ShieldCheck, Pause, Play } from 'lucide-react';
 import Link from 'next/link';
 
 export default function EmprendedoresHome() {
   const reduceMotion = useReducedMotion();
+  const [isMarqueePaused, setIsMarqueePaused] = useState<boolean>(false);
 
   const descriptionText = "Si vendés online, necesitás un socio logístico que responda al toque. Creamos planes a tu medida con tarifas dinámicas transparentes y recolección programada a domicilio en Mar del Plata.";
   const words = descriptionText.split(" ");
@@ -68,9 +69,10 @@ export default function EmprendedoresHome() {
       className="py-16 sm:py-24 lg:py-32 bg-brand-blue-500 relative overflow-hidden text-white border-y border-white/10"
     >
       {/* Background Decorative Asymmetric Glows */}
-      <div className="absolute top-0 left-0 w-125 h-125 bg-brand-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-125 h-125 bg-brand-blue-500/5 rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
       <motion.div
         className="absolute bottom-0 right-0 w-150 h-150 bg-brand-yellow-500/5 rounded-full blur-[150px] pointer-events-none"
+        aria-hidden="true"
         animate={reduceMotion ? {} : { scale: [1, 1.04, 1] }}
         transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
       />
@@ -92,9 +94,8 @@ export default function EmprendedoresHome() {
           <h2 id="emprendedores-home-title" className="text-white text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-[0.9] text-left max-w-5xl">
             Potenciamos tu{' '}
             <span
+              aria-hidden="true"
               className="inline-flex items-center justify-center w-16 sm:w-20 md:w-24 h-8 sm:h-10 md:h-12 rounded-full align-middle bg-linear-to-r from-brand-yellow-500 to-brand-yellow-400 mx-2 border border-brand-yellow-500 shadow-md text-brand-blue-900 font-display text-base sm:text-xl uppercase transition-transform duration-500 hover:scale-105"
-              role="img"
-              aria-label="Envíos DosRuedas"
             >
               MDQ
             </span>{' '}
@@ -333,17 +334,47 @@ export default function EmprendedoresHome() {
         {/* Marquee of Local Partners - GPU Hardware Accelerated Infinite Scroll */}
         <motion.div
           variants={itemVariants}
-          className="mt-24 pt-12 border-t border-brand-blue-500/10"
+          className="mt-24 pt-12 border-t border-white/10"
         >
-          <p className="text-center font-subheading text-xs tracking-widest text-brand-blue-50 mb-6 uppercase">
-            Marcas locales que confían en nosotros
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+            <p className="text-center font-subheading text-xs tracking-widest text-brand-blue-50 uppercase">
+              Marcas locales que confían en nosotros
+            </p>
+            {!reduceMotion && (
+              <button
+                type="button"
+                onClick={() => setIsMarqueePaused((prev) => !prev)}
+                aria-pressed={isMarqueePaused}
+                aria-label={isMarqueePaused ? 'Reanudar carrusel de marcas locales' : 'Pausar carrusel de marcas locales'}
+                className="min-h-11 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-brand-yellow-400 text-xs font-subheading tracking-wider uppercase inline-flex items-center gap-1.5 cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
+              >
+                {isMarqueePaused ? (
+                  <>
+                    <Play className="w-3.5 h-3.5 fill-current" aria-hidden="true" />
+                    <span>Reanudar</span>
+                  </>
+                ) : (
+                  <>
+                    <Pause className="w-3.5 h-3.5 fill-current" aria-hidden="true" />
+                    <span>Pausar</span>
+                  </>
+                )}
+              </button>
+            )}
+          </div>
           <div
             className="relative w-full overflow-hidden py-4 select-none mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
           >
-            <div className="flex gap-16 w-max animate-logos-scroll hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]">
+            <div
+              className={`flex gap-16 ${
+                reduceMotion
+                  ? 'flex-wrap justify-center w-full'
+                  : 'w-max motion-safe:animate-logos-scroll motion-reduce:animate-none! hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]'
+              }`}
+              style={isMarqueePaused && !reduceMotion ? { animationPlayState: 'paused' } : undefined}
+            >
               {/* Set 1 */}
-              <div className="flex gap-16 items-center">
+              <div className={`flex gap-16 items-center ${reduceMotion ? 'flex-wrap justify-center gap-8' : ''}`}>
                 {partners.map((partner, index) => (
                   <span
                     key={index}
@@ -354,16 +385,18 @@ export default function EmprendedoresHome() {
                 ))}
               </div>
               {/* Set 2 (for infinite continuous loop) */}
-              <div className="flex gap-16 items-center" aria-hidden="true">
-                {partners.map((partner, index) => (
-                  <span
-                    key={`dup-${index}`}
-                    className="font-display text-2xl tracking-wider text-brand-blue-50 uppercase cursor-default hover:text-brand-yellow-500 hover:scale-105 transition-all duration-300"
-                  >
-                    {partner}
-                  </span>
-                ))}
-              </div>
+              {!reduceMotion && (
+                <div className="flex gap-16 items-center" aria-hidden="true">
+                  {partners.map((partner, index) => (
+                    <span
+                      key={`dup-${index}`}
+                      className="font-display text-2xl tracking-wider text-brand-blue-50 uppercase cursor-default hover:text-brand-yellow-500 hover:scale-105 transition-all duration-300"
+                    >
+                      {partner}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </motion.div>

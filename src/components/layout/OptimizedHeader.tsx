@@ -80,6 +80,10 @@ export default function OptimizedHeader() {
     setActiveDropdown(prev => (prev === label ? null : label));
   }, []);
 
+  const handleCloseMobileNav = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -212,7 +216,7 @@ export default function OptimizedHeader() {
         </motion.div>
       </header>
 
-      <AnimatePresence>{isOpen && <MobileNav isOpen={isOpen} onClose={() => setIsOpen(false)} navItems={NAV_ITEMS} activeDropdown={activeDropdown} onDropdownToggle={handleDropdownToggle} />}</AnimatePresence>
+      <AnimatePresence>{isOpen && <MobileNav isOpen={isOpen} onClose={handleCloseMobileNav} navItems={NAV_ITEMS} activeDropdown={activeDropdown} onDropdownToggle={handleDropdownToggle} />}</AnimatePresence>
     </>
   );
 }

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, useReducedMotion, type Variants } from 'motion/react';
-import { MessageSquare, User, Store, PackageSearch } from 'lucide-react';
+import { MessageSquare, User, Store, PackageSearch, ChevronDown } from 'lucide-react';
 
 export default function CtaSection() {
   const reduceMotion = useReducedMotion();
@@ -60,7 +60,7 @@ export default function CtaSection() {
         >
 
           {/* Background grid */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(9,80,246,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(9,80,246,0.03)_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(9,80,246,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(9,80,246,0.03)_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" aria-hidden="true" />
 
           {/* Left Text Block */}
           <motion.div className="lg:w-1/2 space-y-8 relative z-10 text-center lg:text-left" variants={itemVariants}>
@@ -93,7 +93,7 @@ export default function CtaSection() {
 
           {/* Right Form Block */}
           <motion.div className="lg:w-1/2 w-full relative z-10" variants={itemVariants}>
-            <form onSubmit={handleWhatsAppRedirect} className="space-y-5 bg-brand-blue-50 p-6 sm:p-8 rounded-[20px] border-2 border-brand-blue-100/20 shadow-xl">
+            <form onSubmit={handleWhatsAppRedirect} className="space-y-5 bg-brand-blue-50 p-6 sm:p-8 rounded-[20px] border-2 border-brand-blue-200 shadow-xl">
 
               <motion.div
                 className="space-y-1.5"
@@ -101,7 +101,7 @@ export default function CtaSection() {
               >
                 <label htmlFor="cta-name" className="text-xs font-subheading tracking-wider text-brand-blue-500 uppercase font-bold">Tu Nombre</label>
                 <div className="relative">
-                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-500/60 pointer-events-none">
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-500/80 pointer-events-none" aria-hidden="true">
                     <User className="w-5 h-5" />
                   </div>
                   <input
@@ -113,7 +113,7 @@ export default function CtaSection() {
                     onChange={e => setFormData({...formData, name: e.target.value})}
                     type="text"
                     placeholder="Ingresá tu nombre"
-                    className="w-full h-11 border-2 border-brand-blue-100/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-brand-blue-500 focus:ring-2 focus:ring-brand-blue-500/20 text-brand-blue-500 placeholder:text-brand-blue-500/40 text-sm font-sans transition-colors bg-white"
+                    className="w-full h-11 border-2 border-brand-blue-400 rounded-xl pl-11 pr-4 focus:outline-none focus:border-brand-blue-500 focus:ring-2 focus:ring-brand-blue-500/30 text-brand-blue-500 placeholder:text-brand-blue-500/75 text-sm font-sans transition-colors bg-white"
                   />
                 </div>
               </motion.div>
@@ -124,7 +124,7 @@ export default function CtaSection() {
               >
                 <label htmlFor="cta-business" className="text-xs font-subheading tracking-wider text-brand-blue-500 uppercase font-bold">Empresa / Negocio</label>
                 <div className="relative">
-                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-500/60 pointer-events-none">
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-500/80 pointer-events-none" aria-hidden="true">
                     <Store className="w-5 h-5" />
                   </div>
                   <input
@@ -136,7 +136,7 @@ export default function CtaSection() {
                     onChange={e => setFormData({...formData, business: e.target.value})}
                     type="text"
                     placeholder="Nombre de tu emprendimiento"
-                    className="w-full h-11 border-2 border-brand-blue-100/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-brand-blue-500 focus:ring-2 focus:ring-brand-blue-500/20 text-brand-blue-500 placeholder:text-brand-blue-500/40 text-sm font-sans transition-colors bg-white"
+                    className="w-full h-11 border-2 border-brand-blue-400 rounded-xl pl-11 pr-4 focus:outline-none focus:border-brand-blue-500 focus:ring-2 focus:ring-brand-blue-500/30 text-brand-blue-500 placeholder:text-brand-blue-500/75 text-sm font-sans transition-colors bg-white"
                   />
                 </div>
               </motion.div>
@@ -147,7 +147,7 @@ export default function CtaSection() {
               >
                 <label htmlFor="volume-select" className="text-xs font-subheading tracking-wider text-brand-blue-500 uppercase font-bold">Volumen Estimado Mensual</label>
                 <div className="relative">
-                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-500/60 pointer-events-none">
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-500/80 pointer-events-none" aria-hidden="true">
                     <PackageSearch className="w-5 h-5" />
                   </div>
                   <select
@@ -156,13 +156,16 @@ export default function CtaSection() {
                     name="volumen"
                     value={formData.volume}
                     onChange={e => setFormData({...formData, volume: e.target.value})}
-                    className="w-full h-11 border-2 border-brand-blue-100/20 rounded-xl pl-11 pr-4 focus:outline-none focus:border-brand-blue-500 focus:ring-2 focus:ring-brand-blue-500/20 text-brand-blue-500 text-sm font-sans transition-colors appearance-none bg-white cursor-pointer"
+                    className="w-full h-11 border-2 border-brand-blue-400 rounded-xl pl-11 pr-10 focus:outline-none focus:border-brand-blue-500 focus:ring-2 focus:ring-brand-blue-500/30 text-brand-blue-500 text-sm font-sans transition-colors appearance-none bg-white cursor-pointer"
                   >
                     <option value="" disabled>Seleccioná una opción</option>
                     <option value="1 a 50">1 a 50 envíos</option>
                     <option value="51 a 200">51 a 200 envíos</option>
                     <option value="Más de 200">Más de 200 envíos</option>
                   </select>
+                  <div className="absolute right-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-blue-500 pointer-events-none flex items-center justify-center" aria-hidden="true">
+                    <ChevronDown className="w-5 h-5" />
+                  </div>
                 </div>
               </motion.div>
 
@@ -175,11 +178,12 @@ export default function CtaSection() {
                       : { scale: 1.02, transition: springConfigSnappy }
                   }
                   whileTap={reduceMotion ? undefined : { scale: 0.98, transition: springConfigSnappy }}
-                  className="w-full min-h-13 bg-brand-yellow-400 hover:bg-brand-yellow-300 text-brand-blue-500 font-subheading tracking-wider text-xl uppercase rounded-full shadow-glow-yellow flex items-center justify-center gap-3 cursor-pointer font-bold transition-all"
+                  className="w-full min-h-13 bg-brand-yellow-400 hover:bg-brand-yellow-300 text-brand-blue-500 font-subheading tracking-wider text-xl uppercase rounded-full shadow-glow-yellow flex items-center justify-center gap-3 cursor-pointer font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2"
                 >
                   <span>Hablar por WhatsApp</span>
                   <motion.span
                     className="h-5 w-5"
+                    aria-hidden="true"
                     whileHover={reduceMotion ? undefined : { scale: 1.15, rotate: 10, transition: springConfigSnappy }}
                   >
                     <MessageSquare className="w-5 h-5" />
