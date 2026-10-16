@@ -1,0 +1,2661 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Mensajería en moto en Mar del Plata | Envíos DosRuedas (Prototipo Apple Fluid Design)</title>
+  <meta name="description" content="Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express en franja de 3 hs, Mercado Envíos Flex en el día y reparto LowCost. Cotizá online." />
+
+  <!-- Tipografías Oficiales Envíos DosRuedas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       1. PALETA CROMÁTICA CANÓNICA (LEY DE TRES COLORES - AGENTS.md)
+       Sin negro puro, grises oscuros, verdes estándar ni azules más oscuros que #0950F6
+       ========================================================================== */
+    :root {
+      --brand-blue-500: #0950F6;
+      --brand-blue-700: #0950F6; /* Techo máximo de oscuridad */
+      --brand-blue-400: #3570F8;
+      --brand-blue-300: #628FF9;
+      --brand-blue-200: #8EAFFB;
+      --brand-blue-100: #BACEFD;
+      --brand-blue-50:  #E6EEFE;
+
+      --brand-yellow-500: #FFEC01;
+      --brand-yellow-400: #FFF12E;
+      --brand-yellow-600: #E6D400;
+      --brand-yellow-50:  #FFFDE6;
+
+      --white: #FFFFFF;
+      --error-500: #EF4444;
+
+      /* Tipografía oficial con calibración óptica (Apple Typography §15) */
+      --font-display: 'Anton', system-ui, sans-serif;
+      --font-subheading: 'Bebas Neue', system-ui, sans-serif;
+      --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+      /* Materiales translúcidos (Apple Materials & Depth §12) */
+      --glass-white-bg: rgba(255, 255, 255, 0.78);
+      --glass-white-border: rgba(186, 206, 253, 0.65);
+      --glass-blue-bg: rgba(9, 80, 246, 0.76);
+      --glass-blue-border: rgba(255, 255, 255, 0.28);
+      --specular-top-light: inset 0 1px 0 0 rgba(255, 255, 255, 0.55);
+      --specular-top-blue: inset 0 1px 0 0 rgba(255, 255, 255, 0.28);
+
+      /* Sombras contextuales con azul institucional (nunca negro) */
+      --shadow-ambient: 0 14px 34px -8px rgba(9, 80, 246, 0.12), 0 4px 12px -2px rgba(9, 80, 246, 0.06);
+      --shadow-elevated: 0 24px 48px -12px rgba(9, 80, 246, 0.22), 0 8px 20px -4px rgba(9, 80, 246, 0.12);
+      --shadow-yellow-glow: 0 12px 28px -6px rgba(255, 236, 1, 0.42);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      font: 100%/1.55 var(--font-sans);
+      color: var(--brand-blue-500);
+      background-color: var(--brand-blue-500);
+      scroll-behavior: smooth;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--white);
+      color: var(--brand-blue-500);
+      overflow-x: hidden;
+      selection-background-color: var(--brand-yellow-500);
+    }
+
+    ::selection {
+      background-color: var(--brand-yellow-500);
+      color: var(--brand-blue-500);
+    }
+
+    /* Accesibilidad: foco visible corporativo */
+    :focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--brand-yellow-500), 0 0 0 5px var(--brand-blue-500);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ==========================================================================
+       2. ESCALA TIPOGRÁFICA CON TRACKING Y LEADING ESPECÍFICO POR TAMAÑO (§15)
+       ========================================================================== */
+    .display-xl {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.6rem, 5.2vw + 0.8rem, 4.75rem);
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+
+    .display-lg {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2rem, 3.6vw + 0.5rem, 3.35rem);
+      line-height: 0.94;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+
+    .display-md {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(1.35rem, 2vw + 0.3rem, 1.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      font-family: var(--font-subheading);
+      font-weight: 400;
+      font-size: 0.95rem;
+      line-height: 1.1;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .mono-metric {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
+
+    /* Knockout pill para titulares */
+    .knockout-pill {
+      display: inline-block;
+      background-color: var(--brand-yellow-500);
+      color: var(--brand-blue-500);
+      padding: 0.04em 0.32em 0.08em;
+      border-radius: 0.28em;
+      box-shadow: var(--shadow-yellow-glow);
+      transform: rotate(-1deg);
+    }
+
+    /* ==========================================================================
+       3. RESPUESTA INMEDIATA EN POINTER-DOWN (Apple Response §1)
+       ========================================================================== */
+    .pressable {
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: pointer;
+      transition: transform 90ms cubic-bezier(0.22, 1, 0.36, 1),
+                  background-color 140ms ease,
+                  box-shadow 140ms ease;
+    }
+
+    .pressable:active,
+    .pressable.is-pressed {
+      transform: scale(0.965) !important;
+      transition-duration: 40ms;
+    }
+
+    /* Primitiva: CTANestedPill */
+    .cta-nested-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      min-height: 3.1rem;
+      padding: 0.45rem 0.55rem 0.45rem 1.45rem;
+      border-radius: 9999px;
+      font-family: var(--font-subheading);
+      font-size: 1.15rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid transparent;
+    }
+
+    .cta-nested-pill--primary {
+      background-color: var(--brand-yellow-500);
+      color: var(--brand-blue-500);
+      box-shadow: var(--shadow-yellow-glow), var(--specular-top-light);
+    }
+
+    .cta-nested-pill--primary:hover {
+      background-color: var(--brand-yellow-400);
+    }
+
+    .cta-nested-pill--primary:active {
+      background-color: var(--brand-yellow-600);
+    }
+
+    .cta-nested-pill--blue {
+      background-color: var(--brand-blue-500);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: var(--shadow-ambient);
+    }
+
+    .cta-nested-pill--blue:hover {
+      background-color: var(--brand-blue-400);
+    }
+
+    .cta-nested-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 9999px;
+      background-color: var(--brand-blue-500);
+      color: var(--brand-yellow-500);
+      transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+      flex-shrink: 0;
+    }
+
+    .cta-nested-pill--blue .cta-nested-chip {
+      background-color: var(--brand-yellow-500);
+      color: var(--brand-blue-500);
+    }
+
+    .cta-nested-pill:hover .cta-nested-chip {
+      transform: translateX(3px) scale(1.05);
+    }
+
+    /* Primitiva: DoubleBezelCard con borde especular Apple (§12) */
+    .double-bezel {
+      padding: 0.45rem;
+      border-radius: 1.75rem;
+      background-color: rgba(230, 238, 254, 0.72);
+      border: 1px solid var(--brand-blue-100);
+      box-shadow: var(--shadow-ambient), var(--specular-top-light);
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .double-bezel--highlight {
+      background-color: rgba(255, 236, 1, 0.22);
+      border: 2px solid var(--brand-yellow-500);
+      box-shadow: var(--shadow-yellow-glow), var(--specular-top-light);
+    }
+
+    .double-bezel--glass-blue {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: var(--shadow-elevated), var(--specular-top-blue);
+    }
+
+    .double-bezel__inner {
+      height: 100%;
+      border-radius: 1.35rem;
+      background-color: var(--white);
+      border: 1px solid rgba(186, 206, 253, 0.55);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ==========================================================================
+       4. CONTENEDOR PRINCIPAL CON ESCALADO DE PROFUNDIDAD PARA SHEET (§12)
+       ========================================================================== */
+    #page-stage {
+      transform-origin: center top;
+      transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+                  border-radius 420ms cubic-bezier(0.22, 1, 0.36, 1),
+                  filter 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      background-color: var(--white);
+      min-height: 100dvh;
+    }
+
+    body.sheet-open #page-stage {
+      transform: scale(0.965) translateY(10px);
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 80rem;
+      margin-inline: auto;
+      padding-inline: clamp(1rem, 3vw, 2rem);
+    }
+
+    /* ==========================================================================
+       5. NAVEGACIÓN TRANSLÚCIDA FLOTANTE (Apple Materials §12)
+       ========================================================================== */
+    .floating-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--glass-white-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--glass-white-border);
+      box-shadow: var(--specular-top-light), 0 8px 24px -12px rgba(9, 80, 246, 0.14);
+    }
+
+    .floating-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 4.25rem;
+      gap: 1rem;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--brand-blue-500);
+    }
+
+    .brand-logo__mark {
+      width: 2.35rem;
+      height: 2.35rem;
+      border-radius: 0.7rem;
+      background-color: var(--brand-blue-500);
+      color: var(--brand-yellow-500);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      box-shadow: 2px 2px 0 var(--brand-yellow-500);
+    }
+
+    .brand-logo__text {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .brand-logo__sub {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--brand-blue-400);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 0.35rem;
+      list-style: none;
+      background: rgba(230, 238, 254, 0.65);
+      padding: 0.3rem;
+      border-radius: 9999px;
+      border: 1px solid var(--brand-blue-100);
+    }
+
+    @media (min-width: 900px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.95rem;
+      border-radius: 9999px;
+      font-family: var(--font-subheading);
+      font-size: 0.95rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--brand-blue-500);
+      transition: background-color 150ms ease;
+    }
+
+    .nav-links a:hover {
+      background-color: var(--white);
+    }
+
+    /* ==========================================================================
+       6. SECCIÓN 1: HERO ANIMADO (Mapa en vivo + Manipulación Directa 1:1)
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      isolation: isolate;
+      min-height: calc(92dvh - 4.25rem);
+      background-color: var(--brand-blue-500);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    /* Fondo procedural liviano (HeroProceduralBackground) */
+    .hero-procedural-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(53, 112, 248, 0.65) 0%, transparent 48%),
+        radial-gradient(circle at 82% 58%, rgba(255, 236, 1, 0.14) 0%, transparent 42%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(45deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding-block: clamp(3rem, 6vw, 5.5rem);
+      flex: 1;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 7fr 5fr;
+        gap: 3.5rem;
+      }
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-copy {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      border-radius: 9999px;
+      background-color: var(--brand-yellow-500);
+      color: var(--brand-blue-500);
+      font-family: var(--font-subheading);
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transform: rotate(-1deg);
+      box-shadow: var(--shadow-yellow-glow);
+    }
+
+    .hero-lead {
+      max-width: 54ch;
+      font-size: clamp(1rem, 1.1vw + 0.5rem, 1.18rem);
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.25rem;
+      padding-top: 0.35rem;
+    }
+
+    .hero-link-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 2.75rem;
+      padding: 0.5rem 0.75rem;
+      color: var(--white);
+      font-family: var(--font-subheading);
+      font-size: 1.08rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: underline;
+      text-decoration-color: var(--brand-yellow-500);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 6px;
+    }
+
+    .hero-link-secondary:hover {
+      color: var(--brand-yellow-500);
+    }
+
+    /* Mapa interactivo en vivo con manipulación directa 1:1 */
+    .hero-map-stage {
+      position: relative;
+      width: 100%;
+      max-width: 29rem;
+      aspect-ratio: 1 / 1;
+      margin-inline: auto;
+      border-radius: 2rem;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: var(--specular-top-blue), 0 28px 60px -15px rgba(9, 80, 246, 0.45);
+      display: grid;
+      place-items: center;
+      padding: 1.25rem;
+      user-select: none;
+    }
+
+    .hero-map-canvas {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 1.5rem;
+      background:
+        radial-gradient(circle at 50% 44%, rgba(255, 236, 1, 0.16), transparent 62%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        var(--brand-blue-400);
+      background-size: 100% 100%, 28px 28px, 28px 28px, 100% 100%;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    /* Anillos de pulso sobre el pin central */
+    .pulse-ring {
+      position: absolute;
+      left: 50%;
+      top: 44%;
+      width: 32%;
+      aspect-ratio: 1 / 1;
+      transform: translate(-50%, -50%) scale(0.5);
+      border-radius: 9999px;
+      border: 2px solid rgba(255, 236, 1, 0.65);
+      opacity: 0;
+      pointer-events: none;
+      animation: pulseRing 3.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+
+    .pulse-ring--2 { animation-delay: 1.06s; }
+    .pulse-ring--3 { animation-delay: 2.13s; }
+
+    @keyframes pulseRing {
+      0% { transform: translate(-50%, -50%) scale(0.45); opacity: 0.85; }
+      100% { transform: translate(-50%, -50%) scale(2.35); opacity: 0; }
+    }
+
+    /* Pin interactivo y fichas arrastrables (1:1 Direct Manipulation §2) */
+    .draggable-chip {
+      position: absolute;
+      z-index: 5;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 0.95rem;
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+      will-change: transform;
+      box-shadow: 0 14px 28px -6px rgba(9, 80, 246, 0.32), var(--specular-top-light);
+    }
+
+    .draggable-chip:active {
+      cursor: grabbing;
+    }
+
+    .draggable-chip--base {
+      left: 1rem;
+      bottom: 1.25rem;
+      background-color: var(--white);
+      color: var(--brand-blue-500);
+      border: 1px solid var(--brand-blue-100);
+    }
+
+    .draggable-chip--entrega {
+      right: 1rem;
+      top: 1.15rem;
+      background-color: var(--brand-yellow-500);
+      color: var(--brand-blue-500);
+      border: 1px solid var(--brand-yellow-400);
+    }
+
+    .map-hint-pill {
+      position: absolute;
+      bottom: 0.65rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 6;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      background: rgba(9, 80, 246, 0.82);
+      color: var(--brand-yellow-500);
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    /* Ticker inferior de diferenciales */
+    .hero-ticker {
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      padding-block: 0.85rem;
+    }
+
+    .hero-ticker__track {
+      display: flex;
+      width: max-content;
+      animation: marqueeLeft 26s linear infinite;
+    }
+
+    .hero-ticker:hover .hero-ticker__track {
+      animation-play-state: paused;
+    }
+
+    .hero-ticker__list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      flex-shrink: 0;
+    }
+
+    .hero-ticker__item {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      padding-inline: 1.15rem;
+      font-family: var(--font-subheading);
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .hero-ticker__diamond {
+      width: 0.45rem;
+      height: 0.45rem;
+      background-color: var(--brand-yellow-500);
+      transform: rotate(45deg);
+      border-radius: 1px;
+    }
+
+    @keyframes marqueeLeft {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    /* ==========================================================================
+       7. SECCIÓN 2: SEGMENTOS HOME + COTIZADOR FLUIDO CON RUBBER-BANDING (§9)
+       ========================================================================== */
+    .segmentos-section {
+      padding-block: clamp(4rem, 7vw, 6rem);
+      background-color: var(--white);
+      border-bottom: 1px solid var(--brand-blue-100);
+    }
+
+    .section-header-center {
+      text-align: center;
+      max-width: 46rem;
+      margin-inline: auto;
+      margin-bottom: 2.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .section-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.95rem;
+      border-radius: 9999px;
+      background-color: var(--brand-yellow-50);
+      border: 1px solid var(--brand-yellow-500);
+      color: var(--brand-blue-500);
+      font-family: var(--font-subheading);
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Apple-style Segmented Filter Bar */
+    .apple-segmented-control {
+      position: relative;
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem;
+      padding: 0.35rem;
+      border-radius: 9999px;
+      background-color: var(--brand-blue-50);
+      border: 1px solid var(--brand-blue-100);
+      margin-bottom: 2.25rem;
+    }
+
+    .apple-segmented-btn {
+      position: relative;
+      z-index: 2;
+      border: none;
+      background: transparent;
+      color: var(--brand-blue-500);
+      font-family: var(--font-subheading);
+      font-size: 0.92rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: color 150ms ease;
+    }
+
+    .apple-segmented-btn[aria-selected="true"] {
+      background-color: var(--brand-blue-500);
+      color: var(--brand-yellow-500);
+      box-shadow: var(--shadow-ambient);
+    }
+
+    .segmentos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 680px) {
+      .segmentos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .segmentos-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .segmento-card {
+      will-change: transform, opacity;
+      transition: opacity 240ms ease;
+    }
+
+    .segmento-card.is-dimmed {
+      opacity: 0.42;
+    }
+
+    .segmento-icon-box {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.85rem;
+      display: grid;
+      place-items: center;
+      background-color: var(--brand-blue-50);
+      color: var(--brand-blue-500);
+      flex-shrink: 0;
+    }
+
+    .double-bezel--highlight .segmento-icon-box {
+      background-color: var(--brand-yellow-500);
+      color: var(--brand-blue-500);
+    }
+
+    .segmento-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 0.4rem;
+      background-color: var(--brand-blue-50);
+      color: var(--brand-blue-500);
+      border: 1px solid var(--brand-blue-100);
+    }
+
+    .segmento-cta {
+      width: 100%;
+      min-height: 2.75rem;
+      padding: 0.6rem 1rem;
+      border-radius: 9999px;
+      font-family: var(--font-subheading);
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--brand-blue-50);
+      color: var(--brand-blue-500);
+      border: 1px solid var(--brand-blue-200);
+    }
+
+    .segmento-cta--highlight {
+      background-color: var(--brand-yellow-500);
+      border-color: var(--brand-yellow-500);
+      box-shadow: var(--shadow-yellow-glow);
+    }
+
+    /* Simulador Interactivo de Tarifas con Rubber-banding (§2, §9, Regla 5 de negocio) */
+    .quick-scrubber-box {
+      margin-top: 3rem;
+    }
+
+    .scrubber-track-wrap {
+      position: relative;
+      padding-block: 1rem;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .scrubber-bar {
+      height: 0.75rem;
+      background-color: var(--brand-blue-50);
+      border: 1px solid var(--brand-blue-200);
+      border-radius: 9999px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scrubber-fill {
+      height: 100%;
+      width: 22%;
+      background: linear-gradient(90deg, var(--brand-blue-500), var(--brand-yellow-500));
+      border-radius: 9999px;
+    }
+
+    .scrubber-thumb {
+      position: absolute;
+      top: 50%;
+      left: 22%;
+      transform: translate(-50%, -50%);
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 9999px;
+      background-color: var(--brand-yellow-500);
+      border: 3px solid var(--brand-blue-500);
+      box-shadow: var(--shadow-ambient);
+      cursor: grab;
+      display: grid;
+      place-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--brand-blue-500);
+    }
+
+    .scrubber-thumb:active {
+      cursor: grabbing;
+      transform: translate(-50%, -50%) scale(1.12);
+    }
+
+    /* ==========================================================================
+       8. SECCIÓN 3: SERVICES OVERVIEW (Carrusel Físico con Momentum Projection §5-§6)
+       ========================================================================== */
+    .services-section {
+      position: relative;
+      padding-block: clamp(4.5rem, 8vw, 6.5rem);
+      background-color: var(--brand-blue-500);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .services-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      justify-content: space-between;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .services-header {
+        flex-direction: row;
+        align-items: flex-end;
+      }
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .circle-btn {
+      width: 2.85rem;
+      height: 2.85rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+    }
+
+    .circle-btn:hover {
+      background-color: var(--brand-yellow-500);
+      color: var(--brand-blue-500);
+      border-color: var(--brand-yellow-500);
+    }
+
+    .fluid-carousel-viewport {
+      position: relative;
+      height: 29rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1600px;
+      touch-action: pan-y;
+      user-select: none;
+      cursor: grab;
+    }
+
+    .fluid-carousel-viewport:active {
+      cursor: grabbing;
+    }
+
+    .service-card-3d {
+      position: absolute;
+      width: min(86vw, 22.5rem);
+      height: 26.5rem;
+      border-radius: 1.85rem;
+      padding: 1.65rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 3px solid rgba(255, 255, 255, 0.25);
+      box-shadow: var(--shadow-elevated), var(--specular-top-light);
+      will-change: transform;
+      transform-style: preserve-3d;
+      text-align: left;
+    }
+
+    .service-card-3d--blue {
+      background: linear-gradient(145deg, var(--brand-blue-400), var(--brand-blue-500));
+      color: var(--white);
+      border-color: var(--brand-yellow-500);
+    }
+
+    .service-card-3d--white {
+      background: linear-gradient(145deg, var(--white), var(--brand-blue-50));
+      color: var(--brand-blue-500);
+      border-color: var(--brand-blue-200);
+    }
+
+    .service-card-3d--yellow {
+      background: linear-gradient(145deg, var(--brand-yellow-500), var(--brand-yellow-400));
+      color: var(--brand-blue-500);
+      border-color: var(--white);
+    }
+
+    .service-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.45rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+    }
+
+    .service-card-3d--white .service-stats-grid,
+    .service-card-3d--yellow .service-stats-grid {
+      border-top-color: rgba(9, 80, 246, 0.16);
+    }
+
+    .stat-chip {
+      padding: 0.45rem 0.3rem;
+      border-radius: 0.75rem;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+    }
+
+    .service-card-3d--white .stat-chip {
+      background: var(--brand-blue-50);
+    }
+
+    .service-card-3d--yellow .stat-chip {
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.55rem;
+      margin-top: 1.5rem;
+    }
+
+    .carousel-dot {
+      height: 0.65rem;
+      width: 0.65rem;
+      border-radius: 9999px;
+      border: 1px solid var(--brand-blue-200);
+      background: rgba(255, 255, 255, 0.32);
+      cursor: pointer;
+      transition: width 260ms cubic-bezier(0.22, 1, 0.36, 1), background-color 200ms ease;
+    }
+
+    .carousel-dot[aria-current="true"] {
+      width: 2.4rem;
+      background: var(--brand-yellow-500);
+      border-color: var(--brand-yellow-500);
+    }
+
+    /* ==========================================================================
+       9. SECCIÓN 4: EMPRENDEDORES HOME (Bento Grid Asimétrico + Marquee)
+       ========================================================================== */
+    .emprendedores-section {
+      padding-block: clamp(4.5rem, 8vw, 6.5rem);
+      background-color: var(--brand-blue-500);
+      color: var(--white);
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2.75rem;
+    }
+
+    @media (min-width: 1024px) {
+      .bento-grid {
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: minmax(15.5rem, auto);
+      }
+      .bento-col-7-row-2 {
+        grid-column: span 7;
+        grid-row: span 2;
+      }
+      .bento-col-5 {
+        grid-column: span 5;
+      }
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-block: 1.25rem;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.94rem;
+    }
+
+    /* ==========================================================================
+       10. SECCIÓN 5: SOCIAL PROOF (6 Reseñas Verificadas 5.0 / 5.0)
+       ========================================================================== */
+    .social-section {
+      padding-block: clamp(4.5rem, 7vw, 6rem);
+      background-color: var(--brand-blue-50);
+      border-block: 1px solid var(--brand-blue-100);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      list-style: none;
+    }
+
+    @media (min-width: 720px) {
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1080px) {
+      .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .review-card {
+      border-radius: 1.5rem;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 18.5rem;
+      box-shadow: var(--shadow-ambient), var(--specular-top-light);
+    }
+
+    .review-card--blue {
+      background-color: var(--brand-blue-500);
+      color: var(--white);
+    }
+
+    .review-card--white {
+      background-color: var(--white);
+      color: var(--brand-blue-500);
+      border: 2px solid var(--brand-yellow-500);
+    }
+
+    .review-card--yellow {
+      background-color: var(--brand-yellow-500);
+      color: var(--brand-blue-500);
+    }
+
+    /* ==========================================================================
+       11. SECCIÓN 6: CTA WHATSAPP FORM CON VALIDACIÓN INLINE (§16)
+       ========================================================================== */
+    .cta-section {
+      padding-block: clamp(4.5rem, 8vw, 6.5rem);
+      background-color: var(--brand-blue-500);
+    }
+
+    .cta-inner-card {
+      background-color: var(--white);
+      border-radius: 1.4rem;
+      padding: clamp(1.75rem, 4vw, 3.25rem);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .cta-inner-card {
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5rem;
+      }
+    }
+
+    .form-box {
+      background-color: var(--brand-blue-50);
+      border: 2px solid var(--brand-blue-200);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .input-label {
+      font-family: var(--font-subheading);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-blue-500);
+    }
+
+    .input-field {
+      width: 100%;
+      height: 2.85rem;
+      border-radius: 0.75rem;
+      border: 2px solid var(--brand-blue-300);
+      background-color: var(--white);
+      color: var(--brand-blue-500);
+      padding-inline: 0.95rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--brand-blue-500);
+      box-shadow: 0 0 0 3px rgba(9, 80, 246, 0.2);
+    }
+
+    /* ==========================================================================
+       12. SHEET MODAL ANCLADO E INTERRUMPIBLE (Apple Sheet Physics §3, §5, §12)
+       ========================================================================== */
+    .sheet-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background: rgba(9, 80, 246, 0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 240ms ease;
+    }
+
+    .sheet-backdrop.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .sheet-dialog {
+      width: min(100%, 40rem);
+      border-radius: 1.75rem;
+      padding: 0.45rem;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: var(--shadow-elevated);
+      transform: translateY(40px) scale(0.94);
+      will-change: transform;
+      touch-action: none;
+    }
+
+    .sheet-grabber {
+      width: 3rem;
+      height: 0.32rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.45);
+      margin: 0.25rem auto 0.75rem;
+      cursor: grab;
+    }
+
+    /* ==========================================================================
+       13. PANEL DE TELEMETRÍA APPLE DESIGN (Inspección interactiva en vivo)
+       ========================================================================== */
+    .apple-hud {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 50;
+      background: var(--glass-white-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--brand-blue-200);
+      border-radius: 1.1rem;
+      padding: 0.65rem 0.9rem;
+      box-shadow: var(--shadow-elevated), var(--specular-top-light);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--brand-blue-500);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hud-toggle {
+      padding: 0.28rem 0.6rem;
+      border-radius: 9999px;
+      border: 1px solid var(--brand-blue-300);
+      background: var(--brand-blue-50);
+      color: var(--brand-blue-500);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .hud-toggle[aria-pressed="true"] {
+      background: var(--brand-yellow-500);
+      border-color: var(--brand-blue-500);
+    }
+
+    /* ==========================================================================
+       14. REDUCED MOTION, TRANSPARENCY & CONTRAST (Apple Accessibility §14)
+       ========================================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      .pulse-ring,
+      .hero-ticker__track {
+        animation: none !important;
+      }
+      #page-stage {
+        transition: opacity 200ms ease !important;
+        transform: none !important;
+      }
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+      .floating-header,
+      .apple-hud {
+        background: var(--white) !important;
+        backdrop-filter: none !important;
+      }
+      .double-bezel--glass-blue {
+        background: var(--brand-blue-400) !important;
+        backdrop-filter: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenedor principal que cede profundidad cuando se abre una ficha técnica (§12) -->
+  <div id="page-stage">
+
+    <!-- BARRA DE NAVEGACIÓN TRANSLÚCIDA (Apple Materials §12) -->
+    <header class="floating-header">
+      <div class="container floating-header__inner">
+        <a href="#hero-animado" class="brand-logo pressable" aria-label="Envíos DosRuedas Inicio">
+          <span class="brand-logo__mark" aria-hidden="true">2R</span>
+          <span>
+            <span class="brand-logo__text">Envíos DosRuedas</span>
+            <span class="brand-logo__sub">BASE FRIULI 1972 · MDQ</span>
+          </span>
+        </a>
+
+        <nav aria-label="Navegación principal">
+          <ul class="nav-links">
+            <li><a href="#segmentos-home" class="pressable">Soluciones</a></li>
+            <li><a href="#services-overview" class="pressable">Servicios</a></li>
+            <li><a href="#quick-quoter" class="pressable">Simulador Lineal</a></li>
+            <li><a href="#emprendedores-home" class="pressable">Emprendedores</a></li>
+            <li><a href="#social-proof" class="pressable">Opiniones 5.0★</a></li>
+          </ul>
+        </nav>
+
+        <a href="#cta-section" class="cta-nested-pill cta-nested-pill--primary pressable" style="min-height:2.65rem; padding:0.3rem 0.45rem 0.3rem 1.1rem; font-size:0.98rem;">
+          <span>Cotizá tu envío</span>
+          <span class="cta-nested-chip" style="width:1.85rem; height:1.85rem;" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ====================================================================
+           SECCIÓN 1: HERO ANIMADO (Mapa en vivo + Fichas con arrastre 1:1 y resorte)
+           ==================================================================== -->
+      <section id="hero-animado" class="hero-section" aria-label="Mensajería urbana y logística de última milla en todo Mar del Plata">
+        <div class="hero-procedural-bg" aria-hidden="true"></div>
+
+        <div class="container hero-grid">
+          <!-- Columna 7: Copy y Slogan oficial del dueño -->
+          <div class="hero-copy">
+            <div class="hero-badge">
+              <span aria-hidden="true">⚡</span>
+              <span>Flota propia · Todo Mar del Plata</span>
+            </div>
+
+            <h1 class="display-xl">
+              <span style="display:block;">El motor de tu</span>
+              <span class="knockout-pill">última milla</span>
+              <span class="sr-only">. </span>
+              <span style="display:block; margin-top:0.12em;">Somos la solución a tus envíos</span>
+            </h1>
+
+            <p class="hero-lead">
+              Mensajería y logística e-commerce en Mar del Plata: envíos en el día con motos
+              propias. Llegamos a toda la ciudad y los repartidores son nuestros, sin tercerizar.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#quick-quoter" class="cta-nested-pill cta-nested-pill--primary pressable">
+                <span>Cotizá tu envío</span>
+                <span class="cta-nested-chip" aria-hidden="true">→</span>
+              </a>
+              <a href="#services-overview" class="hero-link-secondary pressable">
+                <span>Ver servicios</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Columna 5: Mapa interactivo con manipulación directa 1:1 (Apple §2, §3, §9) -->
+          <div>
+            <div class="hero-map-stage">
+              <div class="hero-map-canvas" id="hero-map-bounds">
+                <span class="pulse-ring" aria-hidden="true"></span>
+                <span class="pulse-ring pulse-ring--2" aria-hidden="true"></span>
+                <span class="pulse-ring pulse-ring--3" aria-hidden="true"></span>
+
+                <!-- Ruta vectorial isométrica MDQ -->
+                <svg viewBox="0 0 400 400" width="100%" height="100%" aria-label="Mapa isométrico de Mar del Plata con ruta amarilla" style="position:relative; z-index:2;">
+                  <!-- Trazado costero y avenidas MDQ -->
+                  <path d="M 40 330 Q 150 280 210 180 T 350 70" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="10" stroke-linecap="round" />
+                  <path d="M 75 95 L 310 310" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="6" stroke-linecap="round" />
+                  <!-- Ruta activa amarilla -->
+                  <path d="M 110 280 C 145 230, 175 215, 200 176 S 270 135, 305 105" fill="none" stroke="#FFEC01" stroke-width="5" stroke-dasharray="8 6" stroke-linecap="round" />
+                  <circle cx="110" cy="280" r="8" fill="#FFFFFF" stroke="#0950F6" stroke-width="3" />
+                  <circle cx="305" cy="105" r="8" fill="#FFEC01" stroke="#0950F6" stroke-width="3" />
+                  <!-- Pin Central Envíos DosRuedas -->
+                  <g transform="translate(200, 176)">
+                    <circle cx="0" cy="0" r="26" fill="#FFEC01" />
+                    <circle cx="0" cy="0" r="10" fill="#0950F6" />
+                  </g>
+                </svg>
+
+                <!-- Fichas con manipulación directa 1:1 + resorte elástico al soltar -->
+                <div class="draggable-chip draggable-chip--base" data-draggable-chip="base" role="button" tabindex="0" aria-label="Ficha arrastrable: Base Friuli 1972, Mar del Plata">
+                  <span aria-hidden="true">📍</span>
+                  <span class="mono-metric" style="font-size:0.75rem; line-height:1.2;">
+                    <strong class="eyebrow" style="display:block; font-size:0.85rem;">Base Friuli 1972</strong>
+                    Mar del Plata
+                  </span>
+                </div>
+
+                <div class="draggable-chip draggable-chip--entrega" data-draggable-chip="entrega" role="button" tabindex="0" aria-label="Ficha arrastrable: Entrega en el día en todo MDQ">
+                  <span aria-hidden="true">⚡</span>
+                  <span class="mono-metric" style="font-size:0.75rem; line-height:1.2;">
+                    <strong class="eyebrow" style="display:block; font-size:0.85rem;">Entrega en el día</strong>
+                    en todo MDQ
+                  </span>
+                </div>
+
+                <span class="map-hint-pill">Arrastrá y soltá las fichas (1:1 Spring)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ticker de diferenciales accesible -->
+        <div class="hero-ticker">
+          <h2 class="sr-only">Diferenciales de Envíos DosRuedas</h2>
+          <ul class="sr-only">
+            <li>Envíos en el día</li>
+            <li>Flota propia</li>
+            <li>Cero tercerización</li>
+            <li>Todo Mar del Plata</li>
+            <li>Retiro en tu local</li>
+          </ul>
+          <div class="hero-ticker__track" aria-hidden="true">
+            <ul class="hero-ticker__list">
+              <li class="hero-ticker__item">Envíos en el día <span class="hero-ticker__diamond"></span></li>
+              <li class="hero-ticker__item">Flota propia <span class="hero-ticker__diamond"></span></li>
+              <li class="hero-ticker__item">Cero tercerización <span class="hero-ticker__diamond"></span></li>
+              <li class="hero-ticker__item">Todo Mar del Plata <span class="hero-ticker__diamond"></span></li>
+              <li class="hero-ticker__item">Retiro en tu local <span class="hero-ticker__diamond"></span></li>
+            </ul>
+            <ul class="hero-ticker__list">
+              <li class="hero-ticker__item">Envíos en el día <span class="hero-ticker__diamond"></span></li>
+              <li class="hero-ticker__item">Flota propia <span class="hero-ticker__diamond"></span></li>
+              <li class="hero-ticker__item">Cero tercerización <span class="hero-ticker__diamond"></span></li>
+              <li class="hero-ticker__item">Todo Mar del Plata <span class="hero-ticker__diamond"></span></li>
+              <li class="hero-ticker__item">Retiro en tu local <span class="hero-ticker__diamond"></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 2: SEGMENTOS HOME + SIMULADOR TÁCTIL DE TARIFA LINEAL
+           ==================================================================== -->
+      <section id="segmentos-home" class="segmentos-section" aria-labelledby="segmentos-home-title">
+        <div class="container">
+          <div class="section-header-center">
+            <div class="section-pill">
+              <span aria-hidden="true">✦</span>
+              <span>Elegí tu solución a medida</span>
+            </div>
+            <h2 id="segmentos-home-title" class="display-lg">
+              ¿CÓMO PODEMOS IMPULSAR TU LOGÍSTICA HOY?
+            </h2>
+            <p style="max-width:38rem; font-size:1rem;">
+              Seleccioná tu tipo de negocio o necesidad y descubrí el servicio ideal diseñado para las calles de Mar del Plata.
+            </p>
+
+            <!-- Apple Segmented Control para filtrar o resaltar en tiempo real -->
+            <div class="apple-segmented-control" role="tablist" aria-label="Filtrar por segmento logístico">
+              <button type="button" role="tab" class="apple-segmented-btn pressable" aria-selected="true" data-segment-filter="all">Todos</button>
+              <button type="button" role="tab" class="apple-segmented-btn pressable" aria-selected="false" data-segment-filter="flex">Mercado Libre Flex</button>
+              <button type="button" role="tab" class="apple-segmented-btn pressable" aria-selected="false" data-segment-filter="ecommerce">E-Commerce 24hs / Same-Day</button>
+              <button type="button" role="tab" class="apple-segmented-btn pressable" aria-selected="false" data-segment-filter="empresas">Comercios &amp; Empresas</button>
+              <button type="button" role="tab" class="apple-segmented-btn pressable" aria-selected="false" data-segment-filter="urgente">Particulares &amp; Urgentes</button>
+            </div>
+          </div>
+
+          <!-- Grid 4 Segmentos con DoubleBezelCard -->
+          <div class="segmentos-grid">
+            <!-- 1. Mercado Libre Flex -->
+            <article class="double-bezel double-bezel--highlight segmento-card" data-segment-card="flex">
+              <div class="double-bezel__inner">
+                <div style="display:flex; flex-direction:column; gap:0.9rem;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
+                    <div class="segmento-icon-box" aria-hidden="true">⚡</div>
+                    <span class="segmento-tag">MERCADO LIBRE</span>
+                  </div>
+                  <h3 class="display-md">¿Vendés en Mercado Libre?</h3>
+                  <p style="font-size:0.9rem; line-height:1.55;">
+                    Entregá en el mismo día con Mercado Envíos Flex en Mar del Plata urbana. Horario de corte 15:00 hs y múltiples retiros para cuidar tu reputación.
+                  </p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1.25rem; border-top:1px solid var(--brand-blue-100);">
+                  <a href="#services-overview" data-open-service="flex" class="segmento-cta segmento-cta--highlight pressable">
+                    <span>Ver Solución Flex</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. E-Commerce 24hs / Same-Day -->
+            <article class="double-bezel segmento-card" data-segment-card="ecommerce">
+              <div class="double-bezel__inner">
+                <div style="display:flex; flex-direction:column; gap:0.9rem;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
+                    <div class="segmento-icon-box" aria-hidden="true">🏪</div>
+                    <span class="segmento-tag">E-COMMERCE 24HS / SAME-DAY</span>
+                  </div>
+                  <h3 class="display-md">¿Tenés tienda online con stock en depósito?</h3>
+                  <p style="font-size:0.9rem; line-height:1.55;">
+                    E-Commerce 24hs: despacho garantizado en 24hs. E-Commerce Same-Day: entrega antes de las 19:00 hs con corte 13:00 hs. Stock en Friuli 1972, picking QR, empaque incluido.
+                  </p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1.25rem; border-top:1px solid var(--brand-blue-100);">
+                  <a href="#services-overview" data-open-service="3pl" class="segmento-cta pressable">
+                    <span>Ver planes E-Commerce</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Comercios & Empresas (LowCost) -->
+            <article class="double-bezel segmento-card" data-segment-card="empresas">
+              <div class="double-bezel__inner">
+                <div style="display:flex; flex-direction:column; gap:0.9rem;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
+                    <div class="segmento-icon-box" aria-hidden="true">🏢</div>
+                    <span class="segmento-tag">COMERCIOS &amp; EMPRESAS</span>
+                  </div>
+                  <h3 class="display-md">¿Tenés envíos diarios?</h3>
+                  <p style="font-size:0.9rem; line-height:1.55;">
+                    Reparto económico programado para el día: pedís antes de las 13:00 hs y se entrega antes de las 19:00 hs, sin franja horaria fija. Tarifa fija por distancia y remito digital.
+                  </p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1.25rem; border-top:1px solid var(--brand-blue-100);">
+                  <a href="#services-overview" data-open-service="lowcost" class="segmento-cta pressable">
+                    <span>Ver Paquetería LowCost</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Particulares & Urgentes (Express) -->
+            <article class="double-bezel segmento-card" data-segment-card="urgente">
+              <div class="double-bezel__inner">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
+                  <div class="segmento-icon-box" aria-hidden="true">📦</div>
+                  <span class="segmento-tag">PARTICULARES &amp; URGENTES</span>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:0.9rem; margin-top:0.9rem;">
+                  <h3 class="display-md">¿Necesitás un envío ya?</h3>
+                  <p style="font-size:0.9rem; line-height:1.55;">
+                    Cadetería prioritaria punto a punto en moto. Entregas prioritarias en el día con elección de franja horaria de 3 horas, pedido con 2 hs de anticipación mínima.
+                  </p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1.25rem; border-top:1px solid var(--brand-blue-100);">
+                  <a href="#quick-quoter" class="segmento-cta pressable">
+                    <span>Cotizá tu Envío Express</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Simulador Interactivo de Distancia con Manipulación Directa 1:1 + Rubber-banding (Regla 5 AGENTS.md) -->
+          <div id="quick-quoter" class="double-bezel quick-scrubber-box">
+            <div class="double-bezel__inner" style="padding: clamp(1.25rem, 3vw, 2rem);">
+              <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem;">
+                <div>
+                  <span class="eyebrow" style="color:var(--brand-blue-400);">Simulador de Cálculo Tarifario Oficial (Tramo fijo 0 a 10 km · Lineal 10 a 20 km)</span>
+                  <h3 class="display-md" style="margin-top:0.2rem;">Arrastrá el control de distancia vial</h3>
+                </div>
+                <div class="mono-metric" style="background:var(--brand-blue-50); padding:0.45rem 0.9rem; border-radius:9999px; border:1px solid var(--brand-blue-200); font-weight:700;">
+                  Distancia: <span id="scrubber-km-label">4.5 km</span>
+                </div>
+              </div>
+
+              <div class="scrubber-track-wrap" id="scrubber-area" role="slider" tabindex="0" aria-label="Distancia en kilómetros" aria-valuemin="0.5" aria-valuemax="22" aria-valuenow="4.5">
+                <div class="scrubber-bar" id="scrubber-bar">
+                  <div class="scrubber-fill" id="scrubber-fill"></div>
+                </div>
+                <div class="scrubber-thumb" id="scrubber-thumb">4.5</div>
+              </div>
+
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; margin-top:0.5rem;">
+                <div style="padding:1rem; border-radius:1rem; background:var(--brand-blue-500); color:var(--white); display:flex; justify-content:space-between; align-items:center;">
+                  <div>
+                    <span class="eyebrow" style="color:var(--brand-yellow-500); display:block;">Envíos Express (Franja de 3 hs)</span>
+                    <small style="opacity:0.88; font-size:0.78rem;">Corte 15:00 hs · 2 hs de anticipación</small>
+                  </div>
+                  <strong id="quote-express-val" class="mono-metric" style="font-size:1.45rem; color:var(--brand-yellow-500);">$4.600</strong>
+                </div>
+
+                <div style="padding:1rem; border-radius:1rem; background:var(--brand-blue-50); border:1px solid var(--brand-blue-200); display:flex; justify-content:space-between; align-items:center;">
+                  <div>
+                    <span class="eyebrow" style="display:block;">Envíos LowCost (En el día)</span>
+                    <small style="font-size:0.78rem;">Corte 13:00 hs · Entrega hasta 19:00 hs</small>
+                  </div>
+                  <strong id="quote-lowcost-val" class="mono-metric" style="font-size:1.45rem;">$4.000</strong>
+                </div>
+              </div>
+
+              <p style="font-size:0.78rem; margin-top:0.85rem; opacity:0.88;">
+                Medida estándar incluida sin recargo: hasta <strong>5 kg</strong> o <strong>40 x 40 x 30 cm</strong>. Bulto extra desde <strong>$1.800</strong>. Tolerancia de espera: 10 min sin cargo (desde el minuto 11: $2.200 cada 10 min). Emitimos comprobantes según nuestro encuadre fiscal habitual (no emitimos Factura A).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 3: SERVICES OVERVIEW (Carrusel con Momentum Projection & Springs)
+           ==================================================================== -->
+      <section id="services-overview" class="services-section" aria-labelledby="services-overview-title">
+        <div class="container">
+          <div class="services-header">
+            <div>
+              <span class="section-pill" style="background:var(--brand-blue-400); color:var(--brand-yellow-500); border-color:var(--brand-yellow-500); margin-bottom:0.65rem;">
+                NUESTROS SERVICIOS
+              </span>
+              <h2 id="services-overview-title" class="display-lg">
+                SOLUCIONES LOGÍSTICAS <span style="color:var(--brand-yellow-500); text-decoration:underline; text-underline-offset:6px;">A TU MEDIDA</span>
+              </h2>
+            </div>
+
+            <div class="carousel-controls">
+              <span class="mono-metric" style="font-size:0.76rem; color:var(--brand-blue-50);">
+                Deslizá o lanzá con inercia (Flick Momentum)
+              </span>
+              <button type="button" class="circle-btn pressable" id="carousel-prev" aria-label="Anterior Servicio">←</button>
+              <button type="button" class="circle-btn pressable" id="carousel-next" aria-label="Siguiente Servicio">→</button>
+            </div>
+          </div>
+
+          <!-- Viewport del Carrusel con seguimiento 1:1 de puntero e interrupción en vivo -->
+          <div class="fluid-carousel-viewport" id="carousel-viewport" role="region" aria-roledescription="carousel" aria-label="Servicios logísticos">
+            <!-- Las tarjetas se renderizan y animan por el motor de resortes JS -->
+          </div>
+
+          <div class="carousel-dots" id="carousel-dots" role="group" aria-label="Navegación de servicios"></div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 4: EMPRENDEDORES HOME (Bento Grid Asimétrico + Marcas Locales)
+           ==================================================================== -->
+      <section id="emprendedores-home" class="emprendedores-section" aria-labelledby="emprendedores-home-title">
+        <div class="container">
+          <div style="max-width:48rem;">
+            <span class="section-pill" style="background:rgba(255,255,255,0.1); color:var(--brand-yellow-500); border-color:rgba(255,236,1,0.35);">
+              Socio Estratégico Local
+            </span>
+            <h2 id="emprendedores-home-title" class="display-lg" style="margin-top:0.85rem;">
+              Potenciamos tu <span class="knockout-pill" style="font-size:0.55em; vertical-align:middle;">MDQ</span> Marca en Mar del Plata
+            </h2>
+            <p style="margin-top:1rem; font-size:1.1rem; color:var(--brand-blue-50); line-height:1.6;">
+              Si vendés online, necesitás un socio logístico que responda al toque. Creamos planes a tu medida con tarifas dinámicas transparentes y recolección programada a domicilio en Mar del Plata.
+            </p>
+          </div>
+
+          <div class="bento-grid">
+            <!-- Card 1: Cuenta Corriente Flexible (7 columnas, 2 filas) -->
+            <article class="double-bezel double-bezel--glass-blue bento-col-7-row-2">
+              <div class="double-bezel__inner" style="background:var(--brand-blue-500); color:var(--white); border-color:rgba(255,255,255,0.16); padding:2rem;">
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+                    <span class="brand-logo__mark" aria-hidden="true">🏛️</span>
+                    <span class="eyebrow" style="background:rgba(255,236,1,0.16); color:var(--brand-yellow-500); padding:0.3rem 0.75rem; border-radius:0.5rem; border:1px solid rgba(255,236,1,0.35);">
+                      EMPRENDEDORES
+                    </span>
+                  </div>
+                  <h3 class="display-md" style="font-size:1.95rem;">Cuenta Corriente Flexible</h3>
+                  <p style="margin-top:0.6rem; color:var(--brand-blue-50); font-size:0.96rem;">
+                    Tu equipo de entregas de confianza, aunque la cantidad de pedidos cambie cada día. Pagás los envíos juntos, por semana, quincena o mes.
+                  </p>
+                  <ul class="check-list">
+                    <li><span style="color:var(--brand-yellow-500);" aria-hidden="true">✔</span><span>Sin volumen mínimo de envíos: entrás con la cantidad que tengas</span></li>
+                    <li><span style="color:var(--brand-yellow-500);" aria-hidden="true">✔</span><span>Accedés a tarifas LowCost con franjas horarias de 3 hs, como Express</span></li>
+                    <li><span style="color:var(--brand-yellow-500);" aria-hidden="true">✔</span><span>Trabajás de forma exclusiva con nosotros para tus envíos</span></li>
+                    <li><span style="color:var(--brand-yellow-500);" aria-hidden="true">✔</span><span>Entregas contrareembolso integradas sin cargo extra</span></li>
+                  </ul>
+                </div>
+                <div style="padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.15); display:flex; justify-content:flex-end;">
+                  <a href="#cta-section" class="cta-nested-pill cta-nested-pill--primary pressable">
+                    <span>Conocé más</span>
+                    <span class="cta-nested-chip" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2: Envíos Flex Meli (5 columnas, 1 fila) -->
+            <article class="double-bezel double-bezel--highlight bento-col-5">
+              <div class="double-bezel__inner" style="background:linear-gradient(135deg, var(--brand-yellow-500), var(--brand-yellow-400)); color:var(--brand-blue-500); padding:1.75rem;">
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                    <span class="brand-logo__mark" aria-hidden="true">🛍️</span>
+                    <span class="eyebrow" style="background:var(--brand-blue-500); color:var(--white); padding:0.25rem 0.65rem; border-radius:0.45rem;">
+                      MERCADOLIBRE
+                    </span>
+                  </div>
+                  <h3 class="display-md">Envíos Flex Meli</h3>
+                  <p style="margin-top:0.5rem; font-size:0.92rem; font-weight:500;">
+                    Servicio adaptado a los estándares de Mercado Envíos Flex para tus envíos rápidos en el día. Recolección en tu local y entrega puntual garantizada hasta las 20:00 hs.
+                  </p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1rem; border-top:1px solid rgba(9,80,246,0.18); display:flex; justify-content:flex-end;">
+                  <a href="#cta-section" class="cta-nested-pill cta-nested-pill--blue pressable" style="min-height:2.65rem; font-size:0.95rem;">
+                    <span>Configurar Flex</span>
+                    <span class="cta-nested-chip" style="width:1.85rem; height:1.85rem;" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3: Soluciones Corporativas (5 columnas, 1 fila) -->
+            <article class="double-bezel bento-col-5">
+              <div class="double-bezel__inner" style="padding:1.75rem;">
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                    <span class="brand-logo__mark" style="background:var(--brand-yellow-500); color:var(--brand-blue-500);" aria-hidden="true">🏢</span>
+                    <span class="eyebrow" style="background:var(--brand-blue-50); color:var(--brand-blue-500); padding:0.25rem 0.65rem; border-radius:0.45rem; border:1px solid var(--brand-blue-100);">
+                      CORPORATIVO
+                    </span>
+                  </div>
+                  <h3 class="display-md">Soluciones Corporativas</h3>
+                  <p style="margin-top:0.5rem; font-size:0.92rem;">
+                    Soporte a gran escala con pagos agrupados (semanales, quincenales o mensuales), ruteos especiales para grandes volúmenes y entregas express coordinadas en Mar del Plata.
+                  </p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1rem; border-top:1px solid var(--brand-blue-100); display:flex; justify-content:flex-end;">
+                  <a href="#cta-section" class="cta-nested-pill cta-nested-pill--primary pressable" style="min-height:2.65rem; font-size:0.95rem;">
+                    <span>Abrir Cuenta Corriente</span>
+                    <span class="cta-nested-chip" style="width:1.85rem; height:1.85rem;" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Marcas locales que confían en nosotros -->
+          <div style="margin-top:3.5rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.16); text-align:center;">
+            <p class="eyebrow" style="color:var(--brand-blue-50); margin-bottom:1.1rem;">Marcas locales que confían en nosotros</p>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1.25rem 2.25rem;">
+              <span class="display-md" style="color:var(--brand-blue-50);">TOY PIOLA JUGUETERÍA</span>
+              <span class="display-md" style="color:var(--brand-blue-50);">AMA &amp; POLA</span>
+              <span class="display-md" style="color:var(--brand-blue-50);">DROPIX 3D</span>
+              <span class="display-md" style="color:var(--brand-blue-50);">EL CÓNDOR</span>
+              <span class="display-md" style="color:var(--brand-blue-50);">STARCEL</span>
+              <span class="display-md" style="color:var(--brand-blue-50);">URBANCOW</span>
+              <span class="display-md" style="color:var(--brand-blue-50);">WANCA</span>
+              <span class="display-md" style="color:var(--brand-blue-50);">CATALINA INDUMENTARIA</span>
+              <span class="display-md" style="color:var(--brand-blue-50);">ENVASES 3G</span>
+              <span class="display-md" style="color:var(--brand-blue-50);">LA PERI</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 5: SOCIAL PROOF SECTION (6 Reseñas Reales de Google Maps)
+           ==================================================================== -->
+      <section id="social-proof" class="social-section" aria-labelledby="social-proof-title">
+        <div class="container">
+          <header style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:1.5rem;">
+            <div>
+              <span class="mono-metric" style="display:inline-block; background:var(--brand-blue-500); color:var(--white); font-size:0.78rem; font-weight:700; padding:0.45rem 1.1rem; border-radius:9999px; margin-bottom:0.9rem;">
+                5.0 / 5.0 EN GOOGLE · +120 VALORACIONES
+              </span>
+              <h2 id="social-proof-title" class="display-lg">
+                LA PALABRA DE QUIENES <span class="knockout-pill">VENDEN Y ENVÍAN</span> EN MDQ
+              </h2>
+            </div>
+
+            <a href="https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata" target="_blank" rel="noopener noreferrer" class="cta-nested-pill cta-nested-pill--blue pressable">
+              <span>VER EN GOOGLE MAPS</span>
+              <span class="cta-nested-chip" aria-hidden="true">↗</span>
+            </a>
+          </header>
+
+          <ul class="reviews-grid">
+            <li>
+              <article class="review-card review-card--blue">
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.1rem;">
+                    <span style="color:var(--brand-yellow-500);" aria-label="5 de 5 estrellas">★★★★★</span>
+                    <span class="mono-metric" style="font-size:0.72rem; background:var(--brand-yellow-500); color:var(--brand-blue-500); padding:0.2rem 0.65rem; border-radius:9999px; font-weight:700;">Hace 13 semanas</span>
+                  </div>
+                  <h3 class="eyebrow" style="font-size:1.3rem; margin-bottom:0.65rem;">RESOLVIERON MI PROBLEMA CON LA MEJOR PREDISPOSICIÓN</h3>
+                  <p style="font-size:0.92rem; opacity:0.92;">Excelente el servicio, rápidos, muy atentos, resolvieron mi problema con la mejor predisposición, los recomiendo ampliamente.</p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1.25rem; border-top:1px solid rgba(255,255,255,0.2); font-weight:700; font-size:0.9rem;">Karen Herrera</div>
+              </article>
+            </li>
+
+            <li>
+              <article class="review-card review-card--white">
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.1rem;">
+                    <span style="color:var(--brand-blue-500);" aria-label="5 de 5 estrellas">★★★★★</span>
+                    <span class="mono-metric" style="font-size:0.72rem; background:var(--brand-blue-50); color:var(--brand-blue-500); padding:0.2rem 0.65rem; border-radius:9999px; font-weight:700;">Hace 48 semanas</span>
+                  </div>
+                  <h3 class="eyebrow" style="font-size:1.3rem; margin-bottom:0.65rem;">IMPECABLE PARA LLEVAR PEDIDOS A NUESTROS CLIENTES</h3>
+                  <p style="font-size:0.92rem;">Lo usé varias veces para llevar pedidos a nuestros clientes. Impecable el servicio. Además hacen depósitos en cajeros sin problemas. Unos genios.</p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1.25rem; border-top:1px solid var(--brand-blue-100); font-weight:700; font-size:0.9rem;">Agustin Torres</div>
+              </article>
+            </li>
+
+            <li>
+              <article class="review-card review-card--yellow">
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.1rem;">
+                    <span style="color:var(--brand-blue-500);" aria-label="5 de 5 estrellas">★★★★★</span>
+                    <span class="mono-metric" style="font-size:0.72rem; background:var(--white); color:var(--brand-blue-500); padding:0.2rem 0.65rem; border-radius:9999px; font-weight:700;">Hace 37 semanas</span>
+                  </div>
+                  <h3 class="eyebrow" style="font-size:1.3rem; margin-bottom:0.65rem;">EL MEJOR SERVICIO PREMIUM DE LA ZONA</h3>
+                  <p style="font-size:0.92rem;">El mejor servicio premium de la zona en Mar del Plata. 100% recomendable por puntualidad y trato.</p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1.25rem; border-top:1px solid rgba(9,80,246,0.2); font-weight:700; font-size:0.9rem;">Alexis Bogarin</div>
+              </article>
+            </li>
+
+            <li>
+              <article class="review-card review-card--white">
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.1rem;">
+                    <span style="color:var(--brand-blue-500);" aria-label="5 de 5 estrellas">★★★★★</span>
+                    <span class="mono-metric" style="font-size:0.72rem; background:var(--brand-blue-50); color:var(--brand-blue-500); padding:0.2rem 0.65rem; border-radius:9999px; font-weight:700;">Hace 32 semanas</span>
+                  </div>
+                  <h3 class="eyebrow" style="font-size:1.3rem; margin-bottom:0.65rem;">ATENCIÓN DE PRIMERA, RÁPIDO, CONFIABLE Y SEGURO</h3>
+                  <p style="font-size:0.92rem;">Excelente servicio, atención de primera, rápido, confiable y seguro. Recomendado 100% para envíos puntuales.</p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1.25rem; border-top:1px solid var(--brand-blue-100); font-weight:700; font-size:0.9rem;">Lorenzo Elizagoyen</div>
+              </article>
+            </li>
+
+            <li>
+              <article class="review-card review-card--blue">
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.1rem;">
+                    <span style="color:var(--brand-yellow-500);" aria-label="5 de 5 estrellas">★★★★★</span>
+                    <span class="mono-metric" style="font-size:0.72rem; background:var(--brand-yellow-500); color:var(--brand-blue-500); padding:0.2rem 0.65rem; border-radius:9999px; font-weight:700;">Hace 48 semanas</span>
+                  </div>
+                  <h3 class="eyebrow" style="font-size:1.3rem; margin-bottom:0.65rem;">¡LA MEJOR MENSAJERÍA DE MDP!</h3>
+                  <p style="font-size:0.92rem; opacity:0.92;">La mejor mensajería de Mar del Plata. Cumplen siempre con lo prometido y no te dejan tirado.</p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1.25rem; border-top:1px solid rgba(255,255,255,0.2); font-weight:700; font-size:0.9rem;">Emiliano Garri</div>
+              </article>
+            </li>
+
+            <li>
+              <article class="review-card review-card--white">
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.1rem;">
+                    <span style="color:var(--brand-blue-500);" aria-label="5 de 5 estrellas">★★★★★</span>
+                    <span class="mono-metric" style="font-size:0.72rem; background:var(--brand-blue-50); color:var(--brand-blue-500); padding:0.2rem 0.65rem; border-radius:9999px; font-weight:700;">Hace 48 semanas</span>
+                  </div>
+                  <h3 class="eyebrow" style="font-size:1.3rem; margin-bottom:0.65rem;">10 DE 10, RESPONSABLES POR SOBRE TODAS LAS COSAS</h3>
+                  <p style="font-size:0.92rem;">10 de 10 muy buenos en lo que hacen, responsables por sobre todas las cosas, super recomendable para tu negocio.</p>
+                </div>
+                <div style="padding-top:1rem; margin-top:1.25rem; border-top:1px solid var(--brand-blue-100); font-weight:700; font-size:0.9rem;">NahuAri</div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECCIÓN 6: CTA SECTION (WhatsApp Directo < 5 min)
+           ==================================================================== -->
+      <section id="cta-section" class="cta-section" aria-labelledby="cta-section-title">
+        <div class="container">
+          <div class="double-bezel double-bezel--glass-blue" style="padding:0.65rem;">
+            <div class="cta-inner-card">
+              <div style="display:flex; flex-direction:column; gap:1.25rem;">
+                <div>
+                  <span class="section-pill">Cotización Inmediata</span>
+                </div>
+                <h2 id="cta-section-title" class="display-lg">
+                  ¿Listo para escalar la logística de tu e-commerce?
+                </h2>
+                <p style="font-size:1.05rem; line-height:1.6;">
+                  Olvidate de la gestión de paquetes en Mar del Plata. Completá tus datos y te respondemos por WhatsApp en minutos.
+                </p>
+                <p class="mono-metric" style="font-size:0.82rem; font-weight:700; text-transform:uppercase;">
+                  Atención comercial <span style="background:var(--brand-blue-500); color:var(--brand-yellow-500); padding:0.2rem 0.5rem; border-radius:0.35rem;">&lt; 5 MIN</span>
+                </p>
+              </div>
+
+              <form id="whatsapp-form" class="form-box">
+                <div class="input-group">
+                  <label for="cta-name" class="input-label">Tu Nombre</label>
+                  <input id="cta-name" name="nombre" type="text" required placeholder="Ingresá tu nombre" class="input-field" />
+                </div>
+
+                <div class="input-group">
+                  <label for="cta-business" class="input-label">Empresa / Negocio</label>
+                  <input id="cta-business" name="empresa" type="text" required placeholder="Nombre de tu emprendimiento" class="input-field" />
+                </div>
+
+                <div class="input-group">
+                  <label for="cta-volume" class="input-label">Volumen Estimado Mensual</label>
+                  <select id="cta-volume" name="volumen" required class="input-field">
+                    <option value="" disabled selected>Seleccioná una opción</option>
+                    <option value="1 a 50">1 a 50 envíos</option>
+                    <option value="51 a 200">51 a 200 envíos</option>
+                    <option value="más de 200">Más de 200 envíos</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="cta-nested-pill cta-nested-pill--primary pressable" style="width:100%; justify-content:center; margin-top:0.35rem;">
+                  <span id="whatsapp-btn-text">Hablar por WhatsApp</span>
+                  <span class="cta-nested-chip" aria-hidden="true">💬</span>
+                </button>
+
+                <div id="whatsapp-status" role="status" aria-live="polite" style="display:none; background:var(--white); border:1px solid var(--brand-blue-200); padding:0.75rem; border-radius:0.75rem; font-size:0.82rem;"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer style="background:var(--brand-blue-500); color:var(--white); border-top:1px solid rgba(255,255,255,0.18); padding-block:2.5rem;">
+      <div class="container" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem; font-size:0.88rem;">
+        <div>
+          <strong class="eyebrow" style="font-size:1.1rem; color:var(--brand-yellow-500);">Envíos DosRuedas · Mar del Plata</strong>
+          <p style="opacity:0.88; margin-top:0.2rem;">Base Operativa Central: Friuli 1972 · Lun a Vie 09:00 a 18:00 hs · Sáb 10:00 a 15:00 hs</p>
+        </div>
+        <div class="mono-metric" style="font-size:0.82rem;">
+          WhatsApp: +54 223 660-2699 · matiascejas@enviosdosruedas.com
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==========================================================================
+       SHEET MODAL INTERRUMPIBLE CON DRAG 1:1 (Apple Sheet Physics §3, §5, §12)
+       ========================================================================== -->
+  <div class="sheet-backdrop" id="service-sheet-backdrop" aria-hidden="true">
+    <div class="sheet-dialog" id="service-sheet-dialog" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+      <div class="sheet-grabber" id="sheet-grabber" title="Arrastrá hacia abajo para cerrar"></div>
+      <div class="double-bezel__inner" style="background:var(--brand-blue-500); color:var(--white); border-color:rgba(255,255,255,0.2);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;">
+          <div>
+            <span id="sheet-meta" class="eyebrow" style="color:var(--brand-yellow-500);"></span>
+            <h3 id="sheet-title" class="display-lg" style="margin-top:0.2rem;"></h3>
+          </div>
+          <button type="button" id="sheet-close-btn" class="circle-btn pressable" aria-label="Cerrar ficha técnica">✕</button>
+        </div>
+
+        <p id="sheet-summary" style="margin-top:1rem; font-size:0.98rem; line-height:1.6; color:var(--brand-blue-50);"></p>
+
+        <ul id="sheet-features" class="check-list" style="margin-top:1.1rem;"></ul>
+
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:0.65rem; margin-top:1rem; text-align:center;">
+          <div class="stat-chip">
+            <strong id="sheet-stat-time" class="eyebrow" style="font-size:1.1rem; color:var(--brand-yellow-500); display:block;"></strong>
+            <small class="mono-metric" style="font-size:0.68rem;">TIEMPOS</small>
+          </div>
+          <div class="stat-chip">
+            <strong id="sheet-stat-price" class="mono-metric" style="font-size:1rem; color:var(--white); display:block;"></strong>
+            <small class="mono-metric" style="font-size:0.68rem;">PRECIO BASE</small>
+          </div>
+          <div class="stat-chip">
+            <strong id="sheet-stat-weight" class="eyebrow" style="font-size:1.1rem; color:var(--brand-yellow-500); display:block;"></strong>
+            <small class="mono-metric" style="font-size:0.68rem;">CAPACIDAD</small>
+          </div>
+        </div>
+
+        <div style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.16); display:flex; justify-content:space-between; align-items:center;">
+          <span class="mono-metric" style="font-size:0.72rem; opacity:0.85;">Arrastrá esta tarjeta hacia abajo para cerrarla</span>
+          <a href="#cta-section" id="sheet-cta-link" class="cta-nested-pill cta-nested-pill--primary pressable" style="min-height:2.7rem; font-size:0.95rem;">
+            <span id="sheet-cta-text">COTIZAR</span>
+            <span class="cta-nested-chip" style="width:1.85rem; height:1.85rem;" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HUD DE INSPECCIÓN APPLE FLUID DESIGN (Slow-Motion 0.25x & Telemetría)
+       ========================================================================== -->
+  <aside class="apple-hud" aria-label="Controles de inspección Apple Fluid Design">
+    <span>🍏 <strong>Fluid Physics</strong></span>
+    <button type="button" id="toggle-slowmo" class="hud-toggle pressable" aria-pressed="false" title="Inspeccionar resortes cuadro por cuadro (Apple §17)">
+      Slow-Mo 0.25×
+    </button>
+    <span id="hud-telemetry" class="mono-metric" style="min-width:9.5rem;">v: 0 px/s · d: 1.0</span>
+  </aside>
+
+  <!-- ==========================================================================
+       MOTOR FÍSICO APPLE DESIGN (Springs, Momentum Projection, Rubber-banding)
+       ========================================================================== -->
+  <script>
+    (() => {
+      'use strict';
+
+      // Preferencia de movimiento reducido del sistema
+      const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let timeScale = 1.0;
+
+      const slowMoBtn = document.getElementById('toggle-slowmo');
+      const hudTelemetry = document.getElementById('hud-telemetry');
+
+      slowMoBtn.addEventListener('click', () => {
+        const active = slowMoBtn.getAttribute('aria-pressed') === 'true';
+        slowMoBtn.setAttribute('aria-pressed', String(!active));
+        timeScale = !active ? 0.25 : 1.0;
+      });
+
+      /* ------------------------------------------------------------------------
+         1. FUNCIONES MATEMÁTICAS EXACTAS DE APPLE WWDC (Designing Fluid Interfaces)
+         ------------------------------------------------------------------------ */
+      // Proyección de momento (§6): proyecta dónde terminará el gesto según la velocidad de salida
+      function project(initialVelocity, decelerationRate = 0.998) {
+        return ((initialVelocity / 1000) * decelerationRate) / (1 - decelerationRate);
+      }
+
+      // Rubber-banding en bordes (§9): resistencia progresiva al pasar un límite
+      function rubberband(overshoot, dimension, constant = 0.55) {
+        return (overshoot * dimension * constant) / (dimension + constant * Math.abs(overshoot));
+      }
+
+      // Motor de Resorte (Spring) parametrizado por Damping Ratio + Response (§4)
+      class FluidSpring {
+        constructor(initialValue = 0, { damping = 1.0, response = 0.36 } = {}) {
+          this.value = initialValue;
+          this.target = initialValue;
+          this.velocity = 0;
+          this.setParams(damping, response);
+        }
+
+        setParams(damping, response) {
+          this.dampingRatio = damping;
+          this.response = response;
+          const omega = (2 * Math.PI) / response;
+          this.stiffness = omega * omega;
+          this.dampingCoeff = (4 * Math.PI * damping) / response;
+        }
+
+        step(dt) {
+          if (reducedMotionQuery.matches) {
+            this.value = this.target;
+            this.velocity = 0;
+            return false;
+          }
+          const scaledDt = Math.min(dt, 0.064) * timeScale;
+          const displacement = this.value - this.target;
+          const springForce = -this.stiffness * displacement;
+          const dampingForce = -this.dampingCoeff * this.velocity;
+          const acceleration = springForce + dampingForce;
+
+          this.velocity += acceleration * scaledDt;
+          this.value += this.velocity * scaledDt;
+
+          if (Math.abs(this.velocity) < 0.5 && Math.abs(this.target - this.value) < 0.2) {
+            this.value = this.target;
+            this.velocity = 0;
+            return false;
+          }
+          return true;
+        }
+      }
+
+      /* ------------------------------------------------------------------------
+         2. MANIPULACIÓN DIRECTA 1:1 EN FICHAS DEL MAPA HERO (§2, §3, §5)
+         ------------------------------------------------------------------------ */
+      const draggableChips = document.querySelectorAll('[data-draggable-chip]');
+      draggableChips.forEach((chip) => {
+        const springX = new FluidSpring(0, { damping: 0.78, response: 0.42 });
+        const springY = new FluidSpring(0, { damping: 0.78, response: 0.42 });
+        let isDragging = false;
+        let grabOffsetX = 0;
+        let grabOffsetY = 0;
+        let history = [];
+        let rafId = null;
+
+        function renderChip() {
+          chip.style.transform = `translate3d(${springX.value.toFixed(2)}px, ${springY.value.toFixed(2)}px, 0)`;
+        }
+
+        function animateLoop(lastTime) {
+          const now = performance.now();
+          const dt = (now - lastTime) / 1000;
+          const movingX = springX.step(dt);
+          const movingY = springY.step(dt);
+          renderChip();
+          hudTelemetry.textContent = `v: ${Math.round(Math.hypot(springX.velocity, springY.velocity))} px/s · d: 0.78`;
+          if (movingX || movingY) {
+            rafId = requestAnimationFrame(() => animateLoop(now));
+          } else {
+            rafId = null;
+          }
+        }
+
+        chip.addEventListener('pointerdown', (e) => {
+          // Interrupción limpia (§3): toma el valor en vivo actual sin saltos
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+          isDragging = true;
+          chip.setPointerCapture(e.pointerId);
+          grabOffsetX = e.clientX - springX.value;
+          grabOffsetY = e.clientY - springY.value;
+          history = [{ x: springX.value, y: springY.value, t: performance.now() }];
+        });
+
+        chip.addEventListener('pointermove', (e) => {
+          if (!isDragging) return;
+          const rawX = e.clientX - grabOffsetX;
+          const rawY = e.clientY - grabOffsetY;
+          const maxBound = 70;
+
+          // Rubber-banding suave cuando se estira lejos de su ancla
+          springX.value = Math.abs(rawX) > maxBound
+            ? Math.sign(rawX) * (maxBound + rubberband(Math.abs(rawX) - maxBound, 120))
+            : rawX;
+          springY.value = Math.abs(rawY) > maxBound
+            ? Math.sign(rawY) * (maxBound + rubberband(Math.abs(rawY) - maxBound, 120))
+            : rawY;
+
+          const now = performance.now();
+          history.push({ x: springX.value, y: springY.value, t: now });
+          if (history.length > 5) history.shift();
+          renderChip();
+        });
+
+        const endChipDrag = () => {
+          if (!isDragging) return;
+          isDragging = false;
+          // Handoff de velocidad exacta del dedo (§5)
+          if (history.length >= 2) {
+            const first = history[0];
+            const last = history[history.length - 1];
+            const dt = Math.max(1, last.t - first.t) / 1000;
+            springX.velocity = (last.x - first.x) / dt;
+            springY.velocity = (last.y - first.y) / dt;
+          }
+          springX.target = 0;
+          springY.target = 0;
+          const now = performance.now();
+          rafId = requestAnimationFrame(() => animateLoop(now));
+        };
+
+        chip.addEventListener('pointerup', endChipDrag);
+        chip.addEventListener('pointercancel', endChipDrag);
+      });
+
+      /* ------------------------------------------------------------------------
+         3. FILTRO DE SEGMENTOS + SIMULADOR DE TARIFA LINEAL CON RUBBER-BANDING
+         ------------------------------------------------------------------------ */
+      const segmentBtns = document.querySelectorAll('[data-segment-filter]');
+      const segmentCards = document.querySelectorAll('[data-segment-card]');
+
+      segmentBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-segment-filter');
+          segmentBtns.forEach((b) => b.setAttribute('aria-selected', String(b === btn)));
+          segmentCards.forEach((card) => {
+            const matches = filter === 'all' || card.getAttribute('data-segment-card') === filter;
+            card.classList.toggle('is-dimmed', !matches);
+          });
+        });
+      });
+
+      // Cálculo Tarifario Oficial Envíos DosRuedas (src/lib/pricing.ts, Regla 5 AGENTS.md)
+      const EXPRESS_TIERS = [
+        { maxKm: 3, price: 3700 },
+        { maxKm: 5, price: 4600 },
+        { maxKm: 7, price: 6100 },
+        { maxKm: 10, price: 8200 },
+      ];
+      const LOWCOST_TIERS = [
+        { maxKm: 3, price: 3000 },
+        { maxKm: 5, price: 4000 },
+        { maxKm: 7, price: 5300 },
+        { maxKm: 10, price: 7000 },
+      ];
+
+      function calcPrice(km, tiers, perKm) {
+        if (km > 20) return 'A consultar';
+        const tier = tiers.find((t) => km <= t.maxKm);
+        // Cálculo lineal directo sin Math.ceil en tramo 10 a 20 km
+        const val = tier ? tier.price : Math.round(km * perKm);
+        return '$' + val.toLocaleString('es-AR');
+      }
+
+      const scrubberArea = document.getElementById('scrubber-area');
+      const scrubberBar = document.getElementById('scrubber-bar');
+      const scrubberFill = document.getElementById('scrubber-fill');
+      const scrubberThumb = document.getElementById('scrubber-thumb');
+      const scrubberKmLabel = document.getElementById('scrubber-km-label');
+      const quoteExpressVal = document.getElementById('quote-express-val');
+      const quoteLowcostVal = document.getElementById('quote-lowcost-val');
+
+      let scrubbing = false;
+      function updateScrubberFromRatio(ratio) {
+        // Rubber-band si el usuario arrastra más allá de 0 o 1
+        let displayRatio = ratio;
+        if (ratio < 0) displayRatio = -rubberband(-ratio, 1, 0.25);
+        if (ratio > 1) displayRatio = 1 + rubberband(ratio - 1, 1, 0.25);
+
+        const clamped = Math.max(0.025, Math.min(1.08, displayRatio));
+        const km = Math.round(clamped * 20 * 10) / 10;
+        const pct = Math.max(2, Math.min(100, clamped * 100));
+
+        scrubberFill.style.width = `${pct}%`;
+        scrubberThumb.style.left = `${pct}%`;
+        scrubberThumb.textContent = km.toFixed(1);
+        scrubberKmLabel.textContent = `${km.toFixed(1)} km`;
+        scrubberArea.setAttribute('aria-valuenow', String(km));
+
+        quoteExpressVal.textContent = calcPrice(km, EXPRESS_TIERS, 1000);
+        quoteLowcostVal.textContent = calcPrice(km, LOWCOST_TIERS, 700);
+      }
+
+      scrubberArea.addEventListener('pointerdown', (e) => {
+        scrubbing = true;
+        scrubberArea.setPointerCapture(e.pointerId);
+        const rect = scrubberBar.getBoundingClientRect();
+        updateScrubberFromRatio((e.clientX - rect.left) / rect.width);
+      });
+
+      scrubberArea.addEventListener('pointermove', (e) => {
+        if (!scrubbing) return;
+        const rect = scrubberBar.getBoundingClientRect();
+        updateScrubberFromRatio((e.clientX - rect.left) / rect.width);
+      });
+
+      const stopScrub = () => {
+        if (!scrubbing) return;
+        scrubbing = false;
+        const currentKm = parseFloat(scrubberThumb.textContent) || 4.5;
+        if (currentKm > 20) updateScrubberFromRatio(1);
+      };
+      scrubberArea.addEventListener('pointerup', stopScrub);
+      scrubberArea.addEventListener('pointercancel', stopScrub);
+
+      /* ------------------------------------------------------------------------
+         4. CARRUSEL FÍSICO SERVICES OVERVIEW CON MOMENTUM PROJECTION (§3-§6)
+         ------------------------------------------------------------------------ */
+      const SERVICES = [
+        {
+          id: 'express',
+          badge: 'URGENTE',
+          icon: '⚡',
+          city: 'Todo Mar del Plata',
+          founded: '+7 Años de Trayectoria',
+          title: 'Envíos Express',
+          description: 'Mensajería en moto con franja horaria de 3 hs a elección.',
+          theme: 'blue',
+          stats: { time: 'Franja de 3 hs', price: '$3.700 Base', weight: 'Sin recargo hasta 5 kg' },
+          summary: 'Servicio de mensajería urbana con horario a elección, ideal para trámites urgentes, despacho de encomiendas y entrega de documentación. Coordinás la franja horaria que te conviene y se asigna un repartidor exclusivo para tu envío.',
+          features: [
+            'Tarifa base de $3.700 hasta 3 km.',
+            'Entrega en franja de 3 hs a elección, pedido con 2 hs de anticipación mínima.',
+            'Horario de corte 15:00 hs (último rango de 17:00 a 19:00 hs).'
+          ],
+          ctaText: 'COTIZÁ TU EXPRESS'
+        },
+        {
+          id: 'lowcost',
+          badge: 'ECONÓMICO',
+          icon: '📦',
+          city: 'Todo Gral. Pueyrredón',
+          founded: 'Tarifa Fija Especial',
+          title: 'Envíos LowCost',
+          description: 'Envíos económicos programados en el día, sin elección de horario.',
+          theme: 'white',
+          stats: { time: 'Programado en el día', price: '$3.000 Base', weight: 'Sin recargo hasta 5 kg' },
+          summary: 'La alternativa ideal para comercios y e-commerce que buscan optimizar costos de envío. Es un reparto económico programado para el día, calculado por distancia individual: lo pedís antes del corte y se entrega a lo largo de la jornada.',
+          features: [
+            'Tarifa base de $3.000 hasta 3 km.',
+            'Pedí antes de las 13:00 hs y se entrega antes de las 19:00 hs.',
+            'Sin elección de franja horaria: la tarifa más baja de la ciudad.'
+          ],
+          ctaText: 'PROBÁ EL LOWCOST'
+        },
+        {
+          id: 'flex',
+          badge: 'MERCADOLIBRE FLEX',
+          icon: '🚚',
+          city: 'Mar del Plata urbana',
+          founded: 'Corte extendido 15:00 hs',
+          title: 'Envíos Flex',
+          description: 'Entregas en el día integradas para tus ventas de MercadoLibre.',
+          theme: 'yellow',
+          stats: { time: 'En el día', price: 'Zonificado LowCost', weight: 'SLA > 99.8%' },
+          summary: 'Habilitá Envíos Flex en tu cuenta de MercadoLibre y despachá todas tus ventas en el mismo día. Mejorá tu reputación y convertite en vendedor destacado con recolección en tu local.',
+          features: [
+            'Visitas bonificadas según tu volumen diario de entregas.',
+            'Horario de corte 15:00 hs; entrega garantizada hasta las 20:00 hs.',
+            'Acuse de entrega mediante foto del paquete y firma digital.'
+          ],
+          ctaText: 'CONFIGURÁ FLEX'
+        },
+        {
+          id: '3pl',
+          badge: 'E-COMMERCE',
+          icon: '🏭',
+          city: 'Depósito Friuli 1972',
+          founded: 'Stock guardado',
+          title: 'E-Commerce Same Day',
+          description: 'Guardamos tu stock y lo despachamos el mismo día, o E-Commerce 24HS si lo necesitás al día siguiente.',
+          theme: 'blue',
+          stats: { time: 'Same Day / 24 hs', price: '$6.000 fijo', weight: 'Picking QR' },
+          summary: 'Almacená tus productos en nuestro depósito central de Friuli 1972 y olvidate del empaque y los despachos. Nosotros nos encargamos de todo el proceso logístico para que te dediques a vender.',
+          features: [
+            'E-Commerce Same Day con tarifa fija de $6.000 a toda la ciudad.',
+            'E-Commerce 24HS con 20% OFF si traés los envíos listos (DropOFF).',
+            'Control de stock digital por sistema QR y picking con embalaje incluido.'
+          ],
+          ctaText: 'CONSULTÁ PLANES'
+        }
+      ];
+
+      const viewport = document.getElementById('carousel-viewport');
+      const dotsContainer = document.getElementById('carousel-dots');
+      const cardSpacing = 310;
+      const carouselSpring = new FluidSpring(0, { damping: 1.0, response: 0.38 });
+      let activeIndex = 0;
+      let carouselRaf = null;
+
+      // Crear tarjetas y dots
+      const cardElements = SERVICES.map((srv, idx) => {
+        const el = document.createElement('button');
+        el.type = 'button';
+        el.className = `service-card-3d service-card-3d--${srv.theme} pressable`;
+        el.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+            <span class="brand-logo__mark" aria-hidden="true">${srv.icon}</span>
+            <span class="eyebrow" style="padding:0.25rem 0.7rem; border-radius:9999px; background:rgba(255,255,255,0.22); font-size:0.8rem;">${srv.badge}</span>
+          </div>
+          <div style="margin-top:auto; padding-block:1rem;">
+            <span class="eyebrow" style="font-size:0.82rem; opacity:0.9;">📍 ${srv.city}</span>
+            <h3 class="display-md" style="font-size:1.75rem; margin-top:0.2rem;">${srv.title}</h3>
+            <p style="font-size:0.86rem; margin-top:0.4rem; line-height:1.45;">${srv.description}</p>
+          </div>
+          <div style="width:100%;">
+            <div class="service-stats-grid">
+              <div class="stat-chip">
+                <div class="eyebrow" style="font-size:0.88rem;">${srv.stats.time}</div>
+                <div class="mono-metric" style="font-size:0.62rem; opacity:0.85;">ENTREGA</div>
+              </div>
+              <div class="stat-chip">
+                <div class="mono-metric" style="font-size:0.78rem; font-weight:700;">${srv.stats.price}</div>
+                <div class="mono-metric" style="font-size:0.62rem; opacity:0.85;">TARIFA</div>
+              </div>
+              <div class="stat-chip">
+                <div class="eyebrow" style="font-size:0.88rem;">${srv.stats.weight}</div>
+                <div class="mono-metric" style="font-size:0.62rem; opacity:0.85;">CAPACIDAD</div>
+              </div>
+            </div>
+            <div class="eyebrow" style="text-align:center; margin-top:0.75rem; font-size:0.82rem; text-decoration:underline;">
+              Tocá para abrir Ficha Técnica
+            </div>
+          </div>
+        `;
+        viewport.appendChild(el);
+
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot';
+        dot.setAttribute('aria-label', `Ir a ${srv.title}`);
+        dot.addEventListener('click', () => goToSlide(idx, 0, false));
+        dotsContainer.appendChild(dot);
+
+        return el;
+      });
+
+      function renderCarousel() {
+        const virtualIndex = -carouselSpring.value / cardSpacing;
+        cardElements.forEach((el, i) => {
+          const offset = i - virtualIndex;
+          const absOffset = Math.abs(offset);
+          const translateX = offset * 250;
+          const translateZ = -absOffset * 140;
+          const rotateY = offset * -22;
+          const scale = Math.max(0.76, 1.04 - absOffset * 0.16);
+          el.style.zIndex = String(Math.round(10 - absOffset * 2));
+          el.style.transform = `translate3d(${translateX.toFixed(1)}px, 0, ${translateZ.toFixed(1)}px) rotateY(${rotateY.toFixed(1)}deg) scale(${scale.toFixed(3)})`;
+        });
+
+        Array.from(dotsContainer.children).forEach((dot, i) => {
+          dot.setAttribute('aria-current', String(i === activeIndex));
+        });
+      }
+
+      function stepCarousel(lastTime) {
+        const now = performance.now();
+        const dt = (now - lastTime) / 1000;
+        const moving = carouselSpring.step(dt);
+        renderCarousel();
+        hudTelemetry.textContent = `v: ${Math.round(carouselSpring.velocity)} px/s · d: ${carouselSpring.dampingRatio}`;
+        if (moving) {
+          carouselRaf = requestAnimationFrame(() => stepCarousel(now));
+        } else {
+          carouselRaf = null;
+        }
+      }
+
+      function goToSlide(index, releaseVelocity = 0, fromFlick = false) {
+        activeIndex = Math.max(0, Math.min(SERVICES.length - 1, index));
+        // Damping 0.82 solo cuando el gesto trajo momento; 1.0 cuando fue un click (§4)
+        carouselSpring.setParams(fromFlick ? 0.82 : 1.0, 0.38);
+        carouselSpring.velocity = releaseVelocity;
+        carouselSpring.target = -activeIndex * cardSpacing;
+        if (!carouselRaf) {
+          const now = performance.now();
+          carouselRaf = requestAnimationFrame(() => stepCarousel(now));
+        }
+      }
+
+      document.getElementById('carousel-prev').addEventListener('click', () => goToSlide(activeIndex - 1));
+      document.getElementById('carousel-next').addEventListener('click', () => goToSlide(activeIndex + 1));
+
+      // Gesto de arrastre 1:1 en el carrusel con Momentum Projection (§2, §5, §6, §9)
+      let draggingCarousel = false;
+      let startPointerX = 0;
+      let startSpringVal = 0;
+      let totalMoved = 0;
+      let moveHistory = [];
+
+      viewport.addEventListener('pointerdown', (e) => {
+        if (carouselRaf) {
+          cancelAnimationFrame(carouselRaf);
+          carouselRaf = null;
+        }
+        draggingCarousel = true;
+        startPointerX = e.clientX;
+        startSpringVal = carouselSpring.value;
+        totalMoved = 0;
+        moveHistory = [{ x: carouselSpring.value, t: performance.now() }];
+        viewport.setPointerCapture(e.pointerId);
+      });
+
+      viewport.addEventListener('pointermove', (e) => {
+        if (!draggingCarousel) return;
+        const dx = e.clientX - startPointerX;
+        totalMoved = Math.abs(dx);
+        const rawVal = startSpringVal + dx;
+        const minBound = -(SERVICES.length - 1) * cardSpacing;
+        const maxBound = 0;
+
+        // Rubber-banding en los extremos del carrusel (§9)
+        if (rawVal > maxBound) {
+          carouselSpring.value = maxBound + rubberband(rawVal - maxBound, cardSpacing);
+        } else if (rawVal < minBound) {
+          carouselSpring.value = minBound - rubberband(minBound - rawVal, cardSpacing);
+        } else {
+          carouselSpring.value = rawVal;
+        }
+
+        const now = performance.now();
+        moveHistory.push({ x: carouselSpring.value, t: now });
+        if (moveHistory.length > 5) moveHistory.shift();
+        renderCarousel();
+      });
+
+      const endCarouselDrag = (e) => {
+        if (!draggingCarousel) return;
+        draggingCarousel = false;
+
+        let velocity = 0;
+        if (moveHistory.length >= 2) {
+          const first = moveHistory[0];
+          const last = moveHistory[moveHistory.length - 1];
+          const dt = Math.max(1, last.t - first.t) / 1000;
+          velocity = (last.x - first.x) / dt;
+        }
+
+        // Si apenas se movió (< 8px), interpretamos tap sobre la tarjeta
+        if (totalMoved < 8) {
+          const clickedCard = document.elementFromPoint(e.clientX, e.clientY)?.closest('.service-card-3d');
+          const clickedIdx = cardElements.indexOf(clickedCard);
+          if (clickedIdx !== -1) {
+            if (clickedIdx === activeIndex) {
+              openServiceSheet(SERVICES[activeIndex]);
+            } else {
+              goToSlide(clickedIdx, 0, false);
+            }
+            return;
+          }
+        }
+
+        // Proyección de momento de Apple (§6): proyecta el punto de reposo según la velocidad
+        const projectedEndpoint = carouselSpring.value + project(velocity, 0.994);
+        const targetIndex = Math.round(-projectedEndpoint / cardSpacing);
+        goToSlide(targetIndex, velocity, Math.abs(velocity) > 180);
+      };
+
+      viewport.addEventListener('pointerup', endCarouselDrag);
+      viewport.addEventListener('pointercancel', endCarouselDrag);
+
+      renderCarousel();
+
+      /* ------------------------------------------------------------------------
+         5. SHEET MODAL CON PUSH-BACK DE FONDO Y CIERRE POR GESTO 1:1 (§12)
+         ------------------------------------------------------------------------ */
+      const sheetBackdrop = document.getElementById('service-sheet-backdrop');
+      const sheetDialog = document.getElementById('service-sheet-dialog');
+      const sheetCloseBtn = document.getElementById('sheet-close-btn');
+      const sheetSpringY = new FluidSpring(40, { damping: 0.86, response: 0.34 });
+      let sheetRaf = null;
+
+      function renderSheet() {
+        sheetDialog.style.transform = `translate3d(0, ${sheetSpringY.value.toFixed(1)}px, 0) scale(${Math.max(0.92, 1 - Math.abs(sheetSpringY.value) / 1200).toFixed(3)})`;
+      }
+
+      function stepSheet(lastTime) {
+        const now = performance.now();
+        const dt = (now - lastTime) / 1000;
+        const moving = sheetSpringY.step(dt);
+        renderSheet();
+        if (moving) {
+          sheetRaf = requestAnimationFrame(() => stepSheet(now));
+        } else {
+          sheetRaf = null;
+        }
+      }
+
+      function openServiceSheet(srv) {
+        document.getElementById('sheet-meta').textContent = `${srv.founded} • ${srv.city}`;
+        document.getElementById('sheet-title').textContent = srv.title;
+        document.getElementById('sheet-summary').textContent = srv.summary;
+        document.getElementById('sheet-stat-time').textContent = srv.stats.time;
+        document.getElementById('sheet-stat-price').textContent = srv.stats.price;
+        document.getElementById('sheet-stat-weight').textContent = srv.stats.weight;
+        document.getElementById('sheet-cta-text').textContent = srv.ctaText;
+
+        const featList = document.getElementById('sheet-features');
+        featList.innerHTML = srv.features
+          .map((f) => `<li><span style="color:var(--brand-yellow-500);" aria-hidden="true">✔</span><span>${f}</span></li>`)
+          .join('');
+
+        document.body.classList.add('sheet-open');
+        sheetBackdrop.classList.add('is-open');
+        sheetBackdrop.setAttribute('aria-hidden', 'false');
+
+        sheetSpringY.value = 60;
+        sheetSpringY.target = 0;
+        sheetSpringY.velocity = 0;
+        const now = performance.now();
+        sheetRaf = requestAnimationFrame(() => stepSheet(now));
+      }
+
+      function closeServiceSheet() {
+        document.body.classList.remove('sheet-open');
+        sheetBackdrop.classList.remove('is-open');
+        sheetBackdrop.setAttribute('aria-hidden', 'true');
+      }
+
+      sheetCloseBtn.addEventListener('click', closeServiceSheet);
+      document.getElementById('sheet-cta-link').addEventListener('click', closeServiceSheet);
+      sheetBackdrop.addEventListener('click', (e) => {
+        if (e.target === sheetBackdrop) closeServiceSheet();
+      });
+
+      // Botones en SegmentosHome que abren directamente la ficha del servicio
+      document.querySelectorAll('[data-open-service]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = link.getAttribute('data-open-service');
+          const idx = SERVICES.findIndex((s) => s.id === id);
+          if (idx !== -1) {
+            goToSlide(idx, 0, false);
+            openServiceSheet(SERVICES[idx]);
+          }
+        });
+      });
+
+      // Arrastre vertical 1:1 del Sheet con rubber-band hacia arriba y cierre por velocidad hacia abajo
+      let draggingSheet = false;
+      let sheetStartY = 0;
+      let sheetHistory = [];
+
+      sheetDialog.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('button, a')) return;
+        draggingSheet = true;
+        sheetStartY = e.clientY - sheetSpringY.value;
+        sheetHistory = [{ y: sheetSpringY.value, t: performance.now() }];
+        sheetDialog.setPointerCapture(e.pointerId);
+      });
+
+      sheetDialog.addEventListener('pointermove', (e) => {
+        if (!draggingSheet) return;
+        const rawY = e.clientY - sheetStartY;
+        sheetSpringY.value = rawY < 0 ? -rubberband(-rawY, 160) : rawY;
+        sheetHistory.push({ y: sheetSpringY.value, t: performance.now() });
+        if (sheetHistory.length > 5) sheetHistory.shift();
+        renderSheet();
+      });
+
+      const endSheetDrag = () => {
+        if (!draggingSheet) return;
+        draggingSheet = false;
+        let vy = 0;
+        if (sheetHistory.length >= 2) {
+          const first = sheetHistory[0];
+          const last = sheetHistory[sheetHistory.length - 1];
+          vy = (last.y - first.y) / (Math.max(1, last.t - first.t) / 1000);
+        }
+        const projectedY = sheetSpringY.value + project(vy, 0.992);
+        if (projectedY > 130 || vy > 550) {
+          closeServiceSheet();
+        } else {
+          sheetSpringY.velocity = vy;
+          sheetSpringY.target = 0;
+          const now = performance.now();
+          sheetRaf = requestAnimationFrame(() => stepSheet(now));
+        }
+      };
+
+      sheetDialog.addEventListener('pointerup', endSheetDrag);
+      sheetDialog.addEventListener('pointercancel', endSheetDrag);
+
+      /* ------------------------------------------------------------------------
+         6. FORMULARIO WHATSAPP OFICIAL (+54 223 660-2699)
+         ------------------------------------------------------------------------ */
+      const waForm = document.getElementById('whatsapp-form');
+      const waStatus = document.getElementById('whatsapp-status');
+      const waBtnText = document.getElementById('whatsapp-btn-text');
+
+      waForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('cta-name').value.trim();
+        const biz = document.getElementById('cta-business').value.trim();
+        const vol = document.getElementById('cta-volume').value.trim();
+        const msg = `Hola, soy ${name} de ${biz}. Me interesa cotizar envíos para ${vol} paquetes mensuales.`;
+        const url = `https://api.whatsapp.com/send/?phone=542236602699&text=${encodeURIComponent(msg)}`;
+
+        waBtnText.textContent = 'Mensaje listo en WhatsApp';
+        waStatus.style.display = 'block';
+        waStatus.innerHTML = `<strong>¡Abrimos tu consulta en WhatsApp!</strong> Si no se abrió automáticamente, <a href="${url}" target="_blank" rel="noopener noreferrer" style="color:var(--brand-blue-500); font-weight:700;">hacé clic acá para abrir el chat</a>.`;
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
+    })();
+  </script>
+</body>
+</html>
