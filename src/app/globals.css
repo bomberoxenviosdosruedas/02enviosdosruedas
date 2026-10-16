@@ -201,6 +201,11 @@ body {
   color: var(--text-body);
 }
 
+section[id],
+main[id] {
+  scroll-margin-top: 5rem;
+}
+
 @utility font-display {
   font-family: var(--font-display);
   text-transform: uppercase;

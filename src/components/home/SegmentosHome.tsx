@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import {
@@ -17,7 +15,6 @@ import {
   LOWCOST_CUTOFF_TIME,
   LOWCOST_DELIVERY_DEADLINE,
 } from '@/lib/promises';
-import { trackAnalytics } from '@/lib/analytics';
 
 export default function SegmentosHome() {
   const segmentos = [
@@ -76,7 +73,7 @@ export default function SegmentosHome() {
             <Sparkles className="w-3.5 h-3.5 text-brand-blue-500" aria-hidden="true" />
             <span>Elegí tu solución a medida</span>
           </div>
-          <h2 id="segmentos-home-title" className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-500">
+          <h2 id="segmentos-home-title" className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] uppercase tracking-tight text-brand-blue-500">
             ¿CÓMO PODEMOS IMPULSAR TU LOGÍSTICA HOY?
           </h2>
           <p className="font-sans text-sm sm:text-base text-brand-blue-500 max-w-xl mx-auto leading-relaxed">
@@ -124,7 +121,6 @@ export default function SegmentosHome() {
                 <div className="pt-4 border-t border-brand-blue-100">
                   <Link
                     href={seg.href}
-                    onClick={() => trackAnalytics.ctaClick(`segmentos_${seg.id}_cta`, seg.ctaText)}
                     className={`w-full min-h-11 px-4 py-2.5 rounded-full font-subheading text-xs uppercase tracking-wider font-bold flex items-center justify-between transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 ${
                       seg.highlight
                         ? 'bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 shadow-accent-sm'

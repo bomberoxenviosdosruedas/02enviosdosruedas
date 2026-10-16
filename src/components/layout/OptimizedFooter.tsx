@@ -60,7 +60,7 @@ export default function OptimizedFooter() {
   return (
     <footer
       id="optimized-footer"
-      className="bg-brand-blue-700 text-white border-t border-white/10 relative overflow-hidden font-sans select-none"
+      className="bg-brand-blue-700 text-white border-t border-white/10 relative overflow-hidden font-sans"
     >
       {/* Decorative top yellow accent bar with continuous glow */}
       <div className="h-1.5 bg-brand-yellow-500 w-full shadow-md shadow-brand-yellow-500/30" />

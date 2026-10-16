@@ -2,7 +2,6 @@
 
 import React, { useRef, useEffect } from 'react';
 import { useReducedMotion } from 'motion/react';
-import gsap from 'gsap';
 
 // Deterministic particle configuration (pre-calculated, no Math.random at runtime)
 const DETERMINISTIC_PARTICLES = [
@@ -28,7 +27,6 @@ export default function LogisticaNetworkCanvas() {
   const reduceMotion = useReducedMotion();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
-  const timelineRef = useRef<gsap.core.Timeline | null>(null);
   const particleRefs = useRef<Array<{
     fromNode: { x: number; y: number };
     toNode: { x: number; y: number };
@@ -43,9 +41,10 @@ export default function LogisticaNetworkCanvas() {
   const heightRef = useRef(0);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const animationFrameId = useRef<number | null>(null);
+  const lastTimeRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (reduceMotion || (typeof window !== 'undefined' && window.innerWidth < 640)) return;
+    if (reduceMotion) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -56,12 +55,23 @@ export default function LogisticaNetworkCanvas() {
     // Resolve CSS custom properties for canvas rendering
     const style = getComputedStyle(document.documentElement);
     const brandYellow = style.getPropertyValue('--color-brand-yellow-500').trim() || '#FFEC01';
-    const brandBlue = style.getPropertyValue('--color-brand-blue-500').trim() || '#0950F6';
     const white = style.getPropertyValue('--color-white').trim() || '#FFFFFF';
+    const fontSans = style.getPropertyValue('--font-sans').trim() || 'Outfit, sans-serif';
 
     ctxRef.current = ctx;
-    widthRef.current = canvas.width = canvas.offsetWidth;
-    heightRef.current = canvas.height = canvas.offsetHeight;
+
+    const syncCanvasDimensions = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const cssWidth = canvas.offsetWidth;
+      const cssHeight = canvas.offsetHeight;
+      widthRef.current = cssWidth;
+      heightRef.current = cssHeight;
+      canvas.width = Math.max(1, Math.round(cssWidth * dpr));
+      canvas.height = Math.max(1, Math.round(cssHeight * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+
+    syncCanvasDimensions();
 
     // ─── Definición de nodos (posiciones relativas al viewport) ─────────────────
     type NodeDef = { id: string; label: string; size: number; xRatio: number; yRatio: number };
@@ -142,71 +152,30 @@ export default function LogisticaNetworkCanvas() {
       mouseRef.current = { x: -1000, y: -1000 };
     };
 
-    const heroSection = canvas.closest('section');
-    if (heroSection) {
-      heroSection.addEventListener('mousemove', handleMouseMove);
-      heroSection.addEventListener('mouseleave', handleMouseLeave);
-      heroSection.addEventListener('touchmove', handleTouchMove);
-      heroSection.addEventListener('touchend', handleMouseLeave);
+    const parentSection = canvas.closest('section');
+    if (parentSection) {
+      parentSection.addEventListener('mousemove', handleMouseMove, { passive: true });
+      parentSection.addEventListener('mouseleave', handleMouseLeave);
+      parentSection.addEventListener('touchmove', handleTouchMove, { passive: true });
+      parentSection.addEventListener('touchend', handleMouseLeave);
     }
-
-    // ─── GSAP Timeline (paused, deterministic, seek-safe) ────────────────────────
-    const tl = gsap.timeline({ paused: true, repeat: -1 });
-    timelineRef.current = tl;
-
-    // Register with HyperFrames global (determinism contract)
-    if (typeof window !== 'undefined') {
-      (window as Window & { __timelines?: Record<string, gsap.core.Timeline> }).__timelines = {
-        ...(window as Window & { __timelines?: Record<string, gsap.core.Timeline> }).__timelines,
-        'logistica-network-canvas': tl,
-      };
-    }
-
-    // Timeline duration = particle cycle time (deterministic)
-    const timelineDuration = 10; // seconds
-
-    // Create a proxy object to drive the animation progress
-    const progressProxy = { value: 0 };
-
-    tl.to(progressProxy, {
-      value: 1,
-      duration: timelineDuration,
-      ease: 'none',
-    });
 
     const isVisibleRef = { current: true };
     let observer: IntersectionObserver | null = null;
 
-    if (typeof IntersectionObserver !== 'undefined') {
-      observer = new IntersectionObserver(
-        ([entry]) => {
-          isVisibleRef.current = entry.isIntersecting;
-          if (entry.isIntersecting) {
-            if (timelineRef.current) timelineRef.current.play();
-            if (!animationFrameId.current) {
-              animationFrameId.current = requestAnimationFrame(render);
-            }
-          } else {
-            if (timelineRef.current) timelineRef.current.pause();
-            if (animationFrameId.current) {
-              cancelAnimationFrame(animationFrameId.current);
-              animationFrameId.current = null;
-            }
-          }
-        },
-        { threshold: 0.05 }
-      );
-      observer.observe(canvas);
-    }
-
-    // ─── Render loop driven by GSAP timeline ─────────────────────────────────────
-    const render = () => {
-      if (!isVisibleRef.current) {
+    // ─── Render loop con delta time real ─────────────────────────────────────────
+    const render = (timestamp: number) => {
+      if (!isVisibleRef.current || window.innerWidth < 640) {
         animationFrameId.current = null;
+        lastTimeRef.current = null;
         return;
       }
       const ctx = ctxRef.current;
       if (!ctx) return;
+
+      const prevTime = lastTimeRef.current ?? timestamp;
+      const dtSeconds = Math.min(Math.max((timestamp - prevTime) / 1000, 0), 0.1);
+      lastTimeRef.current = timestamp;
 
       ctx.clearRect(0, 0, widthRef.current, heightRef.current);
 
@@ -224,7 +193,7 @@ export default function LogisticaNetworkCanvas() {
         ctx.strokeStyle =
           dist < 180
             ? `rgba(255, 236, 1, ${0.15 + (1 - dist / 180) * 0.3})`
-            : 'rgba(255, 255, 255, 0.12)';
+            : 'rgba(255, 255, 255, 0.14)';
 
         ctx.beginPath();
         ctx.moveTo(fromNode.x, fromNode.y);
@@ -232,15 +201,12 @@ export default function LogisticaNetworkCanvas() {
         ctx.stroke();
       });
 
-      // 2. Partículas (driven by GSAP timeline progress)
-      const timelineProgress = tl.progress();
-
+      // 2. Partículas con delta time real (normalizado a base 60fps: speed * 60 * dtSeconds)
       particleRefs.current.forEach((p) => {
-        // Update progress based on timeline (deterministic, seek-safe)
-        p.progress += p.speed * 0.016; // ~60fps equivalent per frame
+        p.progress += p.speed * 60 * dtSeconds;
 
         if (p.progress >= 1) {
-          p.progress = 0;
+          p.progress %= 1;
           const conn = connections[p.connIndex % connections.length];
           const fromNode = nodeMapRef.current.get(conn.from);
           const toNode = nodeMapRef.current.get(conn.to);
@@ -300,7 +266,7 @@ export default function LogisticaNetworkCanvas() {
 
         if (isNear || node.id === 'cd') {
           ctx.fillStyle = isNear ? brandYellow : white;
-          ctx.font = '500 10px var(--font-sans)';
+          ctx.font = `500 10px ${fontSans}`;
           ctx.fillText(node.label.toUpperCase(), node.x + 10, node.y + 3);
         }
       });
@@ -308,18 +274,40 @@ export default function LogisticaNetworkCanvas() {
       animationFrameId.current = requestAnimationFrame(render);
     };
 
-    render();
+    if (typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          isVisibleRef.current = entry.isIntersecting;
+          if (entry.isIntersecting && window.innerWidth >= 640) {
+            if (!animationFrameId.current) {
+              lastTimeRef.current = null;
+              animationFrameId.current = requestAnimationFrame(render);
+            }
+          } else {
+            if (animationFrameId.current) {
+              cancelAnimationFrame(animationFrameId.current);
+              animationFrameId.current = null;
+              lastTimeRef.current = null;
+            }
+          }
+        },
+        { threshold: 0.05 }
+      );
+      observer.observe(canvas);
+    }
+
+    if (window.innerWidth >= 640) {
+      animationFrameId.current = requestAnimationFrame(render);
+    }
 
     // ─── Resize handler ──────────────────────────────────────────────────────────
     const handleResize = () => {
       if (!canvas) return;
-      widthRef.current = canvas.width = canvas.offsetWidth;
-      heightRef.current = canvas.height = canvas.offsetHeight;
+      syncCanvasDimensions();
       buildNodeMap();
 
-      // Re-assign particle nodes after resize
       particleRefs.current.forEach((p) => {
-        const conn = connections[particleRefs.current.indexOf(p) % connections.length];
+        const conn = connections[p.connIndex % connections.length];
         const fromNode = nodeMapRef.current.get(conn.from);
         const toNode = nodeMapRef.current.get(conn.to);
         if (fromNode && toNode) {
@@ -327,6 +315,11 @@ export default function LogisticaNetworkCanvas() {
           p.toNode = toNode;
         }
       });
+
+      if (window.innerWidth >= 640 && isVisibleRef.current && !animationFrameId.current) {
+        lastTimeRef.current = null;
+        animationFrameId.current = requestAnimationFrame(render);
+      }
     };
 
     window.addEventListener('resize', handleResize);
@@ -337,25 +330,30 @@ export default function LogisticaNetworkCanvas() {
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }
-      if (timelineRef.current) {
-        timelineRef.current.kill();
-      }
-      if (heroSection) {
-        heroSection.removeEventListener('mousemove', handleMouseMove);
-        heroSection.removeEventListener('mouseleave', handleMouseLeave);
-        heroSection.removeEventListener('touchmove', handleTouchMove);
-        heroSection.removeEventListener('touchend', handleMouseLeave);
-      }
-      // Cleanup global timeline reference
-      if (typeof window !== 'undefined' && (window as Window & { __timelines?: Record<string, gsap.core.Timeline> }).__timelines) {
-        delete (window as Window & { __timelines?: Record<string, gsap.core.Timeline> }).__timelines!['logistica-network-canvas'];
+      if (parentSection) {
+        parentSection.removeEventListener('mousemove', handleMouseMove);
+        parentSection.removeEventListener('mouseleave', handleMouseLeave);
+        parentSection.removeEventListener('touchmove', handleTouchMove);
+        parentSection.removeEventListener('touchend', handleMouseLeave);
       }
     };
   }, [reduceMotion]);
 
   if (reduceMotion) {
-    return <canvas ref={canvasRef} className="hidden sm:block absolute inset-0 w-full h-full pointer-events-none z-0 bg-brand-blue-500/30" />;
+    return (
+      <canvas
+        ref={canvasRef}
+        aria-hidden="true"
+        className="hidden sm:block absolute inset-0 w-full h-full pointer-events-none z-0 bg-brand-blue-500/30"
+      />
+    );
   }
 
-  return <canvas ref={canvasRef} className="hidden sm:block absolute inset-0 w-full h-full pointer-events-none z-0" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      aria-hidden="true"
+      className="hidden sm:block absolute inset-0 w-full h-full pointer-events-none z-0"
+    />
+  );
 }

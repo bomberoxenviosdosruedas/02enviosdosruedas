@@ -7,7 +7,7 @@ const LogisticaNetworkCanvas = dynamic(
   () => import('@/components/home/LogisticaNetworkCanvas'),
   {
     ssr: false,
-    loading: () => <div className="absolute inset-0 pointer-events-none" />,
+    loading: () => <div aria-hidden="true" className="absolute inset-0 pointer-events-none" />,
   }
 );
 

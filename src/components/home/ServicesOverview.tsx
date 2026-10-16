@@ -17,6 +17,7 @@ import {
 } from '@/lib/promises';
 import { EXPRESS_TIERS, LOW_COST_TIERS } from '@/lib/pricing';
 import { trackAnalytics } from '@/lib/analytics';
+import NetworkCanvasWrapper from '@/components/home/NetworkCanvasWrapper';
 
 const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
@@ -365,12 +366,19 @@ export default function ServicesOverview() {
     <section
       id="services-overview"
       aria-labelledby="services-overview-title"
-      className="py-14 sm:py-20 lg:py-24 bg-brand-blue text-white relative overflow-hidden perspective-[2000px]"
+      className="py-16 sm:py-20 lg:py-24 bg-brand-blue text-white relative overflow-hidden perspective-[2000px]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      {/* Red logística interactiva en canvas (fondo z-0) */}
+      <NetworkCanvasWrapper />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.08),transparent_60%)] pointer-events-none"
+        aria-hidden="true"
+      />
+
       {/* Background Decorative Asymmetric Glows */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-brand-blue-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
       <motion.div
         className="absolute bottom-0 right-0 w-125 h-125 bg-brand-yellow-500/5 rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
@@ -398,9 +406,9 @@ export default function ServicesOverview() {
             <div className="px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-400 rounded-full text-xs font-subheading font-bold tracking-widest inline-block uppercase shadow-glow-yellow mb-3 border border-brand-yellow-400/40">
               NUESTROS SERVICIOS
             </div>
-            <h2 id="services-overview-title" className="font-display text-4xl sm:text-6xl uppercase text-white tracking-tight leading-none text-balance">
+            <h2 id="services-overview-title" className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight uppercase text-white text-balance">
               SOLUCIONES LOGÍSTICAS <br />
-              <span className="text-brand-yellow-400 drop-shadow-[0_2px_10px_rgba(255,241,46,0.35)] underline decoration-brand-blue-500 underline-offset-8">
+              <span className="text-brand-yellow-400 drop-shadow-[0_2px_10px_rgba(255,241,46,0.35)] underline decoration-brand-yellow-400/60 underline-offset-8">
                 A TU MEDIDA
               </span>
             </h2>
@@ -431,7 +439,7 @@ export default function ServicesOverview() {
                 className="min-w-11 min-h-11 p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-500 border border-white/20 cursor-pointer transition-colors inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                 aria-label="Anterior Servicio"
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="w-5 h-5" aria-hidden="true" />
               </motion.button>
               <motion.button
                 type="button"
@@ -441,7 +449,7 @@ export default function ServicesOverview() {
                 className="min-w-11 min-h-11 p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-500 border border-white/20 cursor-pointer transition-colors inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                 aria-label="Siguiente Servicio"
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-5 h-5" aria-hidden="true" />
               </motion.button>
             </div>
           </div>
@@ -464,6 +472,7 @@ export default function ServicesOverview() {
                 tabIndex={isCenter ? 0 : -1}
                 inert={!isCenter && reduceMotion ? true : undefined}
                 aria-hidden={!isCenter && reduceMotion ? 'true' : undefined}
+                aria-label={isCenter ? `Ver ficha técnica de ${service.title}` : `Seleccionar ${service.title}`}
                 onClick={(e) => {
                   if (isCenter) {
                     lastTriggerRef.current = e.currentTarget;
@@ -505,10 +514,10 @@ export default function ServicesOverview() {
                   }`}
                 >
                   {/* Background Image with Layer Blend */}
-                  <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0">
+                  <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0" aria-hidden="true">
                     <Image
                       src={service.imageUrl}
-                      alt={service.title}
+                      alt=""
                       fill={true}
                       sizes="(max-width: 768px) 290px, 350px"
                       className={`object-cover ${service.imgBlend}`}
@@ -519,6 +528,7 @@ export default function ServicesOverview() {
                   {/* Center Card Ambient Glow Overlay */}
                   {isCenter && (
                     <motion.div
+                      aria-hidden="true"
                       className="absolute bottom-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none opacity-20 -mr-12 -mb-12"
                       style={{
                         backgroundColor: index === 3 ? 'var(--color-brand-blue-500)' : 'var(--color-brand-yellow-500)',
@@ -530,6 +540,7 @@ export default function ServicesOverview() {
 
                   {/* Watermark Background Icon */}
                   <motion.div
+                    aria-hidden="true"
                     className="absolute right-4 bottom-4 opacity-[0.06] pointer-events-none select-none"
                     animate={isCenter && !reduceMotion ? { rotate: [0, 2, -2, 0], scale: [1, 1.02, 1] } : {}}
                     transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
@@ -543,7 +554,7 @@ export default function ServicesOverview() {
                       className="flex items-center gap-2.5"
                       whileHover={reduceMotion ? undefined : { scale: 1.05, transition: springConfigSnappy }}
                     >
-                      <div className="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-500)]">
+                      <div className="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-500)]" aria-hidden="true">
                         <Icon className="h-5 w-5" />
                       </div>
                       <span className={`text-2xs font-bold font-subheading px-2.5 py-1 rounded-full border shadow-sm ${service.badgeStyle}`}>
@@ -555,15 +566,15 @@ export default function ServicesOverview() {
                   {/* Middle Service Information */}
                   <div className="relative z-10 space-y-2 mt-auto">
                     <div className={`text-xs font-bold uppercase tracking-widest font-subheading flex items-center gap-1 ${service.hintColor}`}>
-                      <MapPin className="w-3.5 h-3.5" />
+                      <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
                       {service.city}
                     </div>
-                    <motion.h3
+                    <motion.div
                       className={`font-display text-2xl sm:text-3xl uppercase leading-none text-balance ${service.titleColor}`}
                       whileHover={reduceMotion ? undefined : { x: 4, transition: springConfigSnappy }}
                     >
                       {service.title}
-                    </motion.h3>
+                    </motion.div>
                     <p className={`text-xs line-clamp-2 leading-relaxed ${service.descColor}`}>
                       {service.description}
                     </p>

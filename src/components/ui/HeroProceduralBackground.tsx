@@ -37,6 +37,7 @@ export default function HeroProceduralBackground({
 
   return (
     <div
+      aria-hidden="true"
       className={`absolute inset-0 pointer-events-none select-none overflow-hidden ${className}`}
     >
       {isYellow ? (

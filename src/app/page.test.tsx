@@ -40,10 +40,12 @@ describe('Home Page', () => {
     expect(heroTitle).not.toHaveTextContent(/60\s*[-–a]+\s*90/i);
     expect(screen.getAllByText(/E-Commerce/i).length).toBeGreaterThan(0);
 
-    // Check Vision section heading
-    expect(screen.getByText(/CONECTAMOS MAR DEL PLATA DE PUNTA A PUNTA/i)).toBeInTheDocument();
-
-    // Check Services Overview section heading
+    // Check unified Services Overview section heading (un único h2 semántico en ServicesOverview)
+    const servicesHeading = document.getElementById('services-overview-title');
+    expect(servicesHeading).toBeInTheDocument();
+    expect(servicesHeading?.tagName).toBe('H2');
+    expect(servicesHeading).toHaveTextContent(/SOLUCIONES LOGÍSTICAS/i);
     expect(screen.getAllByText(/NUESTROS SERVICIOS/i).length).toBeGreaterThan(0);
+    expect(screen.queryByText(/CONECTAMOS MAR DEL PLATA DE PUNTA A PUNTA/i)).not.toBeInTheDocument();
   });
 });

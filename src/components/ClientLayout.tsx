@@ -19,8 +19,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow-500 focus:text-brand-blue-500 focus:font-subheading focus:font-bold focus:uppercase focus:tracking-wider focus:shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white"
+      >
+        Saltar al contenido principal
+      </a>
       <OptimizedHeader />
-      <main id="main-content" className="grow pt-18">
+      <main id="main-content" className="grow pt-18 scroll-mt-20">
         {children}
       </main>
       <CarruselRedes />

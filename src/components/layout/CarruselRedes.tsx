@@ -1,66 +1,42 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { ArrowUpRight } from 'lucide-react';
-import { useReducedMotion } from 'motion/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion, useReducedMotion, type Variants } from 'motion/react';
 import { SUPPORT_PHONE } from '@/lib/promises';
 import { trackAnalytics } from '@/lib/analytics';
 
 const WHATSAPP_NUMBER = SUPPORT_PHONE.replace(/\D/g, '');
 
+const GRID_VARIANTS: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const CARD_VARIANTS: Variants = {
+  hidden: {
+    y: 50,
+    opacity: 0,
+    scale: 0.96,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
 export default function CarruselRedes() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Early return for reduced motion - no animations at all
-    if (prefersReducedMotion) {
-      // Ensure blocks are visible without animation
-      if (containerRef.current) {
-        const blocks = containerRef.current.querySelectorAll('.social-block');
-        blocks.forEach((block) => {
-          (block as HTMLElement).style.opacity = '1';
-          (block as HTMLElement).style.transform = 'none';
-        });
-      }
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      if (containerRef.current) {
-        const blocks = containerRef.current.querySelectorAll('.social-block');
-        gsap.fromTo(
-          blocks,
-          {
-            y: 50,
-            opacity: 0,
-            scale: 0.96,
-          },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            stagger: 0.15,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: 'top 85%',
-              once: true,
-            },
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, [prefersReducedMotion]);
 
   const networks = [
     {
@@ -127,14 +103,13 @@ export default function CarruselRedes() {
 
   return (
     <section
-      ref={sectionRef}
       id="carrusel-redes"
       suppressHydrationWarning
-      className="py-20 md:py-32 bg-brand-blue border-y border-white/10 relative overflow-hidden font-sans select-none"
+      className="py-20 md:py-32 bg-brand-blue border-y border-white/10 relative overflow-hidden font-sans"
     >
       {/* Background Decorative Mesh & Depth Highlights */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" />
-      <div className="absolute top-0 left-1/4 w-100 h-100 bg-brand-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-0 left-1/4 w-100 h-100 bg-brand-blue-500/10 rounded-full blur-[100px] pointer-events-none" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -144,7 +119,7 @@ export default function CarruselRedes() {
             Nuestra Comunidad Digital
           </span>
           
-          <h2 className="text-white text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[0.95] text-center">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight uppercase text-white text-center">
             SEGUÍ NUESTRO <span className="text-brand-yellow-500">MOVIMIENTO</span>
           </h2>
 
@@ -155,25 +130,29 @@ export default function CarruselRedes() {
         </div>
 
         {/* Networks Grid: 3 Unique Branded Cards */}
-        <div
-          ref={containerRef}
+        <motion.div
+          variants={prefersReducedMotion ? undefined : GRID_VARIANTS}
+          initial={prefersReducedMotion ? false : 'hidden'}
+          whileInView={prefersReducedMotion ? undefined : 'visible'}
+          viewport={{ once: true, amount: 0.15 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full"
         >
           {networks.map((net) => {
             const Icon = net.icon;
 
             return (
-              <div
+              <motion.div
                 key={net.id}
+                variants={prefersReducedMotion ? undefined : CARD_VARIANTS}
                 className={`social-block group relative rounded-2xl p-2 transition-[transform,border-color,box-shadow] duration-300 border ${net.cardBorder} bg-brand-blue/80 backdrop-blur-md hover:-translate-y-1.5 shadow-xl`}
               >
                 {/* Internal Glow on Hover */}
-                <div className={`absolute inset-0 rounded-2xl bg-linear-to-b ${net.glow} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
+                <div className={`absolute inset-0 rounded-2xl bg-linear-to-b ${net.glow} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} aria-hidden="true" />
 
                 <div className={`relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden ${net.cardBg} border border-white/10 transition-colors`}>
                   
                   {/* Background Watermark Icon that enlarges and tilts on hover */}
-                  <div className={`absolute -right-8 -bottom-8 ${net.watermarkColor} transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none`}>
+                  <div className={`absolute -right-8 -bottom-8 ${net.watermarkColor} transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none`} aria-hidden="true">
                     <Icon className="w-56 h-56" />
                   </div>
 
@@ -184,7 +163,7 @@ export default function CarruselRedes() {
                         {net.badgeText}
                       </span>
 
-                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${net.iconBoxBg}`}>
+                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${net.iconBoxBg}`} aria-hidden="true">
                         <Icon className="w-5 h-5" />
                       </div>
                     </div>
@@ -216,20 +195,20 @@ export default function CarruselRedes() {
                           trackAnalytics.ctaClick(`carrusel_redes_${net.id}`, net.action);
                         }
                       }}
-                      className={`w-full inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn ${net.btnBg}`}
+                      className={`w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 ${net.btnBg}`}
                     >
                       <span>{net.action}</span>
-                      <span className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 ${net.btnIconBg}`}>
+                      <span className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 ${net.btnIconBg}`} aria-hidden="true">
                         <ArrowUpRight className="w-4 h-4" />
                       </span>
                     </a>
                   </div>
 
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </section>

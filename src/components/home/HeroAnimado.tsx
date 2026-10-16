@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, MapPin, Zap } from 'lucide-react';
 import { CTANestedPill } from '@/components/ui/CTANestedPill';
 import { Knockout } from '@/components/ui/Knockout';
@@ -56,7 +57,7 @@ export default function HeroAnimado() {
     >
       <HeroProceduralBackground variant="express" tone="blue" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-14 sm:py-20 lg:px-8 lg:py-24">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
         <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14">
           {/* COPY 7 — nunca centrado en desktop. */}
           <div className="space-y-6 text-center sm:space-y-7 lg:col-span-7 lg:text-left">
@@ -76,6 +77,7 @@ export default function HeroAnimado() {
             <h1 className="text-balance font-display text-4xl uppercase leading-[0.92] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
               <span className="block">El motor de tu</span>
               <Knockout className="whitespace-nowrap">última milla</Knockout>
+              <span className="sr-only">. </span>
               <span className="block">Somos la solución a tus envíos</span>
             </h1>
 
@@ -94,13 +96,13 @@ export default function HeroAnimado() {
               >
                 Cotizá tu envío
               </CTANestedPill>
-              <a
+              <Link
                 href="/servicios"
                 className="inline-flex min-h-11 w-full sm:w-auto justify-center items-center gap-2 rounded-md font-subheading text-sm uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 transition-colors hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 sm:text-base"
               >
                 Ver servicios
                 <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-              </a>
+              </Link>
             </div>
           </div>
 

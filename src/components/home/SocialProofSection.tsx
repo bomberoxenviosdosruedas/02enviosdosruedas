@@ -1,8 +1,6 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
-import { Star, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface Review {
@@ -68,16 +66,6 @@ const REVIEWS: Review[] = [
 ];
 
 function ReviewCard({ review }: { review: Review }) {
-  const stars = (
-    <div aria-label="Calificación: 5 de 5 estrellas" className="flex gap-1" role="img">
-      <span className="text-xl">★</span>
-      <span className="text-xl">★</span>
-      <span className="text-xl">★</span>
-      <span className="text-xl">★</span>
-      <span className="text-xl">★</span>
-    </div>
-  );
-
   const cardStyles = {
     blue: {
       article: 'bg-brand-blue-500 text-white shadow-elevated',
@@ -112,29 +100,43 @@ function ReviewCard({ review }: { review: Review }) {
   }[review.variant];
 
   return (
-    <article className={cn(
-      'card-token flex flex-col justify-between p-8 min-h-85',
-      cardStyles.article
-    )}>
+    <article
+      className={cn(
+        'card-token w-full rounded-2xl flex flex-col justify-between p-8 min-h-85',
+        cardStyles.article
+      )}
+    >
       <div>
         {/* Top Row: Rating & Date */}
         <div className="flex items-center justify-between mb-6">
-          <div aria-label="Calificación: 5 de 5 estrellas" className={cn('flex gap-1', cardStyles.starsColor)}>
-            {stars}
+          <div
+            role="img"
+            aria-label="Calificación: 5 de 5 estrellas"
+            className={cn('flex gap-1', cardStyles.starsColor)}
+          >
+            <span aria-hidden="true" className="text-xl">★</span>
+            <span aria-hidden="true" className="text-xl">★</span>
+            <span aria-hidden="true" className="text-xl">★</span>
+            <span aria-hidden="true" className="text-xl">★</span>
+            <span aria-hidden="true" className="text-xl">★</span>
           </div>
-          <span className={cn(
-            'text-xs font-bold px-3.5 py-1 rounded-full font-mono',
-            cardStyles.dateBadge
-          )}>
+          <span
+            className={cn(
+              'text-xs font-bold px-3.5 py-1 rounded-full font-mono',
+              cardStyles.dateBadge
+            )}
+          >
             {review.timeAgo}
           </span>
         </div>
 
         {/* Review Heading */}
-        <h3 className={cn(
-          'font-subheading text-xl lg:text-2xl uppercase leading-none mb-3 tracking-wide',
-          cardStyles.headingColor
-        )}>
+        <h3
+          className={cn(
+            'font-subheading text-xl lg:text-2xl uppercase leading-none mb-3 tracking-wide',
+            cardStyles.headingColor
+          )}
+        >
           {review.quoteHighlight}
         </h3>
 
@@ -145,11 +147,14 @@ function ReviewCard({ review }: { review: Review }) {
       </div>
 
       {/* Author / Footer */}
-      <div className={cn('pt-6 mt-6 flex items-center gap-3', cardStyles.borderColor)}>
-        <div className={cn(
-          'w-10 h-10 rounded-full font-bold flex items-center justify-center text-sm shrink-0 shadow-sm',
-          cardStyles.avatarBg
-        )}>
+      <div className={cn('pt-6 mt-6 border-t flex items-center gap-3', cardStyles.borderColor)}>
+        <div
+          aria-hidden="true"
+          className={cn(
+            'w-10 h-10 rounded-full font-bold flex items-center justify-center text-sm shrink-0 shadow-sm',
+            cardStyles.avatarBg
+          )}
+        >
           {review.author.charAt(0)}
         </div>
         <span className={cn('font-bold text-sm tracking-wide', cardStyles.authorColor)}>
@@ -165,9 +170,9 @@ export default function SocialProofSection() {
     <section
       id="social-proof"
       aria-labelledby="social-proof-title"
-      className="relative py-24 bg-brand-blue-50 border-y border-brand-blue-100/60"
+      className="relative py-20 lg:py-24 bg-brand-blue-50 border-y border-brand-blue-100/60"
     >
-      <div className="mx-auto max-w-[80rem] px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <header className="mb-10 lg:mb-14">
           {/* Rating Trust Badge */}
@@ -182,12 +187,12 @@ export default function SocialProofSection() {
             {/* Title with highlighted keyword */}
             <h2
               id="social-proof-title"
-              className="font-display uppercase text-brand-blue-500 text-[42px] sm:text-[60px] lg:text-[clamp(2.75rem,5.2vw,4.5rem)] leading-[0.92] max-w-4xl tracking-tight"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight uppercase text-brand-blue-500 max-w-4xl"
             >
-              LA PALABRA DE QUIENES
+              LA PALABRA DE QUIENES{' '}
               <span className="inline-block relative mx-1 my-1 px-4 sm:px-5 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-500 shadow-cta-glow">
                 VENDEN Y ENVÍAN
-              </span>
+              </span>{' '}
               EN MDQ
             </h2>
 
@@ -197,24 +202,24 @@ export default function SocialProofSection() {
                 href="https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="button-pill inline-flex items-center gap-2.5 border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white px-7 py-3 font-subheading text-lg sm:text-xl tracking-wider uppercase shadow-sm hover:shadow-md"
+                className="button-pill rounded-full inline-flex items-center gap-2.5 border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white px-7 py-3 min-h-11 font-subheading text-lg sm:text-xl tracking-wider uppercase shadow-sm hover:shadow-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2"
                 aria-label="Ver todas las opiniones en Google Maps"
               >
                 <span>VER EN GOOGLE MAPS</span>
-                <ExternalLink className="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" strokeLinecap="round" strokeLinejoin="round" />
-                </ExternalLink>
+                <ExternalLink className="w-4 h-4 stroke-[2.5]" aria-hidden="true" />
               </Link>
             </div>
           </div>
         </header>
 
         {/* Testimonials Grid: 3×2 = 6 cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0">
           {REVIEWS.map((review) => (
-            <ReviewCard key={review.id} review={review} />
+            <li key={review.id} className="flex">
+              <ReviewCard review={review} />
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

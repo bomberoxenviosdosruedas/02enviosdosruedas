@@ -111,6 +111,18 @@ export default function OptimizedHeader() {
     }
   }, [pathname, isOpen, activeDropdown]);
 
+  // Cerrar desplegable desktop con Escape
+  useEffect(() => {
+    if (!activeDropdown) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setActiveDropdown(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeDropdown]);
+
   // Lock scroll robusto
   useEffect(() => {
     if (isOpen) {
@@ -139,7 +151,7 @@ export default function OptimizedHeader() {
       >
         <motion.div initial={prefersReducedMotion ? false : { opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={EASE_MOUNT} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <Link href="/" id="nav-logo-opt" className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
+            <Link href="/" id="nav-logo-opt" aria-current={pathname === '/' ? 'page' : undefined} className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
               <div className="flex items-center gap-2.5">
                 <motion.div className="relative w-10 h-10 shrink-0" whileHover={prefersReducedMotion ? {} : { rotate: 8, scale: 1.04 }} whileTap={prefersReducedMotion ? {} : { scale: 0.97 }} transition={{ type: 'spring', duration: 0.22, bounce: 0.15 }}>
                   {/* `sizes` es obligatorio con `fill`: sin él Next asume 100vw y el browser
@@ -162,37 +174,93 @@ export default function OptimizedHeader() {
               </div>
             </Link>
 
-            <nav id="desktop-nav-opt" className="hidden lg:flex items-center gap-2">
-              {NAV_ITEMS.map((item) => (
-                <div key={item.label} className="relative" onMouseEnter={() => item.dropdownItems && setActiveDropdown(item.label)} onMouseLeave={() => setActiveDropdown(null)}>
-                  {item.href ? (
-                    <Link href={item.href} className="px-4 py-2.5 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-white/10 transition-colors">{item.label}</Link>
-                  ) : (
-                    <button onClick={() => handleDropdownToggle(item.label)} aria-haspopup="menu" aria-expanded={activeDropdown === item.label} className="px-4 py-2.5 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-white/10 transition-colors flex items-center gap-1.5">
-                      {item.label}<ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
-                    </button>
-                  )}
-                  <AnimatePresence>
-                    {item.dropdownItems && activeDropdown === item.label && (
-                      <motion.div variants={dropdownContainer} initial="hidden" animate="visible" exit="exit" style={{ transformOrigin: 'top left' }} className="absolute left-0 mt-2 w-64 bg-brand-blue-700 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden z-50">
-                        <div className="flex flex-col gap-1 px-2">
-                          {item.dropdownItems.map((subItem) => {
-                            const SubIcon = subItem.icon || ChevronRight;
-                            return (
-                              <motion.div key={subItem.href} variants={dropdownItem}>
-                                <Link href={subItem.href} className="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors hover:bg-white/10 text-white hover:text-brand-yellow-500 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500">
-                                  <div className="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-700 transition-colors shrink-0"><SubIcon className="h-4 w-4" /></div>
-                                  <span className="text-base font-bold uppercase font-subheading tracking-wider leading-none">{subItem.label}</span>
-                                </Link>
-                              </motion.div>
-                            );
-                          })}
-                        </div>
-                      </motion.div>
+            <nav id="desktop-nav-opt" aria-label="Navegación principal" className="hidden lg:flex items-center gap-2">
+              {NAV_ITEMS.map((item) => {
+                const isDirectActive = item.href ? pathname === item.href : false;
+                const isGroupActive = item.dropdownItems
+                  ? item.dropdownItems.some((sub) => pathname === sub.href.split('#')[0] && sub.href !== '/servicios#ecommerce-24hs')
+                  : false;
+
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => item.dropdownItems && setActiveDropdown(item.label)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                    onBlur={(e) => {
+                      if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                        setActiveDropdown((prev) => (prev === item.label ? null : prev));
+                      }
+                    }}
+                  >
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        aria-current={isDirectActive ? 'page' : undefined}
+                        className={`px-4 py-2.5 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
+                          isDirectActive
+                            ? 'text-brand-yellow-500 bg-white/10'
+                            : 'text-white hover:text-brand-yellow-500 hover:bg-white/10'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => handleDropdownToggle(item.label)}
+                        aria-haspopup="true"
+                        aria-expanded={activeDropdown === item.label}
+                        className={`px-4 py-2.5 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
+                          isGroupActive
+                            ? 'text-brand-yellow-500 bg-white/10'
+                            : 'text-white hover:text-brand-yellow-500 hover:bg-white/10'
+                        }`}
+                      >
+                        {item.label}
+                        <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} aria-hidden="true" />
+                      </button>
                     )}
-                  </AnimatePresence>
-                </div>
-              ))}
+                    <AnimatePresence>
+                      {item.dropdownItems && activeDropdown === item.label && (
+                        <motion.div
+                          variants={dropdownContainer}
+                          initial="hidden"
+                          animate="visible"
+                          exit="exit"
+                          style={{ transformOrigin: 'top left' }}
+                          className="absolute left-0 pt-2 w-64 z-50"
+                        >
+                          <div className="bg-brand-blue-700 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                            <div className="flex flex-col gap-1 px-2">
+                              {item.dropdownItems.map((subItem) => {
+                                const SubIcon = subItem.icon || ChevronRight;
+                                const isSubActive = pathname === subItem.href;
+                                return (
+                                  <motion.div key={subItem.href} variants={dropdownItem}>
+                                    <Link
+                                      href={subItem.href}
+                                      aria-current={isSubActive ? 'page' : undefined}
+                                      className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors hover:bg-white/10 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
+                                        isSubActive ? 'text-brand-yellow-500 bg-white/10' : 'text-white hover:text-brand-yellow-500'
+                                      }`}
+                                    >
+                                      <div className="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-700 transition-colors shrink-0" aria-hidden="true">
+                                        <SubIcon className="h-4 w-4" />
+                                      </div>
+                                      <span className="text-base font-bold uppercase font-subheading tracking-wider leading-none">{subItem.label}</span>
+                                    </Link>
+                                  </motion.div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
             </nav>
 
             <div className="hidden lg:flex items-center gap-5">
