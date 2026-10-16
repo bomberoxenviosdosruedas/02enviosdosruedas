@@ -3,6 +3,10 @@
 import React, { useState } from 'react';
 import { motion, useReducedMotion, type Variants } from 'motion/react';
 import { MessageSquare, User, Store, PackageSearch, ChevronDown } from 'lucide-react';
+import { SUPPORT_PHONE } from '@/lib/promises';
+import { trackAnalytics } from '@/lib/analytics';
+
+const WHATSAPP_NUMBER = SUPPORT_PHONE.replace(/\D/g, '');
 
 export default function CtaSection() {
   const reduceMotion = useReducedMotion();
@@ -11,9 +15,11 @@ export default function CtaSection() {
   const handleWhatsAppRedirect = (e: React.FormEvent) => {
     e.preventDefault();
     const { name, business, volume } = formData;
+    trackAnalytics.formSubmit('home_cta_whatsapp');
+    trackAnalytics.whatsappClick('home_cta_form', 'Hablar por WhatsApp');
     const message = `Hola, soy ${name} de ${business}. Me interesa cotizar envíos para ${volume} paquetes mensuales.`;
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://api.whatsapp.com/send/?phone=542236602699&text=${encodedMessage}`, '_blank');
+    window.open(`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
   };
 
   // HyperFrames standard spring config

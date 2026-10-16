@@ -5,6 +5,9 @@ import { MotionConfig } from 'motion/react';
 import './globals.css';
 import ClientLayout from '@/components/ClientLayout';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { CONTACT_EMAIL, SUPPORT_PHONE } from '@/lib/promises';
+
+const JSON_LD_PHONE = SUPPORT_PHONE.replace(/\s+/g, '-');
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -122,7 +125,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     ],
                     contactPoint: {
                       '@type': 'ContactPoint',
-                      telephone: '+54-223-660-2699',
+                      telephone: JSON_LD_PHONE,
                       contactType: 'customer service',
                       availableLanguage: 'Spanish',
                       areaServed: 'AR',
@@ -135,8 +138,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     description:
                       'Mensajería y logística e-commerce en Mar del Plata. Envíos Express en franja de 3 hs a elección, LowCost, Mercado Envíos Flex y almacenamiento en Friuli 1972.',
                     url: baseUrl,
-                    telephone: '+54-223-660-2699',
-                    email: 'matiascejas@enviosdosruedas.com',
+                    telephone: JSON_LD_PHONE,
+                    email: CONTACT_EMAIL,
                     image: `${baseUrl}/og-image.jpg`,
                     hasMap: 'https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata',
                     address: {

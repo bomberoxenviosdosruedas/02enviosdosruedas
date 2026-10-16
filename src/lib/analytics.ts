@@ -5,6 +5,7 @@
 
 declare global {
   interface Window {
+    dataLayer?: unknown[];
     gtag?: (
       command: 'event' | 'config' | 'set' | 'js',
       action: string,
@@ -80,16 +81,25 @@ export function getStoredUtms(): UtmParams {
 }
 
 /**
- * Envía un evento a GA4 si window.gtag está disponible
+ * Envía un evento a GA4 verificando disponibilidad de window.gtag (con cola segura en dataLayer si carga en lazyOnload)
  */
 export function trackEvent(eventName: string, params?: Record<string, unknown>) {
-  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+  if (typeof window === 'undefined') return;
+  try {
     const utms = getStoredUtms();
-    window.gtag('event', eventName, {
+    const payload = {
       ...params,
       ...utms,
       page_path: window.location.pathname,
-    });
+    };
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, payload);
+    } else if (Array.isArray(window.dataLayer)) {
+      window.dataLayer.push(['event', eventName, payload]);
+    }
+  } catch {
+    // No bloquear el flujo de usuario si falla el script de analítica
   }
 }
 

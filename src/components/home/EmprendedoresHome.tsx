@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, useReducedMotion, type Variants } from 'motion/react';
 import { Building2, ShoppingBag, Landmark, ShieldCheck, Pause, Play } from 'lucide-react';
 import Link from 'next/link';
+import { trackAnalytics } from '@/lib/analytics';
 
 export default function EmprendedoresHome() {
   const reduceMotion = useReducedMotion();
@@ -197,10 +198,11 @@ export default function EmprendedoresHome() {
               <div className="pt-6 mt-6 border-t border-white/10 relative z-10 flex justify-end">
                 <Link
                   href="/servicios/empresas-cuenta-corriente"
-                  className="inline-flex items-center justify-between rounded-full min-h-13 px-8 py-3.5 bg-brand-yellow-400 hover:bg-brand-yellow-300 text-brand-blue-500 font-subheading text-base font-bold uppercase tracking-wider shadow-glow-yellow transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
+                  onClick={() => trackAnalytics.ctaClick('emprendedores_cuenta_corriente_cta', 'Conocé más')}
+                  className="inline-flex items-center justify-between rounded-full min-h-13 px-8 py-3.5 bg-brand-yellow-400 hover:bg-brand-yellow-300 text-brand-blue-500 font-subheading text-base font-bold uppercase tracking-wider shadow-glow-yellow transition-all duration-300 hover:scale-[1.02] cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500"
                 >
                   <span>Conocé más</span>
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-transparent text-brand-blue ml-3 transition-transform duration-300 group-hover:translate-x-1">
+                  <span aria-hidden="true" className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-transparent text-brand-blue ml-3 transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
                 </Link>
@@ -218,6 +220,7 @@ export default function EmprendedoresHome() {
               {/* Subtle Radial Glow */}
               <motion.div
                 className="absolute bottom-0 right-0 w-36 h-36 rounded-full bg-white/20 blur-2xl pointer-events-none"
+                aria-hidden="true"
                 animate={reduceMotion ? {} : { scale: [1, 1.08, 1], opacity: [0.15, 0.25, 0.15] }}
                 transition={{ duration: 3, ease: 'easeInOut', repeat: Infinity }}
               />
@@ -225,6 +228,7 @@ export default function EmprendedoresHome() {
               {/* Watermark Background Icon */}
               <motion.div
                 className="absolute right-4 bottom-4 text-brand-blue-900 opacity-[0.04] pointer-events-none select-none"
+                aria-hidden="true"
                 animate={reduceMotion ? {} : { rotate: [0, -2, 2, 0], scale: [1, 1.03, 1] }}
                 transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity }}
               >
@@ -237,7 +241,7 @@ export default function EmprendedoresHome() {
                     className="p-3 bg-brand-blue-500 text-white rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-500)]"
                     whileHover={reduceMotion ? undefined : { scale: 1.08, transition: snappySpring }}
                   >
-                    <ShoppingBag className="h-5 w-5" />
+                    <ShoppingBag className="h-5 w-5" aria-hidden="true" />
                   </motion.div>
                   <span className="text-2xs font-bold tracking-widest bg-brand-blue-500 text-white px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-blue-500/30">
                     MERCADOLIBRE
@@ -257,10 +261,11 @@ export default function EmprendedoresHome() {
               <div className="pt-4 mt-4 border-t border-brand-blue-100 relative z-10 flex justify-end">
                 <Link
                   href="/servicios/enviosflex"
-                  className="cta-nested-pill bg-brand-blue-500 text-white px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-md hover:bg-brand-blue-400"
+                  onClick={() => trackAnalytics.ctaClick('emprendedores_flex_cta', 'Configurar Flex')}
+                  className="cta-nested-pill bg-brand-blue-500 text-white px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-md hover:bg-brand-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-yellow-500"
                 >
                   <span>Configurar Flex</span>
-                  <span className="cta-nested-icon bg-white/10 w-6 h-6 rounded-full flex items-center justify-center">
+                  <span aria-hidden="true" className="cta-nested-icon bg-white/10 w-6 h-6 rounded-full flex items-center justify-center">
                     →
                   </span>
                 </Link>
@@ -278,6 +283,7 @@ export default function EmprendedoresHome() {
               {/* Subtle Radial Glow */}
               <motion.div
                 className="absolute bottom-0 right-0 w-36 h-36 rounded-full bg-brand-blue-500/5 blur-2xl pointer-events-none"
+                aria-hidden="true"
                 animate={reduceMotion ? {} : { scale: [1, 1.08, 1], opacity: [0.08, 0.16, 0.08] }}
                 transition={{ duration: 3, ease: 'easeInOut', repeat: Infinity }}
               />
@@ -285,6 +291,7 @@ export default function EmprendedoresHome() {
               {/* Watermark Background Icon */}
               <motion.div
                 className="absolute right-4 bottom-4 text-brand-blue-700 opacity-[0.02] pointer-events-none select-none"
+                aria-hidden="true"
                 animate={reduceMotion ? {} : { rotate: [0, 2, -2, 0], scale: [1, 1.03, 1] }}
                 transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity }}
               >
@@ -297,7 +304,7 @@ export default function EmprendedoresHome() {
                     className="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-500)]"
                     whileHover={reduceMotion ? undefined : { scale: 1.08, transition: snappySpring }}
                   >
-                    <Building2 className="h-5 w-5" />
+                    <Building2 className="h-5 w-5" aria-hidden="true" />
                   </motion.div>
                   <span className="text-2xs font-bold tracking-widest bg-brand-blue-50 text-brand-blue-500 px-3 py-1.5 rounded-lg uppercase font-subheading border border-brand-blue-100">
                     CORPORATIVO
@@ -318,10 +325,11 @@ export default function EmprendedoresHome() {
               <div className="pt-4 mt-4 border-t border-brand-blue-100 relative z-10 flex justify-end">
                 <Link
                   href="/contacto"
-                  className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-500 px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-sm hover:bg-brand-yellow-400"
+                  onClick={() => trackAnalytics.ctaClick('emprendedores_corporativo_cta', 'Abrir Cuenta Corriente')}
+                  className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-500 px-6 py-2.5 text-xs font-bold tracking-wider font-subheading rounded-full flex items-center gap-2 shadow-sm hover:bg-brand-yellow-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2"
                 >
                   <span>Abrir Cuenta Corriente</span>
-                  <span className="cta-nested-icon bg-transparent w-6 h-6 rounded-full flex items-center justify-center">
+                  <span aria-hidden="true" className="cta-nested-icon bg-transparent w-6 h-6 rounded-full flex items-center justify-center">
                     →
                   </span>
                 </Link>

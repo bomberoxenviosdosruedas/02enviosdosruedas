@@ -6,9 +6,15 @@ import Image from 'next/image';
 import { motion, useReducedMotion } from 'motion/react';
 import {
   Phone, MapPin, Mail, Clock, ShieldCheck, ArrowUpRight,
-  Zap, TrendingDown, ShoppingBag, ArrowUp, Rocket, Layers, Building2, Package, Store
+  Zap, TrendingDown, ArrowUp, Layers, Building2, Package, Store
 } from 'lucide-react';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
+import { CONTACT_EMAIL, OPERATING_HOURS, SUPPORT_PHONE } from '@/lib/promises';
+import { trackAnalytics } from '@/lib/analytics';
+
+const PHONE_HREF = `tel:+${SUPPORT_PHONE.replace(/\D/g, '')}`;
+const WHATSAPP_NUMBER = SUPPORT_PHONE.replace(/\D/g, '');
+const CURRENT_YEAR = new Date().getFullYear();
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
 
@@ -78,7 +84,7 @@ export default function OptimizedFooter() {
           <div className="space-y-2 text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-brand-yellow-500 animate-ping motion-reduce:animate-none" />
-              Operaciones Activas Mar del Plata 2026
+              Operaciones Activas Mar del Plata {CURRENT_YEAR}
             </div>
             <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
               ¿Tenés envíos para hoy? <span className="text-brand-yellow-500">Los entregamos a tiempo.</span>
@@ -91,22 +97,24 @@ export default function OptimizedFooter() {
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             <Link
               href="/cotizar"
+              onClick={() => trackAnalytics.ctaClick('footer_banner_cotizar_cta', 'Cotizá tu Envío')}
               className="w-full sm:w-auto cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase tracking-wider text-sm px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-[transform,background-color,border-color,box-shadow] duration-150 ease-out flex items-center justify-between group min-h-12"
             >
               <span>Cotizá tu Envío</span>
               <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform duration-150 ease-out">
-                <ArrowUpRight className="h-4 w-4" />
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </span>
             </Link>
 
             <a
-              href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola%20Envíos%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20envíos"
+              href={`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=Hola%20Envíos%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20envíos`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackAnalytics.whatsappClick('footer_banner_whatsapp', 'Chateá con Nosotros')}
               aria-label="Chateá con Nosotros por WhatsApp para consultas de envíos"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-subheading uppercase tracking-wider text-sm px-5 py-3.5 rounded-full transition-[background-color,border-color] duration-150 ease-out min-h-12"
             >
-              <FaWhatsapp className="h-4 w-4 text-brand-yellow-500" />
+              <FaWhatsapp className="h-4 w-4 text-brand-yellow-500" aria-hidden="true" />
               <span>Chateá con Nosotros</span>
             </a>
           </div>
@@ -194,9 +202,10 @@ export default function OptimizedFooter() {
                   className="inline-block"
                 >
                   <a
-                    href="https://api.whatsapp.com/send/?phone=542236602699"
+                    href={`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackAnalytics.whatsappClick('footer_social_whatsapp', 'WhatsApp Directo')}
                     className="h-10 w-10 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 flex items-center justify-center transition-colors duration-200 border border-brand-yellow-500 hover:border-brand-yellow-400 shadow-accent-sm hover:shadow-cta-glow p-2.5 group cursor-pointer"
                     title="WhatsApp Directo"
                     aria-label="WhatsApp Directo"
@@ -339,42 +348,46 @@ export default function OptimizedFooter() {
 
               <div className="flex gap-3 items-start bg-brand-blue/80 p-3 rounded-xl border border-white/15">
                 <div className="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
-                  <Phone className="h-4 w-4" />
+                  <Phone className="h-4 w-4" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="font-bold text-white uppercase font-subheading tracking-wider">Línea Directa y WhatsApp</p>
-                  <a href="tel:+542236602699" className="font-mono text-[13px] font-bold text-brand-yellow-500 hover:underline block mt-0.5">
-                    +54 223 660-2699
+                  <a
+                    href={PHONE_HREF}
+                    onClick={() => trackAnalytics.phoneClick(SUPPORT_PHONE, 'footer')}
+                    className="font-mono text-[13px] font-bold text-brand-yellow-500 hover:underline block mt-0.5"
+                  >
+                    {SUPPORT_PHONE}
                   </a>
                 </div>
               </div>
 
               <div className="flex gap-3 items-start bg-brand-blue/80 p-3 rounded-xl border border-white/15">
                 <div className="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
-                  <Mail className="h-4 w-4" />
+                  <Mail className="h-4 w-4" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="font-bold text-white uppercase font-subheading tracking-wider">Atención Comercial</p>
-                  <a href="mailto:matiascejas@enviosdosruedas.com" className="font-sans text-[12px] text-brand-blue-50 hover:text-brand-yellow-500 transition-colors block mt-0.5 break-all">
-                    matiascejas@enviosdosruedas.com
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="font-sans text-[12px] text-brand-blue-50 hover:text-brand-yellow-500 transition-colors block mt-0.5 break-all">
+                    {CONTACT_EMAIL}
                   </a>
                 </div>
               </div>
 
               <div className="flex gap-3 items-start bg-brand-blue/80 p-3 rounded-xl border border-white/15">
                 <div className="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
-                  <Clock className="h-4 w-4" />
+                  <Clock className="h-4 w-4" aria-hidden="true" />
                 </div>
                 <div className="space-y-1">
                   <p className="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Despacho (Base Central)</p>
                   <div className="text-[12px] font-sans text-brand-blue-50 space-y-0.5">
                     <div className="flex justify-between items-center gap-4">
                       <span>Lunes a Viernes:</span>
-                      <span className="font-mono font-bold text-brand-yellow-500">09:00 - 18:00 hs</span>
+                      <span className="font-mono font-bold text-brand-yellow-500">{OPERATING_HOURS.weekdays}</span>
                     </div>
                     <div className="flex justify-between items-center gap-4">
                       <span>Sábados:</span>
-                      <span className="font-mono font-bold text-brand-yellow-500">10:00 - 15:00 hs</span>
+                      <span className="font-mono font-bold text-brand-yellow-500">{OPERATING_HOURS.saturdays}</span>
                     </div>
                   </div>
                 </div>
@@ -389,7 +402,7 @@ export default function OptimizedFooter() {
           {/* Scroll to Top — continuous float loop */}
           <motion.button
             onClick={scrollToTop}
-            className="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 p-2.5 rounded-full shadow-accent-md hover:shadow-cta-glow transition-colors flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer"
+            className="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 p-2.5 rounded-full shadow-accent-md hover:shadow-cta-glow transition-colors flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer min-w-11 min-h-11"
             title="Volver al inicio"
             aria-label="Volver arriba"
             /* Idle float loop */
@@ -403,14 +416,14 @@ export default function OptimizedFooter() {
             whileTap={{ scale: 0.97 }}
             whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -4 }}
           >
-            <ArrowUp className="h-4 w-4 font-bold" />
+            <ArrowUp className="h-4 w-4 font-bold" aria-hidden="true" />
           </motion.button>
         </div>
 
         {/* BOTTOM SECTION: Legal & Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-blue-50 font-sans">
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6">
-            <p className="font-medium text-white">© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</p>
+            <p className="font-medium text-white">© {CURRENT_YEAR} Envíos DosRuedas · Mar del Plata, Argentina.</p>
             <Link href="/servicios" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
               Servicios
             </Link>

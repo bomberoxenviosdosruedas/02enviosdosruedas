@@ -6,6 +6,10 @@ import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { ChevronDown, ChevronRight, Phone, X } from 'lucide-react';
 import { CTANestedPill } from '@/components/ui';
+import { SUPPORT_PHONE } from '@/lib/promises';
+import { trackAnalytics } from '@/lib/analytics';
+
+const PHONE_HREF = `tel:+${SUPPORT_PHONE.replace(/\D/g, '')}`;
 
 export interface MobileNavItem {
   label: string;
@@ -144,8 +148,15 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, navItems,
         </div>
 
         <div className="p-5 border-t border-white/10 space-y-4 shrink-0 bg-brand-blue-700 backdrop-blur-md mt-auto">
-          <a href="tel:+542236602699" className="flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-white/10 border border-white/5 text-white hover:text-brand-yellow-500 font-mono text-sm font-bold transition-[color,background-color,border-color] duration-150 ease-out min-h-11 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"><Phone className="h-4 w-4 text-brand-yellow-500" /><span>+54 223 660-2699</span></a>
-          <CTANestedPill href="/cotizar" variant="primary" size="large" className="w-full justify-center min-h-11 py-3.5" onClick={onClose}>Cotizá tu envío</CTANestedPill>
+          <a
+            href={PHONE_HREF}
+            onClick={() => trackAnalytics.phoneClick(SUPPORT_PHONE, 'drawer_mobile')}
+            className="flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-white/10 border border-white/5 text-white hover:text-brand-yellow-500 font-mono text-sm font-bold transition-[color,background-color,border-color] duration-150 ease-out min-h-11 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50"
+          >
+            <Phone className="h-4 w-4 text-brand-yellow-500" aria-hidden="true" />
+            <span>{SUPPORT_PHONE}</span>
+          </a>
+          <CTANestedPill id="drawer_cta" href="/cotizar" variant="primary" size="large" className="w-full justify-center min-h-11 py-3.5" onClick={onClose}>Cotizá tu envío</CTANestedPill>
         </div>
       </motion.div>
     </>

@@ -9,11 +9,14 @@ import {
   EXPRESS_LEAD_TIME,
   EXPRESS_WINDOW_SHORT,
   FLEX_CUTOFF_TIME,
+  FLEX_DELIVERY_DEADLINE,
   LOWCOST_CUTOFF_TIME,
   LOWCOST_DELIVERY_DEADLINE,
   SAME_DAY_FIXED_PRICE,
   STANDARD_WEIGHT_KG,
 } from '@/lib/promises';
+import { EXPRESS_TIERS, LOW_COST_TIERS } from '@/lib/pricing';
+import { trackAnalytics } from '@/lib/analytics';
 
 const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
@@ -143,13 +146,13 @@ export default function ServicesOverview() {
       hintColor: 'text-brand-yellow-500',
       stats: {
         time: EXPRESS_WINDOW_SHORT,
-        price: '$3.700 Base',
-        weight: `Hasta ${STANDARD_WEIGHT_KG} kg`,
+        price: `${formatArs(EXPRESS_TIERS[0].price)} Base`,
+        weight: `Sin recargo hasta ${STANDARD_WEIGHT_KG} kg`,
       },
       details: {
         summary: `Servicio de mensajería urbana con horario a elección, ideal para trámites urgentes, despacho de encomiendas y entrega de documentación. Coordinás la franja horaria que te conviene y se asigna un repartidor exclusivo para tu envío.`,
         features: [
-          'Tarifa base de $3.700 hasta 3 km.',
+          `Tarifa base de ${formatArs(EXPRESS_TIERS[0].price)} hasta ${EXPRESS_TIERS[0].maxKm} km.`,
           `Entrega en franja de 3 hs a elección, pedido con ${EXPRESS_LEAD_TIME} mínima.`,
           'Notificación automática de entrega por WhatsApp.'
         ],
@@ -180,13 +183,13 @@ export default function ServicesOverview() {
       hintColor: 'text-brand-blue-500',
       stats: {
         time: 'Programado en el día',
-        price: '$3.000 Base',
-        weight: `Hasta ${STANDARD_WEIGHT_KG} kg`,
+        price: `${formatArs(LOW_COST_TIERS[0].price)} Base`,
+        weight: `Sin recargo hasta ${STANDARD_WEIGHT_KG} kg`,
       },
       details: {
         summary: 'La alternativa ideal para comercios y e-commerce que buscan optimizar costos de envío. Es un reparto económico programado para el día, no un agrupamiento de tus propios envíos: lo pedís antes del corte y se entrega a lo largo de la jornada.',
         features: [
-          'Tarifa base de $3.000 hasta 3 km.',
+          `Tarifa base de ${formatArs(LOW_COST_TIERS[0].price)} hasta ${LOW_COST_TIERS[0].maxKm} km.`,
           `Pedí antes de las ${LOWCOST_CUTOFF_TIME} y se entrega antes de las ${LOWCOST_DELIVERY_DEADLINE}.`,
           'Sin elección de franja horaria: la tarifa más baja de la ciudad.'
         ],
@@ -224,7 +227,7 @@ export default function ServicesOverview() {
         summary: 'Habilitá Envíos Flex en tu cuenta de MercadoLibre y despachá todas tus ventas en el mismo día. Mejorá tu reputación y convertite en vendedor destacado con recolección gratuita.',
         features: [
           'Visitas bonificadas según tu volumen diario de entregas.',
-          'Reparto coordinado antes de las 20:00 hs.',
+          `Reparto coordinado antes de las ${FLEX_DELIVERY_DEADLINE}.`,
           'Recolección a domicilio sin cargo extra por nuestro equipo.'
         ],
         ctaText: 'CONFIGURÁ FLEX',
@@ -752,6 +755,12 @@ export default function ServicesOverview() {
                   </motion.button>
                   <a
                     href={selectedService.details.ctaHref}
+                    onClick={() =>
+                      trackAnalytics.ctaClick(
+                        `services_modal_${selectedService.id}_cta`,
+                        selectedService.details.ctaText
+                      )
+                    }
                     className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-500 px-6 py-2.5 text-sm font-subheading font-bold uppercase hover:bg-brand-yellow-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500"
                   >
                     <span>{selectedService.details.ctaText}</span>

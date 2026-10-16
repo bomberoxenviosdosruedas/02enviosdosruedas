@@ -8,10 +8,15 @@ import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion, type Variants } from 'motion/react';
 import {
   Menu, X, ChevronDown, Bike, ChevronRight, Phone,
-  Home, Zap, TrendingDown, Clock, ShoppingBag, Info, HelpCircle, Share2, Mail,
-  LayoutGrid, HandCoins, Building2, Rocket, Package, Store
+  Home, Zap, TrendingDown, Clock, Info, HelpCircle, Share2, Mail,
+  LayoutGrid, Building2, Package, Store
 } from 'lucide-react';
 import { CTANestedPill } from '@/components/ui/CTANestedPill';
+import { SUPPORT_PHONE } from '@/lib/promises';
+import { trackAnalytics } from '@/lib/analytics';
+
+const PHONE_HREF = `tel:+${SUPPORT_PHONE.replace(/\D/g, '')}`;
+const PHONE_DISPLAY_SHORT = SUPPORT_PHONE.replace(/^\+54\s*/, '');
 
 const MobileNav = dynamic(() => import('./MobileNav'), { ssr: false });
 
@@ -191,17 +196,48 @@ export default function OptimizedHeader() {
             </nav>
 
             <div className="hidden lg:flex items-center gap-5">
-              <a href="tel:+542236602699" className="flex items-center gap-2 text-white hover:text-brand-yellow-500 transition-colors font-mono text-base font-bold"><Phone className="h-4 w-4 text-brand-yellow-500" /><span>223 660-2699</span></a>
+              <a
+                href={PHONE_HREF}
+                onClick={() => trackAnalytics.phoneClick(SUPPORT_PHONE, 'header_desktop')}
+                className="flex items-center gap-2 text-white hover:text-brand-yellow-500 transition-colors font-mono text-base font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-lg px-1"
+              >
+                <Phone className="h-4 w-4 text-brand-yellow-500" aria-hidden="true" />
+                <span>{PHONE_DISPLAY_SHORT}</span>
+              </a>
               <div className="relative">
                 {!(pathname === '/' || pathname.startsWith('/servicios') || pathname.startsWith('/cotizar')) && !prefersReducedMotion && (
                   <motion.span className="absolute inset-0 rounded-full bg-brand-yellow-500/25 pointer-events-none" animate={{ scale: [1, 1.18, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1.5 }} />
                 )}
-                <CTANestedPill href="/cotizar" variant={(pathname === '/' || pathname.startsWith('/servicios') || pathname.startsWith('/cotizar')) ? 'outline' : 'primary'} size="default" className={(pathname === '/' || pathname.startsWith('/servicios') || pathname.startsWith('/cotizar')) ? 'border-white/40 text-white hover:bg-white/10 hover:border-white' : ''}>Cotizá tu envío</CTANestedPill>
+                <CTANestedPill
+                  id="header_cta"
+                  href="/cotizar"
+                  variant={(pathname === '/' || pathname.startsWith('/servicios') || pathname.startsWith('/cotizar')) ? 'outline' : 'primary'}
+                  size="default"
+                  className={
+                    (pathname === '/' || pathname.startsWith('/servicios') || pathname.startsWith('/cotizar'))
+                      ? 'border-white/40 text-white hover:bg-white/10 hover:border-white focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-brand-blue-500'
+                      : ''
+                  }
+                  iconClassName={
+                    (pathname === '/' || pathname.startsWith('/servicios') || pathname.startsWith('/cotizar'))
+                      ? 'text-brand-yellow-500 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500'
+                      : undefined
+                  }
+                >
+                  Cotizá tu envío
+                </CTANestedPill>
               </div>
             </div>
 
             <div className="lg:hidden flex items-center gap-3">
-              <a href="tel:+542236602699" className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 transition-all min-w-11 min-h-11 flex items-center justify-center" aria-label="Llamar"><Phone className="h-5 w-5 text-brand-yellow-500" /></a>
+              <a
+                href={PHONE_HREF}
+                onClick={() => trackAnalytics.phoneClick(SUPPORT_PHONE, 'header_mobile')}
+                className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 transition-all min-w-11 min-h-11 flex items-center justify-center"
+                aria-label="Llamar"
+              >
+                <Phone className="h-5 w-5 text-brand-yellow-500" aria-hidden="true" />
+              </a>
               <button onClick={() => setIsOpen(!isOpen)} id="mobile-menu-toggle-opt" className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 transition-all cursor-pointer min-w-11 min-h-11 flex items-center justify-center" aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={isOpen} aria-controls="mobile-navigation-dialog">
                 <AnimatePresence mode="wait" initial={false}>
                   {isOpen ? (

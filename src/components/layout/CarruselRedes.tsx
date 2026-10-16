@@ -6,6 +6,10 @@ import { ArrowUpRight } from 'lucide-react';
 import { useReducedMotion } from 'motion/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SUPPORT_PHONE } from '@/lib/promises';
+import { trackAnalytics } from '@/lib/analytics';
+
+const WHATSAPP_NUMBER = SUPPORT_PHONE.replace(/\D/g, '');
 
 export default function CarruselRedes() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -102,10 +106,10 @@ export default function CarruselRedes() {
     {
       id: 'whatsapp',
       name: 'WHATSAPP',
-      handle: '+54 223 660-2699',
+      handle: SUPPORT_PHONE,
       desc: 'Escribinos directamente para consultas, contrataciones o soporte express al toque.',
       action: 'INICIAR CHAT',
-      url: 'https://api.whatsapp.com/send/?phone=542236602699',
+      url: `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}`,
       icon: FaWhatsapp,
       badgeText: 'WHATSAPP DIRECTO',
       // Estética oficial Envíos DosRuedas (Brand Yellow & Navy Blue)
@@ -205,6 +209,13 @@ export default function CarruselRedes() {
                       href={net.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => {
+                        if (net.id === 'whatsapp') {
+                          trackAnalytics.whatsappClick('carrusel_redes_whatsapp', net.action);
+                        } else {
+                          trackAnalytics.ctaClick(`carrusel_redes_${net.id}`, net.action);
+                        }
+                      }}
                       className={`w-full inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn ${net.btnBg}`}
                     >
                       <span>{net.action}</span>

@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  ShoppingBag,
   Zap,
   Building2,
   PackageCheck,
@@ -13,15 +12,12 @@ import {
 } from 'lucide-react';
 import { DoubleBezelCard } from '@/components/ui/DoubleBezelCard';
 import {
-  DROPOFF_DISCOUNT_PERCENT,
   EXPRESS_LEAD_TIME,
   FLEX_CUTOFF_TIME,
   LOWCOST_CUTOFF_TIME,
   LOWCOST_DELIVERY_DEADLINE,
-  SAME_DAY_FIXED_PRICE,
 } from '@/lib/promises';
-
-const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
+import { trackAnalytics } from '@/lib/analytics';
 
 export default function SegmentosHome() {
   const segmentos = [
@@ -39,7 +35,7 @@ export default function SegmentosHome() {
       id: 'ecommerce',
       tag: 'E-COMMERCE 24HS / SAME-DAY',
       title: '¿Tenés tienda online con stock en depósito?',
-      description: `E-Commerce 24hs: despacho garantizado en 24hs. E-Commerce Same-Day: entrega antes de 19hs con corte 13:00. Stock en Friuli 1972, picking QR, empaque incluido.`,
+      description: `E-Commerce 24hs: despacho garantizado en 24hs. E-Commerce Same-Day: entrega antes de las ${LOWCOST_DELIVERY_DEADLINE} con corte ${LOWCOST_CUTOFF_TIME}. Stock en Friuli 1972, picking QR, empaque incluido.`,
       ctaText: 'Ver planes E-Commerce',
       href: '/servicios',
       icon: Store,
@@ -77,7 +73,7 @@ export default function SegmentosHome() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-blue-500 text-xs font-subheading uppercase tracking-widest font-bold shadow-accent-sm">
-            <Sparkles className="w-3.5 h-3.5 text-brand-blue-500" />
+            <Sparkles className="w-3.5 h-3.5 text-brand-blue-500" aria-hidden="true" />
             <span>Elegí tu solución a medida</span>
           </div>
           <h2 id="segmentos-home-title" className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-500">
@@ -103,13 +99,13 @@ export default function SegmentosHome() {
                 innerClassName="h-full flex flex-col justify-between space-y-6"
               >
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-2">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
                       seg.highlight
                         ? 'bg-brand-yellow-500 text-brand-blue-500'
                         : 'bg-brand-blue-50 text-brand-blue-500'
                     }`}>
-                      <Icon className="w-6 h-6" />
+                      <Icon className="w-6 h-6" aria-hidden="true" />
                     </div>
                     <span className="text-2xs font-mono uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100">
                       {seg.tag}
@@ -128,14 +124,15 @@ export default function SegmentosHome() {
                 <div className="pt-4 border-t border-brand-blue-100">
                   <Link
                     href={seg.href}
-                    className={`w-full min-h-11 px-4 py-2.5 rounded-full font-subheading text-xs uppercase tracking-wider font-bold flex items-center justify-between transition-all duration-200 cursor-pointer ${
+                    onClick={() => trackAnalytics.ctaClick(`segmentos_${seg.id}_cta`, seg.ctaText)}
+                    className={`w-full min-h-11 px-4 py-2.5 rounded-full font-subheading text-xs uppercase tracking-wider font-bold flex items-center justify-between transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 ${
                       seg.highlight
                         ? 'bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 shadow-accent-sm'
                         : 'bg-brand-blue-50 hover:bg-brand-blue-100 text-brand-blue-500 border border-brand-blue-200/60'
                     }`}
                   >
                     <span>{seg.ctaText}</span>
-                    <ArrowRight className="w-4 h-4 ml-2 shrink-0" />
+                    <ArrowRight className="w-4 h-4 ml-2 shrink-0" aria-hidden="true" />
                   </Link>
                 </div>
               </DoubleBezelCard>

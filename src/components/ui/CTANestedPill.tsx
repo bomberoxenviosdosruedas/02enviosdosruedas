@@ -44,20 +44,31 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
       target,
       rel,
       disabled,
-      ...buttonProps
+      onClick,
+      type,
+      ...restProps
     },
     ref
   ) => {
     const baseStyles =
-      'cta-nested-pill group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-wider transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 select-none border';
+      'cta-nested-pill group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-wider transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 select-none border';
 
     const normalizedSize = size === 'lg' ? 'large' : size;
 
     const sizeStyles = {
-      compact: 'px-4 py-1.5 text-xs min-h-9',
+      compact: 'px-4 py-2 text-xs min-h-11',
       default: 'px-5 py-2 text-sm min-h-11',
       large: 'px-8 py-3 text-base min-h-13',
     }[normalizedSize];
+
+    // Anillo de foco bimodal: amarillo sobre azul (primary, elevated) y azul sobre blanco/amarillo (blue, outline, ghost)
+    const focusRingStyles = {
+      primary: 'focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-brand-blue-500',
+      blue: 'focus-visible:ring-brand-blue-500 focus-visible:ring-offset-brand-yellow-500',
+      elevated: 'focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-brand-blue-500',
+      outline: 'focus-visible:ring-brand-blue-500 focus-visible:ring-offset-white',
+      ghost: 'focus-visible:ring-brand-blue-500 focus-visible:ring-offset-white',
+    }[variant];
 
     const variantStyles = {
       primary:
@@ -87,7 +98,7 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
         'bg-transparent text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-white group-hover:translate-x-1',
     }[variant];
 
-    const defaultIcon = <ArrowRight className="w-4 h-4" />;
+    const defaultIcon = <ArrowRight className="w-4 h-4" aria-hidden="true" />;
     const renderedIcon = icon !== undefined ? icon : defaultIcon;
 
     const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : '';
@@ -95,6 +106,7 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
     const combinedClassName = cn(
       baseStyles,
       sizeStyles,
+      focusRingStyles,
       variantStyles,
       disabledStyles,
       className
@@ -116,12 +128,12 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
       if (href && (href.includes('wa.me') || href.includes('whatsapp.com'))) {
-        trackAnalytics.whatsappClick('cta_pill', typeof children === 'string' ? children : undefined);
-      } else if (buttonProps.id || typeof children === 'string') {
-        trackAnalytics.ctaClick(buttonProps.id || 'cta_pill', typeof children === 'string' ? children : 'cta');
+        trackAnalytics.whatsappClick(restProps.id || 'cta_pill', typeof children === 'string' ? children : undefined);
+      } else if (restProps.id || typeof children === 'string') {
+        trackAnalytics.ctaClick(restProps.id || 'cta_pill', typeof children === 'string' ? children : 'cta');
       }
-      if (buttonProps.onClick) {
-        buttonProps.onClick(e as React.MouseEvent<HTMLButtonElement>);
+      if (onClick) {
+        onClick(e as React.MouseEvent<HTMLButtonElement>);
       }
     };
 
@@ -133,6 +145,7 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
           className={combinedClassName}
           target={target}
           rel={rel}
+          {...(restProps as Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'className' | 'target' | 'rel' | 'onClick'>)}
           onClick={handleClick}
         >
           {content}
@@ -143,10 +156,10 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
     return (
       <button
         ref={ref as React.Ref<HTMLButtonElement>}
-        type={buttonProps.type || 'button'}
+        type={type || 'button'}
         disabled={disabled}
         className={combinedClassName}
-        {...buttonProps}
+        {...restProps}
         onClick={handleClick}
       >
         {content}
