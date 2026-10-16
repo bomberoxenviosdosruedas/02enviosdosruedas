@@ -8,39 +8,39 @@ import { motion, type Variants, type HTMLMotionProps } from 'motion/react';
 export const timelineVariants = {
   /** Classic fade up — most versatile */
   fadeUp: {
-    hidden:  { opacity: 0, y: 32 },
-    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 80, damping: 18 } },
+    hidden:  { opacity: 0, y: 12 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 360, damping: 28 } },
   } as Variants,
 
   /** Slide in from left with spring */
   slideLeft: {
-    hidden:  { opacity: 0, x: -48 },
-    visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 70, damping: 16 } },
+    hidden:  { opacity: 0, x: -16 },
+    visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 360, damping: 28 } },
   } as Variants,
 
   /** Slide in from right */
   slideRight: {
-    hidden:  { opacity: 0, x: 48 },
-    visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 70, damping: 16 } },
+    hidden:  { opacity: 0, x: 16 },
+    visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 360, damping: 28 } },
   } as Variants,
 
   /** Scale pop — for cards and icons */
   scalePop: {
-    hidden:  { opacity: 0, scale: 0.96, y: 12 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { type: 'spring', stiffness: 350, damping: 26 } },
+    hidden:  { opacity: 0, scale: 0.96, y: 8 },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { type: 'spring', stiffness: 360, damping: 28 } },
   } as Variants,
 
   /** Blur reveal — cinematic, for headlines */
   blurIn: {
-    hidden:  { opacity: 0, y: 20, filter: 'blur(12px)' },
-    visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+    hidden:  { opacity: 0, y: 8, filter: 'blur(6px)' },
+    visible: { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.22, ease: [0.23, 1, 0.32, 1] } },
   } as Variants,
 
   /** Clip reveal from bottom — editorial feel */
   clipUp: {
     hidden:  { clipPath: 'inset(100% 0 0 0)', opacity: 0 },
     // Negative top inset keeps Anton accents (Á, Í) visible when the heading uses tight leading
-    visible: { clipPath: 'inset(-20% 0 0 0)', opacity: 1, transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] } },
+    visible: { clipPath: 'inset(-20% 0 0 0)', opacity: 1, transition: { duration: 0.25, ease: [0.23, 1, 0.32, 1] } },
   } as Variants,
 
   /** Stagger container — apply to parent for child stagger */
@@ -48,14 +48,14 @@ export const timelineVariants = {
     hidden:  { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+      transition: { staggerChildren: 0.08, delayChildren: 0.04 },
     },
   } as Variants,
 
   /** Stagger item — use inside staggerContainer */
   staggerItem: {
-    hidden:  { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 85, damping: 17 } },
+    hidden:  { opacity: 0, y: 12 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 360, damping: 28 } },
   } as Variants,
 } as const;
 

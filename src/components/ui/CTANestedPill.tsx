@@ -51,7 +51,7 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
     ref
   ) => {
     const baseStyles =
-      'cta-nested-pill group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-wider transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 select-none border';
+      'cta-nested-pill group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-wider transition-[transform,background-color,border-color,box-shadow] duration-160 ease-out cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 select-none border';
 
     const normalizedSize = size === 'lg' ? 'large' : size;
 
@@ -72,19 +72,19 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
 
     const variantStyles = {
       primary:
-        'bg-brand-yellow-500 text-brand-blue-500 border-brand-yellow-500 shadow-accent-sm hover:shadow-cta-glow hover:bg-brand-yellow-400 active:scale-98 active:translate-y-px',
+        'bg-brand-yellow-500 text-brand-blue-500 border-brand-yellow-500 shadow-accent-sm hover:shadow-cta-glow hover:bg-brand-yellow-400 active:scale-[0.97]',
       // Para fondos amarillos (#FFEC01): azul de marca, texto blanco, chip amarillo.
-      blue: 'bg-brand-blue-500 text-white border-brand-blue-500 shadow-[0_0_24px_rgba(9,80,246,0.28)] hover:bg-brand-blue-500 hover:border-brand-blue-500 active:scale-98 active:translate-y-px',
+      blue: 'bg-brand-blue-500 text-white border-brand-blue-500 shadow-[0_0_24px_rgba(9,80,246,0.28)] hover:bg-brand-blue-500 hover:border-brand-blue-500 active:scale-[0.97]',
       elevated:
-        'bg-white text-brand-blue-500 border-brand-blue-100 shadow-elevated hover:shadow-hover-lift hover:border-brand-blue-300 hover:text-brand-blue-500 active:scale-98',
+        'bg-white text-brand-blue-500 border-brand-blue-100 shadow-elevated hover:shadow-hover-lift hover:border-brand-blue-300 hover:text-brand-blue-500 active:scale-[0.97]',
       outline:
-        'bg-transparent text-brand-blue-500 border-2 border-brand-blue-500 hover:bg-brand-blue-50 active:scale-98',
+        'bg-transparent text-brand-blue-500 border-2 border-brand-blue-500 hover:bg-brand-blue-50 active:scale-[0.97]',
       ghost:
-        'bg-transparent text-brand-blue-500 border-transparent hover:bg-brand-blue-50 active:scale-98',
+        'bg-transparent text-brand-blue-500 border-transparent hover:bg-brand-blue-50 active:scale-[0.97]',
     }[variant];
 
     const iconChipBase =
-      'cta-nested-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-200';
+      'cta-nested-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-160 ease-out';
 
     const iconChipVariantStyles = {
       primary:

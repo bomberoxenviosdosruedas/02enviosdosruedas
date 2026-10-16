@@ -245,7 +245,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                       return (
                         <div
                           key={item.id}
-                          className={`rounded-2xl p-5 border-2 transition-all duration-200 flex flex-col justify-between ${
+                          className={`rounded-2xl p-5 border-2 transition-[border-color,background-color,box-shadow] duration-160 ease-out flex flex-col justify-between ${
                             isReviewed 
                               ? 'border-brand-blue-400 bg-brand-white-50/10 shadow-[3px_3px_0px_var(--color-brand-blue-500)]'
                               : 'border-brand-blue-100 bg-white hover:border-brand-blue shadow-sm'
@@ -319,7 +319,7 @@ export default function RevisarClient({ initialFeedbackList }: RevisarClientProp
                               <button
                                 onClick={() => handleSubmit(item)}
                                 disabled={isPending}
-                                className="px-3 py-1.5 bg-brand-yellow text-brand-blue font-mono font-bold text-2xs uppercase tracking-wider border-2 border-brand-blue rounded-lg shadow-[2px_2px_0px_var(--color-brand-blue)] hover:shadow-[1px_1px_0px_var(--color-brand-blue)] hover:translate-x-px hover:translate-y-px transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                                className="px-3 py-1.5 bg-brand-yellow text-brand-blue font-mono font-bold text-2xs uppercase tracking-wider border-2 border-brand-blue rounded-lg shadow-[2px_2px_0px_var(--color-brand-blue)] hover:shadow-[1px_1px_0px_var(--color-brand-blue)] hover:translate-x-px hover:translate-y-px active:scale-[0.97] transition-[transform,box-shadow,background-color] duration-160 ease-out flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
                               >
                                 {isPending ? (
                                   <RefreshCw className="h-3 w-3 animate-spin" />

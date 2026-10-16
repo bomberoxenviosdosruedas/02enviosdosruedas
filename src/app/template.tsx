@@ -18,10 +18,10 @@ export default function Template({ children }: { children: React.ReactNode }) {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        initial={reduceMotion ? false : isMounted ? { opacity: 0, y: 6, filter: "blur(4px)" } : false}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -6, filter: "blur(4px)" }}
-        transition={{ duration: reduceMotion ? 0.01 : 0.22, ease: EASE_PAGE_ENTER }}
+        initial={reduceMotion ? false : isMounted ? { opacity: 0, y: 4 } : false}
+        animate={{ opacity: 1, y: 0 }}
+        exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -4 }}
+        transition={{ duration: reduceMotion ? 0.01 : 0.18, ease: EASE_PAGE_ENTER }}
         className="w-full h-full"
       >
         {children}

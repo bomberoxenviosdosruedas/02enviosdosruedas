@@ -345,11 +345,11 @@ main[id] {
   animation: roundtrip 4.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 @keyframes grow-x {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+  from { transform: scaleX(0.25); opacity: 0.3; }
+  to { transform: scaleX(1); opacity: 1; }
 }
 @utility animate-grow-x {
-  animation: grow-x 1.1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: grow-x 220ms var(--ease-out-ui) forwards;
   transform-origin: left center;
 }
 

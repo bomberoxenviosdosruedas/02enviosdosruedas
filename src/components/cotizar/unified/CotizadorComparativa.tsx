@@ -146,10 +146,10 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
             role="region"
             aria-live="polite"
             aria-atomic="true"
-            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 }}
+            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 6 }}
             animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
-            transition={shouldReduceMotion ? { duration: 0.15 } : { type: 'spring', stiffness: 100, damping: 20 }}
+            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -6 }}
+            transition={shouldReduceMotion ? { duration: 0.05 } : { duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
             className="w-full"
           >
             <span className="sr-only">
@@ -235,7 +235,10 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                                   className={`h-full rounded-full ${
                                     key === 'express' ? 'bg-brand-yellow-500' : 'bg-brand-blue-500'
                                   }`}
-                                  style={{ width: `${ancho}%` }}
+                                  style={{
+                                    width: `${ancho}%`,
+                                    transition: shouldReduceMotion ? 'none' : 'width 240ms cubic-bezier(0.23, 1, 0.32, 1)',
+                                  }}
                                 />
                               </div>
                             </div>
@@ -292,7 +295,11 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                                       ? 'bg-brand-yellow-500 text-brand-blue-900'
                                       : 'bg-[repeating-linear-gradient(135deg,var(--color-brand-blue-500)_0_6px,var(--color-brand-blue-400)_6px_12px)] text-white'
                                   }`}
-                                  style={{ left: `${izquierda}%`, width: `${ancho}%` }}
+                                  style={{
+                                    left: `${izquierda}%`,
+                                    width: `${ancho}%`,
+                                    transition: shouldReduceMotion ? 'none' : 'left 240ms cubic-bezier(0.23, 1, 0.32, 1), width 240ms cubic-bezier(0.23, 1, 0.32, 1)',
+                                  }}
                                 >
                                   <span className="font-subheading text-2xs uppercase tracking-wider font-bold whitespace-nowrap">
                                     {regla.banda.rotulo}

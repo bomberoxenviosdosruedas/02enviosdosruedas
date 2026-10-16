@@ -1,33 +1,49 @@
-# Implementation Plans Index — Emil Kowalski Motion Audit
+# Master Implementation Plans Index — Emil Kowalski Motion Suite
 
-This directory contains modular, ready-to-execute implementation plans created from a comprehensive motion audit of the codebase, guided strictly by **Emil Kowalski's animation philosophy** (`emilkowal.ski`) and Next.js / React 19 best practices.
-
----
-
-## Executive Summary & Plan Matrix
-
-| # | Plan | Severidad | Categoría de Auditoría | Estado | Dependencias |
-|---|---|---|---|---|---|
-| **001** | [001 — Centralize Motion Tokens and Fix Easing Violations](./001-centralize-motion-tokens.md) | **HIGH** | Curvas (Easing) y Duración / Cohesión | `TODO` | Ninguna (Fase 1) |
-| **002** | [002 — Standardize Transform Origins and Initial Scale States](./002-header-dropdown-scale-origin.md) | **MEDIUM** | Fisicalidad y Origen | `TODO` | Plan 001 |
-| **003** | [003 — Optimize Mobile Drawer Performance and Eliminate Reflow Anti-Patterns](./003-mobile-nav-performance-interruptibility.md) | **HIGH** | Rendimiento y Desacople de Render | `TODO` | Plan 001 |
-| **004** | [004 — Standardize Active Press Feedback, Touch Guards, and Spatial Micro-Interactions](./004-active-feedback-touch-accessibility.md) | **MEDIUM** | Accesibilidad / Oportunidades Perdidas | `TODO` | Plan 001, 003 |
+This index contains the fully updated, self-contained implementation plans generated for the entire `src/` codebase. The plans are structured strictly around **Emil Kowalski's motion and animation philosophy** (`emilkowal.ski`) and are stamped against commit `b8a95d6`.
 
 ---
 
-## Suggested Execution Order
+## Plan Matrix & Execution Roadmap
 
-1. **Fase 1 (Fundación):** Execute **Plan 001** to establish canonical motion CSS variables under `:root` in `src/app/globals.css` and eliminate sluggish `ease-in` drag on exits and route changes.
-2. **Fase 2 (Navegación y Layout Crítico):** Execute **Plan 002** and **Plan 003** to anchor header dropdown scaling to trigger origins, replace layout-thrashing `height: auto` spring animations in mobile drawers with Kowalski curves (`cubic-bezier(0.32, 0.72, 0, 1)`), and purge `transition-all`.
-3. **Fase 3 (Tacto y Accesibilidad):** Execute **Plan 004** to enforce tactile `scale(0.97)` active press states across all interactive buttons/cards, wrap hover states in `@media (hover: hover)`, and verify reduced motion support.
+| # | Plan | Severidad | Categoría de Auditoría | Estado | Dependencias | Archivos Clave |
+|---|---|---|---|---|---|---|
+| **001** | [001 — Motion Tokens and Layout Foundations](./001-motion-tokens-layout-foundations.md) | **HIGH** | Easing & Duración / Rendimiento / Tokens | `DONE` | Ninguna (Fase 1) | `globals.css`, `template.tsx`, `MobileNav.tsx`, `OptimizedFooter.tsx` |
+| **002** | [002 — Home & Landing Page Motion Choreography](./002-home-landing-choreography.md) | **HIGH** | Easing / Fisicalidad / Rendimiento | `DONE` | Plan 001 | `ServicesOverview.tsx`, `EmprendedoresHome.tsx`, `CtaSection.tsx`, `HeroAnimado.tsx` |
+| **003** | [003 — Cotizador & Forms State Transitions](./003-cotizador-forms-state-transitions.md) | **HIGH** | Propósito & Frecuencia / Rendimiento | `DONE` | Plan 001 | `CotizadorComparativa.tsx`, `CotizadorForm.tsx`, `RevisarClient.tsx` |
+| **004** | [004 — Service Pages & Interactive Calculators](./004-service-pages-interactive-calculators.md) | **MEDIUM** | Rendimiento / Micro-interacciones | `DONE` | Plan 001 | `ExpressHeroCollage.tsx`, `DropoffCalculator.tsx`, `FlexFeatures.tsx` |
+| **005** | [005 — UI Primitives & Tactile Micro-Interactions](./005-ui-primitives-tactile-microinteractions.md) | **HIGH** | Rendimiento (rAF) / Frecuencia / Easing | `DONE` | Plan 001 | `FloatTiltCard.tsx`, `timeline-animation.tsx`, `CTANestedPill.tsx`, `RadioCardGroup.tsx` |
 
 ---
 
-## Execution Instructions for AI Agents / Engineers
+## Suggested Execution Sequence
 
-To execute any plan in isolation:
-1. Read the target plan file (e.g. `docs/plans/001-centralize-motion-tokens.md`).
-2. Follow the precise step-by-step instructions and verbatim code targets.
-3. Obey all specified boundaries (do not modify business logic or API routes).
-4. Perform both **Mechanical Checks** (`pnpm run typecheck`, `pnpm exec vitest run`) and **Feel Checks** (DevTools animation inspection at 10% speed).
-5. Update the plan status in this `README.md` index from `TODO` to `DONE`.
+```mermaid
+flowchart TD
+    P1["001: Tokens y Layout Base<br/>(globals.css, template.tsx, mobile nav)"]
+    P2["002: Home y Secciones Landing<br/>(ServicesOverview, Emprendedores)"]
+    P3["003: Cotizador y Formularios<br/>(CotizadorComparativa, Revisar)"]
+    P4["004: Páginas de Servicios<br/>(ExpressCollage, DropoffCalculator)"]
+    P5["005: Primitivas UI y Microinteracciones<br/>(FloatTiltCard, CTANestedPill, timeline)"]
+
+    P1 --> P5
+    P1 --> P2
+    P1 --> P3
+    P1 --> P4
+```
+
+1. **Fase 1 — Cimientos Globales (Plan 001):** Establece los tokens canónicos en `:root`, elimina `filter: blur(...)` en las transiciones de página de `template.tsx` y corrige la expansión de acordeón en `MobileNav.tsx`.
+2. **Fase 2 — Primitivas Universales (Plan 005):** Elimina el anti-patrón de `setState` en eventos `mousemove` de `FloatTiltCard.tsx`, purga `transition-all` de `CTANestedPill.tsx` y acelera los presets de `timeline-animation.tsx`.
+3. **Fase 3 — Experiencia Landing y Conversión (Planes 002 y 003):** Reemplaza resortes fofos (`stiffness: 100`) por curvas ágiles (`stiffness: 360, damping: 28`), suaviza la barra de comparativa de precios y desactiva bucles infinitos de blur.
+4. **Fase 4 — Páginas de Servicios y Calculadoras (Plan 004):** Desacopla mutaciones de variables CSS en el padre en `ExpressHeroCollage.tsx` y dota de feedback táctil `scale(0.97)` a los botones y presets de `DropoffCalculator.tsx`.
+
+---
+
+## Instructions for Execution Agents / Engineers
+
+Every plan is 100% self-contained and ready to execute without ambient conversational context:
+1. Open the specific plan file (e.g. `docs/plans/001-motion-tokens-layout-foundations.md`).
+2. Follow the numbered steps verbatim; never approximate easing values or duration thresholds.
+3. Observe all listed boundaries (never alter pricing, promises, routes, or copy).
+4. Run both mechanical checks (`pnpm exec tsc --noEmit`, `pnpm test:ci`) and the feel checks specified in the plan.
+5. Upon successful completion, change the plan status from `TODO` to `DONE` in this file and in the plan header.

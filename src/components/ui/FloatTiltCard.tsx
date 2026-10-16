@@ -27,7 +27,7 @@ export const FloatTiltCard: React.FC<FloatTiltCardProps> = ({
   disabled = false,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [transformStyle, setTransformStyle] = useState<string>('');
+  const rafRef = useRef<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [reducedMotion, setReducedMotion] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
@@ -57,15 +57,20 @@ export const FloatTiltCard: React.FC<FloatTiltCardProps> = ({
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    const xPct = (mouseX / width - 0.5) * 2; // -1 to 1
-    const yPct = (mouseY / height - 0.5) * 2; // -1 to 1
+    const xPct = (mouseX / width - 0.5) * 2;
+    const yPct = (mouseY / height - 0.5) * 2;
 
-    const rotateX = yPct * -8; // ±8deg
-    const rotateY = xPct * 8; // ±8deg
+    const rotateX = (yPct * -6).toFixed(2);
+    const rotateY = (xPct * 6).toFixed(2);
 
-    setTransformStyle(
-      `translateY(-6px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`
-    );
+    if (!rafRef.current) {
+      rafRef.current = requestAnimationFrame(() => {
+        if (cardRef.current) {
+          cardRef.current.style.transform = `translateY(-6px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        }
+        rafRef.current = 0;
+      });
+    }
   };
 
   const handleMouseEnter = () => {
@@ -76,7 +81,13 @@ export const FloatTiltCard: React.FC<FloatTiltCardProps> = ({
   const handleMouseLeave = () => {
     if (disabled || reducedMotion) return;
     setIsHovered(false);
-    setTransformStyle('translateY(0px) rotateX(0deg) rotateY(0deg)');
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = 0;
+    }
+    if (cardRef.current) {
+      cardRef.current.style.transform = 'translateY(0px) rotateX(0deg) rotateY(0deg)';
+    }
   };
 
   return (
@@ -91,15 +102,12 @@ export const FloatTiltCard: React.FC<FloatTiltCardProps> = ({
         onMouseLeave={handleMouseLeave}
         style={{
           transformStyle: 'preserve-3d',
-          transform: isHovered
-            ? transformStyle || 'translateY(-6px) rotateX(4deg) rotateY(-2deg)'
-            : 'translateY(0px) rotateX(0deg) rotateY(0deg)',
           transition: isHovered
-            ? 'transform 0.1s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease-out'
-            : 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease-out',
+            ? 'transform 120ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 200ms ease-out'
+            : 'transform 300ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 200ms ease-out',
         }}
         className={cn(
-          'relative transition-all duration-300',
+          'relative transition-[box-shadow] duration-200 ease-out',
           isHovered && 'shadow-antigravity-deep',
           className
         )}

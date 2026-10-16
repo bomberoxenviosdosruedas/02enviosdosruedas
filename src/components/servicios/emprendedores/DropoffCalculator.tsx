@@ -84,7 +84,7 @@ export default function DropoffCalculator() {
               type="button"
               onClick={() => apply(envios - 1)}
               aria-label="Restar un envío"
-              className="shrink-0 w-12 min-h-11 flex items-center justify-center text-brand-blue-700 hover:bg-brand-blue-50 active:bg-brand-blue-100 transition-colors cursor-pointer"
+              className="shrink-0 w-12 min-h-11 flex items-center justify-center text-brand-blue-700 hover:bg-brand-blue-50 active:bg-brand-blue-100 active:scale-[0.97] transition-[transform,background-color] duration-160 ease-out cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500"
             >
               <Minus className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -97,13 +97,13 @@ export default function DropoffCalculator() {
               onChange={(e) => setRaw(e.target.value)}
               onBlur={onBlur}
               aria-label="Cantidad de envíos por mes"
-              className="w-full min-w-0 text-center font-mono text-2xl tabular-nums text-brand-blue-900 bg-transparent focus:outline-none"
+              className="w-full min-w-0 text-center font-mono text-2xl tabular-nums text-brand-blue-900 bg-transparent focus-visible:outline-none"
             />
             <button
               type="button"
               onClick={() => apply(envios + 1)}
               aria-label="Sumar un envío"
-              className="shrink-0 w-12 min-h-11 flex items-center justify-center text-brand-blue-700 hover:bg-brand-blue-50 active:bg-brand-blue-100 transition-colors cursor-pointer"
+              className="shrink-0 w-12 min-h-11 flex items-center justify-center text-brand-blue-700 hover:bg-brand-blue-50 active:bg-brand-blue-100 active:scale-[0.97] transition-[transform,background-color] duration-160 ease-out cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500"
             >
               <Plus className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -116,7 +116,7 @@ export default function DropoffCalculator() {
                 type="button"
                 onClick={() => apply(n)}
                 aria-pressed={envios === n}
-                className={`min-h-11 px-4 rounded-full font-mono text-sm tabular-nums border-2 transition-colors cursor-pointer ${
+                className={`min-h-11 px-4 rounded-full font-mono text-sm tabular-nums border-2 transition-[transform,background-color,border-color] duration-160 ease-out active:scale-[0.97] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 ${
                   envios === n
                     ? 'bg-brand-blue-700 text-brand-yellow-500 border-brand-blue-700'
                     : 'bg-white text-brand-blue-700 border-brand-blue-300 hover:border-brand-blue-700'

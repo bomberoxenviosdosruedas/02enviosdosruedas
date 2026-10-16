@@ -124,22 +124,38 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, navItems,
                       <span className="flex items-center gap-3.5">{item.icon && <item.icon className="h-5 w-5 text-brand-yellow-500 shrink-0" />}<span>{item.label}</span></span>
                       <motion.span animate={{ rotate: activeDropdown === item.label ? 180 : 0 }} transition={{ type: 'spring', stiffness: 400, damping: 25 }}><ChevronDown className="h-5 w-5 text-brand-yellow-500 shrink-0" /></motion.span>
                     </button>
-                    <AnimatePresence>
-                      {item.dropdownItems && activeDropdown === item.label && (
-                        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.22, ease: [0.32, 0.72, 0, 1] }} className="pl-4 pr-1 py-2 flex flex-col gap-1 overflow-hidden">
-                          {item.dropdownItems.map((subItem, idx) => {
-                            const SubIcon = subItem.icon || ChevronRight;
-                            return (
-                              <motion.div key={subItem.href} initial={prefersReducedMotion ? {} : { opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: idx * 0.05, type: 'spring', stiffness: 380, damping: 26 }}>
-                                <Link href={subItem.href} onClick={onClose} className="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-brand-blue-50/90 hover:text-brand-yellow-500 hover:bg-white/10 transition-[color,background-color,border-color,transform] duration-150 ease-out min-h-10.5 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50">
-                                  <div className="p-1 rounded-lg bg-white/10 text-brand-yellow-500 shrink-0"><SubIcon className="h-4 w-4" /></div><span>{subItem.label}</span>
-                                </Link>
-                              </motion.div>
-                            );
-                          })}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    <div
+                      className={`grid transition-[grid-template-rows,opacity] duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+                        activeDropdown === item.label
+                          ? 'grid-rows-[1fr] opacity-100'
+                          : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                      }`}
+                    >
+                      <div className="overflow-hidden pl-4 pr-1 py-2 flex flex-col gap-1">
+                        {item.dropdownItems?.map((subItem, idx) => {
+                          const SubIcon = subItem.icon || ChevronRight;
+                          return (
+                            <motion.div
+                              key={subItem.href}
+                              initial={prefersReducedMotion ? {} : { opacity: 0, x: 12 }}
+                              animate={activeDropdown === item.label ? { opacity: 1, x: 0 } : { opacity: 0, x: 12 }}
+                              transition={{ delay: idx * 0.04, type: 'spring', stiffness: 380, damping: 28 }}
+                            >
+                              <Link
+                                href={subItem.href}
+                                onClick={onClose}
+                                className="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-brand-blue-50/90 hover:text-brand-yellow-500 hover:bg-white/10 transition-[color,background-color,border-color,transform] duration-150 ease-out min-h-10.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500/50"
+                              >
+                                <div className="p-1 rounded-lg bg-white/10 text-brand-yellow-500 shrink-0">
+                                  <SubIcon className="h-4 w-4" />
+                                </div>
+                                <span>{subItem.label}</span>
+                              </Link>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </div>
                 )}
               </motion.div>

@@ -8,7 +8,8 @@ node_modules/
 dist/
 build/
 .vitest/
-
+docs/paginas_en_txt/*
+docs/Nueva carpeta/*
 # Archivos de bloqueo y metadatos de compilación
 pnpm-lock.yaml
 pnpm-workspace.yaml

@@ -133,6 +133,7 @@ const tiles: Tile[] = [
 
 export default function ExpressHeroCollage({ className }: { className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
+  const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
   const reduceMotion = useReducedMotion();
   const [inView, setInView] = useState(false);
   // Con reduced-motion no hay entrada: las teselas se muestran quietas desde el inicio.
@@ -161,8 +162,12 @@ export default function ExpressHeroCollage({ className }: { className?: string }
     const hero = el?.closest('section');
     if (!el || !hero) return;
     const reset = () => {
-      el.style.setProperty('--mx', '0');
-      el.style.setProperty('--my', '0');
+      tiles.forEach((tile, idx) => {
+        const tEl = tileRefs.current[idx];
+        if (tEl) {
+          tEl.style.transform = `translate3d(0, 0, 0) rotate(${tile.r}deg)`;
+        }
+      });
     };
     if (reduceMotion || !window.matchMedia('(pointer: fine)').matches) {
       reset();
@@ -177,8 +182,12 @@ export default function ExpressHeroCollage({ className }: { className?: string }
       ny = ((e.clientY - r.top) / r.height - 0.5) * 2;
       if (!raf) {
         raf = requestAnimationFrame(() => {
-          el.style.setProperty('--mx', nx.toFixed(3));
-          el.style.setProperty('--my', ny.toFixed(3));
+          tiles.forEach((tile, idx) => {
+            const tEl = tileRefs.current[idx];
+            if (tEl) {
+              tEl.style.transform = `translate3d(${(nx * tile.d).toFixed(2)}px, ${(ny * tile.d).toFixed(2)}px, 0) rotate(${tile.r}deg)`;
+            }
+          });
           raf = 0;
         });
       }
@@ -198,24 +207,20 @@ export default function ExpressHeroCollage({ className }: { className?: string }
       aria-hidden="true"
       data-in={shown ? 'true' : 'false'}
       className={cn('group pointer-events-none relative', className)}
-      style={
-        {
-          '--mx': 0,
-          '--my': 0,
-          '--enter': shown ? '0px' : '12px',
-        } as React.CSSProperties
-      }
     >
-      {tiles.map((tile) => (
+      {tiles.map((tile, idx) => (
         <div
           key={tile.key}
+          ref={(node) => {
+            tileRefs.current[idx] = node;
+          }}
           className={cn(
-            'absolute motion-safe:group-data-[in=false]:opacity-0',
+            'absolute motion-safe:group-data-[in=false]:opacity-0 motion-safe:group-data-[in=false]:translate-y-2',
             tile.className
           )}
           style={{
-            transform: `translate3d(calc(var(--mx) * ${tile.d}px), calc(var(--my) * ${tile.d}px + var(--enter)), 0) rotate(${tile.r}deg)`,
-            transition: `transform 500ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease ${tile.i * 60}ms`,
+            transform: `translate3d(0, 0, 0) rotate(${tile.r}deg)`,
+            transition: `transform 180ms cubic-bezier(.23,1,.32,1), opacity 250ms ease ${tile.i * 40}ms`,
           }}
         >
           {tile.content}

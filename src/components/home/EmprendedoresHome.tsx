@@ -19,8 +19,8 @@ export default function EmprendedoresHome() {
   ];
 
   // Spring transition configs
-  const springTransition = { type: 'spring' as const, stiffness: 100, damping: 20 };
-  const snappySpring = { type: 'spring' as const, stiffness: 300, damping: 25 };
+  const springTransition = { type: 'spring' as const, stiffness: 360, damping: 28 };
+  const snappySpring = { type: 'spring' as const, stiffness: 360, damping: 28 };
 
   // Orchestrated section entrance variants
   const sectionVariants: Variants = {
@@ -28,38 +28,18 @@ export default function EmprendedoresHome() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.05,
+        staggerChildren: 0.08,
+        delayChildren: 0.04,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 12 },
     visible: {
       opacity: 1,
       y: 0,
       transition: reduceMotion ? { duration: 0.01 } : springTransition,
-    },
-  };
-
-  const wordContainerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.03,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const wordVariant: Variants = {
-    hidden: { opacity: 0, y: 8 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: 'easeOut' },
     },
   };
 
@@ -103,22 +83,9 @@ export default function EmprendedoresHome() {
             Marca en Mar del Plata
           </h2>
 
-          <motion.div className="pt-2" variants={wordContainerVariants}>
+          <motion.div className="pt-2" variants={itemVariants}>
             <p className="text-brand-blue-50 font-sans text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl font-medium tracking-tight">
-              <span className="sr-only">{descriptionText}</span>
-              <span aria-hidden="true">
-                {words.map((word, i) => (
-                  <React.Fragment key={i}>
-                    <motion.span
-                      variants={wordVariant}
-                      className="inline-block"
-                    >
-                      {word}
-                    </motion.span>
-                    {i < words.length - 1 ? ' ' : ''}
-                  </React.Fragment>
-                ))}
-              </span>
+              {descriptionText}
             </p>
           </motion.div>
 

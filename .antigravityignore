@@ -178,6 +178,7 @@ skills-lock.json
 .agents/**/font-index.json
 .agents/**/node_modules/
 docs/paginas_en_txt/*
+docs/Nueva carpeta/*
 # ──────────────────────────────────────────────────────────────────────────────
 # 9. SISTEMA OPERATIVO E IDEs
 # ──────────────────────────────────────────────────────────────────────────────

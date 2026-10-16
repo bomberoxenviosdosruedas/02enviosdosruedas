@@ -379,11 +379,9 @@ export default function ServicesOverview() {
 
       {/* Background Decorative Asymmetric Glows */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
-      <motion.div
-        className="absolute bottom-0 right-0 w-125 h-125 bg-brand-yellow-500/5 rounded-full blur-3xl pointer-events-none"
+      <div
+        className="absolute bottom-0 right-0 w-125 h-125 bg-[radial-gradient(circle_at_bottom_right,rgba(255,236,1,0.06),transparent_70%)] pointer-events-none"
         aria-hidden="true"
-        animate={reduceMotion ? {} : { scale: [1, 1.05, 1] }}
-        transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
       />
 
       <div
@@ -396,10 +394,10 @@ export default function ServicesOverview() {
       >
         {/* Editorial Section Header with Viewport Entry */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
-          transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+          transition={{ type: 'spring', stiffness: 360, damping: 28 }}
           className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-white/10 pb-8"
         >
           <div>
@@ -420,7 +418,7 @@ export default function ServicesOverview() {
               onClick={() => setIsAutoRotate((prev) => !prev)}
               aria-pressed={isAutoRotate}
               whileHover={reduceMotion ? undefined : { scale: 1.02 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.97 }}
               className={`min-h-11 px-4 py-2 rounded-full text-xs font-bold font-subheading tracking-wider border transition-colors cursor-pointer inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
                 isAutoRotate
                   ? 'bg-brand-yellow-400 text-brand-blue-500 border-brand-yellow-400 shadow-glow-yellow'
@@ -434,8 +432,8 @@ export default function ServicesOverview() {
               <motion.button
                 type="button"
                 onClick={handlePrev}
-                whileHover={reduceMotion ? undefined : { scale: 1.05 }}
-                whileTap={reduceMotion ? undefined : { scale: 0.95 }}
+                whileHover={reduceMotion ? undefined : { scale: 1.04 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.97 }}
                 className="min-w-11 min-h-11 p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-500 border border-white/20 cursor-pointer transition-colors inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                 aria-label="Anterior Servicio"
               >
@@ -444,8 +442,8 @@ export default function ServicesOverview() {
               <motion.button
                 type="button"
                 onClick={handleNext}
-                whileHover={reduceMotion ? undefined : { scale: 1.05 }}
-                whileTap={reduceMotion ? undefined : { scale: 0.95 }}
+                whileHover={reduceMotion ? undefined : { scale: 1.04 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.97 }}
                 className="min-w-11 min-h-11 p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-500 border border-white/20 cursor-pointer transition-colors inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                 aria-label="Siguiente Servicio"
               >

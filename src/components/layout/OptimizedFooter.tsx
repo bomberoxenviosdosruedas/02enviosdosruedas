@@ -28,27 +28,27 @@ const FOOTER_CONTAINER = {
 
 /** Each column fades up */
 const FOOTER_COL = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring', stiffness: 280, damping: 24 },
+    transition: { type: 'spring', stiffness: 360, damping: 28 },
   },
 } as const;
 
 /** CTA Banner slides up from below */
 const BANNER_VARIANT = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring', stiffness: 260, damping: 22, delay: 0.08 },
+    transition: { type: 'spring', stiffness: 360, damping: 28, delay: 0.08 },
   },
 } as const;
 
 /** Social icon spring bounce on hover */
-const SOCIAL_HOVER = { y: -4, scale: 1.12 } as const;
-const SOCIAL_SPRING = { type: 'spring', stiffness: 480, damping: 18 } as const;
+const SOCIAL_HOVER = { y: -2, scale: 1.04 } as const;
+const SOCIAL_SPRING = { type: 'spring', stiffness: 420, damping: 26 } as const;
 
 export default function OptimizedFooter() {
   const prefersReducedMotion = useReducedMotion();

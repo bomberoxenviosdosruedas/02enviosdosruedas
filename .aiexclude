@@ -28,6 +28,7 @@ docs/paginas_en_txt/*
 docs/paginas/*
 docs/paginas/
 docs/propuestas/*
+docs/Nueva carpeta/*
 skills-lock.json
 # TypeScript incremental build cache
 tsconfig.tsbuildinfo

@@ -35,8 +35,8 @@ export default function CtaSection() {
   };
 
   // HyperFrames standard spring config
-  const springConfig = { type: 'spring' as const, stiffness: 100, damping: 20 };
-  const springConfigSnappy = { type: 'spring' as const, stiffness: 300, damping: 25 };
+  const springConfig = { type: 'spring' as const, stiffness: 360, damping: 28 };
+  const springConfigSnappy = { type: 'spring' as const, stiffness: 360, damping: 28 };
 
   // Container variants with orchestrated stagger
   const containerVariants: Variants = {
@@ -44,14 +44,14 @@ export default function CtaSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.05,
+        staggerChildren: 0.08,
+        delayChildren: 0.04,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 24 },
+    hidden: { opacity: 0, y: 12 },
     visible: {
       opacity: 1,
       y: 0,
