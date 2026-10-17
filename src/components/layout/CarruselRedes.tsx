@@ -48,16 +48,19 @@ export default function CarruselRedes() {
       url: 'https://www.facebook.com/share/1RnSzyweir/',
       icon: FaFacebook,
       badgeText: 'FACEBOOK OFICIAL',
-      // Estética propia Facebook (Royal Classic Blue)
-      cardBg: 'bg-[#1877F2]/10 hover:bg-[#1877F2]/15',
-      cardBorder: 'border-[#1877F2]/30 hover:border-[#1877F2]/70',
-      badgeBg: 'bg-[#1877F2]/20 text-brand-blue-50 border-[#1877F2]/40',
-      iconBoxBg: 'bg-[#0B5ED7] text-white shadow-lg shadow-[#1877F2]/40',
-      handleColor: 'text-brand-blue-50',
-      watermarkColor: 'text-[#1877F2]/10 group-hover:text-[#1877F2]/20',
-      btnBg: 'bg-[#0B5ED7] hover:bg-[#0A4FC0] text-white shadow-md shadow-[#1877F2]/30',
-      btnIconBg: 'bg-white/20 text-white',
-      glow: 'from-[#1877F2]/20 to-transparent',
+      // Identidad oficial Facebook: azul #0866FF / #1877F2, badge e icono en blanco, marca de agua en blanco 10%
+      cardBg: 'bg-[#0866FF] hover:bg-[#1877F2]',
+      outerBorder: 'border border-[#1877F2]/50 hover:border-[#1877F2] bg-brand-blue/80 backdrop-blur-md shadow-xl',
+      innerBorder: 'border-white/15',
+      badgeBg: 'bg-white text-[#0866FF] border-white font-bold shadow-xs',
+      iconBoxBg: 'bg-white text-[#0866FF] shadow-lg shadow-[#0866FF]/30',
+      titleColor: 'text-white',
+      handleColor: 'text-white/90',
+      descColor: 'text-white/90',
+      watermarkColor: 'text-white/10 group-hover:text-white/20',
+      btnBg: 'bg-white hover:bg-white/90 text-[#0866FF] font-bold shadow-md shadow-[#0866FF]/20',
+      btnIconBg: 'bg-[#0866FF]/15 text-[#0866FF]',
+      glow: 'from-[#1877F2]/30 to-transparent',
     },
     {
       id: 'instagram',
@@ -68,16 +71,19 @@ export default function CarruselRedes() {
       url: 'https://www.instagram.com/enviosdosruedas/',
       icon: FaInstagram,
       badgeText: 'INSTAGRAM MDQ',
-      // Estética propia Instagram (Gradient Sunset & Pink/Purple)
-      cardBg: 'bg-gradient-to-br from-[#833AB4]/10 via-[#FD1D1D]/10 to-[#F77737]/10 hover:from-[#833AB4]/15 hover:via-[#FD1D1D]/15 hover:to-[#F77737]/15',
-      cardBorder: 'border-[#E1306C]/30 hover:border-[#E1306C]/70',
-      badgeBg: 'bg-linear-to-r from-[#833AB4]/20 via-[#FD1D1D]/20 to-[#F77737]/20 text-brand-blue-50 border-[#E1306C]/40',
-      iconBoxBg: 'bg-linear-to-tr from-[#F56040] via-[#FD1D1D] to-[#833AB4] text-white shadow-lg shadow-[#E1306C]/40',
-      handleColor: 'text-brand-blue-50',
-      watermarkColor: 'text-[#E1306C]/10 group-hover:text-[#E1306C]/20',
-      btnBg: 'bg-linear-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-95 text-white shadow-md shadow-[#FD1D1D]/30',
-      btnIconBg: 'bg-white/20 text-white',
-      glow: 'from-[#E1306C]/20 to-transparent',
+      // Identidad oficial Instagram: fondo y borde con degradado oficial #833AB4 → #E1306C → #FD1D1D → #F77737
+      cardBg: 'bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737]',
+      outerBorder: 'p-[2px] bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] shadow-xl',
+      innerBorder: 'border-white/20',
+      badgeBg: 'bg-white text-[#E1306C] border-white font-bold shadow-xs',
+      iconBoxBg: 'bg-white text-[#E1306C] shadow-lg shadow-[#FD1D1D]/30',
+      titleColor: 'text-white',
+      handleColor: 'text-white/90',
+      descColor: 'text-white/90',
+      watermarkColor: 'text-white/10 group-hover:text-white/20',
+      btnBg: 'bg-white hover:bg-white/90 text-[#E1306C] font-bold shadow-md shadow-[#FD1D1D]/30',
+      btnIconBg: 'bg-[#E1306C]/15 text-[#E1306C]',
+      glow: 'from-[#FD1D1D]/30 to-transparent',
     },
     {
       id: 'whatsapp',
@@ -88,16 +94,19 @@ export default function CarruselRedes() {
       url: `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}`,
       icon: FaWhatsapp,
       badgeText: 'WHATSAPP DIRECTO',
-      // Estética oficial Envíos DosRuedas (Brand Yellow & Navy Blue)
-      cardBg: 'bg-brand-yellow-500/10 hover:bg-brand-yellow-500/15',
-      cardBorder: 'border-brand-yellow-500/30 hover:border-brand-yellow-500/70',
-      badgeBg: 'bg-brand-yellow-500/20 text-brand-yellow-500 border-brand-yellow-500/40',
-      iconBoxBg: 'bg-brand-yellow-500 text-brand-blue-900 shadow-lg shadow-brand-yellow-500/30',
-      handleColor: 'text-brand-yellow-400',
-      watermarkColor: 'text-brand-yellow-500/10 group-hover:text-brand-yellow-500/20',
-      btnBg: 'bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-bold shadow-md shadow-brand-yellow-500/30',
-      btnIconBg: 'bg-transparent text-brand-blue-900',
-      glow: 'from-brand-yellow-500/20 to-transparent',
+      // Identidad oficial WhatsApp: verde real #25D366 y #128C7E con texto oscuro sobre verde
+      cardBg: 'bg-[#25D366]',
+      outerBorder: 'border border-[#128C7E]/50 hover:border-[#25D366] bg-brand-blue/80 backdrop-blur-md shadow-xl',
+      innerBorder: 'border-[#128C7E]/20',
+      badgeBg: 'bg-[#128C7E] text-white border-[#128C7E] font-bold shadow-xs',
+      iconBoxBg: 'bg-[#128C7E] text-white shadow-lg shadow-[#128C7E]/40',
+      titleColor: 'text-[#111B21]',
+      handleColor: 'text-[#075E54] font-bold',
+      descColor: 'text-[#111B21]/90 font-medium',
+      watermarkColor: 'text-[#128C7E]/15 group-hover:text-[#128C7E]/25',
+      btnBg: 'bg-[#128C7E] hover:bg-[#075E54] text-white font-bold shadow-md shadow-[#128C7E]/30',
+      btnIconBg: 'bg-white/20 text-white',
+      glow: 'from-[#25D366]/30 to-transparent',
     },
   ];
 
@@ -144,12 +153,12 @@ export default function CarruselRedes() {
               <motion.div
                 key={net.id}
                 variants={prefersReducedMotion ? undefined : CARD_VARIANTS}
-                className={`social-block group relative rounded-2xl p-2 transition-[transform,border-color,box-shadow] duration-300 border ${net.cardBorder} bg-brand-blue/80 backdrop-blur-md hover:-translate-y-1.5 shadow-xl`}
+                className={`social-block group relative rounded-2xl p-2 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 ${net.outerBorder}`}
               >
                 {/* Internal Glow on Hover */}
                 <div className={`absolute inset-0 rounded-2xl bg-linear-to-b ${net.glow} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} aria-hidden="true" />
 
-                <div className={`relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden ${net.cardBg} border border-white/10 transition-colors`}>
+                <div className={`relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden ${net.cardBg} border ${net.innerBorder} transition-colors`}>
                   
                   {/* Background Watermark Icon that enlarges and tilts on hover */}
                   <div className={`absolute -right-8 -bottom-8 ${net.watermarkColor} transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none`} aria-hidden="true">
@@ -169,7 +178,7 @@ export default function CarruselRedes() {
                     </div>
 
                     <div>
-                      <h3 className="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                      <h3 className={`font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none ${net.titleColor}`}>
                         {net.name}
                       </h3>
                       <p className={`font-mono text-xs font-bold mt-1.5 ${net.handleColor}`}>
@@ -177,7 +186,7 @@ export default function CarruselRedes() {
                       </p>
                     </div>
 
-                    <p className="font-sans text-xs sm:text-sm leading-relaxed text-brand-blue-50/90 font-light">
+                    <p className={`font-sans text-xs sm:text-sm leading-relaxed ${net.descColor}`}>
                       {net.desc}
                     </p>
                   </div>

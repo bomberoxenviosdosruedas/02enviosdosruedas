@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "agent-platform-prompt-management": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/agent-platform-prompt-management/SKILL.md",
+      "computedHash": "7661a7ce5642632a63aa08a96dfa886a2c6ba7f66ef36932113bb17c0274b6bf"
+    },
     "animate": {
       "source": "emilkowalski/skills",
       "sourceType": "github",
@@ -72,6 +78,30 @@
       "sourceType": "github",
       "skillPath": "skills/find-animation-opportunities/SKILL.md",
       "computedHash": "c6673fadf179233cc0a52c978ea9acc9b82a210665c749307a571a86ed4c092e"
+    },
+    "finding-google-skills": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/developers/finding-google-skills/SKILL.md",
+      "computedHash": "1b75085cafbf7443219dd15c65ff6095e29c99c5f688833a88a16e9345ed35f4"
+    },
+    "gke-custom-golden-image-discovery": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/gke-custom-golden-image-discovery/SKILL.md",
+      "computedHash": "a3e0b2ce1cedb510084cb09fa7e43d9b3b18beecd803c0ebb6a357942425105f"
+    },
+    "google-cloud-solution-architecture": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "skillPath": "skills/cloud/google-cloud-solution-architecture/SKILL.md",
+      "computedHash": "fb3ee242c2642fa43f9b0505ebc46f03d9d635d2b853b52144a114996dafc299"
+    },
+    "google-maps-platform": {
+      "source": "googlemaps/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/google-maps-platform/SKILL.md",
+      "computedHash": "f4092ad152c96dc15dc7bb8e91f2c78522c3a13282efb5b02e3ce21ecc172c48"
     },
     "improve-animations": {
       "source": "emilkowalski/skills",
