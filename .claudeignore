@@ -1,21 +1,102 @@
-# Documentación pesada y artefactos generados
-docs/
-generated/
+# ==============================================================================
+# .claudeignore — Delimitación de Contexto y Optimización para Claude Code
+# Proyecto: Envíos DosRuedas | Stack: Next.js 16 · TypeScript · Tailwind v4 · Prisma
+# ==============================================================================
 
-# Dependencias y cachés de construcción
+# 1. Dependencias y Lockfiles (~500 KB de ahorro por invocación)
 node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+bun.lockb
+.pnpm-store/
+.npmrc
+
+# 2. Builds, Bundlers y Artefactos Generados
 .next/
 dist/
 build/
-.vitest/
-docs/paginas_en_txt/*
-docs/Nueva carpeta/*
-# Archivos de bloqueo y metadatos de compilación
-pnpm-lock.yaml
-pnpm-workspace.yaml
+out/
+.output/
+generated/
 tsconfig.tsbuildinfo
+*.tsbuildinfo
+*.js.map
+*.css.map
+*.ts.map
 
-# Control de versión y logs
+# 3. Control de Versiones y Logs
 .git/
+.github/
 *.log
-.env*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 4. Variables de Entorno y Secretos (Seguridad Estricta)
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+.env.*.local
+*.pem
+*.key
+*.cert
+*.pfx
+
+# 5. Cachés de Herramientas y Testing
+.turbo/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.vite/
+.vitest/
+coverage/
+test-results/
+.vercel/
+
+# 6. Tooling Interno de Agentes y Entornos Locales
+.agent/
+.agents/
+.claude/
+.hermes/
+.impeccable/
+.opencode/
+.design-sync/
+.scratch/
+.stitch/
+skills-lock.json
+
+# 7. Assets Binarios y Multimedia (Evita saturación de tokens de visión)
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.ico
+*.svg
+*.avif
+*.bmp
+*.tiff
+*.woff
+*.woff2
+*.ttf
+*.otf
+*.eot
+*.pdf
+*.zip
+*.tar.gz
+
+# 8. Documentación Pesada y Scraping Histórico
+docs/paginas_en_txt/*
+docs/paginas/*
+docs/propuestas/*
+docs/Nueva carpeta/*
+docs/imagenes/
+docs/sitio_completo.html
+docs/ejemplo_tema.html

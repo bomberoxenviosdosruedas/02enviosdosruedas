@@ -1,135 +1,112 @@
-# CLAUDE.md - Guía de Desarrollo Operacional para Asistentes
+# CLAUDE.md - Guía de Contexto Operativo
 
-Este archivo contiene las directivas técnicas, comandos canónicos y reglas de arquitectura para trabajar en el código de **Envíos DosRuedas**.
-
----
-
-## 1. Stack Tecnológico y Configuración
-
-- **Framework:** Next.js 16 (App Router con Server Components y Server Actions)
-- **Runtime y Biblioteca:** React 19 / Node.js 20+
-- **Lenguaje:** TypeScript 5.7 (estricto)
-- **Estilos:** Tailwind CSS v4 con variables en `@theme` (`src/app/globals.css`)
-- **Base de Datos:** PostgreSQL con Prisma ORM (`@prisma/adapter-pg`, cliente en `generated/prisma`)
-- **Pruebas:** Vitest con jsdom y `@testing-library/react`
-- **IA:** Google GenAI SDK (`@google/genai`) y Genkit (`genkit`, `@genkit-ai/google-genai`)
-- **Mapas:** Google Maps APIs (Directions, Places) y Leaflet (`leaflet`, `@types/leaflet`)
-- **Gestor de paquetes:** `pnpm` (exclusivo, no usar npm ni yarn ni bun)
+Guía operativa para Claude Code y asistentes CLI que interactúan con la base de código de **Envíos DosRuedas**.
 
 ---
 
-## 2. Comandos Canónicos de Trabajo
+## 1. Comandos Canónicos de Ejecución
 
-Todos los comandos deben ejecutarse con `pnpm`:
+El único gestor de paquetes autorizado en este proyecto es **pnpm** (`pnpm@12.8.1`). Queda prohibido el uso de `npm`, `yarn` o `bun`.
 
+### Ciclo de Desarrollo y Construcción
 ```bash
-# Desarrollo local
-pnpm dev
+pnpm dev             # Inicia el servidor de desarrollo local (next dev)
+pnpm build           # Genera Prisma Client y compila para producción (prisma generate && next build)
+pnpm start           # Inicia el servidor optimizado de producción (next start)
+pnpm clean           # Limpia los directorios temporales de compilación de Next.js
+pnpm postinstall     # Genera los tipos de Prisma Client en generated/prisma
+```
 
-# Verificación estricta de TypeScript
-pnpm typecheck
+### Verificación y Calidad Estática
+```bash
+pnpm typecheck       # Verificación estricta de TypeScript sin emitir código (tsc --noEmit)
+pnpm lint            # Análisis estático completo con ESLint flat config (eslint .)
+pnpm exec eslint <archivo> # Ejecuta ESLint sobre un archivo puntual
+```
 
-# Análisis estático y linter
-pnpm lint
-pnpm exec eslint <ruta/al/archivo>
+### Pruebas Unitarias y de Regresión (Vitest)
+```bash
+pnpm test:ci         # Ejecuta la suite de pruebas una sola vez sin modo interactivo (vitest run)
+pnpm test:ui         # Abre la interfaz visual de Vitest en el navegador (vitest --ui)
+pnpm exec vitest related <archivo> --run # Ejecuta pruebas vinculadas al archivo modificado
+```
+> **Regla de oro:** No ejecutes `pnpm test` en entornos automatizados o CLI no interactivos, ya que inicia Vitest en modo observador continuo (watch mode). Empleá siempre `pnpm test:ci` o agregá la bandera `--run`.
 
-# Tests (NUNCA ejecutar "pnpm test" a secas porque entra en watch mode)
-pnpm test:ci                                # Corre todos los tests en Vitest sin watch
-pnpm exec vitest run                        # Equivalente directo con Vitest
-pnpm exec vitest related <archivo> --run    # Tests asociados a un archivo puntual
-
-# Base de datos y Prisma
-pnpm prisma generate                        # Genera el cliente en generated/prisma
-pnpm prisma db push                         # Sincroniza esquema con PostgreSQL
-pnpm prisma db seed                         # Carga datos iniciales (seed)
-pnpm prisma studio                          # Interfaz web de exploración de datos
-
-# Build de producción
-pnpm build                                  # prisma generate && next build
+### Scripts Operativos Auxiliares
+```bash
+pnpm pdf             # Genera capturas y reportes PDF vía script de Python
+pnpm pdf:prod        # Genera reportes PDF apuntando a producción
+pnpm export:texts    # Extrae textos y copys de las vistas del sitio
 ```
 
 ---
 
-## 3. Estructura del Código en `src/`
+## 2. Delimitación de Contexto y Gestión de Tokens (Token Hygiene)
 
-- `src/actions/`: Server Actions con directiva `'use server'`. Validación de entradas con Zod y consultas con Prisma.
-- `src/app/`: Estructura de rutas del App Router. Páginas informativas, cotizador, área administrativa y route handlers en `src/app/api/`.
-- `src/components/ui/`: Primitivas reutilizables de interfaz de usuario. Destacan `DoubleBezelCard`, `CTANestedPill`, `InputField`, `RadioCardGroup`, `BentoGrid` y `HeroProceduralBackground`.
-- `src/components/[dominio]/`: Componentes específicos de cada vista (`home`, `cotizar`, `servicios`, `nosotros`, `contacto`, `admin`).
-- `src/hooks/`: Hooks de React para estado de cotización (`useCotizadorUnified.ts`), ruteo y eventos de analítica.
-- `src/lib/`: Núcleo de lógica pura, desacoplada de la interfaz:
-  - `pricing.ts`: Cálculos matemáticos y tramos de tarifas para Express y LowCost.
-  - `promises.ts`: Constantes oficiales de promesas de servicio, cortes horarios, dimensiones y recargos.
-  - `prisma.ts`: Conexión de Prisma Client optimizada para Next.js.
-  - `gemini.ts` y `genkit.ts`: Integraciones con modelos de lenguaje.
-  - `whatsapp.ts`: Construcción de URLs con número corporativo y parámetros de trazabilidad.
-  - `analytics.ts`: Gestión de eventos y persistencia de UTMs.
-- `src/test/`: Configuración global de Vitest y mocks de entorno.
+Para evitar saturación de tokens, lecturas innecesarias y fugas de contexto, respetá los patrones declarados en `.claudeignore`, `.aiexclude` y `.antigravityignore`:
+
+1. **Lectura Quirúrgica:** Nunca leas directorios completos ni archivos masivos generados. Apuntá directamente a los archivos específicos de `src/` relevantes a tu tarea.
+2. **Archivos Estrictamente Ignorados:**
+   - **Artefactos de compilación:** `.next/`, `generated/`, `dist/`, `build/`, `out/`, `tsconfig.tsbuildinfo`, `*.map`.
+   - **Dependencias y bloqueos:** `node_modules/`, `pnpm-lock.yaml`, `package-lock.json`, `yarn.lock`.
+   - **Cachés de testing y linters:** `.turbo/`, `.eslintcache`, `.vitest/`, `coverage/`, `test-results/`.
+   - **Tooling de agentes:** `.agent/`, `.agents/`, `.claude/`, `.hermes/`, `.impeccable/`, `.opencode/`, `.stitch/`, `.scratch/`.
+   - **Multimedia y binarios:** `*.webp`, `*.png`, `*.svg`, `*.pdf`, `*.woff2` (evita consumo masivo de visión).
+   - **Documentación histórica y scrapings:** `docs/paginas/`, `docs/imagenes/`, `docs/sitio_completo.html`.
+3. **Secretos y Seguridad:** Nunca leas, imprimas ni crees archivos `.env` reales (`.env`, `.env.local`, `.env.production`). El único archivo de plantilla autorizado para referencia es `.env.example`.
 
 ---
 
-## 4. Reglas Críticas de Negocio y Copy (Invariantes)
+## 3. Arquitectura Full-Stack en `src/`
 
-El archivo `src/lib/copy-guard.test.ts` valida automáticamente que no se reintroduzcan afirmaciones erróneas. Respetá estrictamente las siguientes pautas:
+Toda la lógica de producción vive exclusivamente en `src/`, organizada en capas con responsabilidades desacopladas:
 
-1. **Promesa de Entrega Express:**
-   - La entrega Express coordina una **franja horaria acotada de 3 hs a elección del cliente**.
-   - Se solicita con un mínimo de **2 hs de anticipación**.
-   - Corte operativo: pedidos hasta las **15:00 hs** se entregan en el día (última franja disponible 17:00 a 19:00 hs).
-   - **PROHIBIDO:** Decir "en 2 horas", "en 3 hs", "menos de 2 h" o "60 a 90 minutos".
-
-2. **Servicio LowCost:**
-   - Reparto programado económico en el día, sin franja horaria.
-   - Corte operativo a las **13:00 hs**; entrega antes de las **19:00 hs**.
-   - Cada envío se cotiza por su distancia individual.
-   - **PROHIBIDO:** Describirlo como servicio "agrupado" o "por lote".
-
-3. **Mercado Envíos Flex:**
-   - Solución para vendedores con entrega en el día ("Llega Hoy").
-   - Corte a las **15:00 hs**; entrega hasta las **20:00 hs**.
-   - Exige comprobante fotográfico y firma digital en la recepción.
-
-4. **Límites Físicos y Bultos:**
-   - El estándar sin recargo es hasta **5 kg** o medidas de **40 x 40 x 30 cm**.
-   - Pasado ese volumen, se coordina como bulto especial con recargo operativo desde `$1.800`.
-   - **PROHIBIDO:** Publicar un límite máximo inventado (como "15 kg"). No existe techo numérico rígido publicado: se traslada todo lo que pueda llevarse de manera segura en moto.
-
-5. **Tarifas y Cotización:**
-   - Tramo lineal: para distancias mayores a 10 km y hasta 20 km, el cálculo es lineal (`distanceKm * pricePerKm`). **Nunca usar Math.ceil**.
-   - Más de 20 km de distancia vial no calcula tarifa automática en la web, muestra `'consultar'`.
-   - No asegurar "sin sorpresas" si existen recargos operativos declarados (lluvia, espera en puerta tras 10 minutos, parada extra, bulto especial).
-
-6. **Facturación:**
-   - Envíos DosRuedas emite comprobantes conforme a su condición fiscal estándar. No se emite Factura A.
+```
+src/
+├── actions/         # Server Actions ('use server'): mutaciones seguras validadas con Zod
+├── app/             # Rutas, layouts y metadata de Next.js App Router
+│   ├── (rutas)/     # Vistas públicas: cotizar, servicios, cobertura, contacto, nosotros, guías
+│   ├── admin/       # Panel administrativo interno
+│   ├── api/         # Route Handlers: assistant (asistente IA), places y routes (Google Maps)
+│   ├── globals.css  # Tokens @theme Tailwind v4 y variables CSS corporativas
+│   └── layout.tsx   # Layout raíz con configuración de fuentes y proveedores globales
+├── assets/          # Recursos estáticos y fuentes locales
+├── components/      # Componentes organizados por dominio y capa visual
+│   ├── ui/          # Primitivas reutilizables (DoubleBezelCard, CTANestedPill, InputField)
+│   ├── layout/      # Cabecera (OptimizedHeader), footer y carrusel de redes
+│   └── [dominio]/   # Componentes específicos de vista (home, cotizar, servicios, etc.)
+├── hooks/           # Custom hooks reutilizables (cotizador unificado, analítica)
+├── lib/             # Núcleo de lógica pura y clientes externos:
+│   ├── pricing.ts   # Algoritmos tarifarios y tramos por distancia vial
+│   ├── promises.ts  # Constantes oficiales de promesas de entrega, cortes horarios y límites
+│   ├── prisma.ts    # Instancia centralizada de Prisma Client para PostgreSQL
+│   ├── gemini.ts    # Cliente oficial de Google GenAI
+│   ├── genkit.ts    # Configuración de Genkit
+│   ├── whatsapp.ts  # Constructor de enlaces estructurados a WhatsApp con trazabilidad
+│   └── utils.ts     # Utilidades de clases CSS con clsx y tailwind-merge
+└── test/            # Configuración de entorno y extensiones para Vitest
+```
 
 ---
 
-## 5. Directrices de Estilo y UI
+## 4. Convenciones de Código y Compilación
 
-1. **Paleta de Colores Canónica:**
-   - `brand-blue-500` / `brand-blue-700` (`#0950F6`): Azul institucional principal. Es el techo de oscuridad de la interfaz. Están prohibidos los tonos negros, grises oscuros o azules fuera de paleta.
-   - `brand-yellow-500` (`#FFEC01`): Amarillo vial para botones de acción principal (CTAs) y elementos de alta atención (máximo 15% del área).
-   - `white` (`#FFFFFF`): Fondo general y superficies limpias.
-   - Variaciones suaves: `brand-blue-50` (`#E6EEFE`), `brand-blue-100` (`#BACEFD`), `brand-yellow-50` (`#FFFDE6`).
-
-2. **Tipografía:**
-   - Display / Títulos: `Anton` (`font-display`).
-   - Eyebrows / Subtítulos en mayúsculas: `Bebas Neue` (`font-subheading`).
-   - Párrafos y UI: `Outfit` (`font-sans`).
-   - Métricas, distancias y precios: `Geist Mono` (`font-mono`).
-
-3. **Accesibilidad:**
-   - Contraste visual mínimo de 4.5:1 (el azul `#0950F6` sobre el amarillo `#FFEC01` cumple ratio de 4.9:1).
-   - Anillos de foco visibles (`focus-visible:ring-2 focus-visible:ring-brand-blue-500`).
-   - Soporte para `prefers-reduced-motion` en animaciones.
+- **TypeScript Estricto:** Configurado con `strict: true`, target `ES2022`, module `esnext` y resolución `bundler`. Prohibido el uso de `any` implícitos o casting inseguro.
+- **Alias de Importación:**
+  - `@/*` mapea exclusivamente a `./src/*`.
+  - `@generated/*` mapea a `./generated/*` (Prisma Client).
+  - Evitá rutas relativas con saltos múltiples (`../../../../lib`).
+- **Directivas React 19:**
+  - Los componentes dentro de `src/app/` son Server Components por defecto.
+  - Usá `'use client'` únicamente en las hojas del árbol que manejen estado (`useState`, `useReducer`), ciclos de vida (`useEffect`), referencias al DOM o librerías de animación basadas en browser.
+  - Toda mutación o Server Action debe declarar `'use server'` en la cabecera.
+- **Validación Contractual:** Toda entrada de datos externos o formularios debe validarse de forma exhaustiva con esquemas **Zod** antes de operar con la base de datos o APIs externas.
+- **Estilos:** Empleá clases de utilidad de Tailwind CSS v4 y los tokens semánticos corporativos configurados en `src/app/globals.css`.
 
 ---
 
-## 6. Convenciones de Código
+## 5. Reglas Mandatorias de Interacción
 
-- Utilizá TypeScript estricto, sin `any` implícitos ni conversiones forzadas.
-- Priorizá Server Components en Next.js. Reservá `'use client'` para componentes que requieren interactividad, hooks de navegador o animaciones cliente.
-- Importaciones con alias:
-  - `@/*` mapea a `src/*`.
-  - `@generated/*` mapea a `generated/*` (Prisma Client).
-- Comunicación y documentación: mantené el voseo rioplatense en los textos explicativos, comentarios de código y mensajes dirigidos a humanos, evitando guiones largos o en-dash.
+- Mantené siempre el **voseo rioplatense** en textos dirigidos a humanos (comentarios de código, documentación técnica y mensajes).
+- No utilices guiones largos ni en-dash en la redacción en español (empleá dos puntos, paréntesis o guion corto `-`).
+- Nunca modifiques archivos listados en `.claudeignore` o `.aiexclude`.

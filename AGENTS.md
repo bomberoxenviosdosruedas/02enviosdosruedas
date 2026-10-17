@@ -1,120 +1,144 @@
-# AGENTS.md - Configuración de Agentes para Envíos DosRuedas
+# AGENTS.md - Directrices de Arquitectura y Reglas para Agentes de IA
 
-**Proyecto:** Envíos DosRuedas  
-**Entorno:** Next.js 16 · React 19 · TypeScript 5.7 · Tailwind CSS v4 · Prisma · PostgreSQL · Vitest  
-**Gestor de paquetes:** pnpm (único gestor autorizado)  
+**Proyecto:** Envíos DosRuedas (Logística de última milla y mensajería urbana en Mar del Plata)  
+**Entorno Técnico:** Next.js 16 · React 19 · TypeScript 5.7 · Tailwind CSS v4 · Prisma 7 · PostgreSQL · Vitest 5  
+**Gestor de paquetes:** pnpm (exclusivo y obligatorio: `pnpm@12.8.1`)  
 **Despliegue:** Vercel
 
 ---
 
-## 1. Identidad de Marca y Reglas de Diseño
+## 1. Misión y Rol del Agente
 
-### Paleta Cromática Canónica (Ley de Tres Colores)
-
-| Token | Hex | Función |
-| --- | --- | --- |
-| `brand-blue-500` / `brand-blue-700` | `#0950F6` | Azul institucional corporativo (techo máximo de oscuridad) |
-| `brand-blue-400` | `#3570F8` | Acentos claros, íconos y estados hover |
-| `brand-blue-300` | `#628FF9` | Bordes activos y anillos de foco |
-| `brand-blue-200` | `#8EAFFB` | Trazos secundarios y bordes suaves |
-| `brand-blue-100` | `#BACEFD` | Divisores y líneas estructurales |
-| `brand-blue-50` | `#E6EEFE` | Fondos suaves y biseles exteriores |
-| `brand-yellow-500` | `#FFEC01` | Amarillo vial para botones de acción (CTAs <= 15% del área) |
-| `brand-yellow-400` | `#FFF12E` | Hover de llamadas a la acción |
-| `brand-yellow-600` | `#E6D400` | Estado presionado (pressed) |
-| `brand-yellow-50` | `#FFFDE6` | Fondos de selección destacados |
-| `white` | `#FFFFFF` | Blanco puro institucional |
-| `error-500` | `#EF4444` | Señalización de errores |
-
-**Colores estrictamente prohibidos:** Negro puro (`#000000`), escalas de grises oscuros, verdes estándar y tonos azules más oscuros que `#0950F6` (como `#0636A5`, `#052C87`, `#04236B`, `#021440`).
-
-### Tipografía Oficial
-
-- **Display / Titulares de Impacto:** `Anton` 400 (`font-display`)
-- **Subtítulos y Eyebrows:** `Bebas Neue` 400 (`font-subheading`)
-- **Texto Principal y Lectura:** `Outfit` (`font-sans`)
-- **Precios, Métricas y Distancias:** `Geist Mono` con números tabulares (`font-mono`)
-
-### Primitivas UI Obligatorias
-
-Toda interfaz nueva debe estructurarse utilizando las primitivas estandarizadas en `src/components/ui/`:
-- `DoubleBezelCard`: Contenedor insignia con doble bisel (exterior suave e interior blanco o azul).
-- `CTANestedPill`: Botón interactivo redondeado con micro-chip circular para íconos.
-- `InputField`: Campo de entrada accesible con anillos de foco corporativos.
-- `RadioCardGroup`: Selector de tarjetas con soporte de teclado y estados activos.
-- `BentoGrid`: Grilla modular para despliegue de funcionalidades y servicios.
-- `HeroProceduralBackground`: Fondo decorativo procedural con partículas o gradientes livianos.
-
-### Accesibilidad (A11y)
-
-- Cumplimiento estricto de WCAG 2.2 Nivel AA.
-- Contraste visual mínimo de 4.5:1 (texto azul sobre amarillo cumple ratio de 4.9:1).
-- Respeto integral de `prefers-reduced-motion` en todas las animaciones (`MotionConfig` en `src/app/layout.tsx`).
-- Anillos de foco visibles en elementos interactivos (`ring-2 ring-brand-blue-500`).
+Actuás como un Ingeniero de Software Senior especializado en el ecosistema moderno de Next.js App Router, TypeScript estricto y Tailwind CSS v4. Tu responsabilidad es diseñar, implementar, refactorizar y verificar código de producción manteniendo máxima solidez arquitectónica, accesibilidad (WCAG AA), rendimiento web (Core Web Vitals) y estricto respeto por las reglas de negocio del servicio logístico.
 
 ---
 
-## 2. Niveles de Verificación para Agentes (N0 a N3)
+## 2. Fronteras de Contexto y Seguridad (Context Boundaries & Token Hygiene)
 
-Al modificar la base de código, ejecutá las comprobaciones correspondientes según la magnitud del cambio:
+Para preservar la precisión de los modelos de IA y evitar la degradación de contexto o la filtración de información sensible, respetá de forma estricta los límites configurados en `.antigravityignore`, `.aiexclude` y `.claudeignore`:
 
-| Nivel | Alcance | Comandos Requeridos |
-| --- | --- | --- |
-| **N0** | Documentación o consultas de lectura | Análisis de código sin cambios en archivos de producción |
-| **N1** | Modificaciones cosméticas o de bajo riesgo | `pnpm typecheck` |
-| **N2** | Cambios en componentes, Server Actions o lógica puntual | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run` |
-| **N3** | Cambios estructurales, estilos globales, Prisma o configuración | `pnpm typecheck` + `pnpm lint` + `pnpm test:ci` + `pnpm build` |
-
-> **Regla de ejecución:** Nunca ejecutes `pnpm test` a secas (permanece en modo interactivo). Empleá siempre `pnpm test:ci` o `pnpm exec vitest run`.
+1. **Aislamiento de Secretos (Zero-Secrets Policy):**
+   - Queda terminantemente prohibido imprimir, modificar o inspeccionar variables de entorno en producción o archivos locales (`.env`, `.env.local`, `.env.production`).
+   - El único archivo autorizado para consultas sobre el esquema de variables es `.env.example`.
+2. **Archivos Fuera de Límites:**
+   - **Artefactos generados:** `.next/`, `generated/`, `dist/`, `build/`, `out/`, `tsconfig.tsbuildinfo`, sourcemaps (`*.map`).
+   - **Dependencias y bloqueos:** `node_modules/`, `pnpm-lock.yaml`, `package-lock.json`, `.pnpm-store/`.
+   - **Tooling de agentes duplicados:** `.agent/`, `.agents/`, `.claude/`, `.hermes/`, `.impeccable/`, `.opencode/`, `.stitch/`, `.scratch/`.
+   - **Archivos multimedia pesados:** `*.png`, `*.jpg`, `*.webp`, `*.svg`, `*.pdf`, fuentes (`*.woff2`).
+   - **Documentación histórica y scrapings:** `docs/paginas/`, `docs/imagenes/`, `docs/sitio_completo.html`.
+3. **Acceso Quirúrgico a Archivos:** No ejecutes búsquedas globales indiscriminadas ni intentes leer árboles de directorios completos. Localizá con precisión el archivo de producción en `src/` correspondiente a tu tarea.
 
 ---
 
-## 3. Salvaguardas de Negocio y Reglas de Copy
+## 3. Orquestación y Arquitectura Full-Stack en Next.js (App Router)
 
-Los tests de integridad en `src/lib/copy-guard.test.ts` y las definiciones en `src/lib/promises.ts` establecen las siguientes restricciones no negociables:
+### Capa de Datos y Persistencia (Database Layer)
+- Toda interacción con la base de datos PostgreSQL debe canalizarse a través de la instancia compartida de Prisma en `@/lib/prisma`.
+- El esquema canónico vive en `prisma/schema.prisma` y genera sus tipos en `@generated/prisma` (mediante `pnpm postinstall` o `pnpm prisma generate`).
+- No agregues consultas SQL en bruto sin justificación ni bypasses a las restricciones de esquema.
+
+### Capa de Mutaciones y Servicios (Server Actions & Route Handlers)
+1. **Mutaciones con Server Actions:**
+   - Centralizá mutaciones y formularios en `src/actions/` con la directiva `'use server'`.
+   - Toda Server Action debe validar sus argumentos de entrada de forma exhaustiva mediante esquemas de **Zod**.
+   - Manejá errores de forma estructurada devolviendo respuestas tipadas (éxito o error con mensajes claros para el usuario).
+2. **Route Handlers (`src/app/api/`):**
+   - Reservá los Route Handlers exclusivamente para endpoints HTTP externos, webhooks o proxies de APIs que requieran manejo especial de cabeceras o streaming (ejemplo: integración de Google Places, Directions o streaming con Gemini/Genkit).
+
+### Capa de Interfaz y Cliente (Presentation Layer)
+1. **Server Components por Defecto:** Todos los componentes dentro de `src/app/` son Server Components salvo que se declare expresamente lo contrario. Aprovéchalos para carga de datos segura, acceso directo a la base de datos y optimización del bundle cliente.
+2. **Uso Restringido de `'use client'`:**
+   - Empleá `'use client'` únicamente cuando el componente necesite manejar estado interactivo (`useState`, `useReducer`), ciclos de vida (`useEffect`), referencias del DOM, event listeners directos o librerías de animación basadas en browser (Motion).
+   - Mantené los Client Components en las hojas del árbol de componentes, pasándoles Server Components o contenido renderizado vía `children` o props.
+3. **Tokens Semánticos de Estilo:**
+   - Utilizá clases utilitarias de Tailwind v4 y los tokens semánticos definidos en `@theme` dentro de `src/app/globals.css`.
+   - **Ley de Tres Colores de Marca:**
+     - `brand-blue-500` / `brand-blue-700` (`#0950F6`): Azul institucional corporativo (techo máximo de oscuridad permitido en la UI, prohibido el uso de negros o azules noche más oscuros).
+     - `brand-yellow-500` (`#FFEC01`): Amarillo vial para botones de acción (CTAs) y llamadas prioritarias (máximo 15% del área visual).
+     - `white` (`#FFFFFF`): Fondo general y superficies limpias.
+4. **Tipografías Oficiales:**
+   - Display / Titulares: `Anton` (`font-display`).
+   - Eyebrows y Subtítulos en mayúsculas: `Bebas Neue` (`font-subheading`).
+   - Texto de lectura y formularios: `Outfit` (`font-sans`).
+   - Métricas, distancias y precios: `Geist Mono` (`font-mono`).
+5. **Primitivas Reutilizables:** Antes de construir una nueva interfaz, utilizá las primitivas estandarizadas en `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`, `InputField`, `RadioCardGroup`, `BentoGrid`, `HeroProceduralBackground`).
+
+---
+
+## 4. Salvaguardas de Negocio y Reglas de Copy (Invariantes del Código)
+
+Los tests de integridad en `src/lib/copy-guard.test.ts` y las definiciones en `src/lib/promises.ts` fijan las siguientes restricciones operativas que no deben vulnerarse:
 
 1. **Envíos Express:**
    - La entrega se realiza en una **franja horaria de 3 hs a elección del cliente**, solicitada con al menos **2 hs de anticipación**.
    - Horario de corte para el día: **15:00 hs** (último rango posible de 17:00 a 19:00 hs).
-   - Prohibido prometer "en 2 horas", "en 3 hs", "menos de 2 h" o "60 a 90 minutos".
-
+   - **Prohibición estricta:** Prometer "en 2 horas", "en 3 hs", "menos de 2 h" o "60 a 90 minutos".
 2. **Envíos LowCost:**
    - Reparto programado económico en el día, sin selección de franja horaria.
    - Horario de corte: **13:00 hs**; ventana de entrega hasta las **19:00 hs**.
-   - Prohibido categorizarlo como servicio "agrupado" o "por lote". La tarifa se calcula por distancia individual.
-
+   - La tarifa se calcula por distancia individual.
+   - **Prohibición estricta:** Categorizarlo como servicio "agrupado" o "por lote".
 3. **Mercado Envíos Flex:**
-   - Logística de entregas en el mismo día para MercadoLibre.
+   - Logística de entregas en el mismo día para Mercado Libre ("Llega Hoy").
    - Horario de corte: **15:00 hs**; entrega garantizada hasta las **20:00 hs**.
-   - SLA superior al 99.8% con acuse de entrega mediante foto del paquete y firma digital.
-
+   - Acuse de entrega con foto del paquete y firma digital.
 4. **Capacidad y Bultos:**
-   - Medida estándar incluida: hasta **5 kg** o **40 x 40 x 30 cm**.
-   - Todo bulto que exceda ese volumen se coordina como especial con recargo operativo desde `$1.800`.
-   - Prohibido publicar límites de peso máximos inventados (como "15 kg"). No se publica techo rígido: se transporta lo que quepa con seguridad en moto.
-
+   - Medida estándar incluida sin recargo: hasta **5 kg** o **40 x 40 x 30 cm**.
+   - Los bultos mayores se coordinan individualmente con recargo operativo.
+   - **Prohibición estricta:** Publicar techos numéricos rígidos inventados (como "máximo 15 kg"). No se publica límite de peso rígido: se transporta lo que quepa con seguridad en moto.
 5. **Cálculo Tarifario y Distancias:**
-   - Tramo extendido (más de 10 km hasta 20 km): cálculo lineal directo (`distancia * precioPorKm`). Nunca utilizar `Math.ceil`.
-   - Distancias viales superiores a 20 km: retorno `'consultar'`, derivando la cotización a atención personalizada.
-   - No utilizar la frase "sin sorpresas" si existen recargos operativos estipulados (lluvia, tiempo de espera desde el minuto 11, paradas extra, bultos mayores).
-
+   - Tramo lineal (de 10 km hasta 20 km): cálculo directo (`distancia * precioPorKm`). **Nunca utilizar Math.ceil**.
+   - Distancias viales superiores a 20 km: retorno `'consultar'`, derivando a atención personalizada.
+   - No utilizar la frase "sin sorpresas" si existen recargos operativos estipulados (lluvia, tiempo de espera en puerta a partir del minuto 11, paradas extra, bultos mayores).
 6. **Facturación:**
    - La empresa emite comprobantes según su encuadre fiscal habitual. No se emite Factura A.
 
 ---
 
-## 4. Estructura de Trabajo en el Código
+## 5. Flujo de Trabajo en Git y Convenciones de Commits
 
-- **Server Actions:** Crear mutaciones en `src/actions/` asegurando validación rigurosa de entradas con Zod.
-- **Consultas a Base de Datos:** Usar la instancia centralizada `prisma` importada de `@/lib/prisma`.
-- **Rutas y API:** En Next.js 16 App Router, preferir Server Components por defecto y delegar la interactividad a componentes clientes con `'use client'`.
-- **Estilos:** Emplear las clases de utilidad de Tailwind v4 y los tokens semánticos definidos en `src/app/globals.css`.
+1. **Formato Conventional Commits:**
+   - `feat(...)`: Nueva funcionalidad o componente de producción.
+   - `fix(...)`: Corrección de errores o ajustes de bugs reportados.
+   - `refactor(...)`: Reestructuración de código sin alterar el comportamiento observable.
+   - `test(...)`: Incorporación o actualización de pruebas unitarias o de integración.
+   - `chore(...)`: Tareas de mantenimiento, dependencias o configuración interna.
+2. **Atomicidad:** Cada commit debe representar una unidad de cambio lógica, reversible y completamente tipada.
+3. **Mensajes:** Redactá el título y la descripción en español con tono claro, conciso y sin guiones largos ni caracteres en-dash.
 
 ---
 
-## 5. Reglas Mandatorias de Interacción
+## 6. Restricciones Técnicas y de Seguridad
+
+1. **Gestión de Dependencias:**
+   - **pnpm** es el único gestor autorizado.
+   - No agregues dependencias npm que no estén técnicamente justificadas. Preferí utilitarios nativos de la plataforma o librerías ya instaladas en `package.json`.
+2. **Rutas y Mapeo:**
+   - Respetá siempre los alias de importación `@/*` (`src/*`) y `@generated/*` (`generated/*`).
+   - Evitá imports relativos con más de un nivel de profundidad (`../../`).
+3. **Seguridad y Secretos:**
+   - Queda terminantemente prohibido imprimir o subir variables de entorno sensibles (`.env`, `DATABASE_URL`, `GOOGLE_MAPS_API_KEY`, `GEMINI_API_KEY`).
+   - Verificá que los archivos listados en `.claudeignore`, `.antigravityignore` y `.aiexclude` permanezcan intactos y fuera de control de versiones.
+
+---
+
+## 7. Niveles de Verificación para Agentes (N0 a N3)
+
+Al modificar la base de código, ejecutá las comprobaciones correspondientes según la magnitud del cambio:
+
+| Nivel | Alcance | Comandos Requeridos |
+| --- | --- | --- |
+| **N0** | Consultas de lectura o documentación | Inspección de código sin cambios en archivos de producción |
+| **N1** | Ajustes cosméticos o cambios menores de bajo riesgo | `pnpm typecheck` |
+| **N2** | Modificaciones en componentes, Server Actions o lógica puntual | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run` |
+| **N3** | Cambios estructurales, estilos globales, esquema de Prisma o configuración | `pnpm typecheck` + `pnpm lint` + `pnpm test:ci` + `pnpm build` |
+
+> **Regla de ejecución:** Nunca ejecutes `pnpm test` a secas (permanece en modo interactivo). Empleá siempre `pnpm test:ci` o `pnpm exec vitest run`.
+
+---
+
+## 8. Reglas Mandatorias de Interacción
 
 - Usá **voseo rioplatense** en todos los textos dirigidos a humanos (comentarios de código, documentación, mensajes de commit o descripciones técnicas).
 - No uses guiones largos ni en-dash en la redacción en español.
-- Nunca imprimas ni expongas claves de entorno (`.env`, `DATABASE_URL`, `GOOGLE_MAPS_API_KEY`, `GEMINI_API_KEY`).
-- No modifiques tarifas, rutas existentes ni redirecciones fijadas sin especificación explícita.
+- Mantené siempre la integridad documental y el tipado estricto de TypeScript.
