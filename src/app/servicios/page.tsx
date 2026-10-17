@@ -141,6 +141,11 @@ const services = [
     cta: 'Ver detalle y tarifas',
     price: 'Desde $3.700',
     priceNote: '/ envío base',
+    stats: {
+      entrega: 'Franja 3 hs',
+      corte: '15:00 hs',
+      tarifa: 'Desde $3.700',
+    },
     features: [
       'Franja de 3 hs (ej. 10 a 13 hs)',
       'Corte 15:00 hs con 2h anticipación',
@@ -164,6 +169,11 @@ const services = [
     cta: 'Ver detalle y tarifas',
     price: 'Desde $3.000',
     priceNote: '/ envío base',
+    stats: {
+      entrega: 'En el día',
+      corte: '13:00 hs',
+      tarifa: 'Desde $3.000',
+    },
     features: [
       'Entrega antes de 19:00 hs',
       'Corte 13:00 hs mismo día',
@@ -187,6 +197,11 @@ const services = [
     cta: 'Ver planes Flex',
     price: 'Desde $3.000',
     priceNote: '/ envío base',
+    stats: {
+      entrega: 'Antes 20:00 hs',
+      corte: '15:00 hs',
+      tarifa: 'Desde $3.000',
+    },
     features: [
       '100% entregas Same-Day < 20:00 hs',
       'Sin mínimos: retiramos desde 1 paquete',
@@ -210,6 +225,11 @@ const services = [
     cta: 'Ver condiciones',
     price: 'Tarifas LowCost',
     priceNote: '',
+    stats: {
+      entrega: 'Franja 3 hs',
+      corte: '15:00 hs',
+      tarifa: 'Tarifa LowCost',
+    },
     features: [
       'Sin mínimo de envíos',
       'Franja de 3 hs, corte 15:00 hs',
@@ -233,6 +253,11 @@ const services = [
     cta: 'Ver planes 24hs',
     price: ECOMMERCE_24HS_PRICE_DISPLAY,
     priceNote: 'por envío',
+    stats: {
+      entrega: 'Día hábil sig.',
+      corte: 'En el día',
+      tarifa: ECOMMERCE_24HS_PRICE_DISPLAY,
+    },
     features: [
       'Entrega al día hábil siguiente',
       'Recolección gratis desde 10 envíos',
@@ -256,6 +281,11 @@ const services = [
     cta: 'Ver planes Same-Day',
     price: SAME_DAY_PRICE,
     priceNote: 'fijo a toda la ciudad',
+    stats: {
+      entrega: 'Antes 20:00 hs',
+      corte: '15:00 hs',
+      tarifa: SAME_DAY_PRICE,
+    },
     features: [
       'Stock en Friuli 1972 con picking QR',
       'Corte 15:00 hs, entrega antes de 20:00 hs',
