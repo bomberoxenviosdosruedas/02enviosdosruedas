@@ -355,6 +355,12 @@ main[id] {
 
 @utility animate-marquee-left { animation: marquee-left 36s linear infinite; }
 
+/* Rendimiento de render diferido (modern-web-guidance) */
+@utility content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 650px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;

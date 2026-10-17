@@ -517,6 +517,8 @@ export default function ServicesOverview() {
                       src={service.imageUrl}
                       alt=""
                       fill={true}
+                      loading="lazy"
+                      decoding="async"
                       sizes="(max-width: 768px) 290px, 350px"
                       className={`object-cover ${service.imgBlend}`}
                     />

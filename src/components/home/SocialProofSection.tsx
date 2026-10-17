@@ -170,7 +170,7 @@ export default function SocialProofSection() {
     <section
       id="social-proof"
       aria-labelledby="social-proof-title"
-      className="relative py-20 lg:py-24 bg-brand-blue-50 border-y border-brand-blue-100/60"
+      className="content-auto relative py-20 lg:py-24 bg-brand-blue-50 border-y border-brand-blue-100/60"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}

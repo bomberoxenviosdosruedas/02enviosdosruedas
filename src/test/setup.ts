@@ -75,7 +75,8 @@ const mockMotionComponent = (tag: string) => {
     const cleanProps = { ...props };
     const motionProps = [
       'animate', 'initial', 'variants', 'transition', 'whileHover',
-      'whileTap', 'exit', 'viewport', 'layout', 'onAnimationComplete'
+      'whileTap', 'exit', 'viewport', 'layout', 'onAnimationComplete',
+      'whileInView'
     ];
     motionProps.forEach(p => delete cleanProps[p]);
     return React.createElement(tag, { ref, ...cleanProps }, children);

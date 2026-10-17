@@ -63,7 +63,7 @@ export default function CtaSection() {
     <section
       id="cta-section"
       aria-labelledby="cta-section-title"
-      className="py-20 lg:py-28 bg-brand-blue-500 relative z-10 overflow-hidden shadow-2xl"
+      className="content-auto py-20 lg:py-28 bg-brand-blue-500 relative z-10 overflow-hidden shadow-2xl"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
