@@ -2,12 +2,14 @@ import crypto from 'node:crypto';
 import { headers, cookies } from 'next/headers';
 
 /**
- * Parámetros predeterminados seguros para autenticación administrativa.
- * En producción se sobreescriben mediante variables de entorno seguras en Vercel.
+ * Parámetros predeterminados seguros para entornos de desarrollo y pruebas.
+ * En producción (NODE_ENV === 'production') es OBLIGATORIO configurar las variables
+ * ADMIN_USER, ADMIN_PASSWORD y ADMIN_SESSION_SECRET; si faltan, el sistema opera
+ * en modo fail-closed rechazando cualquier autenticación por defecto.
  */
-const DEFAULT_ADMIN_USER = 'admin';
-const DEFAULT_ADMIN_PASS = 'dosruedas2026!';
-const DEFAULT_SESSION_TOKEN = 'dosruedas-admin-auth-token-2026';
+const DEV_DEFAULT_ADMIN_USER = 'admin';
+const DEV_DEFAULT_ADMIN_PASS = 'dosruedas2026!';
+const DEV_DEFAULT_SESSION_TOKEN = 'dosruedas-admin-auth-token-2026';
 
 function safeCompare(a: string, b: string): boolean {
   try {
@@ -37,8 +39,14 @@ export function isValidBasicAuth(authHeader: string | null | undefined): boolean
     const user = credentials.substring(0, separatorIndex);
     const pass = credentials.substring(separatorIndex + 1);
 
-    const expectedUser = process.env.ADMIN_USER || DEFAULT_ADMIN_USER;
-    const expectedPass = process.env.ADMIN_PASSWORD || DEFAULT_ADMIN_PASS;
+    const isProduction = process.env.NODE_ENV === 'production';
+    const expectedUser = process.env.ADMIN_USER || (isProduction ? undefined : DEV_DEFAULT_ADMIN_USER);
+    const expectedPass = process.env.ADMIN_PASSWORD || (isProduction ? undefined : DEV_DEFAULT_ADMIN_PASS);
+
+    if (!expectedUser || !expectedPass) {
+      console.error('[auth] ADMIN_USER o ADMIN_PASSWORD no configuradas en entorno de producción.');
+      return false;
+    }
 
     const isUserValid = safeCompare(user, expectedUser);
     const isPassValid = safeCompare(pass, expectedPass);
@@ -54,7 +62,15 @@ export function isValidBasicAuth(authHeader: string | null | undefined): boolean
  */
 export function isValidAdminSessionCookie(cookieValue: string | null | undefined): boolean {
   if (!cookieValue) return false;
-  const expectedToken = process.env.ADMIN_SESSION_SECRET || DEFAULT_SESSION_TOKEN;
+
+  const isProduction = process.env.NODE_ENV === 'production';
+  const expectedToken = process.env.ADMIN_SESSION_SECRET || (isProduction ? undefined : DEV_DEFAULT_SESSION_TOKEN);
+
+  if (!expectedToken) {
+    console.error('[auth] ADMIN_SESSION_SECRET no configurada en entorno de producción.');
+    return false;
+  }
+
   return safeCompare(cookieValue, expectedToken);
 }
 

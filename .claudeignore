@@ -60,7 +60,7 @@ coverage/
 test-results/
 .vercel/
 
-# 6. Tooling Interno de Agentes y Entornos Locales
+# 6. Tooling Interno de Agentes, IDEs y Entornos Locales
 .agent/
 .agents/
 .claude/
@@ -70,7 +70,9 @@ test-results/
 .design-sync/
 .scratch/
 .stitch/
+.vscode/
 skills-lock.json
+exports/
 
 # 7. Assets Binarios y Multimedia (Evita saturación de tokens de visión)
 *.png

@@ -4,37 +4,38 @@ Guía operativa para Claude Code y asistentes CLI que interactúan con la base d
 
 ---
 
-## 1. Comandos Canónicos de Ejecución
+## 1. Referencia Rápida de Comandos Canónicos
 
-El único gestor de paquetes autorizado en este proyecto es **pnpm** (`pnpm@12.8.1`). Queda prohibido el uso de `npm`, `yarn` o `bun`.
+El único gestor de paquetes autorizado en este repositorio es **pnpm** (`pnpm@12.8.1`). Queda prohibido el uso de `npm`, `yarn` o `bun`.
 
 ### Ciclo de Desarrollo y Construcción
 ```bash
 pnpm dev             # Inicia el servidor de desarrollo local (next dev)
 pnpm build           # Genera Prisma Client y compila para producción (prisma generate && next build)
 pnpm start           # Inicia el servidor optimizado de producción (next start)
-pnpm clean           # Limpia los directorios temporales de compilación de Next.js
+pnpm clean           # Limpia la caché y directorios temporales de Next.js
 pnpm postinstall     # Genera los tipos de Prisma Client en generated/prisma
 ```
 
-### Verificación y Calidad Estática
+### Verificación Estática y Calidad de Código
 ```bash
-pnpm typecheck       # Verificación estricta de TypeScript sin emitir código (tsc --noEmit)
+pnpm typecheck       # Verificación estricta de TypeScript sin emitir archivos (tsc --noEmit)
 pnpm lint            # Análisis estático completo con ESLint flat config (eslint .)
 pnpm exec eslint <archivo> # Ejecuta ESLint sobre un archivo puntual
 ```
 
 ### Pruebas Unitarias y de Regresión (Vitest)
 ```bash
-pnpm test:ci         # Ejecuta la suite de pruebas una sola vez sin modo interactivo (vitest run)
-pnpm test:ui         # Abre la interfaz visual de Vitest en el navegador (vitest --ui)
-pnpm exec vitest related <archivo> --run # Ejecuta pruebas vinculadas al archivo modificado
+pnpm test:ci         # Ejecuta toda la suite de pruebas una sola vez sin modo interactivo
+pnpm test:ui         # Abre el panel visual de Vitest en el navegador
+pnpm exec vitest related <archivo> --run # Ejecuta únicamente las pruebas del archivo modificado
 ```
-> **Regla de oro:** No ejecutes `pnpm test` en entornos automatizados o CLI no interactivos, ya que inicia Vitest en modo observador continuo (watch mode). Empleá siempre `pnpm test:ci` o agregá la bandera `--run`.
+> [!IMPORTANT]
+> **Regla de oro de testing:** Nunca ejecutes `pnpm test` a secas en entornos no interactivos o automatizados, ya que inicia Vitest en modo observador (watch mode) indefinido. Usá siempre `pnpm test:ci` o agregá `--run`.
 
 ### Scripts Operativos Auxiliares
 ```bash
-pnpm pdf             # Genera capturas y reportes PDF vía script de Python
+pnpm pdf             # Genera capturas y reportes PDF vía script de Python local
 pnpm pdf:prod        # Genera reportes PDF apuntando a producción
 pnpm export:texts    # Extrae textos y copys de las vistas del sitio
 ```
@@ -43,27 +44,25 @@ pnpm export:texts    # Extrae textos y copys de las vistas del sitio
 
 ## 2. Delimitación de Contexto y Gestión de Tokens (Token Hygiene)
 
-Para evitar saturación de tokens, lecturas innecesarias y fugas de contexto, respetá los patrones declarados en `.claudeignore`, `.aiexclude` y `.antigravityignore`:
+Para preservar la precisión del modelo y evitar la degradación de contexto, respetá los filtros configurados en `.claudeignore`, `.aiexclude` y `.antigravityignore`:
 
-1. **Lectura Quirúrgica:** Nunca leas directorios completos ni archivos masivos generados. Apuntá directamente a los archivos específicos de `src/` relevantes a tu tarea.
-2. **Archivos Estrictamente Ignorados:**
-   - **Artefactos de compilación:** `.next/`, `generated/`, `dist/`, `build/`, `out/`, `tsconfig.tsbuildinfo`, `*.map`.
+1. **Lectura Quirúrgica:** Localizá con exactitud el archivo correspondiente dentro de `src/`. No intentes leer árboles de directorios completos ni ejecutes búsquedas globales masivas.
+2. **Archivos Fuera de Límites:**
+   - **Artefactos generados:** `.next/`, `generated/`, `dist/`, `build/`, `out/`, `tsconfig.tsbuildinfo`, sourcemaps (`*.map`).
    - **Dependencias y bloqueos:** `node_modules/`, `pnpm-lock.yaml`, `package-lock.json`, `yarn.lock`.
    - **Cachés de testing y linters:** `.turbo/`, `.eslintcache`, `.vitest/`, `coverage/`, `test-results/`.
    - **Tooling de agentes:** `.agent/`, `.agents/`, `.claude/`, `.hermes/`, `.impeccable/`, `.opencode/`, `.stitch/`, `.scratch/`.
-   - **Multimedia y binarios:** `*.webp`, `*.png`, `*.svg`, `*.pdf`, `*.woff2` (evita consumo masivo de visión).
+   - **Multimedia y binarios:** `*.webp`, `*.png`, `*.svg`, `*.pdf`, `*.woff2` (evita consumo masivo de tokens de visión).
    - **Documentación histórica y scrapings:** `docs/paginas/`, `docs/imagenes/`, `docs/sitio_completo.html`.
-3. **Secretos y Seguridad:** Nunca leas, imprimas ni crees archivos `.env` reales (`.env`, `.env.local`, `.env.production`). El único archivo de plantilla autorizado para referencia es `.env.example`.
+3. **Aislamiento de Secretos (Zero-Secrets Policy):** Queda terminantemente prohibido imprimir, inspeccionar o editar archivos `.env` reales (`.env`, `.env.local`, `.env.production`). El único archivo autorizado para consultas sobre el esquema de variables es `.env.example`.
 
 ---
 
-## 3. Arquitectura Full-Stack en `src/`
-
-Toda la lógica de producción vive exclusivamente en `src/`, organizada en capas con responsabilidades desacopladas:
+## 3. Arquitectura del Código en `src/`
 
 ```
 src/
-├── actions/         # Server Actions ('use server'): mutaciones seguras validadas con Zod
+├── actions/         # Server Actions ('use server') validadas con Zod
 ├── app/             # Rutas, layouts y metadata de Next.js App Router
 │   ├── (rutas)/     # Vistas públicas: cotizar, servicios, cobertura, contacto, nosotros, guías
 │   ├── admin/       # Panel administrativo interno
@@ -76,7 +75,7 @@ src/
 │   ├── layout/      # Cabecera (OptimizedHeader), footer y carrusel de redes
 │   └── [dominio]/   # Componentes específicos de vista (home, cotizar, servicios, etc.)
 ├── hooks/           # Custom hooks reutilizables (cotizador unificado, analítica)
-├── lib/             # Núcleo de lógica pura y clientes externos:
+├── lib/             # Lógica pura de negocio y clientes externos:
 │   ├── pricing.ts   # Algoritmos tarifarios y tramos por distancia vial
 │   ├── promises.ts  # Constantes oficiales de promesas de entrega, cortes horarios y límites
 │   ├── prisma.ts    # Instancia centralizada de Prisma Client para PostgreSQL
@@ -89,24 +88,71 @@ src/
 
 ---
 
-## 4. Convenciones de Código y Compilación
+## 4. Patrones de Código Canónicos (Blueprints)
 
-- **TypeScript Estricto:** Configurado con `strict: true`, target `ES2022`, module `esnext` y resolución `bundler`. Prohibido el uso de `any` implícitos o casting inseguro.
-- **Alias de Importación:**
-  - `@/*` mapea exclusivamente a `./src/*`.
-  - `@generated/*` mapea a `./generated/*` (Prisma Client).
-  - Evitá rutas relativas con saltos múltiples (`../../../../lib`).
-- **Directivas React 19:**
-  - Los componentes dentro de `src/app/` son Server Components por defecto.
-  - Usá `'use client'` únicamente en las hojas del árbol que manejen estado (`useState`, `useReducer`), ciclos de vida (`useEffect`), referencias al DOM o librerías de animación basadas en browser.
-  - Toda mutación o Server Action debe declarar `'use server'` en la cabecera.
-- **Validación Contractual:** Toda entrada de datos externos o formularios debe validarse de forma exhaustiva con esquemas **Zod** antes de operar con la base de datos o APIs externas.
-- **Estilos:** Empleá clases de utilidad de Tailwind CSS v4 y los tokens semánticos corporativos configurados en `src/app/globals.css`.
+### Patrón: Server Action con Validación Zod
+```typescript
+'use server';
+
+import { z } from 'zod';
+
+const InputSchema = z.object({
+  campo: z.string().min(1, 'El campo es obligatorio'),
+});
+
+export type ActionResponse<T> =
+  | { success: true; data: T }
+  | { success: false; error: string };
+
+export async function miAccion(formData: FormData): Promise<ActionResponse<{ id: string }>> {
+  const parsed = InputSchema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) {
+    return { success: false, error: parsed.error.issues[0]?.message ?? 'Datos inválidos' };
+  }
+  // Operación en base de datos o lógica de negocio
+  return { success: true, data: { id: 'ok' } };
+}
+```
+
+### Patrón: Client Component con Motion
+```typescript
+'use client';
+
+import React from 'react';
+import { motion, useReducedMotion } from 'motion/react';
+
+export default function TarjetaAnimada({ children }: { children: React.ReactNode }) {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: shouldReduceMotion ? 0.01 : 0.3 }}
+      className="card-token p-6 rounded-2xl bg-white border border-brand-blue-100"
+    >
+      {children}
+    </motion.div>
+  );
+}
+```
 
 ---
 
-## 5. Reglas Mandatorias de Interacción
+## 5. Guía de Resolución de Problemas (Runbook & Troubleshooting)
+
+| Síntoma o Error | Causa Probable | Solución Inmediata |
+| --- | --- | --- |
+| `Cannot find module '@generated/prisma'` | Prisma Client no generado tras cambio de rama o dependencias | Ejecutar `pnpm postinstall` o `pnpm prisma generate` |
+| `React does not recognize the 'whileInView' prop...` | Una prop de Motion se pasó a un elemento HTML nativo o mock incompleto | Asegurar que el tag sea `motion.<tag>` o revisar `src/test/setup.ts` |
+| `EPERM: operation not permitted, mkdir` en Windows | Bloqueo transitorio del sistema de archivos | Reintentar el comando (suele resolverse en el 2do intento) |
+| Fallo en `copy-guard.test.ts` | Se incluyó una frase prohibida en un texto ("en 2 horas", "Factura A", "sin sorpresas") | Ajustar el copy según las salvaguardas de `src/lib/promises.ts` |
+
+---
+
+## 6. Reglas Mandatorias de Interacción
 
 - Mantené siempre el **voseo rioplatense** en textos dirigidos a humanos (comentarios de código, documentación técnica y mensajes).
 - No utilices guiones largos ni en-dash en la redacción en español (empleá dos puntos, paréntesis o guion corto `-`).
-- Nunca modifiques archivos listados en `.claudeignore` o `.aiexclude`.
+- Utilizá enlaces clickeables en formato markdown con esquema `file:///` y barras inclinadas `/` para archivos y símbolos de código.

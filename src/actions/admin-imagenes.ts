@@ -104,9 +104,19 @@ export async function getPageFolders() {
 }
 
 export async function checkFileExists(folder: string, filename: string) {
+  await assertAdminAuth();
   try {
     if (!folder || !filename) return false;
-    const filePath = path.join(process.cwd(), 'public', 'img', folder, filename);
+    const safeFolder = path.normalize(folder).replace(/^(\.\.(\/|\\|$))+/, '').replace(/[^a-zA-Z0-9-_]/g, '');
+    const safeFilename = path.basename(filename);
+    if (!safeFolder || !safeFilename) return false;
+
+    const baseDir = path.join(process.cwd(), 'public', 'img');
+    const targetDir = path.join(baseDir, safeFolder);
+    const filePath = path.join(targetDir, safeFilename);
+
+    if (!filePath.startsWith(baseDir)) return false;
+
     return existsSync(filePath);
   } catch (error) {
     console.error('Error checking file existence:', error);
@@ -131,12 +141,17 @@ export async function createPageFolder(folderName: string) {
 }
 
 export async function getFilesInFolder(folder: string) {
+  await assertAdminAuth();
   try {
     if (!folder) return [];
-    const folderPath = path.join(process.cwd(), 'public', 'img', folder);
+    const safeFolder = path.normalize(folder).replace(/^(\.\.(\/|\\|$))+/, '').replace(/[^a-zA-Z0-9-_]/g, '');
+    if (!safeFolder) return [];
 
-    // Check if path exists and is a directory
-    if (!existsSync(folderPath)) return [];
+    const baseDir = path.join(process.cwd(), 'public', 'img');
+    const folderPath = path.join(baseDir, safeFolder);
+
+    // Confinamiento estricto: la ruta debe permanecer dentro de public/img
+    if (!folderPath.startsWith(baseDir) || !existsSync(folderPath)) return [];
 
     const entries = await fs.readdir(folderPath, { withFileTypes: true });
     return entries

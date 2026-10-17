@@ -1,8 +1,78 @@
 # Envíos DosRuedas
 
-Plataforma web de mensajería urbana en moto y logística de última milla para comercio electrónico en Mar del Plata, Argentina.
+> Plataforma web de mensajería urbana en moto y logística de última milla para comercio electrónico en Mar del Plata, Argentina.
 
-El sistema proporciona cotización online en tiempo real por distancia vial, contratación de envíos programados e inmediatos, logística integrada para vendedores de Mercado Envíos Flex, almacenamiento y fulfillment con picking y packing, y un asistente virtual inteligente para atención comercial.
+El sistema proporciona cotización online en tiempo real por distancia vial, contratación de envíos programados e inmediatos, logística integrada para vendedores de Mercado Envíos Flex, almacenamiento y fulfillment con picking y packing en base central (Friuli 1972), y un asistente virtual inteligente para atención comercial continua.
+
+---
+
+## Inicio Rápido (< 5 minutos)
+
+Seguí estos pasos para levantar el entorno de desarrollo local en tu máquina:
+
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/bomberoxenviosdosruedas/02enviosdosruedas.git
+cd 02enviosdosruedas
+```
+
+### 2. Instalar dependencias con pnpm
+```bash
+pnpm install
+```
+
+### 3. Configurar variables de entorno
+Copiá el archivo de ejemplo `.env.example` como `.env` y completá las credenciales requeridas:
+```bash
+cp .env.example .env
+```
+Campos indispensables para operar localmente:
+- `DATABASE_URL`: Cadena de conexión a PostgreSQL.
+- `GOOGLE_MAPS_API_KEY`: Clave de servidor para cálculo de rutas y direcciones.
+- `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`: Clave pública para autocompletado y mapas interactivos.
+- `GEMINI_API_KEY`: Clave de Google GenAI para el asistente virtual ("DosRuedas Bot").
+
+### 4. Generar el cliente de Prisma e iniciar el servidor
+```bash
+pnpm postinstall
+pnpm dev
+```
+La aplicación quedará disponible en `http://localhost:3000`.
+
+---
+
+## Arquitectura de Alto Nivel
+
+```mermaid
+flowchart TD
+    subgraph Client ["Navegador Cliente"]
+        Browser["React 19 UI (Páginas y Componentes)"]
+        Cotizador["Cotizador Interactivo con Mapa Leaflet"]
+        Assistant["Widget del Asistente Virtual DosRuedas Bot"]
+    end
+
+    subgraph AppRouter ["Next.js 16 App Router (Servidor)"]
+        RSC["Server Components (Renderizado y Carga Segura)"]
+        SA["Server Actions (calculateQuoteAction, submitFeedbackAction)"]
+        API["Route Handlers (/api/assistant, /api/places, /api/routes)"]
+    end
+
+    subgraph External ["Persistencia y Servicios Externos"]
+        Prisma["Prisma ORM 7 (@generated/prisma)"]
+        PG[("PostgreSQL")]
+        GMaps["Google Maps Platform (Places / Directions API)"]
+        Gemini["Google GenAI (Gemini)"]
+    end
+
+    Browser --> RSC
+    Cotizador --> SA
+    Assistant --> API
+    SA --> GMaps
+    SA --> Prisma
+    API --> GMaps
+    API --> Gemini
+    Prisma --> PG
+```
 
 ---
 
@@ -16,19 +86,17 @@ El proyecto está construido sobre un stack moderno, modular y tipado de punta a
 - **Motor de Estilos:** Tailwind CSS v4 (`tailwindcss@4.3.3`, `@tailwindcss/postcss@4.3.3`)
 - **Base de Datos y ORM:** PostgreSQL con Prisma 7 (`prisma@^7.10.0`, `@prisma/client@^7.10.0`, `@prisma/adapter-pg@^7.10.0`)
 - **Inteligencia Artificial:** Google GenAI SDK (`@google/genai@^2.24.0`) y Genkit (`genkit@^1.42.0`, `@genkit-ai/google-genai@^1.42.0`)
-- **Mapas y Geolocalización:** Google Maps Platform (Directions, Places Autocomplete y Details) con soporte de Leaflet (`leaflet@^1.9.4`)
+- **Mapas y Geolocalización:** Google Maps Platform (Directions, Places Autocomplete y Details) con mapas livianos Leaflet (`leaflet@^1.9.4`)
 - **Animaciones e Interacción:** Motion (`motion@^13.4.4`), Radix UI (`@radix-ui/react-accordion`, `@radix-ui/react-dialog`) y Lucide React (`lucide-react@^1.48.0`)
 - **Validación de Datos:** Zod (`zod@^4.6.5`) y Hook Form Resolvers (`@hookform/resolvers@^5.9.1`)
 - **Testing:** Vitest 5 (`vitest@^5.0.2`), jsdom (`jsdom@^30.1.1`) y Testing Library (`@testing-library/react@^16.3.3`)
 - **Linter y Formato:** ESLint 9 (`eslint@9.21.0`, `eslint-config-next@16.3.6`) con Flat Config
 - **Gestor de Paquetes:** pnpm 12 (`packageManager: pnpm@12.8.1`)
-- **Métricas:** Vercel Speed Insights (`@vercel/speed-insights@^2.0.0`)
+- **Métricas Web:** Vercel Speed Insights (`@vercel/speed-insights@^2.0.0`)
 
 ---
 
 ## Estructura del Proyecto (`src/`)
-
-La base de código se estructura de manera modular dentro del directorio `src/`:
 
 ```
 src/
@@ -93,6 +161,26 @@ src/
 
 ---
 
+## Referencia de Endpoints y Server Actions
+
+### Route Handlers (`src/app/api/`)
+
+| Ruta | Método | Descripción | Parámetros / Payload |
+| --- | --- | --- | --- |
+| `/api/assistant` | `POST` | Asistente conversacional IA sobre servicios y tarifas | `{ messages: [{ role: 'user', content: string }] }` |
+| `/api/places/autocomplete` | `GET` | Autocompletado de direcciones en Mar del Plata | Query param: `?input=Friuli+1972` |
+| `/api/places/details` | `GET` | Obtención de coordenadas geográficas de un `place_id` | Query param: `?place_id=...` |
+| `/api/routes/directions` | `GET` | Cálculo de distancia vial y geometría de ruta en moto | Query params: `?origin=lat,lng&destination=lat,lng` |
+
+### Server Actions Principales (`src/actions/`)
+
+- **`calculateQuoteAction`** (`src/actions/quote.ts`):
+  Valida origen y destino con Zod, calcula distancia vial vía Google Directions y computa tarifas lado a lado para Express y LowCost respetando las reglas de tramos lineales y límites de 20 km.
+- **`submitFeedbackAction`** (`src/actions/feedback.ts`):
+  Permite registrar reportes o correcciones de contenido directamente en la base de datos PostgreSQL.
+
+---
+
 ## Sistema de Diseño y Marca
 
 La identidad visual está regida por la Ley de Tres Colores definida en `src/app/globals.css`:
@@ -105,61 +193,6 @@ La identidad visual está regida por la Ley de Tres Colores definida en `src/app
   - `Bebas Neue` (`font-subheading`): Subtítulos, eyebrows y llamados a la acción.
   - `Outfit` (`font-sans`): Lectura general, párrafos y formularios.
   - `Geist Mono` (`font-mono`): Precios, distancias y métricas con números tabulares.
-
----
-
-## Entorno para Asistentes y Agentes de IA
-
-El repositorio cuenta con configuración avanzada de higiene de contexto y token optimization:
-- `.aiexclude`: Estándar agnóstico de exclusión de contexto para asistentes y editores con IA (Cursor, Copilot, Windsurf, Cody, etc.).
-- `.antigravityignore`: Exclusiones especializadas para el motor de Antigravity CLI.
-- `.claudeignore`: Delimitación estricta para Claude Code y asistentes CLI.
-- `AGENTS.md` y `CLAUDE.md`: Directrices de arquitectura, salvaguardas de negocio y protocolos de verificación N0 a N3.
-
----
-
-## Requisitos del Entorno
-
-- **Node.js:** Versión 20.x o superior.
-- **pnpm:** Versión 10.x / 12.x (gestor de paquetes exclusivo del repositorio: `pnpm@12.8.1`).
-- **PostgreSQL:** Base de datos relacional compatible con Prisma ORM.
-
----
-
-## Instalación y Configuración Local
-
-1. Cloná el repositorio en tu máquina:
-   ```bash
-   git clone https://github.com/bomberoxenviosdosruedas/02enviosdosruedas.git
-   cd 02enviosdosruedas
-   ```
-
-2. Instalá las dependencias con pnpm:
-   ```bash
-   pnpm install
-   ```
-
-3. Configurá las variables de entorno creando un archivo `.env` en la raíz (basándote en `.env.example`):
-   ```env
-   # Base de Datos PostgreSQL
-   DATABASE_URL="postgresql://usuario:password@localhost:5432/enviosdosruedas?schema=public"
-
-   # Google Maps Platform (Directions, Places Autocomplete y Details)
-   GOOGLE_MAPS_API_KEY="AIzaSy..."
-   NEXT_PUBLIC_GOOGLE_MAPS_API_KEY="AIzaSy..."
-
-   # Google GenAI / Gemini
-   GEMINI_API_KEY="AIzaSy..."
-
-   # Configuración de Sitio y Contacto
-   NEXT_PUBLIC_SITE_URL="https://www.enviosdosruedas.com"
-   WHATSAPP_NUMBER="542236602699"
-   ```
-
-4. Generá el cliente de base de datos de Prisma:
-   ```bash
-   pnpm postinstall
-   ```
 
 ---
 
@@ -181,4 +214,18 @@ El repositorio cuenta con configuración avanzada de higiene de contexto y token
 | `pnpm pdf:prod` | `python scripts/generate_page_pdf.py --url https://enviosdosruedas.com` | Genera reportes PDF apuntando a producción |
 | `pnpm export:texts` | `python scripts/extract_site_texts.py` | Extrae textos y copys de las vistas del sitio |
 
-> **Importante:** En entornos automatizados o de integración continua (CI), no ejecutes `pnpm test` a secas porque el proceso queda en espera interactiva. Usá siempre `pnpm test:ci`.
+---
+
+## Guía de Contribución y Flujo de Trabajo
+
+1. **Ramas de Trabajo:** Creá una rama descriptiva a partir de la rama principal (`git checkout -b feat/nueva-funcionalidad` o `git checkout -b fix/ajuste-tarifa`).
+2. **Formato de Commits (Conventional Commits):**
+   - `feat(...)`: Nueva funcionalidad o componente.
+   - `fix(...)`: Corrección de errores o bugs.
+   - `refactor(...)`: Mejoras de código sin cambiar funcionalidad externa.
+   - `test(...)`: Incorporación o actualización de pruebas.
+   - `chore(...)`: Tareas de mantenimiento o configuración.
+3. **Comprobación Previa Obligatoria:** Antes de abrir un Pull Request o enviar cambios a producción, verificá que los tipos y pruebas pasen sin errores:
+   ```bash
+   pnpm typecheck && pnpm test:ci
+   ```

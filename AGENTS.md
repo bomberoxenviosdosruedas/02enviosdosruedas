@@ -30,42 +30,72 @@ Para preservar la precisión de los modelos de IA y evitar la degradación de co
 
 ---
 
-## 3. Orquestación y Arquitectura Full-Stack en Next.js (App Router)
+## 3. Arquitectura del Sistema y Flujo de Datos
 
-### Capa de Datos y Persistencia (Database Layer)
-- Toda interacción con la base de datos PostgreSQL debe canalizarse a través de la instancia compartida de Prisma en `@/lib/prisma`.
-- El esquema canónico vive en `prisma/schema.prisma` y genera sus tipos en `@generated/prisma` (mediante `pnpm postinstall` o `pnpm prisma generate`).
-- No agregues consultas SQL en bruto sin justificación ni bypasses a las restricciones de esquema.
+```mermaid
+flowchart TD
+    subgraph Client ["Capa de Presentación (Navegador)"]
+        UI_RSC["Server Components (src/app/*)"]
+        UI_RCC["Client Components ('use client' en hojas)"]
+    end
 
-### Capa de Mutaciones y Servicios (Server Actions & Route Handlers)
-1. **Mutaciones con Server Actions:**
-   - Centralizá mutaciones y formularios en `src/actions/` con la directiva `'use server'`.
-   - Toda Server Action debe validar sus argumentos de entrada de forma exhaustiva mediante esquemas de **Zod**.
-   - Manejá errores de forma estructurada devolviendo respuestas tipadas (éxito o error con mensajes claros para el usuario).
-2. **Route Handlers (`src/app/api/`):**
-   - Reservá los Route Handlers exclusivamente para endpoints HTTP externos, webhooks o proxies de APIs que requieran manejo especial de cabeceras o streaming (ejemplo: integración de Google Places, Directions o streaming con Gemini/Genkit).
+    subgraph ServiceLayer ["Capa de Mutaciones y Servicios"]
+        SA["Server Actions (src/actions/*) \n Validado con Zod"]
+        API["Route Handlers (src/app/api/*) \n Streaming y Proxies"]
+    end
 
-### Capa de Interfaz y Cliente (Presentation Layer)
-1. **Server Components por Defecto:** Todos los componentes dentro de `src/app/` son Server Components salvo que se declare expresamente lo contrario. Aprovéchalos para carga de datos segura, acceso directo a la base de datos y optimización del bundle cliente.
-2. **Uso Restringido de `'use client'`:**
-   - Empleá `'use client'` únicamente cuando el componente necesite manejar estado interactivo (`useState`, `useReducer`), ciclos de vida (`useEffect`), referencias del DOM, event listeners directos o librerías de animación basadas en browser (Motion).
-   - Mantené los Client Components en las hojas del árbol de componentes, pasándoles Server Components o contenido renderizado vía `children` o props.
-3. **Tokens Semánticos de Estilo:**
-   - Utilizá clases utilitarias de Tailwind v4 y los tokens semánticos definidos en `@theme` dentro de `src/app/globals.css`.
-   - **Ley de Tres Colores de Marca:**
-     - `brand-blue-500` / `brand-blue-700` (`#0950F6`): Azul institucional corporativo (techo máximo de oscuridad permitido en la UI, prohibido el uso de negros o azules noche más oscuros).
-     - `brand-yellow-500` (`#FFEC01`): Amarillo vial para botones de acción (CTAs) y llamadas prioritarias (máximo 15% del área visual).
-     - `white` (`#FFFFFF`): Fondo general y superficies limpias.
-4. **Tipografías Oficiales:**
-   - Display / Titulares: `Anton` (`font-display`).
-   - Eyebrows y Subtítulos en mayúsculas: `Bebas Neue` (`font-subheading`).
-   - Texto de lectura y formularios: `Outfit` (`font-sans`).
-   - Métricas, distancias y precios: `Geist Mono` (`font-mono`).
-5. **Primitivas Reutilizables:** Antes de construir una nueva interfaz, utilizá las primitivas estandarizadas en `src/components/ui/` (`DoubleBezelCard`, `CTANestedPill`, `InputField`, `RadioCardGroup`, `BentoGrid`, `HeroProceduralBackground`).
+    subgraph Core ["Lógica de Negocio Pura"]
+        Pricing["src/lib/pricing.ts (Algoritmos tarifarios)"]
+        Promises["src/lib/promises.ts (Compromisos y cortes)"]
+    end
+
+    subgraph External ["Persistencia y Servicios Externos"]
+        Prisma["Prisma ORM (@/lib/prisma)"]
+        PG[("PostgreSQL DB")]
+        GMaps["Google Maps Platform (Places / Directions)"]
+        Gemini["Google GenAI / Genkit"]
+    end
+
+    UI_RCC -->|Invoca| SA
+    UI_RCC -->|Consulta HTTP| API
+    UI_RSC -->|Lectura directa| Prisma
+    SA --> Core
+    SA --> Prisma
+    SA --> GMaps
+    API --> GMaps
+    API --> Gemini
+    Prisma --> PG
+```
 
 ---
 
-## 4. Salvaguardas de Negocio y Reglas de Copy (Invariantes del Código)
+## 4. Registro de Decisiones de Arquitectura (ADRs y Trade-offs)
+
+### ADR 01: Cálculo Tarifario Lineal sin `Math.ceil`
+- **Contexto:** En el cálculo de tarifas para tramos que superan los 10 km (hasta 20 km), el modelo cobra por cada kilómetro vial real.
+- **Decisión:** Multiplicar directamente la distancia por el precio por kilómetro (`distancia * precioPorKm`).
+- **Consecuencia:** **Nunca usar `Math.ceil`**. El redondeo hacia arriba artificial viola las promesas comerciales y quiebra los tests de regresión en `src/lib/pricing.test.ts`.
+
+### ADR 02: Ley de Tres Colores de Marca (Tope de Oscuridad `#0950F6`)
+- **Contexto:** La identidad visual de Envíos DosRuedas requiere máxima claridad, energía vial y contraste accesible (WCAG AA).
+- **Decisión:** 
+  1. `brand-blue-500` / `brand-blue-700` (`#0950F6`): Azul corporativo institucional. Es el techo máximo de oscuridad de toda la aplicación (prohibido utilizar fondos negros puros `#000000` o azules noche más oscuros).
+  2. `brand-yellow-500` (`#FFEC01`): Amarillo vial para botones de acción (CTAs) y acentos prioritarios (máximo 15% del área visual).
+  3. `white` (`#FFFFFF`): Lienzo general y tarjetas limpias.
+
+### ADR 03: Server Actions vs. Route Handlers
+- **Contexto:** En Next.js App Router existen dos mecanismos para ejecutar código de servidor.
+- **Decisión:**
+  - Toda mutación iniciada por formularios o interacción del usuario debe ser una **Server Action** tipada en `src/actions/`, validada con **Zod**.
+  - Los **Route Handlers** (`src/app/api/`) se reservan exclusivamente para endpoints públicos externos, proxies que requieren manipulación de cabeceras CORS o endpoints con streaming (como el asistente IA de Gemini).
+
+### ADR 04: Prisma 7 con Salida en `@generated/prisma`
+- **Contexto:** Para garantizar aislamiento de tipos y compilación reproducible en Next.js.
+- **Decisión:** El cliente se genera en `generated/prisma` y se expone mediante el alias `@generated/prisma`.
+
+---
+
+## 5. Salvaguardas de Negocio y Reglas de Copy (Invariantes del Código)
 
 Los tests de integridad en `src/lib/copy-guard.test.ts` y las definiciones en `src/lib/promises.ts` fijan las siguientes restricciones operativas que no deben vulnerarse:
 
@@ -95,7 +125,7 @@ Los tests de integridad en `src/lib/copy-guard.test.ts` y las definiciones en `s
 
 ---
 
-## 5. Flujo de Trabajo en Git y Convenciones de Commits
+## 6. Flujo de Trabajo en Git y Convenciones de Commits
 
 1. **Formato Conventional Commits:**
    - `feat(...)`: Nueva funcionalidad o componente de producción.
@@ -105,20 +135,6 @@ Los tests de integridad en `src/lib/copy-guard.test.ts` y las definiciones en `s
    - `chore(...)`: Tareas de mantenimiento, dependencias o configuración interna.
 2. **Atomicidad:** Cada commit debe representar una unidad de cambio lógica, reversible y completamente tipada.
 3. **Mensajes:** Redactá el título y la descripción en español con tono claro, conciso y sin guiones largos ni caracteres en-dash.
-
----
-
-## 6. Restricciones Técnicas y de Seguridad
-
-1. **Gestión de Dependencias:**
-   - **pnpm** es el único gestor autorizado.
-   - No agregues dependencias npm que no estén técnicamente justificadas. Preferí utilitarios nativos de la plataforma o librerías ya instaladas en `package.json`.
-2. **Rutas y Mapeo:**
-   - Respetá siempre los alias de importación `@/*` (`src/*`) y `@generated/*` (`generated/*`).
-   - Evitá imports relativos con más de un nivel de profundidad (`../../`).
-3. **Seguridad y Secretos:**
-   - Queda terminantemente prohibido imprimir o subir variables de entorno sensibles (`.env`, `DATABASE_URL`, `GOOGLE_MAPS_API_KEY`, `GEMINI_API_KEY`).
-   - Verificá que los archivos listados en `.claudeignore`, `.antigravityignore` y `.aiexclude` permanezcan intactos y fuera de control de versiones.
 
 ---
 
@@ -133,7 +149,8 @@ Al modificar la base de código, ejecutá las comprobaciones correspondientes se
 | **N2** | Modificaciones en componentes, Server Actions o lógica puntual | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run` |
 | **N3** | Cambios estructurales, estilos globales, esquema de Prisma o configuración | `pnpm typecheck` + `pnpm lint` + `pnpm test:ci` + `pnpm build` |
 
-> **Regla de ejecución:** Nunca ejecutes `pnpm test` a secas (permanece en modo interactivo). Empleá siempre `pnpm test:ci` o `pnpm exec vitest run`.
+> [!CAUTION]
+> **Procedimiento de Rollback si falla la verificación:** Si un comando en N1, N2 o N3 falla, no continúes agregando cambios encima. Diagnosticá la causa raíz, corregí el error puntual o revertí el archivo afectado (`git checkout -- <archivo>`) antes de proseguir.
 
 ---
 
@@ -142,3 +159,4 @@ Al modificar la base de código, ejecutá las comprobaciones correspondientes se
 - Usá **voseo rioplatense** en todos los textos dirigidos a humanos (comentarios de código, documentación, mensajes de commit o descripciones técnicas).
 - No uses guiones largos ni en-dash en la redacción en español.
 - Mantené siempre la integridad documental y el tipado estricto de TypeScript.
+- Creá enlaces clickeables para todos los archivos y símbolos de código utilizando la sintaxis markdown con esquema `file:///` y barras diagonales `/` (ejemplo: `[LeafletRouteMap.tsx](file:///C:/Users/prest/proyectos/02enviosdosruedassetiembre/src/components/ui/LeafletRouteMap.tsx)`).

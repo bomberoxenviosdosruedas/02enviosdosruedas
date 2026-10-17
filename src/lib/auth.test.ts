@@ -49,4 +49,38 @@ describe('Módulo de autenticación administrativa (src/lib/auth.ts)', () => {
       expect(isValidAdminSessionCookie(undefined)).toBe(false);
     });
   });
+
+  describe('Comportamiento Fail-Closed en Producción', () => {
+    const originalEnv = process.env;
+
+    beforeEach(() => {
+      process.env = { ...originalEnv, NODE_ENV: 'production' };
+      delete process.env.ADMIN_USER;
+      delete process.env.ADMIN_PASSWORD;
+      delete process.env.ADMIN_SESSION_SECRET;
+    });
+
+    afterEach(() => {
+      process.env = originalEnv;
+    });
+
+    it('rechaza las credenciales dev predeterminadas si no hay variables en producción', () => {
+      const devHeader = 'Basic ' + Buffer.from('admin:dosruedas2026!').toString('base64');
+      expect(isValidBasicAuth(devHeader)).toBe(false);
+    });
+
+    it('rechaza el token dev predeterminado si no hay secreto en producción', () => {
+      expect(isValidAdminSessionCookie('dosruedas-admin-auth-token-2026')).toBe(false);
+    });
+
+    it('valida exitosamente cuando las variables de producción están definidas', () => {
+      process.env.ADMIN_USER = 'superadmin';
+      process.env.ADMIN_PASSWORD = 'CustomProdPassword2026!';
+      process.env.ADMIN_SESSION_SECRET = 'custom-prod-secret-token';
+
+      const validProdHeader = 'Basic ' + Buffer.from('superadmin:CustomProdPassword2026!').toString('base64');
+      expect(isValidBasicAuth(validProdHeader)).toBe(true);
+      expect(isValidAdminSessionCookie('custom-prod-secret-token')).toBe(true);
+    });
+  });
 });
