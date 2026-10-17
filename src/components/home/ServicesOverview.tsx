@@ -171,7 +171,7 @@ export default function ServicesOverview() {
       city: 'Todo Gral. Pueyrredón',
       founded: 'Tarifa Fija Especial',
       imageUrl: '/cards/fondo_lowcost.webp',
-      cardStyleCenter: 'border-brand-blue-500 bg-linear-to-br from-white to-brand-blue-50 shadow-[8px_8px_0px_rgba(9,80,246,0.2)] text-brand-blue-500',
+      cardStyleCenter: 'border-brand-blue-500 bg-linear-to-br from-white to-brand-blue-50 shadow-float text-brand-blue-500',
       cardStyleSide: 'border-brand-blue-100 bg-white text-brand-blue-500',
       textColor: 'text-brand-blue-500',
       titleColor: 'text-brand-blue-500 group-hover:text-brand-blue-500',
@@ -208,7 +208,7 @@ export default function ServicesOverview() {
       city: 'Mar del Plata urbana',
       founded: `Corte extendido ${FLEX_CUTOFF_TIME}`,
       imageUrl: '/cards/fondo_flex.webp',
-      cardStyleCenter: 'border-brand-blue-500 bg-linear-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-[8px_8px_0px_rgba(255,236,1,0.25)] text-brand-blue-500',
+      cardStyleCenter: 'border-brand-blue-500 bg-linear-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-accent text-brand-blue-500',
       cardStyleSide: 'border-brand-yellow-500/30 bg-brand-yellow-500 text-brand-blue-500',
       textColor: 'text-brand-blue-500',
       titleColor: 'text-brand-blue-500 group-hover:text-brand-blue-500',
@@ -507,7 +507,7 @@ export default function ServicesOverview() {
               >
                 {/* Card Structure with Color Block Themes */}
                 <div
-                  className={`w-full h-full rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden border-4 shadow-2xl ${
+                  className={`w-full h-full rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden border-2 shadow-xl ${
                     isCenter ? service.cardStyleCenter : service.cardStyleSide
                   }`}
                 >
