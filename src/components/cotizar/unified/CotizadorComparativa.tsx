@@ -288,7 +288,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
 
                               {/* Resumen visual del texto de abajo: el lector de
                                   pantalla ya tiene la regla en palabras. */}
-                              <div aria-hidden="true" className="relative h-6 rounded-md bg-brand-blue-50">
+                              <div aria-hidden="true" className="relative h-6 mt-3.5 rounded-md bg-brand-blue-50">
                                 <div
                                   className={`absolute inset-y-0 rounded-md flex items-center px-2 overflow-hidden ${
                                     esExpress
@@ -306,9 +306,13 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                                   </span>
                                 </div>
                                 <div
-                                  className="absolute -inset-y-1 w-0.5 -translate-x-1/2 bg-brand-blue-500 ring-2 ring-white"
+                                  className="absolute -inset-y-1 w-0.5 -translate-x-1/2 bg-brand-blue-500 ring-2 ring-white z-10"
                                   style={{ left: `${posicion(regla.corte)}%` }}
-                                />
+                                >
+                                  <span className="absolute -top-4 -translate-x-1/2 px-1 py-0.2 bg-brand-yellow-500 text-brand-blue-500 font-mono text-[9px] font-bold rounded-xs shadow-xs uppercase whitespace-nowrap">
+                                    Corte {regla.corte}h
+                                  </span>
+                                </div>
                               </div>
 
                               <p className="font-sans text-2xs text-brand-blue-400 leading-snug">

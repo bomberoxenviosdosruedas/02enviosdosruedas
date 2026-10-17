@@ -362,44 +362,53 @@ export default function ServiciosPage() {
                 key={service.id}
                 id={service.id}
                 href={service.href}
-                className={`group relative scroll-mt-28 ${service.bgColor} ${service.borderColor} p-3 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-[border-color,box-shadow,transform] duration-300 ease-out flex flex-col ${service.color}`}
+                className="group relative scroll-mt-28 double-bezel-outer p-2 rounded-3xl bg-brand-blue-50/70 border border-brand-blue-100 shadow-float hover:shadow-hover-lift hover:border-brand-blue-300 transition-all duration-300 ease-out flex flex-col text-brand-blue-500"
               >
-                <div className="border border-white/20 p-2 rounded-[20px] shadow-sm flex flex-col justify-between h-full relative overflow-hidden">
+                <div className="bg-white p-6 rounded-2xl shadow-xs flex flex-col justify-between h-full relative overflow-hidden border border-brand-blue-100/60">
                   <div className="space-y-4 relative z-10">
                     <div className="flex items-center justify-between">
-                      <span className="-rotate-1 absolute -top-3.5 left-6 bg-brand-yellow-500 text-brand-blue-500 font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-glow-yellow">
+                      <span className="-rotate-1 inline-block bg-brand-yellow-500 text-brand-blue-500 font-bold font-subheading text-xs tracking-wider px-3 py-1 rounded-full shadow-glow-yellow">
                         {service.badge}
                       </span>
-                      <div className="w-12 h-12 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center shrink-0 border border-brand-blue-500 shadow-sm group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-200">
+                      <div className="w-12 h-12 rounded-xl bg-brand-blue-50 text-brand-blue-500 flex items-center justify-center shrink-0 border border-brand-blue-200 shadow-xs group-hover:bg-brand-yellow-500 group-hover:border-brand-yellow-400 transition-colors duration-200">
                         <Icon className="w-6 h-6 shrink-0" />
                       </div>
                     </div>
 
                     <div>
-                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-yellow-500 font-bold">
+                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-400 font-bold">
                         {service.label}
                       </span>
-                      <h3 className="text-xl font-display uppercase tracking-wider mt-1 leading-tight min-h-12">
+                      <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue-500 mt-1 leading-tight min-h-12">
                         {service.title}
                       </h3>
                     </div>
 
-                    <p className="text-sm leading-relaxed font-sans">
+                    <p className="text-sm leading-relaxed font-sans text-brand-blue-500/80">
                       {service.description}
                     </p>
 
-                    <div className="flex items-baseline gap-2 pt-2 border-t border-white/20">
-                      <span className="text-2xl font-mono tabular-nums font-bold">{service.price}</span>
-                      {service.priceNote && (
-                        <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-100">{service.priceNote}</span>
-                      )}
+                    {/* 3 Metric Pills: ENTREGA | CORTE | TARIFA */}
+                    <div className="grid grid-cols-3 gap-2 pt-3 pb-3 border-y border-brand-blue-100/70 text-center">
+                      <div className="bg-brand-blue-50/80 border border-brand-blue-100/60 p-2 rounded-xl">
+                        <div className="text-xs font-bold font-subheading text-brand-blue-500 truncate">{service.stats.entrega}</div>
+                        <div className="text-[10px] uppercase font-bold tracking-wider text-brand-blue-400">ENTREGA</div>
+                      </div>
+                      <div className="bg-brand-blue-50/80 border border-brand-blue-100/60 p-2 rounded-xl">
+                        <div className="text-xs font-bold font-subheading text-brand-blue-500 truncate">{service.stats.corte}</div>
+                        <div className="text-[10px] uppercase font-bold tracking-wider text-brand-blue-400">CORTE</div>
+                      </div>
+                      <div className="bg-brand-blue-50/80 border border-brand-blue-100/60 p-2 rounded-xl">
+                        <div className="text-xs font-bold font-mono text-brand-blue-500 truncate">{service.stats.tarifa}</div>
+                        <div className="text-[10px] uppercase font-bold tracking-wider text-brand-blue-400">TARIFA</div>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-white/20 relative z-10 space-y-3">
+                  <div className="pt-4 border-t border-brand-blue-100/60 relative z-10 space-y-4">
                     <ul className="space-y-2">
                       {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-xs">
+                        <li key={feature} className="flex items-center gap-2 text-xs text-brand-blue-500">
                           <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-brand-yellow-500" />
                           <span className="font-sans">{feature}</span>
                         </li>
@@ -408,7 +417,7 @@ export default function ServiciosPage() {
 
                     <CTANestedPill
                       href={service.href}
-                      variant="elevated"
+                      variant="primary"
                       size="default"
                       className="w-full justify-center"
                     >
