@@ -167,10 +167,10 @@ La página de inicio se compone de una cabecera global fija, seis secciones tron
 
 3. **WhatsApp Oficial:**
    - **Insignia:** WHATSAPP DIRECTO.
-   - **Identidad Visual:** Verde real oficial (`#25D366` y `#128C7E`) sin amarillo. Textos oscuros (`#111B21`) sobre fondo verde para lograr contraste AAA y máxima legibilidad.
+   - **Identidad Visual:** Verde corporativo oficial (`#128C7E` / `#25D366`). Textos en blanco puro (`text-white`) para el título, número telefónico y bajada descriptiva, garantizando nitidez, elegancia y alto contraste.
    - **Identificador:** Línea de contacto directo de la empresa.
    - **Descripción:** Escribinos directamente para consultas, contrataciones o soporte express al toque.
-   - **Acción:** "INICIAR CHAT" (botón verde oscuro corporativo `#128C7E` con tipografía blanca).
+   - **Acción:** "INICIAR CHAT" (botón blanco con tipografía verde corporativo `#128C7E`).
 
 ---
 
