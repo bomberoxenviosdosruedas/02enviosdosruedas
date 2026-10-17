@@ -66,7 +66,7 @@ describe('NuestrasRedesPage — Tier 1 & 2', () => {
     });
   });
 
-  it('T2.4: aplica las variables de color del sistema de diseño (gradient from-brand-blue-700)', () => {
+  it('T2.4: aplica las variables de color del sistema de diseño (gradient from-brand-blue-500)', () => {
     const { container } = render(<NuestrasRedesPage />);
     const heroSec = container.querySelector('#networks-hero');
     expect(heroSec?.className).toContain('bg-brand-blue-500');

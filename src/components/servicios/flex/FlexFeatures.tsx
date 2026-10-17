@@ -47,20 +47,20 @@ export default function FlexFeatures() {
 
           {/* Header column (Left) */}
           <div className="lg:col-span-5 space-y-6 text-left">
-            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
+            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
               MERCADOLIBRE EXPERTS
             </span>
 
-            <h2 className="text-brand-blue-700 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
+            <h2 className="text-brand-blue-500 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
               DOMINÁ TUS VENTAS <br />
-              <span className="text-brand-blue-900 bg-brand-yellow-500 px-2 py-0.5 inline-block mt-1 font-bold -rotate-1">CON ENVÍOS FLEX</span>
+              <span className="text-brand-blue-500 bg-brand-yellow-500 px-2 py-0.5 inline-block mt-1 font-bold -rotate-1">CON ENVÍOS FLEX</span>
             </h2>
 
             <p className="text-brand-ink text-base leading-relaxed font-sans">
               Somos el aliado estratégico definitivo para vendedores de MercadoLibre en Mar del Plata. Optimizamos tus Envíos Same-Day Mar del Plata para que vos solo te preocupes por publicar, atender clientes y vender más de lo que imaginás.
             </p>
 
-            <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-blue-700 font-bold uppercase tracking-wider font-subheading">
+            <div className="pt-4 flex items-center gap-3.5 text-sm text-brand-blue-500 font-bold uppercase tracking-wider font-subheading">
               <Truck className="h-5 w-5 text-brand-yellow-500 shrink-0 fill-current" />
               <span>COBERTURA TOTAL EN MAR DEL PLATA</span>
             </div>
@@ -90,11 +90,11 @@ export default function FlexFeatures() {
                     {/* Giant Watermark Icon */}
                     <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
 
-                    <div className="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl shrink-0 border border-brand-blue-500 shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-900 transition-colors duration-300 relative z-10">
+                    <div className="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl shrink-0 border border-brand-blue-500 shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-300 relative z-10">
                       <Icon className="h-6 w-6 shrink-0" />
                     </div>
                     <div className="space-y-1.5 relative z-10">
-                      <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight group-hover:text-brand-blue-900 transition-colors duration-300">
+                      <h4 className="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight group-hover:text-brand-blue-500 transition-colors duration-300">
                         {feat.title}
                       </h4>
                       <p className="text-sm text-brand-ink font-sans leading-relaxed">

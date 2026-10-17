@@ -21,7 +21,7 @@ export interface StepperHorizontalProps {
  * Multi-step progress indicator for quoters and multi-step forms.
  * Follows DESIGN.md specifications:
  * - Line 2px: brand-blue-100 (completed: brand-yellow-500)
- * - Circles 40px: completed=yellow-500 (STRICTLY NO GREEN!), active=blue-700 + ring, pending=blue-100
+ * - Circles 40px: completed=yellow-500 (STRICTLY NO GREEN!), active=brand-blue-500 + ring, pending=blue-100
  * - Labels: font-subheading text-xs uppercase tracking-wider
  */
 export const StepperHorizontal: React.FC<StepperHorizontalProps> = ({

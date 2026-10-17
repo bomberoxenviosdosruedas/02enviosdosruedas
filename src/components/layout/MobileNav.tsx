@@ -84,7 +84,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, navItems,
 
   const content = (
     <>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: prefersReducedMotion ? 0 : 0.2 }} onClick={onClose} className="fixed inset-0 bg-brand-blue-700/70 backdrop-blur-md z-99 lg:hidden" />
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: prefersReducedMotion ? 0 : 0.2 }} onClick={onClose} className="fixed inset-0 bg-brand-blue-500/70 backdrop-blur-md z-99 lg:hidden" />
       <motion.div
         ref={drawerRef}
         id="mobile-navigation-dialog"
@@ -95,7 +95,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, navItems,
         animate={{ x: 0 }}
         exit={prefersReducedMotion ? { opacity: 0 } : { x: '100%' }}
         transition={SPRING_PANEL}
-        className="fixed top-0 right-0 bottom-0 z-100 flex flex-col w-full max-w-[320px] h-dvh bg-brand-blue-700 shadow-2xl border-l border-white/10 lg:hidden overscroll-contain"
+        className="fixed top-0 right-0 bottom-0 z-100 flex flex-col w-full max-w-[320px] h-dvh bg-brand-blue-500 shadow-2xl border-l border-white/10 lg:hidden overscroll-contain"
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
           <Link href="/" onClick={onClose} className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50 rounded-lg">
@@ -163,7 +163,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, navItems,
           </motion.nav>
         </div>
 
-        <div className="p-5 border-t border-white/10 space-y-4 shrink-0 bg-brand-blue-700 backdrop-blur-md mt-auto">
+        <div className="p-5 border-t border-white/10 space-y-4 shrink-0 bg-brand-blue-500 backdrop-blur-md mt-auto">
           <a
             href={PHONE_HREF}
             onClick={() => trackAnalytics.phoneClick(SUPPORT_PHONE, 'drawer_mobile')}

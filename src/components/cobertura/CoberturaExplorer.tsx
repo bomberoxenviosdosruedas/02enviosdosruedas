@@ -158,14 +158,14 @@ export default function CoberturaExplorer() {
               <label htmlFor="neighborhood-search" className="sr-only">
                 Buscá tu barrio o zona en Mar del Plata
               </label>
-              <Search className="w-5 h-5 text-brand-blue-700 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Search className="w-5 h-5 text-brand-blue-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
                 id="neighborhood-search"
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Buscá tu barrio (ej. Güemes, Mogotes, Puerto)..."
-                className="w-full h-11 pl-11 pr-4 rounded-xl border-2 border-brand-blue-100 focus:border-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20 text-sm font-sans text-brand-blue-900 placeholder:text-brand-blue-700 transition-colors"
+                className="w-full h-11 pl-11 pr-4 rounded-xl border-2 border-brand-blue-100 focus:border-brand-blue-500 focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20 text-sm font-sans text-brand-blue-500 placeholder:text-brand-blue-500 transition-colors"
               />
             </div>
 
@@ -179,8 +179,8 @@ export default function CoberturaExplorer() {
                   className={cn(
                     'px-3 py-1.5 rounded-lg text-xs font-subheading uppercase tracking-wider transition-colors cursor-pointer min-h-9',
                     selectedZone === filter.id
-                      ? 'bg-brand-blue-700 text-brand-yellow-500 shadow-sm'
-                      : 'bg-brand-blue-50 text-brand-blue-700 hover:bg-brand-blue-100'
+                      ? 'bg-brand-blue-500 text-brand-yellow-500 shadow-sm'
+                      : 'bg-brand-blue-50 text-brand-blue-500 hover:bg-brand-blue-100'
                   )}
                 >
                   {filter.label}
@@ -189,9 +189,9 @@ export default function CoberturaExplorer() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-xs font-mono text-brand-blue-600 pt-1 border-t border-brand-blue-50">
+          <div className="flex items-center justify-between text-xs font-mono text-brand-blue-500 pt-1 border-t border-brand-blue-50">
             <span>
-              Mostrando <strong className="text-brand-blue-900">{filtered.length}</strong> de {NEIGHBORHOODS.length} barrios y zonas
+              Mostrando <strong className="text-brand-blue-500">{filtered.length}</strong> de {NEIGHBORHOODS.length} barrios y zonas
             </span>
             <span className="hidden sm:inline text-brand-ink">
               Cálculo desde base central Friuli 1972
@@ -210,19 +210,19 @@ export default function CoberturaExplorer() {
             <div className="bg-white p-4 rounded-xl border border-brand-blue-50/50 flex flex-col justify-between h-full space-y-3">
               <div>
                 <div className="flex items-start justify-between gap-2 mb-1">
-                  <span className="inline-flex items-center gap-1 font-mono text-xs font-bold px-2 py-0.5 rounded bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100">
-                    <MapPin className="w-3 h-3 text-brand-blue-700" />
+                  <span className="inline-flex items-center gap-1 font-mono text-xs font-bold px-2 py-0.5 rounded bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100">
+                    <MapPin className="w-3 h-3 text-brand-blue-500" />
                     {item.zone} · {item.rangeKm}
                   </span>
-                  <span className="font-mono text-xs font-bold text-brand-blue-900 bg-brand-yellow-500/20 px-2 py-0.5 rounded border border-brand-yellow-400">
+                  <span className="font-mono text-xs font-bold text-brand-blue-500 bg-brand-yellow-500/20 px-2 py-0.5 rounded border border-brand-yellow-400">
                     Tarifas 2026
                   </span>
                 </div>
-                <h3 className="font-subheading text-lg uppercase text-brand-blue-900 tracking-wide mt-2">
+                <h3 className="font-subheading text-lg uppercase text-brand-blue-500 tracking-wide mt-2">
                   {item.name}
                 </h3>
                 {item.note && (
-                  <p className="text-xs text-brand-blue-600 font-sans mt-0.5 italic">
+                  <p className="text-xs text-brand-blue-500 font-sans mt-0.5 italic">
                     {item.note}
                   </p>
                 )}
@@ -231,18 +231,18 @@ export default function CoberturaExplorer() {
               {/* Price comparison cards */}
               <div className="pt-2 border-t border-brand-blue-50 space-y-1.5 font-mono text-xs">
                 <div className="flex items-center justify-between p-1.5 rounded-lg bg-brand-blue-50/50">
-                  <span className="text-brand-blue-700 font-sans font-medium flex items-center gap-1">
-                    <Zap className="w-3 h-3 text-brand-blue-700" /> Express:
+                  <span className="text-brand-blue-500 font-sans font-medium flex items-center gap-1">
+                    <Zap className="w-3 h-3 text-brand-blue-500" /> Express:
                   </span>
-                  <span className="font-bold text-brand-blue-900 tabular-nums">
+                  <span className="font-bold text-brand-blue-500 tabular-nums">
                     ${item.expressPrice.toLocaleString('es-AR')}
                   </span>
                 </div>
                 <div className="flex items-center justify-between p-1.5 rounded-lg bg-brand-blue-50/30">
-                  <span className="text-brand-blue-700 font-sans font-medium flex items-center gap-1">
+                  <span className="text-brand-blue-500 font-sans font-medium flex items-center gap-1">
                     <Clock className="w-3 h-3 text-brand-blue-500" /> LowCost:
                   </span>
-                  <span className="font-bold text-brand-blue-900 tabular-nums">
+                  <span className="font-bold text-brand-blue-500 tabular-nums">
                     ${item.lowCostPrice.toLocaleString('es-AR')}
                   </span>
                 </div>
@@ -251,10 +251,10 @@ export default function CoberturaExplorer() {
               {/* Action Link */}
               <Link
                 href="/cotizar"
-                className="inline-flex items-center justify-between text-xs font-subheading uppercase text-brand-blue-700 group-hover:text-brand-blue-900 pt-1"
+                className="inline-flex items-center justify-between text-xs font-subheading uppercase text-brand-blue-500 group-hover:text-brand-blue-500 pt-1"
               >
                 <span>Cotizar envío a {item.name.split('(')[0]}</span>
-                <ChevronRight className="w-4 h-4 text-brand-blue-700 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-4 h-4 text-brand-blue-500 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
@@ -264,8 +264,8 @@ export default function CoberturaExplorer() {
       {/* No results message */}
       {filtered.length === 0 && (
         <div className="text-center py-12 bg-brand-blue-50/50 rounded-2xl border border-brand-blue-100 p-6">
-          <MapPin className="w-10 h-10 text-brand-blue-700 mx-auto mb-2" />
-          <h3 className="font-subheading text-lg uppercase text-brand-blue-900">
+          <MapPin className="w-10 h-10 text-brand-blue-500 mx-auto mb-2" />
+          <h3 className="font-subheading text-lg uppercase text-brand-blue-500">
             No encontramos el barrio con ese nombre exacto
           </h3>
           <p className="text-sm font-sans text-brand-ink max-w-md mx-auto mt-1">

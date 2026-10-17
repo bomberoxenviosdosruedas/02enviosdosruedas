@@ -343,8 +343,8 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
         }
         .input-field {
           @apply w-full bg-white px-3 py-2.5 rounded-xl border-2 border-brand-blue-100
-                 focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20 focus:border-brand-blue-700
-                 text-sm text-brand-blue-700 placeholder:text-brand-blue-300 font-sans
+                 focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20 focus:border-brand-blue-500
+                 text-sm text-brand-blue-500 placeholder:text-brand-blue-300 font-sans
                  transition-colors duration-150;
         }
         .input-field:disabled {
@@ -387,7 +387,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
           @apply opacity-50 cursor-not-allowed hover:bg-brand-yellow hover:text-brand-blue;
         }
         .cta-nested-pill--outline {
-          @apply bg-transparent text-brand-blue-600 border-2 border-brand-blue-100
+          @apply bg-transparent text-brand-blue-500 border-2 border-brand-blue-100
                  hover:bg-brand-blue-50 hover:border-brand-blue-200 hover:text-brand-ink
                  min-h-10 px-3 py-2 text-xs;
         }
@@ -395,7 +395,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
           @apply opacity-50 cursor-not-allowed;
         }
         .cta-nested-pill--ghost {
-          @apply bg-transparent text-brand-blue-600 border-2 border-transparent
+          @apply bg-transparent text-brand-blue-500 border-2 border-transparent
                  hover:bg-brand-blue-50 hover:border-brand-blue-100 hover:text-brand-ink
                  min-h-10 px-3 py-2 text-xs;
         }
@@ -409,10 +409,10 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
           @apply bg-brand-yellow text-brand-blue;
         }
         .cta-nested-pill--primary:hover .cta-nested-icon {
-          @apply bg-brand-blue-700/10 text-brand-blue;
+          @apply bg-brand-blue-500/10 text-brand-blue;
         }
         .cta-nested-pill--primary:active .cta-nested-icon {
-          @apply bg-brand-blue-700 text-brand-yellow translate-x-1;
+          @apply bg-brand-blue-500 text-brand-yellow translate-x-1;
         }
 
         /* Shadows */
@@ -471,7 +471,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
           </div>
         )}
         {success && (
-          <div className="p-4 bg-brand-blue-50 border border-brand-blue-200 rounded-xl flex items-center gap-3 text-brand-blue-700 animate-slide-in">
+          <div className="p-4 bg-brand-blue-50 border border-brand-blue-200 rounded-xl flex items-center gap-3 text-brand-blue-500 animate-slide-in">
             <Check className="h-5 w-5 shrink-0 text-brand-blue-500" />
             <p className="text-sm font-semibold">{success}</p>
           </div>
@@ -495,7 +495,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                   onChange={(e) => setNewFolderInput(e.target.value)}
                   placeholder="Ej: blog, flex, novedades"
                   required
-                  className="flex-1 px-3 py-2.5 rounded-lg border-2 border-brand-blue-100 focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20 focus:border-brand-blue-700 text-sm text-brand-ink placeholder:text-brand-blue-300 bg-white"
+                  className="flex-1 px-3 py-2.5 rounded-lg border-2 border-brand-blue-100 focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20 focus:border-brand-blue-500 text-sm text-brand-ink placeholder:text-brand-blue-300 bg-white"
                 />
                 <button
                   type="submit"
@@ -595,7 +595,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                 {/* Dynamic Path & File existence status */}
                 <div className="bg-brand-blue-50 p-4 rounded-2xl border border-brand-blue-100 space-y-2">
                   <div className="text-2xs font-bold uppercase text-brand-blue-300">Ruta Resultante:</div>
-                  <code className="text-xs font-semibold text-brand-blue-600 font-mono block break-all">
+                  <code className="text-xs font-semibold text-brand-blue-500 font-mono block break-all">
                     /img/{selectedFolder}/{filename || '[nombre-de-archivo]'}
                   </code>
 
@@ -604,7 +604,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                       {isChecking ? (
                         <span className="text-xs text-brand-blue-300 animate-pulse font-semibold">Verificando en servidor…</span>
                       ) : fileExists ? (
-                        <div className="text-brand-blue-600 flex items-center gap-1.5 text-xs font-bold font-sans">
+                        <div className="text-brand-blue-500 flex items-center gap-1.5 text-xs font-bold font-sans">
                           <FileCheck className="h-4.5 w-4.5 text-brand-blue-500 shrink-0" />
                           ✔ El archivo existe físicamente en el servidor
                         </div>
@@ -672,7 +672,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                 >
                   <div className="double-bezel-inner">
                     {/* Image info bar */}
-                    <div className="bg-brand-blue-700 text-white p-5 flex flex-wrap items-center justify-between gap-4">
+                    <div className="bg-brand-blue-500 text-white p-5 flex flex-wrap items-center justify-between gap-4">
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
                           <span className="px-2 py-0.5 rounded bg-brand-yellow text-brand-blue text-2xs font-bold font-mono">
@@ -686,7 +686,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                       </div>
                       <button
                         onClick={() => handleDeleteImage(image.id)}
-                        className="p-2 rounded-lg bg-brand-blue-700/40 hover:bg-brand-blue-700/60 text-brand-blue-200 border border-brand-blue-700 transition-colors cursor-pointer"
+                        className="p-2 rounded-lg bg-brand-blue-500/40 hover:bg-brand-blue-500/60 text-brand-blue-200 border border-brand-blue-500 transition-colors cursor-pointer"
                         title="Eliminar registro"
                         aria-label={`Eliminar ${image.relativePath}`}
                       >
@@ -827,7 +827,7 @@ export default function AdminImagenesClient({ initialImageList, initialFolders }
                                       </span>
                                     )}
                                   </div>
-                                  <p className="text-xs text-brand-blue-600 leading-relaxed font-sans break-all">{prompt.promptText}</p>
+                                  <p className="text-xs text-brand-blue-500 leading-relaxed font-sans break-all">{prompt.promptText}</p>
                                 </div>
                                 <button
                                   onClick={() => copyToClipboard(prompt.promptText, prompt.id)}

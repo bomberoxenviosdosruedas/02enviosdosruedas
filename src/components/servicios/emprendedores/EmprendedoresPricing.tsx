@@ -127,7 +127,7 @@ export default function EmprendedoresPricing() {
         ctaHref="https://api.whatsapp.com/send/?phone=542236602699"
         ctaVariant="primary"
         facts={EMPRENDEDORES_FACTS}
-        backgroundClassName="bg-brand-blue-700 text-white"
+        backgroundClassName="bg-brand-blue-500 text-white"
       />
 
       <ServicePricing
@@ -143,7 +143,7 @@ export default function EmprendedoresPricing() {
         ctaHref="https://api.whatsapp.com/send/?phone=542236602699"
         ctaVariant="primary"
         facts={FACTS_24HS}
-        backgroundClassName="bg-brand-blue-500 text-brand-blue-900"
+        backgroundClassName="bg-brand-blue-500 text-brand-blue-500"
       />
     </div>
   );

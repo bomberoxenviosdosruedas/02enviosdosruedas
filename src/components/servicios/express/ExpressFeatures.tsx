@@ -49,24 +49,24 @@ export default function ExpressFeatures() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 space-y-6 text-left">
-            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest">
+            <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest">
               Por qué Express
             </span>
 
-            <h2 className="text-brand-blue-900 text-4xl sm:text-5xl font-display uppercase tracking-tight leading-[0.98]">
+            <h2 className="text-brand-blue-500 text-4xl sm:text-5xl font-display uppercase tracking-tight leading-[0.98]">
               Rápido cuando <br />
               <span className="bg-brand-yellow-500 px-2 py-0.5 inline-block mt-1 -rotate-1 shadow-glow-yellow">
                 importa llegar
               </span>
             </h2>
 
-            <p className="text-brand-blue-900 text-base leading-relaxed font-sans">
+            <p className="text-brand-blue-500 text-base leading-relaxed font-sans">
               Todo Mar del Plata. Hasta {CONSULT_THRESHOLD_KM} km el cálculo es automático; más allá
               de ese radio, la tarifa se conversa con el equipo.
             </p>
 
-            <p className="flex items-center gap-3 text-sm text-brand-blue-900 uppercase tracking-wider font-subheading">
-              <Clock className="h-5 w-5 text-brand-blue-700 shrink-0" aria-hidden="true" />
+            <p className="flex items-center gap-3 text-sm text-brand-blue-500 uppercase tracking-wider font-subheading">
+              <Clock className="h-5 w-5 text-brand-blue-500 shrink-0" aria-hidden="true" />
               <span>
                 Lunes a viernes {OPERATING_HOURS.weekdays} · Sábados {OPERATING_HOURS.saturdays}
               </span>
@@ -84,14 +84,14 @@ export default function ExpressFeatures() {
                         className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-50 pointer-events-none select-none"
                         aria-hidden="true"
                       />
-                      <div className="h-12 w-12 rounded-xl bg-brand-blue-700 text-brand-yellow-500 flex items-center justify-center shrink-0 relative z-10">
+                      <div className="h-12 w-12 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center shrink-0 relative z-10">
                         <Icon className="h-6 w-6 shrink-0" aria-hidden="true" />
                       </div>
                       <div className="space-y-1.5 relative z-10">
-                        <h3 className="text-xl font-display uppercase tracking-wider text-brand-blue-900 leading-tight">
+                        <h3 className="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight">
                           {feat.title}
                         </h3>
-                        <p className="text-sm text-brand-blue-900 font-sans leading-relaxed">{feat.desc}</p>
+                        <p className="text-sm text-brand-blue-500 font-sans leading-relaxed">{feat.desc}</p>
                       </div>
                     </div>
                   </DoubleBezelCard>

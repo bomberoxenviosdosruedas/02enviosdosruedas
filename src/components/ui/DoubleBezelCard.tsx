@@ -15,7 +15,7 @@ export interface DoubleBezelCardProps extends React.HTMLAttributes<HTMLDivElemen
  * Signature Two-tier container system (outer bezel + inner card) for primary content.
  * Follows DESIGN.md specifications:
  * - Outer: bg-brand-blue-50/80, border-brand-blue-100, rounded-2xl (16px), p-2 (8px), shadow-float
- * - Inner: bg-white (or brand-blue-700 in dark variant), rounded-xl (12px), p-6, shadow-sm
+ * - Inner: bg-white (or brand-blue-500 in dark variant), rounded-xl (12px), p-6, shadow-sm
  * - Hover: shadow-antigravity-deep, border-brand-blue-300
  */
 export const DoubleBezelCard = React.forwardRef<HTMLDivElement, DoubleBezelCardProps>(

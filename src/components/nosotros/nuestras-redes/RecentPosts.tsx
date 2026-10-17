@@ -111,7 +111,7 @@ export default function RecentPosts() {
                   isFeatured ? 'md:col-span-12 lg:col-span-8' : 'md:col-span-6 lg:col-span-4'
                 }`}
               >
-                <div className={`rounded-[20px] bg-white text-brand-blue-700 overflow-hidden flex flex-col justify-between h-full border border-brand-blue-50/50 shadow-sm ${
+                <div className={`rounded-[20px] bg-white text-brand-blue-500 overflow-hidden flex flex-col justify-between h-full border border-brand-blue-50/50 shadow-sm ${
                   isFeatured ? 'md:flex-row' : ''
                 }`}>
                   
@@ -128,7 +128,7 @@ export default function RecentPosts() {
                     />
                     {isFeatured && (
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-900 text-xs font-subheading uppercase tracking-widest rounded-lg shadow-glow-yellow transform -rotate-1 inline-block">
+                        <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-500 text-xs font-subheading uppercase tracking-widest rounded-lg shadow-glow-yellow transform -rotate-1 inline-block">
                           DESTACADO
                         </span>
                       </div>
@@ -151,10 +151,10 @@ export default function RecentPosts() {
                             />
                           </div>
                           <div>
-                            <h3 className="text-sm font-sans font-semibold uppercase tracking-wider text-brand-blue-700 leading-none">
+                            <h3 className="text-sm font-sans font-semibold uppercase tracking-wider text-brand-blue-500 leading-none">
                               Envíos DosRuedas
                             </h3>
-                            <span className="text-2xs font-mono font-bold text-brand-blue-700 mt-1 block tabular-nums">
+                            <span className="text-2xs font-mono font-bold text-brand-blue-500 mt-1 block tabular-nums">
                               {post.date}
                             </span>
                           </div>
@@ -193,7 +193,7 @@ export default function RecentPosts() {
                           href={post.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group min-h-11 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading tracking-wider text-sm uppercase py-2 px-4.5 rounded-full flex items-center justify-center gap-2 shadow-glow-yellow transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
+                          className="group min-h-11 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading tracking-wider text-sm uppercase py-2 px-4.5 rounded-full flex items-center justify-center gap-2 shadow-glow-yellow transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                         >
                           <span>Ver original</span>
                           <span className="w-6 h-6 rounded-full bg-transparent flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 shrink-0">

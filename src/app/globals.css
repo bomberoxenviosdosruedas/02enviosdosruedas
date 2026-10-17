@@ -8,7 +8,7 @@
    * SUPERFICIES Y LIENZO BASE
    * ======================================================================== */
   --surface-page: var(--color-white);
-  --text-body: var(--color-brand-blue-900);
+  --text-body: var(--color-brand-blue-500);
 
   /* ========================================================================
    * MOTION TOKENS — Emil Kowalski Philosophy
@@ -32,20 +32,13 @@
    * Cada token tiene un hex literal. Nada más oscuro que #0950F6.
    * ======================================================================== */
 
-  /* Azul Vibrante — 6 pasos (50 → 500). 500/600/700/900/950 colapsan a #0950F6. */
+  /* Azul Vibrante — 6 pasos canónicos (50 → 500). Tope máximo de oscuridad: #0950F6 */
   --color-brand-blue-50: #E6EEFE;   /* fondo suave, bezel exterior /80, skeleton, hover ghost */
   --color-brand-blue-100: #BACEFD;  /* borde estructural, divisores, stepper línea pendiente */
   --color-brand-blue-200: #8EAFFB;  /* hover borde tarjeta, anillo radio pendiente, trazos SVG */
   --color-brand-blue-300: #628FF9;  /* borde input reposo, hover bezel, trazos SVG secundarios */
-  --color-brand-blue-400: #3570F8;  /* íconos, texto grande muted (≥24px). Falla AA en texto normal */
-  --color-brand-blue-500: #0950F6;  /* anillo de foco, primario canónico */
-
-  /* Colapsados al tope #0950F6 — el nombre elige la FUNCIÓN, no la oscuridad */
-  --color-brand-blue-600: #0950F6;  /* colapsado al tope */
-  --color-brand-blue-700: #0950F6;  /* PRIMARIO: lienzo institucional, header, footer, hero, H1/H2 */
-  --color-brand-blue-800: #3570F8;  /* hover de FONDOS azules (se aclara porque no se puede oscurecer) */
-  --color-brand-blue-900: #0950F6;  /* texto sobre amarillo y cuerpo en tarjetas (4.9:1) */
-  --color-brand-blue-950: #0950F6;  /* colapsado al tope (footer profundo = mismo azul) */
+  --color-brand-blue-400: #3570F8;  /* íconos, texto grande muted (≥24px), hover de fondos azules */
+  --color-brand-blue-500: #0950F6;  /* primario canónico, tope de oscuridad, H1/H2, foco, botones */
 
   /* Amarillo Vial — 7 pasos (50 → 600). Señal, nunca superficie. ≤15% cobertura. */
   --color-brand-yellow-50: #FFFDE6;  /* fondo Flex seleccionado */
@@ -62,9 +55,9 @@
   /* ========================================================================
    * ALIAS SEMÁNTICOS CANÓNICOS (referencian a la paleta de arriba)
    * ======================================================================== */
-  --color-brand-blue: var(--color-brand-blue-700);
+  --color-brand-blue: var(--color-brand-blue-500);
   --color-brand-yellow: var(--color-brand-yellow-500);
-  --color-brand-ink: var(--color-brand-blue-900);
+  --color-brand-ink: var(--color-brand-blue-500);
   --color-brand-white: var(--color-white);
 
 

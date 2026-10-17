@@ -146,7 +146,7 @@ export default function OptimizedHeader() {
       <header
         id="optimized-header"
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-[background-color,border-color,box-shadow,padding] duration-300 ${
-          scrolled ? 'bg-brand-blue-700/95 shadow-elevated border-b border-white/10 py-2.5 backdrop-blur-md' : 'bg-brand-blue-700 py-4 border-b border-transparent'
+          scrolled ? 'bg-brand-blue-500/95 shadow-elevated border-b border-white/10 py-2.5 backdrop-blur-md' : 'bg-brand-blue-500 py-4 border-b border-transparent'
         }`}
       >
         <motion.div initial={prefersReducedMotion ? false : { opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={EASE_MOUNT} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -231,7 +231,7 @@ export default function OptimizedHeader() {
                           style={{ transformOrigin: 'top left' }}
                           className="absolute left-0 pt-2 w-64 z-50"
                         >
-                          <div className="bg-brand-blue-700 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                          <div className="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
                             <div className="flex flex-col gap-1 px-2">
                               {item.dropdownItems.map((subItem) => {
                                 const SubIcon = subItem.icon || ChevronRight;
@@ -245,7 +245,7 @@ export default function OptimizedHeader() {
                                         isSubActive ? 'text-brand-yellow-500 bg-white/10' : 'text-white hover:text-brand-yellow-500'
                                       }`}
                                     >
-                                      <div className="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-700 transition-colors shrink-0" aria-hidden="true">
+                                      <div className="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors shrink-0" aria-hidden="true">
                                         <SubIcon className="h-4 w-4" />
                                       </div>
                                       <span className="text-base font-bold uppercase font-subheading tracking-wider leading-none">{subItem.label}</span>

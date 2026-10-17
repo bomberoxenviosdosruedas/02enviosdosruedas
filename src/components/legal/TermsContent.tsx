@@ -171,7 +171,7 @@ export default function TermsContent() {
   return (
     <div className="bg-brand-white-50 min-h-dvh relative font-sans text-brand-ink">
       {/* HERO HEADER */}
-      <section className="bg-brand-blue-700 text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
+      <section className="bg-brand-blue-500 text-white relative py-20 lg:py-28 overflow-hidden border-b border-white/10">
         <div className="absolute top-0 right-0 w-125 h-125 rounded-full bg-brand-yellow-500/5 blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />
         <div className="absolute bottom-0 left-0 w-87.5 h-87.5 rounded-full bg-white/5 blur-3xl -z-10 -translate-x-1/4 translate-y-1/4" />
 
@@ -180,7 +180,7 @@ export default function TermsContent() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-900 flex items-center gap-2 shadow-md w-fit mx-auto mb-6 font-subheading"
+            className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-yellow-500 text-brand-blue-500 flex items-center gap-2 shadow-md w-fit mx-auto mb-6 font-subheading"
           >
             <Scale className="h-4 w-4" />
             <span>Marco Legal del Servicio</span>
@@ -237,23 +237,23 @@ export default function TermsContent() {
                         onClick={() => scrollToSection(section.id)}
                         className={`w-full flex items-center justify-between text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                           isActive
-                            ? "bg-brand-blue-700 text-white shadow-sm scale-[1.02]"
-                            : "text-brand-ink hover:text-brand-blue-700 hover:bg-brand-blue-50"
+                            ? "bg-brand-blue-500 text-white shadow-sm scale-[1.02]"
+                            : "text-brand-ink hover:text-brand-blue-500 hover:bg-brand-blue-50"
                         }`}
                       >
                         <div className="flex items-center gap-2.5 truncate">
                           <IconComponent className={`h-4 w-4 shrink-0 ${isActive ? "text-brand-yellow-500" : "text-brand-blue-500"}`} />
                           <span className="truncate">{section.shortTitle}</span>
                         </div>
-                        <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow-500 translate-x-0.5" : "text-brand-blue-700"}`} />
+                        <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? "text-brand-yellow-500 translate-x-0.5" : "text-brand-blue-500"}`} />
                       </button>
                     );
                   })}
                 </nav>
 
                 <div className="mt-6 pt-5 border-t border-brand-blue-50 px-2 text-center">
-                  <Shield className="h-7 w-7 text-brand-blue-700 mx-auto mb-2" />
-                  <p className="text-xs font-bold text-brand-blue-700 uppercase font-subheading tracking-wide">
+                  <Shield className="h-7 w-7 text-brand-blue-500 mx-auto mb-2" />
+                  <p className="text-xs font-bold text-brand-blue-500 uppercase font-subheading tracking-wide">
                     Operación Transparente
                   </p>
                   <p className="text-2xs text-brand-blue-500 mt-1 leading-normal font-sans">
@@ -292,17 +292,17 @@ export default function TermsContent() {
                         <div
                           className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0 ${
                             isActive
-                              ? "bg-brand-blue-700 text-brand-yellow-500 shadow-sm"
-                              : "bg-brand-blue-50 text-brand-blue-700"
+                              ? "bg-brand-blue-500 text-brand-yellow-500 shadow-sm"
+                              : "bg-brand-blue-50 text-brand-blue-500"
                           }`}
                         >
                           <IconComponent className="h-6 w-6" />
                         </div>
                         <div>
-                          <span className="text-2xs font-mono font-bold uppercase tracking-wider text-brand-blue-700 block mb-0.5">
+                          <span className="text-2xs font-mono font-bold uppercase tracking-wider text-brand-blue-500 block mb-0.5">
                             Cláusula {index + 1} de {SECTIONS.length}
                           </span>
-                          <h2 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-700">
+                          <h2 className="text-xl sm:text-2xl font-display uppercase tracking-tight text-brand-blue-500">
                             {section.title}
                           </h2>
                         </div>
@@ -318,7 +318,7 @@ export default function TermsContent() {
                       {/* Section key points */}
                       {section.bullets && (
                         <div className="mt-5 pt-4 border-t border-brand-blue-50">
-                          <h4 className="text-xs font-subheading font-bold uppercase tracking-wider text-brand-blue-700 mb-2.5">
+                          <h4 className="text-xs font-subheading font-bold uppercase tracking-wider text-brand-blue-500 mb-2.5">
                             Aspectos Clave:
                           </h4>
                           <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -342,12 +342,12 @@ export default function TermsContent() {
               {/* Contact Call to Action */}
               <motion.section
                 variants={cardVariants}
-                className="double-bezel-outer bg-brand-blue-900/90 border border-brand-blue-700 p-2 rounded-3xl shadow-xl"
+                className="double-bezel-outer bg-brand-blue-500/90 border border-brand-blue-500 p-2 rounded-3xl shadow-xl"
               >
-                <div className="double-bezel-inner bg-linear-to-br from-brand-blue-700 to-brand-blue-950 text-white rounded-2xl p-8 sm:p-10 border border-brand-blue-700/60">
+                <div className="double-bezel-inner bg-linear-to-br from-brand-blue-500 to-brand-blue-500 text-white rounded-2xl p-8 sm:p-10 border border-brand-blue-500/60">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                     <div className="space-y-2.5 max-w-lg">
-                      <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-2xs font-subheading font-bold uppercase tracking-widest inline-block">
+                      <span className="px-3 py-1 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-2xs font-subheading font-bold uppercase tracking-widest inline-block">
                         Contacto y Dudas Legales
                       </span>
                       <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
@@ -360,7 +360,7 @@ export default function TermsContent() {
                     <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                       <Link
                         href="/contacto"
-                        className="inline-flex items-center justify-center gap-2 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md transition-all"
+                        className="inline-flex items-center justify-center gap-2 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md transition-all"
                       >
                         <span>Formulario de Contacto</span>
                         <ArrowRight className="h-4 w-4" />
@@ -379,7 +379,7 @@ export default function TermsContent() {
         <button
           type="button"
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-brand-blue-700 hover:bg-brand-blue-950 border border-white/10 text-brand-yellow-500 rounded-full shadow-lg cursor-pointer transition-all"
+          className="fixed bottom-8 right-8 z-50 p-3 bg-brand-blue-500 hover:bg-brand-blue-500 border border-white/10 text-brand-yellow-500 rounded-full shadow-lg cursor-pointer transition-all"
           title="Volver Arriba"
           aria-label="Volver arriba"
         >

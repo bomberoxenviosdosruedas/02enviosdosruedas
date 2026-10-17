@@ -124,7 +124,7 @@ export default function CarruselRedes() {
         
         {/* Header Segment */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-bold tracking-widest inline-block font-subheading uppercase shadow-accent-sm">
+          <span className="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-bold tracking-widest inline-block font-subheading uppercase shadow-accent-sm">
             Nuestra Comunidad Digital
           </span>
           

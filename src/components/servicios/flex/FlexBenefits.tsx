@@ -38,7 +38,7 @@ export default function FlexBenefits() {
   return (
     <section 
       id="flex-benefits" 
-      className="py-24 bg-brand-blue-900 relative z-10 overflow-hidden border-t border-b border-white/10 text-white"
+      className="py-24 bg-brand-blue-500 relative z-10 overflow-hidden border-t border-b border-white/10 text-white"
     >
       <motion.div 
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -53,7 +53,7 @@ export default function FlexBenefits() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-900 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
+          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
             SOCIOS ESTRATÉGICOS
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white leading-[0.98]">
@@ -82,7 +82,7 @@ export default function FlexBenefits() {
                 whileHover={{ y: -5, x: 2 }}
                 className={`${spanClass} bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float hover:shadow-antigravity-deep transition-all duration-300 flex flex-col justify-between text-left group relative overflow-hidden`}
               >
-                <div className="bg-white p-8 rounded-[20px] h-full space-y-5 text-brand-blue-900 relative overflow-hidden">
+                <div className="bg-white p-8 rounded-[20px] h-full space-y-5 text-brand-blue-500 relative overflow-hidden">
                   {/* Giant Watermark Icon */}
                   <Icon className="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
 
@@ -90,7 +90,7 @@ export default function FlexBenefits() {
                     <Icon className="h-6 w-6 shrink-0" />
                   </div>
                   
-                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue-900 leading-tight relative z-10">
+                  <h3 className="text-xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight relative z-10">
                     {benefit.title}
                   </h3>
                   

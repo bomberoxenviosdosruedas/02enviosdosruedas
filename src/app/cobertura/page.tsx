@@ -302,7 +302,7 @@ export default function CoberturaPage() {
             </div>
 
             <div className="space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-200 flex items-center justify-center font-bold">
+              <div className="w-12 h-12 rounded-xl bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-200 flex items-center justify-center font-bold">
                 <Clock className="w-6 h-6" />
               </div>
               <h3 className="font-subheading text-xl uppercase text-brand-blue-500">

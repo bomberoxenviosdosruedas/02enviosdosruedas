@@ -55,7 +55,7 @@ export default function DropoffCalculator() {
   return (
     <DoubleBezelCard className="w-full" hoverEffect={false}>
       {/* Banda del ticket */}
-      <div className="flex items-center justify-between gap-3 rounded-lg bg-brand-yellow-500 px-4 py-2.5 text-brand-blue-900">
+      <div className="flex items-center justify-between gap-3 rounded-lg bg-brand-yellow-500 px-4 py-2.5 text-brand-blue-500">
         <span className="font-mono text-xs sm:text-[13px] font-bold uppercase tracking-[0.18em] truncate">
           Ticket DropOFF · Ahorro estimado
         </span>
@@ -71,7 +71,7 @@ export default function DropoffCalculator() {
         {/* Control: envíos por mes */}
         <div className="space-y-3">
           <div className="flex items-center justify-between gap-3">
-            <span className="font-subheading text-sm uppercase tracking-wider text-brand-blue-900">
+            <span className="font-subheading text-sm uppercase tracking-wider text-brand-blue-500">
               Envíos por mes
             </span>
             <span className="font-mono text-2xs text-brand-blue-500 tabular-nums">
@@ -79,12 +79,12 @@ export default function DropoffCalculator() {
             </span>
           </div>
 
-          <div className="flex items-stretch rounded-xl border-2 border-brand-blue-300 bg-white overflow-hidden focus-within:border-brand-blue-700 focus-within:ring-2 focus-within:ring-brand-blue-500/20">
+          <div className="flex items-stretch rounded-xl border-2 border-brand-blue-300 bg-white overflow-hidden focus-within:border-brand-blue-500 focus-within:ring-2 focus-within:ring-brand-blue-500/20">
             <button
               type="button"
               onClick={() => apply(envios - 1)}
               aria-label="Restar un envío"
-              className="shrink-0 w-12 min-h-11 flex items-center justify-center text-brand-blue-700 hover:bg-brand-blue-50 active:bg-brand-blue-100 active:scale-[0.97] transition-[transform,background-color] duration-160 ease-out cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500"
+              className="shrink-0 w-12 min-h-11 flex items-center justify-center text-brand-blue-500 hover:bg-brand-blue-50 active:bg-brand-blue-100 active:scale-[0.97] transition-[transform,background-color] duration-160 ease-out cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500"
             >
               <Minus className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -97,13 +97,13 @@ export default function DropoffCalculator() {
               onChange={(e) => setRaw(e.target.value)}
               onBlur={onBlur}
               aria-label="Cantidad de envíos por mes"
-              className="w-full min-w-0 text-center font-mono text-2xl tabular-nums text-brand-blue-900 bg-transparent focus-visible:outline-none"
+              className="w-full min-w-0 text-center font-mono text-2xl tabular-nums text-brand-blue-500 bg-transparent focus-visible:outline-none"
             />
             <button
               type="button"
               onClick={() => apply(envios + 1)}
               aria-label="Sumar un envío"
-              className="shrink-0 w-12 min-h-11 flex items-center justify-center text-brand-blue-700 hover:bg-brand-blue-50 active:bg-brand-blue-100 active:scale-[0.97] transition-[transform,background-color] duration-160 ease-out cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500"
+              className="shrink-0 w-12 min-h-11 flex items-center justify-center text-brand-blue-500 hover:bg-brand-blue-50 active:bg-brand-blue-100 active:scale-[0.97] transition-[transform,background-color] duration-160 ease-out cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500"
             >
               <Plus className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -118,8 +118,8 @@ export default function DropoffCalculator() {
                 aria-pressed={envios === n}
                 className={`min-h-11 px-4 rounded-full font-mono text-sm tabular-nums border-2 transition-[transform,background-color,border-color] duration-160 ease-out active:scale-[0.97] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 ${
                   envios === n
-                    ? 'bg-brand-blue-700 text-brand-yellow-500 border-brand-blue-700'
-                    : 'bg-white text-brand-blue-700 border-brand-blue-300 hover:border-brand-blue-700'
+                    ? 'bg-brand-blue-500 text-brand-yellow-500 border-brand-blue-500'
+                    : 'bg-white text-brand-blue-500 border-brand-blue-300 hover:border-brand-blue-500'
                 }`}
               >
                 {n}/mes
@@ -129,17 +129,17 @@ export default function DropoffCalculator() {
         </div>
 
         {/* Líneas del ticket */}
-        <dl className="space-y-2.5 font-mono text-sm tabular-nums text-brand-blue-900">
+        <dl className="space-y-2.5 font-mono text-sm tabular-nums text-brand-blue-500">
           <div className="flex items-baseline justify-between gap-4">
-            <dt className="text-brand-blue-700">Tarifa base / envío (MDQ)</dt>
+            <dt className="text-brand-blue-500">Tarifa base / envío (MDQ)</dt>
             <dd className="font-bold">{ars(BASE_DROPOFF_RATE)}</dd>
           </div>
           <div className="flex items-baseline justify-between gap-4">
-            <dt className="text-brand-blue-700">Descuento DropOFF (-{DROPOFF_DISCOUNT_PERCENT}%)</dt>
+            <dt className="text-brand-blue-500">Descuento DropOFF (-{DROPOFF_DISCOUNT_PERCENT}%)</dt>
             <dd className="font-bold">- {ars(SAVINGS_PER_UNIT)}</dd>
           </div>
           <div className="flex items-baseline justify-between gap-4">
-            <dt className="text-brand-blue-700">Copias de envío / mes</dt>
+            <dt className="text-brand-blue-500">Copias de envío / mes</dt>
             <dd>{envios}</dd>
           </div>
         </dl>
@@ -147,7 +147,7 @@ export default function DropoffCalculator() {
         {/* Total del ticket */}
         <div
           aria-live="polite"
-          className="rounded-xl bg-brand-blue-700 text-white px-4 py-4 flex items-center justify-between gap-3"
+          className="rounded-xl bg-brand-blue-500 text-white px-4 py-4 flex items-center justify-between gap-3"
         >
           <span className="font-subheading text-sm uppercase tracking-wider text-brand-blue-50">
             Ahorrás por mes
@@ -168,7 +168,7 @@ export default function DropoffCalculator() {
             <span
               key={b.k}
               style={{ width: b.w }}
-              className="h-full bg-brand-blue-900/50 rounded-[1px]"
+              className="h-full bg-brand-blue-500/50 rounded-[1px]"
             />
           ))}
         </div>

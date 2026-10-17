@@ -50,10 +50,10 @@ export default function FlexHowItWorks() {
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
-          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-700 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
+          <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
             LOGÍSTICA SINCRONIZADA
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-700 inline-block leading-[0.98]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-500 inline-block leading-[0.98]">
             LOGÍSTICA SIN FRICCIONES
           </h2>
           <p className="text-brand-ink font-sans text-sm sm:text-base max-w-lg mx-auto">
@@ -87,7 +87,7 @@ export default function FlexHowItWorks() {
                   <Icon className="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" />
 
                   {/* Floating step number */}
-                  <span className="-rotate-1 absolute top-3 left-3 bg-brand-yellow-500 text-brand-blue-900 font-bold font-mono tabular-nums text-xs tracking-widest px-3 py-1 rounded-full shadow-glow-yellow z-10">
+                  <span className="-rotate-1 absolute top-3 left-3 bg-brand-yellow-500 text-brand-blue-500 font-bold font-mono tabular-nums text-xs tracking-widest px-3 py-1 rounded-full shadow-glow-yellow z-10">
                     PASO {step.number}
                   </span>
 

@@ -85,7 +85,7 @@ export default function EmprendedoresDropoff() {
                       <h3 className="font-subheading text-sm uppercase tracking-wider text-brand-ink">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-brand-blue-900 leading-relaxed mt-0.5">{item.desc}</p>
+                      <p className="text-sm text-brand-blue-500 leading-relaxed mt-0.5">{item.desc}</p>
                     </div>
                   </li>
                 );

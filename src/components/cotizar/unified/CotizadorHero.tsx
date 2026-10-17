@@ -17,7 +17,7 @@ export default function CotizadorHero() {
   return (
     <section
       id="cotizador-hero"
-      className="relative w-full overflow-hidden bg-brand-blue-700 text-white min-h-auto lg:min-h-[52vh] flex items-center pt-20 pb-8 sm:pt-24 lg:pt-28 lg:pb-12 border-b border-white/10"
+      className="relative w-full overflow-hidden bg-brand-blue-500 text-white min-h-auto lg:min-h-[52vh] flex items-center pt-20 pb-8 sm:pt-24 lg:pt-28 lg:pb-12 border-b border-white/10"
     >
       <HeroProceduralBackground variant="express" />
 
@@ -40,7 +40,7 @@ export default function CotizadorHero() {
 
             <h1 className="text-5xl sm:text-6xl lg:text-[4.75rem] xl:text-[5.25rem] font-display uppercase tracking-tight leading-[0.92] text-white">
               <span>COTIZÁ TU </span>
-              <span className="inline-block bg-brand-yellow-500 text-brand-blue-900 px-3 py-1 rounded-lg transform -rotate-1 shadow-glow-yellow mx-1">
+              <span className="inline-block bg-brand-yellow-500 text-brand-blue-500 px-3 py-1 rounded-lg transform -rotate-1 shadow-glow-yellow mx-1">
                 ENVÍO
               </span>
               <span className="block">Y COMPARÁ</span>
@@ -72,7 +72,7 @@ export default function CotizadorHero() {
             className="lg:col-span-5 w-full max-w-lg mx-auto"
           >
             <div className="p-2.5 rounded-2xl bg-brand-blue-50/20 border border-brand-blue-100/40 shadow-2xl backdrop-blur-md">
-              <div className="bg-brand-blue-700 rounded-xl border border-white/20 overflow-hidden divide-y divide-white/10">
+              <div className="bg-brand-blue-500 rounded-xl border border-white/20 overflow-hidden divide-y divide-white/10">
                 {[
                   { n: '01', icon: MapPin, t: 'Cargás retiro y entrega', s: 'Medimos la distancia real por calle' },
                   { n: '02', icon: GitCompareArrows, t: 'Ves las dos tarifas', s: 'Express y LowCost sobre la misma escala' },

@@ -177,11 +177,11 @@ export default function EmpresasCuentaCorrientePage() {
 
                   {submitted ? (
                     <div className="p-6 rounded-xl bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-center space-y-3">
-                      <CheckCircle2 className="w-10 h-10 text-brand-blue-700 mx-auto" />
-                      <h3 className="font-display text-xl uppercase text-brand-blue-700">
+                      <CheckCircle2 className="w-10 h-10 text-brand-blue-500 mx-auto" />
+                      <h3 className="font-display text-xl uppercase text-brand-blue-500">
                         ¡SOLICITUD ENVIADA!
                       </h3>
-                      <p className="font-sans text-xs text-brand-blue-600">
+                      <p className="font-sans text-xs text-brand-blue-500">
                         Estamos coordinando la apertura de tu cuenta comercial en Mar del Plata.
                       </p>
                     </div>

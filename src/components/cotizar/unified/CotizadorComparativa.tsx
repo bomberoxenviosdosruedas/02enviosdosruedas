@@ -166,12 +166,12 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                     <span className="block text-2xs font-subheading font-bold uppercase tracking-wider text-brand-blue-400">
                       Distancia medida
                     </span>
-                    <span className="font-mono text-3xl sm:text-4xl font-bold text-brand-blue-700 tabular-nums tracking-tight">
+                    <span className="font-mono text-3xl sm:text-4xl font-bold text-brand-blue-500 tabular-nums tracking-tight">
                       {resultado.distancia} km
                     </span>
                   </div>
                   {quoteId && (
-                    <span className="font-mono text-xs px-2.5 py-1 rounded-full bg-brand-blue-50 text-brand-blue-700 border border-brand-blue-100 tabular-nums">
+                    <span className="font-mono text-xs px-2.5 py-1 rounded-full bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100 tabular-nums">
                       #{quoteId}
                     </span>
                   )}
@@ -179,7 +179,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
 
                 {ambosConsultar ? (
                   <div className="space-y-4">
-                    <p className="font-sans text-sm text-brand-blue-700 leading-relaxed">
+                    <p className="font-sans text-sm text-brand-blue-500 leading-relaxed">
                       Tu envío supera el radio estándar de 20 km. Las tarifas por zona no alcanzan:
                       pasanos el caso y te pasamos el valor.
                     </p>
@@ -220,7 +220,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                                 >
                                   {regla.nombre}
                                 </span>
-                                <span className="font-mono text-2xl sm:text-3xl font-bold text-brand-blue-700 tabular-nums">
+                                <span className="font-mono text-2xl sm:text-3xl font-bold text-brand-blue-500 tabular-nums">
                                   {precioTexto(precio)}
                                   {typeof precio === 'number' && (
                                     <span className="text-xs font-bold text-brand-blue-400 ml-1">ARS</span>
@@ -249,7 +249,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                       {diferenciaPrecio > 0 && (
                         <p className="mt-3 pt-3 border-t border-brand-blue-100 font-sans text-xs text-brand-blue-500">
                           La diferencia entre uno y otro es de{' '}
-                          <span className="font-mono font-bold text-brand-blue-700 tabular-nums">
+                          <span className="font-mono font-bold text-brand-blue-500 tabular-nums">
                             ${diferenciaPrecio.toLocaleString('es-AR')}
                           </span>
                           . Lo demás que cambia es cuándo lo recibís.
@@ -281,7 +281,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                             <div key={key} className="space-y-1.5">
                               <div className="flex items-baseline justify-between gap-3">
                                 <span className="font-sans text-xs text-brand-blue-500">{regla.nombre}</span>
-                                <span className="font-sans text-sm font-bold text-brand-blue-700 text-right">
+                                <span className="font-sans text-sm font-bold text-brand-blue-500 text-right">
                                   {regla.entrega}
                                 </span>
                               </div>
@@ -292,7 +292,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                                 <div
                                   className={`absolute inset-y-0 rounded-md flex items-center px-2 overflow-hidden ${
                                     esExpress
-                                      ? 'bg-brand-yellow-500 text-brand-blue-900'
+                                      ? 'bg-brand-yellow-500 text-brand-blue-500'
                                       : 'bg-[repeating-linear-gradient(135deg,var(--color-brand-blue-500)_0_6px,var(--color-brand-blue-400)_6px_12px)] text-white'
                                   }`}
                                   style={{
@@ -306,7 +306,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                                   </span>
                                 </div>
                                 <div
-                                  className="absolute -inset-y-1 w-0.5 -translate-x-1/2 bg-brand-blue-700 ring-2 ring-white"
+                                  className="absolute -inset-y-1 w-0.5 -translate-x-1/2 bg-brand-blue-500 ring-2 ring-white"
                                   style={{ left: `${posicion(regla.corte)}%` }}
                                 />
                               </div>
@@ -331,7 +331,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                         ))}
                       </div>
                       <p className="font-sans text-2xs text-brand-blue-400 flex items-center gap-1.5">
-                        <span aria-hidden="true" className="inline-block h-3 w-0.5 bg-brand-blue-700" />
+                        <span aria-hidden="true" className="inline-block h-3 w-0.5 bg-brand-blue-500" />
                         Horario de corte para pedir en el día.
                       </p>
                     </section>
@@ -358,12 +358,12 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                         antes de confirmar, no después. */}
                     <div className="flex items-start gap-3 rounded-xl border border-brand-blue-100 bg-brand-blue-50/60 px-4 py-3.5">
                       <CloudRain className="h-4 w-4 shrink-0 mt-0.5 text-brand-blue-500" aria-hidden="true" />
-                      <p className="font-sans text-xs text-brand-blue-700 leading-relaxed">
+                      <p className="font-sans text-xs text-brand-blue-500 leading-relaxed">
                         El precio es por distancia, con bulto de hasta {STANDARD_WEIGHT_KG} kg. Lluvia,
                         espera en puerta, paradas extra o un bulto más grande suman recargo.{' '}
                         <a
                           href="#recargos"
-                          className="font-bold underline underline-offset-2 decoration-brand-blue-300 hover:decoration-brand-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 rounded-sm"
+                          className="font-bold underline underline-offset-2 decoration-brand-blue-300 hover:decoration-brand-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 rounded-sm"
                         >
                           Ver cuáles y cuánto
                         </a>

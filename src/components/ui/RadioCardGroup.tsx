@@ -30,9 +30,9 @@ export interface RadioCardGroupProps {
  * Follows DESIGN.md specifications:
  * - Grid 3 cols desktop, 1 col mobile
  * - Card: bg-white, border-2 border-brand-blue-100, rounded-xl, p-6
- * - Checked Express: bg-brand-blue-700, border-brand-blue-700, text-white
- * - Checked LowCost: bg-brand-blue-50, border-brand-blue-200, text-brand-blue-700
- * - Checked Flex: bg-brand-yellow-50, border-brand-yellow-200, text-brand-blue-700
+ * - Checked Express: bg-brand-blue-500, border-brand-blue-500, text-white
+ * - Checked LowCost: bg-brand-blue-50, border-brand-blue-200, text-brand-blue-500
+ * - Checked Flex: bg-brand-yellow-50, border-brand-yellow-200, text-brand-blue-500
  */
 export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
   options,

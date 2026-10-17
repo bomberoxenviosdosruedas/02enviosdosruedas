@@ -102,7 +102,7 @@ export default function ExpressPricing() {
       excedenteExampleKm={EXAMPLE_KM}
       excedenteExamplePrice={typeof examplePrice === 'number' ? examplePrice : undefined}
       facts={PRICING_FACTS}
-      backgroundClassName="py-20 lg:py-28 bg-white relative z-10 overflow-hidden text-brand-blue-900"
+      backgroundClassName="py-20 lg:py-28 bg-white relative z-10 overflow-hidden text-brand-blue-500"
     />
   );
 }

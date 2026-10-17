@@ -76,7 +76,7 @@ export default function EmprendedoresHome() {
             Potenciamos tu{' '}
             <span
               aria-hidden="true"
-              className="inline-flex items-center justify-center w-14 sm:w-18 lg:w-20 h-7 sm:h-9 lg:h-10 rounded-full align-middle bg-linear-to-r from-brand-yellow-500 to-brand-yellow-400 mx-1.5 border border-brand-yellow-500 shadow-md text-brand-blue-900 font-display text-sm sm:text-base lg:text-lg uppercase transition-transform duration-500 hover:scale-105"
+              className="inline-flex items-center justify-center w-14 sm:w-18 lg:w-20 h-7 sm:h-9 lg:h-10 rounded-full align-middle bg-linear-to-r from-brand-yellow-500 to-brand-yellow-400 mx-1.5 border border-brand-yellow-500 shadow-md text-brand-blue-500 font-display text-sm sm:text-base lg:text-lg uppercase transition-transform duration-500 hover:scale-105"
             >
               MDQ
             </span>{' '}
@@ -180,10 +180,10 @@ export default function EmprendedoresHome() {
           {/* Card 2: MercadoLibre Flex - lg:col-span-5 lg:row-span-1 (Yellow Card) */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-5 lg:row-span-1 double-bezel-outer p-2 rounded-2xl bg-brand-yellow-500/10 border border-brand-yellow-500/20 hover:border-brand-blue-700/30 hover:bg-brand-yellow-500/15 hover:shadow-[0_20px_40px_-15px_rgba(255,236,1,0.15)] group overflow-hidden flex flex-col"
+            className="lg:col-span-5 lg:row-span-1 double-bezel-outer p-2 rounded-2xl bg-brand-yellow-500/10 border border-brand-yellow-500/20 hover:border-brand-blue-500/30 hover:bg-brand-yellow-500/15 hover:shadow-[0_20px_40px_-15px_rgba(255,236,1,0.15)] group overflow-hidden flex flex-col"
             whileHover={reduceMotion ? undefined : { y: -6, transition: snappySpring }}
           >
-            <div className="double-bezel-inner bg-linear-to-br from-brand-yellow-500 to-brand-yellow-400 p-6 sm:p-8 rounded-xl border border-brand-yellow-500/20 shadow-sm flex flex-col justify-between h-full relative overflow-hidden text-left text-brand-blue-900 flex-1">
+            <div className="double-bezel-inner bg-linear-to-br from-brand-yellow-500 to-brand-yellow-400 p-6 sm:p-8 rounded-xl border border-brand-yellow-500/20 shadow-sm flex flex-col justify-between h-full relative overflow-hidden text-left text-brand-blue-500 flex-1">
               {/* Subtle Radial Glow */}
               <motion.div
                 className="absolute bottom-0 right-0 w-36 h-36 rounded-full bg-white/20 blur-2xl pointer-events-none"
@@ -194,7 +194,7 @@ export default function EmprendedoresHome() {
 
               {/* Watermark Background Icon */}
               <motion.div
-                className="absolute right-4 bottom-4 text-brand-blue-900 opacity-[0.04] pointer-events-none select-none"
+                className="absolute right-4 bottom-4 text-brand-blue-500 opacity-[0.04] pointer-events-none select-none"
                 aria-hidden="true"
                 animate={reduceMotion ? {} : { rotate: [0, -2, 2, 0], scale: [1, 1.03, 1] }}
                 transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity }}
@@ -257,7 +257,7 @@ export default function EmprendedoresHome() {
 
               {/* Watermark Background Icon */}
               <motion.div
-                className="absolute right-4 bottom-4 text-brand-blue-700 opacity-[0.02] pointer-events-none select-none"
+                className="absolute right-4 bottom-4 text-brand-blue-500 opacity-[0.02] pointer-events-none select-none"
                 aria-hidden="true"
                 animate={reduceMotion ? {} : { rotate: [0, 2, -2, 0], scale: [1, 1.03, 1] }}
                 transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity }}

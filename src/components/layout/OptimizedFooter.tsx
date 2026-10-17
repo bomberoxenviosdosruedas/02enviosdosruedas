@@ -60,7 +60,7 @@ export default function OptimizedFooter() {
   return (
     <footer
       id="optimized-footer"
-      className="bg-brand-blue-700 text-white border-t border-white/10 relative overflow-hidden font-sans"
+      className="bg-brand-blue-500 text-white border-t border-white/10 relative overflow-hidden font-sans"
     >
       {/* Decorative top yellow accent bar with continuous glow */}
       <div className="h-1.5 bg-brand-yellow-500 w-full shadow-md shadow-brand-yellow-500/30" />
@@ -98,10 +98,10 @@ export default function OptimizedFooter() {
             <Link
               href="/cotizar"
               onClick={() => trackAnalytics.ctaClick('footer_banner_cotizar_cta', 'Cotizá tu Envío')}
-              className="w-full sm:w-auto cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 font-subheading uppercase tracking-wider text-sm px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-[transform,background-color,border-color,box-shadow] duration-150 ease-out flex items-center justify-between group min-h-12"
+              className="w-full sm:w-auto cta-nested-pill bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading uppercase tracking-wider text-sm px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-[transform,background-color,border-color,box-shadow] duration-150 ease-out flex items-center justify-between group min-h-12"
             >
               <span>Cotizá tu Envío</span>
-              <span className="cta-nested-icon bg-brand-blue-900/10 text-brand-blue-900 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform duration-150 ease-out">
+              <span className="cta-nested-icon bg-brand-blue-500/10 text-brand-blue-500 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform duration-150 ease-out">
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </span>
             </Link>
@@ -402,7 +402,7 @@ export default function OptimizedFooter() {
           {/* Scroll to Top — continuous float loop */}
           <motion.button
             onClick={scrollToTop}
-            className="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-900 p-2.5 rounded-full shadow-accent-md hover:shadow-cta-glow transition-colors flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer min-w-11 min-h-11"
+            className="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 p-2.5 rounded-full shadow-accent-md hover:shadow-cta-glow transition-colors flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer min-w-11 min-h-11"
             title="Volver al inicio"
             aria-label="Volver arriba"
             /* Idle float loop */

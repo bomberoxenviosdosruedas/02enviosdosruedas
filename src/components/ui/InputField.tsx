@@ -19,9 +19,9 @@ export interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElem
  * - Height: h-11 (44px touch target)
  * - Border: border-2 border-brand-blue-100 rounded-xl bg-white
  * - Padding left: pl-10 when icon is present
- * - Label: font-subheading text-xs uppercase tracking-wider text-brand-blue-700
+ * - Label: font-subheading text-xs uppercase tracking-wider text-brand-blue-500
  * - Help text: font-mono text-2xs text-brand-blue-400
- * - Focus: border-brand-blue-700 + ring-2 ring-brand-blue-500/20
+ * - Focus: border-brand-blue-500 + ring-2 ring-brand-blue-500/20
  * - Error: border-red-500 + ring-2 ring-red-500/20
  */
 export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(

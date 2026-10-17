@@ -10,7 +10,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 // ImageResponse solo acepta estilos inline: estos valores replican los tokens de globals.css
-// (brand-blue-700, brand-blue-800, brand-yellow-500, brand-white-50). Nada más oscuro que #0950F6.
+// (brand-blue-500, brand-blue-500, brand-yellow-500, brand-white-50). Nada más oscuro que #0950F6.
 const BRAND = {
   blue: '#0950F6',
   blueLight: '#3570F8',
