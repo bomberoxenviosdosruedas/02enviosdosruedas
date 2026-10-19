@@ -28,6 +28,7 @@ pnpm exec eslint <archivo> # Ejecuta ESLint sobre un archivo puntual
 ```bash
 pnpm test:ci         # Ejecuta toda la suite de pruebas una sola vez sin modo interactivo
 pnpm test:ui         # Abre el panel visual de Vitest en el navegador
+pnpm eval:llm        # Ejecuta la evaluación de LLM (live o con --offline contra Golden Dataset)
 pnpm exec vitest related <archivo> --run # Ejecuta únicamente las pruebas del archivo modificado
 ```
 > [!IMPORTANT]
@@ -78,6 +79,8 @@ src/
 ├── lib/             # Lógica pura de negocio y clientes externos:
 │   ├── pricing.ts   # Algoritmos tarifarios y tramos por distancia vial
 │   ├── promises.ts  # Constantes oficiales de promesas de entrega, cortes horarios y límites
+│   ├── assistant-prompt.ts # Constructor tipado del System Prompt unificado con promises.ts
+│   ├── llm-eval.ts  # Framework de evaluación LLM, métricas deterministas y Golden Dataset
 │   ├── prisma.ts    # Instancia centralizada de Prisma Client para PostgreSQL
 │   ├── gemini.ts    # Cliente oficial de Google GenAI
 │   ├── genkit.ts    # Configuración de Genkit

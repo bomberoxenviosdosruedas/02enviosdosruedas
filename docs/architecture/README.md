@@ -34,6 +34,11 @@ Bienvenido al centro de documentación arquitectónica de **Envíos DosRuedas** 
    - Niveles de verificación incremental N0 a N3.
    - Reglas estricta de TypeScript (`pnpm typecheck`) y linters.
 
+6. [Arquitectura y Evaluación de LLM (LLM Architecture & Evaluation)](./06-llm-architecture-and-evaluation.md)
+   - Integración de Gemini 3.5 Flash y DosRuedas Bot (`/api/assistant`).
+   - Principio SSoT con `src/lib/assistant-prompt.ts` y `src/lib/promises.ts`.
+   - Marco de evaluación continua con métricas deterministas, Golden Dataset y `pnpm eval:llm`.
+
 ---
 
 > **Mantenimiento**: Cualquier modificación estructural en `src/` o en las reglas de cotización debe ser reflejada inmediatamente en los documentos correspondientes de esta carpeta.

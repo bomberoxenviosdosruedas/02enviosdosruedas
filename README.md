@@ -127,6 +127,8 @@ src/
 ├── lib/                  # Lógica pura del negocio y clientes externos
 │   ├── pricing.ts        # Algoritmos de cálculo tarifario y tramos por distancia
 │   ├── promises.ts       # Constantes canónicas de horarios, límites y compromisos
+│   ├── assistant-prompt.ts # Constructor dinámico y tipado del System Prompt unificado
+│   ├── llm-eval.ts       # Framework de evaluación LLM, métricas deterministas y dataset
 │   ├── prisma.ts         # Conexión centralizada de Prisma Client
 │   ├── gemini.ts         # Cliente oficial de Google GenAI
 │   ├── genkit.ts         # Configuración de Genkit
@@ -210,9 +212,31 @@ La identidad visual está regida por la Ley de Tres Colores definida en `src/app
 | `pnpm test` | `vitest` | Inicia Vitest en modo interactivo (watch mode) |
 | `pnpm test:ci` | `vitest run` | Ejecuta la suite de pruebas unitarias una sola vez |
 | `pnpm test:ui` | `vitest --ui` | Abre el panel visual de pruebas en el navegador |
+| `pnpm eval:llm` | `tsx scripts/eval-llm.ts` | Ejecuta la suite de evaluación de LLM (Golden Dataset y métricas) |
 | `pnpm pdf` | `python scripts/generate_page_pdf.py` | Genera capturas y reportes PDF vía script local |
 | `pnpm pdf:prod` | `python scripts/generate_page_pdf.py --url https://enviosdosruedas.com` | Genera reportes PDF apuntando a producción |
 | `pnpm export:texts` | `python scripts/extract_site_texts.py` | Extrae textos y copys de las vistas del sitio |
+
+---
+
+## Evaluación y Blindaje de IA (LLM Evaluation)
+
+El asistente virtual ("DosRuedas Bot") cuenta con una infraestructura de evaluación sistemática para garantizar cero alucinaciones y estricto respeto a las promesas comerciales:
+
+- **Fuente Única de Verdad (SSoT):** El System Prompt (`src/lib/assistant-prompt.ts`) se genera dinámicamente a partir de `src/lib/promises.ts`.
+- **Métricas Automatizadas:** Validación en cada cambio de:
+  - Invariantes de copy (`copy-guard`: franja horaria de 3 hs, corte 15:00 hs, estándar 5 kg sin techo rígido, no Factura A, no inventar tarifas).
+  - Fidelidad contextual (*Groundedness*) frente a cotizaciones activas en pantalla.
+  - Resistencia a inyecciones de prompt (*Prompt Injection Defense*).
+  - Voseo y tono marplatense cordial.
+- **Ejecución de la Suite:**
+  ```bash
+  # Modo offline (valida referencias canónicas y pipeline sin requerir API keys externas)
+  pnpm eval:llm --offline
+
+  # Modo live (ejecuta llamadas contra Gemini 3.5 Flash si GEMINI_API_KEY está configurada)
+  pnpm eval:llm
+  ```
 
 ---
 

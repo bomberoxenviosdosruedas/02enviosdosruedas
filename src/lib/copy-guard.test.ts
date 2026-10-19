@@ -61,22 +61,26 @@ const PROHIBIDOS: readonly Prohibido[] = [
       'Techo de bulto de 15 kg sin fuente del dueño. La capacidad publicada es un solo ' +
       'umbral: STANDARD_WEIGHT_KG (5 kg) o 40 × 40 × 30 cm. Pasado ese umbral, el bulto se ' +
       'coordina aparte con recargo desde BULK_EXTRA_FROM_ARS.',
+    excepcion: ['lib\\llm-eval.ts'] as const,
   },
   {
     patron: /60\s?[-–—]\s?90\s?min/i,
     motivo:
       'Promesa de "60 a 90 min" retirada por el dueño ("ESTO ES FALSO", .docx §4). ' +
       'Lo vigente es EXPRESS_WINDOW = "franja horaria de 3 hs" a elección.',
+    excepcion: ['lib\\llm-eval.ts'] as const,
   },
   {
     patron: /en\s*3\s*hs?\b/i,
     motivo:
       'No usar "en 3 hs" — se lee como duración. Lo correcto: "franja de 3 hs" o EXPRESS_WINDOW_SHORT.',
+    excepcion: ['lib\\llm-eval.ts'] as const,
   },
   {
     patron: /menos\s*de\s*2\s*h/i,
     motivo:
       'No usar "menos de 2 h" — Express es franja de 3 hs a elección con 2 hs de anticipación.',
+    excepcion: ['lib\\llm-eval.ts'] as const,
   },
   {
     patron: /(agrupad[oa]|por\s*lote)/i,
@@ -89,6 +93,8 @@ const PROHIBIDOS: readonly Prohibido[] = [
       'components\\home\\EmprendedoresHome.tsx',
       'components\\nosotros\\sobre-nosotros\\AboutTimeline.tsx',
       'components\\servicios\\emprendedores\\EmprendedoresPricing.tsx',
+      'lib\\assistant-prompt.ts',
+      'lib\\llm-eval.ts',
     ] as const,
   },
   {
@@ -99,6 +105,8 @@ const PROHIBIDOS: readonly Prohibido[] = [
       'app\\api\\assistant\\route.ts',
       'app\\servicios\\empresas-cuenta-corriente\\page.tsx',
       'components\\servicios\\emprendedores\\EmprendedoresBenefits.tsx',
+      'lib\\assistant-prompt.ts',
+      'lib\\llm-eval.ts',
     ] as const,
   },
   {
@@ -106,6 +114,7 @@ const PROHIBIDOS: readonly Prohibido[] = [
     motivo:
       'El dueño niega la garantía de rendición inmediata. La redacción honesta es ' +
       '"en el día, al día siguiente o semanal, según lo acordado".',
+    excepcion: ['lib\\llm-eval.ts'] as const,
   },
   {
     patron: /DropOFF.*-?20%/i,
@@ -135,6 +144,7 @@ const PROHIBIDOS: readonly Prohibido[] = [
       'Prometer "sin sorpresas" mientras el cotizador publica cinco recargos (lluvia, ' +
       'espera, parada extra, bulto mayor, contrareembolso). La promesa que sí se ' +
       'sostiene: los recargos tienen monto publicado y se informan antes de confirmar.',
+    excepcion: ['lib\\llm-eval.ts'] as const,
   },
 ];
 

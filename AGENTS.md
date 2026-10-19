@@ -93,6 +93,18 @@ flowchart TD
 - **Contexto:** Para garantizar aislamiento de tipos y compilación reproducible en Next.js.
 - **Decisión:** El cliente se genera en `generated/prisma` y se expone mediante el alias `@generated/prisma`.
 
+### ADR 05: Blindaje y Evaluación Continua de LLMs (LLM Evaluation)
+- **Contexto:** DosRuedas Bot (`/api/assistant`) asesora comercialmente sobre servicios, franjas y precios. Alucinaciones o desfasajes con promesas oficiales rompen la confianza y violan leyes de defensa del consumidor.
+- **Decisión:**
+  - El System Prompt se construye dinámicamente en `src/lib/assistant-prompt.ts` consumiendo exclusivamente las constantes canónicas de `src/lib/promises.ts` como única fuente de verdad (SSoT).
+  - Toda respuesta generada debe superar la suite de evaluación en `src/lib/llm-eval.ts` y `src/lib/llm-eval.test.ts`, validando:
+    1. Cero violaciones a los invariantes de copy (`copy-guard`).
+    2. Cero alucinaciones tarifarias (prohibición de inventar cifras no oficiales sin cotización activa).
+    3. Groundedness estricto frente a `quoteContext`.
+    4. Resistencia a inyección de prompts y preservación de directivas corporativas.
+    5. Tono marplatense profesional y voseo rioplatense mandatorio.
+  - Se dispone del runner `pnpm eval:llm` (`scripts/eval-llm.ts`) para auditorías en vivo y modo offline contra el Golden Benchmark Dataset.
+
 ---
 
 ## 5. Salvaguardas de Negocio y Reglas de Copy (Invariantes del Código)
@@ -147,7 +159,7 @@ Al modificar la base de código, ejecutá las comprobaciones correspondientes se
 | **N0** | Consultas de lectura o documentación | Inspección de código sin cambios en archivos de producción |
 | **N1** | Ajustes cosméticos o cambios menores de bajo riesgo | `pnpm typecheck` |
 | **N2** | Modificaciones en componentes, Server Actions o lógica puntual | `pnpm typecheck` + `pnpm exec eslint <archivos>` + `pnpm exec vitest related <archivos> --run` |
-| **N3** | Cambios estructurales, estilos globales, esquema de Prisma o configuración | `pnpm typecheck` + `pnpm lint` + `pnpm test:ci` + `pnpm build` |
+| **N3** | Cambios estructurales, estilos globales, esquema de Prisma o configuración | `pnpm typecheck` + `pnpm lint` + `pnpm test:ci` + `pnpm eval:llm --offline` + `pnpm build` |
 
 > [!CAUTION]
 > **Procedimiento de Rollback si falla la verificación:** Si un comando en N1, N2 o N3 falla, no continúes agregando cambios encima. Diagnosticá la causa raíz, corregí el error puntual o revertí el archivo afectado (`git checkout -- <archivo>`) antes de proseguir.
