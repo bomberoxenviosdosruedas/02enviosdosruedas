@@ -75,17 +75,56 @@ export function useCotizadorUnificado() {
       const controller = new AbortController();
       abortControllerRef.current = controller;
 
-      if (!origenCoords || !destinoCoords) {
-        setError('Elegí el origen y el destino de la lista de sugerencias para calcular la ruta.');
-        return;
-      }
-
       setIsCalculating(true);
       setCalculated(false);
       setError(null);
 
+      let activeOrigenCoords = origenCoords;
+      let activeDestinoCoords = destinoCoords;
+
       try {
-        const route = await fetchRoute(origenCoords, destinoCoords, controller.signal);
+        // Autoresolución si el usuario ingresó texto pero no hizo clic en el desplegable
+        if (!activeOrigenCoords && origen.trim().length >= 3) {
+          try {
+            const autoRes = await fetch(`/api/places/autocomplete?input=${encodeURIComponent(origen.trim())}`, { signal: controller.signal });
+            const autoData = await autoRes.json();
+            const first = autoData.predictions?.[0];
+            if (first?.place_id) {
+              const detRes = await fetch(`/api/places/details?place_id=${encodeURIComponent(first.place_id)}`, { signal: controller.signal });
+              const detData = await detRes.json();
+              if (detData.status === 'OK' && detData.result?.geometry?.location) {
+                activeOrigenCoords = detData.result.geometry.location;
+                setOrigenCoords(activeOrigenCoords);
+                setOrigen(first.description);
+              }
+            }
+          } catch {}
+        }
+
+        if (!activeDestinoCoords && destino.trim().length >= 3) {
+          try {
+            const autoRes = await fetch(`/api/places/autocomplete?input=${encodeURIComponent(destino.trim())}`, { signal: controller.signal });
+            const autoData = await autoRes.json();
+            const first = autoData.predictions?.[0];
+            if (first?.place_id) {
+              const detRes = await fetch(`/api/places/details?place_id=${encodeURIComponent(first.place_id)}`, { signal: controller.signal });
+              const detData = await detRes.json();
+              if (detData.status === 'OK' && detData.result?.geometry?.location) {
+                activeDestinoCoords = detData.result.geometry.location;
+                setDestinoCoords(activeDestinoCoords);
+                setDestino(first.description);
+              }
+            }
+          } catch {}
+        }
+
+        if (!activeOrigenCoords || !activeDestinoCoords) {
+          setError('Elegí el origen y el destino de la lista de sugerencias para calcular la ruta.');
+          setIsCalculating(false);
+          return;
+        }
+
+        const route = await fetchRoute(activeOrigenCoords, activeDestinoCoords, controller.signal);
 
         if (!route) {
           if (!controller.signal.aborted) {
@@ -97,14 +136,17 @@ export function useCotizadorUnificado() {
 
         setRouteCoords(route.routeCoords);
 
+        const validOrigen = activeOrigenCoords;
+        const validDestino = activeDestinoCoords;
+
         // Las tarifas nunca se calculan en el cliente: las dos pasan por el Server Action.
         // Enviamos coordenadas; el servidor recalcula la distancia y valida la ruta.
         const pedirTarifa = (serviceType: 'EXPRESS' | 'LOW_COST') => {
           const formData = new FormData();
-          formData.append('origenLat', origenCoords.lat.toString());
-          formData.append('origenLng', origenCoords.lng.toString());
-          formData.append('destinoLat', destinoCoords.lat.toString());
-          formData.append('destinoLng', destinoCoords.lng.toString());
+          formData.append('origenLat', validOrigen.lat.toString());
+          formData.append('origenLng', validOrigen.lng.toString());
+          formData.append('destinoLat', validDestino.lat.toString());
+          formData.append('destinoLng', validDestino.lng.toString());
           formData.append('serviceType', serviceType);
           return calculateQuoteAction(initialState, formData);
         };

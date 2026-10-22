@@ -106,7 +106,7 @@ export default function AddressAutocomplete({
 
     // Obtener las coordenadas a través de nuestro endpoint proxy de details
     try {
-      const url = `/api/places/details?place_id=${suggestion.place_id}`;
+      const url = `/api/places/details?place_id=${encodeURIComponent(suggestion.place_id)}`;
       const res = await fetch(url);
       const data = await res.json();
       if (data.status === 'OK' && data.result?.geometry?.location) {
@@ -127,9 +127,12 @@ export default function AddressAutocomplete({
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       setSelectedIndex((prev) => (prev > 0 ? prev - 1 : suggestions.length - 1));
-    } else if (e.key === 'Enter' && selectedIndex >= 0 && selectedIndex < suggestions.length) {
-      e.preventDefault();
-      handleSelect(suggestions[selectedIndex]);
+    } else if (e.key === 'Enter') {
+      const target = selectedIndex >= 0 && selectedIndex < suggestions.length ? suggestions[selectedIndex] : suggestions[0];
+      if (target) {
+        e.preventDefault();
+        handleSelect(target);
+      }
     } else if (e.key === 'Escape') {
       setIsOpen(false);
       setSelectedIndex(-1);
