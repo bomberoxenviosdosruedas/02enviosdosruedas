@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Outfit, Anton, Bebas_Neue, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
 import { MotionConfig } from 'motion/react';
@@ -13,7 +13,7 @@ const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
-  preload: true,
+  preload: false,
 });
 
 const anton = Anton({
@@ -41,6 +41,11 @@ const geistMono = Geist_Mono({
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 const AHREFS_ANALYTICS_KEY = 'NWj98c8Mm2KygtpCXcQh5w';
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0950F6',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
