@@ -245,14 +245,14 @@ export default function ContactInfo() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
               <div>
                 <span className="text-xs font-subheading uppercase tracking-wider text-brand-yellow-500 block">
-                  UBICACIÓN EXACTA · MAPA EN VIVO
+                  UBICACIÓN EXACTA · GOOGLE MAPS
                 </span>
                 <h4 className="font-display text-xl uppercase tracking-tight text-white mt-0.5">
                   BASE OPERATIVA EN MAR DEL PLATA
                 </h4>
               </div>
               <a
-                href="https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata"
+                href="https://www.google.com/maps/search/?api=1&query=Friuli+1972,+Mar+del+Plata,+Provincia+de+Buenos+Aires"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/10 hover:bg-brand-yellow-500/20 border border-brand-yellow-500/40 text-brand-yellow-500 text-xs font-subheading font-bold uppercase tracking-wider transition-all"
@@ -265,9 +265,16 @@ export default function ContactInfo() {
             <div className="w-full h-64 sm:h-72 rounded-xl overflow-hidden border border-white/20 shadow-md relative bg-brand-blue-500">
               <iframe
                 title="Mapa de ubicación Friuli 1972, Mar del Plata - Envíos DosRuedas"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-57.5750%2C-38.0220%2C-57.5610%2C-38.0120&layer=mapnik&marker=-38.0172%2C-57.5684"
+                src={
+                  process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+                    ? `https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=Friuli+1972,+Mar+del+Plata,+Provincia+de+Buenos+Aires&zoom=15&language=es`
+                    : `https://maps.google.com/maps?q=Friuli+1972,+Mar+del+Plata,+Provincia+de+Buenos+Aires&t=&z=15&ie=UTF8&iwloc=&output=embed`
+                }
                 className="w-full h-full border-0"
                 loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                aria-label="Mapa interactivo con la ubicación de la base en Friuli 1972, Mar del Plata"
               />
             </div>
           </div>
