@@ -130,3 +130,5 @@ __pycache__/
 
 .vercel
 .env*
+graphify-out/*
+src/graphify-out/*
