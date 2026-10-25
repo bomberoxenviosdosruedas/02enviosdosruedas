@@ -73,7 +73,7 @@ const SECTIONS: TermSection[] = [
     title: "4. Tarifas y Pago",
     shortTitle: "Tarifas y Pago",
     icon: CreditCard,
-    content: "Las tarifas se calculan en base a la distancia kilométrica real y el tipo de servicio seleccionado según la tabla 2026. Los viajes de más de 10 km aplican tarifa base más excedente por kilómetro adicional entero (Math.ceil). Los medios de pago incluyen efectivo, transferencia bancaria inmediata o cuenta corriente quincenal/mensual para clientes corporativos.",
+    content: "Las tarifas se calculan en base a la distancia kilométrica real y el tipo de servicio seleccionado según la tabla 2026. Los viajes de más de 10 km aplican cálculo lineal por kilómetro recorrido (distancia en km × tarifa por km). Los medios de pago incluyen efectivo, transferencia bancaria inmediata o cuenta corriente quincenal/mensual para clientes corporativos.",
     bullets: [
       "Tarifas transparentes calculadas por rangos kilométricos 2026",
       "Medios de pago: Transferencia, efectivo o cuenta corriente",
