@@ -19,13 +19,14 @@ import {
   ArrowRight,
   Shield,
   CheckCircle,
+  type LucideIcon,
 } from "lucide-react";
 
 interface TermSection {
   id: string;
   title: string;
   shortTitle: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: LucideIcon;
   content: string;
   bullets?: string[];
 }
