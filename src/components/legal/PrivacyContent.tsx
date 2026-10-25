@@ -18,13 +18,14 @@ import {
   ArrowRight,
   ChevronRight,
   ChevronUp,
+  type LucideIcon,
 } from "lucide-react";
 
 interface Section {
   id: string;
   title: string;
   shortTitle: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: LucideIcon;
   content: string;
   extraDetails?: string[];
 }
@@ -252,7 +253,6 @@ export default function PrivacyContent() {
             footerTitle="Seguridad Garantizada"
             footerDescription="Tus datos logísticos se cifran con los más altos estándares."
           />
-          </aside>
 
           {/* RIGHT COLUMN: Interactive Document Flow */}
           <main className="w-full lg:w-3/4">
