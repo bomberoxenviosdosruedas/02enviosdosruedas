@@ -285,7 +285,7 @@ export default function CoberturaPage() {
                 BASE OPERATIVA CENTRAL
               </h3>
               <p className="font-sans text-sm text-brand-blue-500 leading-relaxed">
-                Nuestra base física está ubicada en <strong>Friuli 1972, Barrio Chauvín</strong>. Esta posición estratégica en el corazón de Mar del Plata nos permite despachar a cualquier punto de la ciudad en minutos.
+                Nuestra base física está ubicada en <strong>Friuli 1972</strong>. Esta posición estratégica en Mar del Plata nos permite despachar a cualquier punto de la ciudad en minutos.
               </p>
             </div>
 

@@ -132,7 +132,7 @@ export default async function Image() {
               textTransform: 'uppercase',
             }}
           >
-            BASE CENTRAL: FRIULI 1972 · CHAUVÍN
+            BASE CENTRAL: FRIULI 1972 · MAR DEL PLATA
           </span>
           <span
             style={{

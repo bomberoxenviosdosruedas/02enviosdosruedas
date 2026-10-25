@@ -34,7 +34,7 @@ export default function AboutTimeline() {
     {
       year: '2025',
       title: 'Hub Logístico Friuli 1972',
-      desc: 'Inauguración de nuestro depósito central en Chauvín con depósitos de paquetería, picking y tecnología de ruteo optimizado.',
+      desc: 'Inauguración de nuestro depósito central en Friuli 1972 con depósitos de paquetería, picking y tecnología de ruteo optimizado.',
       icon: MapPin,
     },
     {

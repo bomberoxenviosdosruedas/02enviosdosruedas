@@ -39,7 +39,7 @@ type NeighborhoodSeed =
 
 const SEEDS: NeighborhoodSeed[] = [
   // Z1
-  { name: 'Chauvín (Base Friuli 1972)', zone: 'Z1', note: 'Base operativa central' },
+  { name: 'Chauvín', zone: 'Z1' },
   { name: 'Centro', zone: 'Z1' },
   { name: 'Macrocentro', zone: 'Z1' },
   { name: 'Plaza Mitre', zone: 'Z1' },

@@ -83,7 +83,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
               error
                 ? 'border-red-500 focus:border-red-500 ring-2 ring-red-500/20 text-red-600'
                 : 'border-brand-blue-300 hover:border-brand-blue-400 focus:border-brand-blue-500 focus:ring-2 focus:ring-brand-blue-500/20',
-              disabled && 'border-brand-blue-100 bg-brand-blue-50/50 text-brand-blue-400 cursor-not-allowed',
+              disabled && 'border-brand-blue-100 bg-brand-blue-50/50 text-brand-blue-500/60 cursor-not-allowed',
               className
             )}
             {...inputProps}

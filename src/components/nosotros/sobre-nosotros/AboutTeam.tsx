@@ -20,7 +20,7 @@ export default function AboutTeam() {
       role: 'Base Operativa en MDQ',
       desc: 'Depósito central en Friuli 1972 para recepción, almacenamiento, consolidación de paquetes y despacho diario.',
       icon: MapPin,
-      tag: 'Hub Chauvín',
+      tag: 'Base Friuli 1972',
     },
     {
       number: '< 2h',

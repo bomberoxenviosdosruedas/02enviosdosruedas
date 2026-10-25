@@ -15,7 +15,7 @@
 ---
 
 ## 2. Dominio de Negocio y Arquitectura Core
-* **Última Milla en Mar del Plata:** Operaciones basadas en flota propia (base física en Friuli 1972, Chauvín), sin tercerización, conectando los 5 radios zonales de la ciudad.
+* **Última Milla en Mar del Plata:** Operaciones basadas en flota propia (base física en Friuli 1972), sin tercerización, conectando los 5 radios zonales de la ciudad.
 * **Cotización Unificada (`src/hooks/cotizador/useCotizadorUnified.ts`):** Motor tarifario basado en distancia vial calculada por Google Maps API y tramos definidos en `src/lib/pricing.ts` y `src/lib/promises.ts`.
 * **Cortes Horarios y Promesas:** Los servicios (Express, LowCost, Flex, Same Day, E-commerce 24hs) operan bajo franjas horarias estrictas documentadas en `src/lib/promises.ts` (ej. corte LowCost 13:00 hs, Flex 15:00 hs).
 * **Base de Datos:** PostgreSQL con Prisma ORM (`prisma/schema.prisma`). Cliente centralizado en `src/lib/prisma.ts`.

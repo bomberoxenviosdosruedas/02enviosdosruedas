@@ -10,7 +10,7 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 export const metadata: Metadata = {
   title: 'Nosotros, Preguntas y Contacto',
   description:
-    'Conocé al equipo de Envíos DosRuedas en Mar del Plata: cadetería y mensajería en moto con flota propia, base física en Chauvín y atención personalizada.',
+    'Conocé al equipo de Envíos DosRuedas en Mar del Plata: cadetería y mensajería en moto con flota propia, base física en Friuli 1972 y atención personalizada.',
   alternates: {
     canonical: `${baseUrl}/nosotros`,
   },
@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     'envíos dosruedas nosotros',
     'cadetería mar del plata historia',
     'quiénes somos envíos dosruedas',
-    'base física friuli 1972 chauvín',
+    'base física friuli 1972',
     'mensajería en moto mar del plata equipo',
     'faq cadetería mar del plata',
   ],
   openGraph: {
     title: 'Nosotros, Preguntas y Contacto | Envíos DosRuedas',
     description:
-      'Flota propia de motos, base en Chauvín y cadetería urbana para conectar cada barrio de Mar del Plata.',
+      'Flota propia de motos, base en Friuli 1972 y cadetería urbana para conectar cada barrio de Mar del Plata.',
     url: `${baseUrl}/nosotros`,
     type: 'website',
     images: [`${baseUrl}/og-image.jpg`],
@@ -93,7 +93,7 @@ const sections = [
 
 const values = [
   { icon: ShieldCheck, title: 'Flota Propia', desc: 'Cadetes de confianza, no apps ni intermediarios. Cada envío lo cuida alguien que conocemos.' },
-  { icon: MapPin, title: 'Base Física', desc: 'Friuli 1972, Barrio Chauvín. Operamos desde un punto real, no virtual.' },
+  { icon: MapPin, title: 'Base Física', desc: 'Friuli 1972, Mar del Plata. Operamos desde un punto real, no virtual.' },
   { icon: Clock, title: 'Transparencia Total', desc: 'Tarifas publicadas 2026, sin costos ocultos. "Preferimos decir que no podemos, a fallar".' },
   { icon: Truck, title: 'Cobertura Real', desc: 'Llegamos a todo Mar del Plata, barrio por barrio, con tarifa publicada.' },
 ];

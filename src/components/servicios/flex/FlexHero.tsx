@@ -80,7 +80,7 @@ function EtiquetaFlex() {
               key={k}
               className="flex items-baseline justify-between gap-3 border-b border-dashed border-brand-blue-100 py-2 last:border-b-0"
             >
-              <dt className="font-subheading text-sm uppercase tracking-widest text-brand-blue-400">
+              <dt className="font-subheading text-sm uppercase tracking-widest text-brand-blue-500">
                 {k}
               </dt>
               <dd className="text-right font-mono text-sm font-bold tabular-nums text-brand-blue-500">

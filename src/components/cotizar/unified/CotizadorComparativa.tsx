@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { AlertTriangle, Zap, Package, Check, ArrowRight, CloudRain } from 'lucide-react';
+import { AlertTriangle, Zap, Package, ArrowRight, CloudRain } from 'lucide-react';
 import { trackAnalytics } from '@/lib/analytics';
 import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 import CTANestedPill from '@/components/ui/CTANestedPill';
@@ -71,7 +71,7 @@ function precioTexto(precio: number | 'consultar'): string {
 
 export default function CotizadorComparativa({ form, error }: CotizadorComparativaProps) {
   const { resultado, quoteId, getWhatsAppLink, shouldReduceMotion } = form;
-  const [elegido, setElegido] = useState<string>('');
+  const [elegido, setElegido] = useState<string>('express');
 
   // Sin resultado no hay escala posible: 0 evita NaN en el ancho de las barras.
   const precioExpress = resultado?.express.precio;
@@ -84,6 +84,16 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
     resultado !== null &&
     resultado.express.precio === 'consultar' &&
     resultado.lowcost.precio === 'consultar';
+
+  React.useEffect(() => {
+    if (resultado) {
+      if (resultado.express.precio !== 'consultar') {
+        setElegido('express');
+      } else if (resultado.lowcost.precio !== 'consultar') {
+        setElegido('lowcost');
+      }
+    }
+  }, [resultado]);
 
   // Opciones para RadioCardGroup
   const serviceOptions = React.useMemo(() => [
@@ -110,10 +120,13 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
   ], [resultado]);
 
   const handleServiceChange = (service: string) => {
-    const svc = service as ServiceKey;
     setElegido(service);
+    trackAnalytics.ctaClick('cotizador_service_select', service);
+  };
+
+  const handleConfirmarWhatsApp = () => {
+    const svc = (elegido || 'express') as ServiceKey;
     trackAnalytics.whatsappClick(`cotizador_unificado_${svc}`);
-    // Open WhatsApp link
     if (resultado) {
       const link = getWhatsAppLink(svc);
       if (link !== '#') {
@@ -163,7 +176,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                 {/* Cabecera: la distancia medida, una sola vez */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-brand-blue-100">
                   <div>
-                    <span className="block text-2xs font-subheading font-bold uppercase tracking-wider text-brand-blue-400">
+                    <span className="block text-2xs font-subheading font-bold uppercase tracking-wider text-brand-blue-500">
                       Distancia medida
                     </span>
                     <span className="font-mono text-3xl sm:text-4xl font-bold text-brand-blue-500 tabular-nums tracking-tight">
@@ -223,7 +236,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                                 <span className="font-mono text-2xl sm:text-3xl font-bold text-brand-blue-500 tabular-nums">
                                   {precioTexto(precio)}
                                   {typeof precio === 'number' && (
-                                    <span className="text-xs font-bold text-brand-blue-400 ml-1">ARS</span>
+                                    <span className="text-xs font-bold text-brand-blue-500 ml-1">ARS</span>
                                   )}
                                 </span>
                               </div>
@@ -315,7 +328,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                                 </div>
                               </div>
 
-                              <p className="font-sans text-2xs text-brand-blue-400 leading-snug">
+                              <p className="font-sans text-2xs text-brand-blue-500 leading-snug">
                                 {regla.detalle}
                               </p>
                             </div>
@@ -323,7 +336,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                         })}
                       </div>
 
-                      <div aria-hidden="true" className="relative h-4 font-mono text-2xs text-brand-blue-400 tabular-nums">
+                      <div aria-hidden="true" className="relative h-4 font-mono text-2xs text-brand-blue-500 tabular-nums">
                         {MARCAS.map((hora) => (
                           <span
                             key={hora}
@@ -334,19 +347,24 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                           </span>
                         ))}
                       </div>
-                      <p className="font-sans text-2xs text-brand-blue-400 flex items-center gap-1.5">
+                      <p className="font-sans text-2xs text-brand-blue-500 flex items-center gap-1.5">
                         <span aria-hidden="true" className="inline-block h-3 w-0.5 bg-brand-blue-500" />
                         Horario de corte para pedir en el día.
                       </p>
                     </section>
 
                     {/* ─────────────────────────────────────────────────────────────
-                        LA DECISIÓN. RadioCardGroup para elegir servicio.
+                        LA DECISIÓN. RadioCardGroup para elegir servicio + Botón Explícito.
                         ───────────────────────────────────────────────────────────── */}
-                    <div className="pt-5 border-t border-brand-blue-100">
-                      <h3 className="font-subheading text-xs uppercase tracking-widest font-bold text-brand-blue-500 mb-3">
-                        Elegí cómo lo querés
-                      </h3>
+                    <div className="pt-5 border-t border-brand-blue-100 space-y-4">
+                      <div>
+                        <h3 className="font-subheading text-xs uppercase tracking-widest font-bold text-brand-blue-500 mb-1">
+                          Elegí cómo lo querés
+                        </h3>
+                        <p className="font-sans text-xs text-brand-blue-500/80">
+                          Marcá el servicio que preferís y confirmalo directamente por WhatsApp.
+                        </p>
+                      </div>
 
                       <RadioCardGroup
                         name="cotizador-service-selector"
@@ -355,6 +373,22 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
                         options={serviceOptions}
                         gridCols="grid-cols-1 sm:grid-cols-2"
                       />
+
+                      <div className="pt-2 flex flex-col gap-2">
+                        <CTANestedPill
+                          type="button"
+                          variant="primary"
+                          size="large"
+                          onClick={handleConfirmarWhatsApp}
+                          className="w-full justify-between"
+                          icon={<ArrowRight className="h-4 w-4" />}
+                        >
+                          {elegido === 'lowcost' ? 'Pedir LowCost por WhatsApp' : 'Pedir Express por WhatsApp'}
+                        </CTANestedPill>
+                        <p className="font-mono text-2xs text-brand-blue-500/80 text-center">
+                          Coordinación directa con base en Friuli 1972 · Se abre WhatsApp con los datos del envío
+                        </p>
+                      </div>
                     </div>
 
                     {/* El precio de arriba es por distancia. Lo que pasa en el viaje

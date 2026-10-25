@@ -173,13 +173,13 @@ export default function EmprendedoresHero() {
                       i > 0 ? 'border-t border-dashed border-brand-blue-100 sm:border-t-0 sm:border-l' : ''
                     }`}
                   >
-                    <span className="font-mono text-xs font-bold tabular-nums text-brand-blue-400">
+                    <span className="font-mono text-xs font-bold tabular-nums text-brand-blue-500">
                       {paso.n}
                     </span>
                     <span className="font-subheading text-xl uppercase leading-none tracking-wider text-brand-blue-500">
                       {paso.titulo}
                     </span>
-                    <span className="text-[13.5px] leading-snug text-brand-blue-400">
+                    <span className="text-[13.5px] leading-snug text-brand-blue-500/80">
                       {paso.texto}
                     </span>
                   </li>

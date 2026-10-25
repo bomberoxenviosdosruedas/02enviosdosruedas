@@ -376,7 +376,7 @@ export default function ServiciosPage() {
                     </div>
 
                     <div>
-                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-400 font-bold">
+                      <span className="text-xs font-subheading tracking-wider uppercase text-brand-blue-500 font-bold">
                         {service.label}
                       </span>
                       <h3 className="text-2xl font-display uppercase tracking-tight text-brand-blue-500 mt-1 leading-tight min-h-12">
@@ -392,15 +392,15 @@ export default function ServiciosPage() {
                     <div className="grid grid-cols-3 gap-2 pt-3 pb-3 border-y border-brand-blue-100/70 text-center">
                       <div className="bg-brand-blue-50/80 border border-brand-blue-100/60 p-2 rounded-xl">
                         <div className="text-xs font-bold font-subheading text-brand-blue-500 truncate">{service.stats.entrega}</div>
-                        <div className="text-[10px] uppercase font-bold tracking-wider text-brand-blue-400">ENTREGA</div>
+                        <div className="text-[10px] uppercase font-bold tracking-wider text-brand-blue-500">ENTREGA</div>
                       </div>
                       <div className="bg-brand-blue-50/80 border border-brand-blue-100/60 p-2 rounded-xl">
                         <div className="text-xs font-bold font-subheading text-brand-blue-500 truncate">{service.stats.corte}</div>
-                        <div className="text-[10px] uppercase font-bold tracking-wider text-brand-blue-400">CORTE</div>
+                        <div className="text-[10px] uppercase font-bold tracking-wider text-brand-blue-500">CORTE</div>
                       </div>
                       <div className="bg-brand-blue-50/80 border border-brand-blue-100/60 p-2 rounded-xl">
                         <div className="text-xs font-bold font-mono text-brand-blue-500 truncate">{service.stats.tarifa}</div>
-                        <div className="text-[10px] uppercase font-bold tracking-wider text-brand-blue-400">TARIFA</div>
+                        <div className="text-[10px] uppercase font-bold tracking-wider text-brand-blue-500">TARIFA</div>
                       </div>
                     </div>
                   </div>
