@@ -298,6 +298,9 @@ describe('Cotizador unificado /cotizar', () => {
     const expressRadio = screen.getAllByRole('radio', { name: /Express/ })[0];
     fireEvent.click(expressRadio);
 
+    const btnWhatsapp = screen.getByRole('button', { name: /Pedir Express por WhatsApp/i });
+    fireEvent.click(btnWhatsapp);
+
     expect(windowOpenSpy).toHaveBeenCalledWith(
       expect.stringContaining('542236602699'),
       '_blank',
