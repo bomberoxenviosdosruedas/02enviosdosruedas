@@ -52,7 +52,7 @@ export default function MarDeliveryPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#FAFCFB] text-[#031811] selection:bg-[#2ECC85] selection:text-[#031811]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

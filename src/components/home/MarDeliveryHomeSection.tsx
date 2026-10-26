@@ -13,8 +13,6 @@ import {
   ArrowUpRight,
   Sparkles,
 } from 'lucide-react';
-import { DoubleBezelCard } from '@/components/ui/DoubleBezelCard';
-import { CTANestedPill } from '@/components/ui/CTANestedPill';
 import { SUPPORT_PHONE } from '@/lib/promises';
 import { trackAnalytics } from '@/lib/analytics';
 
@@ -53,6 +51,7 @@ export default function MarDeliveryHomeSection() {
       icon: QrCode,
       badge: 'Menú Interactivo',
       metric: 'Sin comisiones abusivas',
+      isAmber: false,
     },
     {
       title: 'Carga Rápida de Envíos',
@@ -61,6 +60,7 @@ export default function MarDeliveryHomeSection() {
       icon: Zap,
       badge: 'Automatización',
       metric: 'Copiar y despachar',
+      isAmber: true,
     },
     {
       title: 'Modalidad de Repartidores Flexible',
@@ -69,6 +69,7 @@ export default function MarDeliveryHomeSection() {
       icon: Users,
       badge: 'Flota a Medida',
       metric: 'Turnos o a demanda',
+      isAmber: false,
     },
     {
       title: 'Estadísticas y Control',
@@ -77,6 +78,7 @@ export default function MarDeliveryHomeSection() {
       icon: BarChart3,
       badge: 'Métricas Reales',
       metric: 'Exportación en Excel',
+      isAmber: false,
     },
   ];
 
@@ -84,17 +86,18 @@ export default function MarDeliveryHomeSection() {
     <section
       id="mardelivery-home"
       aria-labelledby="mardelivery-home-title"
-      className="py-16 sm:py-24 lg:py-28 bg-brand-blue-500 relative overflow-hidden text-white border-b border-white/10"
+      className="py-16 sm:py-24 lg:py-28 bg-[#031811] relative overflow-hidden text-white border-b border-[#2ECC85]/15 font-sans"
     >
       {/* Background Decorative Asymmetric Elements */}
       <div
-        className="absolute top-0 right-0 w-120 h-120 bg-brand-yellow-500/10 rounded-full blur-[140px] pointer-events-none"
+        className="absolute top-0 right-0 w-130 h-130 bg-[#2ECC85]/12 rounded-full blur-[150px] pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-0 left-0 w-100 h-100 bg-brand-blue-400/20 rounded-full blur-[120px] pointer-events-none"
+        className="absolute bottom-0 left-0 w-100 h-100 bg-[#F5B938]/10 rounded-full blur-[130px] pointer-events-none"
         aria-hidden="true"
       />
+      <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#2ECC85_1px,transparent_1px),linear-gradient(to_bottom,#2ECC85_1px,transparent_1px)] bg-size-[36px_36px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -107,8 +110,8 @@ export default function MarDeliveryHomeSection() {
           {/* Header */}
           <div className="max-w-3xl space-y-4">
             <motion.div variants={itemVariants} className="inline-flex items-center gap-2">
-              <span className="px-3.5 py-1 bg-white/10 text-brand-yellow-500 border border-brand-yellow-500/30 rounded-full text-xs font-bold tracking-widest uppercase font-subheading flex items-center gap-1.5">
-                <UtensilsCrossed className="w-3.5 h-3.5" />
+              <span className="px-3.5 py-1 bg-[#2ECC85]/10 text-[#2ECC85] border border-[#2ECC85]/30 rounded-full text-xs font-subheading font-bold tracking-widest uppercase flex items-center gap-1.5 shadow-[0_0_12px_rgba(46,204,133,0.15)]">
+                <UtensilsCrossed className="w-3.5 h-3.5 text-[#2ECC85]" />
                 DELIVERY & CARTA DIGITAL MDQ
               </span>
             </motion.div>
@@ -119,14 +122,14 @@ export default function MarDeliveryHomeSection() {
               className="font-display text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white leading-[0.95]"
             >
               Potenciá tu local comercial y gastronómico con{' '}
-              <span className="text-brand-blue-500 bg-brand-yellow-500 px-2.5 py-0.5 rounded-lg inline-block shadow-md">
+              <span className="text-[#031811] bg-[#2ECC85] px-3 py-0.5 rounded-xl inline-block shadow-[0_0_24px_rgba(46,204,133,0.35)]">
                 MarDelivery
               </span>
             </motion.h2>
 
             <motion.p
               variants={itemVariants}
-              className="font-sans text-base sm:text-lg text-brand-blue-50 font-normal leading-relaxed"
+              className="font-sans text-base sm:text-lg text-[#FAFCFB]/80 font-normal leading-relaxed"
             >
               Organizá tus pedidos, automatizá tu carta online y elegí la modalidad de
               cadetería que mejor se adapte al flujo de trabajo de tu comercio en Mar del Plata.
@@ -143,15 +146,21 @@ export default function MarDeliveryHomeSection() {
               return (
                 <div
                   key={card.title}
-                  className="rounded-2xl p-2 bg-white/5 border border-white/10 shadow-float hover:border-brand-yellow-400/60 transition-all duration-300 flex flex-col justify-between"
+                  className="rounded-2xl p-2 bg-white/5 border border-white/10 shadow-[0_4px_16px_-2px_rgba(3,24,17,0.3)] hover:border-[#2ECC85]/50 transition-all duration-300 flex flex-col justify-between group"
                 >
-                  <div className="rounded-xl p-6 bg-brand-blue-900/60 border border-white/5 text-white flex flex-col justify-between h-full space-y-4">
+                  <div className="rounded-xl p-6 bg-[#031811]/90 border border-[#2ECC85]/10 text-white flex flex-col justify-between h-full space-y-4">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <div className="w-12 h-12 rounded-xl bg-brand-yellow-500 text-brand-blue-500 flex items-center justify-center font-bold shadow-md">
+                        <div className="w-12 h-12 rounded-xl bg-[#2ECC85] text-[#031811] flex items-center justify-center font-bold shadow-md group-hover:scale-105 transition-transform duration-200">
                           <Icon className="w-6 h-6" aria-hidden="true" />
                         </div>
-                        <span className="text-2xs font-subheading uppercase tracking-wider font-bold text-brand-yellow-500 bg-brand-yellow-500/10 px-2.5 py-1 rounded-full border border-brand-yellow-500/20">
+                        <span
+                          className={`text-2xs font-subheading uppercase tracking-wider font-bold px-2.5 py-1 rounded-full border ${
+                            card.isAmber
+                              ? 'text-[#F5B938] bg-[#F5B938]/15 border-[#F5B938]/30'
+                              : 'text-[#2ECC85] bg-[#2ECC85]/10 border-[#2ECC85]/20'
+                          }`}
+                        >
                           {card.badge}
                         </span>
                       </div>
@@ -160,12 +169,12 @@ export default function MarDeliveryHomeSection() {
                         {card.title}
                       </h3>
 
-                      <p className="font-sans text-sm text-brand-blue-50 leading-relaxed font-light">
+                      <p className="font-sans text-sm text-[#FAFCFB]/75 leading-relaxed font-light">
                         {card.description}
                       </p>
                     </div>
 
-                    <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-brand-yellow-500">
+                    <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#2ECC85]">
                       <span className="flex items-center gap-1.5 font-bold">
                         <Sparkles className="w-3.5 h-3.5" />
                         {card.metric}
@@ -180,32 +189,30 @@ export default function MarDeliveryHomeSection() {
           {/* Banner CTA */}
           <motion.div
             variants={itemVariants}
-            className="p-6 sm:p-8 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6"
+            className="p-6 sm:p-8 rounded-2xl bg-[#111B17] border border-[#2ECC85]/30 backdrop-blur-md shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6"
           >
             <div className="space-y-2 text-center lg:text-left max-w-xl">
-              <span className="text-xs font-subheading uppercase tracking-widest text-brand-yellow-500 font-bold block">
+              <span className="text-xs font-subheading uppercase tracking-widest text-[#2ECC85] font-bold block">
                 Solución Especializada Para Comercios Gastronómicos
               </span>
               <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white">
                 ¿Tenés un restaurante, cervecería o rotisería en MDQ?
               </h3>
-              <p className="font-sans text-sm text-brand-blue-50 font-light">
+              <p className="font-sans text-sm text-[#FAFCFB]/80 font-light">
                 Digitalizá tus pedidos hoy mismo y controlá tus costos de despacho con cadetes de confianza.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
-              <CTANestedPill
+              <Link
                 href="/mardelivery"
-                variant="primary"
-                size="large"
-                className="w-full sm:w-auto text-sm justify-between"
                 onClick={() =>
                   trackAnalytics.ctaClick('home_mardelivery_conocer_cta', 'Conocer Soluciones MarDelivery')
                 }
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#2ECC85] hover:bg-[#27b374] text-[#031811] font-subheading font-bold text-sm uppercase tracking-wider rounded-full shadow-[0_0_20px_rgba(46,204,133,0.35)] transition-all"
               >
                 <span>Conocer Soluciones MarDelivery</span>
-              </CTANestedPill>
+              </Link>
 
               <a
                 href={`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=Hola%20MarDelivery!%20Quiero%20solicitar%20una%20demostraci%C3%B3n%20para%20mi%20local%20gastron%C3%B3mico%20en%20Mar%20del%20Plata`}
@@ -214,10 +221,10 @@ export default function MarDeliveryHomeSection() {
                 onClick={() =>
                   trackAnalytics.whatsappClick('home_mardelivery_demo_cta', 'Solicitar Demostración para mi Local')
                 }
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-subheading uppercase tracking-wider text-sm px-6 py-3.5 rounded-full transition-[background-color,border-color] duration-150 ease-out min-h-12"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#031811] hover:bg-white/10 text-white border border-[#2ECC85]/30 hover:border-[#2ECC85] font-subheading uppercase tracking-wider text-sm px-6 py-3.5 rounded-full transition-all duration-150 min-h-12"
               >
                 <span>Solicitar Demostración para mi Local</span>
-                <ArrowUpRight className="w-4 h-4 text-brand-yellow-500" />
+                <ArrowUpRight className="w-4 h-4 text-[#2ECC85]" />
               </a>
             </div>
           </motion.div>

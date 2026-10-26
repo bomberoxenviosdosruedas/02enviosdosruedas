@@ -5,14 +5,11 @@ import {
   QrCode,
   Zap,
   BarChart3,
-  Smartphone,
   CheckCircle2,
-  FileSpreadsheet,
-  Percent,
   Sparkles,
   ShoppingBag,
+  ExternalLink,
 } from 'lucide-react';
-import { DoubleBezelCard } from '@/components/ui/DoubleBezelCard';
 
 export function CartaDigitalFeatures() {
   const features = [
@@ -27,6 +24,7 @@ export function CartaDigitalFeatures() {
         'Recepción automática en WhatsApp o comandera',
       ],
       icon: QrCode,
+      tagColor: 'emerald' as const,
     },
     {
       title: 'Carga Rápida de Envíos desde WhatsApp',
@@ -39,6 +37,7 @@ export function CartaDigitalFeatures() {
         'Menos errores de tipeo y despacho más veloz',
       ],
       icon: Zap,
+      tagColor: 'amber' as const,
     },
     {
       title: 'Estadísticas, Rendimiento y Control Excel',
@@ -51,20 +50,22 @@ export function CartaDigitalFeatures() {
         'Exportación directa a formato Excel / CSV',
       ],
       icon: BarChart3,
+      tagColor: 'emerald' as const,
     },
   ];
 
   return (
-    <section id="carta-digital" className="py-16 sm:py-24 bg-white relative">
+    <section id="carta-digital" className="py-16 sm:py-24 bg-[#FAFCFB] relative font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-12 space-y-4">
-          <span className="text-xs font-subheading uppercase tracking-widest text-brand-blue-500 font-bold px-3 py-1 bg-brand-blue-50 rounded-full border border-brand-blue-200">
-            Tecnología para Gastronomía
+        <div className="max-w-3xl mb-14 space-y-4">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#2ECC85]/12 border border-[#2ECC85]/30 text-[#1B8756] text-xs font-subheading font-bold uppercase tracking-widest">
+            <Sparkles className="w-3.5 h-3.5 text-[#2ECC85]" />
+            TECNOLOGÍA MARÍTIMA & METROPOLITANA MDQ
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-brand-blue-500">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#031811]">
             Digitalizá tu carta y optimizá tus despachos
           </h2>
-          <p className="font-sans text-base sm:text-lg text-brand-blue-900/75">
+          <p className="font-sans text-base sm:text-lg text-[#031811]/75 leading-relaxed">
             Herramientas diseñadas para que los locales de Mar del Plata vendan más y entreguen mejor, sin intermediarios que absorban tu rentabilidad.
           </p>
         </div>
@@ -72,42 +73,55 @@ export function CartaDigitalFeatures() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((item) => {
             const Icon = item.icon;
+            const isAmber = item.tagColor === 'amber';
+
             return (
-              <DoubleBezelCard
+              <div
                 key={item.title}
-                variant="light"
-                className="h-full flex flex-col justify-between"
-                innerClassName="p-6 sm:p-8 flex flex-col justify-between h-full bg-white text-brand-blue-900"
+                className="rounded-2xl p-6 sm:p-8 bg-white border border-[#031811]/8 shadow-[0_4px_16px_-2px_rgba(3,24,17,0.05)] hover:shadow-[0_10px_32px_-4px_rgba(3,24,17,0.10)] hover:border-[#2ECC85]/40 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <div className="w-14 h-14 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center shadow-md">
+                    <div className="w-14 h-14 rounded-2xl bg-[#031811] text-[#2ECC85] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
                       <Icon className="w-7 h-7" />
                     </div>
-                    <span className="text-2xs font-subheading font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-200">
+                    <span
+                      className={`text-2xs font-subheading font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${
+                        isAmber
+                          ? 'bg-[#F5B938]/15 text-[#8C6207] border-[#F5B938]/30'
+                          : 'bg-[#2ECC85]/12 text-[#1B8756] border-[#2ECC85]/25'
+                      }`}
+                    >
                       {item.badge}
                     </span>
                   </div>
 
-                  <div className="space-y-2">
-                    <h3 className="font-display text-2xl uppercase tracking-tight text-brand-blue-500">
+                  <div className="space-y-2.5">
+                    <h3 className="font-display text-2xl uppercase tracking-tight text-[#031811] group-hover:text-[#031811] transition-colors">
                       {item.title}
                     </h3>
-                    <p className="font-sans text-sm text-brand-blue-900/75 leading-relaxed">
+                    <p className="font-sans text-sm text-[#031811]/75 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
 
-                  <ul className="space-y-2.5 pt-2">
+                  <ul className="space-y-3 pt-2">
                     {item.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs font-sans text-brand-blue-900/85">
-                        <CheckCircle2 className="w-4 h-4 text-brand-blue-500 shrink-0 mt-0.5" />
+                      <li key={i} className="flex items-start gap-2.5 text-xs font-sans text-[#031811]/85">
+                        <CheckCircle2 className="w-4 h-4 text-[#2ECC85] shrink-0 mt-0.5" />
                         <span>{h}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </DoubleBezelCard>
+
+                <div className="pt-6 mt-6 border-t border-[#031811]/5 flex items-center justify-between text-xs font-mono text-[#1B8756] font-bold">
+                  <span className="flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-[#2ECC85]" />
+                    Operación sin comisiones
+                  </span>
+                </div>
+              </div>
             );
           })}
         </div>
