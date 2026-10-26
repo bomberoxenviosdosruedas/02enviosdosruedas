@@ -228,13 +228,13 @@ export default function OptimizedFooter() {
             className="lg:col-span-4 space-y-5"
           >
             <h4 className="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2 flex items-center gap-2">
-              <span>Servicios y Cotizadores</span>
+              <span>Servicios y Plataformas</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
-              {/* Grupo Cotizadores */}
+              {/* Grupo Plataformas y Cotizador */}
               <div>
                 <p className="text-2xs text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
-                  Cotizador online
+                  Cotizador y Portales
                 </p>
                 <ul className="space-y-2.5 text-sm font-sans">
                   <li>
@@ -245,6 +245,30 @@ export default function OptimizedFooter() {
                       <div className="flex items-center gap-2.5">
                         <Zap className="h-4 w-4 text-brand-yellow-500 shrink-0" />
                         <span>Cotizá Express o LowCost</span>
+                      </div>
+                      <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150 ease-out text-brand-yellow-500" />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/logistica-dosruedas"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-[color,transform] duration-200 ease-out hover:translate-x-1"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <Package className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                        <span>Logística DosRuedas (Rastreo)</span>
+                      </div>
+                      <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150 ease-out text-brand-yellow-500" />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/mardelivery"
+                      className="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-[color,transform] duration-200 ease-out hover:translate-x-1"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <Store className="h-4 w-4 text-brand-yellow-500 shrink-0" />
+                        <span>MarDelivery (Gastronomía)</span>
                       </div>
                       <ArrowUpRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150 ease-out text-brand-yellow-500" />
                     </Link>
@@ -429,6 +453,12 @@ export default function OptimizedFooter() {
             </Link>
             <Link href="/cobertura" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
               Cobertura
+            </Link>
+            <Link href="/logistica-dosruedas" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
+              Logística DosRuedas
+            </Link>
+            <Link href="/mardelivery" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
+              MarDelivery
             </Link>
             <Link href="/guias/envios-flex-mar-del-plata" className="hover:text-brand-yellow-500 transition-colors text-brand-blue-50">
               Guía MercadoLibre Flex

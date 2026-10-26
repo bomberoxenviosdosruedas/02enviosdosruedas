@@ -42,6 +42,8 @@ const routes: Array<{
   { path: '/cotizar', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/servicios/empresas-cuenta-corriente', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/cobertura', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/logistica-dosruedas', changeFrequency: 'daily', priority: 0.9 },
+  { path: '/mardelivery', changeFrequency: 'weekly', priority: 0.9 },
   {
     path: '/guias/envios-flex-mar-del-plata',
     changeFrequency: 'weekly',

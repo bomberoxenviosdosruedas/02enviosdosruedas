@@ -9,7 +9,7 @@ import { AnimatePresence, motion, useReducedMotion, type Variants } from 'motion
 import {
   Menu, X, ChevronDown, Bike, ChevronRight, Phone,
   Home, Zap, TrendingDown, Clock, Info, HelpCircle, Share2, Mail,
-  LayoutGrid, Building2, Package, Store
+  LayoutGrid, Building2, Package, Store, Search, UtensilsCrossed
 } from 'lucide-react';
 import { CTANestedPill } from '@/components/ui/CTANestedPill';
 import { SUPPORT_PHONE } from '@/lib/promises';
@@ -20,7 +20,7 @@ const PHONE_DISPLAY_SHORT = SUPPORT_PHONE.replace(/^\+54\s*/, '');
 
 const MobileNav = dynamic(() => import('./MobileNav'), { ssr: false });
 
-interface NavItem {
+export interface NavItem {
   label: string;
   href?: string;
   icon?: React.ComponentType<{ className?: string }>;
@@ -43,6 +43,14 @@ const NAV_ITEMS: NavItem[] = [
       { label: 'Cuenta Corriente Flexible', href: '/servicios/empresas-cuenta-corriente', icon: Building2 },
       { label: 'E-commerce 24HS', href: '/servicios#ecommerce-24hs', icon: Package },
       { label: 'E-commerce Same Day', href: '/servicios/deposito-fulfillment', icon: Store },
+    ],
+  },
+  {
+    label: 'Plataformas',
+    icon: LayoutGrid,
+    dropdownItems: [
+      { label: 'Logística DosRuedas', href: '/logistica-dosruedas', icon: Search },
+      { label: 'MarDelivery Gastronomía', href: '/mardelivery', icon: UtensilsCrossed },
     ],
   },
   {
@@ -154,18 +162,14 @@ export default function OptimizedHeader() {
             <Link href="/" id="nav-logo-opt" aria-current={pathname === '/' ? 'page' : undefined} className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
               <div className="flex items-center gap-2.5">
                 <motion.div className="relative w-10 h-10 shrink-0" whileHover={prefersReducedMotion ? {} : { rotate: 8, scale: 1.04 }} whileTap={prefersReducedMotion ? {} : { scale: 0.97 }} transition={{ type: 'spring', duration: 0.22, bounce: 0.15 }}>
-                  {/* `sizes` es obligatorio con `fill`: sin él Next asume 100vw y el browser
-    descarga la variante de 1536px para una caja de 40x40. Medido en producción:
-    25.598 bytes de los cuales 25.534 eran desperdicio (99,7%). Como lleva
-    `priority`, se precarga en el critical path de todas las páginas. */}
-<Image
-  src="/logo-envios-simplified.webp"
-  alt="Logo Envíos Dos Ruedas"
-  fill
-  sizes="40px"
-  className="object-contain"
-  priority
-/>
+                  <Image
+                    src="/logo-envios-simplified.webp"
+                    alt="Logo Envíos Dos Ruedas"
+                    fill
+                    sizes="40px"
+                    className="object-contain"
+                    priority
+                  />
                 </motion.div>
                 <span className="font-display text-2xl sm:text-3xl tracking-tight leading-none uppercase select-none flex flex-col sm:flex-row sm:gap-1 items-start sm:items-center">
                   <span className="text-white kinetic-font-stretch">Envíos</span>
