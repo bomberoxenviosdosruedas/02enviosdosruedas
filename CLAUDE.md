@@ -1,161 +1,148 @@
-# CLAUDE.md - Guía de Contexto Operativo
+# CLAUDE.md
 
-Guía operativa para Claude Code y asistentes CLI que interactúan con la base de código de **Envíos DosRuedas**.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
----
+## 1. Comandos de Desarrollo y Verificación
 
-## 1. Referencia Rápida de Comandos Canónicos
+Gestor de paquetes obligatorio: **pnpm** (`pnpm@12.8.1`). Queda prohibido el uso de `npm`, `yarn` o `bun`.
 
-El único gestor de paquetes autorizado en este repositorio es **pnpm** (`pnpm@12.8.1`). Queda prohibido el uso de `npm`, `yarn` o `bun`.
-
-### Ciclo de Desarrollo y Construcción
+### Compilación y Servidor
 ```bash
-pnpm dev             # Inicia el servidor de desarrollo local (next dev)
-pnpm build           # Genera Prisma Client y compila para producción (prisma generate && next build)
-pnpm start           # Inicia el servidor optimizado de producción (next start)
-pnpm clean           # Limpia la caché y directorios temporales de Next.js
-pnpm postinstall     # Genera los tipos de Prisma Client en generated/prisma
+pnpm dev              # Inicia servidor de desarrollo local (Next.js 16)
+pnpm build            # Genera Prisma Client y compila producción (prisma generate && next build)
+pnpm start            # Inicia servidor de producción compilado
+pnpm clean            # Limpia caché de Next.js (.next/)
+pnpm postinstall      # Genera cliente Prisma en generated/prisma
 ```
 
-### Verificación Estática y Calidad de Código
+### Verificación Estática y Linter
 ```bash
-pnpm typecheck       # Verificación estricta de TypeScript sin emitir archivos (tsc --noEmit)
-pnpm lint            # Análisis estático completo con ESLint flat config (eslint .)
-pnpm exec eslint <archivo> # Ejecuta ESLint sobre un archivo puntual
+pnpm typecheck        # Chequeo estricto de tipos TypeScript sin emitir archivos (tsc --noEmit)
+pnpm lint             # Análisis estático completo con ESLint 9 Flat Config
+pnpm exec eslint <archivo> # Ejecuta ESLint sobre un archivo específico
 ```
 
-### Pruebas Unitarias y de Regresión (Vitest)
+### Pruebas Automatizadas (Vitest)
 ```bash
-pnpm test:ci         # Ejecuta toda la suite de pruebas una sola vez sin modo interactivo
-pnpm test:ui         # Abre el panel visual de Vitest en el navegador
-pnpm eval:llm        # Ejecuta la evaluación de LLM (live o con --offline contra Golden Dataset)
-pnpm exec vitest related <archivo> --run # Ejecuta únicamente las pruebas del archivo modificado
+pnpm test:ci          # Ejecuta toda la suite una sola vez (modo no interactivo)
+pnpm test:ui          # Panel interactivo en navegador
+pnpm exec vitest run <ruta-archivo> # Ejecuta un único archivo de test puntual
+# Ejemplo: pnpm exec vitest run src/lib/pricing.test.ts
+pnpm exec vitest run -t "<filtro>"  # Ejecuta pruebas que coincidan con el nombre/describe
+pnpm exec vitest related <archivo> --run # Ejecuta pruebas afectadas por un archivo modificado
 ```
 > [!IMPORTANT]
-> **Regla de oro de testing:** Nunca ejecutes `pnpm test` a secas en entornos no interactivos o automatizados, ya que inicia Vitest en modo observador (watch mode) indefinido. Usá siempre `pnpm test:ci` o agregá `--run`.
+> **Nunca ejecutar `pnpm test` a secas** en entornos CLI/CI, ya que inicia Vitest en modo observador indefinido (watch mode). Usar siempre `pnpm test:ci` o añadir `run`.
 
-### Scripts Operativos Auxiliares
+### Evaluación de Inteligencia Artificial (LLM Eval)
 ```bash
-pnpm pdf             # Genera capturas y reportes PDF vía script de Python local
-pnpm pdf:prod        # Genera reportes PDF apuntando a producción
-pnpm export:texts    # Extrae textos y copys de las vistas del sitio
+pnpm eval:llm --offline # Corre evaluación con Golden Dataset y referencias sin requerir API keys
+pnpm eval:llm           # Evaluación en vivo contra Gemini 3.5 Flash (requiere GEMINI_API_KEY)
+```
+
+### Scripts Auxiliares
+```bash
+pnpm pdf              # Genera reportes PDF locales vía script Python
+pnpm pdf:prod         # Genera reportes PDF contra el entorno de producción
+pnpm export:texts     # Extrae copys y textos del sitio
 ```
 
 ---
 
-## 2. Delimitación de Contexto y Gestión de Tokens (Token Hygiene)
+## 2. Arquitectura de Alto Nivel y Flujos Multicapa
 
-Para preservar la precisión del modelo y evitar la degradación de contexto, respetá los filtros configurados en `.claudeignore`, `.aiexclude` y `.antigravityignore`:
+```mermaid
+flowchart TD
+    subgraph UI ["Capa Visual (React 19 / Next.js 16 App Router)"]
+        Pages["Páginas Públicas & Layouts (@theme Tailwind v4)"]
+        Cotizador["Cotizador Interactivo (Leaflet + Zod)"]
+        BotWidget["Widget DosRuedas Bot (Gemini 3.5 Flash)"]
+    end
 
-1. **Lectura Quirúrgica:** Localizá con exactitud el archivo correspondiente dentro de `src/`. No intentes leer árboles de directorios completos ni ejecutes búsquedas globales masivas.
-2. **Archivos Fuera de Límites:**
-   - **Artefactos generados:** `.next/`, `generated/`, `dist/`, `build/`, `out/`, `tsconfig.tsbuildinfo`, sourcemaps (`*.map`).
-   - **Dependencias y bloqueos:** `node_modules/`, `pnpm-lock.yaml`, `package-lock.json`, `yarn.lock`.
-   - **Cachés de testing y linters:** `.turbo/`, `.eslintcache`, `.vitest/`, `coverage/`, `test-results/`.
-   - **Tooling de agentes:** `.agent/`, `.agents/`, `.claude/`, `.hermes/`, `.impeccable/`, `.opencode/`, `.stitch/`, `.scratch/`.
-   - **Multimedia y binarios:** `*.webp`, `*.png`, `*.svg`, `*.pdf`, `*.woff2` (evita consumo masivo de tokens de visión).
-   - **Documentación histórica y scrapings:** `docs/paginas/`, `docs/imagenes/`, `docs/sitio_completo.html`.
-3. **Aislamiento de Secretos (Zero-Secrets Policy):** Queda terminantemente prohibido imprimir, inspeccionar o editar archivos `.env` reales (`.env`, `.env.local`, `.env.production`). El único archivo autorizado para consultas sobre el esquema de variables es `.env.example`.
+    subgraph BusinessCore ["Núcleo de Negocio & Invariantes (SSoT)"]
+        Promises["src/lib/promises.ts (Horarios, Cortes, Reglas de Capacidad)"]
+        Pricing["src/lib/pricing.ts (Algoritmos Tarifarios por Distancia Vial)"]
+        CopyGuard["src/lib/copy-guard.test.ts (Salvaguarda de Copy Estática)"]
+        AssistantPrompt["src/lib/assistant-prompt.ts (Constructor del System Prompt)"]
+    end
+
+    subgraph ServerLayer ["Lógica de Servidor & Backend"]
+        ActionQuote["Server Action: calculateQuoteAction (safeCache + Google Directions)"]
+        RouteAssistant["Route Handler: /api/assistant (Sec-Fetch-Site + Gemini)"]
+        PrismaClient["Prisma 7 (@generated/prisma/client + pg.Pool)"]
+    end
+
+    subgraph DBExternal ["Infraestructura y APIs Externas"]
+        PG[("PostgreSQL")]
+        GMaps["Google Maps Platform (Directions / Places)"]
+        GeminiAI["Google GenAI API"]
+    end
+
+    Cotizador --> ActionQuote
+    BotWidget --> RouteAssistant
+    Promises --> Pricing
+    Promises --> AssistantPrompt
+    Promises --> CopyGuard
+    ActionQuote --> Pricing
+    ActionQuote --> GMaps
+    ActionQuote --> PrismaClient
+    RouteAssistant --> AssistantPrompt
+    RouteAssistant --> GeminiAI
+    PrismaClient --> PG
+```
+
+### 2.1. Fuente Única de Verdad (SSoT) e Invariantes Comerciales
+- **`src/lib/promises.ts`:** Centraliza todas las promesas operativas oficiales.
+  - **Express:** `EXPRESS_WINDOW` ("franja horaria de 3 hs" a elección, nunca duración fija ni "en 2 horas"), con `EXPRESS_LEAD_TIME` ("2 hs de anticipación") y corte `15:00 hs` (último rango 17 a 19 hs).
+  - **LowCost:** Reparto programado económico en el día; corte `13:00 hs`, entrega hasta `19:00 hs`. Cada viaje se cotiza individualmente (no es tarifa agrupada ni por lote).
+  - **Mercado Envíos Flex:** Corte `15:00 hs`, entrega garantizada hasta `20:00 hs`. Acuse digital con foto y firma.
+  - **Capacidad:** Bulto estándar incluido sin recargo de hasta `5 kg` (`STANDARD_WEIGHT_KG`) o `40 x 40 x 30 cm`. No existe un techo numérico rígido publicado (se coordina como bulto especial desde `BULK_EXTRA_FROM_ARS`).
+  - **Facturación:** No se emite Factura A (solo Factura C y comprobantes estándar).
+- **`src/lib/copy-guard.test.ts`:** Test estático que recorre `src/` e impide que ingresen al código afirmaciones prohibidas desmentidas por el dueño (como "15 kg", "60 a 90 min", "en 3 hs" o "Factura A").
+
+### 2.2. Flujo de Cotización y Geolocalización
+- El usuario ingresa origen y destino en el cotizador interactivo.
+- Invoca la Server Action `calculateQuoteAction` (`src/actions/quote.ts`), la cual valida coordenadas con Zod.
+- Consulta distancias viales reales mediante Google Directions con deduplicación por petición vía `safeCache` (`React.cache`).
+- Computa tarifas en `src/lib/pricing.ts` mediante `calculateExpressPrice` y `calculateLowCostPrice`. Si la tabla `PriceRange` en base de datos está vacía, utiliza los tramos constantes de fallback (`EXPRESS_TIERS` y `LOW_COST_TIERS`).
+- Para distancias viales mayores a 20 km (`MAX_AUTO_KM`), el cálculo automático retorna `'consultar'`.
+
+### 2.3. Pipeline del Asistente Virtual y Evaluación LLM
+- Endpoint `/api/assistant` (`src/app/api/assistant/route.ts`): Implementa verificación de cabeceras (`Sec-Fetch-Site`), valida esquema Zod y conecta con Google GenAI.
+- `buildAssistantSystemPrompt` (`src/lib/assistant-prompt.ts`): Ensambla dinámicamente el System Prompt unificando las promesas de `promises.ts` junto con el `quoteContext` de la cotización activa en pantalla.
+- `scripts/eval-llm.ts` y `src/lib/llm-eval.ts`: Conjunto de pruebas de regresión contra el Golden Benchmark Dataset evaluando coherencia con la cotización en pantalla, resistencia a inyecciones y salvaguardas de copy.
+
+### 2.4. Persistencia y Cliente de Base de Datos
+- **Prisma ORM 7:** Configurado con salida personalizada en `generated/prisma` (`prisma/schema.prisma`).
+- **Instancia Centralizada (`src/lib/prisma.ts`):** Utiliza `@prisma/adapter-pg` con un pool de conexiones `pg.Pool`.
+- Los tipos y el cliente se importan mediante el alias `@generated/prisma/client`. Tras cualquier cambio de esquema o clonación, ejecutar `pnpm postinstall`.
+
+### 2.5. Sistema de Diseño (Ley de Tres Colores en Tailwind v4)
+Definido en `src/app/globals.css` mediante directivas `@theme`:
+- **Azul Corporativo (`#0950F6`):** Techo máximo de oscuridad en la interfaz (no usar fondos negros puros).
+- **Amarillo Vial (`#FFEC01`):** Reservado estrictamente para CTAs principales y detalles de alta jerarquía (≤ 15% del área visual).
+- **Blanco (`#FFFFFF`):** Fondo general y superficies limpias.
+- **Jerarquía Tipográfica:** Anton (`font-display`, titulares), Bebas Neue (`font-subheading`, eyebrows y CTAs), Outfit (`font-sans`, párrafos y formularios), Geist Mono (`font-mono`, números tabulares y precios).
 
 ---
 
-## 3. Arquitectura del Código en `src/`
+## 3. Higiene de Tokens y Límites del Repositorio
 
-```
-src/
-├── actions/         # Server Actions ('use server') validadas con Zod
-├── app/             # Rutas, layouts y metadata de Next.js App Router
-│   ├── (rutas)/     # Vistas públicas: cotizar, servicios, cobertura, contacto, nosotros, guías
-│   ├── admin/       # Panel administrativo interno
-│   ├── api/         # Route Handlers: assistant (asistente IA), places y routes (Google Maps)
-│   ├── globals.css  # Tokens @theme Tailwind v4 y variables CSS corporativas
-│   └── layout.tsx   # Layout raíz con configuración de fuentes y proveedores globales
-├── assets/          # Recursos estáticos y fuentes locales
-├── components/      # Componentes organizados por dominio y capa visual
-│   ├── ui/          # Primitivas reutilizables (DoubleBezelCard, CTANestedPill, InputField)
-│   ├── layout/      # Cabecera (OptimizedHeader), footer y carrusel de redes
-│   └── [dominio]/   # Componentes específicos de vista (home, cotizar, servicios, etc.)
-├── hooks/           # Custom hooks reutilizables (cotizador unificado, analítica)
-├── lib/             # Lógica pura de negocio y clientes externos:
-│   ├── pricing.ts   # Algoritmos tarifarios y tramos por distancia vial
-│   ├── promises.ts  # Constantes oficiales de promesas de entrega, cortes horarios y límites
-│   ├── assistant-prompt.ts # Constructor tipado del System Prompt unificado con promises.ts
-│   ├── llm-eval.ts  # Framework de evaluación LLM, métricas deterministas y Golden Dataset
-│   ├── prisma.ts    # Instancia centralizada de Prisma Client para PostgreSQL
-│   ├── gemini.ts    # Cliente oficial de Google GenAI
-│   ├── genkit.ts    # Configuración de Genkit
-│   ├── whatsapp.ts  # Constructor de enlaces estructurados a WhatsApp con trazabilidad
-│   └── utils.ts     # Utilidades de clases CSS con clsx y tailwind-merge
-└── test/            # Configuración de entorno y extensiones para Vitest
-```
+Para evitar degradación de contexto, respetar las exclusiones de `.claudeignore` y `.antigravityignore`:
+
+1. **Uso Mandatorio de Graphify:** Al existir el índice `graphify-out/graph.json`, antes de inspeccionar masivamente archivos de código, utilizar las herramientas de Graphify (`graphify query "<pregunta>"`, `graphify explain "<concepto>"`, `graphify path "<origen>" "<destino>"` o los tools MCP `mcp__graphify__*`) para obtener contexto quirúrgico.
+2. **Archivos Excluidos:**
+   - Artefactos compilados y temporales: `.next/`, `generated/`, `dist/`, `build/`, `tsconfig.tsbuildinfo`.
+   - Dependencias y bloqueos: `node_modules/`, `pnpm-lock.yaml`.
+   - Tooling de agentes: `.agent/`, `.agents/`, `.claude/`, `.hermes/`, `.impeccable/`, `.opencode/`, `.scratch/`, `.stitch/`.
+   - Archivos binarios y de diseño pesado: `*.webp`, `*.png`, `*.pdf`, `*.woff2`.
+3. **Aislamiento Estricto de Secretos:** Prohibido leer, mostrar o editar archivos `.env` reales (`.env`, `.env.local`). Consultar variables únicamente en documentación o código fuente.
 
 ---
 
-## 4. Patrones de Código Canónicos (Blueprints)
+## 4. Convenciones de Código y Estilo
 
-### Patrón: Server Action con Validación Zod
-```typescript
-'use server';
-
-import { z } from 'zod';
-
-const InputSchema = z.object({
-  campo: z.string().min(1, 'El campo es obligatorio'),
-});
-
-export type ActionResponse<T> =
-  | { success: true; data: T }
-  | { success: false; error: string };
-
-export async function miAccion(formData: FormData): Promise<ActionResponse<{ id: string }>> {
-  const parsed = InputSchema.safeParse(Object.fromEntries(formData));
-  if (!parsed.success) {
-    return { success: false, error: parsed.error.issues[0]?.message ?? 'Datos inválidos' };
-  }
-  // Operación en base de datos o lógica de negocio
-  return { success: true, data: { id: 'ok' } };
-}
-```
-
-### Patrón: Client Component con Motion
-```typescript
-'use client';
-
-import React from 'react';
-import { motion, useReducedMotion } from 'motion/react';
-
-export default function TarjetaAnimada({ children }: { children: React.ReactNode }) {
-  const shouldReduceMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: shouldReduceMotion ? 0.01 : 0.3 }}
-      className="card-token p-6 rounded-2xl bg-white border border-brand-blue-100"
-    >
-      {children}
-    </motion.div>
-  );
-}
-```
-
----
-
-## 5. Guía de Resolución de Problemas (Runbook & Troubleshooting)
-
-| Síntoma o Error | Causa Probable | Solución Inmediata |
-| --- | --- | --- |
-| `Cannot find module '@generated/prisma'` | Prisma Client no generado tras cambio de rama o dependencias | Ejecutar `pnpm postinstall` o `pnpm prisma generate` |
-| `React does not recognize the 'whileInView' prop...` | Una prop de Motion se pasó a un elemento HTML nativo o mock incompleto | Asegurar que el tag sea `motion.<tag>` o revisar `src/test/setup.ts` |
-| `EPERM: operation not permitted, mkdir` en Windows | Bloqueo transitorio del sistema de archivos | Reintentar el comando (suele resolverse en el 2do intento) |
-| Fallo en `copy-guard.test.ts` | Se incluyó una frase prohibida en un texto ("en 2 horas", "Factura A", "sin sorpresas") | Ajustar el copy según las salvaguardas de `src/lib/promises.ts` |
-
----
-
-## 6. Reglas Mandatorias de Interacción
-
-- Mantené siempre el **voseo rioplatense** en textos dirigidos a humanos (comentarios de código, documentación técnica y mensajes).
-- No utilices guiones largos ni en-dash en la redacción en español (empleá dos puntos, paréntesis o guion corto `-`).
-- Utilizá enlaces clickeables en formato markdown con esquema `file:///` y barras inclinadas `/` para archivos y símbolos de código.
+- **Voseo Rioplatense:** Todo texto dirigido a usuarios, documentación interna y mensajes debe redactarse en español rioplatense cordial (usando "vos").
+- **Tipografía y Puntuación:** No utilizar guiones largos ni en-dash en redacciones en español; usar dos puntos, paréntesis o guion corto (`-`).
+- **Referencias a Archivos:** Utilizar enlaces en formato markdown con esquema `file:///` y barras inclinadas `/` para archivos y líneas de código.
+- **Server Actions:** Todas las acciones en `src/actions/` deben incluir `'use server'`, validar el payload con esquemas Zod y retornar tipos discriminados `{ success: true, data: T } | { success: false, error: string }`.
