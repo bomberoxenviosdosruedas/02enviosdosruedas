@@ -321,7 +321,7 @@ export default function EmprendedoresHome() {
                 onClick={() => setIsMarqueePaused((prev) => !prev)}
                 aria-pressed={isMarqueePaused}
                 aria-label={isMarqueePaused ? 'Reanudar carrusel de marcas locales' : 'Pausar carrusel de marcas locales'}
-                className="min-h-11 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-brand-yellow-400 text-xs font-subheading tracking-wider uppercase inline-flex items-center gap-1.5 cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
+                className="min-h-11 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white hover:text-brand-yellow-500 text-xs font-subheading tracking-wider uppercase inline-flex items-center gap-1.5 cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
               >
                 {isMarqueePaused ? (
                   <>

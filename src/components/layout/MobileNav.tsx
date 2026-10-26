@@ -95,7 +95,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, navItems,
         animate={{ x: 0 }}
         exit={prefersReducedMotion ? { opacity: 0 } : { x: '100%' }}
         transition={SPRING_PANEL}
-        className="fixed top-0 right-0 bottom-0 z-100 flex flex-col w-full max-w-[320px] h-dvh bg-brand-blue-500 shadow-2xl border-l border-white/10 lg:hidden overscroll-contain"
+        className="fixed top-0 right-0 bottom-0 z-100 flex flex-col w-full max-w-[320px] h-dvh bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 lg:hidden overscroll-contain"
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
           <Link href="/" onClick={onClose} className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-yellow-500/50 rounded-lg">
@@ -144,7 +144,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, navItems,
                               <Link
                                 href={subItem.href}
                                 onClick={onClose}
-                                className="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-brand-blue-50/90 hover:text-brand-yellow-500 hover:bg-white/10 transition-[color,background-color,border-color,transform] duration-150 ease-out min-h-10.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500/50"
+                                className="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-[color,background-color,border-color,transform] duration-150 ease-out min-h-10.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500/50"
                               >
                                 <div className="p-1 rounded-lg bg-white/10 text-brand-yellow-500 shrink-0">
                                   <SubIcon className="h-4 w-4" />

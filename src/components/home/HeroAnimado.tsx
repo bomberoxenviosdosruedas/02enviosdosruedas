@@ -129,6 +129,8 @@ export default function HeroAnimado() {
                 width={560}
                 height={560}
                 priority
+                fetchPriority="high"
+                loading="eager"
                 sizes="(min-width: 1024px) 460px, 92vw"
                 className="relative z-2 h-auto w-full drop-shadow-[0_24px_40px_rgba(255,255,255,0.12)]"
               />

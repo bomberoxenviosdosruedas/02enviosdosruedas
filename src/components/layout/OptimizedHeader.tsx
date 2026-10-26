@@ -153,7 +153,7 @@ export default function OptimizedHeader() {
     <>
       <header
         id="optimized-header"
-        className={`fixed top-0 left-0 right-0 z-50 w-full transition-[background-color,border-color,box-shadow,padding] duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 w-full text-white transition-[background-color,border-color,box-shadow,padding] duration-300 ${
           scrolled ? 'bg-brand-blue-500/95 shadow-elevated border-b border-white/10 py-2.5 backdrop-blur-md' : 'bg-brand-blue-500 py-4 border-b border-transparent'
         }`}
       >
@@ -201,10 +201,10 @@ export default function OptimizedHeader() {
                       <Link
                         href={item.href}
                         aria-current={isDirectActive ? 'page' : undefined}
-                        className={`px-4 py-2.5 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
+                        className={`px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
                           isDirectActive
-                            ? 'text-brand-yellow-500 bg-white/10'
-                            : 'text-white hover:text-brand-yellow-500 hover:bg-white/10'
+                            ? 'text-brand-yellow-500 bg-black/20 border-brand-yellow-500/30'
+                            : 'text-white border-transparent hover:text-brand-yellow-500 hover:bg-black/15'
                         }`}
                       >
                         {item.label}
@@ -215,10 +215,10 @@ export default function OptimizedHeader() {
                         onClick={() => handleDropdownToggle(item.label)}
                         aria-haspopup="true"
                         aria-expanded={activeDropdown === item.label}
-                        className={`px-4 py-2.5 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
+                        className={`px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
                           isGroupActive
-                            ? 'text-brand-yellow-500 bg-white/10'
-                            : 'text-white hover:text-brand-yellow-500 hover:bg-white/10'
+                            ? 'text-brand-yellow-500 bg-black/20 border-brand-yellow-500/30'
+                            : 'text-white border-transparent hover:text-brand-yellow-500 hover:bg-black/15'
                         }`}
                       >
                         {item.label}
@@ -245,11 +245,20 @@ export default function OptimizedHeader() {
                                     <Link
                                       href={subItem.href}
                                       aria-current={isSubActive ? 'page' : undefined}
-                                      className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors hover:bg-white/10 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
-                                        isSubActive ? 'text-brand-yellow-500 bg-white/10' : 'text-white hover:text-brand-yellow-500'
+                                      className={`flex items-center gap-3 px-3 py-2 rounded-xl transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 border ${
+                                        isSubActive
+                                          ? 'text-brand-yellow-500 bg-black/20 border-brand-yellow-500/30'
+                                          : 'text-white border-transparent hover:text-brand-yellow-500 hover:bg-black/15'
                                       }`}
                                     >
-                                      <div className="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors shrink-0" aria-hidden="true">
+                                      <div
+                                        className={`p-1.5 rounded-lg transition-colors shrink-0 ${
+                                          isSubActive
+                                            ? 'bg-brand-yellow-500 text-brand-blue-500'
+                                            : 'bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500'
+                                        }`}
+                                        aria-hidden="true"
+                                      >
                                         <SubIcon className="h-4 w-4" />
                                       </div>
                                       <span className="text-base font-bold uppercase font-subheading tracking-wider leading-none">{subItem.label}</span>
