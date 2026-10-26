@@ -7,8 +7,6 @@ import {
   BarChart3,
   CheckCircle2,
   Sparkles,
-  ShoppingBag,
-  ExternalLink,
 } from 'lucide-react';
 
 export function CartaDigitalFeatures() {
@@ -55,10 +53,16 @@ export function CartaDigitalFeatures() {
   ];
 
   return (
-    <section id="carta-digital" className="py-16 sm:py-24 bg-[#FAFCFB] relative font-sans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="carta-digital" className="py-16 sm:py-24 lg:py-28 bg-[#EEF6F2] relative font-sans border-b border-[#2ECC85]/20">
+      {/* Detalle visual sutil de fondo */}
+      <div
+        className="absolute top-0 right-1/4 w-96 h-96 bg-[#2ECC85]/10 rounded-full blur-[140px] pointer-events-none"
+        aria-hidden="true"
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl mb-14 space-y-4">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#2ECC85]/12 border border-[#2ECC85]/30 text-[#1B8756] text-xs font-subheading font-bold uppercase tracking-widest">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#2ECC85]/15 border border-[#2ECC85]/35 text-[#1B8756] text-xs font-subheading font-bold uppercase tracking-widest shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-[#2ECC85]" />
             TECNOLOGÍA MARÍTIMA & METROPOLITANA MDQ
           </span>
@@ -78,7 +82,7 @@ export function CartaDigitalFeatures() {
             return (
               <div
                 key={item.title}
-                className="rounded-2xl p-6 sm:p-8 bg-white border border-[#031811]/8 shadow-[0_4px_16px_-2px_rgba(3,24,17,0.05)] hover:shadow-[0_10px_32px_-4px_rgba(3,24,17,0.10)] hover:border-[#2ECC85]/40 transition-all duration-300 flex flex-col justify-between group"
+                className="rounded-2xl p-6 sm:p-8 bg-white border border-[#031811]/10 shadow-[0_6px_24px_-4px_rgba(3,24,17,0.06)] hover:shadow-[0_14px_36px_-6px_rgba(3,24,17,0.12)] hover:border-[#2ECC85]/50 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
@@ -97,7 +101,7 @@ export function CartaDigitalFeatures() {
                   </div>
 
                   <div className="space-y-2.5">
-                    <h3 className="font-display text-2xl uppercase tracking-tight text-[#031811] group-hover:text-[#031811] transition-colors">
+                    <h3 className="font-display text-2xl uppercase tracking-tight text-[#031811]">
                       {item.title}
                     </h3>
                     <p className="font-sans text-sm text-[#031811]/75 leading-relaxed">
