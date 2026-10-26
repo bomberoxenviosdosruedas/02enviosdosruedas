@@ -11,14 +11,14 @@ const baseUrl = 'https://www.enviosdosruedas.com';
 const lastTier = EXPRESS_TIERS[EXPRESS_TIERS.length - 1];
 
 export const metadata: Metadata = {
-  title: 'Envíos Express en Moto en MDQ',
+  title: 'Envíos Express en Moto en Mar del Plata',
   description:
     'Servicio prioritario en moto con franja horaria a elección y 2 hs de anticipación. Tarifas fijas por distancia real en Mar del Plata. Despachá tu envío hoy.',
   alternates: {
     canonical: `${baseUrl}/servicios/envios-express`,
   },
   openGraph: {
-    title: 'Envíos Express en Moto en MDQ | Envíos DosRuedas',
+    title: 'Envíos Express en Moto en Mar del Plata | Envíos DosRuedas',
     description: `Cadetería en moto con entrega en ${EXPRESS_WINDOW} a elección, pedido con ${EXPRESS_LEAD_TIME}. Flota propia y tarifas 2026 por distancia.`,
     url: `${baseUrl}/servicios/envios-express`,
     type: 'website',

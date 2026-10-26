@@ -10,14 +10,14 @@ import FlexRequirements from '@/components/servicios/flex/FlexRequirements';
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Mercado Envíos Flex Same-Day',
+  title: 'Mercado Envíos Flex en Mar del Plata',
   description:
     'Servicio logístico para Mercado Envíos Flex en Mar del Plata. Entregas en el día para proteger tu reputación. Corte 15:00 hs y distribución antes de 20 hs.',
   alternates: {
     canonical: `${baseUrl}/servicios/enviosflex`,
   },
   openGraph: {
-    title: 'Mercado Envíos Flex Same-Day | Envíos DosRuedas',
+    title: 'Mercado Envíos Flex en Mar del Plata | Envíos DosRuedas',
     description:
       'Logística Same-Day para Mercado Envíos Flex en Mar del Plata. Corte 15:00 hs, entregas antes de las 20:00 hs y múltiples retiros.',
     url: `${baseUrl}/servicios/enviosflex`,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mercado Envíos Flex Same-Day | Envíos DosRuedas',
+    title: 'Mercado Envíos Flex en Mar del Plata | Envíos DosRuedas',
     description: 'Logística Same-Day para Mercado Envíos Flex en Mar del Plata. Corte 15:00 hs, entregas antes de las 20:00 hs y múltiples retiros.',
     images: [`${baseUrl}/og-image.jpg`],
     creator: '@enviosdosruedas',

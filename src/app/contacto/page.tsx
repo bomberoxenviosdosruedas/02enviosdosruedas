@@ -8,14 +8,14 @@ import ConversionBanner from '@/components/contacto/ConversionBanner';
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Contacto y Base Central',
-  description: 'Contacto con el equipo comercial y logística urbana de Envíos DosRuedas en Mar del Plata. Cotizaciones inmediatas por WhatsApp y atención personalizada.',
+  title: 'Contacto y Pedidos en Mar del Plata',
+  description: 'Contacto directo y pedidos de mensajería, trámites y logística urbana en Mar del Plata. Teléfono: 223 660-2699. Base en Friuli 1972. Cotizaciones inmediatas por WhatsApp.',
   alternates: {
     canonical: `${baseUrl}/contacto`,
   },
   openGraph: {
-    title: 'Contacto y Base Central | Envíos DosRuedas',
-    description: 'Contacto con el equipo comercial y logística urbana de Envíos DosRuedas en Mar del Plata. Cotizaciones inmediatas por WhatsApp.',
+    title: 'Contacto y Pedidos en Mar del Plata | Envíos DosRuedas',
+    description: 'Contacto directo y pedidos de mensajería, trámites y logística en Mar del Plata. Teléfono: 223 660-2699.',
     url: `${baseUrl}/contacto`,
     type: 'website',
     locale: 'es_AR',
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contacto y Base Central | Envíos DosRuedas',
-    description: 'Contacto con el equipo comercial y logística urbana de Envíos DosRuedas en Mar del Plata. Cotizaciones inmediatas por WhatsApp.',
+    title: 'Contacto y Pedidos en Mar del Plata | Envíos DosRuedas',
+    description: 'Contacto directo y pedidos de mensajería, trámites y logística en Mar del Plata. Teléfono: 223 660-2699.',
     images: [`${baseUrl}/og-image.jpg`],
     creator: '@enviosdosruedas',
   },

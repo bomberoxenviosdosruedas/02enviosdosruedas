@@ -73,8 +73,11 @@ export default function HeroAnimado() {
             {/* Slogan del dueño (2026-09-29). El prototipo propone "Mensajería y
                 logística e-commerce en Mar del Plata" como H1, pero eso es
                 texto de diseño, no una frase del dueño: se queda como bajada.
-                Las palabras del dueño no se reemplazan por las del mock. */}
+                Para SEO e indexación accesible, se antepone con `sr-only` la intención
+                de búsqueda transaccional "Mensajería en moto en Mar del Plata" sin alterar
+                el slogan visual ni la tipografía original del dueño. */}
             <h1 className="text-balance font-display text-4xl uppercase leading-[0.92] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+              <span className="sr-only">Mensajería en moto en Mar del Plata: </span>
               <span className="block">El motor de tu</span>
               <Knockout className="whitespace-nowrap">última milla</Knockout>
               <span className="sr-only">. </span>

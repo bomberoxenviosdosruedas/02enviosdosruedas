@@ -9,14 +9,14 @@ import LowCostHowItWorks from '@/components/servicios/lowcost/LowCostHowItWorks'
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Envíos LowCost y Cadetería en el Día',
+  title: 'Cadetería y Envíos en el Día en Mar del Plata',
   description:
     'Paquetería y cadetería programada con entrega en el día en Mar del Plata. Pedidos antes de las 13:00 hs se entregan antes de las 19:00 hs con tarifa fija.',
   alternates: {
     canonical: `${baseUrl}/servicios/envios-lowcost`,
   },
   openGraph: {
-    title: 'Envíos LowCost y Cadetería en el Día | Envíos DosRuedas',
+    title: 'Cadetería y Envíos en el Día en Mar del Plata | Envíos DosRuedas',
     description:
       'El servicio de cadetería y encomiendas más económico de Mar del Plata. Pedidos antes de las 13:00 hs se entregan antes de las 19:00 hs.',
     url: `${baseUrl}/servicios/envios-lowcost`,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Envíos LowCost y Cadetería en el Día | Envíos DosRuedas',
+    title: 'Cadetería y Envíos en el Día en Mar del Plata | Envíos DosRuedas',
     description: 'El servicio de cadetería y encomiendas más económico de Mar del Plata. Pedidos antes de las 13:00 hs se entregan antes de las 19:00 hs.',
     images: [`${baseUrl}/og-image.jpg`],
     creator: '@enviosdosruedas',

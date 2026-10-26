@@ -62,14 +62,14 @@ const ZONE_ROWS = ZONE_BARRIOS.map((barrios, i) => {
 });
 
 export const metadata: Metadata = {
-  title: 'Cobertura de Envíos en Mar del Plata',
+  title: 'Tarifas y Cobertura de Envíos en Mar del Plata',
   description:
-    'Zonas de cobertura de mensajería y paquetería en Mar del Plata. Desde Friuli 1972 a Centro, Güemes, Puerto, Mogotes y Constitución. Cotizá en el día.',
+    'Tarifas y zonas de cobertura de mensajería y paquetería en Mar del Plata. Desde Friuli 1972 a Centro, Güemes, Puerto, Mogotes y Constitución. Cotizá en el día.',
   alternates: {
     canonical: `${baseUrl}/cobertura`,
   },
   openGraph: {
-    title: 'Cobertura de Envíos en Mar del Plata | Envíos DosRuedas',
+    title: 'Tarifas y Cobertura de Envíos en Mar del Plata | Envíos DosRuedas',
     description:
       'Mapa y radios de cobertura para entregas Express y LowCost en todo Mar del Plata.',
     url: `${baseUrl}/cobertura`,
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cobertura de Envíos en Mar del Plata | Envíos DosRuedas',
+    title: 'Tarifas y Cobertura de Envíos en Mar del Plata | Envíos DosRuedas',
     description: 'Mapa y radios de cobertura para entregas Express y LowCost en todo Mar del Plata.',
     images: [`${baseUrl}/og-image.jpg`],
     creator: '@enviosdosruedas',
