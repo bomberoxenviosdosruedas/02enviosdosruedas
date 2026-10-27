@@ -56,28 +56,28 @@ export default function MarDeliveryHomeSection() {
     {
       title: 'Carga Rápida de Envíos',
       description:
-        'Convertí mensajes de WhatsApp u otros canales en envíos listos para despacho copiando y pegando la información del cliente.',
+        'Armá borradores de entrega copiando chats de WhatsApp: con el asistente Rueditas IA transformás mensajes en envíos listos para despacho en segundos.',
       icon: Zap,
-      badge: 'Automatización',
-      metric: 'Copiar y despachar',
+      badge: 'Rueditas IA',
+      metric: 'Borradores con Rueditas IA',
       isAmber: true,
     },
     {
       title: 'Modalidad de Repartidores Flexible',
       description:
-        'Operá con repartidores por turno, sumá a tu equipo de cadetes propios a la app o combiná ambas opciones según la demanda.',
+        'Operá con repartidores por turno (repartidores propios de tu local o provistos por la flota de MarDelivery), sumá a tu equipo a la app o combiná ambas opciones.',
       icon: Users,
       badge: 'Flota a Medida',
-      metric: 'Turnos o a demanda',
+      metric: 'Propios o Flota MarDelivery',
       isAmber: false,
     },
     {
       title: 'Estadísticas y Control',
       description:
-        'Monitoreá el desempeño de tus entregas por período y exportá resúmenes en Excel para la gestión administrativa de tu comercio.',
+        'Información total de clientes con monitoreo de despachos por barrio y franja horaria, más exportación de resúmenes en Excel para tu gestión comercial.',
       icon: BarChart3,
       badge: 'Métricas Reales',
-      metric: 'Exportación en Excel',
+      metric: 'Información total de clientes',
       isAmber: false,
     },
   ];
@@ -193,13 +193,13 @@ export default function MarDeliveryHomeSection() {
           >
             <div className="space-y-2 text-center lg:text-left max-w-xl">
               <span className="text-xs font-subheading uppercase tracking-widest text-[#2ECC85] font-bold block">
-                Solución Especializada Para Comercios Gastronómicos
+                Solución Especializada Para Comercios y Gastronomía en MDQ
               </span>
               <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white">
-                ¿Tenés un restaurante, cervecería o rotisería en MDQ?
+                ¿Tenés un restaurante, rotisería, verdulería, kiosco o comercio de barrio en MDQ?
               </h3>
               <p className="font-sans text-sm text-[#FAFCFB]/80 font-light">
-                Digitalizá tus pedidos hoy mismo y controlá tus costos de despacho con cadetes de confianza.
+                Digitalizá tus pedidos hoy mismo y controlá tus costos de despacho. Accedé a 30 días gratis del Plan Medio registrándote antes del 30/11/2026.
               </p>
             </div>
 
@@ -215,15 +215,15 @@ export default function MarDeliveryHomeSection() {
               </Link>
 
               <a
-                href={`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=Hola%20MarDelivery!%20Quiero%20solicitar%20una%20demostraci%C3%B3n%20para%20mi%20local%20gastron%C3%B3mico%20en%20Mar%20del%20Plata`}
+                href={`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=Hola%20MarDelivery!%20Quiero%20aprovechar%20la%20promoci%C3%B3n%20de%2030%20d%C3%ADas%20gratis%20del%20Plan%20Medio%20antes%20del%2030%2F11%2F2026%20para%20mi%20comercio%20en%20Mar%20del%20Plata`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
-                  trackAnalytics.whatsappClick('home_mardelivery_demo_cta', 'Solicitar Demostración para mi Local')
+                  trackAnalytics.whatsappClick('home_mardelivery_demo_cta', 'Promoción 30 Días Gratis Plan Medio')
                 }
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#031811] hover:bg-white/10 text-white border border-[#2ECC85]/30 hover:border-[#2ECC85] font-subheading uppercase tracking-wider text-sm px-6 py-3.5 rounded-full transition-all duration-150 min-h-12"
               >
-                <span>Solicitar Demostración para mi Local</span>
+                <span>Pedir 30 Días Gratis (Plan Medio)</span>
                 <ArrowUpRight className="w-4 h-4 text-[#2ECC85]" />
               </a>
             </div>

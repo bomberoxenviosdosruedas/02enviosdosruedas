@@ -46,15 +46,15 @@ export default function LogisticaHomeSection() {
     {
       title: 'Seguimiento Unificado',
       description:
-        'Ingresá el código EDR de la etiqueta o pegá enlaces de seguimiento de Mercado Envíos Flex para conocer el estado exacto del paquete en tiempo real.',
+        'Ingresá el código EDR de la etiqueta (ej. EDR00003071MDQ) para conocer el estado exacto del paquete en tiempo real: falta retirar, retirado, en camino, entregado o no entregado.',
       icon: Search,
       badge: 'Trazabilidad en Vivo',
-      highlight: 'Código EDR & Flex',
+      highlight: 'Código EDR',
     },
     {
       title: 'Panel para Comercios',
       description:
-        'Acceso al entorno donde las tiendas y negocios organizan sus despachos diarios, cargan remitos y monitorean los envíos de sus clientes.',
+        'Acceso al entorno donde las tiendas y negocios organizan sus despachos diarios, cargan envíos y monitorean las entregas de sus clientes en tiempo real.',
       icon: Store,
       badge: 'Gestión Comercial',
       highlight: 'Despachos Masivos',
@@ -62,7 +62,7 @@ export default function LogisticaHomeSection() {
     {
       title: 'Panel para Repartidores',
       description:
-        'Plataforma para que la flota de cadetes visualice sus hojas de ruta optimizadas, registre firmas digitales y confirme las entregas en calle.',
+        'Plataforma para que la flota de cadetes visualice sus hojas de ruta, registre firmas digitales y confirme las entregas en calle con total seguridad.',
       icon: Bike,
       badge: 'Flota en Calle',
       highlight: 'Hojas de Ruta MDQ',
@@ -70,10 +70,10 @@ export default function LogisticaHomeSection() {
     {
       title: 'Ecosistema E-commerce',
       description:
-        'Integración fluida con Shop DosRuedas (shopdosruedas.com) para crear tu tienda online y coordinar los envíos en un solo circuito automatizado.',
+        'Integración fluida con Tienda Nube y Shop DosRuedas (shopdosruedas.com) para conectar tu tienda online y coordinar los envíos en un solo circuito automatizado.',
       icon: ShoppingBag,
-      badge: 'Venta + Envíos',
-      highlight: 'shopdosruedas.com',
+      badge: 'Tiendas Online',
+      highlight: 'Tienda Nube & Shop DosRuedas',
     },
   ];
 
@@ -126,7 +126,7 @@ export default function LogisticaHomeSection() {
             >
               Conectamos la última milla de Mar del Plata con trazabilidad total. Consultá el
               estado de tu envío con el código <strong className="font-bold text-brand-blue-500">EDR</strong> o
-              gestioná las operaciones de tu negocio desde nuestros portales dedicados.
+              gestioná las operaciones de tu tienda online desde nuestros portales dedicados.
             </motion.p>
           </div>
 
