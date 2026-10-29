@@ -3,7 +3,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { motion, useReducedMotion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Zap, Package, Truck, Warehouse, X, MapPin, ShieldCheck, ExternalLink } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Zap, Package, Truck, Warehouse, X, MapPin, ShieldCheck, ExternalLink, Link } from 'lucide-react';
 import {
   DROPOFF_DISCOUNT_PERCENT,
   EXPRESS_LEAD_TIME,

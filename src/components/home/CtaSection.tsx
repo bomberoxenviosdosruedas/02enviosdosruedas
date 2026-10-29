@@ -63,7 +63,7 @@ export default function CtaSection() {
         >
           <motion.div
             variants={itemVariants}
-            className="bg-white rounded-[24px] p-6 sm:p-8 lg:p-12 flex flex-col lg:flex-row items-start gap-10 lg:gap-16"
+            className="bg-white rounded-2xl p-6 sm:p-8 lg:p-12 flex flex-col lg:flex-row items-start gap-10 lg:gap-16"
           >
             {/* LEFT: Copy block - ALWAYS LEFT-ALIGNED */}
             <motion.div

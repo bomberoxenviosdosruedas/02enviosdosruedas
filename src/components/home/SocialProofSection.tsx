@@ -57,7 +57,7 @@ const fastSpring = { duration: 0.2, ease: [0.23, 1, 0.32, 1] as const };
 // Perpetual micro-loop para tarjetas (subtle float)
 const cardFloatLoop = {
   y: [0, -4, 0],
-  transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
+  transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' as const },
 };
 
 function ReviewCard({ review, index }: { review: typeof REVIEWS[0]; index: number }) {
@@ -73,7 +73,7 @@ function ReviewCard({ review, index }: { review: typeof REVIEWS[0]; index: numbe
       style={{ willChange: reduceMotion ? undefined : 'transform' }}
       className="flex"
     >
-      <article className="card-token w-full h-full rounded-2xl p-6 sm:p-8 min-h-[320px] flex flex-col justify-between bg-white border border-brand-blue-100 shadow-float hover:border-brand-blue-300 hover:shadow-antigravity-deep transition-all duration-300">
+      <article className="card-token w-full h-full rounded-2xl p-6 sm:p-8 min-h-80 flex flex-col justify-between bg-white border border-brand-blue-100 shadow-float hover:border-brand-blue-300 hover:shadow-antigravity-deep transition-all duration-300">
         <div>
           {/* Top Row: Rating (consistent) & Author initial */}
           <div className="flex items-center justify-between mb-6">
