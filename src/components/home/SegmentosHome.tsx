@@ -27,7 +27,7 @@ export default function SegmentosHome() {
       ctaText: 'Ver Solución Flex',
       href: '/servicios/enviosflex',
       icon: Zap,
-      highlight: true,
+      priority: 'primary' as const,
     },
     {
       id: 'ecommerce',
@@ -37,7 +37,7 @@ export default function SegmentosHome() {
       ctaText: 'Ver planes E-Commerce',
       href: '/servicios',
       icon: Store,
-      highlight: false,
+      priority: 'secondary' as const,
     },
     {
       id: 'empresas',
@@ -47,7 +47,7 @@ export default function SegmentosHome() {
       ctaText: 'Ver Paquetería LowCost',
       href: '/servicios/envios-lowcost',
       icon: Building2,
-      highlight: false,
+      priority: 'secondary' as const,
     },
     {
       id: 'urgente',
@@ -57,48 +57,57 @@ export default function SegmentosHome() {
       ctaText: 'Cotizá tu Envío Express',
       href: '/cotizar',
       icon: PackageCheck,
-      highlight: false,
+      priority: 'secondary' as const,
     },
   ];
 
-  // Variantes de animación para motion
+  // Spring physics tokens (from globals.css --ease-out, --duration-feedback)
+  const springTransition = { duration: 0.5, ease: [0.23, 1, 0.32, 1] as const };
+  const fastSpring = { duration: 0.2, ease: [0.23, 1, 0.32, 1] as const };
+
+  // Perpetual micro-loop para tarjeta primary (subtle pulse glow)
+  const primaryCardLoop = {
+    boxShadow: [
+      '0 0 28px rgba(255, 236, 1, 0.35), 0 8px 24px rgba(9, 80, 246, 0.15)',
+      '0 0 36px rgba(255, 236, 1, 0.45), 0 12px 32px rgba(9, 80, 246, 0.2)',
+      '0 0 28px rgba(255, 236, 1, 0.35), 0 8px 24px rgba(9, 80, 246, 0.15)',
+    ],
+    transition: { duration: 3, repeat: Infinity, ease: 'easeInOut' as const },
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.08, delayChildren: 0.15 },
     },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.23, 1, 0.32, 1] as const, // --ease-out
-      },
-    },
+    visible: { opacity: 1, y: 0, transition: springTransition },
   };
 
   const iconHoverVariants = {
-    initial: { scale: 1, rotate: 0 },
-    hover: { scale: 1.1, rotate: 3 },
+    initial: { scale: 1 },
+    hover: { scale: 1.08 },
+    tap: { scale: 0.95 },
   };
 
   return (
     <section
       id="segmentos-home"
       aria-labelledby="segmentos-home-title"
-      className="py-20 bg-white relative z-10 border-b border-brand-blue-100/50"
+      className="py-20 lg:py-28 bg-white relative z-10 border-b border-brand-blue-100/50"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 lg:space-y-20">
+        {/* ASYMMETRIC HEADER - Left aligned, no center */}
+        <motion.div
+          initial={{ opacity: 0, x: -24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={springTransition}
+          className="max-w-2xl space-y-4 lg:max-w-xl"
+        >
           <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -112,7 +121,7 @@ export default function SegmentosHome() {
             id="segmentos-home-title"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], delay: 0.1 }}
+            transition={{ ...springTransition, delay: 0.1 }}
             className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] uppercase tracking-tight text-brand-blue-500"
           >
             ¿CÓMO PODEMOS IMPULSAR TU LOGÍSTICA HOY?
@@ -120,81 +129,102 @@ export default function SegmentosHome() {
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], delay: 0.15 }}
-            className="font-sans text-sm sm:text-base text-brand-blue-500 max-w-xl mx-auto leading-relaxed"
+            transition={{ ...springTransition, delay: 0.15 }}
+            className="font-sans text-sm sm:text-base text-brand-blue-500/80 leading-relaxed max-w-xl"
           >
             Seleccioná tu tipo de negocio o necesidad y descubrí el servicio ideal diseñado para las calles de Mar del Plata.
           </motion.p>
-        </div>
+        </motion.div>
 
-        {/* Grid 4 Segmentos con animación stagger */}
+        {/* ASYMMETRIC GRID - 2 column zig-zag, no 4 equal columns */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
           role="list"
           aria-label="Segmentos de servicio"
         >
           {segmentos.map((seg, index) => {
             const Icon = seg.icon;
-            const isHighlight = seg.highlight;
+            const isPrimary = seg.priority === 'primary';
 
             return (
               <motion.article
                 key={seg.id}
                 variants={itemVariants}
                 role="listitem"
-                className="h-full"
+                className="h-full relative"
+                style={isPrimary ? { willChange: 'box-shadow' } : undefined}
               >
                 <DoubleBezelCard
-                  outerClassName={
-                    isHighlight
+                  outerClassName={`
+                    h-full transition-all duration-300
+                    ${isPrimary
                       ? 'border-2 border-brand-yellow-500 shadow-cta-glow hover:border-brand-yellow-400'
-                      : 'bg-brand-blue-50/80 border border-brand-blue-100 shadow-float hover:border-brand-blue-300'
-                  }
-                  innerClassName="h-full flex flex-col justify-between space-y-6"
+                      : 'border border-brand-blue-100 shadow-float hover:border-brand-blue-300 hover:shadow-antigravity-deep'
+                    }
+                  `}
+                  innerClassName="h-full flex flex-col justify-between space-y-6 p-6 lg:p-8"
                   hoverEffect={true}
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between gap-2">
+                  <div className="space-y-5">
+                    {/* Header: Icon + Tag Pill */}
+                    <div className="flex items-start justify-between gap-3">
                       <motion.div
                         className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                          isHighlight
-                            ? 'bg-brand-yellow-500/20 text-brand-blue-500'
-                            : 'bg-brand-blue-50 text-brand-blue-500'
+                          isPrimary
+                            ? 'bg-brand-yellow-500/15 text-brand-blue-500 ring-1 ring-brand-yellow-500/30'
+                            : 'bg-brand-blue-50 text-brand-blue-500 ring-1 ring-brand-blue-100'
                         }`}
                         whileHover={iconHoverVariants}
-                        transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+                        whileTap={iconHoverVariants}
+                        transition={fastSpring}
                         aria-hidden="true"
                       >
                         <Icon className="w-6 h-6" />
                       </motion.div>
-                      <span className="text-2xs font-mono uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-brand-blue-100 text-brand-blue-500 border border-brand-blue-200">
+                      <span className={`text-2xs font-mono uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full shrink-0 ${
+                        isPrimary
+                          ? 'bg-brand-yellow-500/20 text-brand-blue-500 border border-brand-yellow-500/30'
+                          : 'bg-brand-blue-100 text-brand-blue-500 border border-brand-blue-200'
+                      }`}>
                         {seg.tag}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-xl uppercase tracking-tight text-brand-blue-500 leading-snug">
+                    {/* Title - track-tight, weight-driven hierarchy */}
+                    <h3 className="font-display text-xl lg:text-2xl uppercase tracking-tight text-brand-blue-500 leading-snug">
                       {seg.title}
                     </h3>
 
-                    <p className="font-sans text-xs sm:text-sm text-brand-blue-500 leading-relaxed font-normal line-clamp-3">
+                    {/* Description - NO line-clamp, relaxed leading, 65ch max */}
+                    <p className="font-sans text-sm lg:text-base text-brand-blue-500/70 leading-relaxed font-normal max-w-[65ch]">
                       {seg.description}
                     </p>
                   </div>
 
+                  {/* CTA - CTANestedPill con ID semántico */}
                   <div className="pt-4 border-t border-brand-blue-100">
                     <CTANestedPill
                       variant="primary"
                       size="default"
                       href={seg.href}
-                      id={`cta-${seg.id}`}
+                      id={`segmento-${seg.id}-cta`}
                     >
                       {seg.ctaText}
                     </CTANestedPill>
                   </div>
                 </DoubleBezelCard>
+
+                {/* Perpetual micro-loop solo en tarjeta primary */}
+                {isPrimary && (
+                  <motion.div
+                    animate={primaryCardLoop}
+                    className="pointer-events-none absolute inset-0 rounded-2xl -z-10"
+                    aria-hidden="true"
+                  />
+                )}
               </motion.article>
             );
           })}
