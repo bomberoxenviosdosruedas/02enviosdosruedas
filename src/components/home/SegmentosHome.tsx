@@ -1,14 +1,15 @@
+'use client';
+
 import React from 'react';
-import Link from 'next/link';
+import { motion } from 'motion/react';
 import {
   Zap,
   Building2,
   PackageCheck,
-  ArrowRight,
-  Sparkles,
   Store,
 } from 'lucide-react';
 import { DoubleBezelCard } from '@/components/ui/DoubleBezelCard';
+import { CTANestedPill } from '@/components/ui/CTANestedPill';
 import {
   EXPRESS_LEAD_TIME,
   FLEX_CUTOFF_TIME,
@@ -60,81 +61,144 @@ export default function SegmentosHome() {
     },
   ];
 
+  // Variantes de animación para motion
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.23, 1, 0.32, 1] as const, // --ease-out
+      },
+    },
+  };
+
+  const iconHoverVariants = {
+    initial: { scale: 1, rotate: 0 },
+    hover: { scale: 1.1, rotate: 3 },
+  };
+
   return (
-    <section 
-      id="segmentos-home" 
+    <section
+      id="segmentos-home"
       aria-labelledby="segmentos-home-title"
       className="py-20 bg-white relative z-10 border-b border-brand-blue-100/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-blue-500 text-xs font-subheading uppercase tracking-widest font-bold shadow-accent-sm">
-            <Sparkles className="w-3.5 h-3.5 text-brand-blue-500" aria-hidden="true" />
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-blue-500 text-xs font-subheading uppercase tracking-widest font-bold shadow-accent-sm"
+          >
+            <Zap className="w-3.5 h-3.5 text-brand-blue-500" aria-hidden="true" />
             <span>Elegí tu solución a medida</span>
-          </div>
-          <h2 id="segmentos-home-title" className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] uppercase tracking-tight text-brand-blue-500">
+          </motion.div>
+          <motion.h2
+            id="segmentos-home-title"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], delay: 0.1 }}
+            className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] uppercase tracking-tight text-brand-blue-500"
+          >
             ¿CÓMO PODEMOS IMPULSAR TU LOGÍSTICA HOY?
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-brand-blue-500 max-w-xl mx-auto leading-relaxed">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], delay: 0.15 }}
+            className="font-sans text-sm sm:text-base text-brand-blue-500 max-w-xl mx-auto leading-relaxed"
+          >
             Seleccioná tu tipo de negocio o necesidad y descubrí el servicio ideal diseñado para las calles de Mar del Plata.
-          </p>
+          </motion.p>
         </div>
 
-        {/* Grid 4 Segmentos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {segmentos.map((seg) => {
+        {/* Grid 4 Segmentos con animación stagger */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          role="list"
+          aria-label="Segmentos de servicio"
+        >
+          {segmentos.map((seg, index) => {
             const Icon = seg.icon;
+            const isHighlight = seg.highlight;
+
             return (
-              <DoubleBezelCard
+              <motion.article
                 key={seg.id}
-                outerClassName={
-                  seg.highlight
-                    ? 'bg-brand-yellow-500/20 border-2 border-brand-yellow-500 shadow-cta-glow hover:-translate-y-1'
-                    : 'bg-brand-blue-50/80 border border-brand-blue-100 shadow-float hover:-translate-y-1'
-                }
-                innerClassName="h-full flex flex-col justify-between space-y-6"
+                variants={itemVariants}
+                role="listitem"
+                className="h-full"
               >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                      seg.highlight
-                        ? 'bg-brand-yellow-500 text-brand-blue-500'
-                        : 'bg-brand-blue-50 text-brand-blue-500'
-                    }`}>
-                      <Icon className="w-6 h-6" aria-hidden="true" />
+                <DoubleBezelCard
+                  outerClassName={
+                    isHighlight
+                      ? 'border-2 border-brand-yellow-500 shadow-cta-glow hover:border-brand-yellow-400'
+                      : 'bg-brand-blue-50/80 border border-brand-blue-100 shadow-float hover:border-brand-blue-300'
+                  }
+                  innerClassName="h-full flex flex-col justify-between space-y-6"
+                  hoverEffect={true}
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between gap-2">
+                      <motion.div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                          isHighlight
+                            ? 'bg-brand-yellow-500/20 text-brand-blue-500'
+                            : 'bg-brand-blue-50 text-brand-blue-500'
+                        }`}
+                        whileHover={iconHoverVariants}
+                        transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+                        aria-hidden="true"
+                      >
+                        <Icon className="w-6 h-6" />
+                      </motion.div>
+                      <span className="text-2xs font-mono uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-brand-blue-100 text-brand-blue-500 border border-brand-blue-200">
+                        {seg.tag}
+                      </span>
                     </div>
-                    <span className="text-2xs font-mono uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100">
-                      {seg.tag}
-                    </span>
+
+                    <h3 className="font-display text-xl uppercase tracking-tight text-brand-blue-500 leading-snug">
+                      {seg.title}
+                    </h3>
+
+                    <p className="font-sans text-xs sm:text-sm text-brand-blue-500 leading-relaxed font-normal line-clamp-3">
+                      {seg.description}
+                    </p>
                   </div>
 
-                  <h3 className="font-display text-xl uppercase tracking-tight text-brand-blue-500 leading-snug">
-                    {seg.title}
-                  </h3>
-
-                  <p className="font-sans text-xs sm:text-sm text-brand-blue-500 leading-relaxed font-normal">
-                    {seg.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-brand-blue-100">
-                  <Link
-                    href={seg.href}
-                    className={`w-full min-h-11 px-4 py-2.5 rounded-full font-subheading text-xs uppercase tracking-wider font-bold flex items-center justify-between transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2 ${
-                      seg.highlight
-                        ? 'bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 shadow-accent-sm'
-                        : 'bg-brand-blue-50 hover:bg-brand-blue-100 text-brand-blue-500 border border-brand-blue-200/60'
-                    }`}
-                  >
-                    <span>{seg.ctaText}</span>
-                    <ArrowRight className="w-4 h-4 ml-2 shrink-0" aria-hidden="true" />
-                  </Link>
-                </div>
-              </DoubleBezelCard>
+                  <div className="pt-4 border-t border-brand-blue-100">
+                    <CTANestedPill
+                      variant="primary"
+                      size="default"
+                      href={seg.href}
+                      id={`cta-${seg.id}`}
+                    >
+                      {seg.ctaText}
+                    </CTANestedPill>
+                  </div>
+                </DoubleBezelCard>
+              </motion.article>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
