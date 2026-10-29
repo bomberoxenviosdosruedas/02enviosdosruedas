@@ -64,14 +64,14 @@ function ReviewCard({ review, index }: { review: typeof REVIEWS[0]; index: numbe
   const reduceMotion = useReducedMotion();
 
   return (
-    <motion.li
+    <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ ...spring, delay: index * 0.08 }}
       animate={reduceMotion ? {} : cardFloatLoop}
       style={{ willChange: reduceMotion ? undefined : 'transform' }}
-      className="flex"
+      className="flex h-full"
     >
       <article className="card-token w-full h-full rounded-2xl p-6 sm:p-8 min-h-80 flex flex-col justify-between bg-white border border-brand-blue-100 shadow-float hover:border-brand-blue-300 hover:shadow-antigravity-deep transition-all duration-300">
         <div>
@@ -118,7 +118,7 @@ function ReviewCard({ review, index }: { review: typeof REVIEWS[0]; index: numbe
           </span>
         </div>
       </article>
-    </motion.li>
+    </motion.div>
   );
 }
 
@@ -183,9 +183,9 @@ export default function SocialProofSection() {
           aria-label="Opiniones de clientes"
         >
           {REVIEWS.map((review, index) => (
-            <motion.li key={review.id} variants={itemVariants} role="listitem">
+            <li key={review.id} role="listitem">
               <ReviewCard review={review} index={index} />
-            </motion.li>
+            </li>
           ))}
         </motion.ul>
 
