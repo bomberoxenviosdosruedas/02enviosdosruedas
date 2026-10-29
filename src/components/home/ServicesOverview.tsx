@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useCallback, useEffect, useRef } from 'react';
-import { motion, useReducedMotion, AnimatePresence } from 'motion/react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Zap, Package, Truck, Warehouse, X, MapPin, ShieldCheck, ExternalLink, Link } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Zap, Package, Truck, Warehouse, Info, X, MapPin, ShieldCheck } from 'lucide-react';
 import {
   DROPOFF_DISCOUNT_PERCENT,
   EXPRESS_LEAD_TIME,
@@ -18,7 +18,6 @@ import {
 import { EXPRESS_TIERS, LOW_COST_TIERS } from '@/lib/pricing';
 import { trackAnalytics } from '@/lib/analytics';
 import NetworkCanvasWrapper from '@/components/home/NetworkCanvasWrapper';
-import { CTANestedPill } from '@/components/ui/CTANestedPill';
 
 const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
@@ -45,14 +44,29 @@ interface ServiceItem {
   city: string;
   founded: string;
   imageUrl: string;
+  cardStyleCenter: string;
+  cardStyleSide: string;
+  textColor: string;
+  titleColor: string;
+  descColor: string;
+  imgBlend: string;
+  badgeStyle: string;
+  statBoxStyle: string;
+  statValStyle: string;
+  statLabelStyle: string;
+  hintColor: string;
   stats: ServiceStats;
   details: ServiceDetails;
 }
 
 export default function ServicesOverview() {
   const reduceMotion = useReducedMotion();
+  const [activeIndex, setActiveIndex] = useState<number>(0);
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isAutoRotate, setIsAutoRotate] = useState<boolean>(true);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const lastTriggerRef = useRef<HTMLButtonElement | null>(null);
@@ -61,6 +75,7 @@ export default function ServicesOverview() {
     setSelectedService(null);
   }, []);
 
+  // Bloquear scroll del body, gestionar foco (inicial, trampa y retorno) y cerrar con Escape mientras el modal está abierto
   useEffect(() => {
     if (!selectedService) return;
     const prevOverflow = document.body.style.overflow;
@@ -104,29 +119,9 @@ export default function ServicesOverview() {
     };
   }, [selectedService, closeModal]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 640);
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Spring tokens desde globals.css: --ease-out, --duration-feedback
-  const spring = { duration: 0.5, ease: [0.23, 1, 0.32, 1] as const };
-  const fastSpring = { duration: 0.2, ease: [0.23, 1, 0.32, 1] as const };
-
-  // Perpetual micro-loop para tarjeta activa (subtle float)
-  const activeCardLoop = {
-    y: [0, -4, 0],
-    boxShadow: [
-      '0 16px 40px rgba(9, 80, 246, 0.18)',
-      '0 24px 64px rgba(9, 80, 246, 0.22)',
-      '0 16px 40px rgba(9, 80, 246, 0.18)',
-    ],
-    transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' as const },
-  };
+  // Snappy spring configs
+  const springConfigSnappy = { type: 'spring' as const, stiffness: 300, damping: 25 };
+  const springConfigCarousel = { type: 'spring' as const, stiffness: 140, damping: 22 };
 
   const services: ServiceItem[] = [
     {
@@ -139,6 +134,17 @@ export default function ServicesOverview() {
       city: 'Todo Mar del Plata',
       founded: '+7 Años de Trayectoria',
       imageUrl: '/cards/fondo_express.webp',
+      cardStyleCenter: 'border-brand-yellow-500 bg-linear-to-br from-brand-blue-500 to-brand-blue-500 shadow-cta-glow text-white',
+      cardStyleSide: 'border-brand-blue-500/20 bg-brand-blue-500 text-white/90',
+      textColor: 'text-white',
+      titleColor: 'text-white group-hover:text-brand-yellow-500',
+      descColor: 'text-brand-blue-50',
+      imgBlend: 'opacity-25 mix-blend-overlay',
+      badgeStyle: 'bg-brand-yellow-500 text-brand-blue-500 border-brand-yellow-400',
+      statBoxStyle: 'bg-white/10 border border-white/10 text-white',
+      statValStyle: 'text-brand-yellow-500',
+      statLabelStyle: 'text-brand-blue-50',
+      hintColor: 'text-brand-yellow-500',
       stats: {
         time: EXPRESS_WINDOW_SHORT,
         price: `${formatArs(EXPRESS_TIERS[0].price)} Base`,
@@ -149,11 +155,11 @@ export default function ServicesOverview() {
         features: [
           `Tarifa base de ${formatArs(EXPRESS_TIERS[0].price)} hasta ${EXPRESS_TIERS[0].maxKm} km.`,
           `Entrega en franja de 3 hs a elección, pedido con ${EXPRESS_LEAD_TIME} mínima.`,
-          'Notificación automática de entrega por WhatsApp.',
+          'Notificación automática de entrega por WhatsApp.'
         ],
         ctaText: 'COTIZÁ TU EXPRESS',
-        ctaHref: '/cotizar',
-      },
+        ctaHref: '/cotizar'
+      }
     },
     {
       id: 'lowcost',
@@ -165,6 +171,17 @@ export default function ServicesOverview() {
       city: 'Todo Gral. Pueyrredón',
       founded: 'Tarifa Fija Especial',
       imageUrl: '/cards/fondo_lowcost.webp',
+      cardStyleCenter: 'border-brand-blue-500 bg-linear-to-br from-white to-brand-blue-50 shadow-float text-brand-blue-500',
+      cardStyleSide: 'border-brand-blue-100 bg-white text-brand-blue-500',
+      textColor: 'text-brand-blue-500',
+      titleColor: 'text-brand-blue-500 group-hover:text-brand-blue-500',
+      descColor: 'text-brand-blue-500',
+      imgBlend: 'opacity-[0.15] grayscale mix-blend-multiply',
+      badgeStyle: 'bg-brand-blue-500 text-brand-yellow-500 border-brand-blue-400',
+      statBoxStyle: 'bg-brand-blue-50/80 border border-brand-blue-100 text-brand-blue-500',
+      statValStyle: 'text-brand-blue-500',
+      statLabelStyle: 'text-brand-blue-500',
+      hintColor: 'text-brand-blue-500',
       stats: {
         time: 'Programado en el día',
         price: `${formatArs(LOW_COST_TIERS[0].price)} Base`,
@@ -175,11 +192,11 @@ export default function ServicesOverview() {
         features: [
           `Tarifa base de ${formatArs(LOW_COST_TIERS[0].price)} hasta ${LOW_COST_TIERS[0].maxKm} km.`,
           `Pedí antes de las ${LOWCOST_CUTOFF_TIME} y se entrega antes de las ${LOWCOST_DELIVERY_DEADLINE}.`,
-          'Sin elección de franja horaria: la tarifa más baja de la ciudad.',
+          'Sin elección de franja horaria: la tarifa más baja de la ciudad.'
         ],
         ctaText: 'PROBÁ EL LOWCOST',
-        ctaHref: '/cotizar',
-      },
+        ctaHref: '/cotizar'
+      }
     },
     {
       id: 'flex',
@@ -191,6 +208,17 @@ export default function ServicesOverview() {
       city: 'Mar del Plata urbana',
       founded: `Corte extendido ${FLEX_CUTOFF_TIME}`,
       imageUrl: '/cards/fondo_flex.webp',
+      cardStyleCenter: 'border-brand-blue-500 bg-linear-to-br from-brand-yellow-500 to-brand-yellow-400 shadow-accent text-brand-blue-500',
+      cardStyleSide: 'border-brand-yellow-500/30 bg-brand-yellow-500 text-brand-blue-500',
+      textColor: 'text-brand-blue-500',
+      titleColor: 'text-brand-blue-500 group-hover:text-brand-blue-500',
+      descColor: 'text-brand-blue-500',
+      imgBlend: 'opacity-20 mix-blend-multiply',
+      badgeStyle: 'bg-brand-blue-500 text-white border-brand-blue-500/30',
+      statBoxStyle: 'bg-brand-yellow-500 border border-brand-blue-500/30 text-brand-blue-500',
+      statValStyle: 'text-brand-blue-500',
+      statLabelStyle: 'text-brand-blue-500',
+      hintColor: 'text-brand-blue-500',
       stats: {
         time: 'En el día',
         price: 'Zonificado LowCost',
@@ -201,11 +229,11 @@ export default function ServicesOverview() {
         features: [
           'Visitas bonificadas según tu volumen diario de entregas.',
           `Reparto coordinado antes de las ${FLEX_DELIVERY_DEADLINE}.`,
-          'Recolección a domicilio sin cargo extra por nuestro equipo.',
+          'Recolección a domicilio sin cargo extra por nuestro equipo.'
         ],
         ctaText: 'CONFIGURÁ FLEX',
-        ctaHref: '/servicios/enviosflex',
-      },
+        ctaHref: '/servicios/enviosflex'
+      }
     },
     {
       id: '3pl',
@@ -217,6 +245,17 @@ export default function ServicesOverview() {
       city: 'Depósito Friuli 1972',
       founded: 'Stock guardado',
       imageUrl: '/cards/fondo_emprendedores.webp',
+      cardStyleCenter: 'border-brand-blue-500 bg-linear-to-br from-brand-blue-500 to-brand-blue-500 shadow-2xl text-white',
+      cardStyleSide: 'border-brand-blue-500/20 bg-brand-blue-500 text-white/90',
+      textColor: 'text-white',
+      titleColor: 'text-white group-hover:text-brand-yellow-500',
+      descColor: 'text-brand-blue-50',
+      imgBlend: 'opacity-25 mix-blend-overlay',
+      badgeStyle: 'bg-brand-blue-500 text-white border-brand-blue-500/30',
+      statBoxStyle: 'bg-white/10 border border-white/10 text-white',
+      statValStyle: 'text-brand-yellow-500',
+      statLabelStyle: 'text-brand-blue-50',
+      hintColor: 'text-brand-yellow-500',
       stats: {
         time: 'Same Day / 24 hs',
         price: `${formatArs(SAME_DAY_FIXED_PRICE)} fijo`,
@@ -227,29 +266,109 @@ export default function ServicesOverview() {
         features: [
           `E-Commerce Same Day con tarifa fija de ${formatArs(SAME_DAY_FIXED_PRICE)} a toda la ciudad.`,
           `E-Commerce 24HS con ${DROPOFF_DISCOUNT_PERCENT}% OFF si traés los envíos listos (DropOFF).`,
-          'Control de stock digital por sistema QR/barras y picking con embalaje profesional.',
+          'Control de stock digital por sistema QR/barras y picking con embalaje profesional.'
         ],
         ctaText: 'CONSULTÁ PLANES',
-        ctaHref: '/servicios/deposito-fulfillment',
-      },
+        ctaHref: '/servicios/deposito-fulfillment'
+      }
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
-  };
+  const total = services.length;
+  const autoRotateIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: reduceMotion ? { duration: 0.01 } : spring },
+  // Handle resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Auto-rotation with deterministic timing (respects manual pause via toggle and temporary pause on hover)
+  useEffect(() => {
+    if (!isAutoRotate || isHovered || reduceMotion || selectedService) {
+      if (autoRotateIntervalRef.current) {
+        clearInterval(autoRotateIntervalRef.current);
+        autoRotateIntervalRef.current = null;
+      }
+      return;
+    }
+
+    autoRotateIntervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % total);
+    }, 4500);
+
+    return () => {
+      if (autoRotateIntervalRef.current) {
+        clearInterval(autoRotateIntervalRef.current);
+        autoRotateIntervalRef.current = null;
+      }
+    };
+  }, [isAutoRotate, isHovered, total, reduceMotion, selectedService]);
+
+  const handlePrev = useCallback(() => {
+    setIsAutoRotate(false);
+    setActiveIndex((prev) => (prev - 1 + total) % total);
+  }, [total]);
+
+  const handleNext = useCallback(() => {
+    setIsAutoRotate(false);
+    setActiveIndex((prev) => (prev + 1) % total);
+  }, [total]);
+
+  // Navegación por teclado restringida al foco interno del carrusel
+  const handleCarouselKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (selectedService) return;
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        handlePrev();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleNext();
+      }
+    },
+    [handlePrev, handleNext, selectedService]
+  );
+
+  // Calculate card transforms using spring-based derived values
+  const getCardTransform = (index: number) => {
+    const offset = ((((index - activeIndex + total / 2) % total) + total) % total) - Math.floor(total / 2);
+    const absOffset = Math.abs(offset);
+    const isCenter = offset === 0;
+
+    if (reduceMotion) {
+      return {
+        offset,
+        isCenter,
+        rotateY: 0,
+        translateZ: 0,
+        translateX: 0,
+        opacity: isCenter ? 1 : 0,
+        scale: isCenter ? 1 : 0.7,
+        zIndex: isCenter ? total : total - absOffset,
+      };
+    }
+
+    const rotateY = isSmallScreen ? 0 : offset * -28;
+    const translateZ = isSmallScreen ? 0 : isCenter ? 120 : -absOffset * 180;
+    const translateX = offset * (isSmallScreen ? 140 : 260);
+    const opacity = isCenter ? 1 : Math.max(0.15, 1 - absOffset * 0.4);
+    const scale = isCenter ? 1.05 : Math.max(0.65, 1 - absOffset * 0.18);
+
+    return { offset, isCenter, rotateY, translateZ, translateX, opacity, scale, zIndex: total - absOffset };
   };
 
   return (
     <section
       id="services-overview"
       aria-labelledby="services-overview-title"
-      className="py-20 lg:py-28 bg-brand-blue-500 text-white relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 bg-brand-blue text-white relative overflow-hidden perspective-[2000px]"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Red logística interactiva en canvas (fondo z-0) */}
       <NetworkCanvasWrapper />
@@ -258,22 +377,33 @@ export default function ServicesOverview() {
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Editorial Section Header */}
+      {/* Background Decorative Asymmetric Glows */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+      <div
+        className="absolute bottom-0 right-0 w-125 h-125 bg-[radial-gradient(circle_at_bottom_right,rgba(255,236,1,0.06),transparent_70%)] pointer-events-none"
+        aria-hidden="true"
+      />
+
+      <div
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Servicios logísticos"
+        onKeyDown={handleCarouselKeyDown}
+        inert={selectedService ? true : undefined}
+      >
+        {/* Editorial Section Header with Viewport Entry */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
-          transition={spring}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 lg:mb-20 gap-6 border-b border-white/10 pb-8"
+          transition={{ type: 'spring', stiffness: 360, damping: 28 }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-white/10 pb-8"
         >
           <div>
-            <motion.span
-              whileHover={{ scale: 1.02, transition: fastSpring }}
-              className="inline-flex px-4 py-1.5 rounded-full text-xs font-subheading font-bold tracking-widest bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-400 uppercase shadow-accent-sm mb-4"
-            >
+            <div className="px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-400 rounded-full text-xs font-subheading font-bold tracking-widest inline-block uppercase shadow-glow-yellow mb-3 border border-brand-yellow-400/40">
               NUESTROS SERVICIOS
-            </motion.span>
+            </div>
             <h2 id="services-overview-title" className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight uppercase text-white text-balance">
               SOLUCIONES LOGÍSTICAS <br />
               <span className="text-brand-yellow-400 drop-shadow-[0_2px_10px_rgba(255,241,46,0.35)] underline decoration-brand-yellow-400/60 underline-offset-8">
@@ -282,139 +412,242 @@ export default function ServicesOverview() {
             </h2>
           </div>
 
-          {/* External link to all services */}
-          <motion.div
-            whileHover={{ x: 4, transition: fastSpring }}
-            className="shrink-0"
-          >
-            <Link
-              href="/servicios"
-              className="inline-flex items-center gap-2 rounded-full font-subheading text-sm uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 transition-colors hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500 sm:text-base"
+          <div className="flex items-center gap-4">
+            <motion.button
+              type="button"
+              onClick={() => setIsAutoRotate((prev) => !prev)}
+              aria-pressed={isAutoRotate}
+              whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.97 }}
+              className={`min-h-11 px-4 py-2 rounded-full text-xs font-bold font-subheading tracking-wider border transition-colors cursor-pointer inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
+                isAutoRotate
+                  ? 'bg-brand-yellow-400 text-brand-blue-500 border-brand-yellow-400 shadow-glow-yellow'
+                  : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
+              }`}
             >
-              Ver todos los servicios
-              <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
-            </Link>
-          </motion.div>
+              {isAutoRotate ? '⚡ ROTACIÓN AUTOMÁTICA' : 'ROTACIÓN PAUSADA'}
+            </motion.button>
+
+            <div className="flex items-center gap-2">
+              <motion.button
+                type="button"
+                onClick={handlePrev}
+                whileHover={reduceMotion ? undefined : { scale: 1.04 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.97 }}
+                className="min-w-11 min-h-11 p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-500 border border-white/20 cursor-pointer transition-colors inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
+                aria-label="Anterior Servicio"
+              >
+                <ChevronLeft className="w-5 h-5" aria-hidden="true" />
+              </motion.button>
+              <motion.button
+                type="button"
+                onClick={handleNext}
+                whileHover={reduceMotion ? undefined : { scale: 1.04 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.97 }}
+                className="min-w-11 min-h-11 p-3 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-500 border border-white/20 cursor-pointer transition-colors inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
+                aria-label="Siguiente Servicio"
+              >
+                <ChevronRight className="w-5 h-5" aria-hidden="true" />
+              </motion.button>
+            </div>
+          </div>
         </motion.div>
 
-        {/* ASYMMETRIC GRID - 1 col mobile, 2 col tablet, 4 col desktop (no equal 3-col) */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
-          role="list"
-          aria-label="Servicios logísticos"
+        {/* 3D Tilted Card Carousel Container */}
+        <div
+          ref={carouselRef}
+          className="relative h-125 sm:h-135 flex items-center justify-center my-8 transform-3d"
         >
           {services.map((service, index) => {
             const Icon = service.icon;
-            const isFirst = index === 0; // First card gets subtle highlight
+            const transform = getCardTransform(index);
+            const isCenter = transform.isCenter;
 
             return (
-              <motion.article
+              <motion.button
                 key={service.id}
-                variants={itemVariants}
-                role="listitem"
-                animate={reduceMotion ? {} : (isFirst ? activeCardLoop : {})}
-                style={{ willChange: reduceMotion ? undefined : (isFirst ? 'transform, box-shadow' : undefined) }}
-                className="relative"
-              >
-                <motion.button
-                  type="button"
-                  tabIndex={0}
-                  onClick={(e) => {
+                type="button"
+                tabIndex={isCenter ? 0 : -1}
+                inert={!isCenter && reduceMotion ? true : undefined}
+                aria-hidden={!isCenter && reduceMotion ? 'true' : undefined}
+                aria-label={isCenter ? `Ver ficha técnica de ${service.title}` : `Seleccionar ${service.title}`}
+                onClick={(e) => {
+                  if (isCenter) {
                     lastTriggerRef.current = e.currentTarget;
                     setSelectedService(service);
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      lastTriggerRef.current = e.currentTarget;
-                      setSelectedService(service);
-                    }
-                  }}
-                  whileHover={reduceMotion ? undefined : { y: -4, transition: fastSpring }}
-                  whileTap={reduceMotion ? undefined : { y: 0, transition: { duration: 0.05 } }}
-                  className="group w-full h-full rounded-2xl p-6 sm:p-8 flex flex-col justify-between bg-white/5 backdrop-blur-sm border border-white/10 hover:border-brand-blue-300 hover:bg-white/10 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500"
-                  aria-label={`Ver ficha técnica de ${service.title}`}
+                  } else {
+                    setActiveIndex(index);
+                    setIsAutoRotate(false);
+                  }
+                }}
+                className={`absolute w-72.5 sm:w-87.5 h-110 sm:h-122.5 rounded-3xl cursor-pointer select-none group text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink ${
+                  !isCenter && reduceMotion ? 'pointer-events-none' : ''
+                }`}
+                style={{
+                  transformStyle: 'preserve-3d',
+                  zIndex: transform.zIndex,
+                  willChange: 'transform, opacity',
+                }}
+                animate={{
+                  rotateY: transform.rotateY,
+                  translateZ: transform.translateZ,
+                  translateX: transform.translateX,
+                  // Los cards laterales no se atenúan: el fade del ancestro (opacity < 1)
+                  // degradaba el contraste de los chips (URGENTE/ECONÓMICO/LOGÍSTICA INTEGRAL)
+                  // por debajo de AA 4.5. La profundidad se mantiene con rotateY/scale/translateZ.
+                  opacity: reduceMotion ? transform.opacity : 1,
+                  scale: transform.scale,
+                }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0.01 }
+                    : springConfigCarousel
+                }
+                whileHover={isCenter && !reduceMotion ? { scale: 1.02, transition: springConfigSnappy } : undefined}
+              >
+                {/* Card Structure with Color Block Themes */}
+                <div
+                  className={`w-full h-full rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden border-2 shadow-xl ${
+                    isCenter ? service.cardStyleCenter : service.cardStyleSide
+                  }`}
                 >
                   {/* Background Image with Layer Blend */}
-                  <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0 rounded-2xl overflow-hidden" aria-hidden="true">
+                  <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0" aria-hidden="true">
                     <Image
                       src={service.imageUrl}
                       alt=""
                       fill={true}
                       loading="lazy"
                       decoding="async"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover opacity-20 mix-blend-overlay"
+                      sizes="(max-width: 768px) 290px, 350px"
+                      className={`object-cover ${service.imgBlend}`}
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-brand-blue-500/60 via-transparent to-transparent opacity-40" />
+                    <div className="absolute inset-0 bg-linear-to-t from-brand-blue-500/80 via-brand-blue-500/20 to-transparent opacity-60" />
                   </div>
 
-                  {/* Top Badge & Icon */}
-                  <div className="relative z-10 flex items-center gap-3 mb-4">
+                  {/* Center Card Ambient Glow Overlay */}
+                  {isCenter && (
                     <motion.div
-                      whileHover={reduceMotion ? undefined : { scale: 1.08, transition: fastSpring }}
-                      className="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl shadow-[3px_3px_0px_var(--color-brand-blue-500)]"
                       aria-hidden="true"
+                      className="absolute bottom-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none opacity-20 -mr-12 -mb-12"
+                      style={{
+                        backgroundColor: index === 3 ? 'var(--color-brand-blue-500)' : 'var(--color-brand-yellow-500)',
+                      }}
+                      animate={reduceMotion ? {} : { scale: [1, 1.08, 1], opacity: [0.15, 0.25, 0.15] }}
+                      transition={{ duration: 3, ease: 'easeInOut', repeat: Infinity }}
+                    />
+                  )}
+
+                  {/* Watermark Background Icon */}
+                  <motion.div
+                    aria-hidden="true"
+                    className="absolute right-4 bottom-4 opacity-[0.06] pointer-events-none select-none"
+                    animate={isCenter && !reduceMotion ? { rotate: [0, 2, -2, 0], scale: [1, 1.02, 1] } : {}}
+                    transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
+                  >
+                    <Icon className="w-48 h-48" />
+                  </motion.div>
+
+                  {/* Top Badge Symbol & Serie Badge */}
+                  <div className="relative z-10 flex items-center justify-between">
+                    <motion.div
+                      className="flex items-center gap-2.5"
+                      whileHover={reduceMotion ? undefined : { scale: 1.05, transition: springConfigSnappy }}
                     >
-                      <Icon className="h-6 w-6" />
+                      <div className="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl shadow-[2px_2px_0px_var(--color-brand-blue-500)]" aria-hidden="true">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className={`text-2xs font-bold font-subheading px-2.5 py-1 rounded-full border shadow-sm ${service.badgeStyle}`}>
+                        {service.badge}
+                      </span>
                     </motion.div>
-                    <span className="text-2xs font-bold font-subheading px-2.5 py-1 rounded-full border bg-brand-yellow-500 text-brand-blue-500 border-brand-yellow-400 shadow-sm uppercase tracking-wider">
-                      {service.badge}
-                    </span>
                   </div>
 
                   {/* Middle Service Information */}
-                  <div className="relative z-10 space-y-2 flex-1">
-                    <div className="text-xs font-bold uppercase tracking-widest font-subheading flex items-center gap-1 text-brand-yellow-400">
+                  <div className="relative z-10 space-y-2 mt-auto">
+                    <div className={`text-xs font-bold uppercase tracking-widest font-subheading flex items-center gap-1 ${service.hintColor}`}>
                       <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
                       {service.city}
                     </div>
-                    <motion.h3
-                      whileHover={reduceMotion ? undefined : { x: 4, transition: fastSpring }}
-                      className="font-display text-xl sm:text-2xl uppercase leading-none text-balance text-white group-hover:text-brand-yellow-400 transition-colors"
+                    <motion.div
+                      className={`font-display text-2xl sm:text-3xl uppercase leading-none text-balance ${service.titleColor}`}
+                      whileHover={reduceMotion ? undefined : { x: 4, transition: springConfigSnappy }}
                     >
                       {service.title}
-                    </motion.h3>
-                    <p className="text-xs sm:text-sm line-clamp-2 leading-relaxed text-white/80 font-sans">
+                    </motion.div>
+                    <p className={`text-xs line-clamp-2 leading-relaxed ${service.descColor}`}>
                       {service.description}
                     </p>
                   </div>
 
-                  {/* Bottom Stats Grid */}
-                  <div className="relative z-10 pt-4 border-t border-white/10 grid grid-cols-3 gap-3 text-center">
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                      <div className="text-sm font-bold font-subheading truncate text-brand-yellow-400">{service.stats.time}</div>
-                      <div className="text-2xs uppercase font-bold tracking-wider text-white/60">ENTREGA</div>
+                  {/* Bottom Stats Grid & Callout */}
+                  <div className="relative z-10 pt-4 border-t border-white/5 grid grid-cols-3 gap-2 text-center">
+                    <div className={`p-2 rounded-xl backdrop-blur-sm ${service.statBoxStyle}`}>
+                      <div className="text-sm font-bold font-subheading truncate">{service.stats.time}</div>
+                      <div className={`text-2xs uppercase font-bold tracking-wider ${service.statLabelStyle}`}>ENTREGA</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                      <div className="text-sm font-bold font-subheading truncate text-white">{service.stats.price}</div>
-                      <div className="text-2xs uppercase font-bold tracking-wider text-white/60">TARIFA BASE</div>
+                    <div className={`p-2 rounded-xl backdrop-blur-sm ${service.statBoxStyle}`}>
+                      <div className="text-sm font-bold font-subheading truncate">{service.stats.price}</div>
+                      <div className={`text-2xs uppercase font-bold tracking-wider ${service.statLabelStyle}`}>TARIFA</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                      <div className="text-sm font-bold font-subheading truncate text-brand-yellow-400">{service.stats.weight}</div>
-                      <div className="text-2xs uppercase font-bold tracking-wider text-white/60">CAPACIDAD</div>
+                    <div className={`p-2 rounded-xl backdrop-blur-sm ${service.statBoxStyle}`}>
+                      <div className="text-sm font-bold font-subheading truncate">{service.stats.weight}</div>
+                      <div className={`text-2xs uppercase font-bold tracking-wider ${service.statLabelStyle}`}>PESO</div>
                     </div>
                   </div>
 
-                  {/* Click Hint */}
-                  <motion.div
-                    animate={reduceMotion ? {} : { opacity: [1, 0.6, 1] }}
-                    transition={{ duration: 2, ease: 'easeInOut', repeat: Infinity }}
-                    className="relative z-10 mt-4 text-center"
-                  >
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold font-subheading tracking-wider underline uppercase text-brand-yellow-400">
-                      <ExternalLink className="w-3.5 h-3.5" />
-                      Ver ficha técnica
-                    </span>
-                  </motion.div>
-                </motion.button>
-              </motion.article>
+                  {/* Center Card Click Hint */}
+                  {isCenter && (
+                    <motion.div
+                      className="relative z-10 mt-3 text-center"
+                      animate={reduceMotion ? {} : { opacity: [1, 0.6, 1] }}
+                      transition={{ duration: 2, ease: 'easeInOut', repeat: Infinity }}
+                    >
+                      <span className={`inline-flex items-center gap-1.5 text-xs font-bold font-subheading tracking-wider underline uppercase ${service.hintColor}`}>
+                        <Info className="w-3.5 h-3.5" />
+                        Mirá la Ficha Técnica
+                      </span>
+                    </motion.div>
+                  )}
+                </div>
+              </motion.button>
             );
           })}
+        </div>
+
+        {/* Carousel Indicators */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
+          className="flex items-center justify-center gap-2 mt-8"
+          role="group"
+          aria-label="Navegación de servicios"
+        >
+          {services.map((service, i) => (
+            <motion.button
+              key={service.id}
+              type="button"
+              onClick={() => {
+                setActiveIndex(i);
+                setIsAutoRotate(false);
+              }}
+              aria-label={`Ir al servicio ${service.title}${i === activeIndex ? ', servicio actual' : ''}`}
+              aria-current={i === activeIndex ? 'true' : 'false'}
+              className="min-w-11 min-h-11 flex items-center justify-center rounded-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
+              whileHover={i !== activeIndex && !reduceMotion ? { scale: 1.2, transition: springConfigSnappy } : undefined}
+              whileTap={reduceMotion ? undefined : { scale: 0.9 }}
+            >
+              <motion.span
+                className={`h-2.5 rounded-full block ${
+                  i === activeIndex ? 'bg-brand-yellow-500 shadow-cta-glow' : 'bg-white/30 hover:bg-white/60 border border-brand-blue-200'
+                }`}
+                animate={{ width: i === activeIndex ? '2.5rem' : '0.625rem' }}
+                transition={springConfigSnappy}
+              />
+            </motion.button>
+          ))}
         </motion.div>
       </div>
 
@@ -438,7 +671,7 @@ export default function ServicesOverview() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ ...spring, stiffness: 120, damping: 20 }}
+              transition={{ type: 'spring', stiffness: 120, damping: 20 }}
               className="double-bezel-outer p-2 rounded-3xl bg-brand-blue-50/10 border border-brand-blue-100/20 max-w-2xl w-full"
             >
               <div className="double-bezel-inner bg-brand-blue-500 border border-brand-blue-500/20 rounded-2xl p-6 sm:p-8 text-white relative shadow-2xl space-y-6">
@@ -447,7 +680,7 @@ export default function ServicesOverview() {
                   ref={closeButtonRef}
                   type="button"
                   onClick={closeModal}
-                  whileHover={reduceMotion ? undefined : { scale: 1.1, rotate: 90, transition: fastSpring }}
+                  whileHover={reduceMotion ? undefined : { scale: 1.1, rotate: 90, transition: springConfigSnappy }}
                   whileTap={reduceMotion ? undefined : { scale: 0.9 }}
                   className="absolute top-4 right-4 min-w-11 min-h-11 p-2.5 rounded-full bg-white/10 hover:bg-brand-yellow-500 hover:text-brand-blue-500 transition-colors cursor-pointer z-20 inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500"
                   aria-label="Cerrar ficha técnica"
@@ -483,7 +716,7 @@ export default function ServicesOverview() {
                         key={fIdx}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ ...spring, delay: fIdx * 0.08 }}
+                        transition={{ type: 'spring', stiffness: 100, damping: 20, delay: fIdx * 0.08 }}
                         className="flex items-start gap-2 text-xs sm:text-sm text-white"
                       >
                         <ShieldCheck className="w-4 h-4 text-brand-yellow-500 shrink-0 mt-0.5" />
@@ -497,55 +730,53 @@ export default function ServicesOverview() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ ...spring, delay: 0.1 }}
+                  transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.1 }}
                   className="grid grid-cols-3 gap-3 text-center"
                 >
                   <div className="bg-brand-blue-500 border border-brand-blue-500/20 p-3 rounded-xl">
                     <span className="text-xl font-bold font-subheading text-brand-yellow-500 block truncate">
                       {selectedService.stats.time}
                     </span>
-                    <span className="text-2xs text-brand-blue-50 font-bold uppercase tracking-wider">TIEMPOS</span>
+                    <span className="text-2xs text-brand-blue-50 font-bold uppercase tracking-wider">Tiempos</span>
                   </div>
                   <div className="bg-brand-blue-500 border border-brand-blue-500/20 p-3 rounded-xl">
                     <span className="text-xl font-bold font-subheading text-white block truncate">
                       {selectedService.stats.price}
                     </span>
-                    <span className="text-2xs text-brand-blue-50 font-bold uppercase tracking-wider">PRECIO BASE</span>
+                    <span className="text-2xs text-brand-blue-50 font-bold uppercase tracking-wider">Precio Base</span>
                   </div>
                   <div className="bg-brand-blue-500 border border-brand-blue-500/20 p-3 rounded-xl">
                     <span className="text-xl font-bold font-subheading text-brand-yellow-500 block truncate">
                       {selectedService.stats.weight}
                     </span>
-                    <span className="text-2xs text-brand-blue-50 font-bold uppercase tracking-wider">CAPACIDAD</span>
+                    <span className="text-2xs text-brand-blue-50 font-bold uppercase tracking-wider">Capacidad</span>
                   </div>
                 </motion.div>
 
                 {/* Action Footer */}
-                <div className="pt-2 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div className="pt-2 flex justify-between items-center gap-4">
                   <motion.button
                     type="button"
                     onClick={closeModal}
-                    whileHover={reduceMotion ? undefined : { x: -4, transition: fastSpring }}
+                    whileHover={reduceMotion ? undefined : { x: -4, transition: springConfigSnappy }}
                     whileTap={reduceMotion ? undefined : { scale: 0.98 }}
-                    className="min-h-11 px-3 text-xs text-brand-blue-50 hover:text-white underline uppercase font-bold tracking-wider cursor-pointer inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-lg w-full sm:w-auto"
+                    className="min-h-11 px-3 text-xs text-brand-blue-50 hover:text-white underline uppercase font-bold tracking-wider cursor-pointer inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-lg"
                   >
                     Volver Atrás
                   </motion.button>
-                  <CTANestedPill
-                    variant="primary"
-                    size="large"
+                  <a
                     href={selectedService.details.ctaHref}
-                    id={`services-modal-${selectedService.id}-cta`}
-                    className="w-full sm:w-auto justify-center"
                     onClick={() =>
                       trackAnalytics.ctaClick(
                         `services_modal_${selectedService.id}_cta`,
                         selectedService.details.ctaText
                       )
                     }
+                    className="cta-nested-pill bg-brand-yellow-500 text-brand-blue-500 px-6 py-2.5 text-sm font-subheading font-bold uppercase hover:bg-brand-yellow-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue-500"
                   >
-                    {selectedService.details.ctaText}
-                  </CTANestedPill>
+                    <span>{selectedService.details.ctaText}</span>
+                    <span className="cta-nested-icon bg-transparent" aria-hidden="true">→</span>
+                  </a>
                 </div>
               </div>
             </motion.div>
