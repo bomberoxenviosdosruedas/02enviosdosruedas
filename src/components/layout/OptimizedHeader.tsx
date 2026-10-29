@@ -36,7 +36,6 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Servicios',
     icon: Bike,
     dropdownItems: [
-      { label: 'Todos los Servicios', href: '/servicios', icon: LayoutGrid },
       { label: 'Envíos Express', href: '/servicios/envios-express', icon: Zap },
       { label: 'Envíos LowCost', href: '/servicios/envios-lowcost', icon: TrendingDown },
       { label: 'Envíos Flex (MeLi)', href: '/servicios/enviosflex', icon: Clock },
@@ -57,7 +56,6 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Nosotros',
     icon: Info,
     dropdownItems: [
-      { label: 'Portal Nosotros', href: '/nosotros', icon: LayoutGrid },
       { label: 'Sobre Nosotros', href: '/nosotros/sobre-nosotros', icon: Info },
       { label: 'Preguntas Frecuentes', href: '/nosotros/preguntas-frecuentes', icon: HelpCircle },
       { label: 'Nuestras Redes', href: '/nosotros/nuestras-redes', icon: Share2 },
@@ -153,9 +151,8 @@ export default function OptimizedHeader() {
     <>
       <header
         id="optimized-header"
-        className={`fixed top-0 left-0 right-0 z-50 w-full text-white transition-[background-color,border-color,box-shadow,padding] duration-300 ${
-          scrolled ? 'bg-brand-blue-500/95 shadow-elevated border-b border-white/10 py-2.5 backdrop-blur-md' : 'bg-brand-blue-500 py-4 border-b border-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 w-full text-white transition-[background-color,border-color,box-shadow,padding] duration-300 ${scrolled ? 'bg-brand-blue-500/95 shadow-elevated border-b border-white/10 py-2.5 backdrop-blur-md' : 'bg-brand-blue-500 py-4 border-b border-transparent'
+          }`}
       >
         <motion.div initial={prefersReducedMotion ? false : { opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={EASE_MOUNT} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -201,11 +198,10 @@ export default function OptimizedHeader() {
                       <Link
                         href={item.href}
                         aria-current={isDirectActive ? 'page' : undefined}
-                        className={`px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
-                          isDirectActive
+                        className={`px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${isDirectActive
                             ? 'text-brand-yellow-500 bg-black/20 border-brand-yellow-500/30'
                             : 'text-white border-transparent hover:text-brand-yellow-500 hover:bg-black/15'
-                        }`}
+                          }`}
                       >
                         {item.label}
                       </Link>
@@ -215,11 +211,10 @@ export default function OptimizedHeader() {
                         onClick={() => handleDropdownToggle(item.label)}
                         aria-haspopup="true"
                         aria-expanded={activeDropdown === item.label}
-                        className={`px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${
-                          isGroupActive
+                        className={`px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 ${isGroupActive
                             ? 'text-brand-yellow-500 bg-black/20 border-brand-yellow-500/30'
                             : 'text-white border-transparent hover:text-brand-yellow-500 hover:bg-black/15'
-                        }`}
+                          }`}
                       >
                         {item.label}
                         <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} aria-hidden="true" />
@@ -245,18 +240,16 @@ export default function OptimizedHeader() {
                                     <Link
                                       href={subItem.href}
                                       aria-current={isSubActive ? 'page' : undefined}
-                                      className={`flex items-center gap-3 px-3 py-2 rounded-xl transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 border ${
-                                        isSubActive
+                                      className={`flex items-center gap-3 px-3 py-2 rounded-xl transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 border ${isSubActive
                                           ? 'text-brand-yellow-500 bg-black/20 border-brand-yellow-500/30'
                                           : 'text-white border-transparent hover:text-brand-yellow-500 hover:bg-black/15'
-                                      }`}
+                                        }`}
                                     >
                                       <div
-                                        className={`p-1.5 rounded-lg transition-colors shrink-0 ${
-                                          isSubActive
+                                        className={`p-1.5 rounded-lg transition-colors shrink-0 ${isSubActive
                                             ? 'bg-brand-yellow-500 text-brand-blue-500'
                                             : 'bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500'
-                                        }`}
+                                          }`}
                                         aria-hidden="true"
                                       >
                                         <SubIcon className="h-4 w-4" />
