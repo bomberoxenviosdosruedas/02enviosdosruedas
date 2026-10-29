@@ -11,6 +11,7 @@ export async function GET(request: NextRequest) {
 
   const { searchParams } = new URL(request.url);
   const rawPlaceId = searchParams.get('place_id')?.trim();
+  const sessionToken = (searchParams.get('session_token') || searchParams.get('sessionToken'))?.trim();
 
   if (!rawPlaceId) {
     return NextResponse.json({ error: 'Falta el parámetro "place_id"' }, { status: 400 });
@@ -28,8 +29,9 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // 1. Intentar con Places API (New)
-    const newDetailsUrl = `https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}`;
+    // 1. Intentar con Places API (New) completando la sesión
+    const sessionParam = sessionToken ? `?sessionToken=${encodeURIComponent(sessionToken)}` : '';
+    const newDetailsUrl = `https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}${sessionParam}`;
     const newDetailsRes = await fetch(newDetailsUrl, {
       headers: {
         'Content-Type': 'application/json',
@@ -66,9 +68,10 @@ export async function GET(request: NextRequest) {
     }
 
     // 2. Fallback a Legacy Place Details
+    const legacySessionParam = sessionToken ? `&sessiontoken=${encodeURIComponent(sessionToken)}` : '';
     const legacyUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${encodeURIComponent(
       placeId
-    )}&fields=geometry,name,formatted_address&key=${apiKey}`;
+    )}&fields=geometry,name,formatted_address&key=${apiKey}${legacySessionParam}`;
 
     const res = await fetch(legacyUrl);
     const data = await res.json();

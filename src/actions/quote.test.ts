@@ -21,6 +21,7 @@ const mockFetch = vi.fn();
 vi.stubGlobal('fetch', mockFetch);
 
 import { calculateQuoteAction, type QuoteState } from './quote';
+import { clearRouteCache } from '@/lib/route-cache';
 
 const initialState: QuoteState = { success: false, price: null, distanceKm: null, error: null };
 
@@ -83,6 +84,7 @@ afterAll(() => {
 
   describe('calculateQuoteAction', () => {
   beforeEach(() => {
+    clearRouteCache();
     mockFindMany.mockReset();
     mockFetch.mockReset();
   });

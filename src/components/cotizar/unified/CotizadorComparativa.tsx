@@ -72,6 +72,18 @@ function precioTexto(precio: number | 'consultar'): string {
 export default function CotizadorComparativa({ form, error }: CotizadorComparativaProps) {
   const { resultado, quoteId, getWhatsAppLink, shouldReduceMotion } = form;
   const [elegido, setElegido] = useState<string>('express');
+  const [prevResultado, setPrevResultado] = useState(resultado);
+
+  if (resultado !== prevResultado) {
+    setPrevResultado(resultado);
+    if (resultado) {
+      if (resultado.express.precio !== 'consultar') {
+        setElegido('express');
+      } else if (resultado.lowcost.precio !== 'consultar') {
+        setElegido('lowcost');
+      }
+    }
+  }
 
   // Sin resultado no hay escala posible: 0 evita NaN en el ancho de las barras.
   const precioExpress = resultado?.express.precio;
@@ -84,16 +96,6 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
     resultado !== null &&
     resultado.express.precio === 'consultar' &&
     resultado.lowcost.precio === 'consultar';
-
-  React.useEffect(() => {
-    if (resultado) {
-      if (resultado.express.precio !== 'consultar') {
-        setElegido('express');
-      } else if (resultado.lowcost.precio !== 'consultar') {
-        setElegido('lowcost');
-      }
-    }
-  }, [resultado]);
 
   // Opciones para RadioCardGroup
   const serviceOptions = React.useMemo(() => [

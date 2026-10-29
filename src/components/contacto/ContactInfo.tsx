@@ -252,7 +252,7 @@ export default function ContactInfo() {
                 </h4>
               </div>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Friuli+1972,+Mar+del+Plata,+Provincia+de+Buenos+Aires"
+                href="https://www.google.com/maps/search/?api=1&query=Friuli+1972,+Mar+del+Plata,+Buenos+Aires"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/10 hover:bg-brand-yellow-500/20 border border-brand-yellow-500/40 text-brand-yellow-500 text-xs font-subheading font-bold uppercase tracking-wider transition-all"
@@ -263,14 +263,25 @@ export default function ContactInfo() {
             </div>
 
             <div className="w-full h-64 sm:h-72 rounded-xl overflow-hidden border border-white/20 shadow-md relative bg-brand-blue-500">
+              {/* Skeleton visual placeholder mientras carga el iframe o ante conexión reducida */}
+              <div
+                className="absolute inset-0 flex items-center justify-center p-4 text-center z-0 bg-brand-blue-500"
+                aria-hidden="true"
+              >
+                <div className="space-y-2 opacity-60">
+                  <MapPin className="w-8 h-8 text-brand-yellow-500 mx-auto animate-bounce" />
+                  <p className="text-xs font-mono text-white">Cargando mapa de Google Maps...</p>
+                </div>
+              </div>
+
               <iframe
                 title="Mapa de ubicación Friuli 1972, Mar del Plata - Envíos DosRuedas"
                 src={
                   process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
-                    ? `https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=Friuli+1972,+Mar+del+Plata,+Provincia+de+Buenos+Aires&zoom=15&language=es`
-                    : `https://maps.google.com/maps?q=Friuli+1972,+Mar+del+Plata,+Provincia+de+Buenos+Aires&t=&z=15&ie=UTF8&iwloc=&output=embed`
+                    ? `https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=Friuli+1972,+Mar+del+Plata,+Buenos+Aires&zoom=15&language=es&region=ar`
+                    : `https://maps.google.com/maps?q=Friuli+1972,+Mar+del+Plata,+Buenos+Aires&t=&z=15&ie=UTF8&iwloc=&output=embed`
                 }
-                className="w-full h-full border-0"
+                className="w-full h-full border-0 relative z-10"
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"

@@ -33,6 +33,23 @@ export default function AddressAutocomplete({
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const containerRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
+  const sessionTokenRef = useRef<string | null>(null);
+  const queryCacheRef = useRef<Map<string, Suggestion[]>>(new Map());
+
+  // Iniciar un session token de Google Places API (New) por cada ciclo de búsqueda
+  const getOrCreateSessionToken = () => {
+    if (!sessionTokenRef.current) {
+      sessionTokenRef.current =
+        typeof crypto !== 'undefined' && crypto.randomUUID
+          ? crypto.randomUUID()
+          : `session-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+    }
+    return sessionTokenRef.current;
+  };
+
+  const resetSessionToken = () => {
+    sessionTokenRef.current = null;
+  };
 
   // Click outside listener to close dropdown
   useEffect(() => {
@@ -47,8 +64,17 @@ export default function AddressAutocomplete({
   }, []);
 
   const searchAddresses = async (searchQuery: string) => {
-    if (searchQuery.trim().length < 3) {
+    const trimmed = searchQuery.trim();
+    if (trimmed.length < 3) {
       setSuggestions([]);
+      setSelectedIndex(-1);
+      return;
+    }
+
+    const normalizedKey = trimmed.toLowerCase();
+    if (queryCacheRef.current.has(normalizedKey)) {
+      setSuggestions(queryCacheRef.current.get(normalizedKey)!);
+      setIsOpen(true);
       setSelectedIndex(-1);
       return;
     }
@@ -56,13 +82,15 @@ export default function AddressAutocomplete({
     setIsLoading(true);
 
     try {
-      // Llamar al endpoint proxy local en lugar de directo a Google para evitar CORS y proteger la Key
-      const url = `/api/places/autocomplete?input=${encodeURIComponent(searchQuery)}`;
+      const token = getOrCreateSessionToken();
+      // Llamar al endpoint proxy local agrupando pulsaciones con sessionToken para optimizar facturación
+      const url = `/api/places/autocomplete?input=${encodeURIComponent(trimmed)}&session_token=${encodeURIComponent(token)}`;
 
       const res = await fetch(url);
       const data = await res.json();
       
       if (data.status === 'OK' && data.predictions) {
+        queryCacheRef.current.set(normalizedKey, data.predictions);
         setSuggestions(data.predictions);
         setIsOpen(true);
         setSelectedIndex(-1);
@@ -86,6 +114,7 @@ export default function AddressAutocomplete({
     if (val.trim() === '') {
       setSuggestions([]);
       setIsOpen(false);
+      resetSessionToken();
       return;
     }
 
@@ -95,7 +124,7 @@ export default function AddressAutocomplete({
 
     debounceRef.current = setTimeout(() => {
       searchAddresses(val);
-    }, 300);
+    }, 280);
   };
 
   const handleSelect = async (suggestion: Suggestion) => {
@@ -104,9 +133,14 @@ export default function AddressAutocomplete({
     setSuggestions([]);
     setSelectedIndex(-1);
 
-    // Obtener las coordenadas a través de nuestro endpoint proxy de details
+    const token = sessionTokenRef.current;
+    // Una vez seleccionado el destino, cerramos y reiniciamos el token para la siguiente búsqueda
+    resetSessionToken();
+
+    // Obtener las coordenadas a través del endpoint proxy de details cerrando la sesión de Places
     try {
-      const url = `/api/places/details?place_id=${encodeURIComponent(suggestion.place_id)}`;
+      const sessionParam = token ? `&session_token=${encodeURIComponent(token)}` : '';
+      const url = `/api/places/details?place_id=${encodeURIComponent(suggestion.place_id)}${sessionParam}`;
       const res = await fetch(url);
       const data = await res.json();
       if (data.status === 'OK' && data.result?.geometry?.location) {

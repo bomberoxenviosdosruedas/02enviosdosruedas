@@ -9,6 +9,7 @@ export async function GET(request: NextRequest) {
 
   const { searchParams } = new URL(request.url);
   const input = searchParams.get('input')?.trim();
+  const sessionToken = (searchParams.get('session_token') || searchParams.get('sessionToken'))?.trim();
 
   if (!input) {
     return NextResponse.json({ error: 'Falta el parámetro "input"' }, { status: 400 });
@@ -25,8 +26,14 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // 1. Intentar con Places API (New) - Recomendado y moderno con solución oficial
+    // 1. Intentar con Places API (New) - Recomendado y moderno con solución oficial y sesión token
     const newPlacesUrl = 'https://places.googleapis.com/v1/places:autocomplete';
+    const basePayload: Record<string, unknown> = {
+      input,
+      includedRegionCodes: ['ar'],
+      ...(sessionToken ? { sessionToken } : {}),
+    };
+
     // 1. Intentar primero con locationRestriction para circunscribir a Mar del Plata (radio de 30 km)
     let newPlacesRes = await fetch(newPlacesUrl, {
       method: 'POST',
@@ -36,8 +43,7 @@ export async function GET(request: NextRequest) {
         'X-Goog-Maps-Solution-ID': 'gmp_git_agentskills_v1',
       },
       body: JSON.stringify({
-        input,
-        includedRegionCodes: ['ar'],
+        ...basePayload,
         locationRestriction: {
           circle: {
             center: { latitude: -38.0055, longitude: -57.5426 },
@@ -59,8 +65,7 @@ export async function GET(request: NextRequest) {
           'X-Goog-Maps-Solution-ID': 'gmp_git_agentskills_v1',
         },
         body: JSON.stringify({
-          input,
-          includedRegionCodes: ['ar'],
+          ...basePayload,
           locationBias: {
             circle: {
               center: { latitude: -38.0055, longitude: -57.5426 },

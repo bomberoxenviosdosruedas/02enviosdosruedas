@@ -86,11 +86,13 @@ export function useCotizadorUnificado() {
         // Autoresolución si el usuario ingresó texto pero no hizo clic en el desplegable
         if (!activeOrigenCoords && origen.trim().length >= 3) {
           try {
-            const autoRes = await fetch(`/api/places/autocomplete?input=${encodeURIComponent(origen.trim())}`, { signal: controller.signal });
+            const token = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : undefined;
+            const tokenParam = token ? `&session_token=${encodeURIComponent(token)}` : '';
+            const autoRes = await fetch(`/api/places/autocomplete?input=${encodeURIComponent(origen.trim())}${tokenParam}`, { signal: controller.signal });
             const autoData = await autoRes.json();
             const first = autoData.predictions?.[0];
             if (first?.place_id) {
-              const detRes = await fetch(`/api/places/details?place_id=${encodeURIComponent(first.place_id)}`, { signal: controller.signal });
+              const detRes = await fetch(`/api/places/details?place_id=${encodeURIComponent(first.place_id)}${tokenParam}`, { signal: controller.signal });
               const detData = await detRes.json();
               if (detData.status === 'OK' && detData.result?.geometry?.location) {
                 activeOrigenCoords = detData.result.geometry.location;
@@ -103,11 +105,13 @@ export function useCotizadorUnificado() {
 
         if (!activeDestinoCoords && destino.trim().length >= 3) {
           try {
-            const autoRes = await fetch(`/api/places/autocomplete?input=${encodeURIComponent(destino.trim())}`, { signal: controller.signal });
+            const token = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : undefined;
+            const tokenParam = token ? `&session_token=${encodeURIComponent(token)}` : '';
+            const autoRes = await fetch(`/api/places/autocomplete?input=${encodeURIComponent(destino.trim())}${tokenParam}`, { signal: controller.signal });
             const autoData = await autoRes.json();
             const first = autoData.predictions?.[0];
             if (first?.place_id) {
-              const detRes = await fetch(`/api/places/details?place_id=${encodeURIComponent(first.place_id)}`, { signal: controller.signal });
+              const detRes = await fetch(`/api/places/details?place_id=${encodeURIComponent(first.place_id)}${tokenParam}`, { signal: controller.signal });
               const detData = await detRes.json();
               if (detData.status === 'OK' && detData.result?.geometry?.location) {
                 activeDestinoCoords = detData.result.geometry.location;

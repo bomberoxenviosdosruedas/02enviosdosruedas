@@ -22,13 +22,17 @@ export default function CotizadorMapa({ form }: CotizadorMapaProps) {
 
         <div className="relative z-10 flex justify-between items-center border-b border-white/15 pb-3 mb-3">
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-brand-yellow-500 motion-safe:animate-ping" />
+            <div
+              className={`w-2.5 h-2.5 rounded-full bg-brand-yellow-500 ${
+                resultado ? '' : 'motion-safe:animate-ping'
+              }`}
+            />
             <span className="text-xs font-mono text-brand-yellow-500 uppercase tracking-widest font-semibold tabular-nums">
-              Midiendo ruta
+              {resultado ? 'Ruta calculada' : 'Midiendo ruta'}
             </span>
           </div>
           <span className="text-2xs font-mono text-white/90 tabular-nums">
-            OpenStreetMap + OSRM
+            {routeCoords.length > 0 ? 'Google Maps · Red Vial' : 'Mar del Plata · Cobertura'}
           </span>
         </div>
 

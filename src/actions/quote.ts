@@ -4,6 +4,7 @@ import { cache } from 'react';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { calculateExpressPrice, calculateLowCostPrice, type PriceRangeProp } from '@/lib/pricing';
+import { getRouteCache, setRouteCache } from '@/lib/route-cache';
 
 // Tope razonable para la distancia aceptada por el cotizador (km).
 const MAX_DISTANCE_KM = 200;
@@ -52,6 +53,12 @@ const fetchRouteDistanceCached = safeCache(async function fetchRouteDistance(
   destinoLat: number,
   destinoLng: number
 ): Promise<number | null> {
+  // 1. Revisar caché en memoria compartido entre solicitudes concurrentes
+  const cached = getRouteCache(origenLat, origenLng, destinoLat, destinoLng);
+  if (cached) {
+    return cached.distanceKm;
+  }
+
   const apiKey = process.env.GOOGLE_MAPS_API_KEY?.trim() || process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY?.trim();
   if (!apiKey) {
     console.error('[calculateQuoteAction] GOOGLE_MAPS_API_KEY no configurada');
@@ -71,6 +78,14 @@ const fetchRouteDistanceCached = safeCache(async function fetchRouteDistance(
     const leg = data.routes[0].legs[0];
     // Google devuelve metros → km con 1 decimal
     const distanceKm = Math.round((leg.distance.value / 1000) * 10) / 10;
+    const durationMin = Math.round((leg.duration?.value ?? 0) / 60);
+
+    setRouteCache(origenLat, origenLng, destinoLat, destinoLng, {
+      distanceKm,
+      durationMin,
+      polyline: data.routes[0].overview_polyline?.points,
+    });
+
     return distanceKm;
   } catch (error) {
     console.error('[calculateQuoteAction] Error fetch route:', error);
