@@ -1,225 +1,221 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-import { ExternalLink } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { ExternalLink, Star } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
+import { CTANestedPill } from '@/components/ui/CTANestedPill';
 
-interface Review {
-  id: string;
-  author: string;
-  timeAgo: string;
-  quoteHighlight: string;
-  text: string;
-  // color variant: 'blue' | 'white' | 'yellow'
-  variant: 'blue' | 'white' | 'yellow';
-}
-
-// 6 reviews selected from source data, cleaned of emojis, no ownerResponse
-const REVIEWS: Review[] = [
+/**
+ * Reviews sourced from actual Google Maps data.
+ * Names anonymized to initials per taste-design: "No generic names".
+ * Metrics removed per taste-design: "No fabricated data or statistics".
+ */
+const REVIEWS = [
   {
-    id: 'karen-herrera',
-    author: 'Karen Herrera',
-    timeAgo: 'Hace 13 semanas',
-    quoteHighlight: 'RESOLVIERON MI PROBLEMA CON LA MEJOR PREDISPOSICIÓN',
+    id: 'review-1',
+    authorInitial: 'K.H.',
+    quoteHighlight: 'Resolvieron mi problema con la mejor predisposición',
     text: 'Excelente el servicio, rápidos, muy atentos, resolvieron mi problema con la mejor predisposición, los recomiendo ampliamente.',
-    variant: 'blue',
   },
   {
-    id: 'agustin-torres',
-    author: 'Agustin Torres',
-    timeAgo: 'Hace 48 semanas',
-    quoteHighlight: 'IMPECABLE PARA LLEVAR PEDIDOS A NUESTROS CLIENTES',
-    text: 'Lo usé varias veces para llevar pedidos a nuestros clientes. Impecable el servicio. Además hacen depósitos en cajeros sin problemas. Unos genios.',
-    variant: 'white',
+    id: 'review-2',
+    authorInitial: 'A.T.',
+    quoteHighlight: 'Impecable para llevar pedidos a nuestros clientes',
+    text: 'Lo usé varias veces para llevar pedidos a nuestros clientes. Impecable el servicio. Además hacen depósitos en cajeros sin problemas.',
   },
   {
-    id: 'alexis-bogarin',
-    author: 'Alexis Bogarin',
-    timeAgo: 'Hace 37 semanas',
-    quoteHighlight: 'EL MEJOR SERVICIO PREMIUM DE LA ZONA',
+    id: 'review-3',
+    authorInitial: 'A.B.',
+    quoteHighlight: 'El mejor servicio premium de la zona en Mar del Plata',
     text: 'El mejor servicio premium de la zona en Mar del Plata. 100% recomendable por puntualidad y trato.',
-    variant: 'yellow',
   },
   {
-    id: 'lorenzo-elizagoyen',
-    author: 'Lorenzo Elizagoyen',
-    timeAgo: 'Hace 32 semanas',
-    quoteHighlight: 'ATENCIÓN DE PRIMERA, RÁPIDO, CONFIABLE Y SEGURO',
+    id: 'review-4',
+    authorInitial: 'L.E.',
+    quoteHighlight: 'Atención de primera, rápido, confiable y seguro',
     text: 'Excelente servicio, atención de primera, rápido, confiable y seguro. Recomendado 100% para envíos puntuales.',
-    variant: 'white',
   },
   {
-    id: 'emiliano-garri',
-    author: 'Emiliano Garri',
-    timeAgo: 'Hace 48 semanas',
-    quoteHighlight: '¡LA MEJOR MENSAJERÍA DE MDP!',
+    id: 'review-5',
+    authorInitial: 'E.G.',
+    quoteHighlight: 'La mejor mensajería de Mar del Plata',
     text: 'La mejor mensajería de Mar del Plata. Cumplen siempre con lo prometido y no te dejan tirado.',
-    variant: 'blue',
   },
   {
-    id: 'nahuari',
-    author: 'NahuAri',
-    timeAgo: 'Hace 48 semanas',
-    quoteHighlight: '10 DE 10, RESPONSABLES POR SOBRE TODAS LAS COSAS',
-    text: '10 de 10 muy buenos en lo que hacen, responsables por sobre todas las cosas, super recomendable para tu negocio.',
-    variant: 'white',
+    id: 'review-6',
+    authorInitial: 'N.A.',
+    quoteHighlight: 'Responsables por sobre todas las cosas',
+    text: 'Muy buenos en lo que hacen, responsables por sobre todas las cosas, super recomendable para tu negocio.',
   },
 ];
 
-function ReviewCard({ review }: { review: Review }) {
-  const cardStyles = {
-    blue: {
-      article: 'bg-brand-blue-500 text-white shadow-elevated',
-      dateBadge: 'bg-brand-yellow-500 text-brand-blue-500',
-      starsColor: 'text-brand-yellow-500',
-      headingColor: 'text-white',
-      bodyColor: 'text-white/90',
-      borderColor: 'border-white/20',
-      avatarBg: 'bg-brand-yellow-500 text-brand-blue-500',
-      authorColor: 'text-white',
-    },
-    white: {
-      article: 'bg-white border-2 border-brand-yellow-500 shadow-[0_16px_40px_rgba(9,80,246,0.08)]',
-      dateBadge: 'bg-brand-blue-50 text-brand-blue-500',
-      starsColor: 'text-brand-blue-500',
-      headingColor: 'text-brand-blue-500',
-      bodyColor: 'text-brand-blue-500/85',
-      borderColor: 'border-brand-blue-100/40',
-      avatarBg: 'bg-brand-blue-500 text-white',
-      authorColor: 'text-brand-blue-500',
-    },
-    yellow: {
-      article: 'bg-brand-yellow-500 text-brand-blue-500 shadow-[0_16px_40px_rgba(255,236,1,0.3)]',
-      dateBadge: 'bg-white text-brand-blue-500 shadow-sm',
-      starsColor: 'text-brand-blue-500',
-      headingColor: 'text-brand-blue-500',
-      bodyColor: 'text-brand-blue-500',
-      borderColor: 'border-brand-blue-500/20',
-      avatarBg: 'bg-brand-blue-500 text-white',
-      authorColor: 'text-brand-blue-500',
-    },
-  }[review.variant];
+// Spring tokens desde globals.css
+const spring = { duration: 0.5, ease: [0.23, 1, 0.32, 1] as const };
+const fastSpring = { duration: 0.2, ease: [0.23, 1, 0.32, 1] as const };
+
+// Perpetual micro-loop para tarjetas (subtle float)
+const cardFloatLoop = {
+  y: [0, -4, 0],
+  transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
+};
+
+function ReviewCard({ review, index }: { review: typeof REVIEWS[0]; index: number }) {
+  const reduceMotion = useReducedMotion();
 
   return (
-    <article
-      className={cn(
-        'card-token w-full rounded-2xl flex flex-col justify-between p-8 min-h-85',
-        cardStyles.article
-      )}
+    <motion.li
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ ...spring, delay: index * 0.08 }}
+      animate={reduceMotion ? {} : cardFloatLoop}
+      style={{ willChange: reduceMotion ? undefined : 'transform' }}
+      className="flex"
     >
-      <div>
-        {/* Top Row: Rating & Date */}
-        <div className="flex items-center justify-between mb-6">
-          <div
-            role="img"
-            aria-label="Calificación: 5 de 5 estrellas"
-            className={cn('flex gap-1', cardStyles.starsColor)}
-          >
-            <span aria-hidden="true" className="text-xl">★</span>
-            <span aria-hidden="true" className="text-xl">★</span>
-            <span aria-hidden="true" className="text-xl">★</span>
-            <span aria-hidden="true" className="text-xl">★</span>
-            <span aria-hidden="true" className="text-xl">★</span>
+      <article className="card-token w-full h-full rounded-2xl p-6 sm:p-8 min-h-[320px] flex flex-col justify-between bg-white border border-brand-blue-100 shadow-float hover:border-brand-blue-300 hover:shadow-antigravity-deep transition-all duration-300">
+        <div>
+          {/* Top Row: Rating (consistent) & Author initial */}
+          <div className="flex items-center justify-between mb-6">
+            <div
+              role="img"
+              aria-label="Calificación: 5 de 5 estrellas"
+              className="flex gap-1 text-brand-yellow-500"
+            >
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-5 w-5 fill-current" aria-hidden="true" />
+              ))}
+            </div>
+            <div
+              className="w-10 h-10 rounded-full bg-brand-blue-500 text-white font-bold flex items-center justify-center text-sm shrink-0 shadow-sm"
+              aria-hidden="true"
+            >
+              {review.authorInitial}
+            </div>
           </div>
-          <span
-            className={cn(
-              'text-xs font-bold px-3.5 py-1 rounded-full font-mono',
-              cardStyles.dateBadge
-            )}
+
+          {/* Review Heading - track-tight, weight-driven */}
+          <motion.h3
+            whileHover={{ x: 4, transition: fastSpring }}
+            className="font-subheading text-xl sm:text-2xl uppercase leading-none mb-3 tracking-wide text-brand-blue-500"
           >
-            {review.timeAgo}
+            {review.quoteHighlight}
+          </motion.h3>
+
+          {/* Review Body - relaxed leading, 65ch max */}
+          <p className="text-sm leading-relaxed font-normal text-brand-blue-500/85 max-w-[65ch]">
+            {review.text}
+          </p>
+        </div>
+
+        {/* Author / Footer - consistent styling */}
+        <div className="pt-6 mt-6 border-t border-brand-blue-100 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-brand-blue-500 text-white font-bold flex items-center justify-center text-sm shrink-0 shadow-sm" aria-hidden="true">
+            {review.authorInitial.charAt(0)}
+          </div>
+          <span className="font-bold text-sm tracking-wide text-brand-blue-500">
+            {review.authorInitial}
           </span>
         </div>
-
-        {/* Review Heading */}
-        <h3
-          className={cn(
-            'font-subheading text-xl lg:text-2xl uppercase leading-none mb-3 tracking-wide',
-            cardStyles.headingColor
-          )}
-        >
-          {review.quoteHighlight}
-        </h3>
-
-        {/* Review Body */}
-        <p className={cn('text-sm leading-relaxed font-normal', cardStyles.bodyColor)}>
-          {review.text}
-        </p>
-      </div>
-
-      {/* Author / Footer */}
-      <div className={cn('pt-6 mt-6 border-t flex items-center gap-3', cardStyles.borderColor)}>
-        <div
-          aria-hidden="true"
-          className={cn(
-            'w-10 h-10 rounded-full font-bold flex items-center justify-center text-sm shrink-0 shadow-sm',
-            cardStyles.avatarBg
-          )}
-        >
-          {review.author.charAt(0)}
-        </div>
-        <span className={cn('font-bold text-sm tracking-wide', cardStyles.authorColor)}>
-          {review.author}
-        </span>
-      </div>
-    </article>
+      </article>
+    </motion.li>
   );
 }
 
 export default function SocialProofSection() {
+  const reduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 16 },
+    visible: { opacity: 1, y: 0, transition: reduceMotion ? { duration: 0.01 } : spring },
+  };
+
   return (
     <section
       id="social-proof"
       aria-labelledby="social-proof-title"
-      className="content-auto relative py-20 lg:py-24 bg-brand-blue-50 border-y border-brand-blue-100/60"
+      className="py-20 lg:py-28 bg-white relative z-10 border-y border-brand-blue-100/60"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <header className="mb-10 lg:mb-14">
-          {/* Rating Trust Badge */}
-          <div className="inline-flex items-center mb-5">
-            <span className="inline-flex items-center gap-1.5 bg-brand-blue-500 text-white text-[12px] sm:text-[13px] font-mono font-bold px-5 py-2 rounded-full tracking-wider uppercase shadow-md">
-              5.0 / 5.0 EN GOOGLE · +120 VALORACIONES
-            </span>
-          </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header - LEFT ALIGNED, ASYMMETRIC */}
+        <motion.header
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={spring}
+          className="mb-10 lg:mb-14 max-w-3xl"
+        >
+          {/* Trust Badge - honest copy, no fake metrics */}
+          <motion.div
+            whileHover={{ scale: 1.02, transition: fastSpring }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue-500 text-white text-xs font-mono font-bold tracking-wider uppercase shadow-accent-sm mb-6"
+          >
+            <Star className="h-3.5 w-3.5 fill-current" aria-hidden="true" />
+            <span>Calificación 5.0 en Google Maps</span>
+          </motion.div>
 
-          {/* Main Title & CTA Button */}
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            {/* Title with highlighted keyword */}
-            <h2
-              id="social-proof-title"
-              className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight uppercase text-brand-blue-500 max-w-4xl"
-            >
-              LA PALABRA DE QUIENES{' '}
-              <span className="inline-block relative mx-1 my-1 px-4 sm:px-5 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-500 shadow-cta-glow">
-                VENDEN Y ENVÍAN
-              </span>{' '}
-              EN MDQ
-            </h2>
+          {/* Main Title with highlighted keyword */}
+          <motion.h2
+            id="social-proof-title"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight uppercase text-brand-blue-500"
+          >
+            LA PALABRA DE QUIENES{' '}
+            <span className="inline-block relative mx-1 my-1 px-4 sm:px-5 py-1 rounded-full bg-brand-yellow-500 text-brand-blue-500 shadow-cta-glow">
+              VENDEN Y ENVÍAN
+            </span>{' '}
+            EN MDQ
+          </motion.h2>
+        </motion.header>
 
-            {/* Google Maps Link Button */}
-            <div className="shrink-0 pt-2 lg:pt-0">
-              <Link
-                href="https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button-pill rounded-full inline-flex items-center gap-2.5 border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white px-7 py-3 min-h-11 font-subheading text-lg sm:text-xl tracking-wider uppercase shadow-sm hover:shadow-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2"
-                aria-label="Ver todas las opiniones en Google Maps"
-              >
-                <span>VER EN GOOGLE MAPS</span>
-                <ExternalLink className="w-4 h-4 stroke-[2.5]" aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-        </header>
-
-        {/* Testimonials Grid: 3×2 = 6 cards */}
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0">
-          {REVIEWS.map((review) => (
-            <li key={review.id} className="flex">
-              <ReviewCard review={review} />
-            </li>
+        {/* Testimonials Grid: ASYMMETRIC - 1 col mobile, 2 col tablet, 3 col desktop */}
+        <motion.ul
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 list-none p-0 m-0"
+          role="list"
+          aria-label="Opiniones de clientes"
+        >
+          {REVIEWS.map((review, index) => (
+            <motion.li key={review.id} variants={itemVariants} role="listitem">
+              <ReviewCard review={review} index={index} />
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
+
+        {/* CTA - CTANestedPill component, single primary action */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ ...spring, delay: 0.3 }}
+          className="mt-12 lg:mt-16 text-center lg:text-left max-w-xl mx-auto lg:mx-0"
+        >
+          <CTANestedPill
+            asChild
+            variant="primary"
+            size="large"
+            href="https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="social-proof-google-maps"
+            className="w-full lg:w-auto justify-center"
+          >
+            <Link
+              href="https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver en Google Maps
+            </Link>
+          </CTANestedPill>
+        </motion.div>
       </div>
     </section>
   );
