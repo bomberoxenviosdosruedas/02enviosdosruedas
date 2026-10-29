@@ -3,18 +3,12 @@ import { CTANestedPill } from '@/components/ui/CTANestedPill';
 import { Knockout } from '@/components/ui/Knockout';
 import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
-import { LOW_COST_TIERS } from '@/lib/pricing';
 import { FLEX_CUTOFF_TIME, FLEX_DELIVERY_DEADLINE } from '@/lib/promises';
 
-const ars = (value: number) => `$${value.toLocaleString('es-AR')}`;
-
-const firstTier = LOW_COST_TIERS[0];
-
-/** Flex cobra las mismas zonas que LowCost; la tarifa base es la misma constante. */
 const chips = [
-  { icon: Timer, value: FLEX_CUTOFF_TIME, label: 'Corte de retiros' },
-  { icon: PackageCheck, value: FLEX_DELIVERY_DEADLINE, label: 'Entrega garantizada' },
-  { icon: Tag, value: ars(firstTier.price), label: `Base ${firstTier.minKm}-${firstTier.maxKm} km` },
+  { icon: Timer, value: '15h / 12h', label: 'Cortes L-V y Sáb' },
+  { icon: PackageCheck, value: FLEX_DELIVERY_DEADLINE, label: 'Límite estricto' },
+  { icon: Tag, value: 'Sin mínimo', label: 'Retiro bonificado' },
 ];
 
 /** El circuito completo en tres pasos: es lo único que hay que recordar del canal. */
@@ -25,31 +19,21 @@ const pasos = [
 ];
 
 /**
- * Filas de la etiqueta. Cada valor sale de `@/lib/promises` o `@/lib/pricing`.
- *
- * Deliberadamente NO están "Mínimo de envíos: sin mínimos" ni "Retiros:
- * múltiples": son las dos filas que el prototipo pedía y que hoy no están
- * respaldadas por el dueño. Publicarlas sin su OK sería justo el tipo de
- * promesa que después hay que retirar.
+ * Filas de la etiqueta de despacho Flex.
  */
 const filas: ReadonlyArray<{ k: string; v: string }> = [
-  { k: 'Corte de retiro', v: FLEX_CUTOFF_TIME },
-  { k: 'Base tarifa', v: `${ars(firstTier.price)} · ${firstTier.minKm}-${firstTier.maxKm} km` },
-  { k: 'Retiro', v: 'Depósito o domicilio' },
-  { k: 'Destino', v: 'Todo Mar del Plata' },
+  { k: 'Corte Lun a Vie', v: '15:00 hs' },
+  { k: 'Corte Sábados', v: '12:00 hs' },
+  { k: 'Límite entrega', v: 'Hasta 20:00 hs' },
+  { k: 'Recolección', v: 'Sin costo (desde 1 paq.)' },
+  { k: 'Cobertura', v: 'Mar del Plata urbana' },
 ];
 
 /**
  * La etiqueta de envío.
  *
  * Es el objeto que el vendedor de Flex ya tiene en la cabeza: la etiqueta que
- * imprime todas las mañanas. Poner las condiciones ahí, en lugar de en tres
- * chips sueltos, hace que se lean como una etiqueta y no como una lista de
- * funciones.
- *
- * No usa `DoubleBezelCard`: un marco blanco conteniendo otra tarjeta blanca deja
- * de leerse como objeto. La etiqueta trae su propio borde — línea de puntos y
- * los dos orificios del lateral — que es lo que la identifica.
+ * imprime todas las mañanas.
  */
 function EtiquetaFlex() {
   return (
@@ -102,25 +86,6 @@ function EtiquetaFlex() {
 
 /**
  * Hero Mercado Envíos Flex — concepto "el corredor de despacho".
- *
- * Flex no vende velocidad: vende un corredor. Lo que se retira antes de las
- * 15:00 tiene que estar entregado antes de las 20:00. La firma visual es ese
- * corredor, dibujado como un riel de acotado a acotado: compuerta de corte,
- * cuatro marcas horarias intermedias (los 5 tramos de la franja) y compuerta de
- * entrega, con un token que recorre la ventana de punta a punta (`shuttle`).
- *
- * El riel vive en el padding inferior del hero y su alto es exactamente ese
- * padding (`h-14 sm:h-20 lg:h-24` = `py-14 sm:py-20 lg:py-24`), así que jamás
- * puede pisar el texto ni la card. Por eso el token es un `div` real y no un
- * shape del SVG estirado: el `preserveAspectRatio="none"` no lo deforma.
- *
- * La diferencia con las otras firmas es el cierre: Home es un camino abierto e
- * infinito, Express una curva diagonal, LowCost un dial. Acá el recorrido tiene
- * dos extremos y cinco tramos contados — es una promesa con horario, no una
- * sensación de velocidad.
- *
- * El token arranca en la compuerta de corte y con `prefers-reduced-motion` queda
- * ahí: el corredor se sigue leyendo completo, sólo quieto.
  */
 export default function FlexHero() {
   return (
@@ -132,9 +97,7 @@ export default function FlexHero() {
       <HeroProceduralBackground variant="flex" tone="blue" />
 
       <div className="relative flex-1 flex items-center overflow-hidden">
-        {/* Firma visual: el corredor de despacho 15:00 → 20:00.
-            Vive en el padding inferior del hero (alto = py del contenedor), así
-            nunca puede pisar texto ni la card, y corre de borde a borde. */}
+        {/* Firma visual: el corredor de despacho 15:00 → 20:00. */}
         <div
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 h-14 sm:h-20 lg:h-24 pointer-events-none"
@@ -174,9 +137,6 @@ export default function FlexHero() {
             Entrega {FLEX_DELIVERY_DEADLINE}
           </span>
 
-          {/* El token es un div real, no un shape del SVG estirado: así el
-              `preserveAspectRatio="none"` no lo deforma. El wrapper mide todo el
-              recorrido (6% → 94%) para que `translateX(100%)` sea el 100% real. */}
           <div className="absolute left-[6%] top-[66%] h-0 w-[88%] motion-safe:animate-shuttle">
             <div className="absolute left-0 -translate-y-1/2 h-4 w-8 rounded-md bg-brand-yellow-500 shadow-[0_0_18px_rgba(255,236,1,0.45)]">
               <span className="block mx-auto mt-1.5 h-0.75 w-4 rounded-full bg-brand-blue-500" />
@@ -186,7 +146,7 @@ export default function FlexHero() {
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-            {/* LEFT 7 — copy + CTA. Nunca centrado en desktop. */}
+            {/* LEFT 7 — copy + CTA */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
               <Badge
                 variant="accent"
@@ -204,14 +164,12 @@ export default function FlexHero() {
               </h1>
 
               <p className="text-base sm:text-lg font-sans text-white/85 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-light">
-                Retiramos en tu depósito o domicilio antes de las {FLEX_CUTOFF_TIME} y entregamos
-                en toda la ciudad antes de las {FLEX_DELIVERY_DEADLINE}. Así tu publicación llega
-                Same-Day y cumplís la promesa de Mercado Envíos.
+                Retiramos en tu local o depósito (Lunes a Viernes hasta las {FLEX_CUTOFF_TIME}, Sábados hasta las 12:00 hs) y entregamos en toda la ciudad estrictamente antes de las {FLEX_DELIVERY_DEADLINE}. Cuidamos tu reputación en Mercado Libre con equipo propio.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
                 <CTANestedPill
-                  href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20activar%20Mercado%20Env%C3%ADos%20Flex"
+                  href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20activar%20Mercado%20Env%C3%ADos%20Flex%20para%20mi%20local"
                   id="flex-hero-cta-activar"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -252,8 +210,8 @@ export default function FlexHero() {
                 {chips.map((chip) => (
                   <li key={chip.label} className="p-3 rounded-xl bg-white/10 border border-white/20 text-center">
                     <chip.icon className="w-4 h-4 mx-auto text-brand-yellow-500" aria-hidden="true" />
-                    <span className="block font-mono text-lg sm:text-2xl text-brand-yellow-500 tabular-nums mt-1.5">{chip.value}</span>
-                    <span className="block font-subheading text-2xs sm:text-sm uppercase tracking-wider text-white mt-0.5">{chip.label}</span>
+                    <span className="block font-mono text-base sm:text-xl text-brand-yellow-500 tabular-nums mt-1.5 font-bold">{chip.value}</span>
+                    <span className="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white mt-0.5">{chip.label}</span>
                   </li>
                 ))}
               </ul>

@@ -6,20 +6,21 @@ import FlexBenefits from '@/components/servicios/flex/FlexBenefits';
 import FlexPricing from '@/components/servicios/flex/FlexPricing';
 import FlexHowItWorks from '@/components/servicios/flex/FlexHowItWorks';
 import FlexRequirements from '@/components/servicios/flex/FlexRequirements';
+import FlexFAQ, { FLEX_FAQS } from '@/components/servicios/flex/FlexFAQ';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 export const metadata: Metadata = {
-  title: 'Mercado Envíos Flex en Mar del Plata',
+  title: 'Mercado Envíos Flex en Mar del Plata | Envíos DosRuedas',
   description:
-    'Servicio logístico para Mercado Envíos Flex en Mar del Plata. Entregas en el día para proteger tu reputación. Corte 15:00 hs y distribución antes de 20 hs.',
+    'Servicio logístico para Mercado Envíos Flex en Mar del Plata. Entregas en el día para proteger tu reputación. Corte 15:00 hs (sábados 12:00 hs), distribución antes de las 20:00 hs y retiros sin mínimo.',
   alternates: {
     canonical: `${baseUrl}/servicios/enviosflex`,
   },
   openGraph: {
     title: 'Mercado Envíos Flex en Mar del Plata | Envíos DosRuedas',
     description:
-      'Logística Same-Day para Mercado Envíos Flex en Mar del Plata. Corte 15:00 hs, entregas antes de las 20:00 hs y múltiples retiros.',
+      'Logística Same-Day para Mercado Envíos Flex en Mar del Plata. Corte 15:00 hs (sábados 12:00 hs), entregas antes de las 20:00 hs y retiros bonificados desde 1 paquete.',
     url: `${baseUrl}/servicios/enviosflex`,
     type: 'website',
     locale: 'es_AR',
@@ -28,7 +29,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Mercado Envíos Flex en Mar del Plata | Envíos DosRuedas',
-    description: 'Logística Same-Day para Mercado Envíos Flex en Mar del Plata. Corte 15:00 hs, entregas antes de las 20:00 hs y múltiples retiros.',
+    description:
+      'Logística Same-Day para Mercado Envíos Flex en Mar del Plata. Corte 15:00 hs (sábados 12:00 hs), entregas antes de las 20:00 hs y retiros bonificados desde 1 paquete.',
     images: [`${baseUrl}/og-image.jpg`],
     creator: '@enviosdosruedas',
   },
@@ -39,7 +41,7 @@ const jsonLdSchema = {
   '@type': 'Service',
   name: 'Mercado Envíos Flex Same-Day en Mar del Plata',
   description:
-    'Servicio logístico adaptado a Mercado Envíos Flex en Mar del Plata. Entregas en el día para cuidar la reputación de tu cuenta. Corte 15:00 hs y entregas antes de las 20:00 hs.',
+    'Servicio logístico adaptado a Mercado Envíos Flex en Mar del Plata. Entregas en el día para cuidar la reputación de tu cuenta. Corte 15:00 hs (sábados 12:00 hs) y entregas antes de las 20:00 hs.',
   url: `${baseUrl}/servicios/enviosflex`,
   provider: {
     '@type': 'LocalBusiness',
@@ -91,6 +93,19 @@ const breadcrumbSchema = {
   ],
 };
 
+const faqJsonLdSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FLEX_FAQS.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
 export default function EnviosFlexPage() {
   return (
     <main className="min-h-dvh bg-white text-brand-blue-500 relative overflow-hidden">
@@ -101,6 +116,10 @@ export default function EnviosFlexPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLdSchema) }}
       />
 
       {/* Hero — el propio FlexHero pinta su fondo azul de marca */}
@@ -129,6 +148,11 @@ export default function EnviosFlexPage() {
       {/* Active prerequisites for starting — White Canvas */}
       <section className="relative z-10 bg-white font-sans">
         <FlexRequirements />
+      </section>
+
+      {/* Frequently Asked Questions and WhatsApp CTA */}
+      <section className="relative z-10 bg-white font-sans">
+        <FlexFAQ />
       </section>
     </main>
   );

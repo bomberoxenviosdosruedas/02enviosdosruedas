@@ -2,69 +2,67 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShoppingBag, Truck, CheckSquare, Sparkles } from 'lucide-react';
+import { ShoppingBag, ScanBarcode, Repeat, ShieldCheck } from 'lucide-react';
 
 export default function FlexHowItWorks() {
   const steps = [
     {
       number: '01',
-      title: 'Vendés',
-      desc: 'Recibís una venta con Mercado Envíos Flex en tu panel tradicional de vendedor de MercadoLibre.',
+      title: 'Venta y solicitud',
+      desc: 'Clientes integrados transmiten sus órdenes directo por sistema. Quienes no estén integrados nos notifican por WhatsApp antes de las 15:00 hs (sábados antes de las 12:00 hs).',
       icon: ShoppingBag,
     },
     {
       number: '02',
-      title: 'Retiramos',
-      desc: 'Coordinamos y pasamos a retirar todos los paquetes por tu local o depósito en el horario de corte acordado.',
-      icon: Truck,
+      title: 'Retiro y escaneo',
+      desc: 'El repartidor pasa por tu comercio y escanea los paquetes directamente al momento de la recolección para que impacte de inmediato en Mercado Libre.',
+      icon: ScanBarcode,
     },
     {
       number: '03',
-      title: 'Entregamos',
-      desc: 'Todas las ventas realizadas antes de 15hs serán entregadas en el día en Mar del Plata.',
-      icon: CheckSquare,
+      title: 'Distribución continua',
+      desc: 'Nuestros cadetes circulan permanentemente. La administración asigna los envíos a medida que van entrando, posibilitando múltiples retiros en el día.',
+      icon: Repeat,
     },
     {
       number: '04',
-      title: 'Calificás',
-      desc: 'Tu cliente recibe el paquete en el mismo día y tu reputación de MercadoLíder sube automáticamente.',
-      icon: Sparkles,
+      title: 'Comprobantes y visibilidad',
+      desc: 'Consultás el estado y los comprobantes de entrega tanto en tu panel de control de Envíos DosRuedas como en tu cuenta de vendedor de Mercado Libre.',
+      icon: ShieldCheck,
     },
   ];
 
   return (
-    <section 
-      id="flex-how-it-works" 
+    <section
+      id="flex-how-it-works"
       className="py-24 bg-brand-white-50 relative overflow-hidden border-t border-brand-blue-100"
     >
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: '-100px' }}
         variants={{
           hidden: { opacity: 0, y: 40 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+          visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
         }}
       >
-        
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
           <span className="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
-            LOGÍSTICA SINCRONIZADA
+            CIRCUITO OPERATIVO
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-500 inline-block leading-[0.98]">
             LOGÍSTICA SIN FRICCIONES
           </h2>
           <p className="text-brand-ink font-sans text-sm sm:text-base max-w-lg mx-auto">
-            Integramos tu flujo diario de ventas con nuestra red de distribución de última milla de forma directa.
+            Integramos tus ventas con un circuito ágil de recolección y entrega continua en toda la ciudad.
           </p>
           <div className="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full" />
         </div>
 
         {/* Steps Grid Bento Layout with Double Bezel */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
-          
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 relative">
           {/* Connector Line for Desktop */}
           <div className="absolute top-[2.4rem] left-12 right-12 h-1 bg-brand-blue-500/20 hidden lg:block -z-10" />
 
@@ -92,7 +90,7 @@ export default function FlexHowItWorks() {
                   </span>
 
                   {/* Circle Icon wrapper */}
-                  <div className="h-16 w-16 bg-brand-blue-500 text-brand-yellow-500 border border-brand-blue-500 rounded-2xl flex items-center justify-center mt-4 mb-5 shadow-md group-hover:scale-105 transition-transform duration-300 relative z-10">
+                  <div className="h-16 w-16 bg-brand-blue-500 text-brand-yellow-500 border border-brand-blue-500 rounded-2xl flex items-center justify-center mt-5 mb-5 shadow-md group-hover:scale-105 transition-transform duration-300 relative z-10">
                     <Icon className="h-6 w-6 shrink-0" />
                   </div>
 
@@ -109,7 +107,6 @@ export default function FlexHowItWorks() {
             );
           })}
         </div>
-
       </motion.div>
     </section>
   );

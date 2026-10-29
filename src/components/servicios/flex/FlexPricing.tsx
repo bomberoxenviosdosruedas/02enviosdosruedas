@@ -1,131 +1,161 @@
 'use client';
 
-import { Zap } from 'lucide-react';
+import React from 'react';
+import { Zap, CreditCard, ShieldCheck, HelpCircle } from 'lucide-react';
 import ServicePricing, { type PricingFact, type PriceTier } from '@/components/ui/ServicePricing';
-import { LOW_COST_PRICE_PER_KM, LOW_COST_TIERS } from '@/lib/pricing';
-import { FLEX_NIVEL_2_PRICE, FLEX_NIVEL_3_PRICE, RAIN_SURCHARGE_PERCENT, RETRY_RULES } from '@/lib/promises';
+import { FLEX_NIVEL_2_PRICE, FLEX_NIVEL_3_PRICE } from '@/lib/promises';
 
-const Z5_TIER = LOW_COST_TIERS[LOW_COST_TIERS.length - 1];
-
-const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
-
-/**
- * Nivel 1 no tiene tarifa propia: cobra la tabla LowCost de zona. Por eso su
- * "precio" es el de la última tranche publicada, y el excedente se explica con
- * el mismo coeficiente (`LOW_COST_PRICE_PER_KM`).
- */
 const FLEX_LEVELS: PriceTier[] = [
   {
     range: 'Nivel 1 · Crecimiento',
     distance: '1 a 4 envíos/día',
-    price: String(Z5_TIER.price),
+    price: 'Z1 a Z5',
     features: [
-      'Tarifa estándar por zona (Z1-Z5)',
-      `Z5 (+${Z5_TIER.maxKm} km): ${formatArs(Z5_TIER.price)} + ${formatArs(LOW_COST_PRICE_PER_KM)} × km`,
-      `Segunda visita ${RETRY_RULES.FLEX_NIVEL_1.description}`,
-      'Retiro sin cargo en todo MDQ',
+      'Tarifas por zonas LowCost (Z1 a Z5)',
+      'Segunda visita al 50% de la tarifa',
+      'Tercera visita se abona como nuevo envío',
+      'Recolección bonificada desde 1 paquete',
+      'Soporte directo por WhatsApp',
     ],
     tag: 'Nivel 1',
-    note: 'Tarifa base LowCost por zona. Ideal para empezar.',
+    note: 'Tarifa base LowCost por zona. Ideal para comenzar a despachar en el día.',
   },
   {
     range: 'Nivel 2 · Pro',
     distance: '5 a 10 envíos/día',
     price: String(FLEX_NIVEL_2_PRICE),
     features: [
-      'Tope fijo en Z4 y Z5',
-      `Segunda visita: ${RETRY_RULES.FLEX_NIVEL_2.description}`,
-      'Retiro bonificado sin cargo',
-      'Soporte prioritario por WhatsApp',
+      'Mantiene topes fijos en zonas lejanas (Z4 y Z5)',
+      'Segunda visita en Z1 sin cargo; Z2 a Z5 al 50%',
+      'Tercera visita se abona como nuevo envío',
+      'Recolección bonificada en tu local',
+      'Atención prioritaria por WhatsApp',
     ],
     tag: 'Recomendado',
-    note: 'Tope fijo en Z4/Z5 + beneficios por volumen.',
+    note: 'Tope fijo en zonas lejanas y beneficios por volumen sostenido.',
     featured: true,
   },
   {
     range: 'Nivel 3 · Elite',
-    distance: '+10 envíos/día',
+    distance: '+10 envíos/día mínimos',
     price: String(FLEX_NIVEL_3_PRICE),
     features: [
-      'Tarifa plana unificada a todo MDQ',
-      `Segunda visita: ${RETRY_RULES.FLEX_NIVEL_3.description}`,
-      'Retiro bonificado sin cargo',
-      'Soporte directo prioritario',
-      'Liquidación quincenal automática',
+      'Envíos cercanos hasta 5 km: $3.000 a $4.000',
+      'Tarifa plana al resto de la ciudad: $4.500',
+      'Segunda visita 100% bonificada sin cargo',
+      'Tercera visita se abona como nuevo envío',
+      'Integración directa a nuestro sistema logístico',
     ],
     tag: 'Elite',
-    note: 'Tarifa plana unificada a toda la ciudad.',
+    note: 'Tarifa preferencial para cuentas de más de 10 envíos diarios mínimos.',
   },
 ];
 
 const FLEX_FACTS: PricingFact[] = [
   {
     icon: 'ShoppingBag',
-    title: 'Recolección gratis',
-    body: 'Retiramos tus paquetes sin costo en todo Mar del Plata, varias veces al día si es necesario.',
+    title: 'Recolección bonificada',
+    body: 'Retiramos en tu comercio sin costo extra desde 1 paquete diario. Múltiples pasadas para acelerar entregas.',
   },
   {
     icon: 'ShieldCheck',
-    title: 'Reputación intacta',
-    body: 'Cumplimos los SLAs de MercadoLibre para que mantengas tu estatus de MercadoLíder.',
+    title: 'Entregas 100% aseguradas',
+    body: 'Comprobantes y métricas en plataforma propia para respaldar y cuidar tu reputación de MercadoLíder.',
   },
   {
     icon: 'Zap',
-    title: `Lluvia solo ${RAIN_SURCHARGE_PERCENT}%`,
-    body: `Recargo por clima reducido al ${RAIN_SURCHARGE_PERCENT}% para cuidar tu rentabilidad.`,
+    title: 'Condiciones climáticas',
+    body: 'Aplica durante lluvia o calzada mojada con viento/llovizna. Te comunicamos el costo exacto por WhatsApp.',
   },
 ];
 
 export default function FlexPricing() {
   return (
-    <div className="space-y-16">
+    <div className="space-y-12">
       <ServicePricing
         serviceType="FLEX"
         title="Niveles y Tarifas Flex"
-        subtitle="Escalá tu negocio con MercadoLibre Flex. A mayor volumen diario de despachos, mejores beneficios y tarifas para tus envíos Same-Day."
-        rangeLabel="Por liquidación quincenal"
-        unit="/ liq. quincenal"
+        subtitle="Escalá tus ventas con Mercado Envíos Flex. Cuanto mayor sea tu volumen diario de despachos, mejores beneficios y tarifas para tus entregas en el día."
+        rangeLabel="Niveles según volumen"
+        unit="/ envío"
         tone="dark"
         tiers={FLEX_LEVELS}
         ctaLabel={() => 'Solicitar cotización por WhatsApp'}
         featuredIndex={1}
-        ctaHref="https://api.whatsapp.com/send/?phone=542236602699"
+        ctaHref="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20consultar%20por%20las%20tarifas%20de%20Mercado%20Env%C3%ADos%20Flex"
         ctaVariant="primary"
         facts={FLEX_FACTS}
         backgroundClassName="bg-brand-blue-500 border-t border-b border-white/10 text-white"
       />
 
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-2xl shadow-float">
-        <div className="bg-brand-blue-500 text-white rounded-xl p-8 relative overflow-hidden text-left border border-white/10 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-8 space-y-4 text-left">
-              <span className="-rotate-1 inline-block px-4 py-1 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
-                Recargo por lluvia
-              </span>
-              <h3 className="text-3xl font-display uppercase tracking-tight text-white">
-                <span className="font-mono tabular-nums">{RAIN_SURCHARGE_PERCENT}%</span> adicional en caso de
-                lluvia
-              </h3>
-              <p className="text-sm text-brand-blue-50 leading-relaxed font-sans max-w-2xl">
-                Para todos nuestros clientes asociados al canal Flex, el recargo por días de lluvia es de solo un{' '}
-                <span className="font-mono tabular-nums">{RAIN_SURCHARGE_PERCENT}%</span> adicional sobre el valor
-                del envío. Cuidamos tu rentabilidad operativa para que sigas vendiendo con tranquilidad.
-              </p>
-            </div>
-
-            <div className="lg:col-span-4 flex justify-start lg:justify-end">
-              <a
-                href="https://api.whatsapp.com/send/?phone=542236602699"
-                target="_blank"
-                rel="noopener noreferrer"
-                id="flex-pricing-cta-whatsapp"
-                className="group inline-flex items-center justify-between gap-3 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading uppercase tracking-wider px-6 py-3 rounded-full text-sm min-h-12 shadow-glow-yellow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 w-full sm:w-auto"
-              >
-                <span>Más Información Flex</span>
-                <span className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
-                  <Zap className="h-4 w-4 shrink-0 text-brand-blue-500" />
+      {/* Bloque complementario: Condiciones de Clima y Facturación */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+          {/* Card Clima adverso */}
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float">
+            <div className="bg-brand-blue-500 text-white rounded-[20px] p-7 sm:p-8 h-full flex flex-col justify-between border border-white/10 shadow-sm relative overflow-hidden">
+              <Zap className="absolute -bottom-6 -right-6 h-36 w-32 text-white/5 pointer-events-none select-none" />
+              <div className="space-y-4 relative z-10">
+                <span className="-rotate-1 inline-block px-3 py-1 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
+                  CONDICIONES CLIMÁTICAS
                 </span>
-              </a>
+                <h3 className="text-2xl font-display uppercase tracking-tight text-white leading-tight">
+                  Recargo por lluvia o calzada mojada
+                </h3>
+                <p className="text-sm text-brand-blue-50 leading-relaxed font-sans">
+                  El recargo por clima adverso se activa durante la lluvia o mientras la calzada permanezca mojada con condiciones climáticas difíciles (llovizna o viento). Te comunicamos el costo exacto por WhatsApp al momento de solicitar el servicio para total transparencia operativa.
+                </p>
+              </div>
+
+              <div className="pt-6 relative z-10">
+                <a
+                  href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20consultar%20el%20estado%20del%20servicio%20Flex%20por%20clima"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-yellow-500 hover:text-brand-yellow-400 font-bold transition-colors"
+                >
+                  <Zap className="h-4 w-4" />
+                  <span>Consultar estado por WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Card Facturación y Pagos */}
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float">
+            <div className="bg-brand-blue-500 text-white rounded-[20px] p-7 sm:p-8 h-full flex flex-col justify-between border border-white/10 shadow-sm relative overflow-hidden">
+              <CreditCard className="absolute -bottom-6 -right-6 h-36 w-32 text-white/5 pointer-events-none select-none" />
+              <div className="space-y-4 relative z-10">
+                <span className="-rotate-1 inline-block px-3 py-1 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
+                  FACTURACIÓN Y MEDIOS DE PAGO
+                </span>
+                <h3 className="text-2xl font-display uppercase tracking-tight text-white leading-tight">
+                  Cobros simples y alta inmediata
+                </h3>
+                <ul className="text-sm text-brand-blue-50 space-y-2 font-sans">
+                  <li>
+                    <strong className="text-white">Ciclos de pago:</strong> Diario, quincenal o mensual según tu volumen y preferencia.
+                  </li>
+                  <li>
+                    <strong className="text-white">Métodos aceptados:</strong> Efectivo o transferencia bancaria.
+                  </li>
+                  <li>
+                    <strong className="text-white">Alta de cuenta express:</strong> Solo requerimos nombre de tu comercio, teléfono, dirección y CUIT (si requerís factura).
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-6 relative z-10">
+                <a
+                  href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20dar%20de%20alta%20mi%20cuenta%20para%20Mercado%20Env%C3%ADos%20Flex"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-yellow-500 hover:text-brand-yellow-400 font-bold transition-colors"
+                >
+                  <CreditCard className="h-4 w-4" />
+                  <span>Dar de alta mi comercio ahora</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
