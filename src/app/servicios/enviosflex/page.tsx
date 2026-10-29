@@ -6,7 +6,8 @@ import FlexBenefits from '@/components/servicios/flex/FlexBenefits';
 import FlexPricing from '@/components/servicios/flex/FlexPricing';
 import FlexHowItWorks from '@/components/servicios/flex/FlexHowItWorks';
 import FlexRequirements from '@/components/servicios/flex/FlexRequirements';
-import FlexFAQ, { FLEX_FAQS } from '@/components/servicios/flex/FlexFAQ';
+import FlexFAQ from '@/components/servicios/flex/FlexFAQ';
+import { FLEX_FAQS } from '@/components/servicios/flex/flexFaqData';
 
 const baseUrl = 'https://www.enviosdosruedas.com';
 
