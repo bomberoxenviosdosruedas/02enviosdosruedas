@@ -1,6 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { ArrowRight, MapPin, Zap } from 'lucide-react';
 import { CTANestedPill } from '@/components/ui/CTANestedPill';
 import { Knockout } from '@/components/ui/Knockout';
@@ -37,6 +39,8 @@ const spring = { duration: 0.5, ease: [0.23, 1, 0.32, 1] as const };
 const fastSpring = { duration: 0.2, ease: [0.23, 1, 0.32, 1] as const };
 
 export default function HeroAnimado() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section
       id="hero-animado"
@@ -49,14 +53,14 @@ export default function HeroAnimado() {
         <div className="grid w-full grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-14">
           {/* COPY 7 — LEFT-ALIGNED ALWAYS, never centered */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+            whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={spring}
+            transition={shouldReduceMotion ? { duration: 0 } : spring}
             className="space-y-6 lg:col-span-7"
           >
             <motion.div
-              whileHover={{ scale: 1.02, transition: fastSpring }}
+              whileHover={shouldReduceMotion ? undefined : { scale: 1.02, transition: fastSpring }}
               className="inline-flex"
             >
               <Badge
@@ -69,9 +73,9 @@ export default function HeroAnimado() {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 8 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ ...spring, delay: 0.1 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { ...spring, delay: 0.1 }}
               className="text-balance font-display text-4xl uppercase leading-[0.92] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl xl:text-7xl max-w-[32ch]"
             >
               <span className="sr-only">Mensajería en moto en Mar del Plata: </span>
@@ -82,9 +86,9 @@ export default function HeroAnimado() {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 8 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ ...spring, delay: 0.15 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { ...spring, delay: 0.15 }}
               className="font-sans text-base font-light leading-relaxed text-white/85 sm:text-lg max-w-[56ch]"
             >
               Mensajería y logística e-commerce en Mar del Plata: envíos en el día con motos
@@ -92,9 +96,9 @@ export default function HeroAnimado() {
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 8 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ ...spring, delay: 0.2 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { ...spring, delay: 0.2 }}
               className="flex flex-col sm:flex-row gap-4"
             >
               <CTANestedPill
@@ -118,10 +122,10 @@ export default function HeroAnimado() {
 
           {/* MAPA 5 — pin + anillos + dos fichas ancladas. CLEAN SPATIAL SEPARATION */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, x: 24 }}
+            whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ ...spring, delay: 0.15 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { ...spring, delay: 0.15 }}
             className="lg:col-span-5"
           >
             <div className="relative mx-auto aspect-square w-full max-w-115">
@@ -154,7 +158,7 @@ export default function HeroAnimado() {
               {fichas.map((ficha) => (
                 <motion.div
                   key={ficha.id}
-                  whileHover={{ scale: 1.03, transition: fastSpring }}
+                  whileHover={shouldReduceMotion ? undefined : { scale: 1.03, transition: fastSpring }}
                   className={`absolute z-3 inline-flex items-center gap-2 rounded-xl px-3 py-2.5 shadow-[0_12px_30px_rgba(9,80,246,0.25)] ${ficha.posicion} bg-white text-brand-blue-500 ring-1 ring-brand-blue-100`}
                 >
                   <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
