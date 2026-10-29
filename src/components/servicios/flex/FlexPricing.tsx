@@ -1,24 +1,27 @@
 'use client';
 
 import React from 'react';
-import { Zap, CreditCard, ShieldCheck, HelpCircle } from 'lucide-react';
+import { Zap, CreditCard } from 'lucide-react';
 import ServicePricing, { type PricingFact, type PriceTier } from '@/components/ui/ServicePricing';
 import { FLEX_NIVEL_2_PRICE, FLEX_NIVEL_3_PRICE } from '@/lib/promises';
+import FlexZonePricingExplorer from './FlexZonePricingExplorer';
 
 const FLEX_LEVELS: PriceTier[] = [
   {
     range: 'Nivel 1 · Crecimiento',
     distance: '1 a 4 envíos/día',
-    price: 'Z1 a Z5',
+    price: '3000',
+    period: '/ base Z1',
     features: [
-      'Tarifas por zonas LowCost (Z1 a Z5)',
+      'Tarifa por zonas de distancia (Z1 a Z5)',
+      'Desde $3.000 (Z1) hasta $7.000 (Z4)',
       'Segunda visita al 50% de la tarifa',
       'Tercera visita se abona como nuevo envío',
       'Recolección bonificada desde 1 paquete',
       'Soporte directo por WhatsApp',
     ],
     tag: 'Nivel 1',
-    note: 'Tarifa base LowCost por zona. Ideal para comenzar a despachar en el día.',
+    note: 'Tarifa base por distancia. Podés simular las zonas en el calculador interactivo abajo.',
   },
   {
     range: 'Nivel 2 · Pro',
@@ -87,6 +90,9 @@ export default function FlexPricing() {
         facts={FLEX_FACTS}
         backgroundClassName="bg-brand-blue-500 border-t border-b border-white/10 text-white"
       />
+
+      {/* Explorador interactivo dinámico de zonas para Nivel 1 */}
+      <FlexZonePricingExplorer />
 
       {/* Bloque complementario: Condiciones de Clima y Facturación */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
