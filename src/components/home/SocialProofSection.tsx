@@ -198,7 +198,6 @@ export default function SocialProofSection() {
           className="mt-12 lg:mt-16 text-center lg:text-left max-w-xl mx-auto lg:mx-0"
         >
           <CTANestedPill
-            asChild
             variant="primary"
             size="large"
             href="https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata"
@@ -207,13 +206,7 @@ export default function SocialProofSection() {
             id="social-proof-google-maps"
             className="w-full lg:w-auto justify-center"
           >
-            <Link
-              href="https://www.google.com/maps?q=Friuli+1972,+Mar+del+Plata"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ver en Google Maps
-            </Link>
+            Ver en Google Maps
           </CTANestedPill>
         </motion.div>
       </div>

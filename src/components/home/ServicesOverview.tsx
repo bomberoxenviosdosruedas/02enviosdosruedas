@@ -125,7 +125,7 @@ export default function ServicesOverview() {
       '0 24px 64px rgba(9, 80, 246, 0.22)',
       '0 16px 40px rgba(9, 80, 246, 0.18)',
     ],
-    transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
+    transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' as const },
   };
 
   const services: ServiceItem[] = [
@@ -532,7 +532,6 @@ export default function ServicesOverview() {
                     Volver Atrás
                   </motion.button>
                   <CTANestedPill
-                    asChild
                     variant="primary"
                     size="large"
                     href={selectedService.details.ctaHref}
@@ -545,9 +544,7 @@ export default function ServicesOverview() {
                       )
                     }
                   >
-                    <Link href={selectedService.details.ctaHref}>
-                      {selectedService.details.ctaText}
-                    </Link>
+                    {selectedService.details.ctaText}
                   </CTANestedPill>
                 </div>
               </div>
