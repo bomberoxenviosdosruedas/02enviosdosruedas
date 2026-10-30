@@ -5,14 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre Nosotros | Envíos DosRuedas - Mar del Plata</title>
-  
+
   <!-- Google Fonts: Anton (Display), Bebas Neue (Subheading), Outfit (Sans), Geist Mono (Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <!-- Tailwind CSS v3 via CDN with custom color tokens -->
-    <!-- Lucide Icons -->
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -70,9 +72,15 @@
   </script>
 
   <style>
-    .bg-linear-to-br, .bg-linear-to-tr, .bg-linear-to-t, .bg-linear-to-b, .bg-linear-to-r, .bg-linear-to-l {
+    .bg-linear-to-br,
+    .bg-linear-to-tr,
+    .bg-linear-to-t,
+    .bg-linear-to-b,
+    .bg-linear-to-r,
+    .bg-linear-to-l {
       background-image: linear-gradient(var(--tw-gradient-stops));
     }
+
     /* Custom Utilities & Canonical Tokens */
     .knockout-badge {
       background-color: #FFEC01;
@@ -92,6 +100,7 @@
       box-shadow: 0 20px 40px -12px rgba(9, 80, 246, 0.12);
       transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     }
+
     .double-bezel-card:hover {
       border-color: #628FF9;
       box-shadow: 0 24px 48px -10px rgba(9, 80, 246, 0.18);
@@ -136,27 +145,32 @@
       transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
       cursor: pointer;
     }
+
     .cta-nested-pill.primary {
       background-color: #FFEC01;
       color: #0950F6;
       box-shadow: 0 0 24px rgba(255, 236, 1, 0.45);
     }
+
     .cta-nested-pill.primary:hover {
       background-color: #FFF12E;
       transform: translateY(-2px);
       box-shadow: 0 0 28px rgba(255, 236, 1, 0.6);
     }
+
     .cta-nested-pill.outline {
       background-color: transparent;
       color: #FFFFFF;
       border: 2px solid rgba(255, 255, 255, 0.35);
     }
+
     .cta-nested-pill.outline:hover {
       border-color: #FFEC01;
       color: #FFEC01;
       background-color: rgba(255, 255, 255, 0.08);
       transform: translateY(-2px);
     }
+
     .cta-icon-circle {
       display: inline-flex;
       align-items: center;
@@ -168,19 +182,30 @@
       background-color: rgba(9, 80, 246, 0.12);
       transition: transform 0.2s;
     }
+
     .cta-nested-pill:hover .cta-icon-circle {
       transform: translateX(3px);
     }
 
     /* Spokes radial animation in Hero */
     @keyframes pulseSpoke {
-      0%, 100% { opacity: 0.3; transform: scale(0.9); }
-      50% { opacity: 1; transform: scale(1.15); }
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: scale(0.9);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.15);
+      }
     }
+
     .spoke-pulse {
       animation: pulseSpoke 2.5s ease-in-out infinite;
     }
-  
+
     .font-display {
       font-family: 'Anton', sans-serif;
       text-transform: uppercase;
@@ -202,6 +227,7 @@
       display: inline-block;
       transition: transform 0.3s ease, letter-spacing 0.3s ease;
     }
+
     .kinetic-font-stretch:hover {
       transform: scaleX(1.06);
     }
@@ -559,34 +585,33 @@
        SECCIÓN 1: ABOUT HERO (AboutHero.tsx)
        Firma visual: "El Nodo" — Hub de Friuli 1972 con 7 direcciones isotrópicas
   ========================================================================= -->
-  <section 
-    id="about-hero" 
+  <section id="about-hero"
     aria-label="Sobre Envíos DosRuedas: base central en Friuli 1972, Mar del Plata, con flota propia y más de 7 años de trayectoria en logística urbana"
-    class="relative isolate flex min-h-[90vh] w-full flex-col overflow-hidden bg-brand-blue text-white"
-  >
+    class="relative isolate flex min-h-[90vh] w-full flex-col overflow-hidden bg-brand-blue text-white">
     <!-- Procedural Background Grid & Gradients -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_65%)] pointer-events-none"></div>
-    <div class="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-size-[36px_36px] pointer-events-none"></div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_65%)] pointer-events-none">
+    </div>
+    <div
+      class="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-size-[36px_36px] pointer-events-none">
+    </div>
 
     <!-- Palabra Fantasma Decorativa (Watermark de Escala Urbana) -->
-    <span 
-      aria-hidden="true" 
-      class="pointer-events-none absolute bottom-[-8%] left-[-1%] z-0 whitespace-nowrap font-display text-[clamp(90px,17vw,230px)] uppercase leading-none text-white/5 select-none"
-    >
+    <span aria-hidden="true"
+      class="pointer-events-none absolute bottom-[-8%] left-[-1%] z-0 whitespace-nowrap font-display text-[clamp(90px,17vw,230px)] uppercase leading-none text-white/5 select-none">
       Dos Ruedas
     </span>
 
     <div class="relative flex-1 flex items-center overflow-hidden z-10">
-      
+
       <!-- Firma visual: El Nodo (Radios desde la base central hacia los barrios de MDQ) -->
-      <div 
-        aria-hidden="true" 
-        class="absolute inset-x-0 bottom-0 h-28 sm:h-36 lg:h-44 overflow-hidden pointer-events-none"
-      >
+      <div aria-hidden="true"
+        class="absolute inset-x-0 bottom-0 h-28 sm:h-36 lg:h-44 overflow-hidden pointer-events-none">
         <!-- Línea de base discontinua -->
         <div class="absolute inset-x-0 bottom-0 border-t border-dashed border-white/30"></div>
 
-        <span class="absolute bottom-2 right-6 sm:right-8 font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em] text-white/85 tabular-nums">
+        <span
+          class="absolute bottom-2 right-6 sm:right-8 font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em] text-white/85 tabular-nums">
           Base central · Friuli 1972 · MDQ
         </span>
 
@@ -602,37 +627,43 @@
           <div class="absolute bottom-0 left-0 h-px w-[84%] origin-left" style="transform: rotate(-20deg);">
             <span class="block h-px w-full bg-white/40"></span>
             <span class="absolute right-0 top-0 -translate-y-1/2">
-              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse" style="animation-delay: 0.13s;"></span>
+              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse"
+                style="animation-delay: 0.13s;"></span>
             </span>
           </div>
           <div class="absolute bottom-0 left-0 h-px w-[84%] origin-left" style="transform: rotate(-30deg);">
             <span class="block h-px w-full bg-white/40"></span>
             <span class="absolute right-0 top-0 -translate-y-1/2">
-              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse" style="animation-delay: 0.26s;"></span>
+              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse"
+                style="animation-delay: 0.26s;"></span>
             </span>
           </div>
           <div class="absolute bottom-0 left-0 h-px w-[84%] origin-left" style="transform: rotate(-40deg);">
             <span class="block h-px w-full bg-white/40"></span>
             <span class="absolute right-0 top-0 -translate-y-1/2">
-              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse" style="animation-delay: 0.39s;"></span>
+              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse"
+                style="animation-delay: 0.39s;"></span>
             </span>
           </div>
           <div class="absolute bottom-0 left-0 h-px w-[84%] origin-left" style="transform: rotate(-50deg);">
             <span class="block h-px w-full bg-white/40"></span>
             <span class="absolute right-0 top-0 -translate-y-1/2">
-              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse" style="animation-delay: 0.52s;"></span>
+              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse"
+                style="animation-delay: 0.52s;"></span>
             </span>
           </div>
           <div class="absolute bottom-0 left-0 h-px w-[84%] origin-left" style="transform: rotate(-60deg);">
             <span class="block h-px w-full bg-white/40"></span>
             <span class="absolute right-0 top-0 -translate-y-1/2">
-              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse" style="animation-delay: 0.65s;"></span>
+              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse"
+                style="animation-delay: 0.65s;"></span>
             </span>
           </div>
           <div class="absolute bottom-0 left-0 h-px w-[84%] origin-left" style="transform: rotate(-70deg);">
             <span class="block h-px w-full bg-white/40"></span>
             <span class="absolute right-0 top-0 -translate-y-1/2">
-              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse" style="animation-delay: 0.78s;"></span>
+              <span class="block h-2 w-2 rounded-full bg-brand-yellow spoke-pulse"
+                style="animation-delay: 0.78s;"></span>
             </span>
           </div>
 
@@ -641,61 +672,63 @@
             <span class="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2">
               <span class="block h-7 w-7 rounded-full border border-brand-yellow/70 animate-ping-slow"></span>
             </span>
-            <span class="absolute left-0 top-0 block h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-md"></span>
+            <span
+              class="absolute left-0 top-0 block h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-md"></span>
           </span>
         </div>
       </div>
 
-      <div class="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44">
+      <div
+        class="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 lg:pb-44">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-          
+
           <!-- LEFT 7 — Copy + CTAs + Identidad Chips -->
           <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-            
+
             <!-- Badge -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-yellow/60 text-brand-yellow font-subheading text-xs sm:text-sm uppercase tracking-widest -rotate-1 bg-brand-yellow/10">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-yellow/60 text-brand-yellow font-subheading text-xs sm:text-sm uppercase tracking-widest -rotate-1 bg-brand-yellow/10">
               <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
               <span>Identidad · Mar del Plata</span>
             </div>
 
             <!-- H1 Editorial -->
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white text-balance">
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white text-balance">
               <span class="block">Más que cadetería,</span>
               <span class="knockout-badge my-1">somos logística</span>
               <span class="block">de confianza</span>
             </h1>
 
             <!-- Bajada -->
-            <p class="text-base sm:text-lg font-sans text-white/85 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-light">
-              Una base física en Friuli 1972 y flota motorizada 100% propia. Conectamos tiendas online, PyMEs y emprendedores de todo Mar del Plata con soporte en tiempo real y cumplimiento estricto de horarios.
+            <p
+              class="text-base sm:text-lg font-sans text-white/85 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-light">
+              Una base física en Friuli 1972 y flota motorizada 100% propia. Conectamos tiendas online, PyMEs y
+              emprendedores de todo Mar del Plata con soporte en tiempo real y cumplimiento estricto de horarios.
             </p>
 
             <!-- Acciones -->
             <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
-              <a 
-                href="/contacto" 
-                id="about-hero-cta-contacto"
-                class="cta-nested-pill primary group"
-              >
+              <a href="/contacto" id="about-hero-cta-contacto" class="cta-nested-pill primary group">
                 <span>Trabajemos juntos</span>
                 <span class="cta-icon-circle">
                   <svg class="w-4 h-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </span>
               </a>
 
-              <a 
-                href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20conocer%20la%20operativa%20de%20DosRuedas"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex min-h-11 items-center gap-2 font-subheading text-base sm:text-lg uppercase tracking-wider text-white underline decoration-brand-yellow decoration-2 underline-offset-4 hover:text-brand-yellow transition-colors"
-              >
+              <a href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20conocer%20la%20operativa%20de%20DosRuedas"
+                target="_blank" rel="noopener noreferrer"
+                class="inline-flex min-h-11 items-center gap-2 font-subheading text-base sm:text-lg uppercase tracking-wider text-white underline decoration-brand-yellow decoration-2 underline-offset-4 hover:text-brand-yellow transition-colors">
                 <!-- WhatsApp SVG icon -->
                 <svg class="h-5 w-5 shrink-0 fill-current text-brand-yellow" viewBox="0 0 24 24">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.771.848 2.791.849h.001c3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.769-5.767zm7.654 5.766c-.002 4.22-3.435 7.652-7.654 7.652-1.346 0-2.614-.352-3.722-.969l-4.133 1.084 1.103-4.025c-.687-1.168-1.047-2.488-1.047-3.742.002-4.22 3.435-7.652 7.654-7.652 4.218 0 7.652 3.432 7.654 7.652z" />
+                  <path
+                    d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.771.848 2.791.849h.001c3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.769-5.767zm7.654 5.766c-.002 4.22-3.435 7.652-7.654 7.652-1.346 0-2.614-.352-3.722-.969l-4.133 1.084 1.103-4.025c-.687-1.168-1.047-2.488-1.047-3.742.002-4.22 3.435-7.652 7.654-7.652 4.218 0 7.652 3.432 7.654 7.652z" />
                 </svg>
                 Escribinos
               </a>
@@ -705,25 +738,36 @@
             <ul class="grid grid-cols-3 gap-2.5 sm:gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
               <li class="p-3 rounded-xl bg-white/10 border border-white/20 text-center">
                 <svg class="w-4 h-4 mx-auto text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <span class="block font-mono text-lg sm:text-2xl text-brand-yellow tabular-nums mt-1.5 font-bold">+7</span>
-                <span class="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white mt-0.5">Años en ruta</span>
+                <span
+                  class="block font-mono text-lg sm:text-2xl text-brand-yellow tabular-nums mt-1.5 font-bold">+7</span>
+                <span class="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white mt-0.5">Años
+                  en ruta</span>
               </li>
               <li class="p-3 rounded-xl bg-white/10 border border-white/20 text-center">
                 <svg class="w-4 h-4 mx-auto text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                <span class="block font-mono text-lg sm:text-2xl text-brand-yellow tabular-nums mt-1.5 font-bold">100%</span>
-                <span class="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white mt-0.5">Flota propia</span>
+                <span
+                  class="block font-mono text-lg sm:text-2xl text-brand-yellow tabular-nums mt-1.5 font-bold">100%</span>
+                <span class="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white mt-0.5">Flota
+                  propia</span>
               </li>
               <li class="p-3 rounded-xl bg-white/10 border border-white/20 text-center">
                 <svg class="w-4 h-4 mx-auto text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span class="block font-mono text-lg sm:text-2xl text-brand-yellow tabular-nums mt-1.5 font-bold">10 km</span>
-                <span class="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white mt-0.5">Cálculo automático</span>
+                <span class="block font-mono text-lg sm:text-2xl text-brand-yellow tabular-nums mt-1.5 font-bold">10
+                  km</span>
+                <span
+                  class="block font-subheading text-2xs sm:text-xs uppercase tracking-wider text-white mt-0.5">Cálculo
+                  automático</span>
               </li>
             </ul>
 
@@ -731,11 +775,13 @@
 
           <!-- RIGHT 5 — Ficha Institucional: Sello de la base + Credenciales -->
           <div class="relative flex w-full flex-col items-center justify-center lg:col-span-5">
-            <div class="w-full max-w-md rounded-[20px] border border-brand-blue-100 bg-white p-2.5 shadow-[0_25px_50px_-12px_rgba(9,80,246,0.18)]">
+            <div
+              class="w-full max-w-md rounded-[20px] border border-brand-blue-100 bg-white p-2.5 shadow-[0_25px_50px_-12px_rgba(9,80,246,0.18)]">
               <div class="flex flex-col gap-4 rounded-[14px] bg-brand-blue p-5 text-white">
-                
+
                 <!-- Sello de la Base (Rotado -1.5°) -->
-                <div class="rotate-[-1.5deg] self-start rounded-xl border-2 border-brand-yellow px-3.5 py-3 bg-brand-blue/50">
+                <div
+                  class="rotate-[-1.5deg] self-start rounded-xl border-2 border-brand-yellow px-3.5 py-3 bg-brand-blue/50">
                   <span class="block font-display text-3xl uppercase leading-none tracking-[-0.01em] text-brand-yellow">
                     Friuli 1972
                   </span>
@@ -781,7 +827,8 @@
                 </dl>
 
                 <!-- Horarios de la base -->
-                <dl class="grid gap-1.5 border-t border-white/20 pt-3 font-mono text-xs tabular-nums text-brand-blue-50">
+                <dl
+                  class="grid gap-1.5 border-t border-white/20 pt-3 font-mono text-xs tabular-nums text-brand-blue-50">
                   <div class="flex items-baseline justify-between gap-3">
                     <dt class="font-subheading text-xs uppercase tracking-wider">Lun a Vie</dt>
                     <dd class="truncate text-right text-white font-medium">09:00 - 18:00 hs</dd>
@@ -797,10 +844,13 @@
                 </dl>
 
                 <!-- Teléfono directo -->
-                <p class="flex items-center justify-between gap-3 border-t border-white/20 pt-3 font-mono text-xs tabular-nums text-brand-blue-50">
+                <p
+                  class="flex items-center justify-between gap-3 border-t border-white/20 pt-3 font-mono text-xs tabular-nums text-brand-blue-50">
                   <span class="flex items-center gap-1.5 truncate">
-                    <svg class="h-3.5 w-3.5 shrink-0 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <svg class="h-3.5 w-3.5 shrink-0 text-brand-yellow" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     </svg>
                     Mar del Plata
                   </span>
@@ -820,18 +870,18 @@
        SECCIÓN 2: ABOUT TIMELINE (AboutTimeline.tsx)
        Trayectoria & Evolución con Stepper Central Alternado y Nodos Amarillos
   ========================================================================= -->
-  <section
-    id="about-timeline"
-    class="py-20 sm:py-24 bg-brand-blue-50 relative overflow-hidden border-t border-brand-blue-100"
-  >
+  <section id="about-timeline"
+    class="py-20 sm:py-24 bg-brand-blue-50 relative overflow-hidden border-t border-brand-blue-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
+
       <!-- Header Block -->
       <div class="text-center max-w-2xl mx-auto mb-16 space-y-3.5">
-        <span class="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
+        <span
+          class="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
           TRAYECTORIA & EVOLUCIÓN
         </span>
-        <h2 class="text-brand-ink text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
+        <h2
+          class="text-brand-ink text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
           NUESTRA HISTORIA
         </h2>
         <p class="text-brand-ink font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
@@ -842,16 +892,18 @@
       <!-- Timeline body con Stepper Central -->
       <div class="relative max-w-4xl mx-auto">
         <!-- Central Vertical Stepper Line -->
-        <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-4 bottom-4 w-1 bg-brand-blue-300 hidden sm:block rounded-full">
+        <div
+          class="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-4 bottom-4 w-1 bg-brand-blue-300 hidden sm:block rounded-full">
           <div class="w-full h-full bg-brand-blue rounded-full"></div>
         </div>
 
         <div class="space-y-8 sm:space-y-12">
-          
+
           <!-- Hito 1: 2019 (Left) -->
           <div class="relative flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4">
             <!-- Concentric Node Circle -->
-            <div class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
+            <div
+              class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
               <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <circle cx="12" cy="12" r="10" stroke-width="2" />
                 <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" />
@@ -862,8 +914,10 @@
               <div class="double-bezel-card">
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
-                    <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2019</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span
+                      class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2019</span>
+                    <span
+                      class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -871,7 +925,8 @@
                     Lanzamiento Inicial en MDQ
                   </h3>
                   <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                    Iniciamos operaciones con flota propia de motocicletas en las calles céntricas de Mar del Plata, apostando a un servicio ágil y de confianza.
+                    Iniciamos operaciones con flota propia de motocicletas en las calles céntricas de Mar del Plata,
+                    apostando a un servicio ágil y de confianza.
                   </p>
                 </div>
               </div>
@@ -882,17 +937,21 @@
 
           <!-- Hito 2: 2021 (Right) -->
           <div class="relative flex flex-col sm:flex-row-reverse items-start sm:items-center sm:justify-between gap-4">
-            <div class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
+            <div
+              class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
               <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
             <div class="w-full sm:w-[45%]">
               <div class="double-bezel-card">
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
-                    <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2021</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span
+                      class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2021</span>
+                    <span
+                      class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -900,7 +959,8 @@
                     Soluciones PyME y LowCost
                   </h3>
                   <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                    Lanzamos la modalidad LowCost agrupada y el Plan Emprendedores para impulsar las ventas online durante la expansión del e-commerce local.
+                    Lanzamos la modalidad LowCost agrupada y el Plan Emprendedores para impulsar las ventas online
+                    durante la expansión del e-commerce local.
                   </p>
                 </div>
               </div>
@@ -910,20 +970,23 @@
 
           <!-- Hito 3: 2023 (Left) -->
           <div class="relative flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4">
-            <div class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
+            <div
+              class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
               <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <rect x="1" y="3" width="15" height="13" rx="2" stroke-width="2"/>
-                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" stroke-width="2"/>
-                <circle cx="5.5" cy="18.5" r="2.5" stroke-width="2"/>
-                <circle cx="18.5" cy="18.5" r="2.5" stroke-width="2"/>
+                <rect x="1" y="3" width="15" height="13" rx="2" stroke-width="2" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" stroke-width="2" />
+                <circle cx="5.5" cy="18.5" r="2.5" stroke-width="2" />
+                <circle cx="18.5" cy="18.5" r="2.5" stroke-width="2" />
               </svg>
             </div>
             <div class="w-full sm:w-[45%]">
               <div class="double-bezel-card">
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
-                    <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2023</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span
+                      class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2023</span>
+                    <span
+                      class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -931,7 +994,8 @@
                     Consolidación de Flota Propia
                   </h3>
                   <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                    Estructura propia de repartidores uniformados y coordinados por WhatsApp para garantizar entregas puntuales sin tercerización.
+                    Estructura propia de repartidores uniformados y coordinados por WhatsApp para garantizar entregas
+                    puntuales sin tercerización.
                   </p>
                 </div>
               </div>
@@ -941,17 +1005,21 @@
 
           <!-- Hito 4: 2024 (Right) -->
           <div class="relative flex flex-col sm:flex-row-reverse items-start sm:items-center sm:justify-between gap-4">
-            <div class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
+            <div
+              class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
               <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div class="w-full sm:w-[45%]">
               <div class="double-bezel-card">
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
-                    <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2024</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span
+                      class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2024</span>
+                    <span
+                      class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -959,7 +1027,8 @@
                     Pioneros MercadoLibre Flex en MDQ
                   </h3>
                   <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                    Nos convertimos en el socio logístico de referencia para entregas Same-Day de Mercado Libre en todo Mar del Plata.
+                    Nos convertimos en el socio logístico de referencia para entregas Same-Day de Mercado Libre en todo
+                    Mar del Plata.
                   </p>
                 </div>
               </div>
@@ -969,18 +1038,23 @@
 
           <!-- Hito 5: 2025 (Left) -->
           <div class="relative flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4">
-            <div class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
+            <div
+              class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
               <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
             <div class="w-full sm:w-[45%]">
               <div class="double-bezel-card">
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
-                    <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2025</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span
+                      class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2025</span>
+                    <span
+                      class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -988,7 +1062,8 @@
                     Hub Logístico Friuli 1972
                   </h3>
                   <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                    Inauguración de nuestro depósito central en Friuli 1972 con depósitos de paquetería, picking y tecnología de ruteo optimizado.
+                    Inauguración de nuestro depósito central en Friuli 1972 con depósitos de paquetería, picking y
+                    tecnología de ruteo optimizado.
                   </p>
                 </div>
               </div>
@@ -998,7 +1073,8 @@
 
           <!-- Hito 6: 2026 (Right) -->
           <div class="relative flex flex-col sm:flex-row-reverse items-start sm:items-center sm:justify-between gap-4">
-            <div class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
+            <div
+              class="hidden sm:flex absolute left-6 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-brand-yellow border-2 border-white ring-2 ring-brand-blue shadow-md items-center justify-center z-10 text-brand-blue">
               <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <circle cx="12" cy="8" r="7" stroke-width="2" />
                 <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" stroke-width="2" />
@@ -1008,8 +1084,10 @@
               <div class="double-bezel-card">
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
-                    <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2026</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span
+                      class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2026</span>
+                    <span
+                      class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -1017,7 +1095,8 @@
                     Infraestructura 3PL en todo MDQ
                   </h3>
                   <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                    Más de 7 años de trayectoria consolidada con flota propia, cotizadores en tiempo real y fulfillment integral para tiendas online.
+                    Más de 7 años de trayectoria consolidada con flota propia, cotizadores en tiempo real y fulfillment
+                    integral para tiendas online.
                   </p>
                 </div>
               </div>
@@ -1034,15 +1113,14 @@
        SECCIÓN 3: ABOUT VALUES (AboutValues.tsx)
        Valores Asimétricos: Tarjeta Destacada (7 cols) + 2 Secundarias (5 cols)
   ========================================================================= -->
-  <section 
-    id="about-values" 
-    class="py-20 sm:py-24 bg-brand-blue text-white relative z-10 overflow-hidden border-t border-white/10"
-  >
+  <section id="about-values"
+    class="py-20 sm:py-24 bg-brand-blue text-white relative z-10 overflow-hidden border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
+
       <!-- Header Block -->
       <div class="text-left max-w-2xl mb-16 space-y-3.5">
-        <span class="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
+        <span
+          class="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
           FILOSOFÍA OPERATIVA
         </span>
         <h2 class="text-white text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -1055,31 +1133,37 @@
 
       <!-- Values Asymmetrical Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        
+
         <!-- Featured Value: Cuidado del Paquete (7 cols) -->
         <div class="lg:col-span-7">
           <div class="double-bezel-card h-full">
             <div class="double-bezel-inner flex flex-col gap-6 justify-between">
-              
-              <div class="w-14 h-14 bg-brand-blue-50 text-brand-blue rounded-2xl flex items-center justify-center border border-brand-blue-100">
+
+              <div
+                class="w-14 h-14 bg-brand-blue-50 text-brand-blue rounded-2xl flex items-center justify-center border border-brand-blue-100">
                 <svg class="h-7 w-7 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
 
               <div class="space-y-3">
-                <span class="text-xs font-subheading uppercase tracking-wider text-brand-blue bg-brand-yellow px-3 py-1 rounded-full w-fit transform -rotate-1 inline-block">
+                <span
+                  class="text-xs font-subheading uppercase tracking-wider text-brand-blue bg-brand-yellow px-3 py-1 rounded-full w-fit transform -rotate-1 inline-block">
                   Pilar de Confianza
                 </span>
                 <h3 class="text-3xl sm:text-4xl font-display uppercase tracking-tight text-brand-ink leading-tight">
                   Cuidado del Paquete
                 </h3>
                 <p class="text-brand-ink/85 font-sans leading-relaxed text-sm sm:text-base max-w-prose">
-                  Manipulación profesional de paquetería e-commerce, indumentaria, tecnología y repuestos. Cada envío viaja seguro y protegido de las inclemencias del clima marplatense en mochilas reforzadas y cajas herméticas.
+                  Manipulación profesional de paquetería e-commerce, indumentaria, tecnología y repuestos. Cada envío
+                  viaja seguro y protegido de las inclemencias del clima marplatense en mochilas reforzadas y cajas
+                  herméticas.
                 </p>
               </div>
 
-              <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-ink font-mono">
+              <div
+                class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-ink font-mono">
                 <span>Tratamos cada paquete como propio</span>
                 <span class="font-bold text-brand-blue">MDQ 2026</span>
               </div>
@@ -1090,14 +1174,16 @@
 
         <!-- Secondary Values (5 cols) -->
         <div class="lg:col-span-5 flex flex-col gap-6">
-          
+
           <!-- Valor 2: Transparencia Total -->
           <div class="flex-1">
             <div class="double-bezel-card h-full">
               <div class="double-bezel-inner flex flex-col gap-4 justify-between">
-                <div class="w-11 h-11 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100 shrink-0">
+                <div
+                  class="w-11 h-11 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100 shrink-0">
                   <svg class="h-5 w-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
                   </svg>
                 </div>
                 <div class="space-y-1.5">
@@ -1105,7 +1191,8 @@
                     Transparencia Total
                   </h3>
                   <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                    Tarifas públicas por kilómetro exacto, con los recargos del viaje publicados. Lo que no sabés al cotizar no aparece después en la liquidación.
+                    Tarifas públicas por kilómetro exacto, con los recargos del viaje publicados. Lo que no sabés al
+                    cotizar no aparece después en la liquidación.
                   </p>
                 </div>
               </div>
@@ -1116,9 +1203,11 @@
           <div class="flex-1">
             <div class="double-bezel-card h-full">
               <div class="double-bezel-inner flex flex-col gap-4 justify-between">
-                <div class="w-11 h-11 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100 shrink-0">
+                <div
+                  class="w-11 h-11 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100 shrink-0">
                   <svg class="h-5 w-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
                 <div class="space-y-1.5">
@@ -1126,7 +1215,8 @@
                     Innovación Tecnológica
                   </h3>
                   <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                    Ruteo optimizado en tiempo real, trazabilidad GPS instantánea y avisos automáticos para tus clientes en Mar del Plata.
+                    Ruteo optimizado en tiempo real, trazabilidad GPS instantánea y avisos automáticos para tus clientes
+                    en Mar del Plata.
                   </p>
                 </div>
               </div>
@@ -1144,15 +1234,14 @@
        SECCIÓN 4: ABOUT TEAM (AboutTeam.tsx)
        Fuerza Operativa & Experiencia: Grid de 4 Estadísticas Clave
   ========================================================================= -->
-  <section
-    id="about-team"
-    class="py-20 sm:py-24 bg-brand-blue text-white relative z-10 overflow-hidden border-t border-white/10"
-  >
+  <section id="about-team"
+    class="py-20 sm:py-24 bg-brand-blue text-white relative z-10 overflow-hidden border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
+
       <!-- Header Block -->
       <div class="text-left max-w-3xl mb-16 space-y-3.5">
-        <span class="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
+        <span
+          class="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
           FUERZA OPERATIVA & EXPERIENCIA
         </span>
         <h2 class="text-white text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
@@ -1165,28 +1254,34 @@
 
       <!-- Team Stats Grid (4 cols) -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
+
         <!-- Stat 1: +20 Repartidores -->
         <div class="double-bezel-card">
           <div class="double-bezel-inner flex flex-col justify-between space-y-5 relative overflow-hidden">
             <!-- Icon Watermark -->
-            <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-brand-blue/5 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-brand-blue/5 pointer-events-none" fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
             </svg>
 
-<div>
+            <div>
               <div class="flex items-center justify-between mb-3">
-                <div class="w-10 h-10 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100">
+                <div
+                  class="w-10 h-10 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100">
                   <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 </div>
-                <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
+                <span
+                  class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
                   Flota Propia
                 </span>
               </div>
 
-              <span class="block font-mono text-5xl sm:text-6xl font-bold text-brand-ink leading-none mb-2 tabular-nums">
+              <span
+                class="block font-mono text-5xl sm:text-6xl font-bold text-brand-ink leading-none mb-2 tabular-nums">
                 +20
               </span>
 
@@ -1195,11 +1290,13 @@
               </h3>
 
               <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                Cadetes capacitados y uniformados que conocen cada atajo y zona de Mar del Plata para entregas veloces y seguras.
+                Cadetes capacitados y uniformados que conocen cada atajo y zona de Mar del Plata para entregas veloces y
+                seguras.
               </p>
             </div>
 
-            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-ink font-mono">
+            <div
+              class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-ink font-mono">
               <span class="flex items-center gap-1.5 font-bold">
                 Envíos DosRuedas
               </span>
@@ -1211,23 +1308,29 @@
         <!-- Stat 2: 100% Base Operativa -->
         <div class="double-bezel-card">
           <div class="double-bezel-inner flex flex-col justify-between space-y-5 relative overflow-hidden">
-            <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-brand-blue/5 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-brand-blue/5 pointer-events-none" fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
             </svg>
 
             <div>
               <div class="flex items-center justify-between mb-3">
-                <div class="w-10 h-10 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100">
+                <div
+                  class="w-10 h-10 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100">
                   <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   </svg>
                 </div>
-                <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
+                <span
+                  class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
                   Base Friuli 1972
                 </span>
               </div>
 
-              <span class="block font-mono text-5xl sm:text-6xl font-bold text-brand-ink leading-none mb-2 tabular-nums">
+              <span
+                class="block font-mono text-5xl sm:text-6xl font-bold text-brand-ink leading-none mb-2 tabular-nums">
                 100%
               </span>
 
@@ -1236,11 +1339,13 @@
               </h3>
 
               <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                Depósito central en Friuli 1972 para recepción, almacenamiento, consolidación de paquetes y despacho diario.
+                Depósito central en Friuli 1972 para recepción, almacenamiento, consolidación de paquetes y despacho
+                diario.
               </p>
             </div>
 
-            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-ink font-mono">
+            <div
+              class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-ink font-mono">
               <span class="font-bold">Hub Friuli 1972</span>
               <span class="font-bold text-brand-blue tabular-nums">MDQ 2026</span>
             </div>
@@ -1250,23 +1355,29 @@
         <!-- Stat 3: < 2h Express -->
         <div class="double-bezel-card">
           <div class="double-bezel-inner flex flex-col justify-between space-y-5 relative overflow-hidden">
-            <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-brand-blue/5 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/>
+            <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-brand-blue/5 pointer-events-none" fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
             </svg>
 
             <div>
               <div class="flex items-center justify-between mb-3">
-                <div class="w-10 h-10 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100">
+                <div
+                  class="w-10 h-10 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100">
                   <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
+                <span
+                  class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
                   Máxima Velocidad
                 </span>
               </div>
 
-              <span class="block font-mono text-5xl sm:text-6xl font-bold text-brand-ink leading-none mb-2 tabular-nums">
+              <span
+                class="block font-mono text-5xl sm:text-6xl font-bold text-brand-ink leading-none mb-2 tabular-nums">
                 &lt; 2h
               </span>
 
@@ -1275,11 +1386,13 @@
               </h3>
 
               <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                Servicio prioritario punto a punto dentro del ejido urbano con monitoreo continuo de ruta y cadetería ágil.
+                Servicio prioritario punto a punto dentro del ejido urbano con monitoreo continuo de ruta y cadetería
+                ágil.
               </p>
             </div>
 
-            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-ink font-mono">
+            <div
+              class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-ink font-mono">
               <span class="font-bold">Prioridad Inmediata</span>
               <span class="font-bold text-brand-blue tabular-nums">MDQ 2026</span>
             </div>
@@ -1289,23 +1402,29 @@
         <!-- Stat 4: +7 Años -->
         <div class="double-bezel-card">
           <div class="double-bezel-inner flex flex-col justify-between space-y-5 relative overflow-hidden">
-            <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-brand-blue/5 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-brand-blue/5 pointer-events-none" fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
 
             <div>
               <div class="flex items-center justify-between mb-3">
-                <div class="w-10 h-10 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100">
+                <div
+                  class="w-10 h-10 bg-brand-blue-50 text-brand-blue rounded-xl flex items-center justify-center border border-brand-blue-100">
                   <svg class="w-5 h-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
                   </svg>
                 </div>
-                <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
+                <span
+                  class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
                   Confianza Local
                 </span>
               </div>
 
-              <span class="block font-mono text-5xl sm:text-6xl font-bold text-brand-ink leading-none mb-2 tabular-nums">
+              <span
+                class="block font-mono text-5xl sm:text-6xl font-bold text-brand-ink leading-none mb-2 tabular-nums">
                 +7
               </span>
 
@@ -1314,11 +1433,13 @@
               </h3>
 
               <p class="text-xs sm:text-sm text-brand-ink/80 leading-relaxed font-sans">
-                Compromiso ininterrumpido con comerciantes, emprendedores y empresas marplatenses con calificación 5 estrellas.
+                Compromiso ininterrumpido con comerciantes, emprendedores y empresas marplatenses con calificación 5
+                estrellas.
               </p>
             </div>
 
-            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-ink font-mono">
+            <div
+              class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs text-brand-ink font-mono">
               <span class="font-bold">Líderes Locales</span>
               <span class="font-bold text-brand-blue tabular-nums">MDQ 2026</span>
             </div>
@@ -1334,22 +1455,23 @@
        SECCIÓN 5: ABOUT ADVANTAGES (AboutAdvantages.tsx)
        Ventajas Territoriales: 7 cols (Soporte Directo) + 5 cols (Flota Propia) + 12 cols (Garantía)
   ========================================================================= -->
-  <section
-    id="about-advantages"
-    class="py-20 sm:py-24 bg-white relative overflow-hidden border-t border-brand-blue-100"
-  >
+  <section id="about-advantages"
+    class="py-20 sm:py-24 bg-white relative overflow-hidden border-t border-brand-blue-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
       <!-- Header Block -->
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-3.5">
-        <span class="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
+        <span
+          class="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
           VENTAJAS TERRITORIALES
         </span>
-        <h2 class="text-brand-blue text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
+        <h2
+          class="text-brand-blue text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
           POR QUÉ CONFIAR EN DOSRUEDAS
         </h2>
         <p class="text-brand-blue font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-          Frente a aplicaciones automatizadas y plataformas impersonales, nosotros brindamos compromiso presencial, operadores locales y conocimiento metro a metro de Mar del Plata.
+          Frente a aplicaciones automatizadas y plataformas impersonales, nosotros brindamos compromiso presencial,
+          operadores locales y conocimiento metro a metro de Mar del Plata.
         </p>
       </div>
 
@@ -1361,21 +1483,27 @@
           <div class="double-bezel-card h-full">
             <div class="double-bezel-inner space-y-4 flex flex-col justify-between h-full">
               <div class="space-y-4">
-                <div class="w-12 h-12 bg-brand-blue-50 text-brand-blue rounded-2xl flex items-center justify-center border border-brand-blue-100">
+                <div
+                  class="w-12 h-12 bg-brand-blue-50 text-brand-blue rounded-2xl flex items-center justify-center border border-brand-blue-100">
                   <svg class="h-6 w-6 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                 </div>
                 <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue leading-tight">
                   Atención Humana y Directa
                 </h3>
                 <p class="text-sm sm:text-base text-brand-blue leading-relaxed font-sans">
-                  Damos la cara siempre. Cuando surge una duda o reprogramación, te comunicás directamente por WhatsApp con operadores en Mar del Plata que gestionan y resuelven en el acto, sin bots ni respuestas enlatadas.
+                  Damos la cara siempre. Cuando surge una duda o reprogramación, te comunicás directamente por WhatsApp
+                  con operadores en Mar del Plata que gestionan y resuelven en el acto, sin bots ni respuestas
+                  enlatadas.
                 </p>
               </div>
-              <div class="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-blue">
+              <div
+                class="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-blue">
                 <svg class="h-4 w-4 text-brand-blue" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
                 <span>COMUNICACIÓN DIRECTA VÍA WHATSAPP</span>
               </div>
@@ -1388,24 +1516,28 @@
           <div class="double-bezel-card h-full">
             <div class="double-bezel-inner space-y-4 flex flex-col justify-between h-full">
               <div class="space-y-4">
-                <div class="w-12 h-12 bg-brand-yellow/20 text-brand-blue rounded-2xl flex items-center justify-center border border-brand-yellow/40">
+                <div
+                  class="w-12 h-12 bg-brand-yellow/20 text-brand-blue rounded-2xl flex items-center justify-center border border-brand-yellow/40">
                   <svg class="h-6 w-6 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <rect x="1" y="3" width="15" height="13" rx="2" stroke-width="2"/>
-                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" stroke-width="2"/>
-                    <circle cx="5.5" cy="18.5" r="2.5" stroke-width="2"/>
-                    <circle cx="18.5" cy="18.5" r="2.5" stroke-width="2"/>
+                    <rect x="1" y="3" width="15" height="13" rx="2" stroke-width="2" />
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" stroke-width="2" />
+                    <circle cx="5.5" cy="18.5" r="2.5" stroke-width="2" />
+                    <circle cx="18.5" cy="18.5" r="2.5" stroke-width="2" />
                   </svg>
                 </div>
                 <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue leading-tight">
                   Flota Propia Capacitada
                 </h3>
                 <p class="text-sm sm:text-base text-brand-blue leading-relaxed font-sans">
-                  No tercerizamos de forma descontrolada. Nuestro equipo de cadetes está uniformado, capacitado en manejo de paquetes frágiles y con base física en <strong>Friuli 1972</strong>.
+                  No tercerizamos de forma descontrolada. Nuestro equipo de cadetes está uniformado, capacitado en
+                  manejo de paquetes frágiles y con base física en <strong>Friuli 1972</strong>.
                 </p>
               </div>
-              <div class="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-blue">
+              <div
+                class="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-blue">
                 <svg class="h-4 w-4 text-brand-blue animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
                 <span>COBERTURA TOTAL GENERAL PUEYRREDÓN</span>
               </div>
@@ -1421,7 +1553,8 @@
                 <div class="flex items-center gap-3">
                   <div class="p-2.5 bg-brand-blue-50 text-brand-blue rounded-xl">
                     <svg class="h-6 w-6 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
                   <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-tight text-brand-blue leading-none">
@@ -1429,18 +1562,17 @@
                   </h3>
                 </div>
                 <p class="text-sm sm:text-base text-brand-blue leading-relaxed font-sans">
-                  Tu reputación comercial depende de la puntualidad de entrega. Si coordinamos un envío express en 2 horas o un ruteo programado, cumplimos la franja pactada sin desvíos.
+                  Tu reputación comercial depende de la puntualidad de entrega. Si coordinamos un envío express en 2
+                  horas o un ruteo programado, cumplimos la franja pactada sin desvíos.
                 </p>
               </div>
               <div class="shrink-0 flex items-center">
-                <a 
-                  href="/cotizar" 
-                  class="cta-nested-pill primary group"
-                >
+                <a href="/cotizar" class="cta-nested-pill primary group">
                   <span>Cotizar tu Envío</span>
                   <span class="cta-icon-circle">
                     <svg class="w-4 h-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </span>
                 </a>
@@ -1458,18 +1590,18 @@
        SECCIÓN 6: ABOUT MISSION & VISION (AboutMissionVision.tsx)
        Misión (7 cols) + Visión (5 cols) + Banner CTA de Compromiso (12 cols)
   ========================================================================= -->
-  <section
-    id="about-mission-vision"
-    class="py-20 sm:py-24 bg-brand-blue-50 relative overflow-hidden border-t border-brand-blue-100"
-  >
+  <section id="about-mission-vision"
+    class="py-20 sm:py-24 bg-brand-blue-50 relative overflow-hidden border-t border-brand-blue-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
       <!-- Header Block -->
       <div class="text-center max-w-2xl mx-auto mb-16 space-y-3.5">
-        <span class="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
+        <span
+          class="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest inline-block transform -rotate-1 shadow-glow-yellow">
           PROPÓSITO & FUTURO
         </span>
-        <h2 class="text-brand-ink text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
+        <h2
+          class="text-brand-ink text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[1.05]">
           MISIÓN, VISIÓN & COMPROMISO
         </h2>
         <p class="text-brand-ink font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
@@ -1485,12 +1617,13 @@
           <div class="double-bezel-card h-full">
             <div class="double-bezel-inner space-y-4 flex flex-col justify-between h-full">
               <div class="space-y-4">
-                <div class="w-12 h-12 bg-brand-blue-50 text-brand-blue rounded-2xl flex items-center justify-center border border-brand-blue-100">
+                <div
+                  class="w-12 h-12 bg-brand-blue-50 text-brand-blue rounded-2xl flex items-center justify-center border border-brand-blue-100">
                   <!-- Target Icon -->
                   <svg class="h-6 w-6 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                    <circle cx="12" cy="12" r="6" stroke-width="2"/>
-                    <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                    <circle cx="12" cy="12" r="6" stroke-width="2" />
+                    <circle cx="12" cy="12" r="2" fill="currentColor" />
                   </svg>
                 </div>
 
@@ -1499,13 +1632,17 @@
                 </h3>
 
                 <p class="text-sm sm:text-base text-brand-ink leading-relaxed font-sans">
-                  Brindar a cada negocio, e-commerce y particular de Mar del Plata una infraestructura de última milla confiable, accesible y ágil. Eliminamos las fricciones logísticas para que nuestros clientes puedan enfocarse en vender más y crecer.
+                  Brindar a cada negocio, e-commerce y particular de Mar del Plata una infraestructura de última milla
+                  confiable, accesible y ágil. Eliminamos las fricciones logísticas para que nuestros clientes puedan
+                  enfocarse en vender más y crecer.
                 </p>
               </div>
 
-              <div class="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-ink font-bold">
+              <div
+                class="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-ink font-bold">
                 <svg class="h-4 w-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
                 <span>COMPROMISO OPERATIVO PERMANENTE</span>
               </div>
@@ -1518,11 +1655,14 @@
           <div class="double-bezel-card h-full">
             <div class="double-bezel-inner space-y-4 flex flex-col justify-between h-full">
               <div class="space-y-4">
-                <div class="w-12 h-12 bg-brand-yellow-50 text-brand-blue rounded-2xl flex items-center justify-center border border-brand-yellow-200">
+                <div
+                  class="w-12 h-12 bg-brand-yellow-50 text-brand-blue rounded-2xl flex items-center justify-center border border-brand-yellow-200">
                   <!-- Eye Icon -->
                   <svg class="h-6 w-6 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                   </svg>
                 </div>
 
@@ -1531,13 +1671,16 @@
                 </h3>
 
                 <p class="text-sm sm:text-base text-brand-ink leading-relaxed font-sans">
-                  Ser el estándar indiscutido de logística urbana y fulfillment 3PL en la Costa Atlántica, reconocidos por nuestra puntualidad, tecnología de ruteo y calidez en la atención humana.
+                  Ser el estándar indiscutido de logística urbana y fulfillment 3PL en la Costa Atlántica, reconocidos
+                  por nuestra puntualidad, tecnología de ruteo y calidez en la atención humana.
                 </p>
               </div>
 
-              <div class="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-ink font-bold">
+              <div
+                class="pt-4 border-t border-brand-blue-100 flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-ink font-bold">
                 <svg class="h-4 w-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
                 <span>VISIÓN DE FUTURO 2026</span>
               </div>
@@ -1548,13 +1691,15 @@
         <!-- Card 3: Compromiso e Innovación CTA (12 cols) -->
         <div class="lg:col-span-12">
           <div class="double-bezel-card-dark">
-            <div class="double-bezel-inner-dark flex flex-col md:flex-row md:items-center justify-between gap-6 text-white p-6 sm:p-8">
-              
+            <div
+              class="double-bezel-inner-dark flex flex-col md:flex-row md:items-center justify-between gap-6 text-white p-6 sm:p-8">
+
               <div class="space-y-3 max-w-3xl">
                 <div class="flex items-center gap-3">
                   <div class="p-2.5 bg-white/10 text-brand-yellow rounded-xl border border-white/20">
                     <svg class="h-6 w-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                     </svg>
                   </div>
                   <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white leading-none">
@@ -1562,27 +1707,23 @@
                   </h3>
                 </div>
                 <p class="text-sm sm:text-base text-white/90 leading-relaxed font-sans">
-                  Sumate a las cientos de tiendas y emprendimientos de Mar del Plata que confían su logística diaria en Envíos DosRuedas. Cotizá en línea o hablá hoy con un asesor comercial.
+                  Sumate a las cientos de tiendas y emprendimientos de Mar del Plata que confían su logística diaria en
+                  Envíos DosRuedas. Cotizá en línea o hablá hoy con un asesor comercial.
                 </p>
               </div>
 
               <div class="shrink-0 flex flex-wrap items-center gap-3">
-                <a
-                  href="/cotizar"
-                  class="cta-nested-pill primary group"
-                >
+                <a href="/cotizar" class="cta-nested-pill primary group">
                   <span>Cotizar Envío</span>
                   <span class="cta-icon-circle">
                     <svg class="w-4 h-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </span>
                 </a>
 
-                <a
-                  href="/contacto"
-                  class="cta-nested-pill outline"
-                >
+                <a href="/contacto" class="cta-nested-pill outline">
                   <span>Contactar Asesor</span>
                 </a>
               </div>

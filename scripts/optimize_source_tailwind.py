@@ -98,6 +98,11 @@ DIRECT_CANONICAL_RULES: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"(?<![\w-])text-\[16px\](?![\w-])"), "text-base"),
     (re.compile(r"(?<![\w-])text-\[18px\](?![\w-])"), "text-lg"),
     (re.compile(r"(?<![\w-])text-\[20px\](?![\w-])"), "text-xl"),
+
+    # Rotaciones canónicas (1, 2, 3, 6, 12, 45, 90, 180)
+    (re.compile(r"(?<![\w-])((?:[a-z0-9_-]+:)*)rotate-\[(1|2|3|6|12|45|90|180)deg\](?![\w-])"), r"\1rotate-\2"),
+    (re.compile(r"(?<![\w-])((?:[a-z0-9_-]+:)*)rotate-\[-(1|2|3|6|12|45|90|180)deg\](?![\w-])"), r"\1-rotate-\2"),
+    (re.compile(r"(?<![\w-])((?:[a-z0-9_-]+:)*)-rotate-\[(1|2|3|6|12|45|90|180)deg\](?![\w-])"), r"\1-rotate-\2"),
 ]
 
 # Aspect ratio regex

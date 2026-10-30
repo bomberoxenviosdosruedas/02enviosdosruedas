@@ -5,14 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Envíos LowCost en Mar del Plata | Envíos DosRuedas</title>
-  
+
   <!-- Fonts oficiales del proyecto -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <!-- Tailwind CSS CDN -->
-    <!-- Lucide Icons -->
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -72,20 +74,28 @@
   </script>
 
   <style>
-    .bg-linear-to-br, .bg-linear-to-tr, .bg-linear-to-t, .bg-linear-to-b, .bg-linear-to-r, .bg-linear-to-l {
+    .bg-linear-to-br,
+    .bg-linear-to-tr,
+    .bg-linear-to-t,
+    .bg-linear-to-b,
+    .bg-linear-to-r,
+    .bg-linear-to-l {
       background-image: linear-gradient(var(--tw-gradient-stops));
     }
+
     /* Estilos de tokens oficiales */
     .font-display {
       font-family: 'Anton', sans-serif;
       text-transform: uppercase;
       letter-spacing: -0.02em;
     }
+
     .font-subheading {
       font-family: 'Bebas Neue', sans-serif;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
+
     .font-mono {
       font-family: 'Geist Mono', monospace;
       font-variant-numeric: tabular-nums;
@@ -100,10 +110,12 @@
       box-shadow: 0 20px 40px -15px rgba(9, 80, 246, 0.12);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .double-bezel-outer:hover {
       border-color: #628FF9;
       box-shadow: 0 24px 64px rgba(9, 80, 246, 0.2);
     }
+
     .double-bezel-inner {
       background-color: #FFFFFF;
       border-radius: 1.125rem;
@@ -121,10 +133,12 @@
       box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .double-bezel-blue-outer:hover {
       transform: translateY(-4px);
       box-shadow: 0 24px 64px rgba(9, 80, 246, 0.3);
     }
+
     .double-bezel-blue-inner {
       background-color: #FFFFFF;
       border-radius: 1.35rem;
@@ -158,6 +172,7 @@
       transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
       box-shadow: 0 4px 16px rgba(9, 80, 246, 0.3);
     }
+
     .cta-pill-blue:hover {
       background-color: #0843d1;
       transform: translateY(-2px);
@@ -180,6 +195,7 @@
       transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
       box-shadow: 0 0 25px rgba(255, 236, 1, 0.45);
     }
+
     .cta-pill-yellow:hover {
       background-color: #FFF12E;
       transform: translateY(-2px);
@@ -188,9 +204,15 @@
 
     /* Animación de la barra de reparto */
     @keyframes growWidth {
-      from { width: 0%; }
-      to { width: 50%; }
+      from {
+        width: 0%;
+      }
+
+      to {
+        width: 50%;
+      }
     }
+
     .animate-grow-x {
       animation: growWidth 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
@@ -199,11 +221,12 @@
     .trama-carga {
       background-image: repeating-linear-gradient(90deg, #0950F6 0, #0950F6 3px, transparent 3px, transparent 7px);
     }
-  
+
     .kinetic-font-stretch {
       display: inline-block;
       transition: transform 0.3s ease, letter-spacing 0.3s ease;
     }
+
     .kinetic-font-stretch:hover {
       transform: scaleX(1.06);
     }
@@ -562,40 +585,24 @@
        Concepto: El reloj de la ventana de 6 horas (13:00 corte -> 19:00 entrega)
        Fondo: Amarillo canónico tone="yellow", textos en azul de marca #0950F6
        ========================================================================= -->
-  <section
-    id="lowcost-hero"
-    aria-label="LowCost: paquetería y cadetería con entrega el mismo día en Mar del Plata"
-    class="relative isolate flex min-h-[92vh] w-full flex-col justify-center overflow-hidden bg-brand-yellow-500 text-brand-blue-500 py-16 lg:py-24"
-  >
+  <section id="lowcost-hero" aria-label="LowCost: paquetería y cadetería con entrega el mismo día en Mar del Plata"
+    class="relative isolate flex min-h-[92vh] w-full flex-col justify-center overflow-hidden bg-brand-yellow-500 text-brand-blue-500 py-16 lg:py-24">
     <!-- Fondo procedural vector & firma de reloj -->
     <div aria-hidden="true" class="absolute inset-0 pointer-events-none overflow-hidden">
       <!-- Cuadrícula técnica sutil -->
-      <div class="absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_right,#0950F6_1px,transparent_1px),linear-gradient(to_bottom,#0950F6_1px,transparent_1px)] bg-size-[36px_36px]"></div>
-      
+      <div
+        class="absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_right,#0950F6_1px,transparent_1px),linear-gradient(to_bottom,#0950F6_1px,transparent_1px)] bg-size-[36px_36px]">
+      </div>
+
       <!-- Reloj de 12 horas: Arco azul marca exactamente la ventana 13:00 a 19:00 (6 hs) -->
-      <svg
-        class="absolute right-[-8%] bottom-[-10%] w-80 h-80 sm:w-125 sm:h-125 lg:w-170 lg:h-170 opacity-[0.24]"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="-150 -150 300 300"
-      >
+      <svg class="absolute right-[-8%] bottom-[-10%] w-80 h-80 sm:w-125 sm:h-125 lg:w-170 lg:h-170 opacity-[0.24]"
+        xmlns="http://www.w3.org/2000/svg" viewBox="-150 -150 300 300">
         <!-- Dial sólido: Ventana de 13:00 a 19:00 -->
-        <path
-          d="M 50 -86.6 A 100 100 0 1 1 -50 86.6"
-          fill="none"
-          stroke="#0950F6"
-          stroke-width="14"
-          stroke-linecap="round"
-        />
+        <path d="M 50 -86.6 A 100 100 0 1 1 -50 86.6" fill="none" stroke="#0950F6" stroke-width="14"
+          stroke-linecap="round" />
         <!-- Dial punteado: Horas de descanso/carga previa -->
-        <path
-          d="M -50 86.6 A 100 100 0 0 1 50 -86.6"
-          fill="none"
-          stroke="#0950F6"
-          stroke-width="14"
-          stroke-linecap="round"
-          stroke-dasharray="4 14"
-          opacity="0.4"
-        />
+        <path d="M -50 86.6 A 100 100 0 0 1 50 -86.6" fill="none" stroke="#0950F6" stroke-width="14"
+          stroke-linecap="round" stroke-dasharray="4 14" opacity="0.4" />
         <!-- Marcas horarias cada 30 grados (12 horas) -->
         <g stroke="#0950F6" stroke-linecap="round">
           <!-- 12 marcas de horas -->
@@ -613,60 +620,52 @@
           <line x1="-60" y1="-103.9" x2="-66" y2="-114.3" stroke-width="1.5" opacity="0.45" />
         </g>
         <!-- Manija fija clavada en el corte de las 13:00 hs -->
-        <line
-          x1="0"
-          y1="0"
-          x2="50"
-          y2="-86.6"
-          stroke="#0950F6"
-          stroke-width="5"
-          stroke-linecap="round"
-        />
+        <line x1="0" y1="0" x2="50" y2="-86.6" stroke="#0950F6" stroke-width="5" stroke-linecap="round" />
         <circle r="8" fill="#0950F6" />
       </svg>
     </div>
 
     <div class="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-        
+
         <!-- LEFT 7 — Copy, badges & CTAs -->
         <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest bg-brand-blue-500 text-white -rotate-1 shadow-md">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest bg-brand-blue-500 text-white -rotate-1 shadow-md">
             <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
             </svg>
             Paquetería y cadetería · MDQ 2026
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-tight leading-[0.92] text-brand-blue-500 text-balance">
+          <h1
+            class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-tight leading-[0.92] text-brand-blue-500 text-balance">
             <span class="block">Cortás el pedido</span>
             <span class="knockout-blue">y lo recibís hoy</span>
             <span class="block">en Mar del Plata</span>
           </h1>
 
-          <p class="text-base sm:text-lg font-sans text-brand-blue-500 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-normal">
-            Paquetería e-commerce, cadetería y encomiendas programadas. Lo que cargás antes de las <strong>13:00 hs</strong> se entrega en el día, antes de las <strong>19:00 hs</strong>. Sin franja horaria fija: ruteo inteligente optimizado para maximizar tu ahorro.
+          <p
+            class="text-base sm:text-lg font-sans text-brand-blue-500 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-normal">
+            Paquetería e-commerce, cadetería y encomiendas programadas. Lo que cargás antes de las <strong>13:00
+              hs</strong> se entrega en el día, antes de las <strong>19:00 hs</strong>. Sin franja horaria fija: ruteo
+            inteligente optimizado para maximizar tu ahorro.
           </p>
 
           <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
-            <a
-              href="/cotizar"
-              id="lowcost-hero-cta-cotizar"
-              class="cta-pill-blue w-full sm:w-auto text-center"
-            >
+            <a href="/cotizar" id="lowcost-hero-cta-cotizar" class="cta-pill-blue w-full sm:w-auto text-center">
               <span>Cotizá tu envío LowCost</span>
               <span class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-sm font-mono">→</span>
             </a>
-            
-            <a
-              href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20hacer%20un%20env%C3%ADo%20LowCost"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex min-h-11 items-center gap-2 font-subheading text-base uppercase tracking-wider text-brand-blue-500 underline decoration-brand-blue-500 decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
-            >
+
+            <a href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20hacer%20un%20env%C3%ADo%20LowCost"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex min-h-11 items-center gap-2 font-subheading text-base uppercase tracking-wider text-brand-blue-500 underline decoration-brand-blue-500 decoration-2 underline-offset-4 hover:opacity-80 transition-opacity">
               <!-- WhatsApp Icon SVG -->
               <svg class="h-5 w-5 shrink-0 fill-current" viewBox="0 0 24 24">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+                <path
+                  d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z" />
               </svg>
               <span>O escribinos por WhatsApp</span>
             </a>
@@ -674,39 +673,54 @@
 
           <!-- 3 Chips de métricas -->
           <ul class="grid grid-cols-3 gap-2.5 sm:gap-3.5 pt-3 max-w-xl mx-auto lg:mx-0">
-            <li class="p-3.5 rounded-2xl bg-white/70 backdrop-blur-md border border-brand-blue-500/30 text-center shadow-xs">
+            <li
+              class="p-3.5 rounded-2xl bg-white/70 backdrop-blur-md border border-brand-blue-500/30 text-center shadow-xs">
               <svg class="w-5 h-5 mx-auto text-brand-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+                <circle cx="12" cy="12" r="10" stroke-width="2" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2" />
               </svg>
-              <span class="block font-mono text-xl sm:text-2xl font-bold text-brand-blue-500 tabular-nums mt-1">13:00 hs</span>
-              <span class="block font-subheading text-xs sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">Corte de pedidos</span>
-            </li>
-            
-            <li class="p-3.5 rounded-2xl bg-white/70 backdrop-blur-md border border-brand-blue-500/30 text-center shadow-xs">
-              <svg class="w-5 h-5 mx-auto text-brand-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
-              </svg>
-              <span class="block font-mono text-xl sm:text-2xl font-bold text-brand-blue-500 tabular-nums mt-1">19:00 hs</span>
-              <span class="block font-subheading text-xs sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">Entrega el mismo día</span>
+              <span class="block font-mono text-xl sm:text-2xl font-bold text-brand-blue-500 tabular-nums mt-1">13:00
+                hs</span>
+              <span
+                class="block font-subheading text-xs sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">Corte
+                de pedidos</span>
             </li>
 
-            <li class="p-3.5 rounded-2xl bg-white/70 backdrop-blur-md border border-brand-blue-500/30 text-center shadow-xs">
+            <li
+              class="p-3.5 rounded-2xl bg-white/70 backdrop-blur-md border border-brand-blue-500/30 text-center shadow-xs">
               <svg class="w-5 h-5 mx-auto text-brand-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                <circle cx="12" cy="12" r="10" stroke-width="2" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2" />
               </svg>
-              <span class="block font-mono text-xl sm:text-2xl font-bold text-brand-blue-500 tabular-nums mt-1">$3.000</span>
-              <span class="block font-subheading text-xs sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">Base 0–3 km</span>
+              <span class="block font-mono text-xl sm:text-2xl font-bold text-brand-blue-500 tabular-nums mt-1">19:00
+                hs</span>
+              <span
+                class="block font-subheading text-xs sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">Entrega
+                el mismo día</span>
+            </li>
+
+            <li
+              class="p-3.5 rounded-2xl bg-white/70 backdrop-blur-md border border-brand-blue-500/30 text-center shadow-xs">
+              <svg class="w-5 h-5 mx-auto text-brand-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+              </svg>
+              <span
+                class="block font-mono text-xl sm:text-2xl font-bold text-brand-blue-500 tabular-nums mt-1">$3.000</span>
+              <span
+                class="block font-subheading text-xs sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">Base
+                0–3 km</span>
             </li>
           </ul>
         </div>
 
         <!-- RIGHT 5 — Double Bezel Card con la Pieza del Servicio (Barra de la Jornada) -->
         <div class="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
-          <div class="w-full max-w-md p-2 rounded-3xl bg-brand-blue-500/15 border border-brand-blue-500/30 shadow-2xl backdrop-blur-md">
-            <div class="bg-white p-6 sm:p-7 rounded-2xl border border-brand-blue-500/20 shadow-sm space-y-6 text-brand-blue-500">
-              
+          <div
+            class="w-full max-w-md p-2 rounded-3xl bg-brand-blue-500/15 border border-brand-blue-500/30 shadow-2xl backdrop-blur-md">
+            <div
+              class="bg-white p-6 sm:p-7 rounded-2xl border border-brand-blue-500/20 shadow-sm space-y-6 text-brand-blue-500">
+
               <!-- Cabecera de la tarjeta con badge de ahorro -->
               <div class="flex items-center justify-between gap-3 border-b border-brand-blue-100 pb-3">
                 <span class="inline-flex items-center gap-2">
@@ -715,7 +729,8 @@
                     Mismo día, sin agrupar
                   </span>
                 </span>
-                <span class="shrink-0 rounded-lg bg-brand-blue-500 px-2.5 py-1 font-mono text-xs font-bold tabular-nums text-brand-yellow-500 shadow-sm">
+                <span
+                  class="shrink-0 rounded-lg bg-brand-blue-500 px-2.5 py-1 font-mono text-xs font-bold tabular-nums text-brand-yellow-500 shadow-sm">
                   −$700 vs Express
                 </span>
               </div>
@@ -736,30 +751,18 @@
                   <div class="min-w-70">
                     <div class="relative h-11 overflow-hidden rounded-xl bg-brand-blue-50 border border-brand-blue-200">
                       <!-- Tramo de carga: 8 a 13 hs = 5 hs de 12 hs (41.6%) -->
-                      <div
-                        class="absolute inset-y-0 left-0 trama-carga"
-                        style="width: 41.66%;"
-                        title="Período de carga de pedidos"
-                      ></div>
-                      
+                      <div class="absolute inset-y-0 left-0 trama-carga" style="width: 41.66%;"
+                        title="Período de carga de pedidos"></div>
+
                       <!-- Tramo de reparto activo: 13 a 19 hs = 6 hs de 12 hs (50%) -->
-                      <div
-                        class="animate-grow-x absolute inset-y-0 bg-brand-blue-500"
-                        style="left: 41.66%; width: 50%;"
-                        title="Reparto continuo en la calle"
-                      ></div>
-                      
+                      <div class="animate-grow-x absolute inset-y-0 bg-brand-blue-500" style="left: 41.66%; width: 50%;"
+                        title="Reparto continuo en la calle"></div>
+
                       <!-- Indicador de corte 13:00 hs -->
-                      <div
-                        class="absolute inset-y-0 w-0.5 bg-brand-blue-500 shadow-sm"
-                        style="left: 41.66%;"
-                      ></div>
+                      <div class="absolute inset-y-0 w-0.5 bg-brand-blue-500 shadow-sm" style="left: 41.66%;"></div>
 
                       <!-- Indicador de entrega límite 19:00 hs -->
-                      <div
-                        class="absolute inset-y-0 w-0.5 bg-brand-blue-500 shadow-sm"
-                        style="left: 91.66%;"
-                      ></div>
+                      <div class="absolute inset-y-0 w-0.5 bg-brand-blue-500 shadow-sm" style="left: 91.66%;"></div>
                     </div>
 
                     <!-- Marcas horarias cada 2 horas: 8, 10, 12, 14, 16, 18, 20 -->
@@ -770,7 +773,7 @@
                       <span class="absolute left-[50%] -translate-x-1/2">14</span>
                       <span class="absolute left-[66.66%] -translate-x-1/2">16</span>
                       <span class="absolute left-[83.33%] -translate-x-1/2">18</span>
-                      <span class="absolute left-[100%] -translate-x-1/2">20</span>
+                      <span class="absolute left-full -translate-x-1/2">20</span>
                     </div>
                   </div>
                 </div>
@@ -792,9 +795,12 @@
               </div>
 
               <!-- Pie de tarjeta -->
-              <div class="border-t border-brand-blue-100 pt-3.5 flex items-center justify-between gap-3 font-mono text-xs text-brand-blue-500 tabular-nums">
+              <div
+                class="border-t border-brand-blue-100 pt-3.5 flex items-center justify-between gap-3 font-mono text-xs text-brand-blue-500 tabular-nums">
                 <span class="font-bold">13:00 hs → 19:00 hs</span>
-                <span class="text-brand-blue-500/80 bg-brand-blue-50 px-2 py-0.5 rounded border border-brand-blue-100">Todo Mar del Plata</span>
+                <span
+                  class="text-brand-blue-500/80 bg-brand-blue-50 px-2 py-0.5 rounded border border-brand-blue-100">Todo
+                  Mar del Plata</span>
               </div>
 
             </div>
@@ -811,18 +817,18 @@
        Concepto: Paso a paso vertical y transparente
        Fondo: Azul suave #E6EEFE (brand-blue-50)
        ========================================================================= -->
-  <section
-    id="lowcost-how-it-works"
-    class="py-20 sm:py-24 bg-brand-blue-50 relative overflow-hidden border-t border-brand-blue-100"
-  >
+  <section id="lowcost-how-it-works"
+    class="py-20 sm:py-24 bg-brand-blue-50 relative overflow-hidden border-t border-brand-blue-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <!-- Header Block -->
       <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-        <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
+        <span
+          class="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
           PASO A PASO
         </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-500 leading-none">
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-500 leading-none">
           ¿CÓMO FUNCIONA?
         </h2>
         <p class="text-brand-blue-500/85 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
@@ -833,21 +839,24 @@
 
       <!-- Stepper Cards Grid -->
       <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-        
+
         <!-- Línea conectora Desktop -->
-        <div class="hidden md:block absolute top-1/2 left-8 right-8 h-1 bg-brand-blue-200 -translate-y-6 z-0" aria-hidden="true"></div>
+        <div class="hidden md:block absolute top-1/2 left-8 right-8 h-1 bg-brand-blue-200 -translate-y-6 z-0"
+          aria-hidden="true"></div>
 
         <!-- Paso 01 -->
         <div class="double-bezel-outer relative z-10">
           <div class="double-bezel-inner p-6 sm:p-7 flex flex-col justify-between h-full space-y-5 text-left">
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 font-display text-2xl shadow-md">
+              <span
+                class="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 font-display text-2xl shadow-md">
                 01
               </span>
               <span class="p-2.5 rounded-xl bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100">
                 <!-- MessageSquare Icon -->
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               </span>
             </div>
@@ -860,8 +869,9 @@
                 Nos solicitás el envío por WhatsApp con el origen y destino antes del corte de las 13:00 hs.
               </p>
             </div>
-            
-            <div class="pt-3 border-t border-brand-blue-50 font-mono text-2xs uppercase tracking-wider text-brand-blue-400 font-semibold">
+
+            <div
+              class="pt-3 border-t border-brand-blue-50 font-mono text-2xs uppercase tracking-wider text-brand-blue-400 font-semibold">
               Corte 13:00 hs
             </div>
           </div>
@@ -871,13 +881,15 @@
         <div class="double-bezel-outer relative z-10">
           <div class="double-bezel-inner p-6 sm:p-7 flex flex-col justify-between h-full space-y-5 text-left">
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 font-display text-2xl shadow-md">
+              <span
+                class="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 font-display text-2xl shadow-md">
                 02
               </span>
               <span class="p-2.5 rounded-xl bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100">
                 <!-- Truck Icon -->
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
                 </svg>
               </span>
             </div>
@@ -891,7 +903,8 @@
               </p>
             </div>
 
-            <div class="pt-3 border-t border-brand-blue-50 font-mono text-2xs uppercase tracking-wider text-brand-blue-400 font-semibold">
+            <div
+              class="pt-3 border-t border-brand-blue-50 font-mono text-2xs uppercase tracking-wider text-brand-blue-400 font-semibold">
               Flota propia en calle
             </div>
           </div>
@@ -901,13 +914,15 @@
         <div class="double-bezel-outer relative z-10">
           <div class="double-bezel-inner p-6 sm:p-7 flex flex-col justify-between h-full space-y-5 text-left">
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 font-display text-2xl shadow-md">
+              <span
+                class="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 font-display text-2xl shadow-md">
                 03
               </span>
               <span class="p-2.5 rounded-xl bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100">
                 <!-- CheckSquare Icon -->
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </span>
             </div>
@@ -921,7 +936,8 @@
               </p>
             </div>
 
-            <div class="pt-3 border-t border-brand-blue-50 font-mono text-2xs uppercase tracking-wider text-brand-blue-400 font-semibold">
+            <div
+              class="pt-3 border-t border-brand-blue-50 font-mono text-2xs uppercase tracking-wider text-brand-blue-400 font-semibold">
               Límite 19:00 hs
             </div>
           </div>
@@ -938,31 +954,35 @@
        Concepto: Máxima Rentabilidad y Bento Grid Asimétrico
        Fondo: Blanco con componentes en doble bisel
        ========================================================================= -->
-  <section
-    id="lowcost-features"
-    class="py-24 bg-white relative z-10 overflow-hidden border-t border-brand-blue-100"
-  >
+  <section id="lowcost-features" class="py-24 bg-white relative z-10 overflow-hidden border-t border-brand-blue-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
         <!-- Header Column (Left 5) -->
         <div class="lg:col-span-5 space-y-6 text-left">
-          <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
+          <span
+            class="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
             MÁXIMA RENTABILIDAD
           </span>
 
-          <h2 class="text-brand-blue-500 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
+          <h2
+            class="text-brand-blue-500 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
             ENVÍOS LOWCOST: <br />
-            <span class="text-brand-blue-500 bg-brand-yellow-500 px-2.5 py-0.5 inline-block mt-1 -rotate-1 shadow-sm">MÁXIMA EFICIENCIA</span>
+            <span
+              class="text-brand-blue-500 bg-brand-yellow-500 px-2.5 py-0.5 inline-block mt-1 -rotate-1 shadow-sm">MÁXIMA
+              EFICIENCIA</span>
           </h2>
 
           <p class="text-brand-blue-500/85 text-base leading-relaxed font-sans">
-            Nuestro servicio LowCost está diseñado para el ruteo diario masivo. Optimizamos nuestras rutas agrupando despachos para ofrecer la tarifa más competitiva de Mar del Plata, garantizando la entrega en el día para pedidos ingresados antes del horario de corte.
+            Nuestro servicio LowCost está diseñado para el ruteo diario masivo. Optimizamos nuestras rutas agrupando
+            despachos para ofrecer la tarifa más competitiva de Mar del Plata, garantizando la entrega en el día para
+            pedidos ingresados antes del horario de corte.
           </p>
 
-          <div class="pt-3 flex items-center gap-3 text-sm text-brand-blue-500 font-bold uppercase tracking-wider font-subheading bg-brand-blue-50 p-3.5 rounded-2xl border border-brand-blue-100">
+          <div
+            class="pt-3 flex items-center gap-3 text-sm text-brand-blue-500 font-bold uppercase tracking-wider font-subheading bg-brand-blue-50 p-3.5 rounded-2xl border border-brand-blue-100">
             <svg class="h-5 w-5 text-brand-yellow-500 shrink-0 fill-current" viewBox="0 0 24 24">
-              <path d="M4 10h16v2H4zm0-4h16v2H4zm0 8h16v2H4zm0 4h16v2H4z"/>
+              <path d="M4 10h16v2H4zm0-4h16v2H4zm0 8h16v2H4zm0 4h16v2H4z" />
             </svg>
             <span>LOGÍSTICA PREDECIBLE PARA NEGOCIOS Y TIENDAS</span>
           </div>
@@ -970,18 +990,24 @@
 
         <!-- Bento Grid Asimétrico (Right 7) -->
         <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-12 gap-6 text-left">
-          
+
           <!-- Feature 1: Eficiencia en Ruteo (12 cols) -->
           <div class="sm:col-span-12 double-bezel-outer group cursor-pointer">
-            <div class="double-bezel-inner p-6 sm:p-7 relative overflow-hidden flex flex-col sm:flex-row gap-5 items-start">
+            <div
+              class="double-bezel-inner p-6 sm:p-7 relative overflow-hidden flex flex-col sm:flex-row gap-5 items-start">
               <!-- Giant Watermark Icon -->
-              <svg class="absolute -bottom-6 -right-6 h-36 w-36 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              <svg
+                class="absolute -bottom-6 -right-6 h-36 w-36 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
               </svg>
 
-              <div class="p-3.5 bg-brand-blue-500 text-brand-yellow-500 rounded-xl shrink-0 shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-300 relative z-10">
+              <div
+                class="p-3.5 bg-brand-blue-500 text-brand-yellow-500 rounded-xl shrink-0 shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-300 relative z-10">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                 </svg>
               </div>
 
@@ -990,7 +1016,8 @@
                   Eficiencia en Ruteo
                 </h4>
                 <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
-                  Ruteo diario masivo optimizado de última milla. No se elige rango horario específico para maximizar la velocidad de la flota y bajar los costos operativos al mínimo.
+                  Ruteo diario masivo optimizado de última milla. No se elige rango horario específico para maximizar la
+                  velocidad de la flota y bajar los costos operativos al mínimo.
                 </p>
               </div>
             </div>
@@ -999,15 +1026,18 @@
           <!-- Feature 2: Corte y Entrega (7 cols) -->
           <div class="sm:col-span-7 double-bezel-outer group cursor-pointer">
             <div class="double-bezel-inner p-6 relative overflow-hidden flex flex-col gap-4 h-full">
-              <svg class="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+              <svg
+                class="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" stroke-width="2" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2" />
               </svg>
 
-              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-300 relative z-10">
+              <div
+                class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-300 relative z-10">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+                  <circle cx="12" cy="12" r="10" stroke-width="2" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2" />
                 </svg>
               </div>
 
@@ -1016,7 +1046,8 @@
                   Corte y Entrega
                 </h4>
                 <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
-                  Pedidos ingresados antes de las 13:00 hs se entregan en el transcurso del día, estrictamente antes de las 19:00 hs.
+                  Pedidos ingresados antes de las 13:00 hs se entregan en el transcurso del día, estrictamente antes de
+                  las 19:00 hs.
                 </p>
               </div>
             </div>
@@ -1025,13 +1056,18 @@
           <!-- Feature 3: Tarifa Económica (5 cols) -->
           <div class="sm:col-span-5 double-bezel-outer group cursor-pointer">
             <div class="double-bezel-inner p-6 relative overflow-hidden flex flex-col gap-4 h-full">
-              <svg class="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg
+                class="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
 
-              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-300 relative z-10">
+              <div
+                class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-300 relative z-10">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
 
@@ -1040,7 +1076,8 @@
                   Tarifa Económica
                 </h4>
                 <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
-                  Más barato que Express, con escala decreciente en trayectos largos. Pensado para emprendedores y tiendas online.
+                  Más barato que Express, con escala decreciente en trayectos largos. Pensado para emprendedores y
+                  tiendas online.
                 </p>
               </div>
             </div>
@@ -1057,56 +1094,64 @@
        4. BENEFITS SECTION (LowCostBenefits.tsx)
        Concepto: Ventajas clave en Fondo Azul Intenso (#0950F6)
        ========================================================================= -->
-  <section
-    id="lowcost-benefits"
-    class="py-24 bg-brand-blue-500 relative z-10 overflow-hidden border-t border-b border-white/10 text-white"
-  >
+  <section id="lowcost-benefits"
+    class="py-24 bg-brand-blue-500 relative z-10 overflow-hidden border-t border-b border-white/10 text-white">
     <!-- Resplandores ambientales -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none"></div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none">
+    </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
+
       <!-- Header Block -->
       <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-        <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
+        <span
+          class="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
           VENTAJAS CLAVE
         </span>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white leading-none">
           BENEFICIOS LOWCOST
         </h2>
         <p class="text-brand-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-          La combinación perfecta entre economía inteligente y máxima eficiencia logística para la consolidación de tu negocio.
+          La combinación perfecta entre economía inteligente y máxima eficiencia logística para la consolidación de tu
+          negocio.
         </p>
         <div class="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full"></div>
       </div>
 
       <!-- Benefits Bento Grid (2x2) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
+
         <!-- Beneficio 1 -->
         <div class="lg:col-span-6 double-bezel-blue-outer">
-          <div class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
-            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <div
+            class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
+            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
 
             <div class="space-y-4 relative z-10">
               <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              
+
               <h3 class="text-2xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
                 Entregas a valores LowCost con calidad Express
               </h3>
-              
+
               <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
-                Disfrutá de la tarifa más económica de la ciudad sin resignar confiabilidad ni seguridad en el traslado de tus paquetes.
+                Disfrutá de la tarifa más económica de la ciudad sin resignar confiabilidad ni seguridad en el traslado
+                de tus paquetes.
               </p>
             </div>
-            
-            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
+
+            <div
+              class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
               <span>Tarifa plana por zona</span>
               <strong class="font-bold">Sin costo sorpresa</strong>
             </div>
@@ -1115,30 +1160,34 @@
 
         <!-- Beneficio 2 -->
         <div class="lg:col-span-6 double-bezel-blue-outer">
-          <div class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
-            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke-width="2"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+          <div
+            class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
+            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke-width="2" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2" />
             </svg>
 
             <div class="space-y-4 relative z-10">
               <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+                  <circle cx="12" cy="12" r="10" stroke-width="2" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2" />
                 </svg>
               </div>
-              
+
               <h3 class="text-2xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
                 Horario de corte extendido hasta las 13:00 hs
               </h3>
-              
+
               <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
-                Ingresá tus envíos de la mañana hasta las 13:00 hs y los entregamos en la misma jornada antes de las 19:00 hs.
+                Ingresá tus envíos de la mañana hasta las 13:00 hs y los entregamos en la misma jornada antes de las
+                19:00 hs.
               </p>
             </div>
 
-            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
+            <div
+              class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
               <span>Corte 13:00 hs</span>
               <strong class="font-bold">Mismo día asegurado</strong>
             </div>
@@ -1147,28 +1196,34 @@
 
         <!-- Beneficio 3 -->
         <div class="lg:col-span-6 double-bezel-blue-outer">
-          <div class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
-            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+          <div
+            class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
+            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
             </svg>
 
             <div class="space-y-4 relative z-10">
               <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                 </svg>
               </div>
-              
+
               <h3 class="text-2xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
                 Ruteo Urbano Eficiente
               </h3>
-              
+
               <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
-                Ruteo continuo planificado por cuadrantes en Mar del Plata que maximiza los viajes de los cadetes y reduce la huella de carbono.
+                Ruteo continuo planificado por cuadrantes en Mar del Plata que maximiza los viajes de los cadetes y
+                reduce la huella de carbono.
               </p>
             </div>
 
-            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
+            <div
+              class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
               <span>Cuadrantes MDQ</span>
               <strong class="font-bold">Máxima cobertura</strong>
             </div>
@@ -1177,28 +1232,34 @@
 
         <!-- Beneficio 4 -->
         <div class="lg:col-span-6 double-bezel-blue-outer">
-          <div class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
-            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+          <div
+            class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
+            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
             </svg>
 
             <div class="space-y-4 relative z-10">
               <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
                 </svg>
               </div>
-              
+
               <h3 class="text-2xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
                 Ahorro de costos logísticos
               </h3>
-              
+
               <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
-                Maximizá tu rentabilidad comercial pagando tarifas súper económicas por cada entrega y mejorá tus ventas en redes sociales.
+                Maximizá tu rentabilidad comercial pagando tarifas súper económicas por cada entrega y mejorá tus ventas
+                en redes sociales.
               </p>
             </div>
 
-            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
+            <div
+              class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
               <span>Rentabilidad PyME</span>
               <strong class="font-bold">Precios accesibles</strong>
             </div>
@@ -1216,35 +1277,37 @@
        Concepto: Tarifas Oficiales 2026 Envíos LowCost por Zonas
        Fondo: Azul profundo #0950F6 con tarjetas blancas de doble bisel
        ========================================================================= -->
-  <section
-    id="lowcost-pricing"
-    class="py-24 bg-brand-blue-500 text-white relative z-10 overflow-hidden border-t border-white/10"
-  >
+  <section id="lowcost-pricing"
+    class="py-24 bg-brand-blue-500 text-white relative z-10 overflow-hidden border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <!-- Encabezado de Tarifas -->
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-        <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
+        <span
+          class="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
           TARIFARIO PÚBLICO 2026
         </span>
         <h2 class="text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white leading-none">
           TARIFAS 2026 ENVÍOS LOWCOST
         </h2>
         <p class="text-brand-blue-50 font-sans text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-          Ruteo por zona optimizado. Garantizamos entregas antes de las 19:00 hs para pedidos cargados antes de las 13:00 hs. Sin letra chica.
+          Ruteo por zona optimizado. Garantizamos entregas antes de las 19:00 hs para pedidos cargados antes de las
+          13:00 hs. Sin letra chica.
         </p>
         <div class="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full"></div>
       </div>
 
       <!-- Grid de 4 Zonas -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-12">
-        
+
         <!-- Zona 1 -->
         <div class="double-bezel-blue-outer">
-          <div class="double-bezel-blue-inner p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
+          <div
+            class="double-bezel-blue-inner p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md bg-brand-blue-50 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-blue-50 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
                   Zona 1
                 </span>
                 <span class="font-mono text-xs text-brand-blue-400 font-semibold tabular-nums">0–3 km</span>
@@ -1255,10 +1318,11 @@
               <p class="text-xs text-brand-blue-500/80 font-sans leading-relaxed">
                 La mejor tarifa para despacho diario de cercanía urbana.
               </p>
-              
+
               <div class="py-2 border-y border-brand-blue-50">
                 <div class="flex items-baseline gap-1">
-                  <span class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
+                  <span
+                    class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
                     $3.000
                   </span>
                   <span class="text-xs font-mono text-brand-blue-400">/ envío</span>
@@ -1291,10 +1355,8 @@
             </div>
 
             <div class="pt-4 border-t border-brand-blue-50">
-              <a
-                href="/cotizar"
-                class="w-full py-2.5 px-4 rounded-xl border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white font-subheading text-sm uppercase tracking-wider text-center block transition-colors font-bold"
-              >
+              <a href="/cotizar"
+                class="w-full py-2.5 px-4 rounded-xl border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white font-subheading text-sm uppercase tracking-wider text-center block transition-colors font-bold">
                 Ver Zona 1
               </a>
             </div>
@@ -1303,13 +1365,16 @@
 
         <!-- Zona 2 (FEATURED / Recomendado PyME) -->
         <div class="p-2 rounded-3xl bg-brand-yellow-500 shadow-cta-glow relative transform lg:-translate-y-2">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-blue-500 text-brand-yellow-500 font-mono text-2xs uppercase font-bold tracking-widest px-3 py-0.5 rounded-full shadow-md">
+          <div
+            class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-blue-500 text-brand-yellow-500 font-mono text-2xs uppercase font-bold tracking-widest px-3 py-0.5 rounded-full shadow-md">
             ★ Recomendado PyME
           </div>
-          <div class="bg-white rounded-2xl p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
+          <div
+            class="bg-white rounded-2xl p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md bg-brand-yellow-500/20 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-yellow-500/20 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
                   Zona 2
                 </span>
                 <span class="font-mono text-xs text-brand-blue-400 font-semibold tabular-nums">3–5 km</span>
@@ -1320,10 +1385,11 @@
               <p class="text-xs text-brand-blue-500/80 font-sans leading-relaxed">
                 Cobertura intermedia económica para PyMEs y ventas frecuentes.
               </p>
-              
+
               <div class="py-2 border-y border-brand-blue-50">
                 <div class="flex items-baseline gap-1">
-                  <span class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
+                  <span
+                    class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
                     $4.000
                   </span>
                   <span class="text-xs font-mono text-brand-blue-400">/ envío</span>
@@ -1356,10 +1422,8 @@
             </div>
 
             <div class="pt-4 border-t border-brand-blue-50">
-              <a
-                href="/cotizar"
-                class="w-full py-3 px-4 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-base uppercase tracking-wider text-center block transition-colors font-bold shadow-md"
-              >
+              <a href="/cotizar"
+                class="w-full py-3 px-4 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-base uppercase tracking-wider text-center block transition-colors font-bold shadow-md">
                 Ver Zona 2
               </a>
             </div>
@@ -1368,10 +1432,12 @@
 
         <!-- Zona 3 -->
         <div class="double-bezel-blue-outer">
-          <div class="double-bezel-blue-inner p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
+          <div
+            class="double-bezel-blue-inner p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md bg-brand-blue-50 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-blue-50 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
                   Zona 3
                 </span>
                 <span class="font-mono text-xs text-brand-blue-400 font-semibold tabular-nums">5–7 km</span>
@@ -1382,10 +1448,11 @@
               <p class="text-xs text-brand-blue-500/80 font-sans leading-relaxed">
                 Llegamos a distancias medias al mejor costo de la ciudad.
               </p>
-              
+
               <div class="py-2 border-y border-brand-blue-50">
                 <div class="flex items-baseline gap-1">
-                  <span class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
+                  <span
+                    class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
                     $5.300
                   </span>
                   <span class="text-xs font-mono text-brand-blue-400">/ envío</span>
@@ -1418,10 +1485,8 @@
             </div>
 
             <div class="pt-4 border-t border-brand-blue-50">
-              <a
-                href="/cotizar"
-                class="w-full py-2.5 px-4 rounded-xl border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white font-subheading text-sm uppercase tracking-wider text-center block transition-colors font-bold"
-              >
+              <a href="/cotizar"
+                class="w-full py-2.5 px-4 rounded-xl border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white font-subheading text-sm uppercase tracking-wider text-center block transition-colors font-bold">
                 Ver Zona 3
               </a>
             </div>
@@ -1430,10 +1495,12 @@
 
         <!-- Zona 4 -->
         <div class="double-bezel-blue-outer">
-          <div class="double-bezel-blue-inner p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
+          <div
+            class="double-bezel-blue-inner p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md bg-brand-blue-50 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-blue-50 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
                   Zona 4
                 </span>
                 <span class="font-mono text-xs text-brand-blue-400 font-semibold tabular-nums">7–10 km</span>
@@ -1444,10 +1511,11 @@
               <p class="text-xs text-brand-blue-500/80 font-sans leading-relaxed">
                 Máximo ahorro en distancias urbanas largas dentro de MDQ.
               </p>
-              
+
               <div class="py-2 border-y border-brand-blue-50">
                 <div class="flex items-baseline gap-1">
-                  <span class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
+                  <span
+                    class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
                     $7.000
                   </span>
                   <span class="text-xs font-mono text-brand-blue-400">/ envío</span>
@@ -1480,10 +1548,8 @@
             </div>
 
             <div class="pt-4 border-t border-brand-blue-50">
-              <a
-                href="/cotizar"
-                class="w-full py-2.5 px-4 rounded-xl border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white font-subheading text-sm uppercase tracking-wider text-center block transition-colors font-bold"
-              >
+              <a href="/cotizar"
+                class="w-full py-2.5 px-4 rounded-xl border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white font-subheading text-sm uppercase tracking-wider text-center block transition-colors font-bold">
                 Ver Zona 4
               </a>
             </div>
@@ -1494,7 +1560,8 @@
 
       <!-- Módulo de Excedente: Zona 5 (más de 10 km) -->
       <div class="p-2 rounded-3xl bg-white/10 border border-white/20 backdrop-blur-md mb-16">
-        <div class="bg-white/5 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div
+          class="bg-white/5 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div class="space-y-2 max-w-2xl text-left">
             <span class="text-xs font-mono text-brand-yellow-500 font-bold uppercase tracking-wider">
               Zona 5 (más de 10 km) · Cálculo lineal
@@ -1503,14 +1570,14 @@
               Cálculo a $700 por kilómetro exacto
             </h3>
             <p class="text-sm font-sans text-brand-blue-50 leading-relaxed">
-              Superados los 10 km, se toma el kilometraje total redondeado hacia arriba (<code class="text-brand-yellow-500 font-mono">Math.ceil</code>) multiplicado por $700. Por ejemplo, un envío de 12 km son <strong>$8.400</strong>. Hasta 20 km se calcula automático; más allá se consulta con el equipo.
+              Superados los 10 km, se toma el kilometraje total redondeado hacia arriba (<code
+                class="text-brand-yellow-500 font-mono">Math.ceil</code>) multiplicado por $700. Por ejemplo, un envío
+              de 12 km son <strong>$8.400</strong>. Hasta 20 km se calcula automático; más allá se consulta con el
+              equipo.
             </p>
           </div>
 
-          <a
-            href="/cotizar"
-            class="cta-pill-yellow shrink-0"
-          >
+          <a href="/cotizar" class="cta-pill-yellow shrink-0">
             <span>Calcular distancia en el cotizador</span>
             <span>→</span>
           </a>
@@ -1519,40 +1586,44 @@
 
       <!-- Pricing Facts (3 Columnas de confianza) -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-        
+
         <div class="p-6 rounded-2xl bg-white/10 border border-white/15 space-y-3">
           <div class="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl w-fit">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
             </svg>
           </div>
           <h4 class="font-display text-xl uppercase tracking-wide text-white">
             Ruteo por zona optimizado
           </h4>
           <p class="text-sm font-sans text-brand-blue-50 leading-relaxed">
-            Planificamos el recorrido por zonas para maximizar la eficiencia y bajar el costo por despacho sin intermediarios.
+            Planificamos el recorrido por zonas para maximizar la eficiencia y bajar el costo por despacho sin
+            intermediarios.
           </p>
         </div>
 
         <div class="p-6 rounded-2xl bg-white/10 border border-white/15 space-y-3">
           <div class="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl w-fit">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke-width="2"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+              <circle cx="12" cy="12" r="10" stroke-width="2" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2" />
             </svg>
           </div>
           <h4 class="font-display text-xl uppercase tracking-wide text-white">
             Corte 13:00 hs · Entrega antes de 19:00 hs
           </h4>
           <p class="text-sm font-sans text-brand-blue-50 leading-relaxed">
-            Pedidos cargados antes de las 13:00 hs se entregan el mismo día, antes de las 19:00 hs en todo el ejido urbano.
+            Pedidos cargados antes de las 13:00 hs se entregan el mismo día, antes de las 19:00 hs en todo el ejido
+            urbano.
           </p>
         </div>
 
         <div class="p-6 rounded-2xl bg-white/10 border border-white/15 space-y-3">
           <div class="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl w-fit">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
           <h4 class="font-display text-xl uppercase tracking-wide text-white">
