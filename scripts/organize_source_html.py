@@ -435,14 +435,22 @@ def main(argv: list[str] | None = None) -> int:
 
         if is_ready_custom_page(html_file, raw_html):
             new_html = build_organized_custom_page(raw_html, index_parts)
-            html_file.write_text(new_html, encoding="utf-8")
             custom_count += 1
             print(f"[OK - Cuerpo + Layout] {html_file.name}")
         else:
             new_html = build_template_placeholder_page(html_file, raw_html, index_parts)
-            html_file.write_text(new_html, encoding="utf-8")
             template_count += 1
             print(f"[OK - Plantilla lista] {html_file.name}")
+
+        # Post-optimización automática de clases canónicas de Tailwind
+        try:
+            from scripts.optimize_source_tailwind import optimize_html_content, OptimizationStats
+            stats = OptimizationStats(file_path=html_file)
+            new_html = optimize_html_content(new_html, stats)
+        except Exception:
+            pass
+
+        html_file.write_text(new_html, encoding="utf-8")
 
     print("-" * 60)
     print(

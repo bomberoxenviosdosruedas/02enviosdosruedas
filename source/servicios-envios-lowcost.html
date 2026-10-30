@@ -44,6 +44,13 @@
               white: '#FFFFFF',
             }
           },
+          fontSize: {
+            '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
+          },
+          spacing: {
+            '97.5': '24.375rem',
+            '107.5': '26.875rem',
+          },
           fontFamily: {
             sans: ['Outfit', 'sans-serif'],
             display: ['Anton', 'sans-serif'],
@@ -65,6 +72,9 @@
   </script>
 
   <style>
+    .bg-linear-to-br, .bg-linear-to-tr, .bg-linear-to-t, .bg-linear-to-b, .bg-linear-to-r, .bg-linear-to-l {
+      background-image: linear-gradient(var(--tw-gradient-stops));
+    }
     /* Estilos de tokens oficiales */
     .font-display {
       font-family: 'Anton', sans-serif;
@@ -205,7 +215,7 @@
 
   <!-- ACCESIBILIDAD: Saltar al contenido principal -->
   <a href="#main-content"
-    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow-500 focus:text-brand-blue-500 focus:font-subheading focus:font-bold focus:uppercase focus:tracking-wider focus:shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white">
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow-500 focus:text-brand-blue-500 focus:font-subheading focus:font-bold focus:uppercase focus:tracking-wider focus:shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white">
     Saltar al contenido principal
   </a>
 
@@ -411,7 +421,7 @@
 
           <div class="relative">
             <a href="/cotizar" id="header_cta"
-              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-[44px] border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
+              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-11 border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
               <span>Cotizá tu envío</span>
               <span
                 class="inline-flex items-center justify-center rounded-full w-7 h-7 ml-3 bg-white/10 text-brand-yellow-500 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-all">
@@ -447,7 +457,7 @@
   </div>
 
   <div id="mobile-navigation-dialog" role="dialog" aria-modal="true" aria-label="Menú principal"
-    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-[320px] h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
+    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-80 h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
     <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
       <a href="/" onclick="toggleMobileNav(false)" class="flex items-center gap-3">
         <span class="font-display text-xl tracking-tight uppercase select-none flex flex-col items-start leading-none">
@@ -560,11 +570,11 @@
     <!-- Fondo procedural vector & firma de reloj -->
     <div aria-hidden="true" class="absolute inset-0 pointer-events-none overflow-hidden">
       <!-- Cuadrícula técnica sutil -->
-      <div class="absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_right,#0950F6_1px,transparent_1px),linear-gradient(to_bottom,#0950F6_1px,transparent_1px)] bg-[size:36px_36px]"></div>
+      <div class="absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_right,#0950F6_1px,transparent_1px),linear-gradient(to_bottom,#0950F6_1px,transparent_1px)] bg-size-[36px_36px]"></div>
       
       <!-- Reloj de 12 horas: Arco azul marca exactamente la ventana 13:00 a 19:00 (6 hs) -->
       <svg
-        class="absolute right-[-8%] bottom-[-10%] w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] lg:w-[680px] lg:h-[680px] opacity-[0.24]"
+        class="absolute right-[-8%] bottom-[-10%] w-80 h-80 sm:w-125 sm:h-125 lg:w-170 lg:h-170 opacity-[0.24]"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="-150 -150 300 300"
       >
@@ -723,7 +733,7 @@
 
                 <!-- Track de la jornada -->
                 <div class="overflow-x-auto pb-1">
-                  <div class="min-w-[280px]">
+                  <div class="min-w-70">
                     <div class="relative h-11 overflow-hidden rounded-xl bg-brand-blue-50 border border-brand-blue-200">
                       <!-- Tramo de carga: 8 a 13 hs = 5 hs de 12 hs (41.6%) -->
                       <div
@@ -753,7 +763,7 @@
                     </div>
 
                     <!-- Marcas horarias cada 2 horas: 8, 10, 12, 14, 16, 18, 20 -->
-                    <div class="relative mt-2 h-4 font-mono text-[10px] tabular-nums text-brand-blue-500/70 font-semibold">
+                    <div class="relative mt-2 h-4 font-mono text-2xs tabular-nums text-brand-blue-500/70 font-semibold">
                       <span class="absolute left-0 -translate-x-1/2">08</span>
                       <span class="absolute left-[16.66%] -translate-x-1/2">10</span>
                       <span class="absolute left-[33.33%] -translate-x-1/2">12</span>
@@ -1293,7 +1303,7 @@
 
         <!-- Zona 2 (FEATURED / Recomendado PyME) -->
         <div class="p-2 rounded-3xl bg-brand-yellow-500 shadow-cta-glow relative transform lg:-translate-y-2">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-blue-500 text-brand-yellow-500 font-mono text-[10px] uppercase font-bold tracking-widest px-3 py-0.5 rounded-full shadow-md">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-blue-500 text-brand-yellow-500 font-mono text-2xs uppercase font-bold tracking-widest px-3 py-0.5 rounded-full shadow-md">
             ★ Recomendado PyME
           </div>
           <div class="bg-white rounded-2xl p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
@@ -1597,7 +1607,7 @@
         <div
           class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#1877F2]/50 hover:border-[#1877F2] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
           <div
-            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#0866FF] hover:bg-[#1877F2] border border-white/15 transition-colors">
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden bg-[#0866FF] hover:bg-[#1877F2] border border-white/15 transition-colors">
             <!-- Marca de agua decorativa -->
             <div
               class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
@@ -1610,7 +1620,7 @@
             <div class="z-10 text-left space-y-4">
               <div class="flex items-center justify-between">
                 <span
-                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#0866FF] border-white shadow-sm">
+                  class="text-2xs font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#0866FF] border-white shadow-sm">
                   FACEBOOK OFICIAL
                 </span>
                 <div
@@ -1651,9 +1661,9 @@
 
         <!-- CARD 2: INSTAGRAM -->
         <div
-          class="social-block group relative rounded-2xl p-[2px] transition-all duration-300 hover:-translate-y-1.5 bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] shadow-xl">
+          class="social-block group relative rounded-2xl p-0.5 transition-all duration-300 hover:-translate-y-1.5 bg-linear-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] shadow-xl">
           <div
-            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] border border-white/20 transition-colors">
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden bg-linear-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] border border-white/20 transition-colors">
             <!-- Marca de agua decorativa -->
             <div
               class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
@@ -1666,7 +1676,7 @@
             <div class="z-10 text-left space-y-4">
               <div class="flex items-center justify-between">
                 <span
-                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#E1306C] border-white shadow-sm">
+                  class="text-2xs font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#E1306C] border-white shadow-sm">
                   INSTAGRAM MDQ
                 </span>
                 <div
@@ -1709,7 +1719,7 @@
         <div
           class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#25D366]/50 hover:border-[#25D366] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
           <div
-            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#128C7E] hover:bg-[#0e7468] border border-white/15 transition-colors">
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden bg-[#128C7E] hover:bg-[#0e7468] border border-white/15 transition-colors">
             <!-- Marca de agua decorativa -->
             <div
               class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
@@ -1722,7 +1732,7 @@
             <div class="z-10 text-left space-y-4">
               <div class="flex items-center justify-between">
                 <span
-                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#128C7E] border-white shadow-sm">
+                  class="text-2xs font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#128C7E] border-white shadow-sm">
                   WHATSAPP DIRECTO
                 </span>
                 <div
@@ -1839,7 +1849,7 @@
               <span class="font-display text-2xl sm:text-3xl tracking-tight uppercase select-none text-white">
                 Envíos <span class="text-brand-yellow-500">DosRuedas</span>
               </span>
-              <span class="text-[10px] font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
+              <span class="text-2xs font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
                 Tu solución confiable · Mar del Plata
               </span>
             </div>
@@ -1900,7 +1910,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
             <!-- Grupo Portales -->
             <div>
-              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+              <p class="text-2xs text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
                 Cotizador y Portales
               </p>
               <ul class="space-y-2.5 text-sm font-sans">
@@ -1942,7 +1952,7 @@
 
             <!-- Grupo Planes -->
             <div>
-              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+              <p class="text-2xs text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
                 Servicios y Planes
               </p>
               <ul class="space-y-2.5 text-sm font-sans">
@@ -2023,7 +2033,7 @@
               </div>
               <div class="space-y-1 w-full">
                 <p class="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Despacho</p>
-                <div class="text-[12px] font-sans text-brand-blue-50 space-y-0.5">
+                <div class="text-xs font-sans text-brand-blue-50 space-y-0.5">
                   <div class="flex justify-between items-center gap-4">
                     <span>Lunes a Viernes:</span>
                     <span class="font-mono font-bold text-brand-yellow-500">09:00 - 18:00</span>
@@ -2045,7 +2055,7 @@
         <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
           class="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 p-2.5 rounded-full shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer min-w-11 min-h-11"
           title="Volver al inicio" aria-label="Volver arriba">
-          <i data-lucide="arrow-up" class="w-4 h-4 stroke-[3]"></i>
+          <i data-lucide="arrow-up" class="w-4 h-4 stroke-3"></i>
         </button>
       </div>
 

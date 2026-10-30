@@ -42,6 +42,13 @@
               }
             }
           },
+          fontSize: {
+            '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
+          },
+          spacing: {
+            '97.5': '24.375rem',
+            '107.5': '26.875rem',
+          },
           fontFamily: {
             display: ['Anton', 'sans-serif'],
             subheading: ['Bebas Neue', 'sans-serif'],
@@ -74,6 +81,9 @@
     }
   </script>
 <style>
+    .bg-linear-to-br, .bg-linear-to-tr, .bg-linear-to-t, .bg-linear-to-b, .bg-linear-to-r, .bg-linear-to-l {
+      background-image: linear-gradient(var(--tw-gradient-stops));
+    }
     /* Double bezel styling */
     .double-bezel-outer {
       background-color: rgba(230, 238, 254, 0.85);
@@ -150,7 +160,7 @@
 
   <!-- ACCESIBILIDAD: Saltar al contenido principal -->
   <a href="#main-content"
-    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow-500 focus:text-brand-blue-500 focus:font-subheading focus:font-bold focus:uppercase focus:tracking-wider focus:shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white">
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow-500 focus:text-brand-blue-500 focus:font-subheading focus:font-bold focus:uppercase focus:tracking-wider focus:shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white">
     Saltar al contenido principal
   </a>
 
@@ -356,7 +366,7 @@
 
           <div class="relative">
             <a href="/cotizar" id="header_cta"
-              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-[44px] border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
+              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-11 border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
               <span>Cotizá tu envío</span>
               <span
                 class="inline-flex items-center justify-center rounded-full w-7 h-7 ml-3 bg-white/10 text-brand-yellow-500 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-all">
@@ -392,7 +402,7 @@
   </div>
 
   <div id="mobile-navigation-dialog" role="dialog" aria-modal="true" aria-label="Menú principal"
-    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-[320px] h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
+    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-80 h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
     <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
       <a href="/" onclick="toggleMobileNav(false)" class="flex items-center gap-3">
         <span class="font-display text-xl tracking-tight uppercase select-none flex flex-col items-start leading-none">
@@ -500,9 +510,9 @@
 <!-- Ambient procedural glow & grid background -->
 <div aria-hidden="true" class="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,#3570F8,transparent_55%)] pointer-events-none opacity-50"></div>
 <div aria-hidden="true" class="absolute inset-0 bg-[radial-gradient(circle_at_85%_75%,rgba(255,236,1,0.18),transparent_50%)] pointer-events-none"></div>
-<div aria-hidden="true" class="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+<div aria-hidden="true" class="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-size-[32px_32px] pointer-events-none"></div>
 <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-<div class="grid items-center gap-10 lg:grid-cols-12 lg:min-h-[560px]">
+<div class="grid items-center gap-10 lg:grid-cols-12 lg:min-h-140">
 <!-- LEFT COL: Tarjeta editorial y llamadas de acción (6 cols) -->
 <div class="relative z-20 max-w-2xl rounded-2xl bg-brand-blue-500/90 backdrop-blur-sm p-6 sm:p-8 lg:p-10 border border-white/15 shadow-2xl lg:col-span-6 lg:col-start-1">
 <!-- Badge de categoría -->
@@ -527,11 +537,11 @@
 </div>
 <!-- Botones CTAs -->
 <div class="mt-8 flex flex-wrap items-center gap-4 pt-2">
-<a class="inline-flex min-h-[48px] items-center justify-between gap-3 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-base font-bold uppercase tracking-wider px-7 py-3 shadow-cta-glow transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500" href="#express-pricing">
+<a class="inline-flex min-h-12 items-center justify-between gap-3 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-base font-bold uppercase tracking-wider px-7 py-3 shadow-cta-glow transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500" href="#express-pricing">
 <span>Cotizá tu envío Express</span>
 <span class="w-7 h-7 rounded-full bg-brand-blue-500/10 flex items-center justify-center font-bold">→</span>
 </a>
-<a class="inline-flex min-h-[48px] items-center gap-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 px-5 py-3 font-subheading text-base uppercase tracking-wider text-white transition-all duration-200 hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500" href="https://api.whatsapp.com/send/?phone=542236602699&amp;text=Hola!%20Quiero%20hacer%20un%20env%C3%ADo%20Express%20en%20Mar%20del%20Plata" rel="noopener noreferrer" target="_blank">
+<a class="inline-flex min-h-12 items-center gap-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 px-5 py-3 font-subheading text-base uppercase tracking-wider text-white transition-all duration-200 hover:text-brand-yellow-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500" href="https://api.whatsapp.com/send/?phone=542236602699&amp;text=Hola!%20Quiero%20hacer%20un%20env%C3%ADo%20Express%20en%20Mar%20del%20Plata" rel="noopener noreferrer" target="_blank">
 <!-- WhatsApp icon SVG -->
 <svg aria-hidden="true" class="h-5 w-5 fill-current text-brand-yellow-500" viewbox="0 0 24 24"><path d="M12.031 2c-5.502 0-9.972 4.47-9.972 9.974 0 1.76.459 3.473 1.332 4.989L2 22l5.213-1.365c1.464.798 3.111 1.22 4.818 1.22 5.503 0 9.973-4.47 9.973-9.973 0-5.505-4.47-9.975-9.973-9.975zm0 18.257c-1.488 0-2.946-.4-4.218-1.155l-.302-.18-3.136.823.837-3.057-.197-.314c-.829-1.32-1.267-2.855-1.267-4.404 0-4.562 3.712-8.274 8.283-8.274 4.569 0 8.281 3.712 8.281 8.274 0 4.563-3.712 8.287-8.281 8.287zm4.538-6.195c-.248-.124-1.47-.726-1.698-.809-.228-.082-.394-.124-.56.124-.166.248-.642.809-.787.974-.145.166-.29.186-.538.062-.249-.124-1.049-.387-1.999-1.233-.738-.659-1.237-1.473-1.382-1.721-.145-.248-.016-.383.109-.506.112-.112.249-.29.373-.435.124-.145.166-.248.249-.415.083-.166.041-.311-.021-.435-.062-.124-.56-1.349-.767-1.847-.202-.486-.407-.419-.56-.427l-.478-.01c-.166 0-.435.062-.663.311-.228.248-.871.851-.871 2.075 0 1.224.892 2.406 1.016 2.572.124.166 1.755 2.68 4.252 3.757.594.257 1.058.41 1.421.525.599.189 1.144.163 1.575.099.48-.072 1.47-.601 1.678-1.182.207-.58.207-1.078.145-1.182-.062-.104-.228-.166-.477-.29z"></path></svg>
 <span>O escribinos por WhatsApp</span>
@@ -539,17 +549,17 @@
 </div>
 </div>
 <!-- RIGHT COL: Collage de teselas geométricas y duotono (6 cols) -->
-<div class="relative z-10 lg:col-span-6 h-[440px] sm:h-[500px] lg:h-[580px] w-full collage-container flex items-center justify-center">
+<div class="relative z-10 lg:col-span-6 h-110 sm:h-125 lg:h-145 w-full collage-container flex items-center justify-center">
 <!-- Background accent halo -->
 <div aria-hidden="true" class="absolute w-72 h-72 rounded-full bg-brand-yellow-500/20 blur-3xl pointer-events-none"></div>
 <!-- Tesela 1: Moto de reparto en perspectiva -->
-<div class="collage-tile absolute left-2 sm:left-6 top-4 w-[65%] sm:w-[58%] aspect-[560/262] overflow-hidden rounded-2xl bg-brand-blue-400 border-2 border-white/20 shadow-2xl rotate-[-2deg]">
+<div class="collage-tile absolute left-2 sm:left-6 top-4 w-[65%] sm:w-[58%] aspect-560/262 overflow-hidden rounded-2xl bg-brand-blue-400 border-2 border-white/20 shadow-2xl rotate-[-2deg]">
 <img alt="Moto del servicio Express de Envíos DosRuedas" class="w-full h-full object-cover object-center" onerror="this.src='https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&amp;fit=crop&amp;w=700&amp;q=80'" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-brand-blue-500/80 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-linear-to-t from-brand-blue-500/80 via-transparent to-transparent"></div>
 <span class="absolute bottom-2.5 left-3 font-mono text-2xs text-white uppercase tracking-wider font-semibold">Flota Propia MDQ</span>
 </div>
 <!-- Tesela 2: Repartidor profesional en duotono azul -->
-<div class="collage-tile absolute right-2 sm:right-6 top-[130px] sm:top-[140px] w-[55%] sm:w-[50%] aspect-[4/3] overflow-hidden rounded-2xl bg-brand-blue-400 border-2 border-brand-yellow-500/40 shadow-2xl rotate-[3deg]">
+<div class="collage-tile absolute right-2 sm:right-6 top-32.5 sm:top-35 w-[55%] sm:w-[50%] aspect-4/3 overflow-hidden rounded-2xl bg-brand-blue-400 border-2 border-brand-yellow-500/40 shadow-2xl rotate-[3deg]">
 <img alt="Cadete de Envíos DosRuedas listo para entrega" class="w-full h-full object-cover grayscale contrast-125 mix-blend-screen" onerror="this.src='https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&amp;fit=crop&amp;w=700&amp;q=80'" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
 <div class="absolute inset-0 bg-brand-blue-500/40 mix-blend-multiply"></div>
 <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
@@ -558,7 +568,7 @@
 </div>
 </div>
 <!-- Tesela 3: Bloque tipográfico condensado "SERVICIO EXPRESS" -->
-<div class="collage-tile absolute left-4 sm:left-10 bottom-16 sm:bottom-12 w-[48%] sm:w-[42%] h-[110px] sm:h-[130px] rounded-xl bg-brand-blue-400 border border-white/20 p-4 shadow-xl rotate-[-3deg] flex flex-col justify-center">
+<div class="collage-tile absolute left-4 sm:left-10 bottom-16 sm:bottom-12 w-[48%] sm:w-[42%] h-27.5 sm:h-32.5 rounded-xl bg-brand-blue-400 border border-white/20 p-4 shadow-xl rotate-[-3deg] flex flex-col justify-center">
 <span class="font-display uppercase text-2xl sm:text-3xl text-white leading-none tracking-tight">SERVICIO</span>
 <span class="font-display uppercase text-3xl sm:text-4xl text-brand-yellow-500 leading-none tracking-tight">EXPRESS</span>
 <span class="font-mono text-2xs uppercase tracking-widest text-brand-blue-50 mt-1">Mar del Plata</span>
@@ -762,7 +772,7 @@
 </ul>
 </div>
 <div class="pt-6 mt-6 border-t border-brand-blue-100">
-<a class="w-full min-h-[44px] inline-flex items-center justify-center rounded-full bg-brand-blue-50 hover:bg-brand-blue-500 hover:text-white text-brand-blue-500 font-subheading text-sm uppercase tracking-wider transition-colors duration-200 border border-brand-blue-200" href="/cotizar">
+<a class="w-full min-h-11 inline-flex items-center justify-center rounded-full bg-brand-blue-50 hover:bg-brand-blue-500 hover:text-white text-brand-blue-500 font-subheading text-sm uppercase tracking-wider transition-colors duration-200 border border-brand-blue-200" href="/cotizar">
                 Cotizar Zona 1
               </a>
 </div>
@@ -814,7 +824,7 @@
 </ul>
 </div>
 <div class="pt-6 mt-6 border-t border-brand-blue-100">
-<a class="w-full min-h-[44px] inline-flex items-center justify-center rounded-full bg-brand-blue-50 hover:bg-brand-blue-500 hover:text-white text-brand-blue-500 font-subheading text-sm uppercase tracking-wider transition-colors duration-200 border border-brand-blue-200" href="/cotizar">
+<a class="w-full min-h-11 inline-flex items-center justify-center rounded-full bg-brand-blue-50 hover:bg-brand-blue-500 hover:text-white text-brand-blue-500 font-subheading text-sm uppercase tracking-wider transition-colors duration-200 border border-brand-blue-200" href="/cotizar">
                 Cotizar Zona 2
               </a>
 </div>
@@ -866,7 +876,7 @@
 </ul>
 </div>
 <div class="pt-6 mt-6 border-t border-brand-blue-200">
-<a class="w-full min-h-[44px] inline-flex items-center justify-center rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-sm font-bold uppercase tracking-wider shadow-sm transition-all duration-200" href="/cotizar">
+<a class="w-full min-h-11 inline-flex items-center justify-center rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-sm font-bold uppercase tracking-wider shadow-sm transition-all duration-200" href="/cotizar">
                 Cotizar ahora
               </a>
 </div>
@@ -918,7 +928,7 @@
 </ul>
 </div>
 <div class="pt-6 mt-6 border-t border-brand-blue-100">
-<a class="w-full min-h-[44px] inline-flex items-center justify-center rounded-full bg-brand-blue-50 hover:bg-brand-blue-500 hover:text-white text-brand-blue-500 font-subheading text-sm uppercase tracking-wider transition-colors duration-200 border border-brand-blue-200" href="/cotizar">
+<a class="w-full min-h-11 inline-flex items-center justify-center rounded-full bg-brand-blue-50 hover:bg-brand-blue-500 hover:text-white text-brand-blue-500 font-subheading text-sm uppercase tracking-wider transition-colors duration-200 border border-brand-blue-200" href="/cotizar">
                 Cotizar Zona 4
               </a>
 </div>
@@ -942,7 +952,7 @@
           </p>
 </div>
 <div class="shrink-0 w-full md:w-auto">
-<a class="inline-flex min-h-[46px] w-full md:w-auto items-center justify-center gap-2 rounded-full bg-brand-blue-500 hover:bg-brand-blue-400 text-white font-subheading text-sm uppercase tracking-wider px-6 py-3 shadow-md transition-colors" href="/cotizar">
+<a class="inline-flex min-h-11.5 w-full md:w-auto items-center justify-center gap-2 rounded-full bg-brand-blue-500 hover:bg-brand-blue-400 text-white font-subheading text-sm uppercase tracking-wider px-6 py-3 shadow-md transition-colors" href="/cotizar">
 <span>Calcular distancia en el cotizador</span>
 <span>→</span>
 </a>
@@ -1129,7 +1139,7 @@
 <span class="font-subheading text-lg uppercase tracking-wider text-brand-blue-500 px-4">
             ¿Tenés un envío para despachar en este momento?
           </span>
-<a class="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-sm font-bold uppercase tracking-wider px-6 py-2.5 shadow-sm transition-all duration-200" href="https://api.whatsapp.com/send/?phone=542236602699&amp;text=Hola!%20Necesito%20coordinar%20un%20env%C3%ADo%20Express%20ahora" rel="noopener noreferrer" target="_blank">
+<a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-sm font-bold uppercase tracking-wider px-6 py-2.5 shadow-sm transition-all duration-200" href="https://api.whatsapp.com/send/?phone=542236602699&amp;text=Hola!%20Necesito%20coordinar%20un%20env%C3%ADo%20Express%20ahora" rel="noopener noreferrer" target="_blank">
 <span>Pedir moto Express por WhatsApp</span>
 <span>→</span>
 </a>
@@ -1177,7 +1187,7 @@
         <div
           class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#1877F2]/50 hover:border-[#1877F2] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
           <div
-            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#0866FF] hover:bg-[#1877F2] border border-white/15 transition-colors">
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden bg-[#0866FF] hover:bg-[#1877F2] border border-white/15 transition-colors">
             <!-- Marca de agua decorativa -->
             <div
               class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
@@ -1190,7 +1200,7 @@
             <div class="z-10 text-left space-y-4">
               <div class="flex items-center justify-between">
                 <span
-                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#0866FF] border-white shadow-sm">
+                  class="text-2xs font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#0866FF] border-white shadow-sm">
                   FACEBOOK OFICIAL
                 </span>
                 <div
@@ -1231,9 +1241,9 @@
 
         <!-- CARD 2: INSTAGRAM -->
         <div
-          class="social-block group relative rounded-2xl p-[2px] transition-all duration-300 hover:-translate-y-1.5 bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] shadow-xl">
+          class="social-block group relative rounded-2xl p-0.5 transition-all duration-300 hover:-translate-y-1.5 bg-linear-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] shadow-xl">
           <div
-            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] border border-white/20 transition-colors">
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden bg-linear-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] border border-white/20 transition-colors">
             <!-- Marca de agua decorativa -->
             <div
               class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
@@ -1246,7 +1256,7 @@
             <div class="z-10 text-left space-y-4">
               <div class="flex items-center justify-between">
                 <span
-                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#E1306C] border-white shadow-sm">
+                  class="text-2xs font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#E1306C] border-white shadow-sm">
                   INSTAGRAM MDQ
                 </span>
                 <div
@@ -1289,7 +1299,7 @@
         <div
           class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#25D366]/50 hover:border-[#25D366] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
           <div
-            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#128C7E] hover:bg-[#0e7468] border border-white/15 transition-colors">
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden bg-[#128C7E] hover:bg-[#0e7468] border border-white/15 transition-colors">
             <!-- Marca de agua decorativa -->
             <div
               class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
@@ -1302,7 +1312,7 @@
             <div class="z-10 text-left space-y-4">
               <div class="flex items-center justify-between">
                 <span
-                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#128C7E] border-white shadow-sm">
+                  class="text-2xs font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#128C7E] border-white shadow-sm">
                   WHATSAPP DIRECTO
                 </span>
                 <div
@@ -1419,7 +1429,7 @@
               <span class="font-display text-2xl sm:text-3xl tracking-tight uppercase select-none text-white">
                 Envíos <span class="text-brand-yellow-500">DosRuedas</span>
               </span>
-              <span class="text-[10px] font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
+              <span class="text-2xs font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
                 Tu solución confiable · Mar del Plata
               </span>
             </div>
@@ -1480,7 +1490,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
             <!-- Grupo Portales -->
             <div>
-              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+              <p class="text-2xs text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
                 Cotizador y Portales
               </p>
               <ul class="space-y-2.5 text-sm font-sans">
@@ -1522,7 +1532,7 @@
 
             <!-- Grupo Planes -->
             <div>
-              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+              <p class="text-2xs text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
                 Servicios y Planes
               </p>
               <ul class="space-y-2.5 text-sm font-sans">
@@ -1603,7 +1613,7 @@
               </div>
               <div class="space-y-1 w-full">
                 <p class="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Despacho</p>
-                <div class="text-[12px] font-sans text-brand-blue-50 space-y-0.5">
+                <div class="text-xs font-sans text-brand-blue-50 space-y-0.5">
                   <div class="flex justify-between items-center gap-4">
                     <span>Lunes a Viernes:</span>
                     <span class="font-mono font-bold text-brand-yellow-500">09:00 - 18:00</span>
@@ -1625,7 +1635,7 @@
         <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
           class="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 p-2.5 rounded-full shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer min-w-11 min-h-11"
           title="Volver al inicio" aria-label="Volver arriba">
-          <i data-lucide="arrow-up" class="w-4 h-4 stroke-[3]"></i>
+          <i data-lucide="arrow-up" class="w-4 h-4 stroke-3"></i>
         </button>
       </div>
 

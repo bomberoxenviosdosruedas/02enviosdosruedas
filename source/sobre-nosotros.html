@@ -40,6 +40,13 @@
               white: '#FFFFFF',
             }
           },
+          fontSize: {
+            '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
+          },
+          spacing: {
+            '97.5': '24.375rem',
+            '107.5': '26.875rem',
+          },
           fontFamily: {
             display: ['Anton', 'sans-serif'],
             subheading: ['"Bebas Neue"', 'sans-serif'],
@@ -63,6 +70,9 @@
   </script>
 
   <style>
+    .bg-linear-to-br, .bg-linear-to-tr, .bg-linear-to-t, .bg-linear-to-b, .bg-linear-to-r, .bg-linear-to-l {
+      background-image: linear-gradient(var(--tw-gradient-stops));
+    }
     /* Custom Utilities & Canonical Tokens */
     .knockout-badge {
       background-color: #FFEC01;
@@ -203,7 +213,7 @@
 
   <!-- ACCESIBILIDAD: Saltar al contenido principal -->
   <a href="#main-content"
-    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow-500 focus:text-brand-blue-500 focus:font-subheading focus:font-bold focus:uppercase focus:tracking-wider focus:shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white">
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow-500 focus:text-brand-blue-500 focus:font-subheading focus:font-bold focus:uppercase focus:tracking-wider focus:shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white">
     Saltar al contenido principal
   </a>
 
@@ -409,7 +419,7 @@
 
           <div class="relative">
             <a href="/cotizar" id="header_cta"
-              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-[44px] border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
+              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-11 border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
               <span>Cotizá tu envío</span>
               <span
                 class="inline-flex items-center justify-center rounded-full w-7 h-7 ml-3 bg-white/10 text-brand-yellow-500 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-all">
@@ -445,7 +455,7 @@
   </div>
 
   <div id="mobile-navigation-dialog" role="dialog" aria-modal="true" aria-label="Menú principal"
-    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-[320px] h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
+    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-80 h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
     <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
       <a href="/" onclick="toggleMobileNav(false)" class="flex items-center gap-3">
         <span class="font-display text-xl tracking-tight uppercase select-none flex flex-col items-start leading-none">
@@ -556,7 +566,7 @@
   >
     <!-- Procedural Background Grid & Gradients -->
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_65%)] pointer-events-none"></div>
-    <div class="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:36px_36px] pointer-events-none"></div>
+    <div class="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-size-[36px_36px] pointer-events-none"></div>
 
     <!-- Palabra Fantasma Decorativa (Watermark de Escala Urbana) -->
     <span 
@@ -853,7 +863,7 @@
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
                     <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2019</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-[10px] font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -882,7 +892,7 @@
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
                     <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2021</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-[10px] font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -913,7 +923,7 @@
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
                     <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2023</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-[10px] font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -941,7 +951,7 @@
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
                     <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2024</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-[10px] font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -970,7 +980,7 @@
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
                     <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2025</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-[10px] font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -999,7 +1009,7 @@
                 <div class="double-bezel-inner space-y-2">
                   <div class="flex items-center justify-between">
                     <span class="font-mono text-3xl sm:text-4xl text-brand-ink font-bold leading-none tabular-nums">2026</span>
-                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-[10px] font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
+                    <span class="px-2.5 py-0.5 rounded-md bg-brand-yellow/20 text-2xs font-mono text-brand-blue font-bold uppercase border border-brand-yellow/50 transform -rotate-1 tabular-nums">
                       Hito MDQ
                     </span>
                   </div>
@@ -1171,7 +1181,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 </div>
-                <span class="text-[10px] font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
+                <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
                   Flota Propia
                 </span>
               </div>
@@ -1212,7 +1222,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   </svg>
                 </div>
-                <span class="text-[10px] font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
+                <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
                   Base Friuli 1972
                 </span>
               </div>
@@ -1251,7 +1261,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <span class="text-[10px] font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
+                <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
                   Máxima Velocidad
                 </span>
               </div>
@@ -1290,7 +1300,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
                   </svg>
                 </div>
-                <span class="text-[10px] font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
+                <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-yellow text-brand-blue px-2.5 py-0.5 rounded-full transform -rotate-1">
                   Confianza Local
                 </span>
               </div>
@@ -1625,7 +1635,7 @@
         <div
           class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#1877F2]/50 hover:border-[#1877F2] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
           <div
-            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#0866FF] hover:bg-[#1877F2] border border-white/15 transition-colors">
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden bg-[#0866FF] hover:bg-[#1877F2] border border-white/15 transition-colors">
             <!-- Marca de agua decorativa -->
             <div
               class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
@@ -1638,7 +1648,7 @@
             <div class="z-10 text-left space-y-4">
               <div class="flex items-center justify-between">
                 <span
-                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#0866FF] border-white shadow-sm">
+                  class="text-2xs font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#0866FF] border-white shadow-sm">
                   FACEBOOK OFICIAL
                 </span>
                 <div
@@ -1679,9 +1689,9 @@
 
         <!-- CARD 2: INSTAGRAM -->
         <div
-          class="social-block group relative rounded-2xl p-[2px] transition-all duration-300 hover:-translate-y-1.5 bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] shadow-xl">
+          class="social-block group relative rounded-2xl p-0.5 transition-all duration-300 hover:-translate-y-1.5 bg-linear-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] shadow-xl">
           <div
-            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] border border-white/20 transition-colors">
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden bg-linear-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] border border-white/20 transition-colors">
             <!-- Marca de agua decorativa -->
             <div
               class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
@@ -1694,7 +1704,7 @@
             <div class="z-10 text-left space-y-4">
               <div class="flex items-center justify-between">
                 <span
-                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#E1306C] border-white shadow-sm">
+                  class="text-2xs font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#E1306C] border-white shadow-sm">
                   INSTAGRAM MDQ
                 </span>
                 <div
@@ -1737,7 +1747,7 @@
         <div
           class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#25D366]/50 hover:border-[#25D366] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
           <div
-            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#128C7E] hover:bg-[#0e7468] border border-white/15 transition-colors">
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-97.5 md:h-107.5 overflow-hidden bg-[#128C7E] hover:bg-[#0e7468] border border-white/15 transition-colors">
             <!-- Marca de agua decorativa -->
             <div
               class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
@@ -1750,7 +1760,7 @@
             <div class="z-10 text-left space-y-4">
               <div class="flex items-center justify-between">
                 <span
-                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#128C7E] border-white shadow-sm">
+                  class="text-2xs font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#128C7E] border-white shadow-sm">
                   WHATSAPP DIRECTO
                 </span>
                 <div
@@ -1867,7 +1877,7 @@
               <span class="font-display text-2xl sm:text-3xl tracking-tight uppercase select-none text-white">
                 Envíos <span class="text-brand-yellow-500">DosRuedas</span>
               </span>
-              <span class="text-[10px] font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
+              <span class="text-2xs font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
                 Tu solución confiable · Mar del Plata
               </span>
             </div>
@@ -1928,7 +1938,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
             <!-- Grupo Portales -->
             <div>
-              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+              <p class="text-2xs text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
                 Cotizador y Portales
               </p>
               <ul class="space-y-2.5 text-sm font-sans">
@@ -1970,7 +1980,7 @@
 
             <!-- Grupo Planes -->
             <div>
-              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+              <p class="text-2xs text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
                 Servicios y Planes
               </p>
               <ul class="space-y-2.5 text-sm font-sans">
@@ -2051,7 +2061,7 @@
               </div>
               <div class="space-y-1 w-full">
                 <p class="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Despacho</p>
-                <div class="text-[12px] font-sans text-brand-blue-50 space-y-0.5">
+                <div class="text-xs font-sans text-brand-blue-50 space-y-0.5">
                   <div class="flex justify-between items-center gap-4">
                     <span>Lunes a Viernes:</span>
                     <span class="font-mono font-bold text-brand-yellow-500">09:00 - 18:00</span>
@@ -2073,7 +2083,7 @@
         <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
           class="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 p-2.5 rounded-full shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer min-w-11 min-h-11"
           title="Volver al inicio" aria-label="Volver arriba">
-          <i data-lucide="arrow-up" class="w-4 h-4 stroke-[3]"></i>
+          <i data-lucide="arrow-up" class="w-4 h-4 stroke-3"></i>
         </button>
       </div>
 

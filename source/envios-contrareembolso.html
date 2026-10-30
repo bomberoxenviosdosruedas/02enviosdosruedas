@@ -41,6 +41,13 @@
               white: '#FFFFFF',
             }
           },
+          fontSize: {
+            '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
+          },
+          spacing: {
+            '97.5': '24.375rem',
+            '107.5': '26.875rem',
+          },
           fontFamily: {
             sans: ['Outfit', 'sans-serif'],
             display: ['Anton', 'sans-serif'],
@@ -63,6 +70,9 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    .bg-linear-to-br, .bg-linear-to-tr, .bg-linear-to-t, .bg-linear-to-b, .bg-linear-to-r, .bg-linear-to-l {
+      background-image: linear-gradient(var(--tw-gradient-stops));
+    }
     /* Estilos canónicos del Design System DosRuedas */
     .double-bezel-outer {
       background-color: rgba(230, 238, 254, 0.85);
@@ -378,7 +388,7 @@
 
           <div class="relative">
             <a href="/cotizar" id="header_cta"
-              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-[44px] border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
+              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-11 border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
               <span>Cotizá tu envío</span>
               <span
                 class="inline-flex items-center justify-center rounded-full w-7 h-7 ml-3 bg-white/10 text-brand-yellow-500 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-all">
@@ -414,7 +424,7 @@
   </div>
 
   <div id="mobile-navigation-dialog" role="dialog" aria-modal="true" aria-label="Menú principal"
-    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-[320px] h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
+    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-80 h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
     <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
       <a href="/" onclick="toggleMobileNav(false)" class="flex items-center gap-3">
         <span class="font-display text-xl tracking-tight uppercase select-none flex flex-col items-start leading-none">
@@ -531,7 +541,7 @@
       <!-- Glows de fondo procedurales -->
       <div class="absolute top-0 right-0 w-96 h-96 bg-brand-yellow-500/10 rounded-full blur-3xl pointer-events-none -translate-y-1/3 translate-x-1/4"></div>
       <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-blue-400/20 rounded-full blur-2xl pointer-events-none translate-y-1/4 -translate-x-1/4"></div>
-      <div class="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+      <div class="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-size-[32px_32px] pointer-events-none"></div>
 
       <div class="max-w-7xl mx-auto relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -1328,7 +1338,7 @@
               </div>
               <div class="space-y-1 w-full">
                 <p class="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Despacho</p>
-                <div class="text-[12px] font-sans text-brand-blue-50 space-y-0.5">
+                <div class="text-xs font-sans text-brand-blue-50 space-y-0.5">
                   <div class="flex justify-between items-center gap-4">
                     <span>Lunes a Viernes:</span>
                     <span class="font-mono font-bold text-brand-yellow-500">09:00 - 18:00</span>
