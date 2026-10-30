@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mercado Envíos Flex en Mar del Plata | Envíos DosRuedas</title>
+    <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Geist+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: {
+                50: '#E6EEFE',
+                100: '#BACEFD',
+                200: '#8EAFFB',
+                300: '#628FF9',
+                400: '#3570F8',
+                500: '#0950F6',
+              },
+              yellow: {
+                50: '#FFFDE6',
+                100: '#FFFAB8',
+                200: '#FFF78A',
+                400: '#FFF12E',
+                500: '#FFEC01',
+                600: '#E6D400',
+              }
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            display: ['Anton', 'sans-serif'],
+            subheading: ['Bebas Neue', 'sans-serif'],
+            mono: ['Geist Mono', 'monospace'],
+          },
+          boxShadow: {
+            'accent-sm': '0 2px 4px rgba(255, 236, 1, 0.15)',
+            'elevated': '0 16px 40px rgba(9, 80, 246, 0.18)',
+            'float': '0 25px 50px -12px rgba(9, 80, 246, 0.15)',
+            'glow-yellow': '0 0 25px rgba(255, 241, 46, 0.45)',
+            'cta-glow': '0 0 28px rgba(255, 236, 1, 0.45), 0 8px 24px rgba(9, 80, 246, 0.18)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes shuttle {
+      from { transform: translateX(0); }
+      to { transform: translateX(100%); }
+    }
+    .animate-shuttle {
+      animation: shuttle 5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+    }
+    .double-bezel-card {
+      background-color: rgba(230, 238, 254, 0.8);
+      border: 1px solid #BACEFD;
+      padding: 0.5rem;
+      border-radius: 1.75rem;
+      box-shadow: 0 20px 40px -15px rgba(9, 80, 246, 0.12);
+      transition: all 0.3s ease;
+    }
+    .double-bezel-card:hover {
+      border-color: #628FF9;
+      transform: translateY(-4px);
+    }
+    .double-bezel-inner {
+      background-color: #ffffff;
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(230, 238, 254, 0.6);
+      height: 100%;
+    }
+    .knockout {
+      display: inline-block;
+      background-color: #FFEC01;
+      color: #0950F6;
+      padding: 0.1em 0.35em;
+      border-radius: 0.35rem;
+      transform: rotate(-1deg);
+      box-shadow: 0 0 24px rgba(255, 236, 1, 0.45);
+    }
+  
+    .font-display {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .font-subheading {
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .font-mono {
+      font-family: 'Geist Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kinetic-font-stretch {
+      display: inline-block;
+      transition: transform 0.3s ease, letter-spacing 0.3s ease;
+    }
+    .kinetic-font-stretch:hover {
+      transform: scaleX(1.06);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-white text-brand-blue-500 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-yellow-500 selection:text-brand-blue-500">
+
+  <!-- ACCESIBILIDAD: Saltar al contenido principal -->
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow-500 focus:text-brand-blue-500 focus:font-subheading focus:font-bold focus:uppercase focus:tracking-wider focus:shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white">
+    Saltar al contenido principal
+  </a>
+
+  <!-- ========================================================================
+       OPTIMIZED HEADER (Traducido de OptimizedHeader.tsx)
+       ======================================================================== -->
+  <header id="optimized-header"
+    class="fixed top-0 left-0 right-0 z-50 w-full text-white bg-brand-blue-500 shadow-elevated border-b border-white/10 py-3.5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+
+        <!-- Logo de marca -->
+        <a href="/" id="nav-logo-opt" aria-current="page"
+          class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
+          <div class="flex items-center gap-2.5">
+            <div
+              class="w-10 h-10 rounded-xl bg-brand-yellow-500 text-brand-blue-500 flex items-center justify-center font-display text-xl shadow-md transform group-hover:rotate-6 transition-transform">
+              <i data-lucide="bike" class="w-6 h-6 stroke-[2.5]"></i>
+            </div>
+            <span
+              class="font-display text-2xl sm:text-3xl tracking-tight leading-none uppercase select-none flex flex-col sm:flex-row sm:gap-1 items-start sm:items-center">
+              <span class="text-white kinetic-font-stretch">Envíos</span>
+              <span class="text-brand-yellow-500 kinetic-font-stretch">DosRuedas</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation con dropdowns interactivos -->
+        <nav id="desktop-nav-opt" aria-label="Navegación principal" class="hidden lg:flex items-center gap-1.5">
+          <!-- Inicio -->
+          <a href="/" aria-current="page"
+            class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-brand-yellow-500 bg-black/20 border border-brand-yellow-500/30 transition-colors">
+            Inicio
+          </a>
+
+          <!-- Servicios (Dropdown) -->
+          <div class="relative group" id="dropdown-servicios">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Servicios</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/servicios/envios-express"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="zap" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos
+                      Express</span>
+                  </a>
+                  <a href="/servicios/envios-lowcost"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="trending-down" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos
+                      LowCost</span>
+                  </a>
+                  <a href="/servicios/enviosflex"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="clock" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos Flex
+                      (MeLi)</span>
+                  </a>
+                  <a href="/servicios/empresas-cuenta-corriente"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="building-2" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Cuenta
+                      Corriente</span>
+                  </a>
+                  <a href="/servicios#ecommerce-24hs"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="package" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">E-commerce
+                      24HS</span>
+                  </a>
+                  <a href="/servicios/deposito-fulfillment"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="store" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">E-commerce
+                      Same Day</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plataformas (Dropdown) -->
+          <div class="relative group" id="dropdown-plataformas">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Plataformas</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/logistica-dosruedas"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="search" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Logística
+                      DosRuedas</span>
+                  </a>
+                  <a href="/mardelivery"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="utensils-crossed" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">MarDelivery
+                      Gastronomía</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nosotros (Dropdown) -->
+          <div class="relative group" id="dropdown-nosotros">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Nosotros</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/nosotros/sobre-nosotros"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="info" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Sobre
+                      Nosotros</span>
+                  </a>
+                  <a href="/nosotros/preguntas-frecuentes"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="help-circle" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Preguntas
+                      Frecuentes</span>
+                  </a>
+                  <a href="/nosotros/nuestras-redes"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="share-2" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Nuestras
+                      Redes</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <a href="/contacto"
+            class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors">
+            Contacto
+          </a>
+        </nav>
+
+        <!-- CTA & Teléfono Desktop -->
+        <div class="hidden lg:flex items-center gap-5">
+          <a href="tel:+542236900000"
+            class="flex items-center gap-2 text-white hover:text-brand-yellow-500 transition-colors font-mono text-base font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-lg px-1">
+            <i data-lucide="phone" class="w-4 h-4 text-brand-yellow-500"></i>
+            <span>223 690-0000</span>
+          </a>
+
+          <div class="relative">
+            <a href="/cotizar" id="header_cta"
+              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-[44px] border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
+              <span>Cotizá tu envío</span>
+              <span
+                class="inline-flex items-center justify-center rounded-full w-7 h-7 ml-3 bg-white/10 text-brand-yellow-500 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-all">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Toggles -->
+        <div class="lg:hidden flex items-center gap-3">
+          <a href="tel:+542236900000"
+            class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-all min-w-11 min-h-11 flex items-center justify-center"
+            aria-label="Llamar">
+            <i data-lucide="phone" class="w-5 h-5 text-brand-yellow-500"></i>
+          </a>
+          <button id="mobile-menu-toggle-opt" onclick="toggleMobileNav(true)"
+            class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-all cursor-pointer min-w-11 min-h-11 flex items-center justify-center"
+            aria-label="Abrir menú" aria-expanded="false">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       DRAWER NAVEGACIÓN MOBILE (Traducido de MobileNav.tsx)
+       ======================================================================== -->
+  <div id="mobile-nav-backdrop" onclick="toggleMobileNav(false)"
+    class="fixed inset-0 bg-brand-blue-500/70 backdrop-blur-md z-40 hidden transition-opacity duration-200 opacity-0">
+  </div>
+
+  <div id="mobile-navigation-dialog" role="dialog" aria-modal="true" aria-label="Menú principal"
+    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-[320px] h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
+      <a href="/" onclick="toggleMobileNav(false)" class="flex items-center gap-3">
+        <span class="font-display text-xl tracking-tight uppercase select-none flex flex-col items-start leading-none">
+          <span class="text-white">Envíos</span>
+          <span class="text-brand-yellow-500">DosRuedas</span>
+        </span>
+      </a>
+      <button onclick="toggleMobileNav(false)"
+        class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-colors min-w-11 min-h-11 flex items-center justify-center"
+        aria-label="Cerrar menú">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-5 py-6 space-y-4">
+      <nav class="space-y-2">
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-brand-yellow-500 bg-white/5">
+            <i data-lucide="home" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Inicio</span>
+          </a>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <button type="button" onclick="toggleDrawerSubmenu('drawer-sub-servicios')"
+            class="w-full text-left py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase flex items-center justify-between text-white hover:bg-white/5 cursor-pointer">
+            <span class="flex items-center gap-3.5">
+              <i data-lucide="bike" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+              <span>Servicios</span>
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow-500 shrink-0 transition-transform"></i>
+          </button>
+          <div id="drawer-sub-servicios" class="hidden pl-4 pr-1 py-2 flex-col gap-1">
+            <a href="/servicios/envios-express" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos Express</span>
+            </a>
+            <a href="/servicios/envios-lowcost" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="trending-down" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos LowCost</span>
+            </a>
+            <a href="/servicios/enviosflex" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="clock" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos Flex (MeLi)</span>
+            </a>
+            <a href="/servicios/empresas-cuenta-corriente" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="building-2" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Cuenta Corriente</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/logistica-dosruedas" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="layout-grid" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Plataformas</span>
+          </a>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/nosotros/sobre-nosotros" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="info" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Nosotros</span>
+          </a>
+        </div>
+
+        <div>
+          <a href="/contacto" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="mail" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Contacto</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="p-5 border-t border-white/10 space-y-4 shrink-0 bg-brand-blue-500 mt-auto">
+      <a href="tel:+542236900000"
+        class="flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-white/10 border border-white/5 text-white hover:text-brand-yellow-500 font-mono text-sm font-bold min-h-11">
+        <i data-lucide="phone" class="w-4 h-4 text-brand-yellow-500"></i>
+        <span>223 690-0000</span>
+      </a>
+      <a href="/cotizar" onclick="toggleMobileNav(false)"
+        class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading uppercase tracking-wider font-bold shadow-cta-glow">
+        Cotizá tu envío
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       INICIO CONTENIDO PRINCIPAL
+       ======================================================================== -->
+  <!-- ========================================================================= -->
+  <!-- 1. FLEX HERO: EL CORREDOR DE DESPACHO 15:00 → 20:00 (FlexHero.tsx) -->
+  <!-- ========================================================================= -->
+  <section id="flex-hero" class="relative isolate flex min-h-[90vh] w-full flex-col overflow-hidden bg-brand-blue-500 text-white">
+    <!-- Grid procedural pattern -->
+    <div class="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+
+    <div class="relative flex-1 flex items-center overflow-hidden">
+      <!-- Firma visual: El corredor de despacho 15:00 → 20:00 -->
+      <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-16 sm:h-20 lg:h-24 pointer-events-none">
+        <svg class="absolute inset-0 h-full w-full opacity-35" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 96" preserveAspectRatio="none">
+          <line x1="0" y1="66" x2="1200" y2="66" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="6 10" opacity="0.7"></line>
+          <line x1="72" y1="32" x2="72" y2="92" stroke="#FFEC01" stroke-width="4" stroke-linecap="round"></line>
+          <line x1="1128" y1="32" x2="1128" y2="92" stroke="#FFEC01" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 10"></line>
+          <line x1="283" y1="56" x2="283" y2="76" stroke="#FFEC01" stroke-width="2" stroke-dasharray="3 6" opacity="0.7"></line>
+          <line x1="494" y1="56" x2="494" y2="76" stroke="#FFEC01" stroke-width="2" stroke-dasharray="3 6" opacity="0.7"></line>
+          <line x1="706" y1="56" x2="706" y2="76" stroke="#FFEC01" stroke-width="2" stroke-dasharray="3 6" opacity="0.7"></line>
+          <line x1="917" y1="56" x2="917" y2="76" stroke="#FFEC01" stroke-width="2" stroke-dasharray="3 6" opacity="0.7"></line>
+        </svg>
+
+        <span class="absolute left-[6%] top-1 font-mono text-[11px] uppercase tracking-[0.18em] text-white/90 tabular-nums">
+          Corte 15:00 hs
+        </span>
+        <span class="absolute right-[6%] top-1 font-mono text-[11px] uppercase tracking-[0.18em] text-white/90 tabular-nums">
+          Entrega 20:00 hs
+        </span>
+
+        <div class="absolute left-[6%] top-[66%] h-0 w-[88%] animate-shuttle">
+          <div class="absolute left-0 -translate-y-1/2 h-4 w-9 rounded-md bg-brand-yellow-500 shadow-[0_0_18px_rgba(255,236,1,0.6)]">
+            <span class="block mx-auto mt-1.5 h-1 w-5 rounded-full bg-brand-blue-500"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          
+          <!-- LEFT 7: Copy + Promesa + Acciones -->
+          <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-brand-yellow-500 text-brand-blue-500 font-subheading uppercase text-xs tracking-widest rounded-full font-bold -rotate-1 shadow-glow-yellow">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+              <span>Integración oficial Mercado Envíos</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-[-0.03em] leading-[0.92] text-white">
+              <span class="block">Entregamos tu venta Flex</span>
+              <span class="knockout">antes de las 20:00 hs</span>
+              <span class="block">en Mar del Plata</span>
+            </h1>
+
+            <p class="text-base sm:text-lg font-sans text-white/90 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-light">
+              Retiramos en tu local o depósito (Lunes a Viernes hasta las 15:00 hs, Sábados hasta las 12:00 hs) y entregamos en toda la ciudad estrictamente antes de las 20:00 hs. Cuidamos tu reputación de MercadoLíder con equipo propio en moto.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
+              <a href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20activar%20Mercado%20Env%C3%ADos%20Flex%20para%20mi%20local" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-lg uppercase tracking-wider font-bold rounded-full shadow-glow-yellow transition-transform hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-2">
+                <span>Activá Mercado Envíos Flex</span>
+                <span class="w-6 h-6 rounded-full bg-brand-blue-500/10 flex items-center justify-center">→</span>
+              </a>
+              <a href="#flex-pricing" class="inline-flex min-h-11 items-center gap-2 font-subheading text-base uppercase tracking-wider text-white underline decoration-brand-yellow-500 decoration-2 underline-offset-4 hover:text-brand-yellow-500 transition-colors">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                <span>Ver Niveles y Tarifas</span>
+              </a>
+            </div>
+
+            <!-- El circuito completo: vender, retirar, entregar -->
+            <ol aria-label="Cómo funciona Mercado Envíos Flex" class="flex flex-wrap items-center justify-center gap-2 lg:justify-start pt-2">
+              <li class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 font-subheading text-sm uppercase tracking-wider text-white">
+                <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand-yellow-500 font-mono text-xs font-bold text-brand-blue-500">1</span>
+                Vendés
+              </li>
+              <li class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 font-subheading text-sm uppercase tracking-wider text-white">
+                <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand-yellow-500 font-mono text-xs font-bold text-brand-blue-500">2</span>
+                Retiramos
+              </li>
+              <li class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 font-subheading text-sm uppercase tracking-wider text-white">
+                <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand-yellow-500 font-mono text-xs font-bold text-brand-blue-500">3</span>
+                Entregamos
+              </li>
+            </ol>
+
+            <ul class="grid grid-cols-3 gap-3 pt-3 max-w-xl mx-auto lg:mx-0">
+              <li class="p-3 rounded-2xl bg-white/10 border border-white/20 text-center">
+                <span class="block font-mono text-xl sm:text-2xl text-brand-yellow-500 font-bold tabular-nums">15h / 12h</span>
+                <span class="block font-subheading text-xs uppercase tracking-wider text-white mt-0.5">Cortes L-V y Sáb</span>
+              </li>
+              <li class="p-3 rounded-2xl bg-white/10 border border-white/20 text-center">
+                <span class="block font-mono text-xl sm:text-2xl text-brand-yellow-500 font-bold tabular-nums">20:00 hs</span>
+                <span class="block font-subheading text-xs uppercase tracking-wider text-white mt-0.5">Límite estricto</span>
+              </li>
+              <li class="p-3 rounded-2xl bg-white/10 border border-white/20 text-center">
+                <span class="block font-mono text-xl sm:text-2xl text-brand-yellow-500 font-bold tabular-nums">Sin Mínimo</span>
+                <span class="block font-subheading text-xs uppercase tracking-wider text-white mt-0.5">Retiro bonificado</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- RIGHT 5: La Etiqueta Térmica Flex -->
+          <div class="relative flex w-full flex-col items-center justify-center lg:col-span-5">
+            <div class="relative w-full max-w-sm -rotate-2">
+              <span class="absolute -left-3 top-1/2 h-5 w-5 -translate-y-1/2 rounded-full bg-brand-blue-500"></span>
+              <span class="absolute -right-3 top-1/2 h-5 w-5 -translate-y-1/2 rounded-full bg-brand-blue-500"></span>
+
+              <div class="rounded-3xl border-2 border-dashed border-brand-blue-200 bg-white px-6 py-5 text-left shadow-[0_24px_48px_-16px_rgba(255,255,255,0.25)] text-brand-blue-500">
+                <div class="flex items-center justify-between gap-3 border-b-2 border-brand-blue-500 pb-3">
+                  <span class="font-display text-3xl uppercase leading-none text-brand-blue-500">
+                    Entrega hoy
+                  </span>
+                  <span class="rounded-md bg-brand-yellow-500 px-2.5 py-1 font-subheading text-xs uppercase tracking-widest text-brand-blue-500 font-bold">
+                    Same-day
+                  </span>
+                </div>
+
+                <dl class="space-y-2 py-3 border-b border-dashed border-brand-blue-100">
+                  <div class="flex items-baseline justify-between">
+                    <dt class="font-subheading text-sm uppercase tracking-wider text-brand-blue-500">Corte Lun a Vie</dt>
+                    <dd class="font-mono text-sm font-bold text-brand-blue-500">15:00 hs</dd>
+                  </div>
+                  <div class="flex items-baseline justify-between">
+                    <dt class="font-subheading text-sm uppercase tracking-wider text-brand-blue-500">Corte Sábados</dt>
+                    <dd class="font-mono text-sm font-bold text-brand-blue-500">12:00 hs</dd>
+                  </div>
+                  <div class="flex items-baseline justify-between">
+                    <dt class="font-subheading text-sm uppercase tracking-wider text-brand-blue-500">Límite entrega</dt>
+                    <dd class="font-mono text-sm font-bold text-brand-blue-500">Hasta 20:00 hs</dd>
+                  </div>
+                  <div class="flex items-baseline justify-between">
+                    <dt class="font-subheading text-sm uppercase tracking-wider text-brand-blue-500">Recolección</dt>
+                    <dd class="font-mono text-sm font-bold text-brand-blue-500">Bonificada (desde 1 paq.)</dd>
+                  </div>
+                  <div class="flex items-baseline justify-between">
+                    <dt class="font-subheading text-sm uppercase tracking-wider text-brand-blue-500">Cobertura</dt>
+                    <dd class="font-mono text-sm font-bold text-brand-blue-500">Mar del Plata urbana</dd>
+                  </div>
+                </dl>
+
+                <!-- Barcode decorativo -->
+                <div class="mt-3 h-10 w-full rounded bg-[repeating-linear-gradient(90deg,#0950F6_0_2px,transparent_2px_4px,#0950F6_4px_7px,transparent_7px_9px,#0950F6_9px_10px,transparent_10px_13px)]"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 2. FLEX FEATURES: MERCADOLIBRE EXPERTS (FlexFeatures.tsx) -->
+  <!-- ========================================================================= -->
+  <section id="flex-features" class="py-24 bg-white relative z-10 overflow-hidden border-t border-brand-blue-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left 5: Header y Diferenciales -->
+        <div class="lg:col-span-5 space-y-6 text-left">
+          <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm font-bold">
+            MERCADOLIBRE EXPERTS
+          </span>
+
+          <h2 class="text-brand-blue-500 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
+            DOMINÁ TUS VENTAS <br />
+            <span class="text-brand-blue-500 bg-brand-yellow-500 px-2 py-0.5 inline-block mt-1 font-bold -rotate-1">
+              CON ENVÍOS FLEX
+            </span>
+          </h2>
+
+          <p class="text-brand-blue-500 text-base leading-relaxed font-sans">
+            Somos el aliado estratégico para vendedores de Mercado Libre en Mar del Plata. Optimizamos tus entregas en el día con equipo propio para que vos te dediques a publicar, vender y potenciar tu reputación.
+          </p>
+
+          <div class="pt-2 space-y-3">
+            <h3 class="text-xs font-subheading uppercase tracking-widest text-brand-blue-500 font-bold">
+              Diferenciales que marcan la diferencia:
+            </h3>
+            <ul class="space-y-2.5 text-sm font-medium">
+              <li class="flex items-center gap-3">
+                <div class="h-6 w-6 rounded-full bg-brand-yellow-500/20 text-brand-blue-500 flex items-center justify-center shrink-0 border border-brand-yellow-500/40">✓</div>
+                <span>Atención humana directa por WhatsApp</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <div class="h-6 w-6 rounded-full bg-brand-yellow-500/20 text-brand-blue-500 flex items-center justify-center shrink-0 border border-brand-yellow-500/40">✓</div>
+                <span>Equipo propio, profesional y de confianza</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <div class="h-6 w-6 rounded-full bg-brand-yellow-500/20 text-brand-blue-500 flex items-center justify-center shrink-0 border border-brand-yellow-500/40">✓</div>
+                <span>Baja tasa de siniestralidad garantizada</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <div class="h-6 w-6 rounded-full bg-brand-yellow-500/20 text-brand-blue-500 flex items-center justify-center shrink-0 border border-brand-yellow-500/40">✓</div>
+                <span>Sistema propio de seguimiento y control</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-2 flex items-center gap-3 text-xs sm:text-sm text-brand-blue-500 font-bold uppercase tracking-wider font-subheading bg-brand-blue-50 p-3 rounded-2xl border border-brand-blue-100">
+            <span class="text-brand-yellow-500 text-lg">📍</span>
+            <span>Ejido urbano de Mar del Plata · Periferia a $1.000/km</span>
+          </div>
+        </div>
+
+        <!-- Right 7: Bento Grid de 4 Cards en Doble Bisel -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+          
+          <div class="double-bezel-card">
+            <div class="double-bezel-inner flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl font-bold">🚚</div>
+                <span class="text-2xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 px-2.5 py-1 rounded-full border border-brand-blue-100">
+                  SIN MÍNIMO
+                </span>
+              </div>
+              <div>
+                <h4 class="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight">
+                  Recolección bonificada
+                </h4>
+                <p class="text-sm text-brand-blue-500/80 mt-1 leading-relaxed">
+                  Retiramos tus paquetes sin costo adicional directamente por tu local o depósito. Sin mínimo diario: aplica desde 1 solo paquete.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="double-bezel-card">
+            <div class="double-bezel-inner flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl font-bold">⏱️</div>
+                <span class="text-2xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 px-2.5 py-1 rounded-full border border-brand-blue-100">
+                  L-V 15HS · SÁB 12HS
+                </span>
+              </div>
+              <div>
+                <h4 class="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight">
+                  Horarios de corte
+                </h4>
+                <p class="text-sm text-brand-blue-500/80 mt-1 leading-relaxed">
+                  Lunes a viernes hasta las 15:00 hs y sábados hasta las 12:00 hs. Recibimos y procesamos tus despachos del día con máxima puntualidad.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="double-bezel-card">
+            <div class="double-bezel-inner flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl font-bold">🛡️</div>
+                <span class="text-2xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 px-2.5 py-1 rounded-full border border-brand-blue-100">
+                  HASTA 20:00 HS
+                </span>
+              </div>
+              <div>
+                <h4 class="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight">
+                  Límite estricto: 20:00 hs
+                </h4>
+                <p class="text-sm text-brand-blue-500/80 mt-1 leading-relaxed">
+                  Tus clientes reciben su compra en el día. El límite de entrega es estrictamente hasta las 20:00 hs, sin excepciones ni demoras.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="double-bezel-card">
+            <div class="double-bezel-inner flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl font-bold">🗺️</div>
+                <span class="text-2xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 px-2.5 py-1 rounded-full border border-brand-blue-100">
+                  EJIDO URBANO + KM
+                </span>
+              </div>
+              <div>
+                <h4 class="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight">
+                  Cobertura y Periferia
+                </h4>
+                <p class="text-sm text-brand-blue-500/80 mt-1 leading-relaxed">
+                  Tarifas estándar para todo el ejido urbano de Mar del Plata. Zonas periféricas (Chapadmalal, Batán, Santa Clara) se cotizan a $1.000 por kilómetro.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3. FLEX HOW IT WORKS: CIRCUITO OPERATIVO (FlexHowItWorks.tsx) -->
+  <!-- ========================================================================= -->
+  <section id="flex-how-it-works" class="py-24 bg-brand-blue-50/50 relative overflow-hidden border-t border-brand-blue-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm font-bold">
+          CIRCUITO OPERATIVO
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-500 leading-[0.98]">
+          LOGÍSTICA SIN FRICCIONES
+        </h2>
+        <p class="text-brand-blue-500/80 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          Integramos tus ventas con un circuito ágil de recolección y entrega continua en toda la ciudad.
+        </p>
+        <div class="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="double-bezel-card relative">
+          <div class="double-bezel-inner flex flex-col items-center text-center p-6 space-y-4 relative">
+            <span class="absolute top-3 left-3 bg-brand-yellow-500 text-brand-blue-500 font-mono font-bold text-xs tracking-wider px-2.5 py-0.5 rounded-full shadow-sm">
+              PASO 01
+            </span>
+            <div class="h-14 w-14 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center text-2xl mt-4 font-bold shadow-md">
+              🛍️
+            </div>
+            <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+              Venta y solicitud
+            </h3>
+            <p class="text-sm text-brand-blue-500/80 leading-relaxed font-sans">
+              Clientes integrados transmiten sus órdenes directo por sistema. También podés avisarnos por WhatsApp antes de las 15:00 hs (sábados 12:00 hs).
+            </p>
+          </div>
+        </div>
+
+        <div class="double-bezel-card relative">
+          <div class="double-bezel-inner flex flex-col items-center text-center p-6 space-y-4 relative">
+            <span class="absolute top-3 left-3 bg-brand-yellow-500 text-brand-blue-500 font-mono font-bold text-xs tracking-wider px-2.5 py-0.5 rounded-full shadow-sm">
+              PASO 02
+            </span>
+            <div class="h-14 w-14 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center text-2xl mt-4 font-bold shadow-md">
+              📲
+            </div>
+            <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+              Retiro y escaneo
+            </h3>
+            <p class="text-sm text-brand-blue-500/80 leading-relaxed font-sans">
+              El cadete pasa por tu comercio y escanea los paquetes directamente al momento de la recolección para que impacte de inmediato en Mercado Libre.
+            </p>
+          </div>
+        </div>
+
+        <div class="double-bezel-card relative">
+          <div class="double-bezel-inner flex flex-col items-center text-center p-6 space-y-4 relative">
+            <span class="absolute top-3 left-3 bg-brand-yellow-500 text-brand-blue-500 font-mono font-bold text-xs tracking-wider px-2.5 py-0.5 rounded-full shadow-sm">
+              PASO 03
+            </span>
+            <div class="h-14 w-14 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center text-2xl mt-4 font-bold shadow-md">
+              🔄
+            </div>
+            <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+              Distribución continua
+            </h3>
+            <p class="text-sm text-brand-blue-500/80 leading-relaxed font-sans">
+              Nuestros cadetes circulan permanentemente. La administración asigna los envíos a medida que entran, posibilitando múltiples pasadas en el día.
+            </p>
+          </div>
+        </div>
+
+        <div class="double-bezel-card relative">
+          <div class="double-bezel-inner flex flex-col items-center text-center p-6 space-y-4 relative">
+            <span class="absolute top-3 left-3 bg-brand-yellow-500 text-brand-blue-500 font-mono font-bold text-xs tracking-wider px-2.5 py-0.5 rounded-full shadow-sm">
+              PASO 04
+            </span>
+            <div class="h-14 w-14 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center text-2xl mt-4 font-bold shadow-md">
+              ✅
+            </div>
+            <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+              Comprobantes y visibilidad
+            </h3>
+            <p class="text-sm text-brand-blue-500/80 leading-relaxed font-sans">
+              Consultás el estado y los comprobantes de entrega tanto en tu panel de control de Envíos DosRuedas como en tu panel de Mercado Libre.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. FLEX REQUIREMENTS: ¿QUÉ NECESITÁS PARA ARRANCAR? (FlexRequirements.tsx) -->
+  <!-- ========================================================================= -->
+  <section id="flex-requirements" class="py-24 bg-white relative z-10 overflow-hidden border-t border-brand-blue-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm font-bold">
+          PUESTA EN MARCHA
+        </span>
+        <h2 class="text-brand-blue-500 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
+          ¿QUÉ NECESITÁS PARA ARRANCAR?
+        </h2>
+        <p class="text-brand-blue-500/80 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          Requisitos operativos y logísticos para comenzar a despachar con Mercado Envíos Flex de forma segura y profesional.
+        </p>
+        <div class="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="double-bezel-card h-full">
+          <div class="double-bezel-inner flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl text-xl font-bold">📦</div>
+              <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 font-bold px-2.5 py-1 rounded-full border border-brand-blue-100">
+                HASTA 20 KG · 60×60 CM
+              </span>
+            </div>
+            <div>
+              <h3 class="text-lg font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+                Capacidad y peso admitido
+              </h3>
+              <p class="text-sm text-brand-blue-500/80 mt-1 leading-relaxed">
+                Hasta 60×60 cm y un máximo de 20 kg recomendado para moto. Bultos con dimensiones mayores quedan sujetos a consulta previa.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="double-bezel-card h-full">
+          <div class="double-bezel-inner flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl text-xl font-bold">🏍️</div>
+              <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 font-bold px-2.5 py-1 rounded-full border border-brand-blue-100">
+                FLOTA ÁGIL
+              </span>
+            </div>
+            <div>
+              <h3 class="text-lg font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+                Flota 100% en moto
+              </h3>
+              <p class="text-sm text-brand-blue-500/80 mt-1 leading-relaxed">
+                Nuestra flota opera exclusivamente en moto para asegurar agilidad urbana. Por el momento no realizamos traslados en autos o furgones.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="double-bezel-card h-full">
+          <div class="double-bezel-inner flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl text-xl font-bold">🔲</div>
+              <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 font-bold px-2.5 py-1 rounded-full border border-brand-blue-100">
+                QR PROTEGIDO
+              </span>
+            </div>
+            <div>
+              <h3 class="text-lg font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+                Embalaje seguro y QR visible
+              </h3>
+              <p class="text-sm text-brand-blue-500/80 mt-1 leading-relaxed">
+                Paquetes correctamente embalados para su transporte en moto, con código QR visible y protegido del agua y las condiciones climáticas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="double-bezel-card h-full">
+          <div class="double-bezel-inner flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl text-xl font-bold">✨</div>
+              <span class="text-2xs font-subheading uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 font-bold px-2.5 py-1 rounded-full border border-brand-blue-100">
+                SOPORTE FLEX
+              </span>
+            </div>
+            <div>
+              <h3 class="text-lg font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+                Asistencia para tu activación
+              </h3>
+              <p class="text-sm text-brand-blue-500/80 mt-1 leading-relaxed">
+                Te acompañamos paso a paso para configurar zonas y horarios en Mercado Libre, supeditado a que tu cuenta cumpla las condiciones de Flex.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. FLEX BENEFITS: BENEFICIOS PARA VENDEDORES (FlexBenefits.tsx) -->
+  <!-- ========================================================================= -->
+  <section id="flex-benefits" class="py-24 bg-brand-blue-500 relative z-10 overflow-hidden text-white border-t border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow font-bold">
+          SOCIOS ESTRATÉGICOS
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white leading-[0.98]">
+          BENEFICIOS PARA VENDEDORES
+        </h2>
+        <p class="text-brand-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          La solución definitiva para proteger tu reputación en Mercado Libre y brindar una experiencia de entrega intachable.
+        </p>
+        <div class="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+        
+        <!-- Beneficio 1 (6 cols) -->
+        <div class="lg:col-span-6 rounded-[28px] bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-float">
+          <div class="bg-white p-7 rounded-[20px] text-brand-blue-500 h-full flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl font-bold">🔄</div>
+              <span class="text-2xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 px-2.5 py-1 rounded-full border border-brand-blue-100">
+                SIN CARGO
+              </span>
+            </div>
+            <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+              Devoluciones al local sin cargo
+            </h3>
+            <p class="text-sm text-brand-blue-500/80 leading-relaxed font-sans">
+              Si el comprador rechaza o no recibe el paquete, te lo devolvemos sin cargo durante el mismo día o al día siguiente a más tardar. Si el paquete ya fue retirado del local y la compra se cancela durante el trayecto, el costo del envío debe abonarse igualmente.
+            </p>
+          </div>
+        </div>
+
+        <!-- Beneficio 2 (6 cols) -->
+        <div class="lg:col-span-6 rounded-[28px] bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-float">
+          <div class="bg-white p-7 rounded-[20px] text-brand-blue-500 h-full flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl font-bold">🏆</div>
+              <span class="text-2xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 px-2.5 py-1 rounded-full border border-brand-blue-100">
+                REPUTACIÓN PROTEGIDA
+              </span>
+            </div>
+            <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+              Entregas aseguradas al 100%
+            </h3>
+            <p class="text-sm text-brand-blue-500/80 leading-relaxed font-sans">
+              Cuidamos la reputación de tu cuenta de Mercado Libre con entregas aseguradas al 100%. Accedés a comprobantes de entrega digitales y métricas de rendimiento desde nuestra plataforma propia de control.
+            </p>
+          </div>
+        </div>
+
+        <!-- Beneficio 3 (4 cols) -->
+        <div class="lg:col-span-4 rounded-[28px] bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-float">
+          <div class="bg-white p-7 rounded-[20px] text-brand-blue-500 h-full flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl font-bold">📞</div>
+              <span class="text-2xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 px-2.5 py-1 rounded-full border border-brand-blue-100">
+                FOTO DE RESPALDO
+              </span>
+            </div>
+            <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+              Protocolo de cliente ausente
+            </h3>
+            <p class="text-sm text-brand-blue-500/80 leading-relaxed font-sans">
+              Ante destinatarios ausentes o direcciones difíciles, el cadete llama al cliente para concretar la entrega. Si no lo logra, marca "No entregado" en la app adjuntando una foto como respaldo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Beneficio 4 (4 cols) -->
+        <div class="lg:col-span-4 rounded-[28px] bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-float">
+          <div class="bg-white p-7 rounded-[20px] text-brand-blue-500 h-full flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl font-bold">🧩</div>
+              <span class="text-2xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 px-2.5 py-1 rounded-full border border-brand-blue-100">
+                INTEGRACIÓN DIRECTA
+              </span>
+            </div>
+            <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+              Beneficios por volumen
+            </h3>
+            <p class="text-sm text-brand-blue-500/80 leading-relaxed font-sans">
+              Integración directa a nuestro sistema logístico para recibir tus órdenes automáticamente y confirmarlas al instante. Descuentos progresivos según tu nivel de envíos diarios.
+            </p>
+          </div>
+        </div>
+
+        <!-- Beneficio 5 (4 cols) -->
+        <div class="lg:col-span-4 rounded-[28px] bg-white/10 backdrop-blur-md border border-white/20 p-2 shadow-float">
+          <div class="bg-white p-7 rounded-[20px] text-brand-blue-500 h-full flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl font-bold">👥</div>
+              <span class="text-2xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 px-2.5 py-1 rounded-full border border-brand-blue-100">
+                SOPORTE WHATSAPP
+              </span>
+            </div>
+            <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+              Equipo propio y atención directa
+            </h3>
+            <p class="text-sm text-brand-blue-500/80 leading-relaxed font-sans">
+              Atención humana directa por WhatsApp para resolver cualquier consulta en tiempo real. Cadetes propios, profesionales y de plena confianza para cuidar a tus compradores.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. FLEX PRICING & SIMULADOR DE ZONAS (FlexPricing.tsx & FlexZonePricingExplorer.tsx) -->
+  <!-- ========================================================================= -->
+  <section id="flex-pricing" class="py-24 bg-brand-blue-500 text-white relative z-10 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Encabezado Niveles -->
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow font-bold">
+          ESCALABILIDAD COMERCIAL
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-display uppercase tracking-tight text-white leading-[0.98]">
+          NIVELES Y TARIFAS FLEX
+        </h2>
+        <p class="text-brand-blue-50 font-sans text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          Cuanto mayor sea tu volumen diario de despachos, mejores beneficios y tarifas planas para tus entregas en el día.
+        </p>
+      </div>
+
+      <!-- Grid de 3 Niveles -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Nivel 1 -->
+        <div class="rounded-3xl bg-white/10 border border-white/20 p-2 shadow-float flex flex-col justify-between">
+          <div class="bg-brand-blue-500 p-6 sm:p-8 rounded-2xl flex flex-col justify-between h-full border border-white/10 space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-subheading uppercase tracking-wider bg-white/15 px-3 py-1 rounded-full text-white">Nivel 1</span>
+                <span class="text-xs font-mono text-brand-yellow-500">1 a 4 envíos/día</span>
+              </div>
+              <h3 class="text-2xl font-display uppercase text-white">Nivel 1 · Crecimiento</h3>
+              <div>
+                <span class="font-mono text-4xl font-bold text-brand-yellow-500">$3.000</span>
+                <span class="font-mono text-xs text-white/80">/ base Z1</span>
+              </div>
+              <ul class="space-y-2 text-xs font-sans text-brand-blue-50 border-t border-white/15 pt-4">
+                <li>✓ Tarifa por zonas de distancia (Z1 a Z5)</li>
+                <li>✓ Desde $3.000 (Z1) hasta $7.000 (Z4)</li>
+                <li>✓ Segunda visita al 50% de la tarifa</li>
+                <li>✓ Tercera visita se abona como nuevo envío</li>
+                <li>✓ Recolección bonificada desde 1 paquete</li>
+                <li>✓ Soporte directo por WhatsApp</li>
+              </ul>
+            </div>
+            <a href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20consultar%20por%20Nivel%201%20Flex" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3 bg-white/10 hover:bg-white/20 text-white font-subheading uppercase text-sm tracking-wider rounded-xl transition-colors">
+              Consultar Nivel 1
+            </a>
+          </div>
+        </div>
+
+        <!-- Nivel 2: Pro (Destacado) -->
+        <div class="rounded-3xl bg-brand-yellow-500/20 border-2 border-brand-yellow-500 p-2 shadow-cta-glow flex flex-col justify-between relative transform lg:-translate-y-2">
+          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-yellow-500 text-brand-blue-500 font-subheading text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
+            ★ RECOMENDADO
+          </span>
+          <div class="bg-brand-blue-500 p-6 sm:p-8 rounded-2xl flex flex-col justify-between h-full border border-brand-yellow-500/30 space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-subheading uppercase tracking-wider bg-brand-yellow-500 text-brand-blue-500 font-bold px-3 py-1 rounded-full">Nivel 2</span>
+                <span class="text-xs font-mono text-brand-yellow-500">5 a 10 envíos/día</span>
+              </div>
+              <h3 class="text-2xl font-display uppercase text-white">Nivel 2 · Pro</h3>
+              <div>
+                <span class="font-mono text-4xl font-bold text-brand-yellow-500">$4.000</span>
+                <span class="font-mono text-xs text-white/80">/ tarifa plana</span>
+              </div>
+              <ul class="space-y-2 text-xs font-sans text-brand-blue-50 border-t border-white/15 pt-4">
+                <li>✓ Mantiene topes fijos en zonas lejanas (Z4 y Z5)</li>
+                <li>✓ Segunda visita en Z1 sin cargo; Z2 a Z5 al 50%</li>
+                <li>✓ Tercera visita se abona como nuevo envío</li>
+                <li>✓ Recolección bonificada en tu local</li>
+                <li>✓ Atención prioritaria por WhatsApp</li>
+              </ul>
+            </div>
+            <a href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20consultar%20por%20Nivel%202%20Pro%20Flex" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading uppercase text-sm tracking-wider font-bold rounded-xl transition-colors shadow-glow-yellow">
+              Activar Nivel Pro
+            </a>
+          </div>
+        </div>
+
+        <!-- Nivel 3: Elite -->
+        <div class="rounded-3xl bg-white/10 border border-white/20 p-2 shadow-float flex flex-col justify-between">
+          <div class="bg-brand-blue-500 p-6 sm:p-8 rounded-2xl flex flex-col justify-between h-full border border-white/10 space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-subheading uppercase tracking-wider bg-white/15 px-3 py-1 rounded-full text-white">Nivel 3</span>
+                <span class="text-xs font-mono text-brand-yellow-500">+10 envíos/día</span>
+              </div>
+              <h3 class="text-2xl font-display uppercase text-white">Nivel 3 · Elite</h3>
+              <div>
+                <span class="font-mono text-4xl font-bold text-brand-yellow-500">$3.500</span>
+                <span class="font-mono text-xs text-white/80">/ tarifa preferencial</span>
+              </div>
+              <ul class="space-y-2 text-xs font-sans text-brand-blue-50 border-t border-white/15 pt-4">
+                <li>✓ Envíos cercanos hasta 5 km: $3.000 a $4.000</li>
+                <li>✓ Tarifa plana al resto de la ciudad: $4.500</li>
+                <li>✓ Segunda visita 100% bonificada sin cargo</li>
+                <li>✓ Tercera visita se abona como nuevo envío</li>
+                <li>✓ Integración directa a nuestro sistema logístico</li>
+              </ul>
+            </div>
+            <a href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20consultar%20por%20Nivel%203%20Elite%20Flex" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3 bg-white/10 hover:bg-white/20 text-white font-subheading uppercase text-sm tracking-wider rounded-xl transition-colors">
+              Consultar Nivel Elite
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- SIMULADOR INTERACTIVO DE ZONAS (FlexZonePricingExplorer.tsx) -->
+      <!-- ===================================================================== -->
+      <div class="bg-white/10 backdrop-blur-md border border-white/20 p-2.5 sm:p-3.5 rounded-[32px] shadow-float text-white">
+        <div class="bg-brand-blue-500 rounded-[26px] p-6 sm:p-10 border border-white/10 relative overflow-hidden">
+          
+          <div class="max-w-3xl space-y-3 text-left mb-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest font-bold shadow-glow-yellow">
+              <span>Simulador Interactivo · Nivel 1</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-display uppercase tracking-tight text-white leading-tight">
+              Tarifas por distancia para Nivel 1 (1 a 4 envíos/día)
+            </h3>
+
+            <p class="text-sm sm:text-base text-brand-blue-50 font-sans leading-relaxed">
+              En Nivel 1 la tarifa se calcula según los kilómetros reales entre tu local y el comprador. Seleccioná una zona o deslizá los kilómetros para ver la tarifa exacta con las condiciones y garantías de Mercado Envíos Flex:
+            </p>
+          </div>
+
+          <!-- Pestañas de Zonas -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 mb-8" id="zone-tabs">
+            <button type="button" onclick="selectZone(1, 2, 3000)" class="zone-btn p-3.5 rounded-2xl border text-left transition-all bg-brand-yellow-500 text-brand-blue-500 border-brand-yellow-500 shadow-glow-yellow font-bold scale-[1.02]" data-zone="1">
+              <div class="flex items-center justify-between gap-1 mb-1">
+                <span class="font-subheading text-xs uppercase tracking-wider">Zona 1</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-brand-blue-500 text-white">0–3 km</span>
+              </div>
+              <div class="font-mono text-lg sm:text-xl font-bold">$3.000</div>
+            </button>
+
+            <button type="button" onclick="selectZone(2, 4, 4000)" class="zone-btn p-3.5 rounded-2xl border text-left transition-all bg-white/10 hover:bg-white/15 text-white border-white/15" data-zone="2">
+              <div class="flex items-center justify-between gap-1 mb-1">
+                <span class="font-subheading text-xs uppercase tracking-wider">Zona 2</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/20 text-brand-blue-50">3–5 km</span>
+              </div>
+              <div class="font-mono text-lg sm:text-xl font-bold">$4.000</div>
+            </button>
+
+            <button type="button" onclick="selectZone(3, 6, 5300)" class="zone-btn p-3.5 rounded-2xl border text-left transition-all bg-white/10 hover:bg-white/15 text-white border-white/15" data-zone="3">
+              <div class="flex items-center justify-between gap-1 mb-1">
+                <span class="font-subheading text-xs uppercase tracking-wider">Zona 3</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/20 text-brand-blue-50">5–7 km</span>
+              </div>
+              <div class="font-mono text-lg sm:text-xl font-bold">$5.300</div>
+            </button>
+
+            <button type="button" onclick="selectZone(4, 8.5, 7000)" class="zone-btn p-3.5 rounded-2xl border text-left transition-all bg-white/10 hover:bg-white/15 text-white border-white/15" data-zone="4">
+              <div class="flex items-center justify-between gap-1 mb-1">
+                <span class="font-subheading text-xs uppercase tracking-wider">Zona 4</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/20 text-brand-blue-50">7–10 km</span>
+              </div>
+              <div class="font-mono text-lg sm:text-xl font-bold">$7.000</div>
+            </button>
+
+            <button type="button" onclick="selectZone(5, 12, 8400)" class="zone-btn p-3.5 rounded-2xl border text-left transition-all bg-white/10 hover:bg-white/15 text-white border-white/15" data-zone="5">
+              <div class="flex items-center justify-between gap-1 mb-1">
+                <span class="font-subheading text-xs uppercase tracking-wider">Zona 5</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/20 text-brand-blue-50">+10 km</span>
+              </div>
+              <div class="font-mono text-lg sm:text-xl font-bold">$8.400*</div>
+            </button>
+          </div>
+
+          <!-- Slider y Tarjeta de Resultados Dinámicos -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white/5 border border-white/15 p-6 sm:p-8 rounded-[24px]">
+            <!-- Col Izquierda: Slider -->
+            <div class="lg:col-span-6 space-y-6 text-left">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <label for="flex-distance-slider" class="font-subheading text-xs uppercase tracking-wider text-brand-blue-100 flex items-center gap-2">
+                    <span class="text-brand-yellow-500">📍</span>
+                    <span>Ajustar distancia de entrega:</span>
+                  </label>
+                  <span id="slider-km-val" class="font-mono text-2xl font-bold text-brand-yellow-500 tabular-nums">
+                    2 km
+                  </span>
+                </div>
+
+                <input
+                  id="flex-distance-slider"
+                  type="range"
+                  min="1"
+                  max="18"
+                  step="0.5"
+                  value="2"
+                  oninput="handleDistanceInput(this.value)"
+                  class="w-full h-2.5 bg-white/20 rounded-lg appearance-none cursor-pointer accent-brand-yellow-500"
+                />
+
+                <div class="flex justify-between text-[11px] font-mono text-brand-blue-100 px-1 pt-1">
+                  <span>1 km (Z1)</span>
+                  <span>5 km (Z2)</span>
+                  <span>10 km (Z4)</span>
+                  <span>18 km (Z5)</span>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm text-brand-blue-50 space-y-1.5">
+                <p id="zone-desc-title" class="font-subheading uppercase tracking-wider text-brand-yellow-500 font-bold text-xs">
+                  Zona 1 · Envíos de cercanía urbana (hasta 3 km de distancia entre retiro y entrega).
+                </p>
+                <p id="zone-desc-formula" class="text-[11px] text-brand-blue-100">
+                  Tarifa plana correspondiente al tramo de 0 a 3 km.
+                </p>
+              </div>
+            </div>
+
+            <!-- Col Derecha: Precio y Condiciones -->
+            <div class="lg:col-span-6 bg-brand-blue-500 border border-white/20 p-6 rounded-[20px] shadow-sm space-y-5 text-left">
+              <div class="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/15 pb-4">
+                <div>
+                  <span class="font-mono text-[10px] uppercase tracking-wider text-brand-blue-100 block">
+                    Tarifa estimada Flex
+                  </span>
+                  <span id="display-price" class="font-mono text-4xl sm:text-5xl font-bold text-brand-yellow-500 tabular-nums">
+                    $3.000
+                  </span>
+                  <span class="font-mono text-xs text-brand-blue-100 ml-2">/ envío</span>
+                </div>
+
+                <div class="text-right">
+                  <span class="font-mono text-[10px] uppercase tracking-wider text-brand-blue-100 block">
+                    2da visita (50%)
+                  </span>
+                  <span id="display-retry" class="font-mono text-lg font-bold text-white tabular-nums">
+                    $1.500
+                  </span>
+                </div>
+              </div>
+
+              <!-- Condiciones Flex -->
+              <div class="space-y-2">
+                <span class="font-subheading text-[11px] uppercase tracking-wider text-brand-yellow-500 font-bold block">
+                  Condiciones y garantías del servicio Flex:
+                </span>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-brand-blue-50 font-sans">
+                  <li class="flex items-center gap-2">
+                    <span class="text-brand-yellow-500">⏱️</span>
+                    <span>Corte L-V 15:00 hs · Sáb 12:00 hs</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-brand-yellow-500">🛡️</span>
+                    <span>Entrega garantizada hasta las 20:00 hs</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-brand-yellow-500">🚚</span>
+                    <span>Recolección bonificada desde 1 paquete</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-brand-yellow-500">📲</span>
+                    <span>Escaneo en local con app Mercado Libre</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-brand-yellow-500">🔄</span>
+                    <span>Devolución sin cargo si no se concreta</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="text-brand-yellow-500">💬</span>
+                    <span>Soporte directo humano por WhatsApp</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="pt-2">
+                <a
+                  id="whatsapp-cta-calc"
+                  href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20consultar%20por%20Mercado%20Env%C3%ADos%20Flex%20para%20Nivel%201%20en%20Zona%201%20(aprox.%202%20km)."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full block text-center py-3.5 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-sm uppercase tracking-wider font-bold rounded-full shadow-glow-yellow transition-transform hover:scale-[1.01]"
+                >
+                  Consultar por Zona 1 en WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Clima y Facturación -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+        <div class="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float">
+          <div class="bg-brand-blue-500 text-white rounded-[20px] p-7 h-full flex flex-col justify-between border border-white/10 space-y-4">
+            <div class="space-y-3">
+              <span class="-rotate-1 inline-block px-3 py-1 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest font-bold shadow-glow-yellow">
+                CONDICIONES CLIMÁTICAS
+              </span>
+              <h3 class="text-2xl font-display uppercase tracking-tight text-white leading-tight">
+                Recargo por lluvia o calzada mojada
+              </h3>
+              <p class="text-sm text-brand-blue-50 leading-relaxed font-sans">
+                El recargo por clima adverso se activa durante la lluvia o mientras la calzada permanezca mojada con condiciones climáticas difíciles. Te comunicamos el estado exacto por WhatsApp al momento del despacho para total transparencia.
+              </p>
+            </div>
+            <a href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20consultar%20el%20estado%20del%20servicio%20Flex%20por%20clima" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-yellow-500 hover:text-brand-yellow-400 font-bold transition-colors">
+              <span>⚡ Consultar estado por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-[28px] shadow-float">
+          <div class="bg-brand-blue-500 text-white rounded-[20px] p-7 h-full flex flex-col justify-between border border-white/10 space-y-4">
+            <div class="space-y-3">
+              <span class="-rotate-1 inline-block px-3 py-1 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest font-bold shadow-glow-yellow">
+                FACTURACIÓN Y MEDIOS DE PAGO
+              </span>
+              <h3 class="text-2xl font-display uppercase tracking-tight text-white leading-tight">
+                Cobros simples y alta inmediata
+              </h3>
+              <ul class="text-sm text-brand-blue-50 space-y-2 font-sans">
+                <li><strong class="text-white">Ciclos de pago:</strong> Diario, quincenal o mensual según tu volumen y preferencia.</li>
+                <li><strong class="text-white">Métodos aceptados:</strong> Efectivo, transferencia bancaria o Mercado Pago.</li>
+                <li><strong class="text-white">Alta express:</strong> Solo requerimos nombre de tu comercio, teléfono, dirección y CUIT.</li>
+              </ul>
+            </div>
+            <a href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20dar%20de%20alta%20mi%20cuenta%20para%20Mercado%20Env%C3%ADos%20Flex" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-subheading uppercase tracking-wider text-brand-yellow-500 hover:text-brand-yellow-400 font-bold transition-colors">
+              <span>💳 Dar de alta mi comercio ahora</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. FLEX FAQ: PREGUNTAS FRECUENTES (FlexFAQ.tsx & flexFaqData.ts) -->
+  <!-- ========================================================================= -->
+  <section id="flex-faq" class="py-24 bg-white relative z-10 overflow-hidden border-t border-brand-blue-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm font-bold">
+          RESOLVÉ TUS DUDAS
+        </span>
+        <h2 class="text-brand-blue-500 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
+          PREGUNTAS FRECUENTES
+        </h2>
+        <p class="text-brand-blue-500/80 font-sans text-sm sm:text-base max-w-lg mx-auto">
+          Todo lo que necesitás saber antes de activar y comenzar a despachar tus ventas Flex con nosotros.
+        </p>
+        <div class="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Lista de Preguntas en Acordeón -->
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="bg-brand-blue-50/80 border border-brand-blue-100 p-1.5 rounded-[22px] shadow-sm">
+          <div class="bg-white rounded-[18px] border border-brand-blue-50/60 overflow-hidden">
+            <button type="button" onclick="toggleFaq(1)" class="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-brand-blue-50/30 transition-colors">
+              <span class="font-display text-base sm:text-lg uppercase tracking-wide text-brand-blue-500 leading-snug">
+                ¿Existe un mínimo de paquetes diarios para que retiren en mi local?
+              </span>
+              <span id="faq-chevron-1" class="h-8 w-8 rounded-full flex items-center justify-center shrink-0 bg-brand-yellow-500 text-brand-blue-500 rotate-180 transition-transform font-bold">
+                ▼
+              </span>
+            </button>
+            <div id="faq-body-1" class="px-6 pb-6 pt-1 text-sm text-brand-blue-500/80 font-sans leading-relaxed border-t border-brand-blue-50">
+              No, retiramos desde 1 solo paquete diario sin costo adicional de recolección en tu comercio o depósito. Podés comenzar a operar sin exigencias de volumen.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-brand-blue-50/80 border border-brand-blue-100 p-1.5 rounded-[22px] shadow-sm">
+          <div class="bg-white rounded-[18px] border border-brand-blue-50/60 overflow-hidden">
+            <button type="button" onclick="toggleFaq(2)" class="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-brand-blue-50/30 transition-colors">
+              <span class="font-display text-base sm:text-lg uppercase tracking-wide text-brand-blue-500 leading-snug">
+                ¿Tienen cobertura en toda la ciudad?
+              </span>
+              <span id="faq-chevron-2" class="h-8 w-8 rounded-full flex items-center justify-center shrink-0 bg-brand-blue-50 text-brand-blue-500 transition-transform font-bold">
+                ▼
+              </span>
+            </button>
+            <div id="faq-body-2" class="hidden px-6 pb-6 pt-1 text-sm text-brand-blue-500/80 font-sans leading-relaxed border-t border-brand-blue-50">
+              Sí, las tarifas estándar de Mercado Envíos Flex cubren todo el ejido urbano de la ciudad de Mar del Plata. Las zonas y localidades periféricas fuera de la ciudad (Chapadmalal, Batán, Santa Clara del Mar, etc.) requieren consulta previa y se cotizan a $1.000 por kilómetro, calculado según la distancia entre el punto de retiro y el de entrega.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-brand-blue-50/80 border border-brand-blue-100 p-1.5 rounded-[22px] shadow-sm">
+          <div class="bg-white rounded-[18px] border border-brand-blue-50/60 overflow-hidden">
+            <button type="button" onclick="toggleFaq(3)" class="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-brand-blue-50/30 transition-colors">
+              <span class="font-display text-base sm:text-lg uppercase tracking-wide text-brand-blue-500 leading-snug">
+                ¿El cadete escanea el paquete en mi local?
+              </span>
+              <span id="faq-chevron-3" class="h-8 w-8 rounded-full flex items-center justify-center shrink-0 bg-brand-blue-50 text-brand-blue-500 transition-transform font-bold">
+                ▼
+              </span>
+            </button>
+            <div id="faq-body-3" class="hidden px-6 pb-6 pt-1 text-sm text-brand-blue-500/80 font-sans leading-relaxed border-t border-brand-blue-50">
+              Sí, el repartidor escanea cada paquete directamente en tu comercio al momento de la recolección para que el estado se actualice al instante en la plataforma de Mercado Libre.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-brand-blue-50/80 border border-brand-blue-100 p-1.5 rounded-[22px] shadow-sm">
+          <div class="bg-white rounded-[18px] border border-brand-blue-50/60 overflow-hidden">
+            <button type="button" onclick="toggleFaq(4)" class="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-brand-blue-50/30 transition-colors">
+              <span class="font-display text-base sm:text-lg uppercase tracking-wide text-brand-blue-500 leading-snug">
+                ¿Se puede cobrar contra entrega?
+              </span>
+              <span id="faq-chevron-4" class="h-8 w-8 rounded-full flex items-center justify-center shrink-0 bg-brand-blue-50 text-brand-blue-500 transition-transform font-bold">
+                ▼
+              </span>
+            </button>
+            <div id="faq-body-4" class="hidden px-6 pb-6 pt-1 text-sm text-brand-blue-500/80 font-sans leading-relaxed border-t border-brand-blue-50">
+              No, el servicio de Mercado Libre Envíos Flex no admite cobros contra entrega. Todas las ventas deben estar previamente cobradas y gestionadas dentro del ecosistema de Mercado Libre.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="bg-brand-blue-50/80 border border-brand-blue-100 p-1.5 rounded-[22px] shadow-sm">
+          <div class="bg-white rounded-[18px] border border-brand-blue-50/60 overflow-hidden">
+            <button type="button" onclick="toggleFaq(5)" class="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-brand-blue-50/30 transition-colors">
+              <span class="font-display text-base sm:text-lg uppercase tracking-wide text-brand-blue-500 leading-snug">
+                ¿Qué sucede ante roturas, extravíos o incidencias?
+              </span>
+              <span id="faq-chevron-5" class="h-8 w-8 rounded-full flex items-center justify-center shrink-0 bg-brand-blue-50 text-brand-blue-500 transition-transform font-bold">
+                ▼
+              </span>
+            </button>
+            <div id="faq-body-5" class="hidden px-6 pb-6 pt-1 text-sm text-brand-blue-500/80 font-sans leading-relaxed border-t border-brand-blue-50">
+              Ante cualquier inconveniente, cada caso particular se evalúa y se resuelve de forma directa, ágil y personalizada con el comercio a través de nuestro soporte por WhatsApp.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Banner de Contacto Directo en Footer -->
+      <div class="mt-16 bg-brand-blue-500 text-white rounded-[28px] p-8 sm:p-10 border border-brand-blue-400/30 shadow-float text-center sm:text-left">
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-8 items-center">
+          <div class="sm:col-span-8 space-y-3">
+            <span class="-rotate-1 inline-block px-3.5 py-1 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest font-bold shadow-glow-yellow">
+              CONTACTO DIRECTO
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white leading-tight">
+              ¿Tenés otra consulta sobre tu cuenta Flex?
+            </h3>
+            <p class="text-sm text-brand-blue-50 font-sans max-w-xl leading-relaxed">
+              Escribinos por WhatsApp. Te asesoramos con la configuración logística y coordinamos tu primer retiro hoy mismo.
+            </p>
+          </div>
+
+          <div class="sm:col-span-4 flex justify-center sm:justify-end">
+            <a
+              href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola%20Env%C3%ADos%20DosRuedas!%20Quiero%20coordinar%20Mercado%20Env%C3%ADos%20Flex%20para%20mi%20local."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-7 py-3.5 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-base uppercase tracking-wider font-bold rounded-full shadow-glow-yellow transition-transform hover:scale-105"
+            >
+              Hablar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ========================================================================
+       FIN CONTENIDO PRINCIPAL
+       ======================================================================== -->
+
+  <section id="carrusel-redes"
+    class="py-20 md:py-32 bg-brand-blue-500 border-y border-white/10 relative overflow-hidden font-sans">
+    <!-- Fondos decorativos -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none"
+      aria-hidden="true"></div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-blue-400/20 rounded-full blur-[100px] pointer-events-none"
+      aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span
+          class="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-bold tracking-widest inline-block font-subheading uppercase shadow-accent-sm">
+          Nuestra Comunidad Digital
+        </span>
+
+        <h2
+          class="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight uppercase text-white text-center">
+          SEGUÍ NUESTRO <span class="text-brand-yellow-500">MOVIMIENTO</span>
+        </h2>
+
+        <p class="text-brand-blue-50 text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto opacity-90">
+          Sumate a nuestros canales digitales y enterate al toque de todas las novedades operativas en Mar del Plata.
+        </p>
+        <div class="h-0.5 w-20 bg-brand-yellow-500 mx-auto rounded-full mt-4"></div>
+      </div>
+
+      <!-- Grid de 3 Redes: Facebook, Instagram, WhatsApp -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
+
+        <!-- CARD 1: FACEBOOK -->
+        <div
+          class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#1877F2]/50 hover:border-[#1877F2] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#0866FF] hover:bg-[#1877F2] border border-white/15 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#0866FF] border-white shadow-sm">
+                  FACEBOOK OFICIAL
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#0866FF] shadow-lg shadow-[#0866FF]/30">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  FACEBOOK
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  Envíos DosRuedas
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#0866FF] shadow-md shadow-[#0866FF]/20">
+                <span>SEGUIR COMUNIDAD</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#0866FF]/15 text-[#0866FF]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: INSTAGRAM -->
+        <div
+          class="social-block group relative rounded-2xl p-[2px] transition-all duration-300 hover:-translate-y-1.5 bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] border border-white/20 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#E1306C] border-white shadow-sm">
+                  INSTAGRAM MDQ
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#E1306C] shadow-lg shadow-[#FD1D1D]/30">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  INSTAGRAM
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  @enviosdosruedas
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Mirá el detrás de escena de nuestros riders y la flota recorriendo las calles de MDQ.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#E1306C] shadow-md shadow-[#FD1D1D]/30">
+                <span>VER CONTENIDO</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#E1306C]/15 text-[#E1306C]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: WHATSAPP -->
+        <div
+          class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#25D366]/50 hover:border-[#25D366] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#128C7E] hover:bg-[#0e7468] border border-white/15 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#128C7E] border-white shadow-sm">
+                  WHATSAPP DIRECTO
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#128C7E] shadow-lg shadow-[#128C7E]/40">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  WHATSAPP
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  +54 9 223 690-0000
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Escribinos directamente para consultas, contrataciones o soporte express al toque.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://api.whatsapp.com/send/?phone=5492236900000" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#128C7E] shadow-md shadow-[#128C7E]/30">
+                <span>INICIAR CHAT</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#128C7E]/15 text-[#128C7E]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       OPTIMIZED FOOTER (Traducido de OptimizedFooter.tsx)
+       ======================================================================== -->
+  <footer id="optimized-footer"
+    class="bg-brand-blue-500 text-white border-t border-white/10 relative overflow-hidden font-sans">
+
+    <!-- Franja de acento amarillo vial de 6px oficial -->
+    <div class="h-1.5 bg-brand-yellow-500 w-full shadow-md shadow-brand-yellow-500/30"></div>
+
+    <!-- Fondos decorativos atmosféricos -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none">
+    </div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(9,80,246,0.5),transparent_40%)] pointer-events-none">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
+
+      <!-- TOP CTA BANNER -->
+      <div
+        class="mb-14 rounded-2xl bg-brand-blue-500/90 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-brand-yellow-500 animate-ping"></span>
+            Operaciones Activas Mar del Plata 2025
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
+            ¿Tenés envíos para hoy? <span class="text-brand-yellow-500">Los entregamos a tiempo.</span>
+          </h3>
+          <p class="text-sm text-brand-blue-50 font-light max-w-xl">
+            Cotizá online en segundos o coordiná directo con nuestro equipo logístico por WhatsApp.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
+          <a href="/cotizar"
+            class="w-full sm:w-auto bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading uppercase tracking-wider text-sm font-bold px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-all flex items-center justify-between group min-h-12">
+            <span>Cotizá tu Envío</span>
+            <span
+              class="bg-brand-blue-500/10 text-brand-blue-500 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </span>
+          </a>
+
+          <a href="https://api.whatsapp.com/send/?phone=5492236900000&text=Hola%20Envíos%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20envíos"
+            target="_blank" rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-subheading uppercase tracking-wider text-sm px-5 py-3.5 rounded-full transition-colors min-h-12 font-bold">
+            <svg class="w-4 h-4 fill-brand-yellow-500" viewBox="0 0 24 24">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+            </svg>
+            <span>Chateá con Nosotros</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- MID SECTION: Columnas de Contenido -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+        <!-- COLUMNA 1: Brand & Socials (4 Cols) -->
+        <div class="lg:col-span-4 space-y-6">
+          <a href="/"
+            class="flex items-center gap-3.5 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
+            <div
+              class="w-11 h-11 bg-white/10 p-1.5 rounded-xl border border-white/15 group-hover:scale-105 transition-transform shrink-0 flex items-center justify-center text-brand-yellow-500">
+              <i data-lucide="bike" class="w-7 h-7"></i>
+            </div>
+            <div class="flex flex-col leading-none">
+              <span class="font-display text-2xl sm:text-3xl tracking-tight uppercase select-none text-white">
+                Envíos <span class="text-brand-yellow-500">DosRuedas</span>
+              </span>
+              <span class="text-[10px] font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
+                Tu solución confiable · Mar del Plata
+              </span>
+            </div>
+          </a>
+
+          <p class="text-brand-blue-50 text-sm leading-relaxed max-w-sm font-light">
+            Con más de 7 años de trayectoria en Mar del Plata, transformamos el despacho de tus productos en un motor de
+            crecimiento para emprendedores, PyMEs y comercios locales con flota propia y compromiso humano.
+          </p>
+
+          <div class="space-y-3 pt-2">
+            <span class="block text-xs font-bold text-brand-yellow-500 uppercase tracking-widest font-subheading">
+              Canales Oficiales
+            </span>
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="/nosotros/nuestras-redes"
+                class="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-500 flex items-center justify-center transition-colors border border-white/15 p-2.5"
+                title="Instagram Oficial" aria-label="Instagram">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+
+              <a href="/nosotros/nuestras-redes"
+                class="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-500 flex items-center justify-center transition-colors border border-white/15 p-2.5"
+                title="Facebook Oficial" aria-label="Facebook">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </a>
+
+              <a href="https://api.whatsapp.com/send/?phone=5492236900000" target="_blank" rel="noopener noreferrer"
+                class="h-10 w-10 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 flex items-center justify-center transition-colors border border-brand-yellow-500 shadow-accent-sm p-2.5"
+                title="WhatsApp Directo" aria-label="WhatsApp">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                </svg>
+              </a>
+
+              <div
+                class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/10 border border-white/15 text-xs text-white font-mono">
+                <i data-lucide="shield-check" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                <span>Centro de Depósito y Logística Local · Friuli 1972</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA 2: Services & Tools (4 Cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <h4
+            class="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2">
+            Servicios y Plataformas
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+            <!-- Grupo Portales -->
+            <div>
+              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                Cotizador y Portales
+              </p>
+              <ul class="space-y-2.5 text-sm font-sans">
+                <li>
+                  <a href="/cotizar"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>Cotizá Express / LowCost</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/logistica-dosruedas"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="package" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>Logística DosRuedas</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/mardelivery"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="store" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>MarDelivery Gastronomía</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Grupo Planes -->
+            <div>
+              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                Servicios y Planes
+              </p>
+              <ul class="space-y-2.5 text-sm font-sans">
+                <li>
+                  <a href="/servicios/envios-express"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Envíos Express</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/envios-lowcost"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="trending-down" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Envíos LowCost</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/enviosflex"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="clock" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Mercado Envíos Flex</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/empresas-cuenta-corriente"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="building-2" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Cuenta Corriente</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios"
+                    class="text-brand-yellow-500 hover:text-brand-yellow-400 flex items-center gap-2.5 transition-colors font-bold">
+                    <i data-lucide="layers" class="w-4 h-4 shrink-0"></i>
+                    <span>Ver todos los servicios</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA 3: Hub Operations Info (4 Cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <h4
+            class="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2">
+            Base de Operaciones MDQ
+          </h4>
+
+          <div class="space-y-3.5 text-xs text-brand-blue-50 font-sans">
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Centro de Distribución</p>
+                <p class="font-sans text-[13px] text-brand-blue-50 mt-0.5">Friuli 1972, Mar del Plata</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Línea Directa y WhatsApp</p>
+                <a href="tel:+542236900000"
+                  class="font-mono text-[13px] font-bold text-brand-yellow-500 hover:underline block mt-0.5">
+                  +54 9 223 690-0000
+                </a>
+              </div>
+            </div>
+
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+              </div>
+              <div class="space-y-1 w-full">
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Despacho</p>
+                <div class="text-[12px] font-sans text-brand-blue-50 space-y-0.5">
+                  <div class="flex justify-between items-center gap-4">
+                    <span>Lunes a Viernes:</span>
+                    <span class="font-mono font-bold text-brand-yellow-500">09:00 - 18:00</span>
+                  </div>
+                  <div class="flex justify-between items-center gap-4">
+                    <span>Sábados:</span>
+                    <span class="font-mono font-bold text-brand-yellow-500">10:00 - 15:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Separador y Botón Volver Arriba -->
+      <div class="border-t border-white/10 my-10 relative">
+        <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          class="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 p-2.5 rounded-full shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer min-w-11 min-h-11"
+          title="Volver al inicio" aria-label="Volver arriba">
+          <i data-lucide="arrow-up" class="w-4 h-4 stroke-[3]"></i>
+        </button>
+      </div>
+
+      <!-- BOTTOM SECTION: Legal & Copyright -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-blue-50 font-sans">
+        <div class="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6">
+          <p class="font-medium text-white">© 2025 Envíos DosRuedas · Mar del Plata, Argentina.</p>
+          <a href="/servicios" class="hover:text-brand-yellow-500 transition-colors">Servicios</a>
+          <a href="/cobertura" class="hover:text-brand-yellow-500 transition-colors">Cobertura</a>
+          <a href="/logistica-dosruedas" class="hover:text-brand-yellow-500 transition-colors">Logística DosRuedas</a>
+          <a href="/mardelivery" class="hover:text-brand-yellow-500 transition-colors">MarDelivery</a>
+          <a href="/nosotros/sobre-nosotros" class="hover:text-brand-yellow-500 transition-colors">Nosotros</a>
+          <a href="/nosotros/preguntas-frecuentes" class="hover:text-brand-yellow-500 transition-colors">Preguntas
+            Frecuentes</a>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 shrink-0 text-brand-blue-50">
+          <a href="/terminos-y-condiciones" class="hover:text-brand-yellow-500 transition-colors">Términos y
+            Condiciones</a>
+          <a href="/politica-de-privacidad" class="hover:text-brand-yellow-500 transition-colors">Política de
+            Privacidad</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts de interactividad para los menús y render de íconos -->
+  <script>
+    // Inicializar íconos de Lucide
+    lucide.createIcons();
+
+    // Toggle de Drawer Móvil
+    function toggleMobileNav(open) {
+      const drawer = document.getElementById('mobile-navigation-dialog');
+      const backdrop = document.getElementById('mobile-nav-backdrop');
+      const btnToggle = document.getElementById('mobile-menu-toggle-opt');
+
+      if (open) {
+        backdrop.classList.remove('hidden');
+        setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+        drawer.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden';
+        btnToggle.setAttribute('aria-expanded', 'true');
+      } else {
+        backdrop.classList.add('opacity-0');
+        drawer.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+        btnToggle.setAttribute('aria-expanded', 'false');
+        setTimeout(() => backdrop.classList.add('hidden'), 200);
+      }
+    }
+
+    // Toggle de submenús dentro del drawer móvil
+    function toggleDrawerSubmenu(id) {
+      const sub = document.getElementById(id);
+      if (sub.classList.contains('hidden')) {
+        sub.classList.remove('hidden');
+        sub.classList.add('flex');
+      } else {
+        sub.classList.add('hidden');
+        sub.classList.remove('flex');
+      }
+    }
+
+    // Scroll header background blur effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('optimized-header');
+      if (window.scrollY > 20) {
+        header.classList.add('py-2.5', 'backdrop-blur-md', 'bg-brand-blue-500/95');
+        header.classList.remove('py-3.5');
+      } else {
+        header.classList.remove('py-2.5', 'backdrop-blur-md', 'bg-brand-blue-500/95');
+        header.classList.add('py-3.5');
+      }
+    });
+  </script>
+
+  <!-- Script interactivo para el simulador de zonas y los acordeones -->
+  <script>
+    const zones = [
+      { id: 1, name: 'Zona 1', minKm: 0, maxKm: 3, basePrice: 3000, defaultKm: 2, desc: 'Envíos de cercanía urbana (hasta 3 km de distancia entre retiro y entrega).' },
+      { id: 2, name: 'Zona 2', minKm: 3, maxKm: 5, basePrice: 4000, defaultKm: 4, desc: 'Radio intermedio en Mar del Plata urbana (de 3 a 5 km de recorrido vial).' },
+      { id: 3, name: 'Zona 3', minKm: 5, maxKm: 7, basePrice: 5300, defaultKm: 6, desc: 'Distancias medias conectando distintos barrios de la ciudad (de 5 a 7 km).' },
+      { id: 4, name: 'Zona 4', minKm: 7, maxKm: 10, basePrice: 7000, defaultKm: 8.5, desc: 'Recorridos extensos dentro del ejido urbano (de 7 a 10 km de distancia).' },
+      { id: 5, name: 'Zona 5', minKm: 10, maxKm: 20, basePrice: 7000, defaultKm: 12, desc: 'Más de 10 km dentro del ejido urbano: cálculo lineal a $700 por km.' }
+    ];
+
+    let currentZoneId = 1;
+
+    function selectZone(zoneId, defaultKm, price) {
+      currentZoneId = zoneId;
+      document.getElementById('flex-distance-slider').value = defaultKm;
+      updateSimulator(zoneId, defaultKm);
+    }
+
+    function handleDistanceInput(kmVal) {
+      const km = parseFloat(kmVal);
+      let targetZone = 1;
+      if (km <= 3) targetZone = 1;
+      else if (km <= 5) targetZone = 2;
+      else if (km <= 7) targetZone = 3;
+      else if (km <= 10) targetZone = 4;
+      else targetZone = 5;
+
+      updateSimulator(targetZone, km);
+    }
+
+    function updateSimulator(zoneId, km) {
+      const zone = zones.find(z => z.id === zoneId) || zones[0];
+      let price = zone.basePrice;
+      if (km > 10) {
+        price = Math.ceil(km) * 700;
+      }
+      const retry = Math.round(price * 0.5);
+
+      document.getElementById('slider-km-val').innerText = km + ' km';
+      document.getElementById('display-price').innerText = '$' + price.toLocaleString('es-AR');
+      document.getElementById('display-retry').innerText = '$' + retry.toLocaleString('es-AR');
+
+      document.getElementById('zone-desc-title').innerText = zone.name + ' · ' + zone.desc;
+      if (km > 10) {
+        document.getElementById('zone-desc-formula').innerText = 'Cálculo lineal Zona 5: ' + km + ' km × $700/km = $' + price.toLocaleString('es-AR') + '.';
+      } else {
+        document.getElementById('zone-desc-formula').innerText = 'Tarifa plana correspondiente al tramo de ' + zone.minKm + ' a ' + zone.maxKm + ' km.';
+      }
+
+      // Actualizar botón CTA
+      const waBtn = document.getElementById('whatsapp-cta-calc');
+      const waMsg = encodeURIComponent('Hola! Quiero consultar por Mercado Envíos Flex para Nivel 1 en ' + zone.name + ' (aprox. ' + km + ' km).');
+      waBtn.href = 'https://api.whatsapp.com/send/?phone=542236602699&text=' + waMsg;
+      waBtn.innerText = 'Consultar por ' + zone.name + ' en WhatsApp';
+
+      // Actualizar estilos de tabs
+      document.querySelectorAll('.zone-btn').forEach(btn => {
+        const btnZone = parseInt(btn.getAttribute('data-zone'));
+        if (btnZone === zoneId) {
+          btn.className = 'zone-btn p-3.5 rounded-2xl border text-left transition-all bg-brand-yellow-500 text-brand-blue-500 border-brand-yellow-500 shadow-glow-yellow font-bold scale-[1.02]';
+        } else {
+          btn.className = 'zone-btn p-3.5 rounded-2xl border text-left transition-all bg-white/10 hover:bg-white/15 text-white border-white/15';
+        }
+      });
+    }
+
+    function toggleFaq(index) {
+      for (let i = 1; i <= 5; i++) {
+        const body = document.getElementById('faq-body-' + i);
+        const chevron = document.getElementById('faq-chevron-' + i);
+        if (i === index) {
+          const isCurrentlyHidden = body.classList.contains('hidden');
+          if (isCurrentlyHidden) {
+            body.classList.remove('hidden');
+            chevron.classList.add('rotate-180', 'bg-brand-yellow-500', 'text-brand-blue-500');
+            chevron.classList.remove('bg-brand-blue-50');
+          } else {
+            body.classList.add('hidden');
+            chevron.classList.remove('rotate-180', 'bg-brand-yellow-500', 'text-brand-blue-500');
+            chevron.classList.add('bg-brand-blue-50');
+          }
+        } else {
+          body.classList.add('hidden');
+          chevron.classList.remove('rotate-180', 'bg-brand-yellow-500', 'text-brand-blue-500');
+          chevron.classList.add('bg-brand-blue-50');
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

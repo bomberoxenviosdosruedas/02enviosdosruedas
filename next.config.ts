@@ -3,6 +3,8 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   devIndicators: false,
+  // output: 'export',
+  trailingSlash: true,
 
   // Redirecciones 301/308 permanentes para URLs legacy y alias (BL-01)
   async redirects() {
@@ -64,8 +66,9 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: false,
   },
 
-  // Configuración de imágenes remotas y formatos modernos
+  // Configuración de imágenes
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

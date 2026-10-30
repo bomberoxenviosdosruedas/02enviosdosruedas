@@ -4,6 +4,8 @@ import { join } from 'node:path';
 import { EXPRESS_TIERS } from '@/lib/pricing';
 import { EXPRESS_WINDOW_SHORT, STANDARD_WEIGHT_KG } from '@/lib/promises';
 
+export const dynamic = 'force-static';
+
 // Imagen para compartir la página en redes, generada con código en el build (sin APIs ni cuotas).
 export const alt = `Envíos Express en moto en Mar del Plata: entrega en ${EXPRESS_WINDOW_SHORT.toLowerCase()} a elección`;
 export const size = { width: 1200, height: 630 };

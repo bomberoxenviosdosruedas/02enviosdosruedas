@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Envíos LowCost en Mar del Plata | Envíos DosRuedas</title>
+  
+  <!-- Fonts oficiales del proyecto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+    <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: {
+                50: '#E6EEFE',
+                100: '#BACEFD',
+                200: '#8EAFFB',
+                300: '#628FF9',
+                400: '#3570F8',
+                500: '#0950F6',
+                DEFAULT: '#0950F6',
+              },
+              yellow: {
+                50: '#FFFDE6',
+                100: '#FFFAB8',
+                200: '#FFF78A',
+                300: '#FFF45C',
+                400: '#FFF12E',
+                500: '#FFEC01',
+                600: '#E6D400',
+                DEFAULT: '#FFEC01',
+              },
+              ink: '#0950F6',
+              white: '#FFFFFF',
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            display: ['Anton', 'sans-serif'],
+            subheading: ['"Bebas Neue"', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace'],
+          },
+          boxShadow: {
+            'accent-sm': '0 2px 4px rgba(255, 236, 1, 0.15)',
+            'elevated': '0 16px 40px rgba(9, 80, 246, 0.18)',
+            'glow-yellow': '0 0 25px rgba(255, 241, 46, 0.45)',
+            'cta-glow': '0 0 28px rgba(255, 236, 1, 0.45), 0 8px 24px rgba(9, 80, 246, 0.18)',
+            'float': '0 25px 50px -12px rgba(9, 80, 246, 0.15)',
+            'antigravity-deep': '0 24px 64px rgba(9, 80, 246, 0.22)',
+            'accent': '0 12px 40px -6px rgba(255, 236, 1, 0.3)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos de tokens oficiales */
+    .font-display {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+    .font-subheading {
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .font-mono {
+      font-family: 'Geist Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Double Bezel Card */
+    .double-bezel-outer {
+      background-color: rgba(230, 238, 254, 0.85);
+      border: 1px solid #BACEFD;
+      padding: 0.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 40px -15px rgba(9, 80, 246, 0.12);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .double-bezel-outer:hover {
+      border-color: #628FF9;
+      box-shadow: 0 24px 64px rgba(9, 80, 246, 0.2);
+    }
+    .double-bezel-inner {
+      background-color: #FFFFFF;
+      border-radius: 1.125rem;
+      border: 1px solid rgba(230, 238, 254, 0.6);
+      box-shadow: inset 0 2px 4px rgba(9, 80, 246, 0.04);
+    }
+
+    /* Double Bezel variante azul */
+    .double-bezel-blue-outer {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem;
+      border-radius: 1.75rem;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .double-bezel-blue-outer:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 64px rgba(9, 80, 246, 0.3);
+    }
+    .double-bezel-blue-inner {
+      background-color: #FFFFFF;
+      border-radius: 1.35rem;
+    }
+
+    /* Píldora Knockout */
+    .knockout-blue {
+      display: inline-block;
+      background-color: #0950F6;
+      color: #FFEC01;
+      padding: 0.125rem 0.625rem;
+      border-radius: 0.5rem;
+      transform: rotate(-1deg);
+      box-shadow: 0 4px 12px rgba(9, 80, 246, 0.25);
+    }
+
+    /* Botón CTA anidado */
+    .cta-pill-blue {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      background-color: #0950F6;
+      color: #FFFFFF;
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 1.125rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 9999px;
+      transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: 0 4px 16px rgba(9, 80, 246, 0.3);
+    }
+    .cta-pill-blue:hover {
+      background-color: #0843d1;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(9, 80, 246, 0.4);
+    }
+
+    .cta-pill-yellow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      background-color: #FFEC01;
+      color: #0950F6;
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 1.125rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 9999px;
+      transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: 0 0 25px rgba(255, 236, 1, 0.45);
+    }
+    .cta-pill-yellow:hover {
+      background-color: #FFF12E;
+      transform: translateY(-2px);
+      box-shadow: 0 0 32px rgba(255, 236, 1, 0.6);
+    }
+
+    /* Animación de la barra de reparto */
+    @keyframes growWidth {
+      from { width: 0%; }
+      to { width: 50%; }
+    }
+    .animate-grow-x {
+      animation: growWidth 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Trama de carga */
+    .trama-carga {
+      background-image: repeating-linear-gradient(90deg, #0950F6 0, #0950F6 3px, transparent 3px, transparent 7px);
+    }
+  
+    .kinetic-font-stretch {
+      display: inline-block;
+      transition: transform 0.3s ease, letter-spacing 0.3s ease;
+    }
+    .kinetic-font-stretch:hover {
+      transform: scaleX(1.06);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-white text-brand-blue-500 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-yellow-500 selection:text-brand-blue-500">
+
+  <!-- ACCESIBILIDAD: Saltar al contenido principal -->
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow-500 focus:text-brand-blue-500 focus:font-subheading focus:font-bold focus:uppercase focus:tracking-wider focus:shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white">
+    Saltar al contenido principal
+  </a>
+
+  <!-- ========================================================================
+       OPTIMIZED HEADER (Traducido de OptimizedHeader.tsx)
+       ======================================================================== -->
+  <header id="optimized-header"
+    class="fixed top-0 left-0 right-0 z-50 w-full text-white bg-brand-blue-500 shadow-elevated border-b border-white/10 py-3.5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+
+        <!-- Logo de marca -->
+        <a href="/" id="nav-logo-opt" aria-current="page"
+          class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
+          <div class="flex items-center gap-2.5">
+            <div
+              class="w-10 h-10 rounded-xl bg-brand-yellow-500 text-brand-blue-500 flex items-center justify-center font-display text-xl shadow-md transform group-hover:rotate-6 transition-transform">
+              <i data-lucide="bike" class="w-6 h-6 stroke-[2.5]"></i>
+            </div>
+            <span
+              class="font-display text-2xl sm:text-3xl tracking-tight leading-none uppercase select-none flex flex-col sm:flex-row sm:gap-1 items-start sm:items-center">
+              <span class="text-white kinetic-font-stretch">Envíos</span>
+              <span class="text-brand-yellow-500 kinetic-font-stretch">DosRuedas</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation con dropdowns interactivos -->
+        <nav id="desktop-nav-opt" aria-label="Navegación principal" class="hidden lg:flex items-center gap-1.5">
+          <!-- Inicio -->
+          <a href="/" aria-current="page"
+            class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-brand-yellow-500 bg-black/20 border border-brand-yellow-500/30 transition-colors">
+            Inicio
+          </a>
+
+          <!-- Servicios (Dropdown) -->
+          <div class="relative group" id="dropdown-servicios">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Servicios</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/servicios/envios-express"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="zap" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos
+                      Express</span>
+                  </a>
+                  <a href="/servicios/envios-lowcost"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="trending-down" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos
+                      LowCost</span>
+                  </a>
+                  <a href="/servicios/enviosflex"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="clock" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos Flex
+                      (MeLi)</span>
+                  </a>
+                  <a href="/servicios/empresas-cuenta-corriente"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="building-2" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Cuenta
+                      Corriente</span>
+                  </a>
+                  <a href="/servicios#ecommerce-24hs"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="package" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">E-commerce
+                      24HS</span>
+                  </a>
+                  <a href="/servicios/deposito-fulfillment"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="store" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">E-commerce
+                      Same Day</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plataformas (Dropdown) -->
+          <div class="relative group" id="dropdown-plataformas">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Plataformas</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/logistica-dosruedas"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="search" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Logística
+                      DosRuedas</span>
+                  </a>
+                  <a href="/mardelivery"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="utensils-crossed" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">MarDelivery
+                      Gastronomía</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nosotros (Dropdown) -->
+          <div class="relative group" id="dropdown-nosotros">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Nosotros</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/nosotros/sobre-nosotros"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="info" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Sobre
+                      Nosotros</span>
+                  </a>
+                  <a href="/nosotros/preguntas-frecuentes"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="help-circle" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Preguntas
+                      Frecuentes</span>
+                  </a>
+                  <a href="/nosotros/nuestras-redes"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="share-2" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Nuestras
+                      Redes</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <a href="/contacto"
+            class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors">
+            Contacto
+          </a>
+        </nav>
+
+        <!-- CTA & Teléfono Desktop -->
+        <div class="hidden lg:flex items-center gap-5">
+          <a href="tel:+542236900000"
+            class="flex items-center gap-2 text-white hover:text-brand-yellow-500 transition-colors font-mono text-base font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-lg px-1">
+            <i data-lucide="phone" class="w-4 h-4 text-brand-yellow-500"></i>
+            <span>223 690-0000</span>
+          </a>
+
+          <div class="relative">
+            <a href="/cotizar" id="header_cta"
+              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-[44px] border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
+              <span>Cotizá tu envío</span>
+              <span
+                class="inline-flex items-center justify-center rounded-full w-7 h-7 ml-3 bg-white/10 text-brand-yellow-500 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-all">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Toggles -->
+        <div class="lg:hidden flex items-center gap-3">
+          <a href="tel:+542236900000"
+            class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-all min-w-11 min-h-11 flex items-center justify-center"
+            aria-label="Llamar">
+            <i data-lucide="phone" class="w-5 h-5 text-brand-yellow-500"></i>
+          </a>
+          <button id="mobile-menu-toggle-opt" onclick="toggleMobileNav(true)"
+            class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-all cursor-pointer min-w-11 min-h-11 flex items-center justify-center"
+            aria-label="Abrir menú" aria-expanded="false">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       DRAWER NAVEGACIÓN MOBILE (Traducido de MobileNav.tsx)
+       ======================================================================== -->
+  <div id="mobile-nav-backdrop" onclick="toggleMobileNav(false)"
+    class="fixed inset-0 bg-brand-blue-500/70 backdrop-blur-md z-40 hidden transition-opacity duration-200 opacity-0">
+  </div>
+
+  <div id="mobile-navigation-dialog" role="dialog" aria-modal="true" aria-label="Menú principal"
+    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-[320px] h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
+      <a href="/" onclick="toggleMobileNav(false)" class="flex items-center gap-3">
+        <span class="font-display text-xl tracking-tight uppercase select-none flex flex-col items-start leading-none">
+          <span class="text-white">Envíos</span>
+          <span class="text-brand-yellow-500">DosRuedas</span>
+        </span>
+      </a>
+      <button onclick="toggleMobileNav(false)"
+        class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-colors min-w-11 min-h-11 flex items-center justify-center"
+        aria-label="Cerrar menú">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-5 py-6 space-y-4">
+      <nav class="space-y-2">
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-brand-yellow-500 bg-white/5">
+            <i data-lucide="home" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Inicio</span>
+          </a>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <button type="button" onclick="toggleDrawerSubmenu('drawer-sub-servicios')"
+            class="w-full text-left py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase flex items-center justify-between text-white hover:bg-white/5 cursor-pointer">
+            <span class="flex items-center gap-3.5">
+              <i data-lucide="bike" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+              <span>Servicios</span>
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow-500 shrink-0 transition-transform"></i>
+          </button>
+          <div id="drawer-sub-servicios" class="hidden pl-4 pr-1 py-2 flex-col gap-1">
+            <a href="/servicios/envios-express" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos Express</span>
+            </a>
+            <a href="/servicios/envios-lowcost" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="trending-down" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos LowCost</span>
+            </a>
+            <a href="/servicios/enviosflex" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="clock" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos Flex (MeLi)</span>
+            </a>
+            <a href="/servicios/empresas-cuenta-corriente" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="building-2" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Cuenta Corriente</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/logistica-dosruedas" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="layout-grid" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Plataformas</span>
+          </a>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/nosotros/sobre-nosotros" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="info" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Nosotros</span>
+          </a>
+        </div>
+
+        <div>
+          <a href="/contacto" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="mail" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Contacto</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="p-5 border-t border-white/10 space-y-4 shrink-0 bg-brand-blue-500 mt-auto">
+      <a href="tel:+542236900000"
+        class="flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-white/10 border border-white/5 text-white hover:text-brand-yellow-500 font-mono text-sm font-bold min-h-11">
+        <i data-lucide="phone" class="w-4 h-4 text-brand-yellow-500"></i>
+        <span>223 690-0000</span>
+      </a>
+      <a href="/cotizar" onclick="toggleMobileNav(false)"
+        class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading uppercase tracking-wider font-bold shadow-cta-glow">
+        Cotizá tu envío
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       INICIO CONTENIDO PRINCIPAL
+       ======================================================================== -->
+  <!-- =========================================================================
+       1. HERO SECTION (LowCostHero.tsx)
+       Concepto: El reloj de la ventana de 6 horas (13:00 corte -> 19:00 entrega)
+       Fondo: Amarillo canónico tone="yellow", textos en azul de marca #0950F6
+       ========================================================================= -->
+  <section
+    id="lowcost-hero"
+    aria-label="LowCost: paquetería y cadetería con entrega el mismo día en Mar del Plata"
+    class="relative isolate flex min-h-[92vh] w-full flex-col justify-center overflow-hidden bg-brand-yellow-500 text-brand-blue-500 py-16 lg:py-24"
+  >
+    <!-- Fondo procedural vector & firma de reloj -->
+    <div aria-hidden="true" class="absolute inset-0 pointer-events-none overflow-hidden">
+      <!-- Cuadrícula técnica sutil -->
+      <div class="absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_right,#0950F6_1px,transparent_1px),linear-gradient(to_bottom,#0950F6_1px,transparent_1px)] bg-[size:36px_36px]"></div>
+      
+      <!-- Reloj de 12 horas: Arco azul marca exactamente la ventana 13:00 a 19:00 (6 hs) -->
+      <svg
+        class="absolute right-[-8%] bottom-[-10%] w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] lg:w-[680px] lg:h-[680px] opacity-[0.24]"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="-150 -150 300 300"
+      >
+        <!-- Dial sólido: Ventana de 13:00 a 19:00 -->
+        <path
+          d="M 50 -86.6 A 100 100 0 1 1 -50 86.6"
+          fill="none"
+          stroke="#0950F6"
+          stroke-width="14"
+          stroke-linecap="round"
+        />
+        <!-- Dial punteado: Horas de descanso/carga previa -->
+        <path
+          d="M -50 86.6 A 100 100 0 0 1 50 -86.6"
+          fill="none"
+          stroke="#0950F6"
+          stroke-width="14"
+          stroke-linecap="round"
+          stroke-dasharray="4 14"
+          opacity="0.4"
+        />
+        <!-- Marcas horarias cada 30 grados (12 horas) -->
+        <g stroke="#0950F6" stroke-linecap="round">
+          <!-- 12 marcas de horas -->
+          <line x1="0" y1="-120" x2="0" y2="-132" stroke-width="3" opacity="0.9" />
+          <line x1="60" y1="-103.9" x2="66" y2="-114.3" stroke-width="1.5" opacity="0.45" />
+          <line x1="103.9" y1="-60" x2="114.3" y2="-66" stroke-width="1.5" opacity="0.45" />
+          <line x1="120" y1="0" x2="132" y2="0" stroke-width="3" opacity="0.9" />
+          <line x1="103.9" y1="60" x2="114.3" y2="66" stroke-width="1.5" opacity="0.45" />
+          <line x1="60" y1="103.9" x2="66" y2="114.3" stroke-width="1.5" opacity="0.45" />
+          <line x1="0" y1="120" x2="0" y2="132" stroke-width="3" opacity="0.9" />
+          <line x1="-60" y1="103.9" x2="-66" y2="114.3" stroke-width="1.5" opacity="0.45" />
+          <line x1="-103.9" y1="60" x2="-114.3" y2="66" stroke-width="1.5" opacity="0.45" />
+          <line x1="-120" y1="0" x2="-132" y2="0" stroke-width="3" opacity="0.9" />
+          <line x1="-103.9" y1="-60" x2="-114.3" y2="-66" stroke-width="1.5" opacity="0.45" />
+          <line x1="-60" y1="-103.9" x2="-66" y2="-114.3" stroke-width="1.5" opacity="0.45" />
+        </g>
+        <!-- Manija fija clavada en el corte de las 13:00 hs -->
+        <line
+          x1="0"
+          y1="0"
+          x2="50"
+          y2="-86.6"
+          stroke="#0950F6"
+          stroke-width="5"
+          stroke-linecap="round"
+        />
+        <circle r="8" fill="#0950F6" />
+      </svg>
+    </div>
+
+    <div class="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        
+        <!-- LEFT 7 — Copy, badges & CTAs -->
+        <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-subheading uppercase tracking-widest bg-brand-blue-500 text-white -rotate-1 shadow-md">
+            <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+            </svg>
+            Paquetería y cadetería · MDQ 2026
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase tracking-tight leading-[0.92] text-brand-blue-500 text-balance">
+            <span class="block">Cortás el pedido</span>
+            <span class="knockout-blue">y lo recibís hoy</span>
+            <span class="block">en Mar del Plata</span>
+          </h1>
+
+          <p class="text-base sm:text-lg font-sans text-brand-blue-500 max-w-[56ch] mx-auto lg:mx-0 leading-relaxed font-normal">
+            Paquetería e-commerce, cadetería y encomiendas programadas. Lo que cargás antes de las <strong>13:00 hs</strong> se entrega en el día, antes de las <strong>19:00 hs</strong>. Sin franja horaria fija: ruteo inteligente optimizado para maximizar tu ahorro.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-1">
+            <a
+              href="/cotizar"
+              id="lowcost-hero-cta-cotizar"
+              class="cta-pill-blue w-full sm:w-auto text-center"
+            >
+              <span>Cotizá tu envío LowCost</span>
+              <span class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-sm font-mono">→</span>
+            </a>
+            
+            <a
+              href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20hacer%20un%20env%C3%ADo%20LowCost"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-11 items-center gap-2 font-subheading text-base uppercase tracking-wider text-brand-blue-500 underline decoration-brand-blue-500 decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
+            >
+              <!-- WhatsApp Icon SVG -->
+              <svg class="h-5 w-5 shrink-0 fill-current" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+              </svg>
+              <span>O escribinos por WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- 3 Chips de métricas -->
+          <ul class="grid grid-cols-3 gap-2.5 sm:gap-3.5 pt-3 max-w-xl mx-auto lg:mx-0">
+            <li class="p-3.5 rounded-2xl bg-white/70 backdrop-blur-md border border-brand-blue-500/30 text-center shadow-xs">
+              <svg class="w-5 h-5 mx-auto text-brand-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+              </svg>
+              <span class="block font-mono text-xl sm:text-2xl font-bold text-brand-blue-500 tabular-nums mt-1">13:00 hs</span>
+              <span class="block font-subheading text-xs sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">Corte de pedidos</span>
+            </li>
+            
+            <li class="p-3.5 rounded-2xl bg-white/70 backdrop-blur-md border border-brand-blue-500/30 text-center shadow-xs">
+              <svg class="w-5 h-5 mx-auto text-brand-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+              </svg>
+              <span class="block font-mono text-xl sm:text-2xl font-bold text-brand-blue-500 tabular-nums mt-1">19:00 hs</span>
+              <span class="block font-subheading text-xs sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">Entrega el mismo día</span>
+            </li>
+
+            <li class="p-3.5 rounded-2xl bg-white/70 backdrop-blur-md border border-brand-blue-500/30 text-center shadow-xs">
+              <svg class="w-5 h-5 mx-auto text-brand-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+              </svg>
+              <span class="block font-mono text-xl sm:text-2xl font-bold text-brand-blue-500 tabular-nums mt-1">$3.000</span>
+              <span class="block font-subheading text-xs sm:text-sm uppercase tracking-wider text-brand-blue-500 mt-0.5">Base 0–3 km</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- RIGHT 5 — Double Bezel Card con la Pieza del Servicio (Barra de la Jornada) -->
+        <div class="lg:col-span-5 relative w-full flex flex-col items-center justify-center">
+          <div class="w-full max-w-md p-2 rounded-3xl bg-brand-blue-500/15 border border-brand-blue-500/30 shadow-2xl backdrop-blur-md">
+            <div class="bg-white p-6 sm:p-7 rounded-2xl border border-brand-blue-500/20 shadow-sm space-y-6 text-brand-blue-500">
+              
+              <!-- Cabecera de la tarjeta con badge de ahorro -->
+              <div class="flex items-center justify-between gap-3 border-b border-brand-blue-100 pb-3">
+                <span class="inline-flex items-center gap-2">
+                  <span class="h-2.5 w-2.5 rounded-full bg-brand-blue-500 animate-pulse" aria-hidden="true"></span>
+                  <span class="font-subheading text-base tracking-widest text-brand-blue-500 uppercase">
+                    Mismo día, sin agrupar
+                  </span>
+                </span>
+                <span class="shrink-0 rounded-lg bg-brand-blue-500 px-2.5 py-1 font-mono text-xs font-bold tabular-nums text-brand-yellow-500 shadow-sm">
+                  −$700 vs Express
+                </span>
+              </div>
+
+              <!-- Componente: Barra de la Jornada (8 a 20 hs) -->
+              <div class="w-full space-y-4">
+                <div class="flex items-baseline justify-between gap-3">
+                  <h3 class="font-subheading text-sm uppercase tracking-widest text-brand-blue-500 font-bold">
+                    Tu jornada LowCost
+                  </h3>
+                  <span class="font-mono text-xs tabular-nums text-brand-blue-500/70 font-bold">
+                    8 a 20 hs
+                  </span>
+                </div>
+
+                <!-- Track de la jornada -->
+                <div class="overflow-x-auto pb-1">
+                  <div class="min-w-[280px]">
+                    <div class="relative h-11 overflow-hidden rounded-xl bg-brand-blue-50 border border-brand-blue-200">
+                      <!-- Tramo de carga: 8 a 13 hs = 5 hs de 12 hs (41.6%) -->
+                      <div
+                        class="absolute inset-y-0 left-0 trama-carga"
+                        style="width: 41.66%;"
+                        title="Período de carga de pedidos"
+                      ></div>
+                      
+                      <!-- Tramo de reparto activo: 13 a 19 hs = 6 hs de 12 hs (50%) -->
+                      <div
+                        class="animate-grow-x absolute inset-y-0 bg-brand-blue-500"
+                        style="left: 41.66%; width: 50%;"
+                        title="Reparto continuo en la calle"
+                      ></div>
+                      
+                      <!-- Indicador de corte 13:00 hs -->
+                      <div
+                        class="absolute inset-y-0 w-0.5 bg-brand-blue-500 shadow-sm"
+                        style="left: 41.66%;"
+                      ></div>
+
+                      <!-- Indicador de entrega límite 19:00 hs -->
+                      <div
+                        class="absolute inset-y-0 w-0.5 bg-brand-blue-500 shadow-sm"
+                        style="left: 91.66%;"
+                      ></div>
+                    </div>
+
+                    <!-- Marcas horarias cada 2 horas: 8, 10, 12, 14, 16, 18, 20 -->
+                    <div class="relative mt-2 h-4 font-mono text-[10px] tabular-nums text-brand-blue-500/70 font-semibold">
+                      <span class="absolute left-0 -translate-x-1/2">08</span>
+                      <span class="absolute left-[16.66%] -translate-x-1/2">10</span>
+                      <span class="absolute left-[33.33%] -translate-x-1/2">12</span>
+                      <span class="absolute left-[50%] -translate-x-1/2">14</span>
+                      <span class="absolute left-[66.66%] -translate-x-1/2">16</span>
+                      <span class="absolute left-[83.33%] -translate-x-1/2">18</span>
+                      <span class="absolute left-[100%] -translate-x-1/2">20</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Leyenda de hitos -->
+                <ul class="flex flex-wrap items-center gap-x-5 gap-y-2 font-sans text-xs text-brand-blue-500 pt-1">
+                  <li class="inline-flex items-center gap-2">
+                    <span class="h-1 w-5 bg-brand-blue-500 rounded-full"></span>
+                    <span><strong class="font-mono tabular-nums">13:00 hs</strong> cortás</span>
+                  </li>
+                  <li class="inline-flex items-center gap-2">
+                    <span class="h-3 w-5 rounded bg-brand-blue-500"></span>
+                    <span><strong class="font-mono tabular-nums">19:00 hs</strong> entregamos</span>
+                  </li>
+                  <li class="inline-flex items-center gap-1.5 text-brand-blue-500/70 font-mono text-[11px]">
+                    ⚡ 6 hs en la calle
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Pie de tarjeta -->
+              <div class="border-t border-brand-blue-100 pt-3.5 flex items-center justify-between gap-3 font-mono text-xs text-brand-blue-500 tabular-nums">
+                <span class="font-bold">13:00 hs → 19:00 hs</span>
+                <span class="text-brand-blue-500/80 bg-brand-blue-50 px-2 py-0.5 rounded border border-brand-blue-100">Todo Mar del Plata</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       2. HOW IT WORKS (LowCostHowItWorks.tsx)
+       Concepto: Paso a paso vertical y transparente
+       Fondo: Azul suave #E6EEFE (brand-blue-50)
+       ========================================================================= -->
+  <section
+    id="lowcost-how-it-works"
+    class="py-20 sm:py-24 bg-brand-blue-50 relative overflow-hidden border-t border-brand-blue-100"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header Block -->
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
+          PASO A PASO
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-brand-blue-500 leading-none">
+          ¿CÓMO FUNCIONA?
+        </h2>
+        <p class="text-brand-blue-500/85 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          Un proceso simple, transparente y diseñado milimétricamente para maximizar tu productividad logística.
+        </p>
+        <div class="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Stepper Cards Grid -->
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+        
+        <!-- Línea conectora Desktop -->
+        <div class="hidden md:block absolute top-1/2 left-8 right-8 h-1 bg-brand-blue-200 -translate-y-6 z-0" aria-hidden="true"></div>
+
+        <!-- Paso 01 -->
+        <div class="double-bezel-outer relative z-10">
+          <div class="double-bezel-inner p-6 sm:p-7 flex flex-col justify-between h-full space-y-5 text-left">
+            <div class="flex items-center justify-between">
+              <span class="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 font-display text-2xl shadow-md">
+                01
+              </span>
+              <span class="p-2.5 rounded-xl bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100">
+                <!-- MessageSquare Icon -->
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500">
+                Solicitud
+              </h3>
+              <p class="text-sm font-sans text-brand-blue-500/80 leading-relaxed">
+                Nos solicitás el envío por WhatsApp con el origen y destino antes del corte de las 13:00 hs.
+              </p>
+            </div>
+            
+            <div class="pt-3 border-t border-brand-blue-50 font-mono text-2xs uppercase tracking-wider text-brand-blue-400 font-semibold">
+              Corte 13:00 hs
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 02 -->
+        <div class="double-bezel-outer relative z-10">
+          <div class="double-bezel-inner p-6 sm:p-7 flex flex-col justify-between h-full space-y-5 text-left">
+            <div class="flex items-center justify-between">
+              <span class="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 font-display text-2xl shadow-md">
+                02
+              </span>
+              <span class="p-2.5 rounded-xl bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100">
+                <!-- Truck Icon -->
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500">
+                Retiro
+              </h3>
+              <p class="text-sm font-sans text-brand-blue-500/80 leading-relaxed">
+                Retiramos el paquete por tu local, depósito o domicilio en el transcurso de la jornada.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-brand-blue-50 font-mono text-2xs uppercase tracking-wider text-brand-blue-400 font-semibold">
+              Flota propia en calle
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 03 -->
+        <div class="double-bezel-outer relative z-10">
+          <div class="double-bezel-inner p-6 sm:p-7 flex flex-col justify-between h-full space-y-5 text-left">
+            <div class="flex items-center justify-between">
+              <span class="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-brand-blue-500 text-brand-yellow-500 font-display text-2xl shadow-md">
+                03
+              </span>
+              <span class="p-2.5 rounded-xl bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-100">
+                <!-- CheckSquare Icon -->
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xl font-display uppercase tracking-wide text-brand-blue-500">
+                Entrega
+              </h3>
+              <p class="text-sm font-sans text-brand-blue-500/80 leading-relaxed">
+                Entregamos de forma segura en manos de tu destinatario antes de las 19:00 hs garantizado.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-brand-blue-50 font-mono text-2xs uppercase tracking-wider text-brand-blue-400 font-semibold">
+              Límite 19:00 hs
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       3. FEATURES SECTION (LowCostFeatures.tsx)
+       Concepto: Máxima Rentabilidad y Bento Grid Asimétrico
+       Fondo: Blanco con componentes en doble bisel
+       ========================================================================= -->
+  <section
+    id="lowcost-features"
+    class="py-24 bg-white relative z-10 overflow-hidden border-t border-brand-blue-100"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+        <!-- Header Column (Left 5) -->
+        <div class="lg:col-span-5 space-y-6 text-left">
+          <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-blue-500 text-brand-yellow-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-sm">
+            MÁXIMA RENTABILIDAD
+          </span>
+
+          <h2 class="text-brand-blue-500 text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight leading-[0.98]">
+            ENVÍOS LOWCOST: <br />
+            <span class="text-brand-blue-500 bg-brand-yellow-500 px-2.5 py-0.5 inline-block mt-1 -rotate-1 shadow-sm">MÁXIMA EFICIENCIA</span>
+          </h2>
+
+          <p class="text-brand-blue-500/85 text-base leading-relaxed font-sans">
+            Nuestro servicio LowCost está diseñado para el ruteo diario masivo. Optimizamos nuestras rutas agrupando despachos para ofrecer la tarifa más competitiva de Mar del Plata, garantizando la entrega en el día para pedidos ingresados antes del horario de corte.
+          </p>
+
+          <div class="pt-3 flex items-center gap-3 text-sm text-brand-blue-500 font-bold uppercase tracking-wider font-subheading bg-brand-blue-50 p-3.5 rounded-2xl border border-brand-blue-100">
+            <svg class="h-5 w-5 text-brand-yellow-500 shrink-0 fill-current" viewBox="0 0 24 24">
+              <path d="M4 10h16v2H4zm0-4h16v2H4zm0 8h16v2H4zm0 4h16v2H4z"/>
+            </svg>
+            <span>LOGÍSTICA PREDECIBLE PARA NEGOCIOS Y TIENDAS</span>
+          </div>
+        </div>
+
+        <!-- Bento Grid Asimétrico (Right 7) -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-12 gap-6 text-left">
+          
+          <!-- Feature 1: Eficiencia en Ruteo (12 cols) -->
+          <div class="sm:col-span-12 double-bezel-outer group cursor-pointer">
+            <div class="double-bezel-inner p-6 sm:p-7 relative overflow-hidden flex flex-col sm:flex-row gap-5 items-start">
+              <!-- Giant Watermark Icon -->
+              <svg class="absolute -bottom-6 -right-6 h-36 w-36 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              </svg>
+
+              <div class="p-3.5 bg-brand-blue-500 text-brand-yellow-500 rounded-xl shrink-0 shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-300 relative z-10">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+              </div>
+
+              <div class="space-y-2 relative z-10">
+                <h4 class="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight">
+                  Eficiencia en Ruteo
+                </h4>
+                <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
+                  Ruteo diario masivo optimizado de última milla. No se elige rango horario específico para maximizar la velocidad de la flota y bajar los costos operativos al mínimo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 2: Corte y Entrega (7 cols) -->
+          <div class="sm:col-span-7 double-bezel-outer group cursor-pointer">
+            <div class="double-bezel-inner p-6 relative overflow-hidden flex flex-col gap-4 h-full">
+              <svg class="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+              </svg>
+
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-300 relative z-10">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+
+              <div class="space-y-1.5 relative z-10">
+                <h4 class="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight">
+                  Corte y Entrega
+                </h4>
+                <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
+                  Pedidos ingresados antes de las 13:00 hs se entregan en el transcurso del día, estrictamente antes de las 19:00 hs.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 3: Tarifa Económica (5 cols) -->
+          <div class="sm:col-span-5 double-bezel-outer group cursor-pointer">
+            <div class="double-bezel-inner p-6 relative overflow-hidden flex flex-col gap-4 h-full">
+              <svg class="absolute -bottom-6 -right-6 h-32 w-32 text-brand-blue-500/5 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-colors duration-300 relative z-10">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+
+              <div class="space-y-1.5 relative z-10">
+                <h4 class="text-xl font-display uppercase tracking-wider text-brand-blue-500 leading-tight">
+                  Tarifa Económica
+                </h4>
+                <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
+                  Más barato que Express, con escala decreciente en trayectos largos. Pensado para emprendedores y tiendas online.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       4. BENEFITS SECTION (LowCostBenefits.tsx)
+       Concepto: Ventajas clave en Fondo Azul Intenso (#0950F6)
+       ========================================================================= -->
+  <section
+    id="lowcost-benefits"
+    class="py-24 bg-brand-blue-500 relative z-10 overflow-hidden border-t border-b border-white/10 text-white"
+  >
+    <!-- Resplandores ambientales -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Header Block -->
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
+          VENTAJAS CLAVE
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight text-white leading-none">
+          BENEFICIOS LOWCOST
+        </h2>
+        <p class="text-brand-blue-50 font-sans text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          La combinación perfecta entre economía inteligente y máxima eficiencia logística para la consolidación de tu negocio.
+        </p>
+        <div class="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Benefits Bento Grid (2x2) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Beneficio 1 -->
+        <div class="lg:col-span-6 double-bezel-blue-outer">
+          <div class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
+            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+
+            <div class="space-y-4 relative z-10">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              
+              <h3 class="text-2xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+                Entregas a valores LowCost con calidad Express
+              </h3>
+              
+              <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
+                Disfrutá de la tarifa más económica de la ciudad sin resignar confiabilidad ni seguridad en el traslado de tus paquetes.
+              </p>
+            </div>
+            
+            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
+              <span>Tarifa plana por zona</span>
+              <strong class="font-bold">Sin costo sorpresa</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Beneficio 2 -->
+        <div class="lg:col-span-6 double-bezel-blue-outer">
+          <div class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
+            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke-width="2"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+            </svg>
+
+            <div class="space-y-4 relative z-10">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+              
+              <h3 class="text-2xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+                Horario de corte extendido hasta las 13:00 hs
+              </h3>
+              
+              <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
+                Ingresá tus envíos de la mañana hasta las 13:00 hs y los entregamos en la misma jornada antes de las 19:00 hs.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
+              <span>Corte 13:00 hs</span>
+              <strong class="font-bold">Mismo día asegurado</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Beneficio 3 -->
+        <div class="lg:col-span-6 double-bezel-blue-outer">
+          <div class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
+            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+            </svg>
+
+            <div class="space-y-4 relative z-10">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+              </div>
+              
+              <h3 class="text-2xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+                Ruteo Urbano Eficiente
+              </h3>
+              
+              <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
+                Ruteo continuo planificado por cuadrantes en Mar del Plata que maximiza los viajes de los cadetes y reduce la huella de carbono.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
+              <span>Cuadrantes MDQ</span>
+              <strong class="font-bold">Máxima cobertura</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Beneficio 4 -->
+        <div class="lg:col-span-6 double-bezel-blue-outer">
+          <div class="double-bezel-blue-inner text-brand-blue-500 p-8 h-full space-y-5 relative overflow-hidden flex flex-col justify-between">
+            <svg class="absolute -bottom-6 -right-6 h-36 w-32 text-brand-blue-500/5 pointer-events-none select-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+            </svg>
+
+            <div class="space-y-4 relative z-10">
+              <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl w-fit shadow-md">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                </svg>
+              </div>
+              
+              <h3 class="text-2xl font-display uppercase tracking-wide text-brand-blue-500 leading-tight">
+                Ahorro de costos logísticos
+              </h3>
+              
+              <p class="text-sm text-brand-blue-500/80 font-sans leading-relaxed">
+                Maximizá tu rentabilidad comercial pagando tarifas súper económicas por cada entrega y mejorá tus ventas en redes sociales.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-brand-blue-100 flex items-center justify-between text-xs font-mono text-brand-blue-500">
+              <span>Rentabilidad PyME</span>
+              <strong class="font-bold">Precios accesibles</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       5. PRICING SECTION (LowCostPricing.tsx)
+       Concepto: Tarifas Oficiales 2026 Envíos LowCost por Zonas
+       Fondo: Azul profundo #0950F6 con tarjetas blancas de doble bisel
+       ========================================================================= -->
+  <section
+    id="lowcost-pricing"
+    class="py-24 bg-brand-blue-500 text-white relative z-10 overflow-hidden border-t border-white/10"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Encabezado de Tarifas -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="-rotate-1 inline-block px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-subheading uppercase tracking-widest shadow-glow-yellow">
+          TARIFARIO PÚBLICO 2026
+        </span>
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-white leading-none">
+          TARIFAS 2026 ENVÍOS LOWCOST
+        </h2>
+        <p class="text-brand-blue-50 font-sans text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          Ruteo por zona optimizado. Garantizamos entregas antes de las 19:00 hs para pedidos cargados antes de las 13:00 hs. Sin letra chica.
+        </p>
+        <div class="h-1.5 w-16 bg-brand-yellow-500 mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Grid de 4 Zonas -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-12">
+        
+        <!-- Zona 1 -->
+        <div class="double-bezel-blue-outer">
+          <div class="double-bezel-blue-inner p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-brand-blue-50 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
+                  Zona 1
+                </span>
+                <span class="font-mono text-xs text-brand-blue-400 font-semibold tabular-nums">0–3 km</span>
+              </div>
+              <h3 class="text-2xl font-display uppercase tracking-tight text-brand-blue-500">
+                Zona 1
+              </h3>
+              <p class="text-xs text-brand-blue-500/80 font-sans leading-relaxed">
+                La mejor tarifa para despacho diario de cercanía urbana.
+              </p>
+              
+              <div class="py-2 border-y border-brand-blue-50">
+                <div class="flex items-baseline gap-1">
+                  <span class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
+                    $3.000
+                  </span>
+                  <span class="text-xs font-mono text-brand-blue-400">/ envío</span>
+                </div>
+              </div>
+
+              <!-- Features list -->
+              <ul class="space-y-2 text-xs font-sans text-brand-blue-500/90 pt-1">
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Corte de carga 13:00 hs</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Entrega antes de las 19:00 hs</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Hasta 5 kg / 40×40 cm por bulto</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Ruteo por zona optimizado</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Entrega puntual en el día</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-4 border-t border-brand-blue-50">
+              <a
+                href="/cotizar"
+                class="w-full py-2.5 px-4 rounded-xl border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white font-subheading text-sm uppercase tracking-wider text-center block transition-colors font-bold"
+              >
+                Ver Zona 1
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zona 2 (FEATURED / Recomendado PyME) -->
+        <div class="p-2 rounded-3xl bg-brand-yellow-500 shadow-cta-glow relative transform lg:-translate-y-2">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-blue-500 text-brand-yellow-500 font-mono text-[10px] uppercase font-bold tracking-widest px-3 py-0.5 rounded-full shadow-md">
+            ★ Recomendado PyME
+          </div>
+          <div class="bg-white rounded-2xl p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-brand-yellow-500/20 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
+                  Zona 2
+                </span>
+                <span class="font-mono text-xs text-brand-blue-400 font-semibold tabular-nums">3–5 km</span>
+              </div>
+              <h3 class="text-2xl font-display uppercase tracking-tight text-brand-blue-500">
+                Zona 2
+              </h3>
+              <p class="text-xs text-brand-blue-500/80 font-sans leading-relaxed">
+                Cobertura intermedia económica para PyMEs y ventas frecuentes.
+              </p>
+              
+              <div class="py-2 border-y border-brand-blue-50">
+                <div class="flex items-baseline gap-1">
+                  <span class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
+                    $4.000
+                  </span>
+                  <span class="text-xs font-mono text-brand-blue-400">/ envío</span>
+                </div>
+              </div>
+
+              <!-- Features list -->
+              <ul class="space-y-2 text-xs font-sans text-brand-blue-500/90 pt-1">
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-yellow-500"></span>
+                  <span>Corte de carga 13:00 hs</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-yellow-500"></span>
+                  <span>Entrega antes de las 19:00 hs</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-yellow-500"></span>
+                  <span>Hasta 5 kg / 40×40 cm por bulto</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-yellow-500"></span>
+                  <span>Ruteo por zona optimizado</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-yellow-500"></span>
+                  <span>Entrega puntual en el día</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-4 border-t border-brand-blue-50">
+              <a
+                href="/cotizar"
+                class="w-full py-3 px-4 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading text-base uppercase tracking-wider text-center block transition-colors font-bold shadow-md"
+              >
+                Ver Zona 2
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zona 3 -->
+        <div class="double-bezel-blue-outer">
+          <div class="double-bezel-blue-inner p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-brand-blue-50 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
+                  Zona 3
+                </span>
+                <span class="font-mono text-xs text-brand-blue-400 font-semibold tabular-nums">5–7 km</span>
+              </div>
+              <h3 class="text-2xl font-display uppercase tracking-tight text-brand-blue-500">
+                Zona 3
+              </h3>
+              <p class="text-xs text-brand-blue-500/80 font-sans leading-relaxed">
+                Llegamos a distancias medias al mejor costo de la ciudad.
+              </p>
+              
+              <div class="py-2 border-y border-brand-blue-50">
+                <div class="flex items-baseline gap-1">
+                  <span class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
+                    $5.300
+                  </span>
+                  <span class="text-xs font-mono text-brand-blue-400">/ envío</span>
+                </div>
+              </div>
+
+              <!-- Features list -->
+              <ul class="space-y-2 text-xs font-sans text-brand-blue-500/90 pt-1">
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Corte de carga 13:00 hs</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Entrega antes de las 19:00 hs</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Hasta 5 kg / 40×40 cm por bulto</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Ruteo por zona optimizado</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Entrega puntual en el día</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-4 border-t border-brand-blue-50">
+              <a
+                href="/cotizar"
+                class="w-full py-2.5 px-4 rounded-xl border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white font-subheading text-sm uppercase tracking-wider text-center block transition-colors font-bold"
+              >
+                Ver Zona 3
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zona 4 -->
+        <div class="double-bezel-blue-outer">
+          <div class="double-bezel-blue-inner p-6 sm:p-7 text-brand-blue-500 flex flex-col justify-between h-full space-y-6">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-brand-blue-50 text-brand-blue-500 font-subheading text-xs uppercase tracking-wider font-bold">
+                  Zona 4
+                </span>
+                <span class="font-mono text-xs text-brand-blue-400 font-semibold tabular-nums">7–10 km</span>
+              </div>
+              <h3 class="text-2xl font-display uppercase tracking-tight text-brand-blue-500">
+                Zona 4
+              </h3>
+              <p class="text-xs text-brand-blue-500/80 font-sans leading-relaxed">
+                Máximo ahorro en distancias urbanas largas dentro de MDQ.
+              </p>
+              
+              <div class="py-2 border-y border-brand-blue-50">
+                <div class="flex items-baseline gap-1">
+                  <span class="font-mono text-4xl sm:text-5xl font-bold tracking-tight text-brand-blue-500 tabular-nums">
+                    $7.000
+                  </span>
+                  <span class="text-xs font-mono text-brand-blue-400">/ envío</span>
+                </div>
+              </div>
+
+              <!-- Features list -->
+              <ul class="space-y-2 text-xs font-sans text-brand-blue-500/90 pt-1">
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Corte de carga 13:00 hs</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Entrega antes de las 19:00 hs</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Hasta 5 kg / 40×40 cm por bulto</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Ruteo por zona optimizado</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-brand-blue-500"></span>
+                  <span>Entrega puntual en el día</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-4 border-t border-brand-blue-50">
+              <a
+                href="/cotizar"
+                class="w-full py-2.5 px-4 rounded-xl border-2 border-brand-blue-500 text-brand-blue-500 hover:bg-brand-blue-500 hover:text-white font-subheading text-sm uppercase tracking-wider text-center block transition-colors font-bold"
+              >
+                Ver Zona 4
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Módulo de Excedente: Zona 5 (más de 10 km) -->
+      <div class="p-2 rounded-3xl bg-white/10 border border-white/20 backdrop-blur-md mb-16">
+        <div class="bg-white/5 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-2xl text-left">
+            <span class="text-xs font-mono text-brand-yellow-500 font-bold uppercase tracking-wider">
+              Zona 5 (más de 10 km) · Cálculo lineal
+            </span>
+            <h3 class="text-2xl font-display uppercase tracking-tight text-white">
+              Cálculo a $700 por kilómetro exacto
+            </h3>
+            <p class="text-sm font-sans text-brand-blue-50 leading-relaxed">
+              Superados los 10 km, se toma el kilometraje total redondeado hacia arriba (<code class="text-brand-yellow-500 font-mono">Math.ceil</code>) multiplicado por $700. Por ejemplo, un envío de 12 km son <strong>$8.400</strong>. Hasta 20 km se calcula automático; más allá se consulta con el equipo.
+            </p>
+          </div>
+
+          <a
+            href="/cotizar"
+            class="cta-pill-yellow shrink-0"
+          >
+            <span>Calcular distancia en el cotizador</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Pricing Facts (3 Columnas de confianza) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+        
+        <div class="p-6 rounded-2xl bg-white/10 border border-white/15 space-y-3">
+          <div class="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl w-fit">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+            </svg>
+          </div>
+          <h4 class="font-display text-xl uppercase tracking-wide text-white">
+            Ruteo por zona optimizado
+          </h4>
+          <p class="text-sm font-sans text-brand-blue-50 leading-relaxed">
+            Planificamos el recorrido por zonas para maximizar la eficiencia y bajar el costo por despacho sin intermediarios.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white/10 border border-white/15 space-y-3">
+          <div class="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl w-fit">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke-width="2"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h4 class="font-display text-xl uppercase tracking-wide text-white">
+            Corte 13:00 hs · Entrega antes de 19:00 hs
+          </h4>
+          <p class="text-sm font-sans text-brand-blue-50 leading-relaxed">
+            Pedidos cargados antes de las 13:00 hs se entregan el mismo día, antes de las 19:00 hs en todo el ejido urbano.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white/10 border border-white/15 space-y-3">
+          <div class="p-3 bg-brand-yellow-500 text-brand-blue-500 rounded-xl w-fit">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h4 class="font-display text-xl uppercase tracking-wide text-white">
+            Tarifa fija por distancia
+          </h4>
+          <p class="text-sm font-sans text-brand-blue-50 leading-relaxed">
+            El precio sale de los kilómetros exactos entre retiro y entrega. Sin letra chica ni sorpresas al liquidar.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- ========================================================================
+       FIN CONTENIDO PRINCIPAL
+       ======================================================================== -->
+
+  <section id="carrusel-redes"
+    class="py-20 md:py-32 bg-brand-blue-500 border-y border-white/10 relative overflow-hidden font-sans">
+    <!-- Fondos decorativos -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none"
+      aria-hidden="true"></div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-blue-400/20 rounded-full blur-[100px] pointer-events-none"
+      aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span
+          class="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-bold tracking-widest inline-block font-subheading uppercase shadow-accent-sm">
+          Nuestra Comunidad Digital
+        </span>
+
+        <h2
+          class="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight uppercase text-white text-center">
+          SEGUÍ NUESTRO <span class="text-brand-yellow-500">MOVIMIENTO</span>
+        </h2>
+
+        <p class="text-brand-blue-50 text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto opacity-90">
+          Sumate a nuestros canales digitales y enterate al toque de todas las novedades operativas en Mar del Plata.
+        </p>
+        <div class="h-0.5 w-20 bg-brand-yellow-500 mx-auto rounded-full mt-4"></div>
+      </div>
+
+      <!-- Grid de 3 Redes: Facebook, Instagram, WhatsApp -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
+
+        <!-- CARD 1: FACEBOOK -->
+        <div
+          class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#1877F2]/50 hover:border-[#1877F2] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#0866FF] hover:bg-[#1877F2] border border-white/15 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#0866FF] border-white shadow-sm">
+                  FACEBOOK OFICIAL
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#0866FF] shadow-lg shadow-[#0866FF]/30">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  FACEBOOK
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  Envíos DosRuedas
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#0866FF] shadow-md shadow-[#0866FF]/20">
+                <span>SEGUIR COMUNIDAD</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#0866FF]/15 text-[#0866FF]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: INSTAGRAM -->
+        <div
+          class="social-block group relative rounded-2xl p-[2px] transition-all duration-300 hover:-translate-y-1.5 bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] border border-white/20 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#E1306C] border-white shadow-sm">
+                  INSTAGRAM MDQ
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#E1306C] shadow-lg shadow-[#FD1D1D]/30">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  INSTAGRAM
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  @enviosdosruedas
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Mirá el detrás de escena de nuestros riders y la flota recorriendo las calles de MDQ.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#E1306C] shadow-md shadow-[#FD1D1D]/30">
+                <span>VER CONTENIDO</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#E1306C]/15 text-[#E1306C]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: WHATSAPP -->
+        <div
+          class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#25D366]/50 hover:border-[#25D366] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#128C7E] hover:bg-[#0e7468] border border-white/15 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#128C7E] border-white shadow-sm">
+                  WHATSAPP DIRECTO
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#128C7E] shadow-lg shadow-[#128C7E]/40">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  WHATSAPP
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  +54 9 223 690-0000
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Escribinos directamente para consultas, contrataciones o soporte express al toque.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://api.whatsapp.com/send/?phone=5492236900000" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#128C7E] shadow-md shadow-[#128C7E]/30">
+                <span>INICIAR CHAT</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#128C7E]/15 text-[#128C7E]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       OPTIMIZED FOOTER (Traducido de OptimizedFooter.tsx)
+       ======================================================================== -->
+  <footer id="optimized-footer"
+    class="bg-brand-blue-500 text-white border-t border-white/10 relative overflow-hidden font-sans">
+
+    <!-- Franja de acento amarillo vial de 6px oficial -->
+    <div class="h-1.5 bg-brand-yellow-500 w-full shadow-md shadow-brand-yellow-500/30"></div>
+
+    <!-- Fondos decorativos atmosféricos -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none">
+    </div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(9,80,246,0.5),transparent_40%)] pointer-events-none">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
+
+      <!-- TOP CTA BANNER -->
+      <div
+        class="mb-14 rounded-2xl bg-brand-blue-500/90 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-brand-yellow-500 animate-ping"></span>
+            Operaciones Activas Mar del Plata 2025
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
+            ¿Tenés envíos para hoy? <span class="text-brand-yellow-500">Los entregamos a tiempo.</span>
+          </h3>
+          <p class="text-sm text-brand-blue-50 font-light max-w-xl">
+            Cotizá online en segundos o coordiná directo con nuestro equipo logístico por WhatsApp.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
+          <a href="/cotizar"
+            class="w-full sm:w-auto bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading uppercase tracking-wider text-sm font-bold px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-all flex items-center justify-between group min-h-12">
+            <span>Cotizá tu Envío</span>
+            <span
+              class="bg-brand-blue-500/10 text-brand-blue-500 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </span>
+          </a>
+
+          <a href="https://api.whatsapp.com/send/?phone=5492236900000&text=Hola%20Envíos%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20envíos"
+            target="_blank" rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-subheading uppercase tracking-wider text-sm px-5 py-3.5 rounded-full transition-colors min-h-12 font-bold">
+            <svg class="w-4 h-4 fill-brand-yellow-500" viewBox="0 0 24 24">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+            </svg>
+            <span>Chateá con Nosotros</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- MID SECTION: Columnas de Contenido -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+        <!-- COLUMNA 1: Brand & Socials (4 Cols) -->
+        <div class="lg:col-span-4 space-y-6">
+          <a href="/"
+            class="flex items-center gap-3.5 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
+            <div
+              class="w-11 h-11 bg-white/10 p-1.5 rounded-xl border border-white/15 group-hover:scale-105 transition-transform shrink-0 flex items-center justify-center text-brand-yellow-500">
+              <i data-lucide="bike" class="w-7 h-7"></i>
+            </div>
+            <div class="flex flex-col leading-none">
+              <span class="font-display text-2xl sm:text-3xl tracking-tight uppercase select-none text-white">
+                Envíos <span class="text-brand-yellow-500">DosRuedas</span>
+              </span>
+              <span class="text-[10px] font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
+                Tu solución confiable · Mar del Plata
+              </span>
+            </div>
+          </a>
+
+          <p class="text-brand-blue-50 text-sm leading-relaxed max-w-sm font-light">
+            Con más de 7 años de trayectoria en Mar del Plata, transformamos el despacho de tus productos en un motor de
+            crecimiento para emprendedores, PyMEs y comercios locales con flota propia y compromiso humano.
+          </p>
+
+          <div class="space-y-3 pt-2">
+            <span class="block text-xs font-bold text-brand-yellow-500 uppercase tracking-widest font-subheading">
+              Canales Oficiales
+            </span>
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="/nosotros/nuestras-redes"
+                class="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-500 flex items-center justify-center transition-colors border border-white/15 p-2.5"
+                title="Instagram Oficial" aria-label="Instagram">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+
+              <a href="/nosotros/nuestras-redes"
+                class="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-500 flex items-center justify-center transition-colors border border-white/15 p-2.5"
+                title="Facebook Oficial" aria-label="Facebook">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </a>
+
+              <a href="https://api.whatsapp.com/send/?phone=5492236900000" target="_blank" rel="noopener noreferrer"
+                class="h-10 w-10 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 flex items-center justify-center transition-colors border border-brand-yellow-500 shadow-accent-sm p-2.5"
+                title="WhatsApp Directo" aria-label="WhatsApp">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                </svg>
+              </a>
+
+              <div
+                class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/10 border border-white/15 text-xs text-white font-mono">
+                <i data-lucide="shield-check" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                <span>Centro de Depósito y Logística Local · Friuli 1972</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA 2: Services & Tools (4 Cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <h4
+            class="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2">
+            Servicios y Plataformas
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+            <!-- Grupo Portales -->
+            <div>
+              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                Cotizador y Portales
+              </p>
+              <ul class="space-y-2.5 text-sm font-sans">
+                <li>
+                  <a href="/cotizar"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>Cotizá Express / LowCost</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/logistica-dosruedas"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="package" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>Logística DosRuedas</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/mardelivery"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="store" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>MarDelivery Gastronomía</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Grupo Planes -->
+            <div>
+              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                Servicios y Planes
+              </p>
+              <ul class="space-y-2.5 text-sm font-sans">
+                <li>
+                  <a href="/servicios/envios-express"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Envíos Express</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/envios-lowcost"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="trending-down" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Envíos LowCost</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/enviosflex"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="clock" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Mercado Envíos Flex</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/empresas-cuenta-corriente"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="building-2" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Cuenta Corriente</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios"
+                    class="text-brand-yellow-500 hover:text-brand-yellow-400 flex items-center gap-2.5 transition-colors font-bold">
+                    <i data-lucide="layers" class="w-4 h-4 shrink-0"></i>
+                    <span>Ver todos los servicios</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA 3: Hub Operations Info (4 Cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <h4
+            class="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2">
+            Base de Operaciones MDQ
+          </h4>
+
+          <div class="space-y-3.5 text-xs text-brand-blue-50 font-sans">
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Centro de Distribución</p>
+                <p class="font-sans text-[13px] text-brand-blue-50 mt-0.5">Friuli 1972, Mar del Plata</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Línea Directa y WhatsApp</p>
+                <a href="tel:+542236900000"
+                  class="font-mono text-[13px] font-bold text-brand-yellow-500 hover:underline block mt-0.5">
+                  +54 9 223 690-0000
+                </a>
+              </div>
+            </div>
+
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+              </div>
+              <div class="space-y-1 w-full">
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Despacho</p>
+                <div class="text-[12px] font-sans text-brand-blue-50 space-y-0.5">
+                  <div class="flex justify-between items-center gap-4">
+                    <span>Lunes a Viernes:</span>
+                    <span class="font-mono font-bold text-brand-yellow-500">09:00 - 18:00</span>
+                  </div>
+                  <div class="flex justify-between items-center gap-4">
+                    <span>Sábados:</span>
+                    <span class="font-mono font-bold text-brand-yellow-500">10:00 - 15:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Separador y Botón Volver Arriba -->
+      <div class="border-t border-white/10 my-10 relative">
+        <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          class="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 p-2.5 rounded-full shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer min-w-11 min-h-11"
+          title="Volver al inicio" aria-label="Volver arriba">
+          <i data-lucide="arrow-up" class="w-4 h-4 stroke-[3]"></i>
+        </button>
+      </div>
+
+      <!-- BOTTOM SECTION: Legal & Copyright -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-blue-50 font-sans">
+        <div class="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6">
+          <p class="font-medium text-white">© 2025 Envíos DosRuedas · Mar del Plata, Argentina.</p>
+          <a href="/servicios" class="hover:text-brand-yellow-500 transition-colors">Servicios</a>
+          <a href="/cobertura" class="hover:text-brand-yellow-500 transition-colors">Cobertura</a>
+          <a href="/logistica-dosruedas" class="hover:text-brand-yellow-500 transition-colors">Logística DosRuedas</a>
+          <a href="/mardelivery" class="hover:text-brand-yellow-500 transition-colors">MarDelivery</a>
+          <a href="/nosotros/sobre-nosotros" class="hover:text-brand-yellow-500 transition-colors">Nosotros</a>
+          <a href="/nosotros/preguntas-frecuentes" class="hover:text-brand-yellow-500 transition-colors">Preguntas
+            Frecuentes</a>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 shrink-0 text-brand-blue-50">
+          <a href="/terminos-y-condiciones" class="hover:text-brand-yellow-500 transition-colors">Términos y
+            Condiciones</a>
+          <a href="/politica-de-privacidad" class="hover:text-brand-yellow-500 transition-colors">Política de
+            Privacidad</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts de interactividad para los menús y render de íconos -->
+  <script>
+    // Inicializar íconos de Lucide
+    lucide.createIcons();
+
+    // Toggle de Drawer Móvil
+    function toggleMobileNav(open) {
+      const drawer = document.getElementById('mobile-navigation-dialog');
+      const backdrop = document.getElementById('mobile-nav-backdrop');
+      const btnToggle = document.getElementById('mobile-menu-toggle-opt');
+
+      if (open) {
+        backdrop.classList.remove('hidden');
+        setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+        drawer.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden';
+        btnToggle.setAttribute('aria-expanded', 'true');
+      } else {
+        backdrop.classList.add('opacity-0');
+        drawer.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+        btnToggle.setAttribute('aria-expanded', 'false');
+        setTimeout(() => backdrop.classList.add('hidden'), 200);
+      }
+    }
+
+    // Toggle de submenús dentro del drawer móvil
+    function toggleDrawerSubmenu(id) {
+      const sub = document.getElementById(id);
+      if (sub.classList.contains('hidden')) {
+        sub.classList.remove('hidden');
+        sub.classList.add('flex');
+      } else {
+        sub.classList.add('hidden');
+        sub.classList.remove('flex');
+      }
+    }
+
+    // Scroll header background blur effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('optimized-header');
+      if (window.scrollY > 20) {
+        header.classList.add('py-2.5', 'backdrop-blur-md', 'bg-brand-blue-500/95');
+        header.classList.remove('py-3.5');
+      } else {
+        header.classList.remove('py-2.5', 'backdrop-blur-md', 'bg-brand-blue-500/95');
+        header.classList.add('py-3.5');
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios de Mensajería y Envíos | Envíos DosRuedas</title>
+  <meta name="description"
+    content="Servicios de logística y mensajería en moto en Mar del Plata: Express, LowCost, Flex, Cuenta Corriente y E-commerce con stock en depósito y flota propia.">
+
+  <!-- Tipografías oficiales cargadas vía Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: {
+                50: '#E6EEFE',
+                100: '#BACEFD',
+                200: '#8EAFFB',
+                300: '#628FF9',
+                400: '#3570F8',
+                500: '#0950F6',
+              },
+              yellow: {
+                50: '#FFFDE6',
+                100: '#FFFAB8',
+                200: '#FFF78A',
+                300: '#FFF45C',
+                400: '#FFF12E',
+                500: '#FFEC01',
+                600: '#E6D400',
+              },
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            display: ['Anton', 'sans-serif'],
+            subheading: ['Bebas Neue', 'sans-serif'],
+            mono: ['Geist Mono', 'monospace'],
+          },
+          boxShadow: {
+            'elevated': '0 16px 40px rgba(9, 80, 246, 0.18)',
+            'float': '0 25px 50px -12px rgba(9, 80, 246, 0.15)',
+            'cta-glow': '0 0 28px rgba(255, 236, 1, 0.45), 0 8px 24px rgba(9, 80, 246, 0.18)',
+            'accent-sm': '0 2px 4px rgba(255, 236, 1, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-brand-blue-500: #0950F6;
+      --color-brand-yellow-500: #FFEC01;
+    }
+
+    .font-display {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .font-subheading {
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .font-mono {
+      font-family: 'Geist Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kinetic-font-stretch {
+      display: inline-block;
+      transition: transform 0.3s ease, letter-spacing 0.3s ease;
+    }
+
+    .kinetic-font-stretch:hover {
+      transform: scaleX(1.06);
+    }
+
+    .double-bezel-outer {
+      background-color: rgba(230, 238, 254, 0.8);
+      border: 1px solid #BACEFD;
+      padding: 0.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(9, 80, 246, 0.12);
+    }
+
+    .double-bezel-inner {
+      background-color: #ffffff;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(230, 238, 254, 0.5);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-white text-brand-blue-500 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-yellow-500 selection:text-brand-blue-500">
+
+  <!-- ACCESIBILIDAD: Saltar al contenido principal -->
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow-500 focus:text-brand-blue-500 focus:font-subheading focus:font-bold focus:uppercase focus:tracking-wider focus:shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white">
+    Saltar al contenido principal
+  </a>
+
+  <!-- ========================================================================
+       OPTIMIZED HEADER (Traducido de OptimizedHeader.tsx)
+       ======================================================================== -->
+  <header id="optimized-header"
+    class="fixed top-0 left-0 right-0 z-50 w-full text-white bg-brand-blue-500 shadow-elevated border-b border-white/10 py-3.5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+
+        <!-- Logo de marca -->
+        <a href="/" id="nav-logo-opt" aria-current="page"
+          class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
+          <div class="flex items-center gap-2.5">
+            <div
+              class="w-10 h-10 rounded-xl bg-brand-yellow-500 text-brand-blue-500 flex items-center justify-center font-display text-xl shadow-md transform group-hover:rotate-6 transition-transform">
+              <i data-lucide="bike" class="w-6 h-6 stroke-[2.5]"></i>
+            </div>
+            <span
+              class="font-display text-2xl sm:text-3xl tracking-tight leading-none uppercase select-none flex flex-col sm:flex-row sm:gap-1 items-start sm:items-center">
+              <span class="text-white kinetic-font-stretch">Envíos</span>
+              <span class="text-brand-yellow-500 kinetic-font-stretch">DosRuedas</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation con dropdowns interactivos -->
+        <nav id="desktop-nav-opt" aria-label="Navegación principal" class="hidden lg:flex items-center gap-1.5">
+          <!-- Inicio -->
+          <a href="/" aria-current="page"
+            class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-brand-yellow-500 bg-black/20 border border-brand-yellow-500/30 transition-colors">
+            Inicio
+          </a>
+
+          <!-- Servicios (Dropdown) -->
+          <div class="relative group" id="dropdown-servicios">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Servicios</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/servicios/envios-express"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="zap" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos
+                      Express</span>
+                  </a>
+                  <a href="/servicios/envios-lowcost"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="trending-down" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos
+                      LowCost</span>
+                  </a>
+                  <a href="/servicios/enviosflex"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="clock" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos Flex
+                      (MeLi)</span>
+                  </a>
+                  <a href="/servicios/empresas-cuenta-corriente"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="building-2" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Cuenta
+                      Corriente</span>
+                  </a>
+                  <a href="/servicios#ecommerce-24hs"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="package" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">E-commerce
+                      24HS</span>
+                  </a>
+                  <a href="/servicios/deposito-fulfillment"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="store" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">E-commerce
+                      Same Day</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plataformas (Dropdown) -->
+          <div class="relative group" id="dropdown-plataformas">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Plataformas</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/logistica-dosruedas"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="search" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Logística
+                      DosRuedas</span>
+                  </a>
+                  <a href="/mardelivery"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="utensils-crossed" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">MarDelivery
+                      Gastronomía</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nosotros (Dropdown) -->
+          <div class="relative group" id="dropdown-nosotros">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Nosotros</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/nosotros/sobre-nosotros"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="info" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Sobre
+                      Nosotros</span>
+                  </a>
+                  <a href="/nosotros/preguntas-frecuentes"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="help-circle" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Preguntas
+                      Frecuentes</span>
+                  </a>
+                  <a href="/nosotros/nuestras-redes"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="share-2" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Nuestras
+                      Redes</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <a href="/contacto"
+            class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors">
+            Contacto
+          </a>
+        </nav>
+
+        <!-- CTA & Teléfono Desktop -->
+        <div class="hidden lg:flex items-center gap-5">
+          <a href="tel:+542236900000"
+            class="flex items-center gap-2 text-white hover:text-brand-yellow-500 transition-colors font-mono text-base font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-lg px-1">
+            <i data-lucide="phone" class="w-4 h-4 text-brand-yellow-500"></i>
+            <span>223 690-0000</span>
+          </a>
+
+          <div class="relative">
+            <a href="/cotizar" id="header_cta"
+              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-[44px] border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
+              <span>Cotizá tu envío</span>
+              <span
+                class="inline-flex items-center justify-center rounded-full w-7 h-7 ml-3 bg-white/10 text-brand-yellow-500 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-all">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Toggles -->
+        <div class="lg:hidden flex items-center gap-3">
+          <a href="tel:+542236900000"
+            class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-all min-w-11 min-h-11 flex items-center justify-center"
+            aria-label="Llamar">
+            <i data-lucide="phone" class="w-5 h-5 text-brand-yellow-500"></i>
+          </a>
+          <button id="mobile-menu-toggle-opt" onclick="toggleMobileNav(true)"
+            class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-all cursor-pointer min-w-11 min-h-11 flex items-center justify-center"
+            aria-label="Abrir menú" aria-expanded="false">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       DRAWER NAVEGACIÓN MOBILE (Traducido de MobileNav.tsx)
+       ======================================================================== -->
+  <div id="mobile-nav-backdrop" onclick="toggleMobileNav(false)"
+    class="fixed inset-0 bg-brand-blue-500/70 backdrop-blur-md z-40 hidden transition-opacity duration-200 opacity-0">
+  </div>
+
+  <div id="mobile-navigation-dialog" role="dialog" aria-modal="true" aria-label="Menú principal"
+    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-[320px] h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
+      <a href="/" onclick="toggleMobileNav(false)" class="flex items-center gap-3">
+        <span class="font-display text-xl tracking-tight uppercase select-none flex flex-col items-start leading-none">
+          <span class="text-white">Envíos</span>
+          <span class="text-brand-yellow-500">DosRuedas</span>
+        </span>
+      </a>
+      <button onclick="toggleMobileNav(false)"
+        class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-colors min-w-11 min-h-11 flex items-center justify-center"
+        aria-label="Cerrar menú">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-5 py-6 space-y-4">
+      <nav class="space-y-2">
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-brand-yellow-500 bg-white/5">
+            <i data-lucide="home" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Inicio</span>
+          </a>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <button type="button" onclick="toggleDrawerSubmenu('drawer-sub-servicios')"
+            class="w-full text-left py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase flex items-center justify-between text-white hover:bg-white/5 cursor-pointer">
+            <span class="flex items-center gap-3.5">
+              <i data-lucide="bike" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+              <span>Servicios</span>
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow-500 shrink-0 transition-transform"></i>
+          </button>
+          <div id="drawer-sub-servicios" class="hidden pl-4 pr-1 py-2 flex-col gap-1">
+            <a href="/servicios/envios-express" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos Express</span>
+            </a>
+            <a href="/servicios/envios-lowcost" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="trending-down" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos LowCost</span>
+            </a>
+            <a href="/servicios/enviosflex" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="clock" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos Flex (MeLi)</span>
+            </a>
+            <a href="/servicios/empresas-cuenta-corriente" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="building-2" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Cuenta Corriente</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/logistica-dosruedas" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="layout-grid" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Plataformas</span>
+          </a>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/nosotros/sobre-nosotros" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="info" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Nosotros</span>
+          </a>
+        </div>
+
+        <div>
+          <a href="/contacto" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="mail" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Contacto</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="p-5 border-t border-white/10 space-y-4 shrink-0 bg-brand-blue-500 mt-auto">
+      <a href="tel:+542236900000"
+        class="flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-white/10 border border-white/5 text-white hover:text-brand-yellow-500 font-mono text-sm font-bold min-h-11">
+        <i data-lucide="phone" class="w-4 h-4 text-brand-yellow-500"></i>
+        <span>223 690-0000</span>
+      </a>
+      <a href="/cotizar" onclick="toggleMobileNav(false)"
+        class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading uppercase tracking-wider font-bold shadow-cta-glow">
+        Cotizá tu envío
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       INICIO CONTENIDO PRINCIPAL
+       ======================================================================== -->
+  <main id="main-content" class="flex-1 pt-20">
+
+    <!-- TODO: Pegar aquí las secciones del cuerpo de servicios.html -->
+
+  </main>
+  <!-- ========================================================================
+       FIN CONTENIDO PRINCIPAL
+       ======================================================================== -->
+
+  <section id="carrusel-redes"
+    class="py-20 md:py-32 bg-brand-blue-500 border-y border-white/10 relative overflow-hidden font-sans">
+    <!-- Fondos decorativos -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none"
+      aria-hidden="true"></div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-blue-400/20 rounded-full blur-[100px] pointer-events-none"
+      aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span
+          class="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-bold tracking-widest inline-block font-subheading uppercase shadow-accent-sm">
+          Nuestra Comunidad Digital
+        </span>
+
+        <h2
+          class="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight uppercase text-white text-center">
+          SEGUÍ NUESTRO <span class="text-brand-yellow-500">MOVIMIENTO</span>
+        </h2>
+
+        <p class="text-brand-blue-50 text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto opacity-90">
+          Sumate a nuestros canales digitales y enterate al toque de todas las novedades operativas en Mar del Plata.
+        </p>
+        <div class="h-0.5 w-20 bg-brand-yellow-500 mx-auto rounded-full mt-4"></div>
+      </div>
+
+      <!-- Grid de 3 Redes: Facebook, Instagram, WhatsApp -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
+
+        <!-- CARD 1: FACEBOOK -->
+        <div
+          class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#1877F2]/50 hover:border-[#1877F2] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#0866FF] hover:bg-[#1877F2] border border-white/15 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#0866FF] border-white shadow-sm">
+                  FACEBOOK OFICIAL
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#0866FF] shadow-lg shadow-[#0866FF]/30">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  FACEBOOK
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  Envíos DosRuedas
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#0866FF] shadow-md shadow-[#0866FF]/20">
+                <span>SEGUIR COMUNIDAD</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#0866FF]/15 text-[#0866FF]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: INSTAGRAM -->
+        <div
+          class="social-block group relative rounded-2xl p-[2px] transition-all duration-300 hover:-translate-y-1.5 bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] border border-white/20 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#E1306C] border-white shadow-sm">
+                  INSTAGRAM MDQ
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#E1306C] shadow-lg shadow-[#FD1D1D]/30">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  INSTAGRAM
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  @enviosdosruedas
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Mirá el detrás de escena de nuestros riders y la flota recorriendo las calles de MDQ.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#E1306C] shadow-md shadow-[#FD1D1D]/30">
+                <span>VER CONTENIDO</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#E1306C]/15 text-[#E1306C]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: WHATSAPP -->
+        <div
+          class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#25D366]/50 hover:border-[#25D366] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#128C7E] hover:bg-[#0e7468] border border-white/15 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#128C7E] border-white shadow-sm">
+                  WHATSAPP DIRECTO
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#128C7E] shadow-lg shadow-[#128C7E]/40">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  WHATSAPP
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  +54 9 223 690-0000
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Escribinos directamente para consultas, contrataciones o soporte express al toque.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://api.whatsapp.com/send/?phone=5492236900000" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#128C7E] shadow-md shadow-[#128C7E]/30">
+                <span>INICIAR CHAT</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#128C7E]/15 text-[#128C7E]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       OPTIMIZED FOOTER (Traducido de OptimizedFooter.tsx)
+       ======================================================================== -->
+  <footer id="optimized-footer"
+    class="bg-brand-blue-500 text-white border-t border-white/10 relative overflow-hidden font-sans">
+
+    <!-- Franja de acento amarillo vial de 6px oficial -->
+    <div class="h-1.5 bg-brand-yellow-500 w-full shadow-md shadow-brand-yellow-500/30"></div>
+
+    <!-- Fondos decorativos atmosféricos -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none">
+    </div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(9,80,246,0.5),transparent_40%)] pointer-events-none">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
+
+      <!-- TOP CTA BANNER -->
+      <div
+        class="mb-14 rounded-2xl bg-brand-blue-500/90 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-brand-yellow-500 animate-ping"></span>
+            Operaciones Activas Mar del Plata 2025
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
+            ¿Tenés envíos para hoy? <span class="text-brand-yellow-500">Los entregamos a tiempo.</span>
+          </h3>
+          <p class="text-sm text-brand-blue-50 font-light max-w-xl">
+            Cotizá online en segundos o coordiná directo con nuestro equipo logístico por WhatsApp.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
+          <a href="/cotizar"
+            class="w-full sm:w-auto bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading uppercase tracking-wider text-sm font-bold px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-all flex items-center justify-between group min-h-12">
+            <span>Cotizá tu Envío</span>
+            <span
+              class="bg-brand-blue-500/10 text-brand-blue-500 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </span>
+          </a>
+
+          <a href="https://api.whatsapp.com/send/?phone=5492236900000&text=Hola%20Envíos%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20envíos"
+            target="_blank" rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-subheading uppercase tracking-wider text-sm px-5 py-3.5 rounded-full transition-colors min-h-12 font-bold">
+            <svg class="w-4 h-4 fill-brand-yellow-500" viewBox="0 0 24 24">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+            </svg>
+            <span>Chateá con Nosotros</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- MID SECTION: Columnas de Contenido -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+        <!-- COLUMNA 1: Brand & Socials (4 Cols) -->
+        <div class="lg:col-span-4 space-y-6">
+          <a href="/"
+            class="flex items-center gap-3.5 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
+            <div
+              class="w-11 h-11 bg-white/10 p-1.5 rounded-xl border border-white/15 group-hover:scale-105 transition-transform shrink-0 flex items-center justify-center text-brand-yellow-500">
+              <i data-lucide="bike" class="w-7 h-7"></i>
+            </div>
+            <div class="flex flex-col leading-none">
+              <span class="font-display text-2xl sm:text-3xl tracking-tight uppercase select-none text-white">
+                Envíos <span class="text-brand-yellow-500">DosRuedas</span>
+              </span>
+              <span class="text-[10px] font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
+                Tu solución confiable · Mar del Plata
+              </span>
+            </div>
+          </a>
+
+          <p class="text-brand-blue-50 text-sm leading-relaxed max-w-sm font-light">
+            Con más de 7 años de trayectoria en Mar del Plata, transformamos el despacho de tus productos en un motor de
+            crecimiento para emprendedores, PyMEs y comercios locales con flota propia y compromiso humano.
+          </p>
+
+          <div class="space-y-3 pt-2">
+            <span class="block text-xs font-bold text-brand-yellow-500 uppercase tracking-widest font-subheading">
+              Canales Oficiales
+            </span>
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="/nosotros/nuestras-redes"
+                class="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-500 flex items-center justify-center transition-colors border border-white/15 p-2.5"
+                title="Instagram Oficial" aria-label="Instagram">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+
+              <a href="/nosotros/nuestras-redes"
+                class="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-500 flex items-center justify-center transition-colors border border-white/15 p-2.5"
+                title="Facebook Oficial" aria-label="Facebook">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </a>
+
+              <a href="https://api.whatsapp.com/send/?phone=5492236900000" target="_blank" rel="noopener noreferrer"
+                class="h-10 w-10 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 flex items-center justify-center transition-colors border border-brand-yellow-500 shadow-accent-sm p-2.5"
+                title="WhatsApp Directo" aria-label="WhatsApp">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                </svg>
+              </a>
+
+              <div
+                class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/10 border border-white/15 text-xs text-white font-mono">
+                <i data-lucide="shield-check" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                <span>Centro de Depósito y Logística Local · Friuli 1972</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA 2: Services & Tools (4 Cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <h4
+            class="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2">
+            Servicios y Plataformas
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+            <!-- Grupo Portales -->
+            <div>
+              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                Cotizador y Portales
+              </p>
+              <ul class="space-y-2.5 text-sm font-sans">
+                <li>
+                  <a href="/cotizar"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>Cotizá Express / LowCost</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/logistica-dosruedas"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="package" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>Logística DosRuedas</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/mardelivery"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="store" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>MarDelivery Gastronomía</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Grupo Planes -->
+            <div>
+              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                Servicios y Planes
+              </p>
+              <ul class="space-y-2.5 text-sm font-sans">
+                <li>
+                  <a href="/servicios/envios-express"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Envíos Express</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/envios-lowcost"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="trending-down" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Envíos LowCost</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/enviosflex"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="clock" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Mercado Envíos Flex</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/empresas-cuenta-corriente"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="building-2" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Cuenta Corriente</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios"
+                    class="text-brand-yellow-500 hover:text-brand-yellow-400 flex items-center gap-2.5 transition-colors font-bold">
+                    <i data-lucide="layers" class="w-4 h-4 shrink-0"></i>
+                    <span>Ver todos los servicios</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA 3: Hub Operations Info (4 Cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <h4
+            class="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2">
+            Base de Operaciones MDQ
+          </h4>
+
+          <div class="space-y-3.5 text-xs text-brand-blue-50 font-sans">
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Centro de Distribución</p>
+                <p class="font-sans text-[13px] text-brand-blue-50 mt-0.5">Friuli 1972, Mar del Plata</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Línea Directa y WhatsApp</p>
+                <a href="tel:+542236900000"
+                  class="font-mono text-[13px] font-bold text-brand-yellow-500 hover:underline block mt-0.5">
+                  +54 9 223 690-0000
+                </a>
+              </div>
+            </div>
+
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+              </div>
+              <div class="space-y-1 w-full">
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Despacho</p>
+                <div class="text-[12px] font-sans text-brand-blue-50 space-y-0.5">
+                  <div class="flex justify-between items-center gap-4">
+                    <span>Lunes a Viernes:</span>
+                    <span class="font-mono font-bold text-brand-yellow-500">09:00 - 18:00</span>
+                  </div>
+                  <div class="flex justify-between items-center gap-4">
+                    <span>Sábados:</span>
+                    <span class="font-mono font-bold text-brand-yellow-500">10:00 - 15:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Separador y Botón Volver Arriba -->
+      <div class="border-t border-white/10 my-10 relative">
+        <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          class="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 p-2.5 rounded-full shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer min-w-11 min-h-11"
+          title="Volver al inicio" aria-label="Volver arriba">
+          <i data-lucide="arrow-up" class="w-4 h-4 stroke-[3]"></i>
+        </button>
+      </div>
+
+      <!-- BOTTOM SECTION: Legal & Copyright -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-blue-50 font-sans">
+        <div class="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6">
+          <p class="font-medium text-white">© 2025 Envíos DosRuedas · Mar del Plata, Argentina.</p>
+          <a href="/servicios" class="hover:text-brand-yellow-500 transition-colors">Servicios</a>
+          <a href="/cobertura" class="hover:text-brand-yellow-500 transition-colors">Cobertura</a>
+          <a href="/logistica-dosruedas" class="hover:text-brand-yellow-500 transition-colors">Logística DosRuedas</a>
+          <a href="/mardelivery" class="hover:text-brand-yellow-500 transition-colors">MarDelivery</a>
+          <a href="/nosotros/sobre-nosotros" class="hover:text-brand-yellow-500 transition-colors">Nosotros</a>
+          <a href="/nosotros/preguntas-frecuentes" class="hover:text-brand-yellow-500 transition-colors">Preguntas
+            Frecuentes</a>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 shrink-0 text-brand-blue-50">
+          <a href="/terminos-y-condiciones" class="hover:text-brand-yellow-500 transition-colors">Términos y
+            Condiciones</a>
+          <a href="/politica-de-privacidad" class="hover:text-brand-yellow-500 transition-colors">Política de
+            Privacidad</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts de interactividad para los menús y render de íconos -->
+  <script>
+    // Inicializar íconos de Lucide
+    lucide.createIcons();
+
+    // Toggle de Drawer Móvil
+    function toggleMobileNav(open) {
+      const drawer = document.getElementById('mobile-navigation-dialog');
+      const backdrop = document.getElementById('mobile-nav-backdrop');
+      const btnToggle = document.getElementById('mobile-menu-toggle-opt');
+
+      if (open) {
+        backdrop.classList.remove('hidden');
+        setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+        drawer.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden';
+        btnToggle.setAttribute('aria-expanded', 'true');
+      } else {
+        backdrop.classList.add('opacity-0');
+        drawer.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+        btnToggle.setAttribute('aria-expanded', 'false');
+        setTimeout(() => backdrop.classList.add('hidden'), 200);
+      }
+    }
+
+    // Toggle de submenús dentro del drawer móvil
+    function toggleDrawerSubmenu(id) {
+      const sub = document.getElementById(id);
+      if (sub.classList.contains('hidden')) {
+        sub.classList.remove('hidden');
+        sub.classList.add('flex');
+      } else {
+        sub.classList.add('hidden');
+        sub.classList.remove('flex');
+      }
+    }
+
+    // Scroll header background blur effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('optimized-header');
+      if (window.scrollY > 20) {
+        header.classList.add('py-2.5', 'backdrop-blur-md', 'bg-brand-blue-500/95');
+        header.classList.remove('py-3.5');
+      } else {
+        header.classList.remove('py-2.5', 'backdrop-blur-md', 'bg-brand-blue-500/95');
+        header.classList.add('py-3.5');
+      }
+    });
+  </script>
+</body>
+
+</html>

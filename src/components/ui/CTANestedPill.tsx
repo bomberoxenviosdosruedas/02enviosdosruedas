@@ -20,6 +20,8 @@ export interface CTANestedPillProps extends React.ButtonHTMLAttributes<HTMLButto
   iconClassName?: string;
   target?: string;
   rel?: string;
+  /** Force render as button with onClick navigation instead of Link (avoids nested <a> tags) */
+  asButton?: boolean;
 }
 
 /**
@@ -46,6 +48,7 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
       disabled,
       onClick,
       type,
+      asButton = false,
       ...restProps
     },
     ref
@@ -137,7 +140,18 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
       }
     };
 
-    if (href && !disabled) {
+    const navigate = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+      handleClick(e);
+      if (href && !disabled && !e.currentTarget.closest('a')) {
+        if (href.startsWith('http') || href.startsWith('//')) {
+          window.open(href, target || '_self', rel ? undefined : 'noopener noreferrer');
+        } else {
+          window.location.href = href;
+        }
+      }
+    };
+
+    if (href && !disabled && !asButton) {
       return (
         <Link
           href={href}
@@ -160,7 +174,7 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
         disabled={disabled}
         className={combinedClassName}
         {...restProps}
-        onClick={handleClick}
+        onClick={navigate}
       >
         {content}
       </button>

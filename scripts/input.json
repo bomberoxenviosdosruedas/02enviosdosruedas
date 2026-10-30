@@ -1,0 +1,6 @@
+{
+  "startUrls": [{"url": "https://www.enviosdosruedas.com/"}],
+  "maxCrawlPages": 50,
+  "crawlerType": "playwright:adaptive",
+  "saveMarkdown": true
+}

@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Logístico Digital · Logística DosRuedas Mar del Plata</title>
+  
+  <!-- Google Fonts Oficiales de la Marca -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+    <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-blue': {
+              50: '#E6EEFE',
+              100: '#BACEFD',
+              200: '#8EAFFB',
+              300: '#628FF9',
+              400: '#3570F8',
+              500: '#0950F6',
+              600: '#0845D4',
+              900: '#062C88'
+            },
+            'brand-yellow': {
+              50: '#FFFDE6',
+              100: '#FFFAB8',
+              200: '#FFF78A',
+              300: '#FFF45C',
+              400: '#FFF12E',
+              500: '#FFEC01',
+              600: '#E6D400'
+            },
+            'brand-ink': '#0950F6'
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            display: ['Anton', 'sans-serif'],
+            subheading: ['"Bebas Neue"', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace']
+          },
+          boxShadow: {
+            'accent-sm': '0 2px 4px rgba(255, 236, 1, 0.15)',
+            'float': '0 25px 50px -12px rgba(9, 80, 246, 0.15)',
+            'elevated': '0 16px 40px rgba(9, 80, 246, 0.18)',
+            'cta-glow': '0 0 28px rgba(255, 236, 1, 0.45), 0 8px 24px rgba(9, 80, 246, 0.18)',
+            'glow-yellow': '0 0 25px rgba(255, 241, 46, 0.45)'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Clases y utilidades canónicas del diseño */
+    .font-display {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.94;
+    }
+    .font-subheading {
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .font-mono {
+      font-family: 'Geist Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+    
+    /* Double-Bezel Oficial */
+    .double-bezel-outer-light {
+      background-color: rgba(230, 238, 254, 0.7);
+      border: 1px solid #BACEFD;
+      padding: 0.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 40px -15px rgba(9, 80, 246, 0.12);
+      transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .double-bezel-outer-light:hover {
+      border-color: #628FF9;
+      box-shadow: 0 24px 50px rgba(9, 80, 246, 0.18);
+    }
+    .double-bezel-inner-light {
+      background-color: #FFFFFF;
+      border-radius: 1.15rem;
+      border: 1px solid rgba(230, 238, 254, 0.8);
+    }
+
+    .double-bezel-outer-dark {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 40px -15px rgba(9, 80, 246, 0.25);
+      transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .double-bezel-outer-dark:hover {
+      border-color: rgba(255, 236, 1, 0.4);
+      box-shadow: 0 0 30px rgba(255, 236, 1, 0.25);
+    }
+    .double-bezel-inner-dark {
+      background-color: #0950F6;
+      border-radius: 1.15rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* CTA Nested Pill Oficial */
+    .cta-pill-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 9999px;
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      padding: 0.75rem 1.6rem;
+      min-height: 48px;
+      background-color: #FFEC01;
+      color: #0950F6;
+      box-shadow: 0 0 24px rgba(255, 236, 1, 0.4), 0 8px 20px rgba(9, 80, 246, 0.18);
+      transition: all 0.18s ease-out;
+    }
+    .cta-pill-primary:hover {
+      background-color: #FFF12E;
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(255, 241, 46, 0.55);
+    }
+    .cta-pill-primary:active {
+      transform: scale(0.97);
+    }
+
+    .cta-pill-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 9999px;
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      padding: 0.75rem 1.6rem;
+      min-height: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #FFFFFF;
+      transition: all 0.18s ease-out;
+    }
+    .cta-pill-outline:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      border-color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .cta-pill-outline:active {
+      transform: scale(0.97);
+    }
+  
+    .kinetic-font-stretch {
+      display: inline-block;
+      transition: transform 0.3s ease, letter-spacing 0.3s ease;
+    }
+    .kinetic-font-stretch:hover {
+      transform: scaleX(1.06);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-white text-brand-blue-500 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-yellow-500 selection:text-brand-blue-500">
+
+  <!-- ACCESIBILIDAD: Saltar al contenido principal -->
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow-500 focus:text-brand-blue-500 focus:font-subheading focus:font-bold focus:uppercase focus:tracking-wider focus:shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white">
+    Saltar al contenido principal
+  </a>
+
+  <!-- ========================================================================
+       OPTIMIZED HEADER (Traducido de OptimizedHeader.tsx)
+       ======================================================================== -->
+  <header id="optimized-header"
+    class="fixed top-0 left-0 right-0 z-50 w-full text-white bg-brand-blue-500 shadow-elevated border-b border-white/10 py-3.5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+
+        <!-- Logo de marca -->
+        <a href="/" id="nav-logo-opt" aria-current="page"
+          class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
+          <div class="flex items-center gap-2.5">
+            <div
+              class="w-10 h-10 rounded-xl bg-brand-yellow-500 text-brand-blue-500 flex items-center justify-center font-display text-xl shadow-md transform group-hover:rotate-6 transition-transform">
+              <i data-lucide="bike" class="w-6 h-6 stroke-[2.5]"></i>
+            </div>
+            <span
+              class="font-display text-2xl sm:text-3xl tracking-tight leading-none uppercase select-none flex flex-col sm:flex-row sm:gap-1 items-start sm:items-center">
+              <span class="text-white kinetic-font-stretch">Envíos</span>
+              <span class="text-brand-yellow-500 kinetic-font-stretch">DosRuedas</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation con dropdowns interactivos -->
+        <nav id="desktop-nav-opt" aria-label="Navegación principal" class="hidden lg:flex items-center gap-1.5">
+          <!-- Inicio -->
+          <a href="/" aria-current="page"
+            class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-brand-yellow-500 bg-black/20 border border-brand-yellow-500/30 transition-colors">
+            Inicio
+          </a>
+
+          <!-- Servicios (Dropdown) -->
+          <div class="relative group" id="dropdown-servicios">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Servicios</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/servicios/envios-express"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="zap" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos
+                      Express</span>
+                  </a>
+                  <a href="/servicios/envios-lowcost"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="trending-down" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos
+                      LowCost</span>
+                  </a>
+                  <a href="/servicios/enviosflex"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="clock" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos Flex
+                      (MeLi)</span>
+                  </a>
+                  <a href="/servicios/empresas-cuenta-corriente"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="building-2" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Cuenta
+                      Corriente</span>
+                  </a>
+                  <a href="/servicios#ecommerce-24hs"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="package" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">E-commerce
+                      24HS</span>
+                  </a>
+                  <a href="/servicios/deposito-fulfillment"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="store" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">E-commerce
+                      Same Day</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plataformas (Dropdown) -->
+          <div class="relative group" id="dropdown-plataformas">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Plataformas</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/logistica-dosruedas"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="search" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Logística
+                      DosRuedas</span>
+                  </a>
+                  <a href="/mardelivery"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="utensils-crossed" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">MarDelivery
+                      Gastronomía</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nosotros (Dropdown) -->
+          <div class="relative group" id="dropdown-nosotros">
+            <button type="button" aria-haspopup="true" aria-expanded="false"
+              class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span>Nosotros</span>
+              <i data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div
+              class="absolute left-0 pt-2 w-64 z-50 opacity-0 pointer-events-none translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-200">
+              <div
+                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2.5 text-white overflow-hidden">
+                <div class="flex flex-col gap-1 px-2">
+                  <a href="/nosotros/sobre-nosotros"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="info" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Sobre
+                      Nosotros</span>
+                  </a>
+                  <a href="/nosotros/preguntas-frecuentes"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="help-circle" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Preguntas
+                      Frecuentes</span>
+                  </a>
+                  <a href="/nosotros/nuestras-redes"
+                    class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow-500 hover:bg-black/15 transition-colors group/item">
+                    <div
+                      class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover/item:bg-brand-yellow-500 group-hover/item:text-brand-blue-500 transition-colors">
+                      <i data-lucide="share-2" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Nuestras
+                      Redes</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <a href="/contacto"
+            class="px-4 py-2 rounded-xl text-base font-subheading uppercase tracking-wider text-white border border-transparent hover:text-brand-yellow-500 hover:bg-black/15 transition-colors">
+            Contacto
+          </a>
+        </nav>
+
+        <!-- CTA & Teléfono Desktop -->
+        <div class="hidden lg:flex items-center gap-5">
+          <a href="tel:+542236900000"
+            class="flex items-center gap-2 text-white hover:text-brand-yellow-500 transition-colors font-mono text-base font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-lg px-1">
+            <i data-lucide="phone" class="w-4 h-4 text-brand-yellow-500"></i>
+            <span>223 690-0000</span>
+          </a>
+
+          <div class="relative">
+            <a href="/cotizar" id="header_cta"
+              class="inline-flex items-center justify-between rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-[44px] border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group">
+              <span>Cotizá tu envío</span>
+              <span
+                class="inline-flex items-center justify-center rounded-full w-7 h-7 ml-3 bg-white/10 text-brand-yellow-500 group-hover:bg-brand-yellow-500 group-hover:text-brand-blue-500 transition-all">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Toggles -->
+        <div class="lg:hidden flex items-center gap-3">
+          <a href="tel:+542236900000"
+            class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-all min-w-11 min-h-11 flex items-center justify-center"
+            aria-label="Llamar">
+            <i data-lucide="phone" class="w-5 h-5 text-brand-yellow-500"></i>
+          </a>
+          <button id="mobile-menu-toggle-opt" onclick="toggleMobileNav(true)"
+            class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-all cursor-pointer min-w-11 min-h-11 flex items-center justify-center"
+            aria-label="Abrir menú" aria-expanded="false">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       DRAWER NAVEGACIÓN MOBILE (Traducido de MobileNav.tsx)
+       ======================================================================== -->
+  <div id="mobile-nav-backdrop" onclick="toggleMobileNav(false)"
+    class="fixed inset-0 bg-brand-blue-500/70 backdrop-blur-md z-40 hidden transition-opacity duration-200 opacity-0">
+  </div>
+
+  <div id="mobile-navigation-dialog" role="dialog" aria-modal="true" aria-label="Menú principal"
+    class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-[320px] h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out overscroll-contain">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
+      <a href="/" onclick="toggleMobileNav(false)" class="flex items-center gap-3">
+        <span class="font-display text-xl tracking-tight uppercase select-none flex flex-col items-start leading-none">
+          <span class="text-white">Envíos</span>
+          <span class="text-brand-yellow-500">DosRuedas</span>
+        </span>
+      </a>
+      <button onclick="toggleMobileNav(false)"
+        class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow-500 transition-colors min-w-11 min-h-11 flex items-center justify-center"
+        aria-label="Cerrar menú">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-5 py-6 space-y-4">
+      <nav class="space-y-2">
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-brand-yellow-500 bg-white/5">
+            <i data-lucide="home" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Inicio</span>
+          </a>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <button type="button" onclick="toggleDrawerSubmenu('drawer-sub-servicios')"
+            class="w-full text-left py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase flex items-center justify-between text-white hover:bg-white/5 cursor-pointer">
+            <span class="flex items-center gap-3.5">
+              <i data-lucide="bike" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+              <span>Servicios</span>
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow-500 shrink-0 transition-transform"></i>
+          </button>
+          <div id="drawer-sub-servicios" class="hidden pl-4 pr-1 py-2 flex-col gap-1">
+            <a href="/servicios/envios-express" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos Express</span>
+            </a>
+            <a href="/servicios/envios-lowcost" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="trending-down" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos LowCost</span>
+            </a>
+            <a href="/servicios/enviosflex" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="clock" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Envíos Flex (MeLi)</span>
+            </a>
+            <a href="/servicios/empresas-cuenta-corriente" onclick="toggleMobileNav(false)"
+              class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow-500 hover:bg-black/15">
+              <i data-lucide="building-2" class="w-4 h-4 text-brand-yellow-500"></i>
+              <span>Cuenta Corriente</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/logistica-dosruedas" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="layout-grid" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Plataformas</span>
+          </a>
+        </div>
+
+        <div class="border-b border-white/10 pb-2.5">
+          <a href="/nosotros/sobre-nosotros" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="info" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Nosotros</span>
+          </a>
+        </div>
+
+        <div>
+          <a href="/contacto" onclick="toggleMobileNav(false)"
+            class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow-500 hover:bg-white/5">
+            <i data-lucide="mail" class="w-5 h-5 text-brand-yellow-500 shrink-0"></i>
+            <span>Contacto</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="p-5 border-t border-white/10 space-y-4 shrink-0 bg-brand-blue-500 mt-auto">
+      <a href="tel:+542236900000"
+        class="flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-white/10 border border-white/5 text-white hover:text-brand-yellow-500 font-mono text-sm font-bold min-h-11">
+        <i data-lucide="phone" class="w-4 h-4 text-brand-yellow-500"></i>
+        <span>223 690-0000</span>
+      </a>
+      <a href="/cotizar" onclick="toggleMobileNav(false)"
+        class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading uppercase tracking-wider font-bold shadow-cta-glow">
+        Cotizá tu envío
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       INICIO CONTENIDO PRINCIPAL
+       ======================================================================== -->
+  <!-- ========================================================================= -->
+  <!-- 1. COMPONENTE HERO: LogisticaHero.tsx                                    -->
+  <!-- ========================================================================= -->
+  <header id="logistica-hero" class="relative overflow-hidden bg-brand-blue-500 text-white pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-white/10">
+    <!-- Glows de fondo y blueprint grid -->
+    <div class="absolute top-0 right-0 w-96 sm:w-120 h-96 sm:h-120 bg-brand-yellow-500/10 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute bottom-0 left-0 w-80 sm:w-96 h-80 sm:h-96 bg-brand-blue-400/20 rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-4xl mx-auto text-center space-y-6">
+        
+        <!-- Eyebrow badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading uppercase tracking-widest shadow-sm">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+          </svg>
+          <span>SISTEMA LOGÍSTICO DIGITAL · MAR DEL PLATA</span>
+        </div>
+
+        <!-- Title Principal -->
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-[0.94]">
+          Seguí tu paquete en tiempo real e ingresá a tu 
+          <span class="text-brand-blue-500 bg-brand-yellow-500 px-3 py-0.5 rounded-xl inline-block shadow-lg mx-1">
+            panel operativo
+          </span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="font-sans text-base sm:text-xl text-brand-blue-50 font-light leading-relaxed max-w-3xl mx-auto">
+          Conectamos la última milla de Mar del Plata con trazabilidad total. Consultá el estado de tu envío con el código <strong class="font-bold text-brand-yellow-500 font-mono tracking-wider">EDR</strong> o gestioná las operaciones de tu negocio desde nuestros portales dedicados.
+        </p>
+
+        <!-- CTAs de Navegación Rápida -->
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#rastreo" class="cta-pill-primary w-full sm:w-auto text-base">
+            <span>Rastrear con Código EDR</span>
+            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+          </a>
+
+          <a href="#portales" class="cta-pill-outline w-full sm:w-auto text-base">
+            <span>Ver Portales Operativos</span>
+            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Trust badges institucionales -->
+        <div class="pt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-brand-blue-50/90">
+          <span class="flex items-center gap-2 px-3.5 py-1.5 bg-white/5 rounded-xl border border-white/10">
+            <svg class="w-4 h-4 text-brand-yellow-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Base Central Friuli 1972
+          </span>
+          <span class="flex items-center gap-2 px-3.5 py-1.5 bg-white/5 rounded-xl border border-white/10">
+            <svg class="w-4 h-4 text-brand-yellow-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Cobertura en los 5 radios de MDQ
+          </span>
+          <span class="flex items-center gap-2 px-3.5 py-1.5 bg-white/5 rounded-xl border border-white/10">
+            <svg class="w-4 h-4 text-brand-yellow-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Trazabilidad en tiempo real
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. COMPONENTE TRACKING WIDGET: TrackingWidget.tsx                         -->
+  <!-- ========================================================================= -->
+  <main class="grow">
+    <section id="rastreo" class="py-16 sm:py-24 bg-brand-blue-50/50 relative scroll-mt-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header de Sección -->
+        <div class="text-center space-y-3 mb-10">
+          <span class="text-xs font-subheading uppercase tracking-widest text-brand-blue-500 font-bold px-3.5 py-1 bg-brand-blue-100 rounded-full inline-block border border-brand-blue-200">
+            Seguimiento en Vivo
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl uppercase tracking-tight text-brand-blue-500">
+            Consultá el estado de tu paquete
+          </h2>
+          <p class="font-sans text-sm sm:text-base text-brand-blue-900/75 max-w-xl mx-auto">
+            Ingresá el código de 4 a 12 dígitos que figura en tu etiqueta o remito oficial.
+          </p>
+        </div>
+
+        <!-- Input box con DoubleBezelCard -->
+        <div class="double-bezel-outer-light shadow-xl mb-8">
+          <div class="double-bezel-inner-light p-6 sm:p-8 bg-white">
+            <form id="tracking-form" class="space-y-4">
+              <div class="flex flex-col sm:flex-row gap-3">
+                <div class="relative flex-1">
+                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-brand-blue-500/50">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16.5 9.4 7.55 4.24a1.78 1.78 0 0 0-2.5 1.55v12.42a1.78 1.78 0 0 0 2.5 1.55L16.5 14.6a1.78 1.78 0 0 0 0-3.2Z"/>
+                      <path d="m21 16-4-2.5"/>
+                      <path d="m21 8-4 2.5"/>
+                      <path d="M3 12h5"/>
+                    </svg>
+                  </div>
+                  <input
+                    type="text"
+                    id="tracking-input"
+                    value="EDR-4820-MDQ"
+                    placeholder="Ej: EDR-8420-MDQ o código numérico..."
+                    class="w-full pl-11 pr-4 py-3.5 text-base font-mono uppercase bg-brand-blue-50/40 border border-brand-blue-200 rounded-xl text-brand-blue-900 placeholder:text-brand-blue-400/70 focus:outline-none focus:ring-2 focus:ring-brand-blue-500 focus:border-brand-blue-500 transition-all"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading font-bold uppercase tracking-wider text-base rounded-xl transition-all shadow-md active:scale-95 cursor-pointer"
+                >
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.3-4.3"/>
+                  </svg>
+                  <span>Rastrear Envío</span>
+                </button>
+              </div>
+
+              <!-- Quick sample chips -->
+              <div class="flex flex-wrap items-center gap-2 pt-2 text-xs font-mono text-brand-blue-800">
+                <span class="text-brand-blue-500/70 font-sans">Ejemplos para probar:</span>
+                <button
+                  type="button"
+                  data-code="EDR-4820-MDQ"
+                  class="sample-btn px-2.5 py-1 rounded-lg bg-brand-blue-100 hover:bg-brand-blue-200 text-brand-blue-900 transition-colors font-bold cursor-pointer"
+                >
+                  EDR-4820-MDQ (En camino)
+                </button>
+                <button
+                  type="button"
+                  data-code="EDR-999-OK"
+                  class="sample-btn px-2.5 py-1 rounded-lg bg-brand-blue-100 hover:bg-brand-blue-200 text-brand-blue-900 transition-colors font-bold cursor-pointer"
+                >
+                  EDR-999-OK (Entregado)
+                </button>
+                <button
+                  type="button"
+                  data-code="MELI-FLEX-MDQ"
+                  class="sample-btn px-2.5 py-1 rounded-lg bg-brand-blue-100 hover:bg-brand-blue-200 text-brand-blue-900 transition-colors font-bold cursor-pointer"
+                >
+                  MELI-FLEX-MDQ (Flex)
+                </button>
+              </div>
+
+              <!-- Error alert container -->
+              <div id="tracking-error" class="hidden items-center gap-2 p-3 text-xs text-red-700 bg-red-50 border border-red-200 rounded-xl">
+                <svg class="w-4 h-4 shrink-0 text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="12"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                <span id="tracking-error-text">Por favor, ingresá un código válido.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Tracking Results Card Dinámica -->
+        <div id="tracking-result-box" class="space-y-6">
+          <div class="bg-white rounded-2xl border border-brand-blue-200 p-6 sm:p-8 shadow-xl space-y-6">
+            
+            <!-- Header result -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-brand-blue-100">
+              <div class="space-y-1">
+                <div class="flex items-center gap-2.5">
+                  <span id="res-code" class="font-mono text-2xl sm:text-3xl font-bold text-brand-blue-500">
+                    EDR-4820-MDQ
+                  </span>
+                  <span id="res-badge" class="px-2.5 py-0.5 rounded text-xs font-subheading font-bold uppercase tracking-wider bg-brand-blue-50 text-brand-blue-500 border border-brand-blue-200">
+                    EDR
+                  </span>
+                </div>
+                <p id="res-update" class="text-xs font-mono text-brand-blue-900/60">
+                  Última actualización: Hace unos minutos · Friuli 1972
+                </p>
+              </div>
+
+              <div class="flex items-center gap-2.5 bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200 w-fit">
+                <div id="res-status-dot" class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+                <span id="res-status-label" class="font-subheading font-bold text-sm uppercase tracking-wide text-emerald-800">
+                  En camino con cadete asignado
+                </span>
+              </div>
+            </div>
+
+            <!-- Status Timeline -->
+            <div class="space-y-5">
+              <h3 class="font-subheading text-xs font-bold uppercase tracking-widest text-brand-blue-500/80">
+                Trazabilidad de la Ruta · Mar del Plata
+              </h3>
+
+              <div id="timeline-container" class="relative pl-6 sm:pl-8 space-y-6 before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-brand-blue-200">
+                
+                <!-- Hito 1 -->
+                <div class="relative group">
+                  <div class="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-brand-blue-500 text-brand-yellow-500 shadow-md">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-2">
+                      <h4 class="font-subheading text-base font-bold uppercase tracking-tight text-brand-blue-900">
+                        Etiqueta generada y registrada
+                      </h4>
+                      <span class="text-xs font-mono text-brand-blue-500 font-bold bg-brand-blue-50 px-2 py-0.5 rounded">
+                        09:15 hs
+                      </span>
+                    </div>
+                    <p class="font-sans text-xs text-brand-blue-900/70">
+                      El comercio despachante ingresó el paquete al sistema logístico.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Hito 2 -->
+                <div class="relative group">
+                  <div class="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-brand-blue-500 text-brand-yellow-500 shadow-md">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-2">
+                      <h4 class="font-subheading text-base font-bold uppercase tracking-tight text-brand-blue-900">
+                        Recolectado por cadetería DosRuedas
+                      </h4>
+                      <span class="text-xs font-mono text-brand-blue-500 font-bold bg-brand-blue-50 px-2 py-0.5 rounded">
+                        11:40 hs
+                      </span>
+                    </div>
+                    <p class="font-sans text-xs text-brand-blue-900/70">
+                      Retiro confirmado en local/depósito emisor sin cargo adicional.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Hito 3 -->
+                <div class="relative group">
+                  <div class="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-brand-blue-500 text-brand-yellow-500 shadow-md">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-2">
+                      <h4 class="font-subheading text-base font-bold uppercase tracking-tight text-brand-blue-900">
+                        Clasificado en Hub Central Friuli 1972
+                      </h4>
+                      <span class="text-xs font-mono text-brand-blue-500 font-bold bg-brand-blue-50 px-2 py-0.5 rounded">
+                        13:10 hs
+                      </span>
+                    </div>
+                    <p class="font-sans text-xs text-brand-blue-900/70">
+                      Verificación de embalaje (máx. 5 kg / 40x40x30 cm) y asignación de zona vial.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Hito 4 -->
+                <div id="step-4" class="relative group">
+                  <div id="step-4-icon" class="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-brand-yellow-500 text-brand-blue-500 shadow-md animate-bounce">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <circle cx="12" cy="12" r="4"/>
+                    </svg>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-2">
+                      <h4 id="step-4-title" class="font-subheading text-base font-bold uppercase tracking-tight text-brand-blue-900">
+                        En camino con cadete en moto
+                      </h4>
+                      <span id="step-4-time" class="text-xs font-mono text-brand-blue-500 font-bold bg-brand-blue-50 px-2 py-0.5 rounded">
+                        14:25 hs
+                      </span>
+                    </div>
+                    <p id="step-4-desc" class="font-sans text-xs text-brand-blue-900/70">
+                      Cadete transitando hacia el domicilio de entrega en radio urbano.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Hito 5 -->
+                <div id="step-5" class="relative group">
+                  <div id="step-5-icon" class="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-white border-2 border-brand-blue-200 text-brand-blue-300">
+                    <span class="w-2 h-2 rounded-full bg-brand-blue-300"></span>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="flex items-center justify-between gap-2">
+                      <h4 id="step-5-title" class="font-subheading text-base font-bold uppercase tracking-tight text-brand-blue-900/60">
+                        Entregado en mano
+                      </h4>
+                      <span id="step-5-time" class="text-xs font-mono text-brand-blue-900/40 bg-brand-blue-50/50 px-2 py-0.5 rounded">
+                        Pendiente
+                      </span>
+                    </div>
+                    <p id="step-5-desc" class="font-sans text-xs text-brand-blue-900/60">
+                      Pendiente de recepción por parte del cliente con firma y foto digital.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Bottom Help & WhatsApp Button -->
+            <div class="pt-6 border-t border-brand-blue-100 flex flex-col sm:flex-row items-center justify-between gap-4 bg-brand-blue-50/50 -mx-6 -mb-6 sm:-mx-8 sm:-mb-8 p-6 rounded-b-2xl">
+              <div class="text-xs text-brand-blue-900/80 space-y-0.5 text-center sm:text-left">
+                <p class="font-bold text-brand-blue-900 text-sm">¿Tenés dudas sobre este paquete?</p>
+                <p class="text-brand-blue-900/70">Coordinamos directo desde la base de Friuli 1972 con operadores locales.</p>
+              </div>
+
+              <a
+                id="whatsapp-query-link"
+                href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola%20Envíos%20DosRuedas!%20Quiero%20consultar%20por%20el%20paquete%20código%20EDR-4820-MDQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white font-subheading text-sm font-bold uppercase tracking-wider rounded-xl shadow-md transition-all active:scale-95"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Z"/>
+                </svg>
+                <span>Consultar por WhatsApp</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. COMPONENTE PORTAL ACCESS CARDS: PortalAccessCards.tsx                  -->
+    <!-- ========================================================================= -->
+    <section id="portales" class="py-16 sm:py-24 bg-white relative border-t border-brand-blue-100/60 scroll-mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header de Portales -->
+        <div class="max-w-3xl mb-12 space-y-4">
+          <span class="text-xs font-subheading uppercase tracking-widest text-brand-blue-500 font-bold px-3 py-1 bg-brand-blue-50 rounded-full border border-brand-blue-200 inline-block">
+            Ecosistema Digital
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-brand-blue-500">
+            Portales dedicados para cada integrante de la red
+          </h2>
+          <p class="font-sans text-base sm:text-lg text-brand-blue-900/75">
+            Elegí la plataforma adecuada según tu rol en la operación logística de Mar del Plata.
+          </p>
+        </div>
+
+        <!-- Grid de 3 Portales con DoubleBezelCard -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          <!-- Card 1: Panel para Comercios (Light) -->
+          <div class="double-bezel-outer-light h-full flex flex-col justify-between">
+            <div class="double-bezel-inner-light p-6 sm:p-8 flex flex-col justify-between h-full bg-white text-brand-blue-900">
+              <div class="space-y-6">
+                
+                <div class="flex items-center justify-between">
+                  <div class="w-14 h-14 rounded-2xl flex items-center justify-center shadow-md bg-brand-blue-500 text-brand-yellow-500">
+                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/>
+                      <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                      <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/>
+                      <path d="M2 7h20"/>
+                    </svg>
+                  </div>
+                  <span class="text-2xs font-subheading font-bold uppercase tracking-wider px-3 py-1 rounded-full border bg-brand-blue-50 text-brand-blue-500 border-brand-blue-200">
+                    Portal Web B2B
+                  </span>
+                </div>
+
+                <div class="space-y-2">
+                  <h3 class="font-display text-2xl uppercase tracking-tight text-brand-blue-500">
+                    Panel para Comercios
+                  </h3>
+                  <p class="font-sans text-sm leading-relaxed text-brand-blue-900/75">
+                    Entorno exclusivo para locales comerciales y tiendas e-commerce. Generá etiquetas con código EDR, programá recolecciones en tu local y visualizá comprobantes de entrega.
+                  </p>
+                </div>
+
+                <ul class="space-y-2.5 pt-2">
+                  <li class="flex items-start gap-2 text-xs font-sans">
+                    <span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0 bg-brand-blue-500"></span>
+                    <span class="text-brand-blue-900/85">Carga individual y masiva de remitos</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-xs font-sans">
+                    <span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0 bg-brand-blue-500"></span>
+                    <span class="text-brand-blue-900/85">Seguimiento simultáneo de todos tus envíos</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-xs font-sans">
+                    <span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0 bg-brand-blue-500"></span>
+                    <span class="text-brand-blue-900/85">Descarga de reportes para administración</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="pt-6 mt-6 border-t border-brand-blue-100">
+                <a
+                  href="https://www.logisticadosruedas.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full inline-flex items-center justify-between px-5 py-3.5 rounded-xl font-subheading text-xs uppercase tracking-wider font-bold transition-all shadow-sm bg-brand-blue-500 hover:bg-brand-blue-600 text-white"
+                >
+                  <span>Acceder al Panel Comercial</span>
+                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Panel para Repartidores (Light) -->
+          <div class="double-bezel-outer-light h-full flex flex-col justify-between">
+            <div class="double-bezel-inner-light p-6 sm:p-8 flex flex-col justify-between h-full bg-white text-brand-blue-900">
+              <div class="space-y-6">
+                
+                <div class="flex items-center justify-between">
+                  <div class="w-14 h-14 rounded-2xl flex items-center justify-center shadow-md bg-brand-blue-500 text-brand-yellow-500">
+                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="18.5" cy="17.5" r="3.5"/>
+                      <circle cx="5.5" cy="17.5" r="3.5"/>
+                      <circle cx="15" cy="5" r="1"/>
+                      <path d="M12 17.5V14l-3-3 4-3 2 3h2"/>
+                    </svg>
+                  </div>
+                  <span class="text-2xs font-subheading font-bold uppercase tracking-wider px-3 py-1 rounded-full border bg-brand-blue-50 text-brand-blue-500 border-brand-blue-200">
+                    App de Reparto MDQ
+                  </span>
+                </div>
+
+                <div class="space-y-2">
+                  <h3 class="font-display text-2xl uppercase tracking-tight text-brand-blue-500">
+                    Panel para Repartidores
+                  </h3>
+                  <p class="font-sans text-sm leading-relaxed text-brand-blue-900/75">
+                    Herramienta de campo para la flota de cadetes de Envíos DosRuedas. Ruteo inteligente por zonas, visualización de paradas y confirmación con firma digital y foto.
+                  </p>
+                </div>
+
+                <ul class="space-y-2.5 pt-2">
+                  <li class="flex items-start gap-2 text-xs font-sans">
+                    <span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0 bg-brand-blue-500"></span>
+                    <span class="text-brand-blue-900/85">Hojas de ruta optimizadas por radio</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-xs font-sans">
+                    <span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0 bg-brand-blue-500"></span>
+                    <span class="text-brand-blue-900/85">Notificación de estado en tiempo real</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-xs font-sans">
+                    <span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0 bg-brand-blue-500"></span>
+                    <span class="text-brand-blue-900/85">Prueba de entrega con firma en pantalla</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="pt-6 mt-6 border-t border-brand-blue-100">
+                <a
+                  href="https://www.logisticadosruedas.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full inline-flex items-center justify-between px-5 py-3.5 rounded-xl font-subheading text-xs uppercase tracking-wider font-bold transition-all shadow-sm bg-brand-blue-500 hover:bg-brand-blue-600 text-white"
+                >
+                  <span>Ingreso Cadetería</span>
+                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Shop DosRuedas (Dark Navy Card Destacada) -->
+          <div class="double-bezel-outer-dark h-full flex flex-col justify-between">
+            <div class="double-bezel-inner-dark p-6 sm:p-8 flex flex-col justify-between h-full text-white">
+              <div class="space-y-6">
+                
+                <div class="flex items-center justify-between">
+                  <div class="w-14 h-14 rounded-2xl flex items-center justify-center shadow-md bg-brand-yellow-500 text-brand-blue-500">
+                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+                      <path d="M3 6h18"/>
+                      <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                  </div>
+                  <span class="text-2xs font-subheading font-bold uppercase tracking-wider px-3 py-1 rounded-full border bg-white/10 text-brand-yellow-500 border-brand-yellow-500/30">
+                    Ecosistema E-commerce
+                  </span>
+                </div>
+
+                <div class="space-y-2">
+                  <h3 class="font-display text-2xl uppercase tracking-tight text-white">
+                    Shop DosRuedas
+                  </h3>
+                  <p class="font-sans text-sm leading-relaxed text-brand-blue-50">
+                    Creá tu tienda online con catálogo autogestionable y logística de última milla nativa integrada en Mar del Plata. Vendé online y despachá en un solo clic.
+                  </p>
+                </div>
+
+                <ul class="space-y-2.5 pt-2">
+                  <li class="flex items-start gap-2 text-xs font-sans">
+                    <span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0 bg-brand-yellow-500"></span>
+                    <span class="text-white/90">Catálogo online con carrito y WhatsApp</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-xs font-sans">
+                    <span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0 bg-brand-yellow-500"></span>
+                    <span class="text-white/90">Envíos DosRuedas integrados automáticamente</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-xs font-sans">
+                    <span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0 bg-brand-yellow-500"></span>
+                    <span class="text-white/90">Tarifas unificadas sin intermediarios</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="pt-6 mt-6 border-t border-white/20">
+                <a
+                  href="https://shopdosruedas.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full inline-flex items-center justify-between px-5 py-3.5 rounded-xl font-subheading text-xs uppercase tracking-wider font-bold transition-all shadow-md bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500"
+                >
+                  <span>Conocer Shop DosRuedas</span>
+                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Banner Adicional de la Plataforma Oficial -->
+        <div class="mt-12 p-6 rounded-2xl bg-brand-blue-50 border border-brand-blue-200 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5 text-center md:text-left">
+            <div class="p-3 bg-brand-blue-500 text-brand-yellow-500 rounded-xl shrink-0 shadow-sm">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-subheading text-sm font-bold uppercase tracking-wider text-brand-blue-900">
+                Plataforma oficial: logisticadosruedas.com
+              </h4>
+              <p class="font-sans text-xs text-brand-blue-900/70">
+                Centralizá tus despachos diarios y sincronizá con tu base en Mar del Plata.
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="https://www.logisticadosruedas.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-xs font-subheading font-bold uppercase tracking-wider text-brand-blue-500 hover:text-brand-blue-700 inline-flex items-center gap-1.5 transition-colors"
+          >
+            <span>Visitar www.logisticadosruedas.com</span>
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <!-- ========================================================================
+       FIN CONTENIDO PRINCIPAL
+       ======================================================================== -->
+
+  <section id="carrusel-redes"
+    class="py-20 md:py-32 bg-brand-blue-500 border-y border-white/10 relative overflow-hidden font-sans">
+    <!-- Fondos decorativos -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none"
+      aria-hidden="true"></div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-blue-400/20 rounded-full blur-[100px] pointer-events-none"
+      aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span
+          class="px-4 py-1.5 bg-brand-yellow-500 text-brand-blue-500 rounded-full text-xs font-bold tracking-widest inline-block font-subheading uppercase shadow-accent-sm">
+          Nuestra Comunidad Digital
+        </span>
+
+        <h2
+          class="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight uppercase text-white text-center">
+          SEGUÍ NUESTRO <span class="text-brand-yellow-500">MOVIMIENTO</span>
+        </h2>
+
+        <p class="text-brand-blue-50 text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto opacity-90">
+          Sumate a nuestros canales digitales y enterate al toque de todas las novedades operativas en Mar del Plata.
+        </p>
+        <div class="h-0.5 w-20 bg-brand-yellow-500 mx-auto rounded-full mt-4"></div>
+      </div>
+
+      <!-- Grid de 3 Redes: Facebook, Instagram, WhatsApp -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
+
+        <!-- CARD 1: FACEBOOK -->
+        <div
+          class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#1877F2]/50 hover:border-[#1877F2] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#0866FF] hover:bg-[#1877F2] border border-white/15 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#0866FF] border-white shadow-sm">
+                  FACEBOOK OFICIAL
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#0866FF] shadow-lg shadow-[#0866FF]/30">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  FACEBOOK
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  Envíos DosRuedas
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#0866FF] shadow-md shadow-[#0866FF]/20">
+                <span>SEGUIR COMUNIDAD</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#0866FF]/15 text-[#0866FF]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: INSTAGRAM -->
+        <div
+          class="social-block group relative rounded-2xl p-[2px] transition-all duration-300 hover:-translate-y-1.5 bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-gradient-to-br from-[#833AB4] via-[#E1306C] via-[#FD1D1D] to-[#F77737] border border-white/20 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#E1306C] border-white shadow-sm">
+                  INSTAGRAM MDQ
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#E1306C] shadow-lg shadow-[#FD1D1D]/30">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  INSTAGRAM
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  @enviosdosruedas
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Mirá el detrás de escena de nuestros riders y la flota recorriendo las calles de MDQ.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#E1306C] shadow-md shadow-[#FD1D1D]/30">
+                <span>VER CONTENIDO</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#E1306C]/15 text-[#E1306C]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: WHATSAPP -->
+        <div
+          class="social-block group relative rounded-2xl p-2 transition-all duration-300 hover:-translate-y-1.5 border border-[#25D366]/50 hover:border-[#25D366] bg-brand-blue-500/80 backdrop-blur-md shadow-xl">
+          <div
+            class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between h-[390px] md:h-[430px] overflow-hidden bg-[#128C7E] hover:bg-[#0e7468] border border-white/15 transition-colors">
+            <!-- Marca de agua decorativa -->
+            <div
+              class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+              <svg class="w-56 h-56 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+            </div>
+
+            <div class="z-10 text-left space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading border bg-white text-[#128C7E] border-white shadow-sm">
+                  WHATSAPP DIRECTO
+                </span>
+                <div
+                  class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-white text-[#128C7E] shadow-lg shadow-[#128C7E]/40">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                  WHATSAPP
+                </h3>
+                <p class="font-mono text-xs font-bold mt-1.5 text-white/90">
+                  +54 9 223 690-0000
+                </p>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                Escribinos directamente para consultas, contrataciones o soporte express al toque.
+              </p>
+            </div>
+
+            <div class="z-10 pt-4 border-t border-white/10">
+              <a href="https://api.whatsapp.com/send/?phone=5492236900000" target="_blank" rel="noopener noreferrer"
+                class="w-full min-h-11 inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 group/btn bg-white hover:bg-white/90 text-[#128C7E] shadow-md shadow-[#128C7E]/30">
+                <span>INICIAR CHAT</span>
+                <span
+                  class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1 bg-[#128C7E]/15 text-[#128C7E]">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       OPTIMIZED FOOTER (Traducido de OptimizedFooter.tsx)
+       ======================================================================== -->
+  <footer id="optimized-footer"
+    class="bg-brand-blue-500 text-white border-t border-white/10 relative overflow-hidden font-sans">
+
+    <!-- Franja de acento amarillo vial de 6px oficial -->
+    <div class="h-1.5 bg-brand-yellow-500 w-full shadow-md shadow-brand-yellow-500/30"></div>
+
+    <!-- Fondos decorativos atmosféricos -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,236,1,0.08),transparent_50%)] pointer-events-none">
+    </div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,rgba(9,80,246,0.5),transparent_40%)] pointer-events-none">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
+
+      <!-- TOP CTA BANNER -->
+      <div
+        class="mb-14 rounded-2xl bg-brand-blue-500/90 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-yellow-500 text-xs font-subheading uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-brand-yellow-500 animate-ping"></span>
+            Operaciones Activas Mar del Plata 2025
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
+            ¿Tenés envíos para hoy? <span class="text-brand-yellow-500">Los entregamos a tiempo.</span>
+          </h3>
+          <p class="text-sm text-brand-blue-50 font-light max-w-xl">
+            Cotizá online en segundos o coordiná directo con nuestro equipo logístico por WhatsApp.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
+          <a href="/cotizar"
+            class="w-full sm:w-auto bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 font-subheading uppercase tracking-wider text-sm font-bold px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-all flex items-center justify-between group min-h-12">
+            <span>Cotizá tu Envío</span>
+            <span
+              class="bg-brand-blue-500/10 text-brand-blue-500 h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </span>
+          </a>
+
+          <a href="https://api.whatsapp.com/send/?phone=5492236900000&text=Hola%20Envíos%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20envíos"
+            target="_blank" rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-subheading uppercase tracking-wider text-sm px-5 py-3.5 rounded-full transition-colors min-h-12 font-bold">
+            <svg class="w-4 h-4 fill-brand-yellow-500" viewBox="0 0 24 24">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+            </svg>
+            <span>Chateá con Nosotros</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- MID SECTION: Columnas de Contenido -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+        <!-- COLUMNA 1: Brand & Socials (4 Cols) -->
+        <div class="lg:col-span-4 space-y-6">
+          <a href="/"
+            class="flex items-center gap-3.5 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl">
+            <div
+              class="w-11 h-11 bg-white/10 p-1.5 rounded-xl border border-white/15 group-hover:scale-105 transition-transform shrink-0 flex items-center justify-center text-brand-yellow-500">
+              <i data-lucide="bike" class="w-7 h-7"></i>
+            </div>
+            <div class="flex flex-col leading-none">
+              <span class="font-display text-2xl sm:text-3xl tracking-tight uppercase select-none text-white">
+                Envíos <span class="text-brand-yellow-500">DosRuedas</span>
+              </span>
+              <span class="text-[10px] font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
+                Tu solución confiable · Mar del Plata
+              </span>
+            </div>
+          </a>
+
+          <p class="text-brand-blue-50 text-sm leading-relaxed max-w-sm font-light">
+            Con más de 7 años de trayectoria en Mar del Plata, transformamos el despacho de tus productos en un motor de
+            crecimiento para emprendedores, PyMEs y comercios locales con flota propia y compromiso humano.
+          </p>
+
+          <div class="space-y-3 pt-2">
+            <span class="block text-xs font-bold text-brand-yellow-500 uppercase tracking-widest font-subheading">
+              Canales Oficiales
+            </span>
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="/nosotros/nuestras-redes"
+                class="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-500 flex items-center justify-center transition-colors border border-white/15 p-2.5"
+                title="Instagram Oficial" aria-label="Instagram">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+
+              <a href="/nosotros/nuestras-redes"
+                class="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow-500 text-white hover:text-brand-blue-500 flex items-center justify-center transition-colors border border-white/15 p-2.5"
+                title="Facebook Oficial" aria-label="Facebook">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </a>
+
+              <a href="https://api.whatsapp.com/send/?phone=5492236900000" target="_blank" rel="noopener noreferrer"
+                class="h-10 w-10 rounded-xl bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 flex items-center justify-center transition-colors border border-brand-yellow-500 shadow-accent-sm p-2.5"
+                title="WhatsApp Directo" aria-label="WhatsApp">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                </svg>
+              </a>
+
+              <div
+                class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/10 border border-white/15 text-xs text-white font-mono">
+                <i data-lucide="shield-check" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                <span>Centro de Depósito y Logística Local · Friuli 1972</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA 2: Services & Tools (4 Cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <h4
+            class="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2">
+            Servicios y Plataformas
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+            <!-- Grupo Portales -->
+            <div>
+              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                Cotizador y Portales
+              </p>
+              <ul class="space-y-2.5 text-sm font-sans">
+                <li>
+                  <a href="/cotizar"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>Cotizá Express / LowCost</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/logistica-dosruedas"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="package" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>Logística DosRuedas</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/mardelivery"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center justify-between group transition-colors">
+                    <div class="flex items-center gap-2.5">
+                      <i data-lucide="store" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                      <span>MarDelivery Gastronomía</span>
+                    </div>
+                    <i data-lucide="arrow-up-right"
+                      class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-yellow-500"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Grupo Planes -->
+            <div>
+              <p class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                Servicios y Planes
+              </p>
+              <ul class="space-y-2.5 text-sm font-sans">
+                <li>
+                  <a href="/servicios/envios-express"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="zap" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Envíos Express</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/envios-lowcost"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="trending-down" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Envíos LowCost</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/enviosflex"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="clock" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Mercado Envíos Flex</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios/empresas-cuenta-corriente"
+                    class="text-brand-blue-50 hover:text-brand-yellow-500 flex items-center gap-2.5 transition-colors">
+                    <i data-lucide="building-2" class="w-4 h-4 text-brand-yellow-500 shrink-0"></i>
+                    <span>Cuenta Corriente</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios"
+                    class="text-brand-yellow-500 hover:text-brand-yellow-400 flex items-center gap-2.5 transition-colors font-bold">
+                    <i data-lucide="layers" class="w-4 h-4 shrink-0"></i>
+                    <span>Ver todos los servicios</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA 3: Hub Operations Info (4 Cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <h4
+            class="font-subheading text-lg tracking-wider text-brand-yellow-500 uppercase border-b border-white/10 pb-2">
+            Base de Operaciones MDQ
+          </h4>
+
+          <div class="space-y-3.5 text-xs text-brand-blue-50 font-sans">
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Centro de Distribución</p>
+                <p class="font-sans text-[13px] text-brand-blue-50 mt-0.5">Friuli 1972, Mar del Plata</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Línea Directa y WhatsApp</p>
+                <a href="tel:+542236900000"
+                  class="font-mono text-[13px] font-bold text-brand-yellow-500 hover:underline block mt-0.5">
+                  +54 9 223 690-0000
+                </a>
+              </div>
+            </div>
+
+            <div class="flex gap-3 items-start bg-brand-blue-500/80 p-3 rounded-xl border border-white/15">
+              <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow-500">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+              </div>
+              <div class="space-y-1 w-full">
+                <p class="font-bold text-white uppercase font-subheading tracking-wider">Horarios de Despacho</p>
+                <div class="text-[12px] font-sans text-brand-blue-50 space-y-0.5">
+                  <div class="flex justify-between items-center gap-4">
+                    <span>Lunes a Viernes:</span>
+                    <span class="font-mono font-bold text-brand-yellow-500">09:00 - 18:00</span>
+                  </div>
+                  <div class="flex justify-between items-center gap-4">
+                    <span>Sábados:</span>
+                    <span class="font-mono font-bold text-brand-yellow-500">10:00 - 15:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Separador y Botón Volver Arriba -->
+      <div class="border-t border-white/10 my-10 relative">
+        <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          class="absolute -top-5 right-4 sm:right-6 bg-brand-yellow-500 hover:bg-brand-yellow-400 text-brand-blue-500 p-2.5 rounded-full shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center border-2 border-brand-yellow-500 cursor-pointer min-w-11 min-h-11"
+          title="Volver al inicio" aria-label="Volver arriba">
+          <i data-lucide="arrow-up" class="w-4 h-4 stroke-[3]"></i>
+        </button>
+      </div>
+
+      <!-- BOTTOM SECTION: Legal & Copyright -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-blue-50 font-sans">
+        <div class="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6">
+          <p class="font-medium text-white">© 2025 Envíos DosRuedas · Mar del Plata, Argentina.</p>
+          <a href="/servicios" class="hover:text-brand-yellow-500 transition-colors">Servicios</a>
+          <a href="/cobertura" class="hover:text-brand-yellow-500 transition-colors">Cobertura</a>
+          <a href="/logistica-dosruedas" class="hover:text-brand-yellow-500 transition-colors">Logística DosRuedas</a>
+          <a href="/mardelivery" class="hover:text-brand-yellow-500 transition-colors">MarDelivery</a>
+          <a href="/nosotros/sobre-nosotros" class="hover:text-brand-yellow-500 transition-colors">Nosotros</a>
+          <a href="/nosotros/preguntas-frecuentes" class="hover:text-brand-yellow-500 transition-colors">Preguntas
+            Frecuentes</a>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 shrink-0 text-brand-blue-50">
+          <a href="/terminos-y-condiciones" class="hover:text-brand-yellow-500 transition-colors">Términos y
+            Condiciones</a>
+          <a href="/politica-de-privacidad" class="hover:text-brand-yellow-500 transition-colors">Política de
+            Privacidad</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts de interactividad para los menús y render de íconos -->
+  <script>
+    // Inicializar íconos de Lucide
+    lucide.createIcons();
+
+    // Toggle de Drawer Móvil
+    function toggleMobileNav(open) {
+      const drawer = document.getElementById('mobile-navigation-dialog');
+      const backdrop = document.getElementById('mobile-nav-backdrop');
+      const btnToggle = document.getElementById('mobile-menu-toggle-opt');
+
+      if (open) {
+        backdrop.classList.remove('hidden');
+        setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+        drawer.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden';
+        btnToggle.setAttribute('aria-expanded', 'true');
+      } else {
+        backdrop.classList.add('opacity-0');
+        drawer.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+        btnToggle.setAttribute('aria-expanded', 'false');
+        setTimeout(() => backdrop.classList.add('hidden'), 200);
+      }
+    }
+
+    // Toggle de submenús dentro del drawer móvil
+    function toggleDrawerSubmenu(id) {
+      const sub = document.getElementById(id);
+      if (sub.classList.contains('hidden')) {
+        sub.classList.remove('hidden');
+        sub.classList.add('flex');
+      } else {
+        sub.classList.add('hidden');
+        sub.classList.remove('flex');
+      }
+    }
+
+    // Scroll header background blur effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('optimized-header');
+      if (window.scrollY > 20) {
+        header.classList.add('py-2.5', 'backdrop-blur-md', 'bg-brand-blue-500/95');
+        header.classList.remove('py-3.5');
+      } else {
+        header.classList.remove('py-2.5', 'backdrop-blur-md', 'bg-brand-blue-500/95');
+        header.classList.add('py-3.5');
+      }
+    });
+  </script>
+
+  <!-- Lógica Interactiva Client-Side para Simular el Rastreo -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('tracking-form');
+      const input = document.getElementById('tracking-input');
+      const errorBox = document.getElementById('tracking-error');
+      const errorText = document.getElementById('tracking-error-text');
+      
+      const resCode = document.getElementById('res-code');
+      const resBadge = document.getElementById('res-badge');
+      const resStatusLabel = document.getElementById('res-status-label');
+      const resStatusDot = document.getElementById('res-status-dot');
+      
+      const step4Title = document.getElementById('step-4-title');
+      const step4Desc = document.getElementById('step-4-desc');
+      const step4Icon = document.getElementById('step-4-icon');
+      
+      const step5 = document.getElementById('step-5');
+      const step5Title = document.getElementById('step-5-title');
+      const step5Time = document.getElementById('step-5-time');
+      const step5Desc = document.getElementById('step-5-desc');
+      const step5Icon = document.getElementById('step-5-icon');
+      
+      const waLink = document.getElementById('whatsapp-query-link');
+
+      function updateTracking(code) {
+        const clean = code.trim().toUpperCase();
+        if (!clean) {
+          errorBox.classList.remove('hidden');
+          errorBox.classList.add('flex');
+          errorText.textContent = 'Por favor, ingresá un código EDR o número de seguimiento.';
+          return;
+        }
+
+        errorBox.classList.add('hidden');
+        errorBox.classList.remove('flex');
+
+        const formattedCode = clean.startsWith('EDR') ? clean : 'EDR-' + clean;
+        const isFlex = clean.includes('FLEX') || clean.includes('MELI');
+        const isDelivered = clean.endsWith('OK') || clean.includes('999');
+
+        resCode.textContent = formattedCode;
+        resBadge.textContent = isFlex ? 'FLEX' : 'EDR';
+
+        if (isDelivered) {
+          resStatusLabel.textContent = 'Entregado en destino';
+          resStatusDot.className = 'w-3 h-3 rounded-full bg-emerald-500';
+          
+          step4Title.textContent = 'En viaje a destino';
+          step4Desc.textContent = 'Repartidor completó el recorrido zonal.';
+          step4Icon.className = 'absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-brand-blue-500 text-brand-yellow-500 shadow-md';
+          step4Icon.innerHTML = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+
+          step5Title.className = 'font-subheading text-base font-bold uppercase tracking-tight text-brand-blue-900';
+          step5Time.className = 'text-xs font-mono text-brand-blue-500 font-bold bg-brand-blue-50 px-2 py-0.5 rounded';
+          step5Time.textContent = '15:10 hs';
+          step5Desc.textContent = 'Entrega finalizada con firma y comprobante digital.';
+          step5Desc.className = 'font-sans text-xs text-brand-blue-900/70';
+          step5Icon.className = 'absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-brand-blue-500 text-brand-yellow-500 shadow-md';
+          step5Icon.innerHTML = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+        } else {
+          resStatusLabel.textContent = 'En camino con cadete asignado';
+          resStatusDot.className = 'w-3 h-3 rounded-full bg-emerald-500 animate-pulse';
+          
+          step4Title.textContent = 'En camino con cadete en moto';
+          step4Desc.textContent = 'Cadete transitando hacia el domicilio de entrega en radio urbano.';
+          step4Icon.className = 'absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-brand-yellow-500 text-brand-blue-500 shadow-md animate-bounce';
+          step4Icon.innerHTML = '<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="4"/></svg>';
+
+          step5Title.className = 'font-subheading text-base font-bold uppercase tracking-tight text-brand-blue-900/60';
+          step5Time.className = 'text-xs font-mono text-brand-blue-900/40 bg-brand-blue-50/50 px-2 py-0.5 rounded';
+          step5Time.textContent = 'Pendiente';
+          step5Desc.textContent = 'Pendiente de recepción por parte del cliente con firma y foto digital.';
+          step5Desc.className = 'font-sans text-xs text-brand-blue-900/60';
+          step5Icon.className = 'absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-white border-2 border-brand-blue-200 text-brand-blue-300';
+          step5Icon.innerHTML = '<span class="w-2 h-2 rounded-full bg-brand-blue-300"></span>';
+        }
+
+        waLink.href = `https://api.whatsapp.com/send/?phone=542236602699&text=Hola%20Envíos%20DosRuedas!%20Quiero%20consultar%20por%20el%20paquete%20código%20${formattedCode}`;
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        updateTracking(input.value);
+      });
+
+      document.querySelectorAll('.sample-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const code = btn.getAttribute('data-code');
+          input.value = code;
+          updateTracking(code);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

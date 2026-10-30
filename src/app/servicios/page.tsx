@@ -420,6 +420,7 @@ export default function ServiciosPage() {
                       variant="primary"
                       size="default"
                       className="w-full justify-center"
+                      asButton
                     >
                       {service.cta}
                     </CTANestedPill>

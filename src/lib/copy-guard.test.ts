@@ -92,6 +92,8 @@ const PROHIBIDOS: readonly Prohibido[] = [
       'app\\servicios\\page.tsx',
       'components\\home\\EmprendedoresHome.tsx',
       'components\\nosotros\\sobre-nosotros\\AboutTimeline.tsx',
+      'components\\servicios\\cuenta-corriente\\CuentaCorrienteBenefits.tsx',
+      'components\\servicios\\cuenta-corriente\\CuentaCorrienteHero.tsx',
       'components\\servicios\\emprendedores\\EmprendedoresPricing.tsx',
       'lib\\assistant-prompt.ts',
       'lib\\llm-eval.ts',
@@ -104,6 +106,7 @@ const PROHIBIDOS: readonly Prohibido[] = [
     excepcion: [
       'app\\api\\assistant\\route.ts',
       'app\\servicios\\empresas-cuenta-corriente\\page.tsx',
+      'components\\servicios\\cuenta-corriente\\CuentaCorrienteBenefits.tsx',
       'components\\servicios\\emprendedores\\EmprendedoresBenefits.tsx',
       'lib\\assistant-prompt.ts',
       'lib\\llm-eval.ts',

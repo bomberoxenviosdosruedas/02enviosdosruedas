@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+
 /**
  * Dominio canónico oficial de producción unificado.
  */
