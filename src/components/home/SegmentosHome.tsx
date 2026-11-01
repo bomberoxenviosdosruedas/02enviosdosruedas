@@ -1,234 +1,149 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'motion/react';
-import {
-  Zap,
-  Building2,
-  PackageCheck,
-  Store,
-} from 'lucide-react';
-import { DoubleBezelCard } from '@/components/ui/DoubleBezelCard';
-import { CTANestedPill } from '@/components/ui/CTANestedPill';
-import {
-  EXPRESS_LEAD_TIME,
-  FLEX_CUTOFF_TIME,
-  LOWCOST_CUTOFF_TIME,
-  LOWCOST_DELIVERY_DEADLINE,
-} from '@/lib/promises';
+import { motion, useReducedMotion } from 'motion/react';
+import { User, Store, Briefcase, ShieldCheck, Zap } from 'lucide-react';
+import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
+import CTANestedPill from '@/components/ui/CTANestedPill';
+
+const SEGMENTS = [
+  {
+    number: '01',
+    icon: User,
+    tag: 'Particulares · Trámites',
+    title: 'Trámites y Encomiendas Personales',
+    desc: 'Olvidate de hacer filas o perder la mañana. Trasladamos llaves, documentación legal, medicamentos, compras del día y paquetes urgentes puerta a puerta en todo Mar del Plata.',
+    benefit: 'Franja de 3 hs o entrega inmediata',
+    cta: 'Cotizar Mandado',
+    href: '/cotizar',
+    variant: 'light' as const,
+  },
+  {
+    number: '02',
+    icon: Store,
+    tag: 'Comercios · E-Commerce',
+    title: 'Envíos en el Día y Mercado Envíos Flex',
+    desc: 'Multiplicá tus ventas online entregando el mismo día con cadetes propios de confianza. Cobro contra reembolso integrado y rendición formal en 24 hs.',
+    benefit: 'Retiro bonificado en tu local',
+    cta: 'Ver Plan Emprendedores',
+    href: '/servicios/plan-emprendedores',
+    variant: 'light' as const,
+  },
+  {
+    number: '03',
+    icon: Briefcase,
+    tag: 'Empresas · Cuenta Corriente',
+    title: 'Cadetería Corporativa & Ruteo B2B',
+    desc: 'Solución logística integral para distribuidoras, repuesteras y estudios profesionales. Facturación unificada A/B quincenal o mensual con remitos conformados.',
+    benefit: 'Atención prioritaria y soporte dedicado',
+    cta: 'Solicitar Apertura B2B',
+    href: '/servicios/empresas-cuenta-corriente',
+    variant: 'light' as const,
+  },
+];
 
 export default function SegmentosHome() {
-  const segmentos = [
-    {
-      id: 'flex',
-      tag: 'MERCADO LIBRE',
-      title: '¿Vendés en Mercado Libre?',
-      description: `Entregá en el mismo día con Mercado Envíos Flex en Mar del Plata urbana. Horario de corte ${FLEX_CUTOFF_TIME} y múltiples retiros para cuidar tu reputación.`,
-      ctaText: 'Ver Solución Flex',
-      href: '/servicios/enviosflex',
-      icon: Zap,
-      priority: 'primary' as const,
-    },
-    {
-      id: 'ecommerce',
-      tag: 'E-COMMERCE 24HS / SAME-DAY',
-      title: '¿Tenés tienda online con stock en depósito?',
-      description: `E-Commerce 24hs: despacho garantizado en 24hs. E-Commerce Same-Day: entrega antes de las ${LOWCOST_DELIVERY_DEADLINE} con corte ${LOWCOST_CUTOFF_TIME}. Stock en Friuli 1972, picking QR, empaque incluido.`,
-      ctaText: 'Ver planes E-Commerce',
-      href: '/servicios',
-      icon: Store,
-      priority: 'secondary' as const,
-    },
-    {
-      id: 'empresas',
-      tag: 'COMERCIOS & EMPRESAS',
-      title: '¿Tenés envíos diarios?',
-      description: `Reparto económico programado para el día: pedís antes de las ${LOWCOST_CUTOFF_TIME} y se entrega antes de las ${LOWCOST_DELIVERY_DEADLINE}, sin franja horaria fija. Tarifa fija por distancia y remito digital.`,
-      ctaText: 'Ver Paquetería LowCost',
-      href: '/servicios/envios-lowcost',
-      icon: Building2,
-      priority: 'secondary' as const,
-    },
-    {
-      id: 'urgente',
-      tag: 'PARTICULARES & URGENTES',
-      title: '¿Necesitás un envío ya?',
-      description: `Cadetería prioritaria punto a punto en moto. Entregas prioritarias en el día con elección de franja horaria de 3 horas, pedido con ${EXPRESS_LEAD_TIME} mínima.`,
-      ctaText: 'Cotizá tu Envío Express',
-      href: '/cotizar',
-      icon: PackageCheck,
-      priority: 'secondary' as const,
-    },
-  ];
-
-  // Spring physics tokens (from globals.css --ease-out, --duration-feedback)
-  const springTransition = { duration: 0.5, ease: [0.23, 1, 0.32, 1] as const };
-  const fastSpring = { duration: 0.2, ease: [0.23, 1, 0.32, 1] as const };
-
-  // Perpetual micro-loop para tarjeta primary (subtle pulse glow)
-  const primaryCardLoop = {
-    boxShadow: [
-      '0 0 28px rgba(255, 236, 1, 0.35), 0 8px 24px rgba(9, 80, 246, 0.15)',
-      '0 0 36px rgba(255, 236, 1, 0.45), 0 12px 32px rgba(9, 80, 246, 0.2)',
-      '0 0 28px rgba(255, 236, 1, 0.35), 0 8px 24px rgba(9, 80, 246, 0.15)',
-    ],
-    transition: { duration: 3, repeat: Infinity, ease: 'easeInOut' as const },
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.08, delayChildren: 0.15 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: springTransition },
-  };
-
-  const iconHoverVariants = {
-    initial: { scale: 1 },
-    hover: { scale: 1.08 },
-    tap: { scale: 0.95 },
-  };
+  const reduceMotion = useReducedMotion();
 
   return (
     <section
       id="segmentos-home"
-      aria-labelledby="segmentos-home-title"
-      className="py-20 lg:py-28 bg-white relative z-10 border-b border-brand-blue-100/50"
+      aria-labelledby="segmentos-home-heading"
+      className="py-16 sm:py-24 px-3.5 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 lg:space-y-20">
-        {/* ASYMMETRIC HEADER - Left aligned, no center */}
-        <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={springTransition}
-          className="max-w-2xl space-y-4 lg:max-w-xl"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/15 border border-brand-yellow-500/30 text-brand-blue-500 text-xs font-subheading uppercase tracking-widest font-bold shadow-accent-sm"
-          >
-            <Zap className="w-3.5 h-3.5 text-brand-blue-500" aria-hidden="true" />
-            <span>Elegí tu solución a medida</span>
-          </motion.div>
-          <motion.h2
-            id="segmentos-home-title"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...springTransition, delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] uppercase tracking-tight text-brand-blue-500"
-          >
-            ¿CÓMO PODEMOS IMPULSAR TU LOGÍSTICA HOY?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...springTransition, delay: 0.15 }}
-            className="font-sans text-sm sm:text-base text-brand-blue-500/80 leading-relaxed max-w-xl"
-          >
-            Seleccioná tu tipo de negocio o necesidad y descubrí el servicio ideal diseñado para las calles de Mar del Plata.
-          </motion.p>
-        </motion.div>
+      {/* Section Header with quiet unboxed kicker and balanced title */}
+      <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
+        <div className="inline-flex items-center justify-center gap-2 text-xs font-mono font-semibold uppercase tracking-[0.22em] text-brand-blue-400">
+          <Zap className="w-3.5 h-3.5 text-brand-yellow-500 fill-brand-yellow-500 shrink-0" aria-hidden="true" />
+          <span>Soluciones a Medida</span>
+          <span className="text-brand-yellow-500" aria-hidden="true">/</span>
+          <span>Mar del Plata Urbana y Gral. Pueyrredón</span>
+        </div>
 
-        {/* ASYMMETRIC GRID - 2 column zig-zag, no 4 equal columns */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
-          role="list"
-          aria-label="Segmentos de servicio"
+        <h2
+          id="segmentos-home-heading"
+          className="font-display text-3xl sm:text-5xl uppercase tracking-tight text-brand-blue-500 mb-3 text-balance leading-hero"
         >
-          {segmentos.map((seg, index) => {
-            const Icon = seg.icon;
-            const isPrimary = seg.priority === 'primary';
+          ¿Qué tipo de envío necesitás <span className="text-brand-yellow-500">coordinar</span>?
+        </h2>
 
-            return (
-              <motion.article
-                key={seg.id}
-                variants={itemVariants}
-                role="listitem"
-                className="h-full relative"
-                style={isPrimary ? { willChange: 'box-shadow' } : undefined}
+        <p className="font-sans text-base sm:text-lg text-brand-blue-500/80 leading-relaxed text-balance font-light">
+          Diseñamos esquemas operativos específicos según el volumen, la urgencia y los requerimientos de tu negocio o necesidad personal.
+        </p>
+      </div>
+
+      {/* Signature Double-Bezel Architectural Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch w-full max-w-full">
+        {SEGMENTS.map((s, index) => {
+          const Icon = s.icon;
+
+          return (
+            <motion.div
+              key={s.number}
+              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="h-full w-full max-w-full flex"
+            >
+              <DoubleBezelCard
+                variant={s.variant}
+                hoverEffect={true}
+                className="w-full flex flex-col justify-between group relative overflow-hidden"
+                innerClassName="flex-1 flex flex-col justify-between p-5 sm:p-7 lg:p-8"
               >
-                <DoubleBezelCard
-                  outerClassName={`
-                    h-full transition-all duration-300
-                    ${isPrimary
-                      ? 'border-2 border-brand-yellow-500 shadow-cta-glow hover:border-brand-yellow-400'
-                      : 'border border-brand-blue-100 shadow-float hover:border-brand-blue-300 hover:shadow-antigravity-deep'
-                    }
-                  `}
-                  innerClassName="h-full flex flex-col justify-between space-y-6 p-6 lg:p-8"
-                  hoverEffect={true}
+                {/* Background Watermark Index Number */}
+                <span
+                  aria-hidden="true"
+                  className="absolute right-5 top-4 font-display text-5xl text-brand-blue-500/10 font-bold select-none pointer-events-none group-hover:text-brand-blue-500/20 transition-colors"
                 >
-                  <div className="space-y-5">
-                    {/* Header: Icon + Tag Pill */}
-                    <div className="flex items-start justify-between gap-3">
-                      <motion.div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                          isPrimary
-                            ? 'bg-brand-yellow-500/15 text-brand-blue-500 ring-1 ring-brand-yellow-500/30'
-                            : 'bg-brand-blue-50 text-brand-blue-500 ring-1 ring-brand-blue-100'
-                        }`}
-                        whileHover={iconHoverVariants}
-                        whileTap={iconHoverVariants}
-                        transition={fastSpring}
-                        aria-hidden="true"
-                      >
-                        <Icon className="w-6 h-6" />
-                      </motion.div>
-                      <span className={`text-2xs font-mono uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full shrink-0 ${
-                        isPrimary
-                          ? 'bg-brand-yellow-500/20 text-brand-blue-500 border border-brand-yellow-500/30'
-                          : 'bg-brand-blue-100 text-brand-blue-500 border border-brand-blue-200'
-                      }`}>
-                        {seg.tag}
-                      </span>
-                    </div>
+                  {s.number}
+                </span>
 
-                    {/* Title - track-tight, weight-driven hierarchy */}
-                    <h3 className="font-display text-xl lg:text-2xl uppercase tracking-tight text-brand-blue-500 leading-snug">
-                      {seg.title}
-                    </h3>
-
-                    {/* Description - NO line-clamp, relaxed leading, 65ch max */}
-                    <p className="font-sans text-sm lg:text-base text-brand-blue-500/70 leading-relaxed font-normal max-w-[65ch]">
-                      {seg.description}
-                    </p>
+                <div>
+                  {/* Icon Header Box */}
+                  <div className="w-13 h-13 rounded-xl bg-brand-blue-50 text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-brand-yellow-500 flex items-center justify-center mb-6 border border-brand-blue-100/70 transition-all duration-300 shadow-xs">
+                    <Icon className="w-6 h-6 stroke-2" aria-hidden="true" />
                   </div>
 
-                  {/* CTA - CTANestedPill con ID semántico */}
-                  <div className="pt-4 border-t border-brand-blue-100">
-                    <CTANestedPill
-                      variant="primary"
-                      size="default"
-                      href={seg.href}
-                      id={`segmento-${seg.id}-cta`}
-                    >
-                      {seg.ctaText}
-                    </CTANestedPill>
-                  </div>
-                </DoubleBezelCard>
+                  {/* Unboxed Category Tag */}
+                  <span className="font-mono text-xs font-bold text-brand-blue-400 uppercase tracking-wider block mb-2">
+                    {s.tag}
+                  </span>
 
-                {/* Perpetual micro-loop solo en tarjeta primary */}
-                {isPrimary && (
-                  <motion.div
-                    animate={primaryCardLoop}
-                    className="pointer-events-none absolute inset-0 rounded-2xl -z-10"
-                    aria-hidden="true"
-                  />
-                )}
-              </motion.article>
-            );
-          })}
-        </motion.div>
+                  {/* Card Title */}
+                  <h3 className="font-display text-2xl uppercase tracking-tight text-brand-blue-500 mb-3 leading-snug group-hover:text-brand-blue-400 transition-colors">
+                    {s.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="font-sans text-sm text-brand-blue-500/80 leading-relaxed mb-6 font-light">
+                    {s.desc}
+                  </p>
+
+                  {/* Key Benefit Pill */}
+                  <div className="flex items-center gap-2 text-xs font-sans font-medium text-brand-blue-500 py-2.5 px-3 rounded-lg bg-brand-blue-50/60 border border-brand-blue-100/60 mb-6">
+                    <ShieldCheck className="w-4 h-4 text-brand-yellow-500 shrink-0" aria-hidden="true" />
+                    <span>{s.benefit}</span>
+                  </div>
+                </div>
+
+                {/* Canonical CTA Nested Pill */}
+                <div className="pt-4 border-t border-brand-blue-50 mt-auto">
+                  <CTANestedPill
+                    href={s.href}
+                    variant={index === 0 ? 'primary' : 'elevated'}
+                    size="default"
+                    className="w-full justify-between"
+                    id={`segment_cta_${s.number}`}
+                  >
+                    {s.cta}
+                  </CTANestedPill>
+                </div>
+              </DoubleBezelCard>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
