@@ -57,7 +57,7 @@ export default function SegmentosHome() {
           <Zap className="w-3.5 h-3.5 text-brand-yellow-500 fill-brand-yellow-500 shrink-0" aria-hidden="true" />
           <span>Soluciones a Medida</span>
           <span className="text-brand-yellow-500" aria-hidden="true">/</span>
-          <span>Mar del Plata Urbana y Gral. Pueyrredón</span>
+          <span>en Mar del Plata</span>
         </div>
 
         <h2
