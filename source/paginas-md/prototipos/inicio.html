@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensajería en moto en Mar del Plata | Envíos DosRuedas</title>
+  <meta name="description" content="Mensajería en moto y logística e-commerce en Mar del Plata. Envíos Express en franja de 3 hs, Mercado Envíos Flex en el día y reparto LowCost. Cotizá online.">
+  <meta name="author" content="Envíos DosRuedas">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0950F6">
+
+  <!-- OpenGraph Oficial -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:url" content="https://www.enviosdosruedas.com/">
+  <meta property="og:site_name" content="Envíos DosRuedas">
+  <meta property="og:title" content="Mensajería en moto en Mar del Plata | Envíos DosRuedas">
+  <meta property="og:description" content="La solución logística y última milla de mayor confianza en Mar del Plata. Envíos Express, MercadoLibre Flex, ruteo eficiente y cadetería inteligente.">
+  <meta property="og:image" content="https://www.enviosdosruedas.com/og-image.jpg">
+
+  <!-- Google Fonts Oficiales (Outfit, Anton, Bebas Neue, Geist Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos en CSS Puro (Sin Tailwind CDN) -->
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/home.css">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+  <!-- Accesibilidad: Saltar al contenido principal -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- ========================================================================
+       1. HEADER COMPARTIDO (OptimizedHeader.tsx)
+       ======================================================================== -->
+  <header class="header" role="banner">
+    <div class="container header-container">
+
+      <!-- Logotipo de Marca -->
+      <a href="#hero-animado" class="logo" aria-label="Envíos DosRuedas - Inicio">
+        <div class="logo-badge" aria-hidden="true">
+          <i data-lucide="bike" style="width: 1.5rem; height: 1.5rem;"></i>
+        </div>
+        <div class="logo-text">
+          <span class="white kinetic-stretch">Envíos</span>
+          <span class="yellow kinetic-stretch">DosRuedas</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation con Dropdowns -->
+      <nav class="nav-desktop" aria-label="Navegación principal">
+        <a href="#hero-animado" class="nav-link is-active">Inicio</a>
+
+        <!-- Dropdown Servicios -->
+        <div class="nav-dropdown">
+          <button type="button" class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Servicios</span>
+            <i data-lucide="chevron-down" class="dropdown-chevron" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="#services-overview" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="zap" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">Envíos Express (3 hs)</div>
+                <div class="dropdown-item-desc">Urgencias y trámites con franja a elección</div>
+              </div>
+            </a>
+            <a href="#services-overview" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="trending-down" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">Envíos LowCost</div>
+                <div class="dropdown-item-desc">Tarifa más económica programada en el día</div>
+              </div>
+            </a>
+            <a href="#services-overview" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="truck" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">Mercado Envíos Flex</div>
+                <div class="dropdown-item-desc">Entregas en el día con corte 15:00 hs</div>
+              </div>
+            </a>
+            <a href="#services-overview" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="warehouse" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">E-Commerce Same Day</div>
+                <div class="dropdown-item-desc">Almacenaje y fulfillment en Friuli 1972</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dropdown Plataformas -->
+        <div class="nav-dropdown">
+          <button type="button" class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Plataformas</span>
+            <i data-lucide="chevron-down" class="dropdown-chevron" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="#logistica-dosruedas-home" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="package" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">Logística DosRuedas</div>
+                <div class="dropdown-item-desc">Rastreo con código EDR y panel comercial</div>
+              </div>
+            </a>
+            <a href="#mardelivery-home" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="utensils" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">MarDelivery Gastronomía</div>
+                <div class="dropdown-item-desc">Carta digital QR y reparto para locales gastronómicos</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <a href="#segmentos-home" class="nav-link">Nosotros</a>
+        <a href="#cta-section" class="nav-link">Contacto</a>
+      </nav>
+
+      <!-- Acciones del Header -->
+      <div class="header-actions">
+        <a href="tel:+5492235246756" class="header-phone-link">
+          <i data-lucide="phone" style="width: 0.875rem; height: 0.875rem;"></i>
+          <span>+54 9 223 524-6756</span>
+        </a>
+
+        <a href="#cta-section" class="header-cta-btn">
+          Cotizá tu Envío
+        </a>
+
+        <!-- Botón Menú Móvil -->
+        <button type="button" id="menu-toggle-btn" class="menu-toggle" onclick="toggleMobileNav(true)"
+                aria-label="Abrir menú de navegación" aria-controls="mobile-drawer" aria-expanded="false">
+          <i data-lucide="menu" style="width: 1.5rem; height: 1.5rem;"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. DRAWER MÓVIL (MobileNav.tsx)
+       ======================================================================== -->
+  <div id="mobile-backdrop" class="drawer-backdrop" onclick="toggleMobileNav(false)" aria-hidden="true"></div>
+
+  <div id="mobile-drawer" class="drawer" role="dialog" aria-modal="true" aria-label="Menú principal">
+    
+    <div class="drawer-header">
+      <a href="#hero-animado" onclick="toggleMobileNav(false)" class="logo">
+        <div class="logo-text">
+          <span class="white">Envíos</span>
+          <span class="yellow">DosRuedas</span>
+        </div>
+      </a>
+      <button type="button" class="drawer-close-btn" onclick="toggleMobileNav(false)" aria-label="Cerrar menú">
+        <i data-lucide="x" style="width: 1.25rem; height: 1.25rem;"></i>
+      </button>
+    </div>
+
+    <div class="drawer-content">
+      <nav class="drawer-nav">
+        
+        <div class="drawer-nav-item">
+          <a href="#hero-animado" onclick="toggleMobileNav(false)" class="drawer-link is-active">
+            <i data-lucide="home" style="width: 1.25rem; height: 1.25rem; color: var(--color-brand-yellow-500);"></i>
+            <span>Inicio</span>
+          </a>
+        </div>
+
+        <div class="drawer-nav-item">
+          <button type="button" class="drawer-accordion-btn" onclick="toggleMobileSubmenu('drawer-sub-serv', this)" aria-expanded="false">
+            <span style="display: flex; align-items: center; gap: 0.875rem;">
+              <i data-lucide="bike" style="width: 1.25rem; height: 1.25rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Servicios</span>
+            </span>
+            <i data-lucide="chevron-down" class="dropdown-chevron" style="width: 1.25rem; height: 1.25rem; color: var(--color-brand-yellow-500);"></i>
+          </button>
+          <div id="drawer-sub-serv" class="drawer-submenu">
+            <a href="#services-overview" onclick="toggleMobileNav(false)" class="drawer-submenu-link">
+              <i data-lucide="zap" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Envíos Express (3 hs)</span>
+            </a>
+            <a href="#services-overview" onclick="toggleMobileNav(false)" class="drawer-submenu-link">
+              <i data-lucide="trending-down" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Envíos LowCost</span>
+            </a>
+            <a href="#services-overview" onclick="toggleMobileNav(false)" class="drawer-submenu-link">
+              <i data-lucide="truck" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Mercado Envíos Flex</span>
+            </a>
+            <a href="#services-overview" onclick="toggleMobileNav(false)" class="drawer-submenu-link">
+              <i data-lucide="warehouse" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+              <span>E-Commerce Same Day</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="drawer-nav-item">
+          <a href="#logistica-dosruedas-home" onclick="toggleMobileNav(false)" class="drawer-link">
+            <i data-lucide="map-pin" style="width: 1.25rem; height: 1.25rem; color: var(--color-brand-yellow-500);"></i>
+            <span>Cobertura (5 Radios)</span>
+          </a>
+        </div>
+
+        <div class="drawer-nav-item">
+          <a href="#cta-section" onclick="toggleMobileNav(false)" class="drawer-link">
+            <i data-lucide="mail" style="width: 1.25rem; height: 1.25rem; color: var(--color-brand-yellow-500);"></i>
+            <span>Contacto</span>
+          </a>
+        </div>
+
+      </nav>
+    </div>
+
+    <div class="drawer-footer">
+      <a href="tel:+5492235246756" class="drawer-phone-btn">
+        <i data-lucide="phone" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+        <span>+54 9 223 524-6756</span>
+      </a>
+      <a href="#cta-section" onclick="toggleMobileNav(false)" class="drawer-cta-btn">
+        Cotizá tu Envío
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ========================================================================
+       3. CUERPO DE LA PÁGINA (Las 8 Secciones Oficiales de Home)
+       ======================================================================== -->
+  <main id="main-content" class="main-content">
+
+    <!-- 3.1 HERO ANIMADO (HeroAnimado.tsx) -->
+    <section id="hero-animado" class="hero-section" aria-label="Mensajería urbana y logística de última milla en todo Mar del Plata">
+      <div class="hero-bg-glow-1" aria-hidden="true"></div>
+      <div class="hero-bg-glow-2" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Columna Izquierda: Copy Oficial -->
+          <div class="hero-content">
+            <div class="hero-badge">
+              <i data-lucide="zap" style="width: 1rem; height: 1rem;"></i>
+              <span>Flota propia · Todo Mar del Plata</span>
+            </div>
+
+            <h1 class="hero-title">
+              El motor de tu <span class="knockout">última milla</span>.<br>
+              Somos la solución a tus envíos
+            </h1>
+
+            <p class="hero-desc">
+              Mensajería y logística e-commerce en Mar del Plata: envíos en el día con motos
+              propias. Llegamos a toda la ciudad y los repartidores son nuestros, sin tercerizar.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#cta-section" class="cta-pill cta-pill-yellow">
+                <span>Cotizá tu envío</span>
+                <span class="cta-pill-icon"><i data-lucide="arrow-right" style="width: 1.25rem; height: 1.25rem;"></i></span>
+              </a>
+
+              <a href="#services-overview" class="hero-services-link">
+                <span>Ver servicios</span>
+                <i data-lucide="arrow-right" style="width: 1rem; height: 1rem;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Tarjeta Operativa Simulada -->
+          <div class="hero-map-wrapper">
+            <div class="hero-map-card">
+              
+              <div class="hero-pin-card">
+                <i data-lucide="map-pin" style="width: 1.5rem; height: 1.5rem; color: var(--color-brand-blue-500); flex-shrink: 0;"></i>
+                <div>
+                  <b>Base Friuli 1972</b>
+                  <span>Mar del Plata · Flota Propia</span>
+                </div>
+              </div>
+
+              <div class="hero-pin-card">
+                <i data-lucide="clock" style="width: 1.5rem; height: 1.5rem; color: var(--color-brand-blue-500); flex-shrink: 0;"></i>
+                <div>
+                  <b>Entrega en el día</b>
+                  <span>En todo MDQ · Sin tercerización</span>
+                </div>
+              </div>
+
+              <div style="background-color: rgba(255, 255, 255, 0.1); border-radius: var(--radius-md); padding: 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255, 255, 255, 0.9);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Corte Flex:</span>
+                  <strong style="color: var(--color-brand-yellow-500);">15:00 hs</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                  <span>Corte LowCost:</span>
+                  <strong style="color: var(--color-brand-yellow-500);">13:00 hs</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Bulto estándar moto:</span>
+                  <strong>Hasta 5 kg / 40x40x30 cm</strong>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Ticker Marquee Infinito de Diferenciales -->
+      <div class="hero-ticker" aria-hidden="true" style="margin-top: 3.5rem;">
+        <div class="ticker-track">
+          <span class="ticker-item">Envíos en el día <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Flota propia <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Cero tercerización <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Todo Mar del Plata <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Retiro en tu local <span class="ticker-dot"></span></span>
+          <!-- Repetición continua -->
+          <span class="ticker-item">Envíos en el día <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Flota propia <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Cero tercerización <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Todo Mar del Plata <span class="ticker-dot"></span></span>
+          <span class="ticker-item">Retiro en tu local <span class="ticker-dot"></span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.2 SEGMENTOS HOME (SegmentosHome.tsx) -->
+    <section id="segmentos-home" class="segmentos-section" aria-labelledby="segmentos-heading">
+      <div class="container">
+        
+        <div class="section-intro">
+          <div class="section-kicker">
+            <i data-lucide="zap" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i>
+            <span>Soluciones a Medida / en Mar del Plata</span>
+          </div>
+          <h2 id="segmentos-heading" class="section-title">
+            ¿Qué tipo de envío necesitás coordinar?
+          </h2>
+          <p class="section-desc">
+            Diseñamos esquemas operativos específicos según el volumen, la urgencia y los requerimientos de tu negocio o necesidad personal.
+          </p>
+        </div>
+
+        <div class="segmentos-grid">
+          
+          <!-- Card 1: Particulares -->
+          <div class="double-bezel">
+            <div class="double-bezel-inner segmento-card">
+              <span class="segmento-watermark" aria-hidden="true">01</span>
+              <div>
+                <div class="segmento-icon-box">
+                  <i data-lucide="user" style="width: 1.5rem; height: 1.5rem;"></i>
+                </div>
+                <span class="segmento-tag">Particulares · Trámites</span>
+                <h3 class="segmento-title">Trámites y Encomiendas Personales</h3>
+                <p class="segmento-desc">
+                  Olvidate de hacer filas o perder la mañana. Trasladamos llaves, documentación legal, medicamentos, compras del día y paquetes urgentes puerta a puerta en todo Mar del Plata.
+                </p>
+                <div class="segmento-benefit">
+                  <i data-lucide="shield-check" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500); flex-shrink: 0;"></i>
+                  <span>Franja de 3 hs o entrega inmediata</span>
+                </div>
+              </div>
+              <a href="#cta-section" class="cta-pill cta-pill-primary" style="width: 100%;">
+                <span>Cotizar Mandado</span>
+                <span class="cta-pill-icon"><i data-lucide="arrow-right" style="width: 1rem; height: 1rem;"></i></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Comercios -->
+          <div class="double-bezel" style="border-color: var(--color-brand-yellow-500); box-shadow: var(--shadow-accent-md);">
+            <div class="double-bezel-inner segmento-card">
+              <span class="segmento-watermark" aria-hidden="true">02</span>
+              <div>
+                <div class="segmento-icon-box" style="background-color: var(--color-brand-yellow-500); color: var(--color-brand-blue-500);">
+                  <i data-lucide="store" style="width: 1.5rem; height: 1.5rem;"></i>
+                </div>
+                <span class="segmento-tag" style="color: var(--color-brand-blue-500);">Comercios · E-Commerce</span>
+                <h3 class="segmento-title">Envíos en el Día y Mercado Envíos Flex</h3>
+                <p class="segmento-desc">
+                  Multiplicá tus ventas online entregando el mismo día con cadetes propios de confianza. Cobro contra reembolso integrado y rendición formal en 24 hs.
+                </p>
+                <div class="segmento-benefit">
+                  <i data-lucide="shield-check" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500); flex-shrink: 0;"></i>
+                  <span>Retiro bonificado en tu local</span>
+                </div>
+              </div>
+              <a href="#cta-section" class="cta-pill cta-pill-yellow" style="width: 100%;">
+                <span>Ver Plan Emprendedores</span>
+                <span class="cta-pill-icon"><i data-lucide="arrow-right" style="width: 1rem; height: 1rem;"></i></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Empresas -->
+          <div class="double-bezel">
+            <div class="double-bezel-inner segmento-card">
+              <span class="segmento-watermark" aria-hidden="true">03</span>
+              <div>
+                <div class="segmento-icon-box">
+                  <i data-lucide="briefcase" style="width: 1.5rem; height: 1.5rem;"></i>
+                </div>
+                <span class="segmento-tag">Empresas · Cuenta Corriente</span>
+                <h3 class="segmento-title">Cadetería Corporativa & Ruteo B2B</h3>
+                <p class="segmento-desc">
+                  Solución logística integral para distribuidoras, repuesteras y estudios profesionales. Facturación unificada A/B quincenal o mensual con remitos conformados.
+                </p>
+                <div class="segmento-benefit">
+                  <i data-lucide="shield-check" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500); flex-shrink: 0;"></i>
+                  <span>Atención prioritaria y soporte dedicado</span>
+                </div>
+              </div>
+              <a href="#cta-section" class="cta-pill cta-pill-primary" style="width: 100%;">
+                <span>Solicitar Apertura B2B</span>
+                <span class="cta-pill-icon"><i data-lucide="arrow-right" style="width: 1rem; height: 1rem;"></i></span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3.3 SERVICES OVERVIEW (ServicesOverview.tsx) -->
+    <section id="services-overview" class="services-section" aria-labelledby="services-heading">
+      <div class="container">
+        
+        <div class="section-intro">
+          <div class="section-kicker">
+            <span>Modalidades de Envío Oficiales</span>
+          </div>
+          <h2 id="services-heading" class="section-title">
+            Tiempos Claros y Franjas Estrictas
+          </h2>
+          <p class="section-desc">
+            Cumplimos los compromisos operativos documentados en nuestras promesas de servicio en Mar del Plata.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- Express -->
+          <div class="service-card service-card-express">
+            <div>
+              <span class="service-badge">URGENTE</span>
+              <h3 class="service-title">Envíos Express</h3>
+              <p class="service-desc">
+                Mensajería en moto con franja horaria de 3 hs a elección. Pedido con 1 h de anticipación mínima.
+              </p>
+            </div>
+            <div class="service-stat-box">
+              <div style="color: var(--color-brand-yellow-500);">Franja: 3 hs a elección</div>
+              <div>Base: $3.400 hasta 3 km</div>
+              <div>Sin recargo hasta 5 kg</div>
+            </div>
+          </div>
+
+          <!-- LowCost -->
+          <div class="service-card service-card-lowcost">
+            <div>
+              <span class="service-badge">ECONÓMICO</span>
+              <h3 class="service-title">Envíos LowCost</h3>
+              <p class="service-desc">
+                Envíos económicos programados en el día. Pedí antes de las 13:00 hs y se entrega antes de las 18:00 hs.
+              </p>
+            </div>
+            <div class="service-stat-box">
+              <div style="color: var(--color-brand-blue-500);">Corte: 13:00 hs</div>
+              <div>Base: $2.400 hasta 3 km</div>
+              <div>Sin recargo hasta 5 kg</div>
+            </div>
+          </div>
+
+          <!-- Flex -->
+          <div class="service-card service-card-flex">
+            <div>
+              <span class="service-badge">MERCADOLIBRE FLEX</span>
+              <h3 class="service-title">Envíos Flex</h3>
+              <p class="service-desc">
+                Entregas en el día integradas para ventas de MercadoLibre. Corte extendido a las 15:00 hs y entrega antes de las 21:00 hs.
+              </p>
+            </div>
+            <div class="service-stat-box">
+              <div style="color: var(--color-brand-blue-500);">Corte: 15:00 hs</div>
+              <div>Reparto: Mismo día</div>
+              <div>Recolección bonificada</div>
+            </div>
+          </div>
+
+          <!-- Same Day 3PL -->
+          <div class="service-card service-card-sameday">
+            <div>
+              <span class="service-badge">E-COMMERCE 3PL</span>
+              <h3 class="service-title">E-Commerce Same Day</h3>
+              <p class="service-desc">
+                Guardamos tu stock en el depósito de Friuli 1972 y lo despachamos en el día con tarifa fija en toda la ciudad.
+              </p>
+            </div>
+            <div class="service-stat-box">
+              <div style="color: var(--color-brand-yellow-500);">Tarifa fija: $4.600</div>
+              <div>Base: Depósito Friuli 1972</div>
+              <div>Control de stock QR</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3.4 LOGÍSTICA DOSRUEDAS (LogisticaHomeSection.tsx) -->
+    <section id="logistica-dosruedas-home" class="logistica-section" aria-labelledby="logistica-heading">
+      <div class="container">
+        
+        <div class="section-intro" style="text-align: left; max-width: 100%;">
+          <div class="section-kicker">
+            <span>SISTEMA LOGÍSTICO DIGITAL</span>
+          </div>
+          <h2 id="logistica-heading" class="section-title" style="max-width: 800px;">
+            Seguí tu paquete en tiempo real e ingresá a tu panel operativo
+          </h2>
+          <p class="section-desc" style="max-width: 750px;">
+            Conectamos la última milla de Mar del Plata con trazabilidad total. Consultá el estado de tu envío con el código <strong>EDR</strong> (ej. EDR00003071MDQ) o gestioná las operaciones de tu tienda.
+          </p>
+        </div>
+
+        <div class="logistica-grid">
+          
+          <div class="logistica-card">
+            <div>
+              <div class="logistica-icon-box"><i data-lucide="search" style="width: 1.5rem; height: 1.5rem;"></i></div>
+              <h3 class="logistica-card-title">Seguimiento Unificado</h3>
+              <p class="logistica-card-desc">
+                Ingresá el código EDR para conocer el estado exacto: falta retirar, retirado, en camino, entregado o no entregado.
+              </p>
+            </div>
+            <div class="logistica-card-footer">
+              <i data-lucide="check-circle-2" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Código EDR</span>
+            </div>
+          </div>
+
+          <div class="logistica-card">
+            <div>
+              <div class="logistica-icon-box"><i data-lucide="store" style="width: 1.5rem; height: 1.5rem;"></i></div>
+              <h3 class="logistica-card-title">Panel para Comercios</h3>
+              <p class="logistica-card-desc">
+                Entorno donde las tiendas organizan sus despachos diarios, cargan envíos masivos y monitorean entregas.
+              </p>
+            </div>
+            <div class="logistica-card-footer">
+              <i data-lucide="check-circle-2" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Despachos Masivos</span>
+            </div>
+          </div>
+
+          <div class="logistica-card">
+            <div>
+              <div class="logistica-icon-box"><i data-lucide="bike" style="width: 1.5rem; height: 1.5rem;"></i></div>
+              <h3 class="logistica-card-title">Panel Repartidores</h3>
+              <p class="logistica-card-desc">
+                Plataforma para que la flota de cadetes visualice sus hojas de ruta, registre firmas digitales y confirme entregas.
+              </p>
+            </div>
+            <div class="logistica-card-footer">
+              <i data-lucide="check-circle-2" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Hojas de Ruta MDQ</span>
+            </div>
+          </div>
+
+          <div class="logistica-card">
+            <div>
+              <div class="logistica-icon-box"><i data-lucide="shopping-bag" style="width: 1.5rem; height: 1.5rem;"></i></div>
+              <h3 class="logistica-card-title">Ecosistema E-Commerce</h3>
+              <p class="logistica-card-desc">
+                Integración fluida con Tienda Nube y Shop DosRuedas para conectar tu tienda y automatizar despachos.
+              </p>
+            </div>
+            <div class="logistica-card-footer">
+              <i data-lucide="check-circle-2" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Tienda Nube & Shop</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Banner de Acción Logística -->
+        <div class="logistica-banner">
+          <div>
+            <div style="font-family: var(--font-subheading); font-size: 0.8125rem; color: var(--color-brand-yellow-500); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">
+              Portales Logísticos Oficiales · Logística DosRuedas
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.75rem; text-transform: uppercase; line-height: 1.1;">
+              ¿Querés rastrear un envío o acceder a tu cuenta?
+            </h3>
+            <p style="font-size: 0.875rem; color: var(--color-brand-blue-50); margin-top: 0.25rem;">
+              Consultá con tu código EDR o ingresá al panel comercial para despachar sin demoras.
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%; max-width: 400px;">
+            <a href="#cta-section" class="cta-pill cta-pill-yellow" style="width: 100%;">
+              <span>Rastrear Envío (Código EDR)</span>
+              <span class="cta-pill-icon"><i data-lucide="search" style="width: 1rem; height: 1rem;"></i></span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3.5 EMPRENDEDORES & PYMES (EmprendedoresHome.tsx) -->
+    <section id="emprendedores-home" class="emprendedores-section" aria-labelledby="emprendedores-heading">
+      <div class="container">
+        
+        <div class="section-intro" style="text-align: left; max-width: 100%;">
+          <div class="section-kicker" style="color: var(--color-brand-yellow-500);">
+            <span>Socio Estratégico Local</span>
+          </div>
+          <h2 id="emprendedores-heading" class="section-title" style="color: var(--color-white); max-width: 850px;">
+            Potenciamos tu marca en Mar del Plata
+          </h2>
+          <p class="section-desc" style="color: var(--color-brand-blue-50); max-width: 700px;">
+            Si vendés online, necesitás un socio logístico que responda al toque. Creamos planes a tu medida con tarifas transparentes y recolección programada a domicilio.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          
+          <!-- Bento Card 1: Cuenta Corriente -->
+          <div class="bento-card-main">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <div style="width: 2.75rem; height: 2.75rem; border-radius: var(--radius-md); background-color: var(--color-brand-yellow-500); color: var(--color-brand-blue-500); display: flex; align-items: center; justify-content: center;">
+                  <i data-lucide="landmark" style="width: 1.25rem; height: 1.25rem;"></i>
+                </div>
+                <span style="font-family: var(--font-subheading); font-size: 0.75rem; font-weight: bold; text-transform: uppercase; background-color: rgba(255, 236, 1, 0.15); color: var(--color-brand-yellow-500); padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid rgba(255, 236, 1, 0.3);">
+                  EMPRENDEDORES
+                </span>
+              </div>
+
+              <h3 style="font-family: var(--font-display); font-size: 2rem; text-transform: uppercase; margin-bottom: 0.75rem;">
+                Cuenta Corriente Flexible
+              </h3>
+              <p style="font-size: 0.95rem; color: var(--color-brand-blue-50); line-height: 1.6; margin-bottom: 1.5rem;">
+                Tu equipo de entregas de confianza, aunque la cantidad de pedidos cambie cada día. Pagás los envíos juntos por semana, quincena o mes.
+              </p>
+
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;">
+                <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="shield-check" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500); flex-shrink: 0;"></i> Sin volumen mínimo de envíos: entrás con la cantidad que tengas</li>
+                <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="shield-check" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500); flex-shrink: 0;"></i> Accedés a tarifas LowCost con franjas horarias de 3 hs, como Express</li>
+                <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="shield-check" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500); flex-shrink: 0;"></i> Entregas contrareembolso integradas sin cargo extra</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.15); display: flex; justify-content: flex-end;">
+              <a href="#cta-section" class="cta-pill cta-pill-yellow">
+                <span>Conocé más</span>
+                <span class="cta-pill-icon"><i data-lucide="arrow-right" style="width: 1rem; height: 1rem;"></i></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Stack Derecho: Flex & Corporativo -->
+          <div class="bento-card-stack">
+            
+            <div class="bento-card-yellow">
+              <div>
+                <span style="font-family: var(--font-subheading); font-size: 0.75rem; font-weight: bold; text-transform: uppercase; background-color: var(--color-brand-blue-500); color: var(--color-white); padding: 0.25rem 0.625rem; border-radius: var(--radius-sm); display: inline-block; margin-bottom: 0.75rem;">
+                  MERCADOLIBRE FLEX
+                </span>
+                <h3 style="font-family: var(--font-display); font-size: 1.5rem; text-transform: uppercase; line-height: 1.1; margin-bottom: 0.5rem;">
+                  Envíos Flex MeLi
+                </h3>
+                <p style="font-size: 0.8125rem; line-height: 1.5; font-weight: 500;">
+                  Servicio adaptado a los estándares de Mercado Envíos Flex. Recolección en tu local y entrega puntual en el día.
+                </p>
+              </div>
+              <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+                <a href="#cta-section" class="cta-pill cta-pill-primary" style="font-size: 0.875rem; padding: 0.25rem 0.5rem 0.25rem 1rem;">
+                  <span>Configurar Flex</span>
+                  <span class="cta-pill-icon" style="width: 2rem; height: 2rem;"><i data-lucide="arrow-right" style="width: 0.875rem; height: 0.875rem;"></i></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="bento-card-white">
+              <div>
+                <span style="font-family: var(--font-subheading); font-size: 0.75rem; font-weight: bold; text-transform: uppercase; background-color: var(--color-brand-blue-50); color: var(--color-brand-blue-500); padding: 0.25rem 0.625rem; border-radius: var(--radius-sm); display: inline-block; margin-bottom: 0.75rem; border: 1px solid var(--color-brand-blue-100);">
+                  CORPORATIVO
+                </span>
+                <h3 style="font-family: var(--font-display); font-size: 1.5rem; text-transform: uppercase; line-height: 1.1; margin-bottom: 0.5rem;">
+                  Soluciones Corporativas
+                </h3>
+                <p style="font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.5;">
+                  Soporte a gran escala con pagos agrupados, ruteos especiales para grandes volúmenes y entregas express coordinadas.
+                </p>
+              </div>
+              <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+                <a href="#cta-section" class="cta-pill cta-pill-yellow" style="font-size: 0.875rem; padding: 0.25rem 0.5rem 0.25rem 1rem;">
+                  <span>Abrir Cuenta</span>
+                  <span class="cta-pill-icon" style="width: 2rem; height: 2rem;"><i data-lucide="arrow-right" style="width: 0.875rem; height: 0.875rem;"></i></span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Ticker de Marcas Locales -->
+        <div class="partners-wrapper">
+          <p style="font-family: var(--font-subheading); font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-brand-blue-50); margin-bottom: 1rem;">
+            Marcas locales que confían en nosotros
+          </p>
+          <div class="partners-ticker" aria-hidden="true">
+            <div class="partners-track">
+              <span class="partner-name">TOY PIOLA JUGUETERÍA</span>
+              <span class="partner-name">AMA & POLA</span>
+              <span class="partner-name">DROPIX 3D</span>
+              <span class="partner-name">EL CÓNDOR</span>
+              <span class="partner-name">STARCEL</span>
+              <span class="partner-name">URBANCOW</span>
+              <span class="partner-name">WANCA</span>
+              <span class="partner-name">CATALINA INDUMENTARIA</span>
+              <span class="partner-name">ENVASES 3G</span>
+              <span class="partner-name">LA PERI</span>
+              <!-- Repetición continua -->
+              <span class="partner-name">TOY PIOLA JUGUETERÍA</span>
+              <span class="partner-name">AMA & POLA</span>
+              <span class="partner-name">DROPIX 3D</span>
+              <span class="partner-name">EL CÓNDOR</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3.6 MARDELIVERY GASTRONOMÍA (MarDeliveryHomeSection.tsx) -->
+    <section id="mardelivery-home" class="mardelivery-section" aria-labelledby="mardelivery-heading">
+      <div class="container">
+        
+        <div class="section-intro" style="text-align: left; max-width: 100%;">
+          <div class="mardelivery-badge">
+            <i data-lucide="utensils-crossed" style="width: 1rem; height: 1rem;"></i>
+            <span>DELIVERY & CARTA DIGITAL MDQ</span>
+          </div>
+          <h2 id="mardelivery-heading" class="section-title" style="color: var(--color-white); max-width: 850px;">
+            Potenciá tu local comercial y gastronómico con <span class="brand-pill">MarDelivery</span>
+          </h2>
+          <p class="section-desc" style="color: rgba(250, 252, 251, 0.8); max-width: 720px;">
+            Organizá tus pedidos, automatizá tu carta online y elegí la modalidad de cadetería que mejor se adapte al flujo de trabajo de tu comercio en Mar del Plata.
+          </p>
+        </div>
+
+        <div class="mardelivery-grid">
+          
+          <div class="mardelivery-card">
+            <div>
+              <div class="mardelivery-icon-box"><i data-lucide="qr-code" style="width: 1.5rem; height: 1.5rem;"></i></div>
+              <h3 class="mardelivery-card-title">Carta Digital & Pedidos QR</h3>
+              <p class="mardelivery-card-desc">
+                Menú interactivo con promociones y cupones para recibir pedidos directos para retiro en local o envío a domicilio.
+              </p>
+            </div>
+            <div class="mardelivery-card-metric">
+              <i data-lucide="sparkles" style="width: 0.875rem; height: 0.875rem;"></i>
+              <span>Sin comisiones abusivas</span>
+            </div>
+          </div>
+
+          <div class="mardelivery-card">
+            <div>
+              <div class="mardelivery-icon-box" style="background-color: #F5B938; color: #031811;"><i data-lucide="zap" style="width: 1.5rem; height: 1.5rem;"></i></div>
+              <h3 class="mardelivery-card-title">Carga Rápida de Envíos</h3>
+              <p class="mardelivery-card-desc">
+                Armá borradores de entrega copiando chats de WhatsApp: con el asistente Rueditas IA transformás mensajes en envíos al toque.
+              </p>
+            </div>
+            <div class="mardelivery-card-metric" style="color: #F5B938;">
+              <i data-lucide="sparkles" style="width: 0.875rem; height: 0.875rem;"></i>
+              <span>Borradores con Rueditas IA</span>
+            </div>
+          </div>
+
+          <div class="mardelivery-card">
+            <div>
+              <div class="mardelivery-icon-box"><i data-lucide="users" style="width: 1.5rem; height: 1.5rem;"></i></div>
+              <h3 class="mardelivery-card-title">Repartidores Flexibles</h3>
+              <p class="mardelivery-card-desc">
+                Operá con repartidores por turno (propios de tu local o provistos por la flota de MarDelivery), sumá a tu equipo o combiná.
+              </p>
+            </div>
+            <div class="mardelivery-card-metric">
+              <i data-lucide="sparkles" style="width: 0.875rem; height: 0.875rem;"></i>
+              <span>Propios o Flota MarDelivery</span>
+            </div>
+          </div>
+
+          <div class="mardelivery-card">
+            <div>
+              <div class="mardelivery-icon-box"><i data-lucide="bar-chart-3" style="width: 1.5rem; height: 1.5rem;"></i></div>
+              <h3 class="mardelivery-card-title">Estadísticas y Control</h3>
+              <p class="mardelivery-card-desc">
+                Información total de clientes con monitoreo de despachos por barrio y franja horaria, más exportación en Excel.
+              </p>
+            </div>
+            <div class="mardelivery-card-metric">
+              <i data-lucide="sparkles" style="width: 0.875rem; height: 0.875rem;"></i>
+              <span>Información total de clientes</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Banner Promoción MarDelivery -->
+        <div class="mardelivery-banner">
+          <div>
+            <span style="font-family: var(--font-subheading); font-size: 0.8125rem; font-weight: bold; text-transform: uppercase; color: #2ECC85; letter-spacing: 0.05em; display: block; margin-bottom: 0.25rem;">
+              Solución Especializada Para Comercios y Gastronomía en MDQ
+            </span>
+            <h3 style="font-family: var(--font-display); font-size: 1.75rem; text-transform: uppercase; line-height: 1.1;">
+              ¿Tenés un restaurante, rotisería, verdulería o comercio de barrio?
+            </h3>
+            <p style="font-size: 0.875rem; color: rgba(250, 252, 251, 0.8); margin-top: 0.25rem;">
+              Digitalizá tus pedidos hoy mismo. Accedé a 30 días gratis del Plan Medio registrándote antes del 30/11/2026.
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%; max-width: 420px;">
+            <a href="https://api.whatsapp.com/send/?phone=5492235246756&text=Hola%20MarDelivery!%20Quiero%20aprovechar%20la%20promocion%20de%2030%20dias%20gratis%20del%20Plan%20Medio" target="_blank" rel="noopener noreferrer" class="mardelivery-btn-green">
+              <span>Pedir 30 Días Gratis</span>
+              <i data-lucide="arrow-up-right" style="width: 1.125rem; height: 1.125rem;"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3.7 SOCIAL PROOF (SocialProofSection.tsx) -->
+    <section id="social-proof" class="social-proof-section" aria-labelledby="social-proof-heading">
+      <div class="container">
+        
+        <div class="section-intro">
+          <div class="section-kicker">
+            <span>Confianza Comprobada en Google</span>
+          </div>
+          <h2 id="social-proof-heading" class="section-title">
+            Opiniones Reales de Clientes
+          </h2>
+          <p class="section-desc">
+            Comercios, profesionales y vecinos de Mar del Plata que confían a diario en nuestra logística en moto.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          
+          <!-- Reseña 1 -->
+          <article class="review-card review-card-blue">
+            <div>
+              <div class="review-header">
+                <div class="review-stars" aria-label="5 estrellas">★★★★★</div>
+                <span class="review-date">Hace 13 semanas</span>
+              </div>
+              <h3 class="review-quote">RESOLVIERON MI PROBLEMA CON LA MEJOR PREDISPOSICIÓN</h3>
+              <p class="review-body">
+                "Excelente el servicio, rápidos, muy atentos, resolvieron mi problema con la mejor predisposición, los recomiendo ampliamente."
+              </p>
+            </div>
+            <div class="review-author-row">
+              <div class="review-avatar">K</div>
+              <span class="review-author-name">Karen Herrera</span>
+            </div>
+          </article>
+
+          <!-- Reseña 2 -->
+          <article class="review-card review-card-white">
+            <div>
+              <div class="review-header">
+                <div class="review-stars" aria-label="5 estrellas">★★★★★</div>
+                <span class="review-date">Hace 48 semanas</span>
+              </div>
+              <h3 class="review-quote">IMPECABLE PARA LLEVAR PEDIDOS A NUESTROS CLIENTES</h3>
+              <p class="review-body">
+                "Lo usé varias veces para llevar pedidos a nuestros clientes. Impecable el servicio. Además hacen depósitos en cajeros sin problemas. Unos genios."
+              </p>
+            </div>
+            <div class="review-author-row">
+              <div class="review-avatar">A</div>
+              <span class="review-author-name">Agustin Torres</span>
+            </div>
+          </article>
+
+          <!-- Reseña 3 -->
+          <article class="review-card review-card-yellow">
+            <div>
+              <div class="review-header">
+                <div class="review-stars" aria-label="5 estrellas">★★★★★</div>
+                <span class="review-date">Hace 37 semanas</span>
+              </div>
+              <h3 class="review-quote">EL MEJOR SERVICIO PREMIUM DE LA ZONA</h3>
+              <p class="review-body">
+                "El mejor servicio premium de la zona en Mar del Plata. 100% recomendable por puntualidad y trato."
+              </p>
+            </div>
+            <div class="review-author-row">
+              <div class="review-avatar">A</div>
+              <span class="review-author-name">Alexis Bogarin</span>
+            </div>
+          </article>
+
+          <!-- Reseña 4 -->
+          <article class="review-card review-card-white">
+            <div>
+              <div class="review-header">
+                <div class="review-stars" aria-label="5 estrellas">★★★★★</div>
+                <span class="review-date">Hace 32 semanas</span>
+              </div>
+              <h3 class="review-quote">ATENCIÓN DE PRIMERA, RÁPIDO Y SEGURO</h3>
+              <p class="review-body">
+                "Excelente servicio, atención de primera, rápido, confiable y seguro. Recomendado 100% para envíos puntuales."
+              </p>
+            </div>
+            <div class="review-author-row">
+              <div class="review-avatar">L</div>
+              <span class="review-author-name">Lorenzo Elizagoyen</span>
+            </div>
+          </article>
+
+          <!-- Reseña 5 -->
+          <article class="review-card review-card-blue">
+            <div>
+              <div class="review-header">
+                <div class="review-stars" aria-label="5 estrellas">★★★★★</div>
+                <span class="review-date">Hace 48 semanas</span>
+              </div>
+              <h3 class="review-quote">¡LA MEJOR MENSAJERÍA DE MDP!</h3>
+              <p class="review-body">
+                "La mejor mensajería de Mar del Plata. Cumplen siempre con lo prometido y no te dejan tirado."
+              </p>
+            </div>
+            <div class="review-author-row">
+              <div class="review-avatar">E</div>
+              <span class="review-author-name">Emiliano Garri</span>
+            </div>
+          </article>
+
+          <!-- Reseña 6 -->
+          <article class="review-card review-card-white">
+            <div>
+              <div class="review-header">
+                <div class="review-stars" aria-label="5 estrellas">★★★★★</div>
+                <span class="review-date">Hace 48 semanas</span>
+              </div>
+              <h3 class="review-quote">10 DE 10, RESPONSABLES POR SOBRE TODO</h3>
+              <p class="review-body">
+                "10 de 10 muy buenos en lo que hacen, responsables por sobre todas las cosas, super recomendable para tu negocio."
+              </p>
+            </div>
+            <div class="review-author-row">
+              <div class="review-avatar">N</div>
+              <span class="review-author-name">NahuAri</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3.8 CTA FINAL CON WHATSAPP (CtaSection.tsx) -->
+    <section id="cta-section" class="cta-section" aria-labelledby="cta-heading">
+      <div class="container">
+        
+        <div class="cta-box">
+          
+          <!-- Bloque de Texto -->
+          <div class="cta-copy">
+            <span class="cta-badge">Cotización Inmediata</span>
+            <h2 id="cta-heading" class="cta-title">
+              ¿Listo para escalar la logística de tu negocio?
+            </h2>
+            <p class="cta-desc">
+              Olvidate de la gestión de paquetes en Mar del Plata. Completá tus datos y te respondemos por WhatsApp en pocos minutos hábiles.
+            </p>
+            <div class="cta-meta">
+              <div class="cta-meta-item">
+                <i data-lucide="phone" style="width: 1rem; height: 1rem; color: var(--color-brand-blue-500);"></i>
+                <span>+54 9 223 524-6756</span>
+              </div>
+              <div class="cta-meta-item">
+                <i data-lucide="map-pin" style="width: 1rem; height: 1rem; color: var(--color-brand-blue-500);"></i>
+                <span>Friuli 1972, Mar del Plata</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario Directo a WhatsApp -->
+          <form class="cta-form" id="home-cta-form" onsubmit="handleCtaSubmit(event)">
+            <div class="form-group">
+              <label for="form-name" class="form-label">Tu Nombre</label>
+              <div class="form-input-wrapper">
+                <div class="form-input-icon"><i data-lucide="user" style="width: 1.125rem; height: 1.125rem;"></i></div>
+                <input type="text" id="form-name" name="nombre" class="form-input" placeholder="Ingresá tu nombre" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="form-business" class="form-label">Empresa / Negocio</label>
+              <div class="form-input-wrapper">
+                <div class="form-input-icon"><i data-lucide="store" style="width: 1.125rem; height: 1.125rem;"></i></div>
+                <input type="text" id="form-business" name="empresa" class="form-input" placeholder="Nombre de tu emprendimiento" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="form-volume" class="form-label">Volumen Estimado Mensual</label>
+              <div class="form-input-wrapper">
+                <div class="form-input-icon"><i data-lucide="package-search" style="width: 1.125rem; height: 1.125rem;"></i></div>
+                <select id="form-volume" name="volumen" class="form-select" required>
+                  <option value="" disabled selected>Seleccioná una opción</option>
+                  <option value="1 a 50">1 a 50 envíos</option>
+                  <option value="51 a 200">51 a 200 envíos</option>
+                  <option value="más de 200">Más de 200 envíos</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="form-submit-btn">
+              <i data-lucide="message-circle" style="width: 1.25rem; height: 1.25rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Hablar por WhatsApp</span>
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       4. CARRUSEL DE REDES OFICIALES (CarruselRedes.tsx)
+       ======================================================================== -->
+  <section id="carrusel-redes" class="social-section" aria-labelledby="social-heading">
+    <div class="container">
+      
+      <div class="social-header">
+        <span class="social-badge">Nuestra Comunidad Digital</span>
+        <h2 id="social-heading" class="social-title">
+          SEGUÍ NUESTRO <span class="highlight">MOVIMIENTO</span>
+        </h2>
+        <p class="social-desc">
+          Sumate a nuestros canales digitales y enterate al toque de todas las novedades operativas en Mar del Plata.
+        </p>
+        <div class="social-divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="social-grid">
+        
+        <!-- Facebook -->
+        <div class="social-card social-card-facebook">
+          <div class="social-card-inner">
+            <div class="social-watermark" aria-hidden="true">
+              <i data-lucide="facebook" style="width: 14rem; height: 14rem;"></i>
+            </div>
+            <div class="social-top">
+              <div>
+                <span class="social-pill-badge">FACEBOOK OFICIAL</span>
+              </div>
+              <div>
+                <h3 class="social-name">FACEBOOK</h3>
+                <p class="social-handle">Envíos DosRuedas</p>
+              </div>
+              <p class="social-copy">
+                Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.
+              </p>
+            </div>
+            <div class="social-btn">
+              <a href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer" class="social-cta-link">
+                <span>SEGUIR COMUNIDAD</span>
+                <span class="social-btn-arrow"><i data-lucide="arrow-up-right" style="width: 1rem; height: 1rem;"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram MDQ -->
+        <div class="social-card social-card-instagram">
+          <div class="social-card-inner">
+            <div class="social-watermark" aria-hidden="true">
+              <i data-lucide="instagram" style="width: 14rem; height: 14rem;"></i>
+            </div>
+            <div class="social-top">
+              <div>
+                <span class="social-pill-badge">INSTAGRAM MDQ</span>
+              </div>
+              <div>
+                <h3 class="social-name">INSTAGRAM</h3>
+                <p class="social-handle">@enviosdosruedas</p>
+              </div>
+              <p class="social-copy">
+                Mirá el detrás de escena de nuestros riders y la flota recorriendo las calles de MDQ.
+              </p>
+            </div>
+            <div class="social-btn">
+              <a href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer" class="social-cta-link">
+                <span>VER CONTENIDO</span>
+                <span class="social-btn-arrow"><i data-lucide="arrow-up-right" style="width: 1rem; height: 1rem;"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp Directo -->
+        <div class="social-card social-card-whatsapp">
+          <div class="social-card-inner">
+            <div class="social-watermark" aria-hidden="true">
+              <i data-lucide="message-circle" style="width: 14rem; height: 14rem;"></i>
+            </div>
+            <div class="social-top">
+              <div>
+                <span class="social-pill-badge">WHATSAPP DIRECTO</span>
+              </div>
+              <div>
+                <h3 class="social-name">WHATSAPP</h3>
+                <p class="social-handle">+54 9 223 524-6756</p>
+              </div>
+              <p class="social-copy">
+                Escribinos directamente para consultas, contrataciones o soporte express al toque.
+              </p>
+            </div>
+            <div class="social-btn">
+              <a href="https://api.whatsapp.com/send/?phone=5492235246756&text=Hola%20Envios%20DosRuedas,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener noreferrer" class="social-cta-link">
+                <span>INICIAR CHAT</span>
+                <span class="social-btn-arrow"><i data-lucide="arrow-up-right" style="width: 1rem; height: 1rem;"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. FOOTER COMPARTIDO (OptimizedFooter.tsx)
+       ======================================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top-accent" aria-hidden="true"></div>
+
+    <div class="container footer-content">
+      
+      <!-- Banner CTA Superior -->
+      <div class="footer-banner">
+        <div>
+          <div class="footer-banner-badge">
+            <span class="footer-banner-pulse" aria-hidden="true"></span>
+            <span>Operaciones Activas Mar del Plata 2026</span>
+          </div>
+          <h3 class="footer-banner-title">
+            ¿Tenés envíos para hoy? <span class="highlight">Los entregamos a tiempo.</span>
+          </h3>
+          <p class="footer-banner-desc">
+            Cotizá online en segundos o coordiná directo con nuestro equipo logístico por WhatsApp.
+          </p>
+        </div>
+
+        <div class="footer-banner-actions">
+          <a href="#cta-section" class="cta-pill cta-pill-yellow">
+            <span>Cotizá tu Envío</span>
+            <span class="cta-pill-icon"><i data-lucide="arrow-up-right" style="width: 1rem; height: 1rem;"></i></span>
+          </a>
+          <a href="https://api.whatsapp.com/send/?phone=5492235246756&text=Hola%20Envios%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20envios" target="_blank" rel="noopener noreferrer" class="footer-chat-btn">
+            <i data-lucide="message-circle" style="width: 1.125rem; height: 1.125rem; color: var(--color-brand-yellow-500);"></i>
+            <span>Chateá con Nosotros</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Columnas del Directorio -->
+      <div class="footer-columns">
+        
+        <!-- Columna 1: Marca y Canales -->
+        <div>
+          <a href="#hero-animado" class="logo" style="margin-bottom: 1rem;">
+            <div class="logo-badge" style="font-size: 1.5rem;">2R</div>
+            <div class="logo-text">
+              <span class="white">Envíos <span class="yellow">DosRuedas</span></span>
+            </div>
+          </a>
+          <p class="footer-desc">
+            Con más de 7 años de trayectoria en Mar del Plata, transformamos el despacho de tus productos en un motor de crecimiento para emprendedores, PyMEs y comercios locales con flota propia y compromiso humano.
+          </p>
+          <div style="margin-top: 1.25rem;">
+            <span class="footer-subgroup-title" style="display: block;">Canales Oficiales</span>
+            <div class="footer-social-icons">
+              <a href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Instagram Oficial">
+                <i data-lucide="instagram" style="width: 1.25rem; height: 1.25rem;"></i>
+              </a>
+              <a href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Facebook Oficial">
+                <i data-lucide="facebook" style="width: 1.25rem; height: 1.25rem;"></i>
+              </a>
+              <a href="https://api.whatsapp.com/send/?phone=5492235246756" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="WhatsApp Directo" style="background-color: var(--color-brand-yellow-500); color: var(--color-brand-blue-500);">
+                <i data-lucide="message-circle" style="width: 1.25rem; height: 1.25rem;"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-hub-badge">
+            <i data-lucide="shield-check" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+            <span>Depósito Central · Friuli 1972</span>
+          </div>
+        </div>
+
+        <!-- Columna 2: Servicios y Plataformas -->
+        <div>
+          <h4 class="footer-col-title">Servicios y Plataformas</h4>
+          <div class="footer-links-grid">
+            <div>
+              <p class="footer-subgroup-title">Cotizador y Portales</p>
+              <ul class="footer-link-list">
+                <li class="footer-link-item"><a href="#services-overview"><i data-lucide="zap" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Cotizá Express / LowCost</a></li>
+                <li class="footer-link-item"><a href="#logistica-dosruedas-home"><i data-lucide="package" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Logística (Rastreo EDR)</a></li>
+                <li class="footer-link-item"><a href="#mardelivery-home"><i data-lucide="store" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> MarDelivery Gastronomía</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer-subgroup-title">Modalidades</p>
+              <ul class="footer-link-list">
+                <li class="footer-link-item"><a href="#services-overview"><i data-lucide="zap" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Envíos Express (3 hs)</a></li>
+                <li class="footer-link-item"><a href="#services-overview"><i data-lucide="trending-down" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Envíos LowCost</a></li>
+                <li class="footer-link-item"><a href="#services-overview"><i data-lucide="truck" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Mercado Envíos Flex</a></li>
+                <li class="footer-link-item"><a href="#segmentos-home"><i data-lucide="building-2" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Cuenta Corriente</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna 3: Base de Operaciones MDQ -->
+        <div>
+          <h4 class="footer-col-title">Base de Operaciones MDQ</h4>
+          <div class="footer-info-cards">
+            
+            <div class="footer-info-card">
+              <div class="footer-info-icon"><i data-lucide="map-pin" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <p class="footer-info-title">Centro de Distribución</p>
+                <p class="footer-info-value">Friuli 1972, Mar del Plata</p>
+              </div>
+            </div>
+
+            <div class="footer-info-card">
+              <div class="footer-info-icon"><i data-lucide="phone" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <p class="footer-info-title">Línea Directa y WhatsApp</p>
+                <a href="tel:+5492235246756" class="footer-phone-number">+54 9 223 524-6756</a>
+              </div>
+            </div>
+
+            <div class="footer-info-card">
+              <div class="footer-info-icon"><i data-lucide="mail" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <p class="footer-info-title">Atención Comercial</p>
+                <a href="mailto:contacto@enviosdosruedas.com" class="footer-info-value" style="text-decoration: underline;">contacto@enviosdosruedas.com</a>
+              </div>
+            </div>
+
+            <div class="footer-info-card">
+              <div class="footer-info-icon"><i data-lucide="clock" style="width: 1rem; height: 1rem;"></i></div>
+              <div style="width: 100%;">
+                <p class="footer-info-title">Horarios de Despacho</p>
+                <div class="footer-schedule-row">
+                  <span class="footer-info-value">Lunes a Viernes:</span>
+                  <span class="footer-phone-number">09:00 a 18:00</span>
+                </div>
+                <div class="footer-schedule-row">
+                  <span class="footer-info-value">Sábados:</span>
+                  <span class="footer-phone-number">10:00 a 15:00</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Divisor y Botón de Volver Arriba -->
+      <div class="footer-divider-wrapper">
+        <button type="button" class="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba">
+          <i data-lucide="arrow-up" style="width: 1.125rem; height: 1.125rem;"></i>
+        </button>
+      </div>
+
+      <!-- Barra inferior -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-links">
+          <span>© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</span>
+          <a href="#services-overview">Servicios</a>
+          <a href="#logistica-dosruedas-home">Cobertura</a>
+          <a href="#mardelivery-home">MarDelivery</a>
+          <a href="#cta-section">Contacto</a>
+        </div>
+        <div>
+          <span>Flota 100% propia en moto • Sin tercerización</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts: Interactividad del Layout y Formulario -->
+  <script src="./js/layout.js"></script>
+  <script>
+    function handleCtaSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const name = form.nombre.value.trim();
+      const business = form.empresa.value.trim();
+      const volume = form.volumen.value;
+      const msg = `Hola, soy ${name} de ${business}. Me interesa cotizar envíos para ${volume} mensuales en Mar del Plata.`;
+      const url = `https://api.whatsapp.com/send/?phone=5492235246756&text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  </script>
+
+</body>
+</html>

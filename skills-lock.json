@@ -109,6 +109,12 @@
       "skillPath": "skills/ask-sonner/SKILL.md",
       "computedHash": "0168a6a129ba0a3561ccbda3a3d8d0dc0af1d556f373e315e9479e3364420dd3"
     },
+    "beautiful-article": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/beautiful-article/SKILL.md",
+      "computedHash": "c3ea3f16203aeb7c2fcca109db177fd68a91afcc3412dce7aa3e9295e3725f41"
+    },
     "boltz2-nim": {
       "source": "nvidia/skills",
       "sourceType": "github",
@@ -1087,6 +1093,12 @@
       "skillPath": "skills/google-maps-platform/SKILL.md",
       "computedHash": "f4092ad152c96dc15dc7bb8e91f2c78522c3a13282efb5b02e3ce21ecc172c48"
     },
+    "gpt-image-2": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/gpt-image-2/SKILL.md",
+      "computedHash": "f13447e1337d9b0eae35dc7009f96d2b60eb6c781a4b965c9309b2b76cdf3ab8"
+    },
     "holoscan-app-debug-build-run": {
       "source": "nvidia/skills",
       "sourceType": "github",
@@ -1507,6 +1519,12 @@
       "skillPath": "skills/jetson-video-setup/SKILL.md",
       "computedHash": "2b60e17cf554cb384ca927569124cb49fb41171ab1fbbfad0be51e65abeb5fab"
     },
+    "kb-retriever": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/kb-retriever/SKILL.md",
+      "computedHash": "eaa5cab0641b8e5a36c4ebf3973df4aa3b8186d68596e282cd4e451365d0b6e1"
+    },
     "kermt-add-cmim-pretrain": {
       "source": "nvidia/skills",
       "sourceType": "github",
@@ -1608,6 +1626,12 @@
       "sourceType": "github",
       "skillPath": "skills/bionemo-molmim-nim/SKILL.md",
       "computedHash": "e7e9e6c3f70d1762f10084c7d689735a3f5697d726b4c29928bd50a2a9031378"
+    },
+    "motion-showreel": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/motion-showreel/SKILL.md",
+      "computedHash": "3d953f7940a4f42c2d7d008fdf1ac184ebf0043f74807b778f8805bcb85e6d4d"
     },
     "msa-search-nim": {
       "source": "nvidia/skills",
@@ -2983,11 +3007,23 @@
       "skillPath": "skills/warp-eval/SKILL.md",
       "computedHash": "d6f473593c3c665d1f3d1f61d2b3459a907a82e9af867b4dfa21be5997713db1"
     },
+    "web-design-engineer": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-engineer/SKILL.md",
+      "computedHash": "5f54d17dcdc77667489f8c216caceda287591773d0ad81b69efa822197ca4384"
+    },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
       "skillPath": "skills/web-design-guidelines/SKILL.md",
       "computedHash": "d8e7d3afe37dcc8a97b99ffb5afdb4d0919ae0092ea8b68f44eb201f035e33ac"
+    },
+    "web-video-presentation": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-video-presentation/SKILL.md",
+      "computedHash": "32159daa9482337c50371e7a307d23a87d7ae4de9c0d7d917bfbe6a4605ef97c"
     },
     "write-swift": {
       "source": "emilkowalski/skills",

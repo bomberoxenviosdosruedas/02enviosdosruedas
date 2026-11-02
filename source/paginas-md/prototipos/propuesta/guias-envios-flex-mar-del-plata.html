@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" data-scroll-behavior="smooth" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Guía Mercado Envíos Flex en MDQ | Envíos DosRuedas</title>
+    <meta
+        content="Plantilla base limpia y modular de Envíos DosRuedas con navegación multinivel, cajón móvil, carrusel de redes y pie institucional oficial."
+        name="description">
+    <meta content="#0950F6" name="theme-color">
+    <meta content="index, follow" name="robots">
+    <!-- Google Fonts Oficiales: Outfit, Anton, Bebas Neue, Geist Mono -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Bebas+Neue&amp;family=Geist+Mono:wght@400;500;700&amp;family=Outfit:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0950F6',
+                            'blue-50': '#E6EEFE',
+                            'blue-100': '#BACEFD',
+                            'blue-200': '#8EAFFB',
+                            'blue-300': '#628FF9',
+                            'blue-400': '#3570F8',
+                            'blue-500': '#0950F6',
+                            yellow: '#FFEC01',
+                            'yellow-400': '#FFF12E',
+                            'yellow-500': '#FFEC01',
+                            'yellow-600': '#E6D400',
+                            ink: '#0950F6',
+                            white: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Anton', 'sans-serif'],
+                        subheading: ['Bebas Neue', 'sans-serif'],
+                        mono: ['Geist Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'accent-sm': '0 4px 12px rgba(255, 236, 1, 0.3)',
+                        'accent-md': '0 8px 24px rgba(255, 236, 1, 0.35)',
+                        'cta-glow': '0 0 28px rgba(255, 236, 1, 0.45), 0 8px 24px rgba(9, 80, 246, 0.18)',
+                        'elevated': '0 16px 40px rgba(9, 80, 246, 0.18)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --color-brand-blue: #0950F6;
+            --color-brand-blue-50: #E6EEFE;
+            --color-brand-blue-100: #BACEFD;
+            --color-brand-blue-200: #8EAFFB;
+            --color-brand-blue-300: #628FF9;
+            --color-brand-blue-400: #3570F8;
+            --color-brand-blue-500: #0950F6;
+            --color-brand-blue-600: #0840c4;
+            --color-brand-blue-900: #06287c;
+            --color-brand-yellow: #FFEC01;
+            --color-brand-yellow-50: #FFFDE6;
+            --color-brand-yellow-100: #FFFAB8;
+            --color-brand-yellow-200: #FFF78A;
+            --color-brand-yellow-400: #FFF12E;
+            --color-brand-yellow-500: #FFEC01;
+            --color-brand-yellow-600: #E6D400;
+            --color-white: #FFFFFF;
+            --color-ink: #0950F6;
+        }
+
+        .font-display {
+            font-family: 'Anton', sans-serif;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+        }
+
+        .font-subheading {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .font-mono {
+            font-family: 'Geist Mono', monospace;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .cta-nested-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 9999px;
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        .cta-nested-pill:hover {
+            transform: translateY(-2px);
+        }
+
+        .kinetic-font-stretch {
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+
+        .kinetic-font-stretch:hover {
+            transform: scaleX(1.06);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-brand-white text-brand-ink font-sans antialiased selection:bg-brand-yellow selection:text-brand-blue min-h-screen flex flex-col">
+    <!-- Accesibilidad: Saltar al contenido principal (WCAG 2.2 AA) -->
+    <a href="#main-content"
+        class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-5 focus:py-3 focus:rounded-full focus:bg-brand-yellow focus:text-brand-blue font-subheading font-bold uppercase tracking-wider shadow-cta-glow focus:outline-none focus:ring-2 focus:ring-white">
+        Saltar al contenido principal
+    </a>
+
+    <!-- ========================================================================
+       1. HEADER: Cabecera fija con logo en imagen, navegación desktop y CTA
+       ======================================================================== -->
+    <header
+        class="fixed top-0 left-0 right-0 z-40 w-full text-white border-b transition-all duration-300 bg-brand-blue-500 py-3.5 border-white/10"
+        id="optimized-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <!-- Logo oficial con imagen WebP -->
+                <a aria-current="page"
+                    class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow-500 rounded-xl"
+                    href="./index.html" id="nav-logo-opt">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="relative w-10 h-10 sm:w-11 sm:h-11 shrink-0 flex items-center justify-center transition-transform duration-300 ease-out group-hover:scale-105 group-hover:rotate-6">
+                            <img alt="Logo Envíos DosRuedas" class="w-full h-full object-contain drop-shadow-md"
+                                height="44"
+                                src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/logo_nuevo.webp" width="44"
+                                loading="eager">
+                        </div>
+                        <span
+                            class="font-display text-2xl sm:text-3xl tracking-tight leading-none uppercase select-none flex items-center gap-1.5">
+                            <span class="text-white kinetic-font-stretch">Envíos</span>
+                            <span class="text-brand-yellow kinetic-font-stretch">DosRuedas</span>
+                        </span>
+                    </div>
+                </a>
+                <!-- Desktop Navigation con dropdowns interactivos -->
+                <nav aria-label="Navegación principal" class="hidden lg:flex items-center gap-1.5" id="desktop-nav-opt">
+                    <!-- Inicio -->
+                    <a aria-current="page"
+                        class="px-3.5 py-2 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors border text-brand-yellow bg-black/20 border-brand-yellow/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow"
+                        href="./index.html">
+                        Inicio
+                    </a>
+                    <!-- Dropdown Servicios -->
+                    <div class="relative dropdown-container" id="dropdown-servicios">
+                        <button aria-expanded="false" aria-haspopup="true"
+                            class="dropdown-btn px-3.5 py-2 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer border border-transparent text-white hover:text-brand-yellow hover:bg-black/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow"
+                            onclick="toggleDesktopDropdown('dropdown-servicios')" type="button">
+                            <span class="">Servicios</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="chevron-down" aria-hidden="true"
+                                class="lucide lucide-chevron-down dropdown-chevron w-4 h-4 transition-transform duration-200">
+                                <path d="m6 9 6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-panel absolute left-0 pt-2 w-64 z-50 hidden">
+                            <div
+                                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2 text-white overflow-hidden">
+                                <div class="flex flex-col gap-1 px-2">
+                                    <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow hover:bg-black/15 transition-colors group"
+                                        href="./servicios-envios-express.html">
+                                        <div
+                                            class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="zap"
+                                                aria-hidden="true" class="lucide lucide-zap w-4 h-4">
+                                                <path
+                                                    d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos
+                                            Express</span>
+                                    </a>
+                                    <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow hover:bg-black/15 transition-colors group"
+                                        href="./servicios-envios-lowcost.html">
+                                        <div
+                                            class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                data-lucide="trending-down" aria-hidden="true"
+                                                class="lucide lucide-trending-down w-4 h-4">
+                                                <path d="M16 17h6v-6"></path>
+                                                <path d="m22 17-8.5-8.5-5 5L2 7"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos
+                                            LowCost</span>
+                                    </a>
+                                    <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow hover:bg-black/15 transition-colors group"
+                                        href="./servicios-enviosflex.html">
+                                        <div
+                                            class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="clock"
+                                                aria-hidden="true" class="lucide lucide-clock w-4 h-4">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <path d="M12 6v6l4 2"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Envíos
+                                            Flex (MeLi)</span>
+                                    </a>
+                                    <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow hover:bg-black/15 transition-colors group"
+                                        href="./servicios-empresas-cuenta-corriente.html">
+                                        <div
+                                            class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="building-2"
+                                                aria-hidden="true" class="lucide lucide-building-2 w-4 h-4">
+                                                <path d="M10 12h4"></path>
+                                                <path d="M10 8h4"></path>
+                                                <path d="M14 21v-3a2 2 0 0 0-4 0v3"></path>
+                                                <path
+                                                    d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2">
+                                                </path>
+                                                <path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Cuenta
+                                            Corriente</span>
+                                    </a>
+                                    <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow hover:bg-black/15 transition-colors group"
+                                        href="./servicios.html#ecommerce-24hs">
+                                        <div
+                                            class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="package"
+                                                aria-hidden="true" class="lucide lucide-package w-4 h-4">
+                                                <path
+                                                    d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z">
+                                                </path>
+                                                <path d="M12 22V12"></path>
+                                                <polyline points="3.29 7 12 12 20.71 7"></polyline>
+                                                <path d="m7.5 4.27 9 5.15"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-base font-bold uppercase font-subheading tracking-wider leading-none">E-commerce
+                                            24HS</span>
+                                    </a>
+                                    <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow hover:bg-black/15 transition-colors group"
+                                        href="./servicios-deposito-fulfillment.html">
+                                        <div
+                                            class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="store"
+                                                aria-hidden="true" class="lucide lucide-store w-4 h-4">
+                                                <path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"></path>
+                                                <path
+                                                    d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244">
+                                                </path>
+                                                <path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-base font-bold uppercase font-subheading tracking-wider leading-none">E-commerce
+                                            Same Day</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dropdown Plataformas -->
+                    <div class="relative dropdown-container" id="dropdown-plataformas">
+                        <button aria-expanded="false" aria-haspopup="true"
+                            class="dropdown-btn px-3.5 py-2 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer border border-transparent text-white hover:text-brand-yellow hover:bg-black/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow"
+                            onclick="toggleDesktopDropdown('dropdown-plataformas')" type="button">
+                            <span class="">Plataformas</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="chevron-down" aria-hidden="true"
+                                class="lucide lucide-chevron-down dropdown-chevron w-4 h-4 transition-transform duration-200">
+                                <path d="m6 9 6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-panel absolute left-0 pt-2 w-64 z-50 hidden">
+                            <div
+                                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2 text-white overflow-hidden">
+                                <div class="flex flex-col gap-1 px-2">
+                                    <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow hover:bg-black/15 transition-colors group"
+                                        href="./logistica-dosruedas.html">
+                                        <div
+                                            class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="search"
+                                                aria-hidden="true" class="lucide lucide-search w-4 h-4">
+                                                <path d="m21 21-4.34-4.34"></path>
+                                                <circle cx="11" cy="11" r="8"></circle>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Logística
+                                            DosRuedas</span>
+                                    </a>
+                                    <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow hover:bg-black/15 transition-colors group"
+                                        href="./mardelivery.html">
+                                        <div
+                                            class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                data-lucide="utensils-crossed" aria-hidden="true"
+                                                class="lucide lucide-utensils-crossed w-4 h-4">
+                                                <path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8">
+                                                </path>
+                                                <path
+                                                    d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7">
+                                                </path>
+                                                <path d="m2.1 21.8 6.4-6.3"></path>
+                                                <path d="m19 5-7 7"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-base font-bold uppercase font-subheading tracking-wider leading-none">MarDelivery
+                                            Gastronomía</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dropdown Nosotros -->
+                    <div class="relative dropdown-container" id="dropdown-nosotros">
+                        <button aria-expanded="false" aria-haspopup="true"
+                            class="dropdown-btn px-3.5 py-2 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer border border-transparent text-white hover:text-brand-yellow hover:bg-black/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow"
+                            onclick="toggleDesktopDropdown('dropdown-nosotros')" type="button">
+                            <span class="">Nosotros</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="chevron-down" aria-hidden="true"
+                                class="lucide lucide-chevron-down dropdown-chevron w-4 h-4 transition-transform duration-200">
+                                <path d="m6 9 6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-panel absolute left-0 pt-2 w-64 z-50 hidden">
+                            <div
+                                class="bg-brand-blue-500 rounded-2xl shadow-2xl border border-white/15 py-2 text-white overflow-hidden">
+                                <div class="flex flex-col gap-1 px-2">
+                                    <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow hover:bg-black/15 transition-colors group"
+                                        href="./nosotros-sobre-nosotros.html">
+                                        <div
+                                            class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="info"
+                                                aria-hidden="true" class="lucide lucide-info w-4 h-4">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <path d="M12 16v-4"></path>
+                                                <path d="M12 8h.01"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Sobre
+                                            Nosotros</span>
+                                    </a>
+                                    <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow hover:bg-black/15 transition-colors group"
+                                        href="./nosotros-preguntas-frecuentes.html">
+                                        <div
+                                            class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="help-circle"
+                                                aria-hidden="true" class="lucide lucide-help-circle w-4 h-4">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                                <path d="M12 17h.01"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Preguntas
+                                            Frecuentes</span>
+                                    </a>
+                                    <a class="flex items-center gap-3 px-3 py-2 rounded-xl text-white hover:text-brand-yellow hover:bg-black/15 transition-colors group"
+                                        href="./nosotros-nuestras-redes.html">
+                                        <div
+                                            class="p-1.5 rounded-lg bg-white/10 text-brand-blue-50 group-hover:bg-brand-yellow group-hover:text-brand-blue transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="share-2"
+                                                aria-hidden="true" class="lucide lucide-share-2 w-4 h-4">
+                                                <circle cx="18" cy="5" r="3"></circle>
+                                                <circle cx="6" cy="12" r="3"></circle>
+                                                <circle cx="18" cy="19" r="3"></circle>
+                                                <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line>
+                                                <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-base font-bold uppercase font-subheading tracking-wider leading-none">Nuestras
+                                            Redes</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contacto -->
+                    <a class="px-3.5 py-2 rounded-xl text-base font-subheading uppercase tracking-wider transition-colors border border-transparent text-white hover:text-brand-yellow hover:bg-black/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow"
+                        href="./contacto.html">
+                        Contacto
+                    </a>
+                </nav>
+                <!-- CTA & Teléfono Desktop -->
+                <div class="hidden lg:flex items-center gap-5">
+                    <a class="flex items-center gap-2 text-white hover:text-brand-yellow transition-colors font-mono text-base font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded-lg px-1"
+                        href="tel:+5492235246756">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="phone" aria-hidden="true"
+                            class="lucide lucide-phone w-4 h-4 text-brand-yellow">
+                            <path
+                                d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
+                            </path>
+                        </svg>
+                        <span class="">223 524-6756</span>
+                    </a>
+                    <a class="cta-nested-pill rounded-full font-subheading uppercase tracking-wider font-bold px-6 py-2.5 min-h-[44px] border border-white/40 text-white hover:bg-white/10 hover:border-white transition-all group"
+                        href="./cotizar.html" id="header_cta">
+                        <span class="">Cotizá tu envío</span>
+                        <span
+                            class="inline-flex items-center justify-center rounded-full w-7 h-7 ml-3 bg-white/10 text-brand-yellow group-hover:bg-brand-yellow group-hover:text-brand-blue transition-all"><i
+                                data-lucide="arrow-up-right" class="w-4 h-4"></i></span>
+                    </a>
+                </div>
+                <!-- Botones Mobile -->
+                <div class="lg:hidden flex items-center gap-2.5">
+                    <a aria-label="Llamar a soporte"
+                        class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
+                        href="tel:+5492235246756">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="phone" aria-hidden="true"
+                            class="lucide lucide-phone w-5 h-5 text-brand-yellow">
+                            <path
+                                d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
+                            </path>
+                        </svg>
+                    </a>
+                    <button aria-controls="mobile-navigation-dialog" aria-expanded="false"
+                        aria-label="Abrir menú de navegación"
+                        class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow transition-all cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
+                        id="mobile-menu-toggle-opt" onclick="toggleMobileNav(true)" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="menu" aria-hidden="true" class="lucide lucide-menu w-6 h-6">
+                            <path d="M4 5h16"></path>
+                            <path d="M4 12h16"></path>
+                            <path d="M4 19h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ========================================================================
+       2. MOBILE-NAV: Drawer lateral deslizable y accesible con logo oficial
+       ======================================================================== -->
+    <div aria-hidden="true"
+        class="fixed inset-0 bg-brand-blue-500/70 backdrop-blur-md z-50 hidden lg:hidden transition-opacity"
+        id="mobile-nav-backdrop" onclick="toggleMobileNav(false)"></div>
+    <div aria-label="Menú principal" aria-modal="true"
+        class="fixed top-0 right-0 bottom-0 z-50 flex flex-col w-full max-w-[320px] h-screen bg-brand-blue-500 text-white shadow-2xl border-l border-white/10 lg:hidden overscroll-contain transform translate-x-full transition-transform duration-300 ease-out"
+        id="mobile-navigation-dialog" role="dialog">
+        <!-- Header del Menú Móvil -->
+        <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0 h-16">
+            <a class="flex items-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-brand-yellow/50 rounded-lg"
+                href="./index.html" onclick="toggleMobileNav(false)">
+                <div
+                    class="relative w-10 h-10 shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
+                    <img alt="Logo" class="w-full h-full object-contain drop-shadow-sm"
+                        src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/logo_nuevo.webp">
+                </div>
+                <span class="font-display text-xl tracking-tight uppercase select-none flex items-center leading-none">
+                    <span class="text-white">Envíos</span>
+                    <span class="text-brand-yellow ml-1">DosRuedas</span>
+                </span>
+            </a>
+            <button aria-label="Cerrar menú"
+                class="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white hover:text-brand-yellow focus:outline-none focus:ring-2 focus:ring-brand-yellow/50 transition-colors cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
+                onclick="toggleMobileNav(false)" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    data-lucide="x" aria-hidden="true" class="lucide lucide-x w-5 h-5">
+                    <path d="M18 6 6 18"></path>
+                    <path d="m6 6 12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Lista de Navegación Móvil -->
+        <div class="flex-1 overflow-y-auto overscroll-contain px-5 py-6 space-y-3">
+            <nav class="space-y-2">
+                <!-- Inicio -->
+                <div class="border-b border-white/10 pb-2">
+                    <a class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-brand-yellow bg-white/5 min-h-[48px]"
+                        href="./index.html" onclick="toggleMobileNav(false)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="home" aria-hidden="true"
+                            class="lucide lucide-home w-5 h-5 text-brand-yellow shrink-0">
+                            <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                            <path
+                                d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z">
+                            </path>
+                        </svg>
+                        <span class="">Inicio</span>
+                    </a>
+                </div>
+                <!-- Acordeón Servicios -->
+                <div class="border-b border-white/10 pb-2">
+                    <button aria-expanded="false"
+                        class="w-full text-left py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase flex items-center justify-between text-white hover:bg-white/5 cursor-pointer min-h-[48px]"
+                        onclick="toggleMobileSubmenu('drawer-sub-servicios', this)" type="button">
+                        <span class="flex items-center gap-3.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="bike" aria-hidden="true"
+                                class="lucide lucide-bike w-5 h-5 text-brand-yellow shrink-0">
+                                <circle cx="18.5" cy="17.5" r="3.5"></circle>
+                                <circle cx="5.5" cy="17.5" r="3.5"></circle>
+                                <circle cx="15" cy="5" r="1"></circle>
+                                <path d="M12 17.5V14l-3-3 4-3 2 3h2"></path>
+                            </svg>
+                            <span class="">Servicios</span>
+                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="chevron-down" aria-hidden="true"
+                            class="lucide lucide-chevron-down submenu-arrow w-5 h-5 text-brand-yellow shrink-0 transition-transform duration-200">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden pl-4 pr-1 py-2 flex-col gap-1" id="drawer-sub-servicios">
+                        <a class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow hover:bg-black/15"
+                            href="./servicios-envios-express.html" onclick="toggleMobileNav(false)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="zap" aria-hidden="true"
+                                class="lucide lucide-zap w-4 h-4 text-brand-yellow">
+                                <path
+                                    d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z">
+                                </path>
+                            </svg>
+                            <span class="">Envíos Express</span>
+                        </a>
+                        <a class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow hover:bg-black/15"
+                            href="./servicios-envios-lowcost.html" onclick="toggleMobileNav(false)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="trending-down" aria-hidden="true"
+                                class="lucide lucide-trending-down w-4 h-4 text-brand-yellow">
+                                <path d="M16 17h6v-6"></path>
+                                <path d="m22 17-8.5-8.5-5 5L2 7"></path>
+                            </svg>
+                            <span class="">Envíos LowCost</span>
+                        </a>
+                        <a class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow hover:bg-black/15"
+                            href="./servicios-enviosflex.html" onclick="toggleMobileNav(false)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="clock" aria-hidden="true"
+                                class="lucide lucide-clock w-4 h-4 text-brand-yellow">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 6v6l4 2"></path>
+                            </svg>
+                            <span class="">Envíos Flex (MeLi)</span>
+                        </a>
+                        <a class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow hover:bg-black/15"
+                            href="./servicios-empresas-cuenta-corriente.html" onclick="toggleMobileNav(false)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="building-2" aria-hidden="true"
+                                class="lucide lucide-building-2 w-4 h-4 text-brand-yellow">
+                                <path d="M10 12h4"></path>
+                                <path d="M10 8h4"></path>
+                                <path d="M14 21v-3a2 2 0 0 0-4 0v3"></path>
+                                <path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2">
+                                </path>
+                                <path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path>
+                            </svg>
+                            <span class="">Cuenta Corriente</span>
+                        </a>
+                        <a class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow hover:bg-black/15"
+                            href="./servicios.html#ecommerce-24hs" onclick="toggleMobileNav(false)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="package" aria-hidden="true"
+                                class="lucide lucide-package w-4 h-4 text-brand-yellow">
+                                <path
+                                    d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z">
+                                </path>
+                                <path d="M12 22V12"></path>
+                                <polyline points="3.29 7 12 12 20.71 7"></polyline>
+                                <path d="m7.5 4.27 9 5.15"></path>
+                            </svg>
+                            <span class="">E-commerce 24HS</span>
+                        </a>
+                        <a class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow hover:bg-black/15"
+                            href="./servicios-deposito-fulfillment.html" onclick="toggleMobileNav(false)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="store" aria-hidden="true"
+                                class="lucide lucide-store w-4 h-4 text-brand-yellow">
+                                <path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"></path>
+                                <path
+                                    d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244">
+                                </path>
+                                <path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"></path>
+                            </svg>
+                            <span class="">E-commerce Same Day</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Acordeón Plataformas -->
+                <div class="border-b border-white/10 pb-2">
+                    <button aria-expanded="false"
+                        class="w-full text-left py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase flex items-center justify-between text-white hover:bg-white/5 cursor-pointer min-h-[48px]"
+                        onclick="toggleMobileSubmenu('drawer-sub-plataformas', this)" type="button">
+                        <span class="flex items-center gap-3.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="layout-grid" aria-hidden="true"
+                                class="lucide lucide-layout-grid w-5 h-5 text-brand-yellow shrink-0">
+                                <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                                <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                                <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                                <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+                            </svg>
+                            <span class="">Plataformas</span>
+                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="chevron-down" aria-hidden="true"
+                            class="lucide lucide-chevron-down submenu-arrow w-5 h-5 text-brand-yellow shrink-0 transition-transform duration-200">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden pl-4 pr-1 py-2 flex-col gap-1" id="drawer-sub-plataformas">
+                        <a class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow hover:bg-black/15"
+                            href="./logistica-dosruedas.html" onclick="toggleMobileNav(false)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="search" aria-hidden="true"
+                                class="lucide lucide-search w-4 h-4 text-brand-yellow">
+                                <path d="m21 21-4.34-4.34"></path>
+                                <circle cx="11" cy="11" r="8"></circle>
+                            </svg>
+                            <span class="">Logística DosRuedas</span>
+                        </a>
+                        <a class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow hover:bg-black/15"
+                            href="./mardelivery.html" onclick="toggleMobileNav(false)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="utensils-crossed" aria-hidden="true"
+                                class="lucide lucide-utensils-crossed w-4 h-4 text-brand-yellow">
+                                <path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"></path>
+                                <path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7">
+                                </path>
+                                <path d="m2.1 21.8 6.4-6.3"></path>
+                                <path d="m19 5-7 7"></path>
+                            </svg>
+                            <span class="">MarDelivery Gastronomía</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Acordeón Nosotros -->
+                <div class="border-b border-white/10 pb-2">
+                    <button aria-expanded="false"
+                        class="w-full text-left py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase flex items-center justify-between text-white hover:bg-white/5 cursor-pointer min-h-[48px]"
+                        onclick="toggleMobileSubmenu('drawer-sub-nosotros', this)" type="button">
+                        <span class="flex items-center gap-3.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="info" aria-hidden="true"
+                                class="lucide lucide-info w-5 h-5 text-brand-yellow shrink-0">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 16v-4"></path>
+                                <path d="M12 8h.01"></path>
+                            </svg>
+                            <span class="">Nosotros</span>
+                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="chevron-down" aria-hidden="true"
+                            class="lucide lucide-chevron-down submenu-arrow w-5 h-5 text-brand-yellow shrink-0 transition-transform duration-200">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden pl-4 pr-1 py-2 flex-col gap-1" id="drawer-sub-nosotros">
+                        <a class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow hover:bg-black/15"
+                            href="./nosotros-sobre-nosotros.html" onclick="toggleMobileNav(false)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="info" aria-hidden="true"
+                                class="lucide lucide-info w-4 h-4 text-brand-yellow">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 16v-4"></path>
+                                <path d="M12 8h.01"></path>
+                            </svg>
+                            <span class="">Sobre Nosotros</span>
+                        </a>
+                        <a class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow hover:bg-black/15"
+                            href="./nosotros-preguntas-frecuentes.html" onclick="toggleMobileNav(false)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="help-circle" aria-hidden="true"
+                                class="lucide lucide-help-circle w-4 h-4 text-brand-yellow">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <path d="M12 17h.01"></path>
+                            </svg>
+                            <span class="">Preguntas Frecuentes</span>
+                        </a>
+                        <a class="flex items-center gap-3 py-2 px-3 rounded-xl text-base font-subheading uppercase tracking-wider text-white hover:text-brand-yellow hover:bg-black/15"
+                            href="./nosotros-nuestras-redes.html" onclick="toggleMobileNav(false)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" data-lucide="share-2" aria-hidden="true"
+                                class="lucide lucide-share-2 w-4 h-4 text-brand-yellow">
+                                <circle cx="18" cy="5" r="3"></circle>
+                                <circle cx="6" cy="12" r="3"></circle>
+                                <circle cx="18" cy="19" r="3"></circle>
+                                <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line>
+                                <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line>
+                            </svg>
+                            <span class="">Nuestras Redes</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Contacto -->
+                <div class="border-b border-white/10 pb-2">
+                    <a class="flex items-center gap-3.5 py-2.5 px-3 rounded-xl text-xl font-subheading tracking-wider uppercase text-white hover:text-brand-yellow hover:bg-white/5 min-h-[48px]"
+                        href="./contacto.html" onclick="toggleMobileNav(false)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="mail" aria-hidden="true"
+                            class="lucide lucide-mail w-5 h-5 text-brand-yellow shrink-0">
+                            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        </svg>
+                        <span class="">Contacto</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <!-- Footer del Menú Móvil -->
+        <div class="p-5 border-t border-white/10 space-y-3.5 shrink-0 bg-brand-blue-500 mt-auto">
+            <a class="flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-white/10 border border-white/5 text-white hover:text-brand-yellow font-mono text-sm font-bold min-h-[44px]"
+                href="tel:+5492235246756">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    data-lucide="phone" aria-hidden="true" class="lucide lucide-phone w-4 h-4 text-brand-yellow">
+                    <path
+                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
+                    </path>
+                </svg>
+                <span class="">+54 9 223 524-6756</span>
+            </a>
+            <a class="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-full bg-brand-yellow text-brand-blue font-subheading text-lg font-bold uppercase tracking-wider shadow-accent-sm hover:bg-brand-yellow-400 min-h-[44px]"
+                href="./cotizar.html" onclick="toggleMobileNav(false)">
+                Cotizá tu envío
+            </a>
+        </div>
+    </div>
+
+        <!-- ========================================================================
+       3. CONTENIDO ESPECÍFICO DE PÁGINA (SLOT PRINCIPAL / BODY VIEW)
+       ======================================================================== -->
+    <main class="min-h-dvh bg-white text-brand-blue-1000 relative overflow-hidden" id="main-content">
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Guía Completa Mercado Envíos Flex en Mar del Plata 2026",
+          "description": "Guía práctica y operativa para configurar y gestionar entregas en el mismo día con Mercado Envíos Flex en todo Mar del Plata.",
+          "mainEntityOfPage": "https://www.enviosdosruedas.com/guias/envios-flex-mar-del-plata",
+          "author": {
+            "@type": "Organization",
+            "name": "Envíos DosRuedas",
+            "url": "https://www.enviosdosruedas.com"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Envíos DosRuedas",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.enviosdosruedas.com/logo-envios-simplified.webp"
+            }
+          },
+          "datePublished": "2026-01-15T09:00:00-03:00",
+          "dateModified": "2026-09-18T10:00:00-03:00"
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.enviosdosruedas.com" },
+            { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://www.enviosdosruedas.com/#servicios" },
+            { "@type": "ListItem", "position": 3, "name": "Guía Mercado Envíos Flex MDQ", "item": "https://www.enviosdosruedas.com/guias/envios-flex-mar-del-plata" }
+          ]
+        }
+        </script>
+
+        <!-- Hero -->
+        <section class="relative z-10 bg-brand-blue-500 text-white pt-24 pb-20 px-4 sm:px-6 lg:px-8 border-b border-brand-blue-400">
+            <div class="max-w-7xl mx-auto">
+                <div class="max-w-3xl space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow-500/10 border border-brand-yellow-500/40 text-brand-yellow-500 text-xs font-subheading uppercase tracking-widest font-bold shadow-sm">
+                        <i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-yellow-500"></i>
+                        <span>Guía Práctica para Vendedores MDQ 2026</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-[0.98]">
+                        CÓMO OPERAR <span class="text-brand-yellow-500">MERCADO ENVÍOS FLEX</span> EN MAR DEL PLATA
+                    </h1>
+
+                    <p class="font-sans text-base sm:text-lg text-brand-blue-100 leading-relaxed font-light">
+                        Todo lo que necesitás saber para activar entregas en el mismo día, no perder ventas locales y mantener tu reputación de MercadoLíder al 100% sin complicaciones operativas.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Le%C3%AD%20la%20gu%C3%ADa%20Flex%20y%20quiero%20coordinar%20retiros%20para%20mi%20cuenta." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-brand-yellow-500 text-brand-blue-500 font-subheading text-sm uppercase tracking-wider font-bold transition-all duration-300 hover:brightness-105 active:scale-[0.98] shadow-md">
+                            <span>Activá Flex con Nosotros</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+
+                        <a href="./servicios-enviosflex.html" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 text-white border border-white/30 font-subheading text-sm uppercase tracking-wider font-bold transition-all duration-300 hover:bg-white/20 active:scale-[0.98]">
+                            <span>Ver Servicio Flex</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenido Editorial de la Guía -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            <div class="max-w-4xl mx-auto space-y-16">
+                <!-- Introducción -->
+                <div class="space-y-4">
+                    <h2 class="text-2xl sm:text-3xl font-display uppercase text-brand-blue-500">
+                        ¿Por qué activar Flex si vendés en Mar del Plata?
+                    </h2>
+                    <p class="font-sans text-base text-brand-blue-500 leading-relaxed">
+                        En Mar del Plata, más del 65% de los compradores de Mercado Libre prefieren publicaciones con la insignia <strong>&quot;Llega hoy&quot;</strong>. Activar Envíos Flex posiciona tus publicaciones en los primeros lugares de búsqueda para compradores de la ciudad, multiplicando tu tasa de conversión sin costos adicionales de comisión.
+                    </p>
+                </div>
+
+                <!-- Pasos -->
+                <div class="space-y-8">
+                    <h2 class="text-2xl sm:text-3xl font-display uppercase text-brand-blue-500">
+                        Paso a paso para configurar tu logística
+                    </h2>
+
+                    <div class="space-y-6">
+                        <!-- Paso 1 -->
+                        <div class="rounded-[20px] p-2 bg-brand-blue-50/80 border border-brand-blue-100 shadow-sm">
+                            <div class="bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-sm flex items-start gap-5">
+                                <span class="w-10 h-10 rounded-xl bg-brand-blue-500 text-brand-yellow-500 font-display text-xl flex items-center justify-center shrink-0 shadow-sm">
+                                    1
+                                </span>
+                                <div class="space-y-1">
+                                    <h3 class="font-display text-lg uppercase text-brand-blue-500">
+                                        Habilitar Flex en tu panel de Mercado Libre
+                                    </h3>
+                                    <p class="font-sans text-sm text-brand-blue-500/85 leading-relaxed">
+                                        Ingresá a tu cuenta de vendedor en Mercado Libre, sección Configuración de Envíos y activá la opción &quot;Mercado Envíos Flex&quot;. Vas a necesitar definir tu dirección de despacho en Mar del Plata.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2 -->
+                        <div class="rounded-[20px] p-2 bg-brand-blue-50/80 border border-brand-blue-100 shadow-sm">
+                            <div class="bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-sm flex items-start gap-5">
+                                <span class="w-10 h-10 rounded-xl bg-brand-blue-500 text-brand-yellow-500 font-display text-xl flex items-center justify-center shrink-0 shadow-sm">
+                                    2
+                                </span>
+                                <div class="space-y-1">
+                                    <h3 class="font-display text-lg uppercase text-brand-blue-500">
+                                        Definir horario de corte y capacidad diaria
+                                    </h3>
+                                    <p class="font-sans text-sm text-brand-blue-500/85 leading-relaxed">
+                                        Recomendamos fijar el horario de corte a las 15:00 hs. Esto le permite a tus clientes comprar durante toda la mañana y primeras horas de la tarde con la promesa de recibir en el día.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3 -->
+                        <div class="rounded-[20px] p-2 bg-brand-blue-50/80 border border-brand-blue-100 shadow-sm">
+                            <div class="bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-sm flex items-start gap-5">
+                                <span class="w-10 h-10 rounded-xl bg-brand-blue-500 text-brand-yellow-500 font-display text-xl flex items-center justify-center shrink-0 shadow-sm">
+                                    3
+                                </span>
+                                <div class="space-y-1">
+                                    <h3 class="font-display text-lg uppercase text-brand-blue-500">
+                                        Coordinar con un servicio de cadetería local
+                                    </h3>
+                                    <p class="font-sans text-sm text-brand-blue-500/85 leading-relaxed">
+                                        Al operar con Envíos DosRuedas, pasamos a recolectar los paquetes por tu local o depósito después de las 15:00 hs y los distribuimos antes de las 20:00 hs protegiendo tu termómetro verde.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 4 -->
+                        <div class="rounded-[20px] p-2 bg-brand-blue-50/80 border border-brand-blue-100 shadow-sm">
+                            <div class="bg-white p-6 rounded-xl border border-brand-blue-50/50 shadow-sm flex items-start gap-5">
+                                <span class="w-10 h-10 rounded-xl bg-brand-blue-500 text-brand-yellow-500 font-display text-xl flex items-center justify-center shrink-0 shadow-sm">
+                                    4
+                                </span>
+                                <div class="space-y-1">
+                                    <h3 class="font-display text-lg uppercase text-brand-blue-500">
+                                        Escanear y entregar con remito digital
+                                    </h3>
+                                    <p class="font-sans text-sm text-brand-blue-500/85 leading-relaxed">
+                                        Cada paquete se escanea y entrega con firma y geolocalización, garantizando que Mercado Libre registre la entrega a tiempo de forma 100% automática.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buenas Prácticas -->
+                <div class="space-y-8">
+                    <h2 class="text-2xl sm:text-3xl font-display uppercase text-brand-blue-500">
+                        Claves para cuidar tu reputación (Termómetro Verde)
+                    </h2>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="p-6 rounded-2xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center">
+                                <i data-lucide="package" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-display text-base uppercase text-brand-blue-500">
+                                Embalaje seguro y legible
+                            </h3>
+                            <p class="font-sans text-xs sm:text-sm text-brand-blue-500/80 leading-relaxed">
+                                Imprimí la etiqueta térmica o autoadhesiva asegurando que el código QR y de barras no tenga arrugas. Protegé el contenido con sobre impermeable.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-display text-base uppercase text-brand-blue-500">
+                                Horario de corte estricto
+                            </h3>
+                            <p class="font-sans text-xs sm:text-sm text-brand-blue-500/80 leading-relaxed">
+                                No aceptes ventas fuera de horario sin confirmar disponibilidad. Respetar el corte de las 15:00 hs asegura que el 100% llegue antes de las 20:00 hs.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-display text-base uppercase text-brand-blue-500">
+                                Comunicación clara con el comprador
+                            </h3>
+                            <p class="font-sans text-xs sm:text-sm text-brand-blue-500/80 leading-relaxed">
+                                Avisale a tus compradores que el repartidor entregará entre las 16:00 y las 20:00 hs para que haya alguien disponible en el domicilio.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-brand-blue-50/60 border border-brand-blue-100 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-blue-500 text-brand-yellow-500 flex items-center justify-center">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-display text-base uppercase text-brand-blue-500">
+                                Zonas de cobertura calibradas
+                            </h3>
+                            <p class="font-sans text-xs sm:text-sm text-brand-blue-500/80 leading-relaxed">
+                                Configurá tu mapa de entrega en base a la cobertura real de Mar del Plata: Centro, Güemes, San Juan, Chauvín, Puerto, Constitución y Mogotes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box de Solución DosRuedas -->
+                <div class="p-8 rounded-2xl bg-brand-blue-500 text-white space-y-6 shadow-xl">
+                    <div class="flex items-center gap-2 text-brand-yellow-500 text-xs font-subheading uppercase font-bold tracking-wider">
+                        <i data-lucide="truck" class="w-4 h-4"></i>
+                        <span>Tu aliado logístico en Mar del Plata</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-tight leading-snug">
+                        DEJÁ LA LOGÍSTICA EN NUESTRAS MANOS Y DEDICATE A VENDER
+                    </h3>
+                    <p class="font-sans text-sm sm:text-base text-brand-blue-100 leading-relaxed">
+                        En Envíos DosRuedas contamos con más de 7 años de experiencia y flota propia en las calles de MDQ. Retiramos tus paquetes puntualmente y garantizamos el 100% de entregas en el día.
+                    </p>
+                    <div class="pt-2">
+                        <a href="https://api.whatsapp.com/send/?phone=542236602699&text=Hola!%20Quiero%20activar%20repartos%20Flex%20con%20Env%C3%ADos%20DosRuedas." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-brand-yellow-500 text-brand-blue-500 font-subheading text-sm uppercase tracking-wider font-bold transition-all duration-300 hover:brightness-105 active:scale-[0.98] shadow-md">
+                            <span>Consultar por WhatsApp</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<section class="py-16 md:py-24 bg-gradient-to-b from-[#F5F8FF] via-[#EBF2FE] to-[#F8FAFC] border-y border-brand-blue/15 relative overflow-hidden font-sans text-brand-blue"
+        id="carrusel-redes"><!-- Background Decorative Mesh -->
+        <div aria-hidden="true"
+            class="absolute inset-0 bg-[radial-gradient(#0950F6_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.04] pointer-events-none">
+        </div>
+        <div aria-hidden="true"
+            class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-brand-yellow/15 blur-3xl pointer-events-none">
+        </div>
+        <div aria-hidden="true"
+            class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-brand-blue/10 blur-3xl pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Encabezado de Sección -->
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span
+                    class="px-4 py-1.5 bg-brand-yellow text-brand-blue rounded-full text-xs font-bold tracking-widest inline-block font-subheading uppercase shadow-sm border border-brand-yellow-600/30">
+                    Nuestra Comunidad Digital
+                </span>
+                <h2
+                    class="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight uppercase text-brand-blue text-center">
+                    SEGUÍ NUESTRO <span class="inline-block bg-brand-yellow text-brand-blue px-3.5 py-0.5 rounded-xl -rotate-1 shadow-sm font-display">MOVIMIENTO</span>
+                </h2>
+                <p
+                    class="text-brand-blue/80 text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto">
+                    Sumate a nuestros canales digitales y enterate al toque de todas las novedades operativas en Mar del Plata.
+                </p>
+                <div class="h-1 w-20 bg-brand-yellow mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <!-- Grid de Redes Sociales: 3 Tarjetas Oficiales -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
+                <!-- Tarjeta 1: Facebook Oficial -->
+                <div
+                    class="group relative rounded-2xl p-1.5 transition-all duration-300 hover:-translate-y-1.5 border border-[#1877F2]/30 hover:border-[#1877F2] bg-white/90 backdrop-blur-md shadow-xl">
+                    <div
+                        class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between min-h-[380px] overflow-hidden bg-[#0866FF] hover:bg-[#1877F2] border border-white/15 transition-colors">
+                        <!-- Marca de agua decorativa -->
+                        <div aria-hidden="true"
+                            class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+                            <img src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/facebook.svg" alt=""
+                                class="w-56 h-56 object-contain opacity-10 group-hover:opacity-20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none" />
+                        </div>
+                        <!-- Cabecera de la tarjeta -->
+                        <div class="z-10 text-left space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span
+                                    class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading bg-white text-[#0866FF] shadow-sm">
+                                    FACEBOOK OFICIAL
+                                </span>
+                                <div
+                                    class="relative w-11 h-11 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                                    <img src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/facebook.svg"
+                                        alt="Facebook" class="w-full h-full object-contain drop-shadow-md" />
+                                </div>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                                    FACEBOOK</h3>
+                                <p class="font-mono text-xs font-bold mt-1 text-white/90">Envíos DosRuedas</p>
+                            </div>
+                            <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                                Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.
+                            </p>
+                        </div>
+                        <!-- Botón CTA -->
+                        <div class="z-10 pt-4 border-t border-white/10">
+                            <a class="w-full min-h-[44px] inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 bg-white hover:bg-white/90 text-[#0866FF] shadow-md shadow-[#0866FF]/20 group/btn"
+                                href="https://www.facebook.com/share/1RnSzyweir/" rel="noopener noreferrer"
+                                target="_blank">
+                                <span class="">SEGUIR COMUNIDAD</span>
+                                <span
+                                    class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 bg-[#0866FF]/15 text-[#0866FF] transition-transform duration-200 group-hover/btn:translate-x-1">
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Instagram MDQ -->
+                <div
+                    class="group relative rounded-2xl p-1.5 transition-all duration-300 hover:-translate-y-1.5 border border-[#E1306C]/30 hover:border-[#E1306C] bg-white/90 backdrop-blur-md shadow-xl">
+                    <div
+                        class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between min-h-[380px] overflow-hidden bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#F77737] border border-white/20 transition-colors">
+                        <!-- Marca de agua decorativa -->
+                        <div aria-hidden="true"
+                            class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+                            <img src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/instagram.svg" alt=""
+                                class="w-56 h-56 object-contain opacity-10 group-hover:opacity-20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none" />
+                        </div>
+                        <!-- Cabecera de la tarjeta -->
+                        <div class="z-10 text-left space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span
+                                    class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading bg-white text-[#E1306C] shadow-sm">
+                                    INSTAGRAM MDQ
+                                </span>
+                                <div
+                                    class="relative w-11 h-11 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                                    <img src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/instagram.svg"
+                                        alt="Instagram" class="w-full h-full object-contain drop-shadow-md" />
+                                </div>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                                    INSTAGRAM</h3>
+                                <p class="font-mono text-xs font-bold mt-1 text-white/90">@enviosdosruedas</p>
+                            </div>
+                            <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                                Mirá el detrás de escena de nuestros riders y la flota recorriendo las calles de MDQ.
+                            </p>
+                        </div>
+                        <!-- Botón CTA -->
+                        <div class="z-10 pt-4 border-t border-white/10">
+                            <a class="w-full min-h-[44px] inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 bg-white hover:bg-white/90 text-[#E1306C] shadow-md shadow-[#FD1D1D]/30 group/btn"
+                                href="https://www.instagram.com/enviosdosruedas/" rel="noopener noreferrer"
+                                target="_blank">
+                                <span class="">VER CONTENIDO</span>
+                                <span
+                                    class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 bg-[#E1306C]/15 text-[#E1306C] transition-transform duration-200 group-hover/btn:translate-x-1">
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: WhatsApp Directo -->
+                <div
+                    class="group relative rounded-2xl p-1.5 transition-all duration-300 hover:-translate-y-1.5 border border-[#128C7E]/30 hover:border-[#128C7E] bg-white/90 backdrop-blur-md shadow-xl">
+                    <div
+                        class="relative rounded-xl p-6 sm:p-7 flex flex-col justify-between min-h-[380px] overflow-hidden bg-[#128C7E] hover:bg-[#0e7468] border border-white/15 transition-colors">
+                        <!-- Marca de agua decorativa -->
+                        <div aria-hidden="true"
+                            class="absolute -right-8 -bottom-8 text-white/10 group-hover:text-white/20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none">
+                            <img src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/whatapps.svg" alt=""
+                                class="w-56 h-56 object-contain opacity-10 group-hover:opacity-20 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 pointer-events-none select-none" />
+                        </div>
+                        <!-- Cabecera de la tarjeta -->
+                        <div class="z-10 text-left space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span
+                                    class="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full uppercase font-subheading bg-white text-[#128C7E] shadow-sm">
+                                    WHATSAPP DIRECTO
+                                </span>
+                                <div
+                                    class="relative w-11 h-11 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                                    <img src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/whatapps.svg"
+                                        alt="WhatsApp" class="w-full h-full object-contain drop-shadow-md" />
+                                </div>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-display text-3xl sm:text-4xl uppercase tracking-tight leading-none text-white">
+                                    WHATSAPP</h3>
+                                <p class="font-mono text-xs font-bold mt-1 text-white/90">+54 9 223 524-6756</p>
+                            </div>
+                            <p class="font-sans text-xs sm:text-sm leading-relaxed text-white/90">
+                                Escribinos directamente para consultas, contrataciones o soporte express al toque.
+                            </p>
+                        </div>
+                        <!-- Botón CTA -->
+                        <div class="z-10 pt-4 border-t border-white/10">
+                            <a class="w-full min-h-[44px] inline-flex items-center justify-between font-subheading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-3 rounded-full transition-colors duration-200 bg-white hover:bg-white/90 text-[#128C7E] shadow-md shadow-[#128C7E]/30 group/btn"
+                                href="https://api.whatsapp.com/send/?phone=5492235246756&amp;text=Hola%20Envios%20DosRuedas,%20quiero%20hacer%20una%20consulta"
+                                rel="noopener noreferrer" target="_blank">
+                                <span class="">INICIAR CHAT</span>
+                                <span
+                                    class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-2 bg-[#128C7E]/15 text-[#128C7E] transition-transform duration-200 group-hover/btn:translate-x-1">
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========================================================================
+       5. FOOTER: (#optimized-footer) Pie institucional canónico
+       ======================================================================== -->
+    <footer class="bg-brand-blue-500 text-white border-t border-white/10 relative overflow-hidden font-sans"
+        id="optimized-footer"><!-- Barra decorativa superior amarilla -->
+        <div class="h-1.5 bg-brand-yellow w-full shadow-md shadow-brand-yellow/30"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
+            <!-- Banner CTA Superior del Footer -->
+            <div
+                class="mb-14 rounded-2xl bg-brand-blue/90 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <div
+                        class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-yellow/15 border border-brand-yellow/30 text-brand-yellow text-xs font-subheading uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-brand-yellow animate-ping"></span>
+                        Operaciones Activas Mar del Plata 2026
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white">
+                        ¿Tenés envíos para hoy? <span class="text-brand-yellow">Los entregamos a tiempo.</span>
+                    </h3>
+                    <p class="text-sm text-brand-blue-50 font-light max-w-xl">
+                        Cotizá online en segundos o coordiná directo con nuestro equipo logístico por WhatsApp.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
+                    <a class="w-full sm:w-auto cta-nested-pill bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue font-subheading uppercase tracking-wider text-sm px-6 py-3.5 rounded-full shadow-accent-sm hover:shadow-cta-glow transition-all flex items-center justify-between group min-h-[48px]"
+                        href="./cotizar.html">
+                        <span class="">Cotizá tu Envío</span>
+                        <span
+                            class="bg-brand-blue-500/10 text-brand-blue h-7 w-7 rounded-full flex items-center justify-center shrink-0 ml-3 group-hover:translate-x-1 transition-transform">
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </span>
+                    </a>
+                    <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-subheading uppercase tracking-wider text-sm px-5 py-3.5 rounded-full transition-all min-h-[48px]"
+                        href="https://api.whatsapp.com/send/?phone=5492235246756&amp;text=Hola%20Envios%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20envios"
+                        rel="noopener noreferrer" target="_blank">
+                        <img src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/whatapps.svg" alt=""
+                            class="w-4 h-4 object-contain inline-block" aria-hidden="true" />
+                        <span class="">Chateá con Nosotros</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Sección Intermedia: 3 Columnas -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+                <!-- Columna 1: Marca y Canales (4 cols) con Logo Oficial -->
+                <div class="lg:col-span-4 space-y-6">
+                    <a class="flex items-center gap-3.5 group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded-xl"
+                        href="./index.html">
+                        <div
+                            class="relative w-12 h-12 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
+                            <img alt="Logo DosRuedas" class="w-full h-full object-contain drop-shadow-md" height="48"
+                                src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/logo_nuevo.webp"
+                                width="48">
+                        </div>
+                        <div class="flex flex-col leading-none">
+                            <span
+                                class="font-display text-2xl sm:text-3xl tracking-tight uppercase select-none text-white">
+                                Envíos <span class="text-brand-yellow">DosRuedas</span>
+                            </span>
+                            <span
+                                class="text-[10px] font-mono text-brand-blue-50 tracking-widest uppercase mt-0.5 opacity-90">
+                                Tu solución confiable · Mar del Plata
+                            </span>
+                        </div>
+                    </a>
+                    <p class="text-brand-blue-50 text-sm leading-relaxed max-w-sm font-light">
+                        Con más de 7 años de trayectoria en Mar del Plata, transformamos el despacho de tus productos en
+                        un motor de
+                        crecimiento para emprendedores, PyMEs y comercios locales con flota propia y compromiso humano.
+                    </p>
+                    <div class="space-y-3 pt-2">
+                        <span
+                            class="block text-xs font-bold text-brand-yellow uppercase tracking-widest font-subheading">
+                            Canales Oficiales
+                        </span>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <a aria-label="Instagram Oficial"
+                                class="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-colors duration-200 border border-white/15 hover:border-brand-yellow shadow-sm"
+                                href="./nosotros-nuestras-redes.html" title="Instagram @enviosdosruedas">
+                                <img src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/instagram.svg"
+                                    alt="Instagram" class="w-5 h-5 object-contain" />
+                            </a>
+                            <a aria-label="Facebook Oficial"
+                                class="h-10 w-10 rounded-xl bg-white/10 hover:bg-brand-yellow text-white hover:text-brand-blue flex items-center justify-center transition-colors duration-200 border border-white/15 hover:border-brand-yellow shadow-sm"
+                                href="./nosotros-nuestras-redes.html" title="Facebook Envíos DosRuedas">
+                                <img src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/facebook.svg"
+                                    alt="Facebook" class="w-5 h-5 object-contain" />
+                            </a>
+                            <a aria-label="WhatsApp Directo"
+                                class="h-10 w-10 rounded-xl bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue flex items-center justify-center transition-colors duration-200 border border-brand-yellow shadow-accent-sm"
+                                href="https://api.whatsapp.com/send/?phone=5492235246756&amp;text=Hola%20Envios%20DosRuedas"
+                                rel="noopener noreferrer" target="_blank" title="WhatsApp Directo">
+                                <img src="https://vum8yixj3ftdwoor.public.blob.vercel-storage.com/whatapps.svg"
+                                    alt="WhatsApp" class="w-5 h-5 object-contain" />
+                            </a>
+                            <div
+                                class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/10 border border-white/15 text-xs text-white font-mono shadow-inner">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-brand-yellow shrink-0"></i>
+                                <span class="">Depósito Central · Friuli 1972</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Columna 2: Servicios y Plataformas (4 cols) -->
+                <div class="lg:col-span-4 space-y-5">
+                    <h4
+                        class="font-subheading text-lg tracking-wider text-brand-yellow uppercase border-b border-white/10 pb-2">
+                        Servicios y Plataformas
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                        <div>
+                            <p
+                                class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                                Cotizador y Portales</p>
+                            <ul class="space-y-2 text-sm font-sans">
+                                <li class="">
+                                    <a class="text-brand-blue-50 hover:text-brand-yellow flex items-center gap-2 transition-colors"
+                                        href="./cotizar.html">
+                                        <i data-lucide="zap" class="w-4 h-4 text-brand-yellow shrink-0"></i>
+                                        <span class="">Cotizá Express o LowCost</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="text-brand-blue-50 hover:text-brand-yellow flex items-center gap-2 transition-colors"
+                                        href="./logistica-dosruedas.html">
+                                        <i data-lucide="package" class="w-4 h-4 text-brand-yellow shrink-0"></i>
+                                        <span class="">Logística DosRuedas (Rastreo)</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="text-brand-blue-50 hover:text-brand-yellow flex items-center gap-2 transition-colors"
+                                        href="./mardelivery.html">
+                                        <i data-lucide="store" class="w-4 h-4 text-brand-yellow shrink-0"></i>
+                                        <span class="">MarDelivery (Gastronomía)</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p
+                                class="text-[10px] text-brand-blue-50/70 uppercase tracking-widest font-subheading mb-2.5">
+                                Servicios y Planes</p>
+                            <ul class="space-y-2 text-sm font-sans">
+                                <li class="">
+                                    <a class="text-brand-blue-50 hover:text-brand-yellow flex items-center gap-2 transition-colors"
+                                        href="./servicios-envios-express.html">
+                                        <i data-lucide="zap" class="w-4 h-4 text-brand-yellow shrink-0"></i>
+                                        <span class="">Envíos Express</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="text-brand-blue-50 hover:text-brand-yellow flex items-center gap-2 transition-colors"
+                                        href="./servicios-envios-lowcost.html">
+                                        <i data-lucide="trending-down" class="w-4 h-4 text-brand-yellow shrink-0"></i>
+                                        <span class="">Envíos LowCost</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="text-brand-blue-50 hover:text-brand-yellow flex items-center gap-2 transition-colors"
+                                        href="./servicios-enviosflex.html">
+                                        <i data-lucide="clock" class="w-4 h-4 text-brand-yellow shrink-0"></i>
+                                        <span class="">Mercado Envíos Flex</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="text-brand-blue-50 hover:text-brand-yellow flex items-center gap-2 transition-colors"
+                                        href="./servicios-empresas-cuenta-corriente.html">
+                                        <i data-lucide="building-2" class="w-4 h-4 text-brand-yellow shrink-0"></i>
+                                        <span class="">Cuenta Corriente</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Columna 3: Base de Operaciones MDQ (4 cols) -->
+                <div class="lg:col-span-4 space-y-5">
+                    <h4
+                        class="font-subheading text-lg tracking-wider text-brand-yellow uppercase border-b border-white/10 pb-2">
+                        Base de Operaciones MDQ
+                    </h4>
+                    <div class="space-y-3.5 text-xs text-brand-blue-50 font-sans">
+                        <div class="flex gap-3 items-start bg-brand-blue/80 p-3 rounded-xl border border-white/15">
+                            <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white uppercase font-subheading tracking-wider">Centro de
+                                    Distribución</p>
+                                <p class="font-sans text-[13px] text-brand-blue-50 mt-0.5">Friuli 1972, Mar del Plata
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start bg-brand-blue/80 p-3 rounded-xl border border-white/15">
+                            <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white uppercase font-subheading tracking-wider">Línea Directa y
+                                    WhatsApp</p>
+                                <a class="font-mono text-[13px] font-bold text-brand-yellow hover:underline block mt-0.5"
+                                    href="tel:+5492235246756">
+                                    +54 9 223 524-6756
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start bg-brand-blue/80 p-3 rounded-xl border border-white/15">
+                            <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white uppercase font-subheading tracking-wider">Atención
+                                    Comercial</p>
+                                <a class="font-sans text-[12px] text-brand-blue-50 hover:text-brand-yellow transition-colors block mt-0.5"
+                                    href="mailto:contacto@enviosdosruedas.com">
+                                    contacto@enviosdosruedas.com
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start bg-brand-blue/80 p-3 rounded-xl border border-white/15">
+                            <div class="p-2 bg-white/10 rounded-lg shrink-0 text-brand-yellow">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <p class="font-bold text-white uppercase font-subheading tracking-wider">Horarios de
+                                    Despacho</p>
+                                <div class="text-[12px] font-sans text-brand-blue-50 space-y-0.5">
+                                    <div class="flex justify-between items-center gap-4">
+                                        <span class="">Lunes a Viernes:</span>
+                                        <span class="font-mono font-bold text-brand-yellow">09:00 a 18:00</span>
+                                    </div>
+                                    <div class="flex justify-between items-center gap-4">
+                                        <span class="">Sábados:</span>
+                                        <span class="font-mono font-bold text-brand-yellow">10:00 a 15:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Separador y Botón Volver Arriba -->
+            <div class="border-t border-white/10 my-10 relative">
+                <button aria-label="Volver arriba"
+                    class="absolute -top-5 right-4 sm:right-6 bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue p-2.5 rounded-full shadow-accent-md hover:shadow-cta-glow transition-all flex items-center justify-center border-2 border-brand-yellow cursor-pointer min-w-[44px] min-h-[44px]"
+                    onclick="scrollToTop()" title="Volver al inicio" type="button">
+                    <i data-lucide="arrow-up" class="w-4 h-4 font-bold"></i>
+                </button>
+            </div>
+            <!-- Copyright y Enlaces Legales -->
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-brand-blue-50 font-sans">
+                <div class="flex flex-wrap justify-center md:justify-start items-center gap-4 sm:gap-6">
+                    <p class="font-medium text-white">© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</p>
+                    <a class="hover:text-brand-yellow transition-colors" href="./servicios.html">Servicios</a>
+                    <a class="hover:text-brand-yellow transition-colors" href="./cobertura.html">Cobertura</a>
+                    <a class="hover:text-brand-yellow transition-colors" href="./logistica-dosruedas.html">Logística
+                        DosRuedas</a>
+                    <a class="hover:text-brand-yellow transition-colors" href="./mardelivery.html">MarDelivery</a>
+                    <a class="hover:text-brand-yellow transition-colors" href="./nosotros.html">Nosotros</a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 shrink-0">
+                    <a class="hover:text-brand-yellow transition-colors" href="./terminos-y-condiciones.html">Términos y
+                        Condiciones</a>
+                    <a class="hover:text-brand-yellow transition-colors" href="./politica-de-privacidad.html">Política de
+                        Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ========================================================================
+       SCRIPTS DE INTERACTIVIDAD Y ACCESIBILIDAD
+       ======================================================================== -->
+    <script>
+        // Inicializar iconos de Lucide
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
+
+        // Efecto de fondo en scroll para Header
+        const header = document.getElementById('optimized-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-brand-blue-500/95', 'shadow-elevated', 'border-white/10', 'py-2.5', 'backdrop-blur-md');
+                header.classList.remove('bg-brand-blue-500', 'py-3.5', 'border-white/10');
+            } else {
+                header.classList.remove('bg-brand-blue-500/95', 'shadow-elevated', 'border-white/10', 'py-2.5', 'backdrop-blur-md');
+                header.classList.add('bg-brand-blue-500', 'py-3.5', 'border-white/10');
+            }
+        }, { passive: true });
+
+        // Desktop Dropdowns Interactivity
+        function toggleDesktopDropdown(id) {
+            const targetContainer = document.getElementById(id);
+            if (!targetContainer) return;
+            const targetPanel = targetContainer.querySelector('.dropdown-panel');
+            const targetBtn = targetContainer.querySelector('.dropdown-btn');
+            const targetChevron = targetContainer.querySelector('.dropdown-chevron');
+            const isCurrentlyOpen = !targetPanel.classList.contains('hidden');
+
+            // Cerrar otros dropdowns abiertos
+            document.querySelectorAll('.dropdown-panel').forEach(panel => panel.classList.add('hidden'));
+            document.querySelectorAll('.dropdown-btn').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+            document.querySelectorAll('.dropdown-chevron').forEach(chev => chev.classList.remove('rotate-180'));
+
+            if (!isCurrentlyOpen) {
+                targetPanel.classList.remove('hidden');
+                targetBtn.setAttribute('aria-expanded', 'true');
+                if (targetChevron) targetChevron.classList.add('rotate-180');
+            }
+        }
+
+        // Hover listeners para desktop dropdowns
+        document.querySelectorAll('.dropdown-container').forEach(container => {
+            container.addEventListener('mouseenter', () => {
+                const panel = container.querySelector('.dropdown-panel');
+                const btn = container.querySelector('.dropdown-btn');
+                const chevron = container.querySelector('.dropdown-chevron');
+                if (panel) panel.classList.remove('hidden');
+                if (btn) btn.setAttribute('aria-expanded', 'true');
+                if (chevron) chevron.classList.add('rotate-180');
+            });
+            container.addEventListener('mouseleave', () => {
+                const panel = container.querySelector('.dropdown-panel');
+                const btn = container.querySelector('.dropdown-btn');
+                const chevron = container.querySelector('.dropdown-chevron');
+                if (panel) panel.classList.add('hidden');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+                if (chevron) chevron.classList.remove('rotate-180');
+            });
+        });
+
+        // Mobile Drawer Navigation
+        const mobileDrawer = document.getElementById('mobile-navigation-dialog');
+        const mobileBackdrop = document.getElementById('mobile-nav-backdrop');
+        const mobileToggleBtn = document.getElementById('mobile-menu-toggle-opt');
+
+        function toggleMobileNav(open) {
+            if (!mobileDrawer || !mobileBackdrop) return;
+            if (open) {
+                mobileBackdrop.classList.remove('hidden');
+                mobileDrawer.classList.remove('translate-x-full');
+                if (mobileToggleBtn) mobileToggleBtn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileBackdrop.classList.add('hidden');
+                mobileDrawer.classList.add('translate-x-full');
+                if (mobileToggleBtn) mobileToggleBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Submenús en el Drawer Móvil
+        function toggleMobileSubmenu(id, btn) {
+            const submenu = document.getElementById(id);
+            if (!submenu) return;
+            const arrow = btn.querySelector('.submenu-arrow');
+            const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                submenu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+                if (arrow) arrow.classList.remove('rotate-180');
+            } else {
+                submenu.classList.remove('hidden');
+                btn.setAttribute('aria-expanded', 'true');
+                if (arrow) arrow.classList.add('rotate-180');
+            }
+        }
+
+        // Cerrar con Escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (mobileDrawer && !mobileDrawer.classList.contains('translate-x-full')) {
+                    toggleMobileNav(false);
+                }
+                document.querySelectorAll('.dropdown-panel').forEach(panel => panel.classList.add('hidden'));
+                document.querySelectorAll('.dropdown-btn').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+                document.querySelectorAll('.dropdown-chevron').forEach(chev => chev.classList.remove('rotate-180'));
+            }
+        });
+
+        // Scroll suave hacia arriba
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+
+
+
+
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" style="display: none;"
+        onload="if(window.lucide){window.lucide.createIcons();}" alt="">
+</body>
+
+</html>

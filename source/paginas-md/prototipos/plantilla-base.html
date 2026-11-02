@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla Base | Envíos DosRuedas Mar del Plata</title>
+  <meta name="description" content="Plantilla base arquitectónica de Envíos DosRuedas para clonar y maquetar nuevas páginas prototipo.">
+  <meta name="author" content="Envíos DosRuedas">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0950F6">
+
+  <!-- Tipografías Oficiales de Marca -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos del Shell y Layout Compartido (CSS Puro) -->
+  <link rel="stylesheet" href="./css/layout.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+  <!-- Enlace accesible de salto al contenido -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- ========================================================================
+       1. HEADER COMPARTIDO (OptimizedHeader)
+       ======================================================================== -->
+  <header class="header" role="banner">
+    <div class="container header-container">
+
+      <!-- Logotipo Oficial -->
+      <a href="./home.html" class="logo" aria-label="Envíos DosRuedas - Inicio">
+        <div class="logo-badge" aria-hidden="true">
+          <i data-lucide="bike" style="width: 1.5rem; height: 1.5rem;"></i>
+        </div>
+        <div class="logo-text">
+          <span class="white kinetic-stretch">Envíos</span>
+          <span class="yellow kinetic-stretch">DosRuedas</span>
+        </div>
+      </a>
+
+      <!-- Navegación de Escritorio -->
+      <nav class="nav-desktop" aria-label="Navegación principal">
+        <a href="./home.html" class="nav-link is-active">Inicio</a>
+
+        <!-- Dropdown Servicios -->
+        <div class="nav-dropdown">
+          <button type="button" class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Servicios</span>
+            <i data-lucide="chevron-down" class="dropdown-chevron" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="./home.html#services-overview" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="zap" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">Envíos Express (3 hs)</div>
+                <div class="dropdown-item-desc">Urgencias y trámites con franja a elección</div>
+              </div>
+            </a>
+            <a href="./home.html#services-overview" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="trending-down" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">Envíos LowCost</div>
+                <div class="dropdown-item-desc">Tarifa más económica programada en el día</div>
+              </div>
+            </a>
+            <a href="./home.html#services-overview" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="truck" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">Mercado Envíos Flex</div>
+                <div class="dropdown-item-desc">Entregas en el día con corte 15:00 hs</div>
+              </div>
+            </a>
+            <a href="./home.html#services-overview" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="warehouse" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">E-Commerce Same Day</div>
+                <div class="dropdown-item-desc">Almacenaje y fulfillment en Friuli 1972</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dropdown Plataformas -->
+        <div class="nav-dropdown">
+          <button type="button" class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Plataformas</span>
+            <i data-lucide="chevron-down" class="dropdown-chevron" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="./home.html#logistica-dosruedas-home" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="package" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">Logística DosRuedas</div>
+                <div class="dropdown-item-desc">Rastreo con código EDR y panel comercial</div>
+              </div>
+            </a>
+            <a href="./home.html#mardelivery-home" class="dropdown-item" role="menuitem">
+              <div class="dropdown-item-icon"><i data-lucide="utensils" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <div class="dropdown-item-title">MarDelivery Gastronomía</div>
+                <div class="dropdown-item-desc">Carta digital QR y reparto para locales gastronómicos</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <a href="./home.html#segmentos-home" class="nav-link">Nosotros</a>
+        <a href="./home.html#cta-section" class="nav-link">Contacto</a>
+      </nav>
+
+      <!-- Acciones del Header -->
+      <div class="header-actions">
+        <a href="tel:+5492235246756" class="header-phone-link">
+          <i data-lucide="phone" style="width: 0.875rem; height: 0.875rem;"></i>
+          <span>+54 9 223 524-6756</span>
+        </a>
+
+        <a href="./home.html#cta-section" class="header-cta-btn">
+          Cotizá tu Envío
+        </a>
+
+        <!-- Botón Menú Móvil -->
+        <button type="button" id="menu-toggle-btn" class="menu-toggle" onclick="toggleMobileNav(true)"
+                aria-label="Abrir menú de navegación" aria-controls="mobile-drawer" aria-expanded="false">
+          <i data-lucide="menu" style="width: 1.5rem; height: 1.5rem;"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. DRAWER MÓVIL (MobileNav)
+       ======================================================================== -->
+  <div id="mobile-backdrop" class="drawer-backdrop" onclick="toggleMobileNav(false)" aria-hidden="true"></div>
+
+  <div id="mobile-drawer" class="drawer" role="dialog" aria-modal="true" aria-label="Menú principal">
+    
+    <div class="drawer-header">
+      <a href="./home.html" onclick="toggleMobileNav(false)" class="logo">
+        <div class="logo-text">
+          <span class="white">Envíos</span>
+          <span class="yellow">DosRuedas</span>
+        </div>
+      </a>
+      <button type="button" class="drawer-close-btn" onclick="toggleMobileNav(false)" aria-label="Cerrar menú">
+        <i data-lucide="x" style="width: 1.25rem; height: 1.25rem;"></i>
+      </button>
+    </div>
+
+    <div class="drawer-content">
+      <nav class="drawer-nav">
+        
+        <div class="drawer-nav-item">
+          <a href="./home.html" onclick="toggleMobileNav(false)" class="drawer-link is-active">
+            <i data-lucide="home" style="width: 1.25rem; height: 1.25rem; color: var(--color-brand-yellow-500);"></i>
+            <span>Inicio</span>
+          </a>
+        </div>
+
+        <div class="drawer-nav-item">
+          <button type="button" class="drawer-accordion-btn" onclick="toggleMobileSubmenu('drawer-servicios-sub', this)" aria-expanded="false">
+            <span style="display: flex; align-items: center; gap: 0.875rem;">
+              <i data-lucide="bike" style="width: 1.25rem; height: 1.25rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Servicios</span>
+            </span>
+            <i data-lucide="chevron-down" class="dropdown-chevron" style="width: 1.25rem; height: 1.25rem; color: var(--color-brand-yellow-500);"></i>
+          </button>
+          <div id="drawer-servicios-sub" class="drawer-submenu">
+            <a href="./home.html#services-overview" onclick="toggleMobileNav(false)" class="drawer-submenu-link">
+              <i data-lucide="zap" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Envíos Express (3 hs)</span>
+            </a>
+            <a href="./home.html#services-overview" onclick="toggleMobileNav(false)" class="drawer-submenu-link">
+              <i data-lucide="trending-down" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Envíos LowCost</span>
+            </a>
+            <a href="./home.html#services-overview" onclick="toggleMobileNav(false)" class="drawer-submenu-link">
+              <i data-lucide="truck" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+              <span>Mercado Envíos Flex</span>
+            </a>
+            <a href="./home.html#services-overview" onclick="toggleMobileNav(false)" class="drawer-submenu-link">
+              <i data-lucide="warehouse" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+              <span>E-Commerce Same Day</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="drawer-nav-item">
+          <a href="./home.html#logistica-dosruedas-home" onclick="toggleMobileNav(false)" class="drawer-link">
+            <i data-lucide="map-pin" style="width: 1.25rem; height: 1.25rem; color: var(--color-brand-yellow-500);"></i>
+            <span>Cobertura (5 Radios)</span>
+          </a>
+        </div>
+
+        <div class="drawer-nav-item">
+          <a href="./home.html#cta-section" onclick="toggleMobileNav(false)" class="drawer-link">
+            <i data-lucide="mail" style="width: 1.25rem; height: 1.25rem; color: var(--color-brand-yellow-500);"></i>
+            <span>Contacto</span>
+          </a>
+        </div>
+
+      </nav>
+    </div>
+
+    <div class="drawer-footer">
+      <a href="tel:+5492235246756" class="drawer-phone-btn">
+        <i data-lucide="phone" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+        <span>+54 9 223 524-6756</span>
+      </a>
+      <a href="./home.html#cta-section" onclick="toggleMobileNav(false)" class="drawer-cta-btn">
+        Cotizá tu Envío
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ========================================================================
+       3. CUERPO PRINCIPAL ESPECÍFICO DE CADA PÁGINA (A CLONAR)
+       ======================================================================== -->
+  <main id="main-content" class="main-content">
+    
+    <!-- INSERTÁ ACÁ EL CONTENIDO ESPECÍFICO DE TU PÁGINA -->
+    <section style="padding: 5rem 1rem; text-align: center;">
+      <div class="container">
+        <h1 class="font-display" style="font-size: 3rem; color: var(--color-brand-blue-500); margin-bottom: 1rem;">
+          ÁREA DE CONTENIDO
+        </h1>
+        <p style="font-size: 1.125rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto 2rem;">
+          Esta es la plantilla base de Envíos DosRuedas. Duplicá este archivo para crear nuevas páginas conservando el Header, Drawer, Carrusel de Redes y Footer oficiales.
+        </p>
+        <a href="./home.html" class="cta-pill cta-pill-primary">
+          <span>Ver Home Completa</span>
+          <span class="cta-pill-icon"><i data-lucide="arrow-right" style="width: 1.25rem; height: 1.25rem;"></i></span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       4. CARRUSEL DE REDES OFICIALES (CarruselRedes)
+       ======================================================================== -->
+  <section id="carrusel-redes" class="social-section" aria-labelledby="social-heading">
+    <div class="container">
+      
+      <div class="social-header">
+        <span class="social-badge">Nuestra Comunidad Digital</span>
+        <h2 id="social-heading" class="social-title">
+          SEGUÍ NUESTRO <span class="highlight">MOVIMIENTO</span>
+        </h2>
+        <p class="social-desc">
+          Sumate a nuestros canales digitales y enterate al toque de todas las novedades operativas en Mar del Plata.
+        </p>
+        <div class="social-divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="social-grid">
+        
+        <!-- Facebook -->
+        <div class="social-card social-card-facebook">
+          <div class="social-card-inner">
+            <div class="social-watermark" aria-hidden="true">
+              <i data-lucide="facebook" style="width: 14rem; height: 14rem;"></i>
+            </div>
+            <div class="social-top">
+              <div>
+                <span class="social-pill-badge">FACEBOOK OFICIAL</span>
+              </div>
+              <div>
+                <h3 class="social-name">FACEBOOK</h3>
+                <p class="social-handle">Envíos DosRuedas</p>
+              </div>
+              <p class="social-copy">
+                Seguí nuestro día a día, novedades operativas y la comunidad comercial en Mar del Plata.
+              </p>
+            </div>
+            <div class="social-btn">
+              <a href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer" class="social-cta-link">
+                <span>SEGUIR COMUNIDAD</span>
+                <span class="social-btn-arrow"><i data-lucide="arrow-up-right" style="width: 1rem; height: 1rem;"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram MDQ -->
+        <div class="social-card social-card-instagram">
+          <div class="social-card-inner">
+            <div class="social-watermark" aria-hidden="true">
+              <i data-lucide="instagram" style="width: 14rem; height: 14rem;"></i>
+            </div>
+            <div class="social-top">
+              <div>
+                <span class="social-pill-badge">INSTAGRAM MDQ</span>
+              </div>
+              <div>
+                <h3 class="social-name">INSTAGRAM</h3>
+                <p class="social-handle">@enviosdosruedas</p>
+              </div>
+              <p class="social-copy">
+                Mirá el detrás de escena de nuestros riders y la flota recorriendo las calles de MDQ.
+              </p>
+            </div>
+            <div class="social-btn">
+              <a href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer" class="social-cta-link">
+                <span>VER CONTENIDO</span>
+                <span class="social-btn-arrow"><i data-lucide="arrow-up-right" style="width: 1rem; height: 1rem;"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp Directo -->
+        <div class="social-card social-card-whatsapp">
+          <div class="social-card-inner">
+            <div class="social-watermark" aria-hidden="true">
+              <i data-lucide="message-circle" style="width: 14rem; height: 14rem;"></i>
+            </div>
+            <div class="social-top">
+              <div>
+                <span class="social-pill-badge">WHATSAPP DIRECTO</span>
+              </div>
+              <div>
+                <h3 class="social-name">WHATSAPP</h3>
+                <p class="social-handle">+54 9 223 524-6756</p>
+              </div>
+              <p class="social-copy">
+                Escribinos directamente para consultas, contrataciones o soporte express al toque.
+              </p>
+            </div>
+            <div class="social-btn">
+              <a href="https://api.whatsapp.com/send/?phone=5492235246756&text=Hola%20Envios%20DosRuedas,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener noreferrer" class="social-cta-link">
+                <span>INICIAR CHAT</span>
+                <span class="social-btn-arrow"><i data-lucide="arrow-up-right" style="width: 1rem; height: 1rem;"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. FOOTER COMPARTIDO (OptimizedFooter)
+       ======================================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top-accent" aria-hidden="true"></div>
+
+    <div class="container footer-content">
+      
+      <!-- Banner CTA Superior -->
+      <div class="footer-banner">
+        <div>
+          <div class="footer-banner-badge">
+            <span class="footer-banner-pulse" aria-hidden="true"></span>
+            <span>Operaciones Activas Mar del Plata 2026</span>
+          </div>
+          <h3 class="footer-banner-title">
+            ¿Tenés envíos para hoy? <span class="highlight">Los entregamos a tiempo.</span>
+          </h3>
+          <p class="footer-banner-desc">
+            Cotizá online en segundos o coordiná directo con nuestro equipo logístico por WhatsApp.
+          </p>
+        </div>
+
+        <div class="footer-banner-actions">
+          <a href="./home.html#cta-section" class="cta-pill cta-pill-yellow">
+            <span>Cotizá tu Envío</span>
+            <span class="cta-pill-icon"><i data-lucide="arrow-up-right" style="width: 1rem; height: 1rem;"></i></span>
+          </a>
+          <a href="https://api.whatsapp.com/send/?phone=5492235246756&text=Hola%20Envios%20DosRuedas!%20Quiero%20hacer%20una%20consulta%20de%20envios" target="_blank" rel="noopener noreferrer" class="footer-chat-btn">
+            <i data-lucide="message-circle" style="width: 1.125rem; height: 1.125rem; color: var(--color-brand-yellow-500);"></i>
+            <span>Chateá con Nosotros</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Columnas del Directorio -->
+      <div class="footer-columns">
+        
+        <!-- Columna 1: Marca y Canales -->
+        <div>
+          <a href="./home.html" class="logo" style="margin-bottom: 1rem;">
+            <div class="logo-badge" style="font-size: 1.5rem;">2R</div>
+            <div class="logo-text">
+              <span class="white">Envíos <span class="yellow">DosRuedas</span></span>
+            </div>
+          </a>
+          <p class="footer-desc">
+            Con más de 7 años de trayectoria en Mar del Plata, transformamos el despacho de tus productos en un motor de crecimiento para emprendedores, PyMEs y comercios locales con flota propia y compromiso humano.
+          </p>
+          <div style="margin-top: 1.25rem;">
+            <span class="footer-subgroup-title" style="display: block;">Canales Oficiales</span>
+            <div class="footer-social-icons">
+              <a href="https://www.instagram.com/enviosdosruedas/" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Instagram Oficial">
+                <i data-lucide="instagram" style="width: 1.25rem; height: 1.25rem;"></i>
+              </a>
+              <a href="https://www.facebook.com/share/1RnSzyweir/" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Facebook Oficial">
+                <i data-lucide="facebook" style="width: 1.25rem; height: 1.25rem;"></i>
+              </a>
+              <a href="https://api.whatsapp.com/send/?phone=5492235246756" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="WhatsApp Directo" style="background-color: var(--color-brand-yellow-500); color: var(--color-brand-blue-500);">
+                <i data-lucide="message-circle" style="width: 1.25rem; height: 1.25rem;"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-hub-badge">
+            <i data-lucide="shield-check" style="width: 1rem; height: 1rem; color: var(--color-brand-yellow-500);"></i>
+            <span>Depósito Central · Friuli 1972</span>
+          </div>
+        </div>
+
+        <!-- Columna 2: Servicios y Plataformas -->
+        <div>
+          <h4 class="footer-col-title">Servicios y Plataformas</h4>
+          <div class="footer-links-grid">
+            <div>
+              <p class="footer-subgroup-title">Cotizador y Portales</p>
+              <ul class="footer-link-list">
+                <li class="footer-link-item"><a href="./home.html#services-overview"><i data-lucide="zap" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Cotizá Express / LowCost</a></li>
+                <li class="footer-link-item"><a href="./home.html#logistica-dosruedas-home"><i data-lucide="package" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Logística (Rastreo EDR)</a></li>
+                <li class="footer-link-item"><a href="./home.html#mardelivery-home"><i data-lucide="store" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> MarDelivery Gastronomía</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer-subgroup-title">Modalidades</p>
+              <ul class="footer-link-list">
+                <li class="footer-link-item"><a href="./home.html#services-overview"><i data-lucide="zap" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Envíos Express (3 hs)</a></li>
+                <li class="footer-link-item"><a href="./home.html#services-overview"><i data-lucide="trending-down" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Envíos LowCost</a></li>
+                <li class="footer-link-item"><a href="./home.html#services-overview"><i data-lucide="truck" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Mercado Envíos Flex</a></li>
+                <li class="footer-link-item"><a href="./home.html#segmentos-home"><i data-lucide="building-2" style="width: 0.875rem; height: 0.875rem; color: var(--color-brand-yellow-500);"></i> Cuenta Corriente</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna 3: Base de Operaciones MDQ -->
+        <div>
+          <h4 class="footer-col-title">Base de Operaciones MDQ</h4>
+          <div class="footer-info-cards">
+            
+            <div class="footer-info-card">
+              <div class="footer-info-icon"><i data-lucide="map-pin" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <p class="footer-info-title">Centro de Distribución</p>
+                <p class="footer-info-value">Friuli 1972, Mar del Plata</p>
+              </div>
+            </div>
+
+            <div class="footer-info-card">
+              <div class="footer-info-icon"><i data-lucide="phone" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <p class="footer-info-title">Línea Directa y WhatsApp</p>
+                <a href="tel:+5492235246756" class="footer-phone-number">+54 9 223 524-6756</a>
+              </div>
+            </div>
+
+            <div class="footer-info-card">
+              <div class="footer-info-icon"><i data-lucide="mail" style="width: 1rem; height: 1rem;"></i></div>
+              <div>
+                <p class="footer-info-title">Atención Comercial</p>
+                <a href="mailto:contacto@enviosdosruedas.com" class="footer-info-value" style="text-decoration: underline;">contacto@enviosdosruedas.com</a>
+              </div>
+            </div>
+
+            <div class="footer-info-card">
+              <div class="footer-info-icon"><i data-lucide="clock" style="width: 1rem; height: 1rem;"></i></div>
+              <div style="width: 100%;">
+                <p class="footer-info-title">Horarios de Despacho</p>
+                <div class="footer-schedule-row">
+                  <span class="footer-info-value">Lunes a Viernes:</span>
+                  <span class="footer-phone-number">09:00 a 18:00</span>
+                </div>
+                <div class="footer-schedule-row">
+                  <span class="footer-info-value">Sábados:</span>
+                  <span class="footer-phone-number">10:00 a 15:00</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Divisor y Botón de Volver Arriba -->
+      <div class="footer-divider-wrapper">
+        <button type="button" class="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba">
+          <i data-lucide="arrow-up" style="width: 1.125rem; height: 1.125rem;"></i>
+        </button>
+      </div>
+
+      <!-- Barra inferior -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-links">
+          <span>© 2026 Envíos DosRuedas · Mar del Plata, Argentina.</span>
+          <a href="./home.html#services-overview">Servicios</a>
+          <a href="./home.html#logistica-dosruedas-home">Cobertura</a>
+          <a href="./home.html#mardelivery-home">MarDelivery</a>
+          <a href="./home.html#cta-section">Contacto</a>
+        </div>
+        <div>
+          <span>Flota 100% propia en moto • Sin tercerización</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script interactivo del Layout -->
+  <script src="./js/layout.js"></script>
+
+</body>
+</html>
