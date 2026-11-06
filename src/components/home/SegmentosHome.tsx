@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { User, Store, Briefcase, ShieldCheck, Zap } from 'lucide-react';
 import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 import CTANestedPill from '@/components/ui/CTANestedPill';
+import { EXPRESS_LEAD_TIME, EXPRESS_WINDOW_SHORT } from '@/lib/promises';
 
 const SEGMENTS = [
   {
@@ -13,7 +14,7 @@ const SEGMENTS = [
     tag: 'Particulares · Trámites',
     title: 'Trámites y Encomiendas Personales',
     desc: 'Olvidate de hacer filas o perder la mañana. Trasladamos llaves, documentación legal, medicamentos, compras del día y paquetes urgentes puerta a puerta en todo Mar del Plata.',
-    benefit: 'Franja de 3 hs o entrega inmediata',
+    benefit: `${EXPRESS_WINDOW_SHORT} a elección (${EXPRESS_LEAD_TIME} mínima)`,
     cta: 'Cotizar Mandado',
     href: '/cotizar',
     variant: 'light' as const,

@@ -180,6 +180,7 @@ afterAll(() => {
     });
 
     const express3_7 = await calculateQuoteAction(initialState, formDataWithCoords(-38.0, -57.5, -38.1, -57.6, 'EXPRESS'));
+    clearRouteCache();
     mockFetch.mockResolvedValue({
       ok: true,
       json: async () => mockGoogleDirectionsResponse(10.3),

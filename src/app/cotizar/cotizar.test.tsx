@@ -8,6 +8,7 @@ import {
   EXPRESS_TIERS,
   LOW_COST_TIERS,
 } from '@/lib/pricing';
+import { clearRouteCache } from '@/lib/route-cache';
 
 const formatArs = (value: number) => `$${value.toLocaleString('es-AR')}`;
 
@@ -139,6 +140,7 @@ afterAll(() => {
 
 describe('Cotizador unificado /cotizar', () => {
   beforeEach(() => {
+    clearRouteCache();
     vi.clearAllMocks();
     mockFetch.mockReset();
     mockFetchRoute.mockReset();
@@ -297,6 +299,9 @@ describe('Cotizador unificado /cotizar', () => {
 
     const expressRadio = screen.getAllByRole('radio', { name: /Express/ })[0];
     fireEvent.click(expressRadio);
+
+    const ctaButton = screen.getByRole('button', { name: /Pedir Express por WhatsApp/i });
+    fireEvent.click(ctaButton);
 
     expect(windowOpenSpy).toHaveBeenCalledWith(
       expect.stringContaining('542236602699'),

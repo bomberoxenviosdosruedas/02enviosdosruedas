@@ -8,16 +8,18 @@ export const dynamic = 'force-static';
 const baseUrl = 'https://www.enviosdosruedas.com';
 
 /**
- * Rutas excluidas explícitamente del sitemap:
- * - `/nosotros` y `/servicios` (índices intermedios; se indexan sus subrutas específicas)
- * - `/cobertura` y `/guias/envios-flex-mar-del-plata`
- * - `/revisar` y `/admin` (paneles internos de gestión)
+ * `lastmod` de la guía de Mercado Envíos Flex.
+ *
+ * ÚNICA fecha de este sitemap con respaldo real: mirror de `dateModified` en el
+ * JSON-LD `Article` de `src/app/guias/envios-flex-mar-del-plata/page.tsx`.
+ * Si cambiás esa guía, actualizá las dos o se desincronizan.
+ */
+const GUIA_FLEX_LAST_MODIFIED = '2026-09-18T10:00:00-03:00';
+
+/**
+ * Rutas excluidas explícitamente de la indexación pública (paneles internos).
  */
 const EXCLUDED_PATHS = new Set<string>([
-  '/nosotros',
-  '/servicios',
-  '/cobertura',
-  '/guias/envios-flex-mar-del-plata',
   '/revisar',
   '/admin',
 ]);
@@ -55,8 +57,15 @@ const routes: ReadonlyArray<{
   { path: '/servicios/empresas-cuenta-corriente', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/servicios/plan-emprendedores', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/servicios/envios-contrareembolso', changeFrequency: 'weekly', priority: 0.85 },
+  { path: '/cobertura', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/logistica-dosruedas', changeFrequency: 'daily', priority: 0.9 },
   { path: '/mardelivery', changeFrequency: 'weekly', priority: 0.9 },
+  {
+    path: '/guias/envios-flex-mar-del-plata',
+    changeFrequency: 'weekly',
+    priority: 0.85,
+    lastModified: GUIA_FLEX_LAST_MODIFIED,
+  },
   { path: '/contacto', changeFrequency: 'weekly', priority: 0.85 },
 
   // 2. Páginas Institucionales, FAQ & Confianza (Prioridad 0.85 - 0.75)
