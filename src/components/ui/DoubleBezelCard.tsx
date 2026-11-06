@@ -37,14 +37,14 @@ export const DoubleBezelCard = React.forwardRef<HTMLDivElement, DoubleBezelCardP
       <div
         ref={ref}
         className={cn(
-          'double-bezel-outer transition-all duration-300 rounded-2xl p-2 shadow-float',
+          'double-bezel-outer transition-[transform,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-2xl p-2 shadow-float',
           isDark
             ? 'bg-brand-blue-50/80 border border-brand-blue-100/80'
-            : 'bg-brand-blue-50/80 border border-brand-blue-100',
+            : 'bg-brand-blue-50/80 border border-brand-blue-100/90',
           hoverEffect &&
             (isDark
-              ? 'hover:shadow-antigravity-deep hover:border-brand-yellow-400/80'
-              : 'hover:shadow-antigravity-deep hover:border-brand-blue-300'),
+              ? 'hover:shadow-antigravity-deep hover:border-brand-yellow-400/80 hover:-translate-y-1'
+              : 'hover:shadow-antigravity-deep hover:border-brand-blue-300 hover:-translate-y-1'),
           outerClassName,
           className
         )}
@@ -52,10 +52,10 @@ export const DoubleBezelCard = React.forwardRef<HTMLDivElement, DoubleBezelCardP
       >
         <div
           className={cn(
-            'double-bezel-inner rounded-xl p-6 shadow-sm overflow-hidden transition-colors duration-200',
+            'double-bezel-inner rounded-xl p-6 shadow-sm overflow-hidden transition-all duration-200 ring-1',
             isDark
-              ? 'bg-brand-blue-500 border border-white/10 text-white'
-              : 'bg-white border border-brand-blue-50/50 text-brand-blue-500',
+              ? 'bg-brand-blue-500 border border-white/10 ring-white/10 text-white'
+              : 'bg-white border border-brand-blue-50/50 ring-brand-blue-50/60 text-brand-blue-500',
             innerClassName
           )}
         >

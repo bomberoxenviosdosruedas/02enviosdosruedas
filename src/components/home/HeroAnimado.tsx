@@ -8,6 +8,7 @@ import { CTANestedPill } from '@/components/ui/CTANestedPill';
 import { Knockout } from '@/components/ui/Knockout';
 import Badge from '@/components/ui/Badge';
 import HeroProceduralBackground from '@/components/ui/HeroProceduralBackground';
+import { SPRING_GENTLE, SPRING_SNAPPY, EASE_FLUID } from '@/lib/motion';
 
 /** Diferenciales del ticker. La lista se repite dos veces para que el bucle no se vea. */
 const diferenciales = [
@@ -25,18 +26,19 @@ const fichas = [
     posicion: 'left-2 bottom-2 sm:left-[-4%] sm:bottom-[14%]',
     titulo: 'Base Friuli 1972',
     detalle: 'Mar del Plata',
+    floatDelay: 0,
   },
   {
     id: 'entrega',
     posicion: 'right-2 top-2 sm:right-[-2%] sm:top-[10%]',
     titulo: 'Entrega en el día',
     detalle: 'en todo MDQ',
+    floatDelay: 1.5,
   },
 ] as const;
 
-// Spring tokens desde globals.css: --ease-out, --duration-feedback
-const spring = { duration: 0.5, ease: [0.23, 1, 0.32, 1] as const };
-const fastSpring = { duration: 0.2, ease: [0.23, 1, 0.32, 1] as const };
+// Transition tokens calibrados
+const springTransition = { duration: 0.5, ease: EASE_FLUID };
 
 export default function HeroAnimado() {
   const shouldReduceMotion = useReducedMotion();
@@ -56,11 +58,11 @@ export default function HeroAnimado() {
             initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
             whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={shouldReduceMotion ? { duration: 0 } : spring}
+            transition={shouldReduceMotion ? { duration: 0 } : springTransition}
             className="space-y-6 lg:col-span-7"
           >
             <motion.div
-              whileHover={shouldReduceMotion ? undefined : { scale: 1.02, transition: fastSpring }}
+              whileHover={shouldReduceMotion ? undefined : { scale: 1.025, transition: SPRING_SNAPPY }}
               className="inline-flex"
             >
               <Badge
@@ -75,7 +77,7 @@ export default function HeroAnimado() {
             <motion.h1
               initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={shouldReduceMotion ? { duration: 0 } : { ...spring, delay: 0.1 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { ...springTransition, delay: 0.1 }}
               className="text-balance font-display text-4xl uppercase leading-[0.92] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl xl:text-7xl max-w-[32ch]"
             >
               <span className="sr-only">Mensajería en moto en Mar del Plata: </span>
@@ -88,7 +90,7 @@ export default function HeroAnimado() {
             <motion.p
               initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={shouldReduceMotion ? { duration: 0 } : { ...spring, delay: 0.15 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { ...springTransition, delay: 0.15 }}
               className="font-sans text-base font-light leading-relaxed text-white/85 sm:text-lg max-w-[56ch]"
             >
               Mensajería y logística e-commerce en Mar del Plata: envíos en el día con motos
@@ -98,7 +100,7 @@ export default function HeroAnimado() {
             <motion.div
               initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={shouldReduceMotion ? { duration: 0 } : { ...spring, delay: 0.2 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { ...springTransition, delay: 0.2 }}
               className="flex flex-col sm:flex-row gap-4"
             >
               <CTANestedPill
@@ -125,7 +127,7 @@ export default function HeroAnimado() {
             initial={shouldReduceMotion ? false : { opacity: 0, x: 24 }}
             whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={shouldReduceMotion ? { duration: 0 } : { ...spring, delay: 0.15 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { ...springTransition, delay: 0.15 }}
             className="lg:col-span-5"
           >
             <div className="relative mx-auto aspect-square w-full max-w-115">
@@ -158,12 +160,18 @@ export default function HeroAnimado() {
               {fichas.map((ficha) => (
                 <motion.div
                   key={ficha.id}
-                  whileHover={shouldReduceMotion ? undefined : { scale: 1.03, transition: fastSpring }}
-                  className={`absolute z-3 inline-flex items-center gap-2 rounded-xl px-3 py-2.5 shadow-[0_12px_30px_rgba(9,80,246,0.25)] ${ficha.posicion} bg-white text-brand-blue-500 ring-1 ring-brand-blue-100`}
+                  animate={shouldReduceMotion ? undefined : { y: [0, -4, 0] }}
+                  transition={
+                    shouldReduceMotion
+                      ? undefined
+                      : { duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: ficha.floatDelay }
+                  }
+                  whileHover={shouldReduceMotion ? undefined : { scale: 1.04, y: -2, transition: SPRING_SNAPPY }}
+                  className={`absolute z-3 inline-flex items-center gap-2 rounded-xl px-3.5 py-2.5 shadow-elevated ${ficha.posicion} bg-white/95 backdrop-blur-xs text-brand-blue-500 ring-1 ring-brand-blue-100/90 transition-shadow hover:shadow-hover-lift`}
                 >
-                  <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  <MapPin className="h-4 w-4 shrink-0 text-brand-blue-500" aria-hidden="true" />
                   <span className="font-mono text-2xs font-medium leading-tight">
-                    <b className="block font-subheading text-xs uppercase tracking-wider">
+                    <b className="block font-subheading text-xs uppercase tracking-wider text-brand-blue-500">
                       {ficha.titulo}
                     </b>
                     {ficha.detalle}

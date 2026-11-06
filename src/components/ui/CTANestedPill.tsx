@@ -54,7 +54,7 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
     ref
   ) => {
     const baseStyles =
-      'cta-nested-pill group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-wider transition-[transform,background-color,border-color,box-shadow] duration-160 ease-out cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 select-none border';
+      'cta-nested-pill group inline-flex items-center justify-between gap-3 rounded-full font-subheading uppercase tracking-wider transition-[transform,background-color,border-color,box-shadow] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 select-none border hover:scale-[1.015] active:scale-[0.97]';
 
     const normalizedSize = size === 'lg' ? 'large' : size;
 
@@ -87,18 +87,18 @@ export const CTANestedPill = React.forwardRef<HTMLButtonElement | HTMLAnchorElem
     }[variant];
 
     const iconChipBase =
-      'cta-nested-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-160 ease-out';
+      'cta-nested-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]';
 
     const iconChipVariantStyles = {
       primary:
-        'bg-transparent text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-brand-yellow-500 group-hover:translate-x-1',
-      blue: 'bg-brand-yellow-500 text-brand-blue-500 group-hover:bg-brand-yellow-400 group-hover:translate-x-1',
+        'bg-transparent text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-brand-yellow-500 group-hover:translate-x-1.5',
+      blue: 'bg-brand-yellow-500 text-brand-blue-500 group-hover:bg-brand-yellow-400 group-hover:translate-x-1.5',
       elevated:
-        'bg-transparent text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-white group-hover:translate-x-1',
+        'bg-transparent text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-white group-hover:translate-x-1.5',
       outline:
-        'bg-transparent text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-white group-hover:translate-x-1',
+        'bg-transparent text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-white group-hover:translate-x-1.5',
       ghost:
-        'bg-transparent text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-white group-hover:translate-x-1',
+        'bg-transparent text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-white group-hover:translate-x-1.5',
     }[variant];
 
     const defaultIcon = <ArrowRight className="w-4 h-4" aria-hidden="true" />;

@@ -15,6 +15,7 @@ import {
   LOWCOST_DELIVERY_DEADLINE,
   STANDARD_WEIGHT_KG,
 } from '@/lib/promises';
+import { EASE_FLUID } from '@/lib/motion';
 
 interface CotizadorComparativaProps {
   form: Pick<
@@ -164,7 +165,7 @@ export default function CotizadorComparativa({ form, error }: CotizadorComparati
             initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 6 }}
             animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
             exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -6 }}
-            transition={shouldReduceMotion ? { duration: 0.05 } : { duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            transition={shouldReduceMotion ? { duration: 0.05 } : { duration: 0.35, ease: EASE_FLUID }}
             className="w-full"
           >
             <span className="sr-only">

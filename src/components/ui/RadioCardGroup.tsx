@@ -54,19 +54,19 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
 
         const getCheckedStyles = () => {
           if (type.includes('EXPRESS')) {
-            return 'bg-brand-blue-500 border-brand-blue-500 text-white shadow-md';
+            return 'bg-brand-blue-500 border-brand-blue-500 text-white shadow-md ring-2 ring-brand-blue-400/50';
           }
           if (type.includes('LOW') || type.includes('LOWCOST')) {
-            return 'bg-brand-blue-50 border-brand-blue-200 text-brand-blue-500 shadow-sm';
+            return 'bg-brand-blue-50 border-brand-blue-300 text-brand-blue-500 shadow-sm ring-2 ring-brand-blue-200/60';
           }
           if (type.includes('FLEX')) {
-            return 'bg-brand-yellow-50 border-brand-yellow-200 text-brand-blue-500 shadow-sm';
+            return 'bg-brand-yellow-50 border-brand-yellow-400 text-brand-blue-500 shadow-sm ring-2 ring-brand-yellow-200/60';
           }
-          return 'bg-brand-blue-500 border-brand-blue-500 text-white shadow-md';
+          return 'bg-brand-blue-500 border-brand-blue-500 text-white shadow-md ring-2 ring-brand-blue-400/50';
         };
 
         const uncheckedStyles =
-          'bg-white border-2 border-brand-blue-100 text-brand-blue-500 hover:border-brand-blue-200 hover:bg-brand-blue-50/30';
+          'bg-white border-2 border-brand-blue-100 text-brand-blue-500 hover:border-brand-blue-200 hover:bg-brand-blue-50/40';
 
         const checkedStyles = isChecked ? getCheckedStyles() : uncheckedStyles;
 
@@ -86,7 +86,7 @@ export const RadioCardGroup: React.FC<RadioCardGroupProps> = ({
               if (!opt.disabled) onChange(opt.id);
             }}
             className={cn(
-              'relative flex flex-col justify-between p-6 rounded-xl border-2 transition-[transform,background-color,border-color,box-shadow] duration-160 ease-out cursor-pointer select-none hover:-translate-y-0.5 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500',
+              'relative flex flex-col justify-between p-6 rounded-xl border-2 transition-[transform,background-color,border-color,box-shadow] duration-240 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer select-none hover:-translate-y-1 hover:shadow-lg active:scale-[0.98] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500',
               checkedStyles,
               opt.disabled && 'opacity-50 cursor-not-allowed pointer-events-none'
             )}

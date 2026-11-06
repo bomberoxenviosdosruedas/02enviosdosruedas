@@ -6,6 +6,7 @@ import { User, Store, Briefcase, ShieldCheck, Zap } from 'lucide-react';
 import DoubleBezelCard from '@/components/ui/DoubleBezelCard';
 import CTANestedPill from '@/components/ui/CTANestedPill';
 import { EXPRESS_LEAD_TIME, EXPRESS_WINDOW_SHORT } from '@/lib/promises';
+import { EASE_FLUID } from '@/lib/motion';
 
 const SEGMENTS = [
   {
@@ -84,7 +85,7 @@ export default function SegmentosHome() {
               initial={reduceMotion ? false : { opacity: 0, y: 16 }}
               whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ duration: 0.45, ease: EASE_FLUID, delay: index * 0.1 }}
               className="h-full w-full max-w-full flex"
             >
               <DoubleBezelCard
@@ -96,14 +97,14 @@ export default function SegmentosHome() {
                 {/* Background Watermark Index Number */}
                 <span
                   aria-hidden="true"
-                  className="absolute right-5 top-4 font-display text-5xl text-brand-blue-500/10 font-bold select-none pointer-events-none group-hover:text-brand-blue-500/20 transition-colors"
+                  className="absolute right-5 top-4 font-display text-5xl text-brand-blue-500/10 font-bold select-none pointer-events-none group-hover:text-brand-blue-500/25 group-hover:scale-105 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
                 >
                   {s.number}
                 </span>
 
                 <div>
                   {/* Icon Header Box */}
-                  <div className="w-13 h-13 rounded-xl bg-brand-blue-50 text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-brand-yellow-500 flex items-center justify-center mb-6 border border-brand-blue-100/70 transition-all duration-300 shadow-xs">
+                  <div className="w-13 h-13 rounded-xl bg-brand-blue-50 text-brand-blue-500 group-hover:bg-brand-blue-500 group-hover:text-brand-yellow-500 group-hover:scale-105 group-hover:shadow-md flex items-center justify-center mb-6 border border-brand-blue-100/70 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-xs">
                     <Icon className="w-6 h-6 stroke-2" aria-hidden="true" />
                   </div>
 
