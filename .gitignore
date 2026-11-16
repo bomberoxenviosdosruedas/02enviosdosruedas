@@ -134,3 +134,7 @@ graphify-out/*
 src/graphify-out/*
 .qwen/*
 .cortex/*
+.superdesign
+/replicas
+/design-system
+/prompts
